@@ -137,7 +137,7 @@ Se propone este tono por tres razones: ya está definido en el manual de Rosepet
 
 Esta v0.1 fija un valor exacto para evitar que cada pieza elija una nueva aproximación. El [registro de fuentes y decisiones](fuentes-y-decisiones.md) recoge las diferencias respecto a los antecedentes.
 
-El Manual de marca define únicamente este color principal. La paleta auxiliar, sus combinaciones y sus criterios de aplicación se desarrollan en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#1-paleta-de-comunicación).
+El Manual de marca define únicamente este color principal. La paleta auxiliar, sus combinaciones y sus criterios de aplicación se desarrollan en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#2-paleta-de-comunicación).
 
 ### 4.2. Reproducción a una tinta y negativo
 
@@ -202,7 +202,7 @@ Las imágenes generadas pueden servir como ilustración conceptual, identificada
 
 Usar iconos de una misma familia y un grosor consistente. En diagramas, conservar el significado de flechas, colores y etiquetas; la marca no debe ocultar la información.
 
-El documento de rebranding propone sustituir las tramas de hexágonos. En esta primera versión se priorizan fondos planos y bloques de color. Las nuevas tramas, ilustraciones y animaciones se definirán en el manual de comunicación antes de incorporarse como recursos oficiales.
+El documento de rebranding propone sustituir las tramas de hexágonos. En esta primera versión se priorizan fondos planos y bloques de color. El [Manual de comunicaciones v0.2](../communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos) desarrolla los motivos de apoyo y las reglas de animación como propuestas de aplicación, con su estado registrado en el catálogo.
 
 ## 7. Usos correctos y prohibidos
 
@@ -223,7 +223,7 @@ Las variantes deformadas o recoloreadas de la figura anterior son ejemplos didá
 
 ## 8. Aplicaciones y convivencia
 
-Los ejemplos de composición con colores auxiliares se recogen en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#14-ejemplo-de-aplicación).
+Los ejemplos de composición con colores auxiliares se recogen en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#33-composiciones-base).
 
 ### 8.1. Documentos y presentaciones
 

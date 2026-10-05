@@ -62,10 +62,12 @@ En AIS Vision Automation, el SVG contiene degradados rasterizados bajo máscaras
 | B05 | Separar respaldo de grupo y descriptor | Legibilidad y problemas señalados en D03 | Propuesta; cambia el criterio anterior |
 | B06 | Área libre de H/4 y tamaños mínimos iniciales | Regla operativa nueva | Provisional; validar en soportes |
 | B07 | Estudiar cian y azul claro como apoyo en el Manual de comunicaciones | `#00A0DE` de D01 y `#D2DFF0` de D02 | Propuesta de comunicaciones; fuera de la definición de color de marca |
-| B08 | Posponer nuevas tramas y variantes compactas | Separación de subproyectos | Pendiente de desarrollo |
+| B08 | Desarrollar los fondos en comunicaciones y mantener pendientes las variantes compactas | Separación de subproyectos | Fondos propuestos en comunicaciones v0.2; variantes compactas pendientes |
 | B09 | Reservar el Manual de marca al color principal; trasladar la paleta auxiliar al Manual de comunicaciones | Instrucción del proyecto de 5 de octubre de 2026 | Organización confirmada |
 
 La revisión del 5 de octubre de 2026 retira las variantes negras del catálogo activo y corrige la lámina de una tinta. Los originales web y la documentación histórica se conservan como antecedentes; no establecen las reglas de reproducción actuales. La paleta auxiliar y su ejemplo de aplicación pasan al [Manual de comunicaciones](../communications/manual-de-comunicaciones.md).
+
+El Manual de comunicaciones v0.2 desarrolla el índice completo y propone retículas, escalas, composiciones, dos fondos, ritmos y aplicaciones. Son decisiones de diseño nuevas del proyecto, no reglas atribuidas retrospectivamente a D01–D03. La paleta auxiliar mantiene sus valores v0.1 y el azul de marca no cambia.
 
 ## 5. Referencias técnicas
 

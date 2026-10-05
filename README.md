@@ -4,7 +4,7 @@ Proyecto para homogeneizar la identidad y los materiales de marketing, comunicac
 
 Este README recoge el **índice de trabajo**. Cada apartado se desarrollará progresivamente.
 
-**Primera entrega:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
+**Documentación disponible:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Manual de comunicaciones y aplicaciones v0.2](docs/communications/manual-de-comunicaciones.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
 
 ## 1. Manual de marca
 
@@ -20,10 +20,10 @@ Este README recoge el **índice de trabajo**. Cada apartado se desarrollará pro
 
 ## 2. Manual de comunicaciones y aplicaciones
 
-**Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual.
+**Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual. [Manual completo v0.2](docs/communications/manual-de-comunicaciones.md), con reglas, ejemplos y estado de las plantillas.
 
 - **2.1. Voz y mensajes:** tono, estilo de redacción, nomenclatura y adaptación por público y canal.
-- **2.2. Paleta de comunicación:** colores auxiliares, combinaciones, fondos, acentos y contraste; [borrador trasladado desde el Manual de marca](docs/communications/manual-de-comunicaciones.md).
+- **2.2. Paleta de comunicación:** colores auxiliares, combinaciones, fondos, acentos y contraste.
 - **2.3. Lenguaje gráfico:** composición, retículas, formas, tramas, fondos y tratamiento de imágenes.
 - **2.4. Papelería y documentos:** hojas corporativas, firmas, informes y documentación de empresa.
 - **2.5. Material comercial:** presentaciones, propuestas, brochures, fichas de producto y casos de éxito.
