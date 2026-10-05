@@ -8,7 +8,7 @@ Este manual establece una primera identidad compartida para AIS Group, AIS Visio
 
 La decisión de partida es utilizar **un azul común**. Esta versión propone **#17356E** como color principal, logotipos planos y Rubik como familia tipográfica corporativa. Incluye recursos vectoriales utilizables para revisar la propuesta, sin convertirlos todavía en originales finales aprobados.
 
-**Alcance:** identidad, marcas, logotipos, color, tipografía y criterios visuales esenciales. Las plantillas comerciales, campañas, tramas definitivas y componentes de interfaz se desarrollarán en sus respectivos manuales. Las imágenes de aplicación que aparecen aquí son ejemplos del criterio visual.
+**Alcance:** identidad, marcas, logotipos, color principal, tipografía y criterios visuales esenciales. La paleta auxiliar, las plantillas comerciales, las campañas y las tramas se desarrollan en el Manual de comunicaciones; los componentes de interfaz, en el Design System.
 
 ## Índice
 
@@ -82,13 +82,12 @@ Se conservan, por ahora, el detalle de la «I» de AIS, el símbolo de la «o» 
 
 ### 3.2. Variantes
 
-![Variantes de aplicación positiva, negativa y monocroma de los logotipos](../../assets/brand/figures/v0.1/04-logo-variants.svg)
+![Variantes de aplicación positiva, negativa y a una tinta azul de los logotipos](../../assets/brand/figures/v0.1/04-logo-variants.svg)
 
 | Variante | Aplicación |
 | --- | --- |
-| Azul `#17356E` | Preferente sobre blanco y fondos muy claros |
-| Blanco `#FFFFFF` | Sobre azul corporativo o superficies oscuras con contraste suficiente |
-| Negro `#000000` | Producción monocroma y soportes que no admitan el azul |
+| Azul principal `#17356E` | Variante positiva y reproducción a una tinta; sobre blanco y fondos muy claros |
+| Blanco, en negativo | Sobre azul corporativo o superficies oscuras con contraste suficiente |
 
 Los archivos se encuentran en [`assets/brand/logos/draft/v0.1/`](../../assets/brand/logos/draft/v0.1/). El estado **draft** indica que forman parte de esta propuesta. Las variantes blancas tienen fondo transparente; una vista previa sobre blanco puede parecer vacía.
 
@@ -128,7 +127,7 @@ El criterio decisivo es la lectura del descriptor al tamaño final. Si no cabe, 
 
 ## 4. Color corporativo
 
-![Paleta común propuesta para AIS Group](../../assets/brand/figures/v0.1/03-palette.svg)
+![Azul principal AIS Group: HEX #17356E; sRGB 23, 53, 110](../../assets/brand/figures/v0.1/03-primary-color.svg)
 
 ### 4.1. Azul principal
 
@@ -136,55 +135,25 @@ El criterio decisivo es la lectura del descriptor al tamaño final. Si no cabe, 
 
 Se propone este tono por tres razones: ya está definido en el manual de Rosepetal; mantiene continuidad con los azules oscuros de AIS; y permite un contraste alto con blanco. La elección es un criterio de diseño, no una media matemática de los colores de las webs.
 
-Las guidelines AIS recogen `#1C2B4E`; sus aplicaciones actuales y las de Rosepetal muestran otros azules próximos. Esta v0.1 fija un valor exacto para evitar que cada pieza elija una nueva aproximación. El [registro de fuentes y decisiones](fuentes-y-decisiones.md) recoge las diferencias detectadas.
+Esta v0.1 fija un valor exacto para evitar que cada pieza elija una nueva aproximación. El [registro de fuentes y decisiones](fuentes-y-decisiones.md) recoge las diferencias respecto a los antecedentes.
 
-### 4.2. Paleta y funciones
+El Manual de marca define únicamente este color principal. La paleta auxiliar, sus combinaciones y sus criterios de aplicación se desarrollan en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#1-paleta-de-comunicación).
 
-| Token | Nombre | HEX | sRGB | Uso |
-| --- | --- | --- | --- | --- |
-| `color.primary` | Azul principal | `#17356E` | 23, 53, 110 | Identidad, logos, títulos y superficies principales |
-| `color.deep` | Azul profundo | `#112750` | 17, 39, 80 | Apoyo oscuro y fondos con jerarquía secundaria |
-| `color.accent` | Cian | `#00A0DE` | 0, 160, 222 | Acentos puntuales; continuidad con la paleta AIS anterior |
-| `color.tint` | Azul claro | `#D2DFF0` | 210, 223, 240 | Fondos suaves y agrupación de información |
-| `color.surface` | Superficie | `#F4F7FB` | 244, 247, 251 | Fondo editorial y zonas de descanso |
-| `color.ink` | Texto principal | `#0F172A` | 15, 23, 42 | Texto sobre fondo claro |
-| `color.muted` | Texto secundario | `#526277` | 82, 98, 119 | Pies y contenido secundario legible |
-| `color.line` | Borde | `#C7D2E2` | 199, 210, 226 | Separadores decorativos; no garantiza contraste de controles |
-| `color.white` | Blanco | `#FFFFFF` | 255, 255, 255 | Fondo y marca en negativo |
-| `color.black` | Negro | `#000000` | 0, 0, 0 | Reproducción monocroma |
+### 4.2. Reproducción a una tinta y negativo
 
-El azul principal, el cian y el azul claro tienen antecedentes documentados. Los restantes valores de apoyo se proponen en esta versión. El cian es secundario: no sustituye al azul principal ni identifica una empresa distinta.
+**La reproducción a una tinta se realiza en el azul principal.** Se utiliza el archivo `*-blue.svg`, con todo el logotipo y su descriptor en la misma tinta plana. El negro no es una variante de reproducción a una tinta de la marca.
 
-### 4.3. Criterios de aplicación
+El blanco se reserva para la versión en negativo sobre azul o sobre un fondo con contraste suficiente; no constituye un segundo color corporativo. En impresión a una tinta azul sobre papel blanco, el negativo se obtiene dejando el logotipo sin imprimir sobre el fondo azul.
 
-- Utilizar una base clara con azul para jerarquizar, o una base azul con contenido blanco.
-- Reservar el cian para detalles, acentos y visualizaciones compatibles con el contraste requerido.
-- Evitar un color corporativo diferente para cada compañía. Rosa, magenta, naranja, amarillo y gris dejan de funcionar como identificadores de marca en las nuevas aplicaciones de esta propuesta.
-- Los colores funcionales de error, advertencia o éxito pertenecen al Design System y conservan su significado. No se sustituyen por azul cuando comunican un estado.
-- Los colores propios de productos, fotografías y marcas de terceros no se recolorean para forzar la paleta.
+### 4.3. Contraste del color principal
 
-### 4.4. Contraste
+La combinación del azul principal con blanco ofrece un contraste de **11,86:1**, calculado para colores sRGB opacos. Se utiliza para la aplicación positiva y negativa de la identidad. La paleta auxiliar y el resto de combinaciones se documentan en el Manual de comunicaciones.
 
-Valores calculados con la fórmula de luminancia relativa de WCAG para colores sRGB opacos:
+### 4.4. Impresión
 
-| Combinación | Contraste | Criterio de uso |
-| --- | ---: | --- |
-| Blanco / azul principal | 11,86:1 | Apto para texto normal |
-| Texto principal / superficie | 16,61:1 | Apto para texto normal |
-| Texto secundario / blanco | 6,23:1 | Apto para texto normal |
-| Azul principal / azul claro | 8,78:1 | Apto para texto normal |
-| Cian / azul principal | 4,00:1 | No para texto normal; sí alcanza 3:1 para texto grande |
-| Cian / blanco | 2,96:1 | No alcanza 3:1; reservar a decoración que no comunique información esencial |
+El HEX y el sRGB son la referencia digital. **No se asigna todavía una equivalencia Pantone ni CMYK definitiva al azul principal.** Deben acordarse mediante perfil de impresión, papel y prueba física.
 
-Como referencia digital, WCAG AA exige al menos 4,5:1 para texto normal y 3:1 para texto grande, con las excepciones previstas por la norma. Texto grande equivale, en este criterio, a 18 pt o a 14 pt en negrita. No redondear 2,96:1 a 3:1 para considerarlo válido. El contraste de una pareja no acredita por sí solo la accesibilidad completa de una pieza.
-
-Para texto normal sobre azul, utilizar blanco. Los logos tienen un tratamiento específico en WCAG, pero en este manual se busca igualmente una reproducción clara.
-
-### 4.5. Impresión
-
-El HEX y el sRGB son la referencia digital. **No se asigna todavía una equivalencia Pantone ni CMYK definitiva al nuevo azul.** Deben acordarse mediante perfil de impresión, papel y prueba física.
-
-Las equivalencias Pantone históricas del documento AIS no se trasladan automáticamente a `#17356E`. En impresión a una tinta se puede utilizar la versión negra suministrada hasta disponer de una especificación validada.
+Para impresión a una tinta, especificar una tinta azul ajustada al color principal y validada mediante prueba física. Las equivalencias Pantone históricas del documento AIS no se trasladan automáticamente a `#17356E`, y la falta de una equivalencia definitiva no autoriza a sustituirlo por negro.
 
 ## 5. Tipografía
 
@@ -254,7 +223,7 @@ Las variantes deformadas o recoloreadas de la figura anterior son ejemplos didá
 
 ## 8. Aplicaciones y convivencia
 
-![Ejemplo ilustrativo de aplicación de la misma identidad a AIS Vision Systems y Rosepetal](../../assets/brand/figures/v0.1/08-application.svg)
+Los ejemplos de composición con colores auxiliares se recogen en el [Manual de comunicaciones](../communications/manual-de-comunicaciones.md#14-ejemplo-de-aplicación).
 
 ### 8.1. Documentos y presentaciones
 
@@ -279,11 +248,11 @@ La estructura y las convenciones de recursos están descritas en [`assets/README
 | Recurso | Ubicación |
 | --- | --- |
 | Originales web conservados | [`assets/brand/logos/source/`](../../assets/brand/logos/source/) |
-| Variantes monocromas propuestas | [`assets/brand/logos/draft/v0.1/`](../../assets/brand/logos/draft/v0.1/) |
+| Variantes azul principal y blanco en negativo | [`assets/brand/logos/draft/v0.1/`](../../assets/brand/logos/draft/v0.1/) |
 | Imágenes del manual en SVG | [`assets/brand/figures/v0.1/`](../../assets/brand/figures/v0.1/) |
-| Tokens de color y familia tipográfica DTCG | [`brand-v0.1.tokens.json`](../../assets/brand/palette/brand-v0.1.tokens.json) |
+| Tokens del azul principal y familia tipográfica DTCG | [`brand-v0.1.tokens.json`](../../assets/brand/palette/brand-v0.1.tokens.json) |
 | Variables CSS equivalentes | [`brand-v0.1.css`](../../assets/brand/palette/brand-v0.1.css) |
-| Cálculos de contraste | [`contrast-v0.1.json`](../../assets/brand/palette/contrast-v0.1.json) |
+| Contraste del azul principal con blanco | [`contrast-v0.1.json`](../../assets/brand/palette/contrast-v0.1.json) |
 | Catálogo y procedencia de recursos | [`catalog.json`](../../assets/brand/catalog.json) |
 
 El proyecto prevé construir **Web + MCP** sobre un catálogo compartido. El MCP ofrecerá DTCG, Markdown, JSON, CSS, código y enlaces a recursos según la tarea. Esta entrega prepara el contenido inicial; no implementa todavía ese servicio.
@@ -296,8 +265,8 @@ Las decisiones visuales pendientes se señalan como propuestas. La ausencia de u
 
 ### 10.1. Qué fija esta propuesta
 
-- Azul común `#17356E` y paleta auxiliar con funciones explícitas.
-- Variantes planas azul, blanca y negra para las cinco marcas.
+- Azul común `#17356E`; paleta auxiliar documentada en el Manual de comunicaciones.
+- Variantes planas azul y blanca en negativo para las cinco marcas; reproducción a una tinta en azul principal.
 - Conservación de formas, descriptores y nombres actuales.
 - Rubik como familia corporativa propuesta y criterios de transición.
 - Organización de recursos, trazabilidad y formatos iniciales para personas y agentes.
@@ -321,7 +290,7 @@ Tras validar la propuesta, migrar primero los materiales nuevos y los de uso fre
 El detalle de procedencia, divergencias y decisiones está en [Fuentes y decisiones de la v0.1](fuentes-y-decisiones.md).
 
 - **AIS GROUP - guidelines.pdf**, aportado al proyecto: construcción y versiones de logo, paleta, aplicaciones y Rubik; páginas 1–6.
-- **Rosepetal - Manual de marca**, aportado al proyecto: logo, colores alternativos, `#17356E`, `#D2DFF0` y tipografías de comunicación.
+- **Rosepetal - Manual de marca**, aportado al proyecto: logo, azul principal `#17356E` y tipografías de comunicación.
 - **AIS Group - Rebranding marca AIS**, aportado al proyecto: diagnóstico, ajustes mínimos, coherencia cromática y separación entre marca y comunicación.
 - Webs de las cinco marcas citadas en el apartado 1, consultadas el **5 de octubre de 2026**. Se usan como evidencia de aplicaciones existentes, no como sustituto de una aprobación de marca.
 - [DTCG Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/), para el núcleo de tokens.

@@ -56,13 +56,16 @@ En AIS Vision Automation, el SVG contiene degradados rasterizados bajo máscaras
 | ID | Decisión v0.1 | Base | Estado |
 | --- | --- | --- | --- |
 | B01 | Azul común `#17356E` | Dirección del proyecto y antecedente D02 | Propuesta |
-| B02 | Logotipos planos azul, blanco y negro | Diagnóstico D03 y variantes existentes | Propuesta |
+| B02 | Logotipos planos en azul principal y blanco en negativo; una tinta siempre en azul principal | Diagnóstico D03 e instrucción del proyecto de 5 de octubre de 2026 | Regla de reproducción confirmada; originales finales pendientes |
 | B03 | Rubik como familia corporativa | D01 y aplicación vigente de AIS Vision Systems | Propuesta |
 | B04 | Conservar detalles de letras y proporciones | Objetivo de modificación mínima de D03 | Criterio de esta entrega |
 | B05 | Separar respaldo de grupo y descriptor | Legibilidad y problemas señalados en D03 | Propuesta; cambia el criterio anterior |
 | B06 | Área libre de H/4 y tamaños mínimos iniciales | Regla operativa nueva | Provisional; validar en soportes |
-| B07 | Conservar cian y azul claro como apoyo | `#00A0DE` de D01 y `#D2DFF0` de D02 | Propuesta |
+| B07 | Estudiar cian y azul claro como apoyo en el Manual de comunicaciones | `#00A0DE` de D01 y `#D2DFF0` de D02 | Propuesta de comunicaciones; fuera de la definición de color de marca |
 | B08 | Posponer nuevas tramas y variantes compactas | Separación de subproyectos | Pendiente de desarrollo |
+| B09 | Reservar el Manual de marca al color principal; trasladar la paleta auxiliar al Manual de comunicaciones | Instrucción del proyecto de 5 de octubre de 2026 | Organización confirmada |
+
+La revisión del 5 de octubre de 2026 retira las variantes negras del catálogo activo y corrige la lámina de una tinta. Los originales web y la documentación histórica se conservan como antecedentes; no establecen las reglas de reproducción actuales. La paleta auxiliar y su ejemplo de aplicación pasan al [Manual de comunicaciones](../communications/manual-de-comunicaciones.md).
 
 ## 5. Referencias técnicas
 

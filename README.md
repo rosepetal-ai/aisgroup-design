@@ -13,24 +13,25 @@ Este README recoge el **índice de trabajo**. Cada apartado se desarrollará pro
 - **1.1. Arquitectura de marcas:** relación entre grupo, marcas y productos; firmas y convivencia entre identidades.
 - **1.2. Fundamentos de marca:** posicionamiento, personalidad y principios de identidad.
 - **1.3. Logotipos:** originales, variantes, proporciones, áreas de protección y tamaños mínimos.
-- **1.4. Colores corporativos:** paleta principal y secundaria; especificaciones para pantalla e impresión.
+- **1.4. Color principal:** azul corporativo, especificaciones para pantalla e impresión y reproducción a una tinta en ese mismo azul.
 - **1.5. Tipografía:** familias, jerarquías y alternativas autorizadas.
 - **1.6. Criterios visuales:** dirección de fotografía, ilustración e iconografía.
 - **1.7. Usos correctos y prohibidos:** ejemplos, restricciones y aplicaciones con otras marcas.
 
-## 2. Manual de comunicación y aplicaciones
+## 2. Manual de comunicaciones y aplicaciones
 
 **Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual.
 
 - **2.1. Voz y mensajes:** tono, estilo de redacción, nomenclatura y adaptación por público y canal.
-- **2.2. Lenguaje gráfico:** composición, retículas, formas, tramas, fondos y tratamiento de imágenes.
-- **2.3. Papelería y documentos:** hojas corporativas, firmas, informes y documentación de empresa.
-- **2.4. Material comercial:** presentaciones, propuestas, brochures, fichas de producto y casos de éxito.
-- **2.5. Campañas y comunicación digital:** banners, publicaciones, carruseles, mailing y newsletters.
-- **2.6. Infografías y visualización:** cabeceras, pies, bloques de información, gráficos, diagramas y anotaciones.
-- **2.7. Animaciones y audiovisual:** aperturas, cierres, rótulos, transiciones y fondos.
-- **2.8. Experiencias interactivas:** cabeceras, pies, menús y controles para demos, infografías y animaciones; coordinación con el Design System.
-- **2.9. Plantillas y formatos de entrega:** originales editables, variantes por soporte y criterios de exportación.
+- **2.2. Paleta de comunicación:** colores auxiliares, combinaciones, fondos, acentos y contraste; [borrador trasladado desde el Manual de marca](docs/communications/manual-de-comunicaciones.md).
+- **2.3. Lenguaje gráfico:** composición, retículas, formas, tramas, fondos y tratamiento de imágenes.
+- **2.4. Papelería y documentos:** hojas corporativas, firmas, informes y documentación de empresa.
+- **2.5. Material comercial:** presentaciones, propuestas, brochures, fichas de producto y casos de éxito.
+- **2.6. Campañas y comunicación digital:** banners, publicaciones, carruseles, mailing y newsletters.
+- **2.7. Infografías y visualización:** cabeceras, pies, bloques de información, gráficos, diagramas y anotaciones.
+- **2.8. Animaciones y audiovisual:** aperturas, cierres, rótulos, transiciones y fondos.
+- **2.9. Experiencias interactivas:** cabeceras, pies, menús y controles para demos, infografías y animaciones; coordinación con el Design System.
+- **2.10. Plantillas y formatos de entrega:** originales editables, variantes por soporte y criterios de exportación.
 
 ## 3. Design System digital
 

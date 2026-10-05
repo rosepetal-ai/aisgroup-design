@@ -1,0 +1,44 @@
+[
+  {
+    "pair": "Blanco sobre azul principal",
+    "foreground": "#FFFFFF",
+    "background": "#17356E",
+    "ratio": 11.8588
+  },
+  {
+    "pair": "Azul principal sobre blanco",
+    "foreground": "#17356E",
+    "background": "#FFFFFF",
+    "ratio": 11.8588
+  },
+  {
+    "pair": "Texto sobre superficie",
+    "foreground": "#0F172A",
+    "background": "#F4F7FB",
+    "ratio": 16.6147
+  },
+  {
+    "pair": "Texto secundario sobre blanco",
+    "foreground": "#526277",
+    "background": "#FFFFFF",
+    "ratio": 6.2273
+  },
+  {
+    "pair": "Cian sobre azul principal",
+    "foreground": "#00A0DE",
+    "background": "#17356E",
+    "ratio": 3.9999
+  },
+  {
+    "pair": "Cian sobre blanco",
+    "foreground": "#00A0DE",
+    "background": "#FFFFFF",
+    "ratio": 2.9648
+  },
+  {
+    "pair": "Azul principal sobre azul claro",
+    "foreground": "#17356E",
+    "background": "#D2DFF0",
+    "ratio": 8.7833
+  }
+]

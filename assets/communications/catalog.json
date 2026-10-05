@@ -1,0 +1,50 @@
+{
+  "catalog_version": "0.1",
+  "status": "draft",
+  "brand_catalog": "assets/brand/catalog.json",
+  "brand_tokens": "assets/brand/palette/brand-v0.1.tokens.json",
+  "assets": [
+    {
+      "id": "communications-01-palette",
+      "path": "assets/communications/figures/v0.1/01-palette.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Paleta auxiliar propuesta para comunicaciones.",
+      "source": "Propuesta trasladada del Manual de marca al Manual de comunicaciones; logos derivados de fuentes registradas.",
+      "sha256": "7ec4039ace4a6939528d6a7b47f5af271894d15b5892f214bbe8c74449155c63"
+    },
+    {
+      "id": "communications-02-application",
+      "path": "assets/communications/figures/v0.1/02-application.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Ejemplo de coherencia visual entre AIS Vision Systems y Rosepetal",
+      "source": "Propuesta trasladada del Manual de marca al Manual de comunicaciones; logos derivados de fuentes registradas.",
+      "sha256": "438f847293b629e5c9b4cb0ed75c88e40736fa3628f6a40db2f252c22ad7b4ba"
+    },
+    {
+      "id": "communications-communications-v0.1",
+      "path": "assets/communications/palette/communications-v0.1.css",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Propuesta de paleta trasladada al Manual de comunicaciones.",
+      "sha256": "187f6a384384f84b0d75fff5ae69038e840ed313705e15e6a195fdaecc8ae72d"
+    },
+    {
+      "id": "communications-communications-v0.1.tokens",
+      "path": "assets/communications/palette/communications-v0.1.tokens.json",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Propuesta de paleta trasladada al Manual de comunicaciones.",
+      "sha256": "3bbdc7858d459e493426924b947d095de74b80974d3eeef2f30f08eed97a68fd"
+    },
+    {
+      "id": "communications-contrast-v0.1",
+      "path": "assets/communications/palette/contrast-v0.1.json",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Propuesta de paleta trasladada al Manual de comunicaciones.",
+      "sha256": "4363942b16b01b7e223fde107d741a6e0ee68559e1b41a15006d5929e294c89a"
+    }
+  ]
+}
