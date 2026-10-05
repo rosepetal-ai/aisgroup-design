@@ -1,6 +1,6 @@
 # Recursos de AISGroup Design
 
-Esta carpeta reúne los recursos reutilizables y las imágenes explicativas del sistema de diseño. El [Manual de marca v0.1](../docs/brand/manual-de-marca.md) define la identidad y el azul principal; el [Manual de comunicaciones y aplicaciones v0.3](../docs/communications/manual-de-comunicaciones.md) desarrolla voz, paleta, composición y aplicaciones por soporte.
+Esta carpeta reúne los recursos reutilizables y las imágenes explicativas del sistema de diseño. El [Manual de marca v0.1](../docs/brand/manual-de-marca.md) define la identidad y el azul principal; el [Manual de comunicaciones y aplicaciones v0.4](../docs/communications/manual-de-comunicaciones.md) desarrolla voz, paleta, composición y aplicaciones por soporte.
 
 ## Estructura inicial
 
@@ -15,10 +15,14 @@ Esta carpeta reúne los recursos reutilizables y las imágenes explicativas del 
 | `brand/catalog.json` | Índice, procedencia, estado y hash de recursos de marca | Consulta para personas y futura Web + MCP |
 | `communications/figures/v0.1/` | Paleta auxiliar y ejemplo de aplicación | Ilustraciones del Manual de comunicaciones |
 | `communications/figures/v0.2/` | Seis láminas: composiciones, documentos, campañas, estructura, movimiento y adaptación | Ejemplos ilustrativos; no sustituyen las plantillas finales |
-| `communications/backgrounds/draft/v0.2/` | Marco abierto y líneas de proceso anteriores | Referencia histórica; usar v0.3 en nuevas piezas |
+| `communications/backgrounds/draft/v0.2/` | Marco abierto y líneas de proceso anteriores | Referencia histórica; usar v0.4 en nuevas piezas |
 | `communications/figures/v0.3/` | 23 nuevas láminas SVG | Ejemplos detallados por apartado |
-| `communications/backgrounds/draft/v0.3/` | Ocho fondos claros/oscuros | Motivos reutilizables propuestos |
-| `communications/graphic-system-v0.3.json` | Geometría, opacidad, zonas y reglas | Definición estructurada del lenguaje gráfico |
+| `communications/backgrounds/draft/v0.3/` | Motivos anteriores de captura, muestreo, rutas y bandas | Retirados para nuevas composiciones |
+| `communications/backgrounds/draft/v0.4/` | Ocho fondos hexagonales con soporte incorporado | Trama, relieve y volumen; seis horizontales y dos verticales |
+| `communications/figures/v0.4/` | Nueve láminas SVG | Geometría, atlas, cabecera, móvil, documentos, reglas y movimiento |
+| `communications/previews/v0.4/` | Galería HTML y vista general PNG | Revisión visual local del sistema |
+| `communications/graphic-system-v0.4.json` | Familias, geometría, zonas libres y reglas | Definición vigente para composición |
+| `communications/graphic-system-v0.3.json` | Definición anterior | Retirada; consultar v0.4 |
 | `brand/print/primary-blue-v0.1.json` | Candidato Pantone y receta CMYK | Propuesta provisional de impresión |
 | `communications/templates/draft/v0.2/brief.md` | Brief de producción y revisión | Plantilla Markdown de trabajo |
 | `communications/palette/` | Tokens DTCG, CSS y contrastes de la paleta auxiliar | Complementan los valores de marca |
@@ -45,7 +49,7 @@ Los recursos no se regeneran con IA ni se modifican sobre la marcha para adaptar
 
 Los logotipos derivados son SVG con contornos, sin fuentes externas, imágenes incrustadas ni scripts. Su fondo es transparente. Los originales web pueden contener degradados o imágenes incrustadas: se preservan exactamente como se recuperaron.
 
-Las figuras de los manuales son SVG autocontenidos. Los ocho fondos v0.3 son recursos reutilizables de composición; los dos fondos v0.2 se conservan como referencias. Las reglas se detallan en el apartado 3.4 del Manual de comunicaciones. Las láminas anteriores utilizan etiquetas de sistema. Las 23 láminas v0.3 y la muestra de Rubik emplean contornos para mostrar la tipografía sin instalarla; conservan títulos y descripciones textuales en el SVG. Las figuras contienen logos insertados como vectores y no dependen de enlaces de imagen externos.
+Las figuras de los manuales son SVG autocontenidos. Los ocho fondos v0.4 son recursos reutilizables de composición con fondo sólido incorporado. Los fondos v0.2 y v0.3 se conservan como antecedentes y se retiran del uso nuevo. Las reglas se detallan en el apartado 3.4 del Manual de comunicaciones. Las láminas anteriores utilizan etiquetas de sistema. Las láminas v0.3 y v0.4 y la muestra de Rubik emplean contornos para mostrar la tipografía sin instalarla; conservan títulos y descripciones textuales en el SVG. Las figuras contienen logos insertados como vectores y no dependen de enlaces de imagen externos.
 
 Los enlaces Markdown son relativos para que funcionen dentro del repositorio. Para descargar y leer el manual con todas sus imágenes, conservar la estructura de carpetas; un `.md` aislado no incluye sus recursos.
 
@@ -53,7 +57,7 @@ Los enlaces Markdown son relativos para que funcionen dentro del repositorio. Pa
 
 Conservar el original, añadir una variante con versión, registrar origen y transformación, revisar su aspecto y actualizar el catálogo. En caso de cambios, actualizar también el manual y los valores derivados que resulten afectados.
 
-El manual de comunicaciones v0.3 conserva los tokens y variables de paleta v0.1 sin cambios de color. Las versiones se registran por recurso.
+El manual de comunicaciones v0.4 conserva los tokens y variables de paleta v0.1 sin cambios de color. Las versiones se registran por recurso.
 
 Los JSON y las variables CSS de esta versión preparan el contenido del futuro portal **Web + MCP**. Los catálogos son índices relacionados de un mismo sistema y utilizan un esquema propio del proyecto; DTCG se utiliza para los tokens. Esta estructura no representa un servidor MCP ya implementado.
 

@@ -1,5 +1,5 @@
 {
-  "catalog_version": "0.3",
+  "catalog_version": "0.4",
   "status": "draft",
   "brand_catalog": "assets/brand/catalog.json",
   "brand_tokens": "assets/brand/palette/brand-v0.1.tokens.json",
@@ -49,24 +49,24 @@
     {
       "id": "communications-background-open-frame",
       "path": "assets/communications/backgrounds/draft/v0.2/open-frame.svg",
-      "status": "reference",
+      "status": "retired",
       "version": "0.2",
       "description": "Marco abierto en azul principal al 12 %, para fondos claros.",
       "source": "Geometría original del proyecto; no modifica ni sustituye los logotipos.",
-      "usage": "Referencia histórica. Para nuevas piezas, consultar los motivos v0.3.",
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
       "sha256": "62ff41048a0ab993481c414b5726d78e16be84926022ce1a7f9c494688c6643e",
-      "superseded_by": "assets/communications/backgrounds/draft/v0.3/"
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "communications-background-process-lines",
       "path": "assets/communications/backgrounds/draft/v0.2/process-lines.svg",
-      "status": "reference",
+      "status": "retired",
       "version": "0.2",
       "description": "Líneas de proceso en azul principal al 12 %, para fondos claros.",
       "source": "Geometría original del proyecto; no modifica ni sustituye los logotipos.",
-      "usage": "Referencia histórica. Para nuevas piezas, consultar los motivos v0.3.",
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
       "sha256": "369bc630f104bc240d7b3f352afb9faeb8e6430fa495d60a65f517728854359c",
-      "superseded_by": "assets/communications/backgrounds/draft/v0.3/"
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "communications-03-compositions",
@@ -134,90 +134,98 @@
     {
       "id": "background-capture-frame-light-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/capture-frame-light.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "light",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "28837015b52cdaced386c72578c5eb9df3d1df1a25096f02ea6ff9ea482f01b6"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "28837015b52cdaced386c72578c5eb9df3d1df1a25096f02ea6ff9ea482f01b6",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-capture-frame-dark-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/capture-frame-dark.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "dark",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "0f31a2a3510a67e23ffd9311a5a6303543a8ad6ff24d5490585361f508e7978d"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "0f31a2a3510a67e23ffd9311a5a6303543a8ad6ff24d5490585361f508e7978d",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-sampling-grid-light-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/sampling-grid-light.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "light",
       "opacity": 0.08,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "04ceb3b10b65e09177f21e52152c373662565d2009db8773bd8995563d118eb0"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "04ceb3b10b65e09177f21e52152c373662565d2009db8773bd8995563d118eb0",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-sampling-grid-dark-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/sampling-grid-dark.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "dark",
       "opacity": 0.08,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "40ad20976feff36fd76243acc52ea13ed2d1590be039d5a66f415adfc1f5d775"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "40ad20976feff36fd76243acc52ea13ed2d1590be039d5a66f415adfc1f5d775",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-process-path-light-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/process-path-light.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "light",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "1bf443a58523e4fd827622b5c15da933bb60924d660e2489e5e32aaf6d4ee8ae"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "1bf443a58523e4fd827622b5c15da933bb60924d660e2489e5e32aaf6d4ee8ae",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-process-path-dark-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/process-path-dark.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "dark",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "e151db15c46900b5464a3c7d8275176bc276e91da5f5ada58360bc266d36193c"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "e151db15c46900b5464a3c7d8275176bc276e91da5f5ada58360bc266d36193c",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-trace-bands-light-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/trace-bands-light.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "light",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "9e4d32766b18aa9ba5cf4d67dfdc398e6ba9f7213737d4d6a0954753a3962c8e"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "9e4d32766b18aa9ba5cf4d67dfdc398e6ba9f7213737d4d6a0954753a3962c8e",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "background-trace-bands-dark-v03",
       "path": "assets/communications/backgrounds/draft/v0.3/trace-bands-dark.svg",
-      "status": "draft",
+      "status": "retired",
       "version": "0.3",
       "theme": "dark",
       "opacity": 0.12,
       "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
-      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
-      "sha256": "7d168e4b7e040593678039851b6da2491400326247806fb7df8fd4e0fb56a009"
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4.",
+      "sha256": "7d168e4b7e040593678039851b6da2491400326247806fb7df8fd4e0fb56a009",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json"
     },
     {
       "id": "com-v03-01-message",
@@ -277,37 +285,45 @@
       "id": "com-v03-07-visual-grammar",
       "path": "assets/communications/figures/v0.3/07-visual-grammar.svg",
       "version": "0.3",
-      "status": "illustration",
+      "status": "retired",
       "description": "Gramática de captura, medición, proceso y trazabilidad",
       "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
-      "sha256": "efbd0eee0ffc45b71b4c3df84a54ab8d1567469bfbec9c6c5cce0336f565c4d6"
+      "sha256": "efbd0eee0ffc45b71b4c3df84a54ab8d1567469bfbec9c6c5cce0336f565c4d6",
+      "superseded_by": "assets/communications/figures/v0.4/",
+      "usage": "Lámina de la dirección anterior; se conserva para trazabilidad."
     },
     {
       "id": "com-v03-08-background-atlas",
       "path": "assets/communications/figures/v0.3/08-background-atlas.svg",
       "version": "0.3",
-      "status": "illustration",
+      "status": "retired",
       "description": "Atlas de ocho fondos y zona reservada a lectura",
       "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
-      "sha256": "a17d2e22d3bc0b8a726d30cb8b4dbb467e574602e87d6c6adaba9c412745bb2f"
+      "sha256": "a17d2e22d3bc0b8a726d30cb8b4dbb467e574602e87d6c6adaba9c412745bb2f",
+      "superseded_by": "assets/communications/figures/v0.4/",
+      "usage": "Lámina de la dirección anterior; se conserva para trazabilidad."
     },
     {
       "id": "com-v03-09-background-placement",
       "path": "assets/communications/figures/v0.3/09-background-placement.svg",
       "version": "0.3",
-      "status": "illustration",
+      "status": "retired",
       "description": "Comparación de densidad correcta e incorrecta de fondos",
       "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
-      "sha256": "76b7c14eb806f17338c0e5caf14050798325ed0262636066dcbc9861fbd55f94"
+      "sha256": "76b7c14eb806f17338c0e5caf14050798325ed0262636066dcbc9861fbd55f94",
+      "superseded_by": "assets/communications/figures/v0.4/",
+      "usage": "Lámina de la dirección anterior; se conserva para trazabilidad."
     },
     {
       "id": "com-v03-10-brand-applications",
       "path": "assets/communications/figures/v0.3/10-brand-applications.svg",
       "version": "0.3",
-      "status": "illustration",
+      "status": "retired",
       "description": "Tres aplicaciones de una misma dirección visual",
       "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
-      "sha256": "6481a1c02351b6c821f0f4a610d2864cd285de514c75320860710d8399a17588"
+      "sha256": "6481a1c02351b6c821f0f4a610d2864cd285de514c75320860710d8399a17588",
+      "superseded_by": "assets/communications/figures/v0.4/",
+      "usage": "Lámina de la dirección anterior; se conserva para trazabilidad."
     },
     {
       "id": "com-v03-11-imagery",
@@ -475,12 +491,224 @@
       "id": "communications-graphic-system-v03",
       "path": "assets/communications/graphic-system-v0.3.json",
       "version": "0.3",
-      "status": "draft",
+      "status": "retired",
       "description": "Geometría, variantes, opacidad y reglas de los cuatro motivos.",
       "source": "Dirección gráfica del apartado 3.4.",
-      "sha256": "28172e48361d46da0d3d5c75fb8aa7a085ffc1fe53ab05dd3168907c902eb2e5"
+      "sha256": "d5fef727a28ccd1479281a6f5aa6212b79c82ea8246f2196e1a6d87960703fc7",
+      "superseded_by": "assets/communications/graphic-system-v0.4.json",
+      "usage": "Antecedente. No utilizar como fondo en nuevas composiciones; recuperar las variantes hexagonales v0.4."
+    },
+    {
+      "id": "background-hex-weave-light-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-weave-light.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "light",
+      "family": "hex-weave",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "8d9d4626659445b908cd13444cd0f41d1814c960ce56f7bb1fe56f66268982f8"
+    },
+    {
+      "id": "background-hex-weave-dark-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-weave-dark.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "dark",
+      "family": "hex-weave",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "437f34b10388c55b8374f7de4d29f372c69e2c49472ddd1e4b102d3839cf7fac"
+    },
+    {
+      "id": "background-hex-relief-light-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-relief-light.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "light",
+      "family": "hex-relief",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "d1f7d87a5c1e013e4a5d53f61278b767e0e05f435ec526ac23cb0d58a587a3f1"
+    },
+    {
+      "id": "background-hex-relief-dark-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-relief-dark.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "dark",
+      "family": "hex-relief",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "b476ff1df9384def67d2ec7c3536a1bda47d502c9b9d8f55b5d92731a77d5f04"
+    },
+    {
+      "id": "background-hex-volume-light-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-volume-light.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "light",
+      "family": "hex-volume",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "61f8dc10d2c9fc66c8947916ea38325bb7a7bcf44eb50a1283699b96182aac0c"
+    },
+    {
+      "id": "background-hex-volume-dark-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-volume-dark.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "dark",
+      "family": "hex-volume",
+      "format": "landscape",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "6e23296bb2ad44e91c779f762bb63ecbd7a87d8fce466f3ef9499d8c28dea369"
+    },
+    {
+      "id": "background-hex-volume-light-mobile-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-volume-light-mobile.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "light",
+      "family": "hex-volume",
+      "format": "portrait",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "13ef28fa52db435e7e868a0affd5e51958ef14332c021ddf963f340612f00ec2"
+    },
+    {
+      "id": "background-hex-volume-dark-mobile-v04",
+      "path": "assets/communications/backgrounds/draft/v0.4/hex-volume-dark-mobile.svg",
+      "version": "0.4",
+      "status": "draft",
+      "theme": "dark",
+      "family": "hex-volume",
+      "format": "portrait",
+      "opaque_background": true,
+      "source": "Geometría vectorial original; sistema Del plano al volumen, 5 de octubre de 2026.",
+      "usage": "Respetar la zona libre y escalar proporcionalmente. No es un logo ni una visualización de datos.",
+      "sha256": "0864cf74d0611ddb292eb8d182ff497fa7e4d11c92ed2a19879c0ad11e2d665b"
+    },
+    {
+      "id": "com-v04-01-hexagon-language",
+      "path": "assets/communications/figures/v0.4/01-hexagon-language.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Familia hexagonal: trama, relieve y volumen",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "bafb05b9f9c1501f9ce04004d42aff37c2ba82eae7a0673c963c742f25871cd9"
+    },
+    {
+      "id": "com-v04-02-hexagon-construction",
+      "path": "assets/communications/figures/v0.4/02-hexagon-construction.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Construcción del hexágono, retícula y prisma",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "3081a7829398936fc779fb2d5e5783069d1adb110f8c92180d9e8af73ece942b"
+    },
+    {
+      "id": "com-v04-03-hexagon-backgrounds",
+      "path": "assets/communications/figures/v0.4/03-hexagon-backgrounds.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Atlas de seis fondos hexagonales claros y azules",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "5a4c5c94ebaed48aaaaade10eea9a455b09662fec4ea6bd066e84c2f4809e225"
+    },
+    {
+      "id": "com-v04-04-vision-hero",
+      "path": "assets/communications/figures/v0.4/04-vision-hero.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Cabecera AIS Vision Systems con prismas hexagonales",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "343cbf43f1d271c149293582130855281431ea43e4e764aa6ca55b2da1c26f46"
+    },
+    {
+      "id": "com-v04-05-responsive",
+      "path": "assets/communications/figures/v0.4/05-responsive.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Adaptación horizontal y móvil con composiciones independientes",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "9e16b09c0333088fc5adb44b56b926303a3eef579a867d4e591cbc50ab0a6d69"
+    },
+    {
+      "id": "com-v04-06-slide-document",
+      "path": "assets/communications/figures/v0.4/06-slide-document.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Aplicación hexagonal en presentación Rosepetal y ficha AIS Scanology",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "fcbccbef2d8afadf71f7bceb290bd3eabeda54765c68b1c0cac34be3e5de5fb1"
+    },
+    {
+      "id": "com-v04-07-placement-rules",
+      "path": "assets/communications/figures/v0.4/07-placement-rules.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Ubicación correcta e incorrecta de los fondos hexagonales",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "735fd1710ef862c417d37931ded31fe30565d18750c4555c4344d37be0767f9a"
+    },
+    {
+      "id": "com-v04-08-hexagon-motion",
+      "path": "assets/communications/figures/v0.4/08-hexagon-motion.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Storyboard plano-relieve-volumen y alternativa sin movimiento",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "e77baa38408cddf3f95531f12870432b289c1afa1123dd95181a5458d25afa12"
+    },
+    {
+      "id": "com-v04-09-overview",
+      "path": "assets/communications/figures/v0.4/09-overview.svg",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Vista general del sistema hexagonal y cabecera AIS Vision Systems",
+      "source": "Infografía vectorial original; Rubik trazada y logos existentes conservados.",
+      "sha256": "5020a120cc153541382e9a3a1969ab131fddee53744f9f3d3727ee5f893b400e"
+    },
+    {
+      "id": "communications-graphic-system-v04",
+      "path": "assets/communications/graphic-system-v0.4.json",
+      "version": "0.4",
+      "status": "draft",
+      "description": "Geometría, familias, zonas libres y reglas del sistema hexagonal.",
+      "sha256": "5e596cee933b919bf9766f312d3895476a017536121f921eb23d7463f067f451"
+    },
+    {
+      "id": "communications-preview-v04",
+      "path": "assets/communications/previews/v0.4/index.html",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Galería estática para revisión local.",
+      "sha256": "ed9385947c8baed5945087bf7e35fdf01242465e87e18c9109ca1c8664c705ad"
+    },
+    {
+      "id": "communications-overview-v04",
+      "path": "assets/communications/previews/v0.4/overview.png",
+      "version": "0.4",
+      "status": "illustration",
+      "description": "Vista general PNG del sistema hexagonal, derivada del SVG de la lámina 09.",
+      "sha256": "79b200960181d4dd7a8a637950f32b65d6d77c0693ebcacbe8983e3308b03b7e"
     }
   ],
   "manual": "docs/communications/manual-de-comunicaciones.md",
-  "manual_version": "0.3"
+  "manual_version": "0.4",
+  "active_graphic_system": "assets/communications/graphic-system-v0.4.json"
 }

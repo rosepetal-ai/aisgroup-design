@@ -1,6 +1,6 @@
 {
   "version": "0.3",
-  "status": "draft",
+  "status": "retired",
   "concept": "De la captura a la acción",
   "module_px": 8,
   "reference_canvas": [
@@ -77,5 +77,7 @@
       "icons"
     ]
   },
-  "manual": "docs/communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos"
+  "manual": "docs/communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos",
+  "superseded_by": "assets/communications/graphic-system-v0.4.json",
+  "retirement_reason": "La dirección hexagonal v0.4 sustituye estos motivos como fondos de nuevas composiciones."
 }

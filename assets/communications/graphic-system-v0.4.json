@@ -1,0 +1,97 @@
+{
+  "version": "0.4",
+  "status": "draft",
+  "concept": "Del plano al volumen",
+  "supersedes": "assets/communications/graphic-system-v0.3.json",
+  "primary_color": "#17356E",
+  "base_geometry": {
+    "shape": "regular_hexagon",
+    "orientation": "point_up",
+    "circumradius_equals_side": true,
+    "interior_angle_degrees": 120,
+    "width": "sqrt(3) * r",
+    "height": "2 * r",
+    "center_pitch_x": "sqrt(3) * r",
+    "center_pitch_y": "1.5 * r",
+    "alternate_row_offset": "center_pitch_x / 2",
+    "orthographic_vertical_scale": 0.64
+  },
+  "reference_canvas": [
+    1600,
+    900
+  ],
+  "foreground_safe_area": {
+    "x": 96,
+    "y": 64,
+    "width": 704,
+    "height": 756
+  },
+  "portrait_canvas": [
+    900,
+    1200
+  ],
+  "portrait_safe_area": {
+    "x": 64,
+    "y": 54,
+    "width": 772,
+    "height": 726
+  },
+  "background_is_opaque": true,
+  "material": "matte or softly satin",
+  "light_direction": "upper_left",
+  "height_rules": {
+    "relief": "0.12–0.40 r, occasional raised cell up to 0.85 r",
+    "hero": "0.4–0.7 r"
+  },
+  "motifs": [
+    {
+      "id": "hex-weave",
+      "function": "textura periférica",
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.4/hex-weave-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.4/hex-weave-dark.svg"
+      }
+    },
+    {
+      "id": "hex-relief",
+      "function": "profundidad contenida",
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.4/hex-relief-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.4/hex-relief-dark.svg"
+      }
+    },
+    {
+      "id": "hex-volume",
+      "function": "pieza protagonista",
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.4/hex-volume-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.4/hex-volume-dark.svg"
+      },
+      "portrait_variants": {
+        "light": "assets/communications/backgrounds/draft/v0.4/hex-volume-light-mobile.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.4/hex-volume-dark-mobile.svg"
+      }
+    }
+  ],
+  "rules": {
+    "one_dominant_treatment": true,
+    "proportional_scaling": true,
+    "logo_remains_flat": true,
+    "not_a_data_visualization": true,
+    "text_over_uniform_area": true,
+    "tonal_shading_is_not_a_brand_palette": true,
+    "no_continuous_background_loop": true,
+    "accessibility": "Decorative SVG uses aria-hidden or empty alt; content remains separate."
+  },
+  "motion": {
+    "delivery": "static SVG plus illustrated storyboard; no animation implemented",
+    "entry_duration_ms": 900,
+    "sequence": [
+      "plane",
+      "relief",
+      "volume"
+    ],
+    "reduced_motion": "show final static state"
+  },
+  "manual": "docs/communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos"
+}

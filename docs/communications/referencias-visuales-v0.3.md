@@ -1,5 +1,7 @@
 # Referencias visuales y decisiones de comunicaciones v0.3
 
+> **Registro histórico.** Su dirección gráfica fue sustituida por el [sistema hexagonal v0.4](referencias-visuales-v0.4.md). Los recursos de las webs siguen documentados; las decisiones de sustituir hexágonos, captura, muestreo, rutas y bandas no rigen las nuevas composiciones.
+
 Consulta: **5 de octubre de 2026**. Se revisaron la estructura HTML/CSS y recursos gráficos publicados. Las imágenes conservadas son archivos de las webs, no capturas completas ni pruebas de funcionamiento. No se han utilizado métricas o clientes de las webs como evidencia comercial en los ejemplos.
 
 | Marca y página | Recurso observado | Registro local | Decisión de diseño |

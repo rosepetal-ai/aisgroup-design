@@ -1,6 +1,6 @@
 # Manual de comunicaciones y aplicaciones AIS Group
 
-**Versión 0.3 · 5 de octubre de 2026 · Manual ampliado con ejemplos visuales**
+**Versión 0.4 · 5 de octubre de 2026 · Sistema hexagonal, relieve y volumen**
 
 Este manual define cómo producir comunicaciones coherentes para AIS Group, AIS Vision Systems, AIS Vision Automation, AIS Scanology y Rosepetal. Está dirigido a marketing, comercial, diseño y a los agentes de IA que generan materiales para esos equipos.
 
@@ -8,7 +8,7 @@ La identidad se aplica a través de un mismo lenguaje: **azul compartido, inform
 
 El [Manual de marca](../brand/manual-de-marca.md) establece los nombres, logotipos, protección, tamaños mínimos, tipografía y el azul principal **#17356E**. Este documento desarrolla la paleta auxiliar y sus aplicaciones. **Los logotipos a una tinta se reproducen en el azul principal**; el blanco corresponde al negativo.
 
-Esta versión amplía todos los apartados con casos de aplicación e incorpora 23 nuevas láminas vectoriales, ocho fondos reutilizables y una dirección gráfica derivada de las webs del grupo: **«De la captura a la acción»**. Define todos los apartados del índice de trabajo. Sus medidas y decisiones de composición constituyen una propuesta operativa del proyecto, salvo las referencias externas identificadas. Las láminas son ejemplos de diseño; las plantillas finales editables tienen su estado indicado en el apartado 10. La publicación del documento no convierte automáticamente los recursos `draft` en `approved`.
+Esta versión conserva los ejemplos por apartado y las infografías de retículas, color, documentos y comunicación. Rehace el apartado 3.4 con la dirección **«Del plano al volumen»**: ocho fondos hexagonales reutilizables y nueve nuevas láminas de construcción y aplicación. Las medidas y composiciones son decisiones operativas del proyecto, salvo las referencias externas identificadas. Las láminas son ejemplos de diseño; el apartado 10 distingue las plantillas editables pendientes. Los recursos nuevos mantienen estado `draft` hasta su revisión visual.
 
 ## Índice
 
@@ -284,122 +284,130 @@ Una campaña puede alternarlas manteniendo posición de firma, estilos de títul
 
 ### 3.4. Elementos, tramas y fondos
 
-#### 3.4.1. Origen: qué conservar de las webs actuales
+#### 3.4.1. Idea de diseño: del plano al volumen
 
-La dirección se apoya en recursos concretos del grupo, consultados el **5 de octubre de 2026**. La observación de las webs sirve como antecedente, no como aprobación de todos sus recursos ni de sus afirmaciones comerciales.
+**El hexágono es la forma de origen del sistema.** Recupera un recurso reconocible de AIS Vision Systems y lo desarrolla mediante repetición, escala, luz y profundidad. La misma cara hexagonal puede ser una línea, una celda en relieve o un prisma protagonista. Esta continuidad permite variar las piezas sin inventar un lenguaje distinto en cada una.
 
-| Web | Evidencia observada | Lo que aporta al sistema común | Adaptación propuesta |
-| --- | --- | --- | --- |
-| [AIS Group](https://aisgroup.ai/) | Retícula CSS `bg-grid` de 56 px, fondo azul oscuro y fotografía de maquinaria en la apertura | Orden técnico y escala industrial | Malla modular de bajo contraste, con una zona de lectura despejada |
-| [AIS Vision Systems](https://aisvision.com/es/) | Retículas, puntos, esquinas de foco en tarjetas y fotografías de equipos; también contornos hexagonales | Precisión, localización y atención a un detalle | Marco abierto y muestreo regular; el hexágono deja de ser el motivo común |
-| [AIS Vision Automation](https://www.aisautomation.ie/) | Vídeo, imágenes de sistemas de inspección y organización por soluciones | Continuidad entre equipos, proceso e integración | Rutas ortogonales con pocas etapas y fotografía industrial protagonista |
-| [AIS Scanology](https://scanology.nl/en/) | Ilustraciones de lectura/verificación, recursos geométricos y máscaras hexagonales históricas | Identificación, registro y trazabilidad | Bandas modulares claramente decorativas; no dibujar códigos falsos como evidencia |
-| [Rosepetal](https://rosepetal.ai/) | Ejemplos visuales de localización y segmentación, módulos del recorrido de software y paneles oscuros | Región de interés, análisis y relación entre etapas | Marcos de captura y recorridos de proceso; conservar colores de las anotaciones técnicas reales |
+«Del plano al volumen» es una dirección de diseño interna, no un nuevo eslogan. Conecta la imagen plana y los objetos físicos con los que trabaja la visión industrial. No implica que todas las soluciones midan en 3D: la geometría de fondo es una ilustración abstracta, nunca evidencia de una capacidad o de un resultado.
 
-Las imágenes de la lámina son **recursos publicados**, no capturas completas de las webs. El [registro visual](referencias-visuales-v0.3.md) conserva URLs, observaciones y decisiones. La malla o el marco que se propone a continuación es geometría nueva del sistema; no se atribuye como recurso idéntico ya existente en todas las marcas.
+La trama histórica es el antecedente; los recursos de esta versión son **geometría original**, con orientación, proporciones y materialidad comunes. Las tres expresiones sirven a todas las compañías. El emisor se identifica mediante su logotipo y contenido, no mediante un motivo o color exclusivo.
 
+![Trama, relieve y volumen como tres expresiones del mismo hexágono](../../assets/communications/figures/v0.4/01-hexagon-language.svg)
 
-![Recursos publicados en las cinco webs y criterio de unificación](../../assets/communications/figures/v0.3/06-web-evidence.svg)
+La revisión parte de las webs del grupo y de referencias de diseño consultadas el 5 de octubre de 2026:
 
-#### 3.4.2. Idea rectora: de la captura a la acción
-
-El grupo trabaja con objetos y procesos físicos que se **observan, evalúan, conectan y registran**. Su comunicación debe mostrar esa transformación con claridad. La idea rectora organiza cuatro operaciones gráficas:
-
-- **Enfocar:** un marco abierto delimita una región o una idea.
-- **Medir:** una malla o puntos regulares sugieren coordenadas y precisión.
-- **Conectar:** una ruta relaciona fases del proceso y sus puntos de control.
-- **Identificar:** unas bandas modulares evocan series y registros.
-
-Esta frase es una **dirección de diseño interna**, no un nuevo eslogan ni una descripción literal de toda solución. Si una pieza explica un proceso real, sus pasos se dibujan según ese proceso. La geometría decorativa nunca demuestra por sí misma una medición, una detección o una integración.
-
-El carácter resultante debe ser **industrial, preciso y sobrio**, con zonas de descanso. La personalidad surge del contenido, la escala y la alineación; el fondo permanece subordinado. El mismo vocabulario sirve a las cinco marcas. La selección del motivo depende del mensaje, no de asignar un dibujo exclusivo a cada empresa.
-
-
-![Cuatro operaciones: enfocar, medir, conectar e identificar](../../assets/communications/figures/v0.3/07-visual-grammar.svg)
-
-#### 3.4.3. Geometría y jerarquía de elementos
-
-Base de construcción digital: **u = 8 px** en un original de referencia. Alinear coordenadas y cambios de dirección a múltiplos de u. Para tramas, usar separación habitual de **8u = 64 px**; para esquinas, brazos de **3u–9u** según tamaño del elemento. Mantener direcciones horizontales y verticales. Las diagonales se reservan a diagramas que realmente las necesiten.
-
-| Familia | Construcción | Función editorial | Límite |
-| --- | --- | --- | --- |
-| Marco de captura | Cuatro esquinas abiertas; brazos equilibrados; trazo de 2–4 px en original | Enmarcar una imagen o separar un bloque protagonista | No toca el logo ni recorta letras, caras o detalles esenciales |
-| Malla de muestreo | Cuadrícula regular o puntos sobre esa cuadrícula; nunca ambas texturas superpuestas | Sugerir coordenadas en una zona técnica | No es una escala real salvo que se incluyan unidades y calibración |
-| Ruta de proceso | Una línea ortogonal, 2–4 cambios de dirección y hasta 3 nodos decorativos | Conectar el inicio y cierre de una composición | Si representa información, debe tener etiquetas y contraste de primer plano |
-| Bandas de trazabilidad | Pocas barras anchas, con alturas y anchos modulares; base común | Identificación editorial y continuidad de series | Sin codificación, dígitos ni patrones de QR/DataMatrix; no simular un código verificable |
-
-Separar tres niveles: **estructura** —retícula invisible y paneles—; **decoración** —motivo de bajo contraste—; **información** —texto, datos y diagramas legibles—. El mismo trazo decorativo al 8 % no puede convertirse en una flecha informativa sin cambiar su tratamiento y añadir etiqueta.
-
-Los recursos incluidos tienen un `viewBox` de **1600 × 900**. Los trazos base son 4 unidades para marcos/rutas, 1 para malla, y bandas de 16/32. Son medidas del original, no una obligación de conservar un grosor subpíxel después de reducir. A tamaño final, mantener **al menos 1 px en elementos informativos**. En impresión, comenzar con 0,25 mm para un trazo fino y probarlo en el soporte. Si una trama desaparece o produce moiré, simplificarla o retirarla.
-
-#### 3.4.4. Fondos y densidad
-
-El fondo plano sigue siendo la base. Añadir un motivo cuando ayude a situar el contenido o a reconocer una serie. Reservar como mínimo la mitad del lienzo sin tramas; en piezas de lectura extensa, no poner decoración detrás de los párrafos. Los fondos suministrados dejan **x < 960** libre de geometría; el contenido principal puede ocupar aproximadamente **x = 96–800**, dejando separación hasta el motivo.
-
-| Capa | Sobre blanco o superficie | Sobre azul principal | Regla |
-| --- | --- | --- | --- |
-| Fondo | Blanco o `#F4F7FB` | `#17356E` | No añadir una tercera base por marca |
-| Malla decorativa | Azul al 8 % | Blanco al 8 % | Una zona acotada; máximo 12 % tras revisión |
-| Marco, ruta o bandas decorativas | Azul al 12 % | Blanco al 12 % | Como referencia, 8–16 %; no competir con el titular |
-| Marco informativo | Azul opaco | Blanco opaco | Etiqueta y contraste suficientes |
-| Acento | Cian puntual, sin texto normal sobre blanco | Cian puntual | Hasta 5 % orientativo del área gráfica; no representa por sí solo un estado |
-
-**Una trama es decorativa, no accesible por su contraste bajo.** Toda información esencial se sitúa en primer plano y cumple las reglas de legibilidad del apartado 2.3. Los valores de opacidad se aplican al motivo, nunca al contenedor que también contiene el texto o el logotipo.
-
-
-![Fondos claros y oscuros de captura, muestreo, proceso y trazabilidad](../../assets/communications/figures/v0.3/08-background-atlas.svg)
-
-#### 3.4.5. Cuatro recetas de composición
-
-| Receta | Fondo y elemento | Contenido y reparto | Aplicación |
-| --- | --- | --- | --- |
-| **Editorial clara** | Blanco; una línea o un marco pequeño | Titular azul, cuerpo oscuro y una imagen separada | Informes, fichas, propuestas y email |
-| **Apertura de captura** | Azul; marco blanco al 12 % en el lado visual | Texto en mitad izquierda; fotografía o elemento focal a la derecha | Portada, banner, hero de web y apertura de vídeo |
-| **Panel técnico** | Superficie; malla solo en el área de ilustración | Etiquetas y conectores opacos sobre paneles claros | Infografía, arquitectura y explicación de proceso |
-| **Secuencia de trazabilidad** | Blanco o azul; ruta o bandas en borde inferior/lateral | Pasos o registros con orden explícito; pie estable | Carrusel, caso, folleto y cierre de vídeo |
-
-Puede utilizarse un **campo tonal azul** en grandes aperturas digitales: degradado sencillo `135deg, #112750 0%, #17356E 70%, #112750 100%`. Es una nueva excepción controlada de comunicaciones v0.3 respecto al fondo exclusivamente plano de v0.2. No incorpora colores nuevos, halos cian, dorados o multicolor. No se aplica a logos, titulares, botones ni iconos. En una tinta y en documentos técnicos se sustituye por azul plano. Esta excepción no cambia la regla de logotipos planos del Manual de marca.
-
-En una fotografía, preferir texto en panel sólido independiente. Una veladura azul puede unificar una imagen de ambiente si no altera su interpretación; no se utiliza para tapar defectos, falsear resultados ni recolorear un producto o una anotación de inspección.
-
-
-![Motivo periférico con texto limpio frente a una trama que dificulta la lectura](../../assets/communications/figures/v0.3/09-background-placement.svg)
-
-
-![Aplicaciones coherentes en AIS Vision Systems, AIS Scanology y Rosepetal](../../assets/communications/figures/v0.3/10-brand-applications.svg)
-
-#### 3.4.6. Combinación, recorte y adaptación
-
-Usar **un motivo decorativo dominante por superficie**. Una serie puede alternar captura y proceso entre páginas si mantiene la retícula, la firma y la jerarquía. Los diagramas informativos no cuentan como motivos decorativos: se incluyen porque explican contenido real.
-
-Escalar proporcionalmente y recortar desde los bordes. No estirar una trama para llenar un formato. En móvil, cambiar el recorte o retirar el motivo si invade el texto. No girar el sistema completo ni combinar marcos, mallas, bandas y rutas dentro de una sola apertura. Las marcas de clientes conservan su identidad y su zona de protección.
-
-**Ejemplo de aplicación:** una landing de AIS Vision Systems muestra a la derecha una imagen real dentro de un marco de captura; el titular y la acción quedan a la izquierda. Una ficha de AIS Scanology puede utilizar bandas en el pie, pero la tabla de verificación permanece sobre blanco. Una explicación de Rosepetal puede usar una ruta entre etapas de trabajo; debe representar las etapas de la solución descrita, no una cadena de decisiones inventada.
-
-#### 3.4.7. Movimiento de los motivos
-
-El marco puede aparecer mediante opacidad en 240–400 ms; una ruta informativa puede revelarse una vez siguiendo el orden explicado. Los fondos de muestreo y trazabilidad permanecen estáticos por defecto. No usar barridos de escáner, partículas, parpadeos o desplazamientos continuos como bucle detrás de texto. En modo de movimiento reducido, mostrar el estado final sin desplazamiento. Los tiempos y controles generales se desarrollan en el apartado 8.
-
-#### 3.4.8. Recursos reutilizables y aplicación técnica
-
-Los archivos son transparentes; el soporte aporta el fondo blanco o azul. Cada variante tiene color y opacidad definidos, de modo que no hace falta recolorearla durante la composición.
-
-| Motivo | Sobre claro | Sobre azul |
+| Referencia | Recurso observado | Decisión para este sistema |
 | --- | --- | --- |
-| Captura | [capture-frame-light.svg](../../assets/communications/backgrounds/draft/v0.3/capture-frame-light.svg) | [capture-frame-dark.svg](../../assets/communications/backgrounds/draft/v0.3/capture-frame-dark.svg) |
-| Muestreo | [sampling-grid-light.svg](../../assets/communications/backgrounds/draft/v0.3/sampling-grid-light.svg) | [sampling-grid-dark.svg](../../assets/communications/backgrounds/draft/v0.3/sampling-grid-dark.svg) |
-| Proceso | [process-path-light.svg](../../assets/communications/backgrounds/draft/v0.3/process-path-light.svg) | [process-path-dark.svg](../../assets/communications/backgrounds/draft/v0.3/process-path-dark.svg) |
-| Trazabilidad | [trace-bands-light.svg](../../assets/communications/backgrounds/draft/v0.3/trace-bands-light.svg) | [trace-bands-dark.svg](../../assets/communications/backgrounds/draft/v0.3/trace-bands-dark.svg) |
+| AIS Vision Systems y AIS Scanology | Antecedentes hexagonales en tramas, contornos y máscaras | Recuperar la geometría como elemento reconocible; fijar una construcción común |
+| AIS Group, AIS Vision Automation y Rosepetal | Azul, composiciones ordenadas, equipos y contenido de inspección | Mantener las zonas de lectura y el protagonismo de la evidencia real |
+| [Spaces — Fold7](https://fold7design.com/work/spaces) | Evolución de un hexágono existente hacia una forma cúbica y recursos de composición | Desarrollar la forma heredada en varias escalas y aplicaciones |
+| [Journey — Holmes Studio](https://www.holmes-studio.com/projects/journey) | Un hexágono aparente que se revela como cubo en movimiento | Relacionar plano y volumen; aquí se adopta el prisma de cara hexagonal para conservar esa cara durante la extrusión |
+| [Kempner Institute — Opus](https://kempnerinstitute.harvard.edu/app/uploads/2024/08/Kempner-Institute-Brand-Book-visual-identity.final_.pdf#page=12) | Tramas hexagonales a escalas micro y macro con reglas de uso | Separar textura de fondo y forma protagonista; controlar frecuencia y densidad |
+| [Zentiva — ART*WORKS](https://artjustworks.com/hexagon-structure) | Trama sobre vidrio y objetos acústicos tridimensionales | Explorar profundidad y materialidad a partir de la misma geometría |
+| [CENTIDE — Microbio](https://www.microbio.tv/proyectos/branding-centide/) | Retícula hexagonal e isométrica extendida a iconografía | Mantener una lógica geométrica común entre recursos; sin forzar todos los iconos a ser hexágonos |
 
-En web, incorporar el motivo como capa decorativa con `aria-hidden="true"` y `pointer-events: none`; el texto y la acción siguen siendo HTML. Si se usa un `<img>`, darle `alt=""`. Mantener el soporte posicionado, el motivo detrás del contenido y recortar con `overflow: hidden`. Un fondo no crea automáticamente una animación, una zona clicable ni un dato.
+El [registro de referencias y decisiones v0.4](referencias-visuales-v0.4.md) detalla qué se toma de cada proyecto. No se incorporan sus imágenes, símbolos ni archivos a los fondos suministrados.
 
-En presentaciones y documentos, insertar SVG conservando proporciones; si la herramienta no lo admite, exportar a PNG al tamaño necesario. En email, usar un fondo plano o una exportación compatible; no depender de SVG para que el mensaje se entienda. El catálogo registra motivo, versión, tema, opacidad y procedencia. La [definición estructurada](../../assets/communications/graphic-system-v0.3.json) permite recuperar geometría, zona de contenido y reglas para agentes.
+#### 3.4.2. Construcción: forma, retícula, luz y material
 
-#### 3.4.9. Transición desde los recursos anteriores
+El módulo es un **hexágono regular con un vértice arriba**. Si su radio circunscrito es `r`, su lado también mide `r`, su ancho es `√3 × r`, su alto es `2 × r` y sus ángulos interiores son de 120°. Los centros de una retícula contigua avanzan `√3 × r` en horizontal y `1,5 × r` entre filas, con medio paso horizontal de desplazamiento en filas alternas. Una junta pequeña puede separar las caras sin cambiar esa lógica.
 
-Los hexágonos y efectos multicolor existentes se conservan como antecedentes y en capturas históricas. No se amplían como nueva trama común: sus numerosas variantes y recortes dificultan la coherencia entre marcas. Los dos fondos v0.2 pasan a estado `reference`; las piezas nuevas utilizan las variantes v0.3. Los archivos anteriores permanecen disponibles para rastrear materiales ya producidos.
+La retícula editorial de columnas del apartado 3.1 sigue organizando texto, márgenes y paneles. La retícula hexagonal construye la ilustración; no obliga a colocar párrafos o botones dentro de hexágonos.
 
-Los archivos publicados en las webs tampoco se convierten automáticamente en recursos comerciales aprobados. Se conservan como referencias de esta investigación, con su URL y hash. La dirección gráfica nueva queda en estado `draft`, lista para revisión visual.
+| Parámetro | Regla de trabajo | Efecto buscado |
+| --- | --- | --- |
+| Orientación | Un vértice arriba en la trama plana; mantenerla dentro de la serie | Continuidad reconocible |
+| Relieve | Proyección ortográfica; en los SVG, la coordenada vertical del plano se multiplica por 0,64 | Profundidad estable y sin puntos de fuga contradictorios |
+| Altura de celdas | Relieve habitual de 0,12–0,40 r; elevaciones puntuales hasta 0,85 r | Ondulación contenida, con pocos puntos de énfasis |
+| Pieza protagonista | Prisma de mayor escala; altura aproximada de 0,4–0,7 r | Una forma que se reconoce en cabeceras y portadas |
+| Iluminación | Luz amplia desde arriba a la izquierda; caras inferiores más oscuras | Volumen legible, sin destellos ni neón |
+| Material | Mate o satinado suave; juntas y aristas finas | Precisión industrial y sobriedad |
+| Color | Azul principal, blanco y valores tonales de luz/sombra | Una misma identidad; sin asignar colores a cada empresa |
+
+Los valores tonales de las caras son **sombreado de la ilustración**. No crean nuevos colores de marca, estados de interfaz ni alternativas para recolorear el logo. No aplicar efectos 3D, brillos ni degradados al logotipo. Una pieza a una tinta utiliza la trama lineal en azul; el relieve se sustituye por esa versión cuando la impresión no pueda reproducirlo de forma fiable.
+
+![Construcción exacta del hexágono, la retícula y el prisma](../../assets/communications/figures/v0.4/02-hexagon-construction.svg)
+
+#### 3.4.3. Tres tratamientos y ocho recursos
+
+| Tratamiento | Construcción y carácter | Usos preferentes |
+| --- | --- | --- |
+| **Trama / `hex-weave`** | Hexágonos de contorno fino, densidad progresiva hacia el borde y unas pocas celdas de relleno tenue | Pies, separadores, comunicaciones técnicas y fondos de poco peso visual |
+| **Relieve / `hex-relief`** | Celdas con junta, altura baja y luz coherente; algunas elevaciones puntuales | Portadas de documentos, paneles de apertura y presentaciones |
+| **Volumen / `hex-volume`** | Un prisma grande y dos piezas secundarias; contornos del plano como apoyo | Cabeceras web, banners, portadas y apertura de vídeo |
+
+Cada tratamiento dispone de una variante clara y otra azul en **1600 × 900**. El volumen tiene además dos composiciones verticales de **900 × 1200**. Son ocho SVG autocontenidos, con fondo sólido incorporado. Las sombras y caras se construyen con geometría vectorial; no requieren texturas externas, scripts ni filtros de desenfoque.
+
+La trama plana utiliza el azul sobre blanco o un tinte claro sobre azul, con opacidad aproximada del 6,5–23 % según la columna. Es decorativa. El relieve y el volumen tienen sus propios valores tonales: no reducir la opacidad del archivo completo porque también incluye el fondo. La lámina siguiente reproduce los fondos con sus valores reales.
+
+![Fondos hexagonales claros y azules: trama, relieve y volumen](../../assets/communications/figures/v0.4/03-hexagon-backgrounds.svg)
+
+#### 3.4.4. Componer con el sistema
+
+En horizontal, reservar el área **x = 96–800, y = 64–820** para firma, mensaje y acción. La geometría ocupa la zona derecha y conserva una separación adicional respecto al texto. Ese espacio es un límite de composición, no una obligación de llenarlo. La protección del logotipo se aplica también dentro de esta zona.
+
+| Pieza | Tratamiento elegido | Composición concreta |
+| --- | --- | --- |
+| Cabecera de AIS Vision Systems | Volumen sobre azul | Logo plano blanco arriba; titular en dos líneas y acción a la izquierda; prisma a la derecha |
+| Presentación de Rosepetal | Relieve sobre azul en portada | Titular y subtítulo sobre zona uniforme; celdas solo en el lado visual; interiores claros para capturas y explicación |
+| Ficha de AIS Scanology | Trama clara localizada en el pie | Logo y títulos azules; contenido, tablas y condiciones sobre blanco; textura al final de página |
+| Comunicación de AIS Group | Trama o volumen, según formato | Firma del grupo y una idea principal; las marcas secundarias mantienen su protección |
+| Caso de AIS Vision Automation | Trama clara o fondo plano | Fotografía real protagonista; el recurso geométrico se reserva a cabecera o cierre |
+
+**Ejemplo de cabecera.** «La precisión toma forma.» ilustra la jerarquía del diseño. Es un texto de muestra, no un eslogan aprobado. El prisma acompaña al mensaje; una sección posterior debe mostrar el equipo o la solución real.
+
+![Cabecera de AIS Vision Systems con volumen y área de lectura limpia](../../assets/communications/figures/v0.4/04-vision-hero.svg)
+
+**Ejemplo de documentos.** La portada de Rosepetal puede tener relieve; las páginas de resultados permanecen claras. La ficha de AIS Scanology concentra la trama en el pie y conserva los criterios técnicos en texto editable.
+
+![Presentación de Rosepetal y documento de AIS Scanology](../../assets/communications/figures/v0.4/06-slide-document.svg)
+
+#### 3.4.5. Adaptación, escala y recorte
+
+Escalar siempre de forma proporcional. Recortar piezas desde el borde mantiene la sensación de continuidad; estirar la geometría modifica sus proporciones. No cambiar por separado la perspectiva de una celda ni introducir una segunda dirección de luz.
+
+En móvil se utiliza la composición vertical: contenido en **x = 64–836, y = 54–780** y volumen en la zona inferior. El texto sigue siendo HTML o texto editable. Si crece por traducción o accesibilidad, aumentar la altura del bloque y desplazar el recurso hacia abajo; no superponerlo al contenido ni reducir la tipografía para encajarlo.
+
+Una superficie usa **un tratamiento dominante**. Dentro de una campaña, trama, relieve y volumen pueden alternarse manteniendo azul, firma, orientación y jerarquía. En una página de lectura extensa o en una tabla, el fondo plano es suficiente.
+
+![Adaptación horizontal y móvil recompuesta](../../assets/communications/figures/v0.4/05-responsive.svg)
+
+#### 3.4.6. Límites de uso y legibilidad
+
+- Mantener firma, párrafos, datos y controles sobre una zona uniforme. Revisar el contraste en el soporte final.
+- Concentrar la textura en el borde o en un área visual. No cubrir todos los fondos de todas las páginas con panales.
+- Conservar las formas planas del logo. El hexágono es un elemento de comunicación; no se añade al logotipo ni lo sustituye.
+- Utilizar las caras y sombras de una misma familia. Evitar neón, cromados, arcoíris, halos y materiales distintos dentro de la serie.
+- Mantener las fotografías y capturas como evidencia independiente. El volumen abstracto no representa un sensor, un producto ni un resultado medido.
+- En gráficos cuantitativos, usar las reglas del apartado 7.4: el 3D decorativo no debe alterar la lectura de magnitudes.
+
+![Ejemplos de ubicación correcta e incorrecta del relieve](../../assets/communications/figures/v0.4/07-placement-rules.svg)
+
+#### 3.4.7. Movimiento: el plano adquiere altura
+
+La transición preferente eleva la geometría desde el plano hasta su volumen final. Como punto de partida: **900 ms en total**, una sola vez, con aceleración y frenado suaves. El titular, el logo y la acción permanecen estables. La animación termina en la misma composición que el SVG estático.
+
+La lámina muestra una propuesta de movimiento; los archivos SVG entregados son estáticos. Si se implementa en web o vídeo, respetar la geometría, las alturas y la dirección de luz. No deformar el hexágono para simular la perspectiva. En `prefers-reduced-motion: reduce`, mostrar directamente el estado final. Evitar bucles detrás del texto, parpadeos y barridos de escáner.
+
+![Storyboard del plano al volumen con alternativa sin movimiento](../../assets/communications/figures/v0.4/08-hexagon-motion.svg)
+
+#### 3.4.8. Archivos, integración y sustitución de versiones
+
+| Recurso | Claro | Azul |
+| --- | --- | --- |
+| Trama 1600 × 900 | [hex-weave-light.svg](../../assets/communications/backgrounds/draft/v0.4/hex-weave-light.svg) | [hex-weave-dark.svg](../../assets/communications/backgrounds/draft/v0.4/hex-weave-dark.svg) |
+| Relieve 1600 × 900 | [hex-relief-light.svg](../../assets/communications/backgrounds/draft/v0.4/hex-relief-light.svg) | [hex-relief-dark.svg](../../assets/communications/backgrounds/draft/v0.4/hex-relief-dark.svg) |
+| Volumen 1600 × 900 | [hex-volume-light.svg](../../assets/communications/backgrounds/draft/v0.4/hex-volume-light.svg) | [hex-volume-dark.svg](../../assets/communications/backgrounds/draft/v0.4/hex-volume-dark.svg) |
+| Volumen 900 × 1200 | [hex-volume-light-mobile.svg](../../assets/communications/backgrounds/draft/v0.4/hex-volume-light-mobile.svg) | [hex-volume-dark-mobile.svg](../../assets/communications/backgrounds/draft/v0.4/hex-volume-dark-mobile.svg) |
+
+Consultar la [definición estructurada v0.4](../../assets/communications/graphic-system-v0.4.json) para geometría, zonas de contenido, familias y reglas, y la [galería de revisión](../../assets/communications/previews/v0.4/index.html) para comparar las aplicaciones en navegador. La galería es una vista estática del repositorio; GitHub muestra su código y puede abrirse al descargar el conjunto.
+
+En web, el fondo es decorativo (`alt=""`, o `aria-hidden="true"` y `pointer-events: none` si se integra como SVG inline). El contenido permanece accesible y editable por separado. No incrustar el titular en el fondo reutilizable. En presentaciones y documentos, insertar SVG conservando proporciones; exportar a PNG al tamaño requerido cuando la aplicación de destino no los admita. En email, conservar un fondo plano como alternativa y comprobar el resultado sin imágenes.
+
+**Esta versión sustituye la dirección gráfica v0.3.** Los fondos de captura, muestreo, rutas y bandas quedan retirados para nuevas composiciones; sus archivos se conservan para trazabilidad. Los marcos de región de interés, conectores y códigos reales siguen siendo válidos como información técnica cuando expliquen contenido real. No funcionan como motivos de fondo alternativos.
+
+La instrucción de recuperar los hexágonos sustituye la propuesta anterior que los descartaba. Las variantes v0.4 mantienen estado `draft` para la revisión del diseño; publicar el manual no equivale a aprobar automáticamente cada pieza. Los nombres exactos, el azul digital, los logotipos planos y la propuesta provisional PANTONE 534 C / CMYK 100–82–36–25 se conservan.
+
 
 ### 3.5. Imágenes, fotografía y capturas
 
@@ -735,7 +743,7 @@ Apertura: firma, título o tema y entrada rápida al contenido. Cierre: firma, u
 
 Los rótulos de persona ocupan una zona inferior libre: nombre y cargo o compañía en dos niveles. Permanecen el tiempo necesario para su lectura y no coinciden con subtítulos. Las etiquetas técnicas se sitúan junto al elemento explicado, manteniendo margen respecto a bordes y controles del reproductor.
 
-Los fondos utilizan planos o los motivos del apartado 3.4, con movimiento lento y subordinado al contenido. No animar una trama detrás de párrafos o datos que se están leyendo.
+Los fondos utilizan planos o el sistema hexagonal del apartado 3.4. La entrada del plano al volumen dura 900 ms como referencia y termina en un estado estático; firma y mensaje permanecen estables. No animar una trama detrás de párrafos o datos que se están leyendo.
 
 **Ejemplo de aplicación.** Un rótulo identifica a la persona con nombre y cargo en dos líneas. Los subtítulos se desplazan a otra zona segura; ni el rótulo ni el logo tapan la pieza inspeccionada.
 
@@ -937,9 +945,9 @@ Cada recurso registra identificador, ruta, versión, estado, procedencia y hash.
 
 Cambiar una regla compartida exige actualizar el manual, sus ejemplos y los valores derivados afectados. Una nueva campaña que usa reglas existentes no requiere una versión nueva del manual. Registrar las excepciones repetidas como necesidades de mejora del sistema.
 
-Esta v0.3 amplía los ejemplos de todos los apartados, desarrolla la dirección gráfica y añade 23 láminas y ocho fondos claros/oscuros. La v0.2 y sus láminas anteriores conservan trazabilidad. Conserva la paleta v0.1 sin cambiar sus valores. La versión del documento y la de cada recurso pueden evolucionar por separado; los catálogos explicitan la relación.
+La v0.4 sustituye la dirección gráfica y los fondos v0.3 por el sistema hexagonal del apartado 3.4. Añade nueve láminas y ocho recursos: seis horizontales y dos verticales. Conserva los ejemplos de los demás apartados, los valores de la paleta v0.1, los nombres exactos y la propuesta provisional de impresión. Las versiones anteriores conservan trazabilidad; el catálogo distingue los recursos retirados de los utilizables.
 
-**Ejemplo de aplicación.** Los fondos v0.2 siguen trazables como referencias; los nuevos encargos recuperan los de v0.3. Cambiar la paleta o el Pantone posteriormente exige actualizar las definiciones y las piezas afectadas.
+**Ejemplo de aplicación.** Los fondos v0.2 y v0.3 se conservan como antecedentes; los nuevos encargos recuperan las variantes hexagonales v0.4. Cambiar la paleta o el Pantone posteriormente exige actualizar las definiciones y las piezas afectadas.
 
 ## 11. Recursos y referencias
 
@@ -954,10 +962,14 @@ Esta v0.3 amplía los ejemplos de todos los apartados, desarrolla la dirección 
 | Variables CSS de marca | [brand-v0.1.css](../../assets/brand/palette/brand-v0.1.css) |
 | Variables CSS auxiliares | [communications-v0.1.css](../../assets/communications/palette/communications-v0.1.css) |
 | Contrastes calculados | [contrast-v0.1.json](../../assets/communications/palette/contrast-v0.1.json) |
-| Nuevas láminas de aplicación | [Figuras v0.3](../../assets/communications/figures/v0.3/) |
+| Láminas de los demás apartados | [Figuras v0.3](../../assets/communications/figures/v0.3/) |
 | Láminas anteriores | [Figuras v0.2](../../assets/communications/figures/v0.2/) |
-| Ocho fondos vectoriales | [Fondos v0.3](../../assets/communications/backgrounds/draft/v0.3/) |
-| Referencias de las webs y decisiones | [referencias-visuales-v0.3.md](referencias-visuales-v0.3.md) |
+| Ocho fondos hexagonales | [Fondos v0.4](../../assets/communications/backgrounds/draft/v0.4/) |
+| Construcción y aplicaciones hexagonales | [Nueve figuras v0.4](../../assets/communications/figures/v0.4/) |
+| Revisión visual | [Galería HTML](../../assets/communications/previews/v0.4/index.html) · [Vista general SVG](../../assets/communications/figures/v0.4/09-overview.svg) |
+| Definición del sistema | [graphic-system-v0.4.json](../../assets/communications/graphic-system-v0.4.json) |
+| Referencias y decisiones vigentes | [referencias-visuales-v0.4.md](referencias-visuales-v0.4.md) |
+| Auditoría web y propuesta anterior | [referencias-visuales-v0.3.md](referencias-visuales-v0.3.md), conservada como antecedente |
 | Impresión del azul principal | [primary-blue-v0.1.json](../../assets/brand/print/primary-blue-v0.1.json) |
 | Brief reutilizable | [brief.md](../../assets/communications/templates/draft/v0.2/brief.md) |
 | Índice y estado de recursos de comunicación | [catalog.json](../../assets/communications/catalog.json) |

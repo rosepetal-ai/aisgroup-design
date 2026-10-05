@@ -102,7 +102,7 @@ Se conservan, por ahora, el detalle de la «I» de AIS, el símbolo de la «o» 
 
 Los archivos se encuentran en [`assets/brand/logos/draft/v0.1/`](../../assets/brand/logos/draft/v0.1/). El estado **draft** indica que forman parte de esta propuesta. Las variantes blancas tienen fondo transparente; una vista previa sobre blanco puede parecer vacía.
 
-**Regla propuesta:** color plano en todo el logotipo, incluido su descriptor. Los degradados, brillos, sombras y efectos tridimensionales quedan fuera de las nuevas aplicaciones de identidad.
+**Regla propuesta:** color plano en todo el logotipo, incluido su descriptor. Los degradados, brillos, sombras y efectos tridimensionales no se aplican al logotipo. Los fondos e ilustraciones de comunicación pueden incorporar el relieve y el volumen definidos en el apartado 3.4 del Manual de comunicaciones.
 
 ### 3.3. Descriptor, respaldo y eslogan
 
@@ -225,7 +225,7 @@ Las imágenes generadas pueden servir como ilustración conceptual, identificada
 
 Usar iconos de una misma familia y un grosor consistente. En diagramas, conservar el significado de flechas, colores y etiquetas; la marca no debe ocultar la información.
 
-El documento de rebranding propone sustituir las tramas de hexágonos. En esta primera versión se priorizan fondos planos y bloques de color. El [Manual de comunicaciones v0.3](../communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos) desarrolla los motivos de apoyo y las reglas de animación como propuestas de aplicación, con su estado registrado en el catálogo.
+La dirección actual recupera el **hexágono de AIS Vision Systems** como elemento de comunicación. El [Manual de comunicaciones v0.4](../communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos) desarrolla una misma geometría como trama, relieve y prisma, con ejemplos y reglas de composición. Esta decisión sustituye la propuesta anterior de eliminar los hexágonos. Los logotipos conservan sus formas planas y su zona de protección; el volumen pertenece al fondo o a la ilustración.
 
 ## 7. Usos correctos y prohibidos
 
