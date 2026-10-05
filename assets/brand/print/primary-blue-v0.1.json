@@ -1,0 +1,42 @@
+{
+  "version": "0.1",
+  "status": "draft",
+  "brand_color": "color.primary",
+  "digital": {
+    "space": "srgb",
+    "hex": "#17356E",
+    "rgb": [
+      23,
+      53,
+      110
+    ]
+  },
+  "spot": {
+    "system": "Pantone Matching System",
+    "library": "Solid Coated",
+    "reference": "PANTONE 534 C",
+    "status": "candidate",
+    "source_url": "https://www.pantone.com/color-finder/534-c"
+  },
+  "process": {
+    "space": "CMYK",
+    "components_percent": [
+      100,
+      82,
+      36,
+      25
+    ],
+    "total_ink_percent": 243,
+    "icc_profile": null,
+    "status": "provisional-project-recipe",
+    "origin": "Receta de trabajo propuesta por el proyecto; no equivalencia oficial de Pantone ni conversión ICC del HEX."
+  },
+  "validation": {
+    "physical_swatch_review": "pending",
+    "paper": "pending",
+    "print_proof": "pending",
+    "final_approval": "pending"
+  },
+  "one_ink": "Azul al 100 %; no sustituir por negro.",
+  "updated_at": "2026-10-05"
+}

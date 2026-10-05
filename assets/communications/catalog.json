@@ -1,5 +1,5 @@
 {
-  "catalog_version": "0.2",
+  "catalog_version": "0.3",
   "status": "draft",
   "brand_catalog": "assets/brand/catalog.json",
   "brand_tokens": "assets/brand/palette/brand-v0.1.tokens.json",
@@ -49,22 +49,24 @@
     {
       "id": "communications-background-open-frame",
       "path": "assets/communications/backgrounds/draft/v0.2/open-frame.svg",
-      "status": "draft",
+      "status": "reference",
       "version": "0.2",
       "description": "Marco abierto en azul principal al 12 %, para fondos claros.",
       "source": "Geometría original del proyecto; no modifica ni sustituye los logotipos.",
-      "usage": "Escalar proporcionalmente sobre blanco o superficie; mantener libre el área de lectura.",
-      "sha256": "62ff41048a0ab993481c414b5726d78e16be84926022ce1a7f9c494688c6643e"
+      "usage": "Referencia histórica. Para nuevas piezas, consultar los motivos v0.3.",
+      "sha256": "62ff41048a0ab993481c414b5726d78e16be84926022ce1a7f9c494688c6643e",
+      "superseded_by": "assets/communications/backgrounds/draft/v0.3/"
     },
     {
       "id": "communications-background-process-lines",
       "path": "assets/communications/backgrounds/draft/v0.2/process-lines.svg",
-      "status": "draft",
+      "status": "reference",
       "version": "0.2",
       "description": "Líneas de proceso en azul principal al 12 %, para fondos claros.",
       "source": "Geometría original del proyecto; no modifica ni sustituye los logotipos.",
-      "usage": "Escalar proporcionalmente sobre blanco o superficie; mantener libre el área de lectura.",
-      "sha256": "369bc630f104bc240d7b3f352afb9faeb8e6430fa495d60a65f517728854359c"
+      "usage": "Referencia histórica. Para nuevas piezas, consultar los motivos v0.3.",
+      "sha256": "369bc630f104bc240d7b3f352afb9faeb8e6430fa495d60a65f517728854359c",
+      "superseded_by": "assets/communications/backgrounds/draft/v0.3/"
     },
     {
       "id": "communications-03-compositions",
@@ -128,8 +130,357 @@
       "description": "Brief reutilizable para producir y revisar una pieza de comunicación.",
       "source": "Campos y flujo definidos en el Manual de comunicaciones v0.2.",
       "sha256": "2453179154b37c09f853f037fc3781189f0c75871fba2ca888d28f5b5c0cf790"
+    },
+    {
+      "id": "background-capture-frame-light-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/capture-frame-light.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "light",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "28837015b52cdaced386c72578c5eb9df3d1df1a25096f02ea6ff9ea482f01b6"
+    },
+    {
+      "id": "background-capture-frame-dark-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/capture-frame-dark.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "dark",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "0f31a2a3510a67e23ffd9311a5a6303543a8ad6ff24d5490585361f508e7978d"
+    },
+    {
+      "id": "background-sampling-grid-light-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/sampling-grid-light.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "light",
+      "opacity": 0.08,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "04ceb3b10b65e09177f21e52152c373662565d2009db8773bd8995563d118eb0"
+    },
+    {
+      "id": "background-sampling-grid-dark-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/sampling-grid-dark.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "dark",
+      "opacity": 0.08,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "40ad20976feff36fd76243acc52ea13ed2d1590be039d5a66f415adfc1f5d775"
+    },
+    {
+      "id": "background-process-path-light-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/process-path-light.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "light",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "1bf443a58523e4fd827622b5c15da933bb60924d660e2489e5e32aaf6d4ee8ae"
+    },
+    {
+      "id": "background-process-path-dark-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/process-path-dark.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "dark",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "e151db15c46900b5464a3c7d8275176bc276e91da5f5ada58360bc266d36193c"
+    },
+    {
+      "id": "background-trace-bands-light-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/trace-bands-light.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "light",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "9e4d32766b18aa9ba5cf4d67dfdc398e6ba9f7213737d4d6a0954753a3962c8e"
+    },
+    {
+      "id": "background-trace-bands-dark-v03",
+      "path": "assets/communications/backgrounds/draft/v0.3/trace-bands-dark.svg",
+      "status": "draft",
+      "version": "0.3",
+      "theme": "dark",
+      "opacity": 0.12,
+      "source": "Geometría propia derivada de la dirección Capturar, medir, conectar.",
+      "usage": "Escalar proporcionalmente; mantener el contenido en la mitad izquierda y la protección de logos.",
+      "sha256": "7d168e4b7e040593678039851b6da2491400326247806fb7df8fd4e0fb56a009"
+    },
+    {
+      "id": "com-v03-01-message",
+      "path": "assets/communications/figures/v0.3/01-message.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Anatomía de un mensaje y estados de evidencia",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "45198c02b7e48a584170dc79f9c693f3db64d3281261c1d27f616fdae557dbf2"
+    },
+    {
+      "id": "com-v03-02-color-contrast",
+      "path": "assets/communications/figures/v0.3/02-color-contrast.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Proporciones de color y ejemplos de contraste",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "24aa491dda148fd7c0faf7ba52316bf50df6001f56588d3f02cf219a304d3635"
+    },
+    {
+      "id": "com-v03-03-grid-wide",
+      "path": "assets/communications/figures/v0.3/03-grid-wide.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Retícula de doce columnas con dimensiones y ocupación 6 más 6",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "7dd8e1c316aca8ab94dc4491b1a3cbf1968c01036039adf34a28a32e8ef090e3"
+    },
+    {
+      "id": "com-v03-04-grid-paper-mobile",
+      "path": "assets/communications/figures/v0.3/04-grid-paper-mobile.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Retículas A4 y móvil con márgenes y calles calculados",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "4255d6e7d6329d6cbaee536b1fd3133acce93f8b00177f3d13afcb717dcfd210"
+    },
+    {
+      "id": "com-v03-05-spacing-type",
+      "path": "assets/communications/figures/v0.3/05-spacing-type.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Jerarquía tipográfica y escala de espaciado",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "2decc7d9efa4562d8837865d60f0a3e596e4b6fe6cc3dec1eb5c7c2114266f0e"
+    },
+    {
+      "id": "com-v03-06-web-evidence",
+      "path": "assets/communications/figures/v0.3/06-web-evidence.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Referencias reales de las cinco webs y criterio de unificación",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "e4546a5cd1605ec82fdd4aadb2f6514c3e18fbe5eb39e76649a15478258cff00"
+    },
+    {
+      "id": "com-v03-07-visual-grammar",
+      "path": "assets/communications/figures/v0.3/07-visual-grammar.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Gramática de captura, medición, proceso y trazabilidad",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "efbd0eee0ffc45b71b4c3df84a54ab8d1567469bfbec9c6c5cce0336f565c4d6"
+    },
+    {
+      "id": "com-v03-08-background-atlas",
+      "path": "assets/communications/figures/v0.3/08-background-atlas.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Atlas de ocho fondos y zona reservada a lectura",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "a17d2e22d3bc0b8a726d30cb8b4dbb467e574602e87d6c6adaba9c412745bb2f"
+    },
+    {
+      "id": "com-v03-09-background-placement",
+      "path": "assets/communications/figures/v0.3/09-background-placement.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Comparación de densidad correcta e incorrecta de fondos",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "76b7c14eb806f17338c0e5caf14050798325ed0262636066dcbc9861fbd55f94"
+    },
+    {
+      "id": "com-v03-10-brand-applications",
+      "path": "assets/communications/figures/v0.3/10-brand-applications.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Tres aplicaciones de una misma dirección visual",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "6481a1c02351b6c821f0f4a610d2864cd285de514c75320860710d8399a17588"
+    },
+    {
+      "id": "com-v03-11-imagery",
+      "path": "assets/communications/figures/v0.3/11-imagery.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Tratamiento de fotografía y evidencia sin alterar anotaciones",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "98653a00153658cedb24c069f5e593350335cb3935e12caf87d8302ac22a0817"
+    },
+    {
+      "id": "com-v03-12-iconography",
+      "path": "assets/communications/figures/v0.3/12-iconography.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Familia de iconos y distinción entre decoración e interacción",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "72bee7a7d49dcd331859c46d459182d19a863b2368431f6241ef1a00ebafbc78"
+    },
+    {
+      "id": "com-v03-13-stationery",
+      "path": "assets/communications/figures/v0.3/13-stationery.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Carta, tarjeta y firma de correo con jerarquías",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "068203c311235fff5f187d1cda1cf19ad7475f4a68f051d544418c7bfd89e9a0"
+    },
+    {
+      "id": "com-v03-14-commercial-story",
+      "path": "assets/communications/figures/v0.3/14-commercial-story.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Secuencia comercial con función de cada página",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "9ae1307e46a2fd5fa7628ad7e125cdee14e6207a6ce0f5c4a0d2e154ecbc3114"
+    },
+    {
+      "id": "com-v03-15-campaign-formats",
+      "path": "assets/communications/figures/v0.3/15-campaign-formats.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Adaptación de campaña a cuadrado, vertical y banner",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "e1a6137c51d2cfd3a59b2649fa0abdb25448a913570a4dc6f75d05c142579507"
+    },
+    {
+      "id": "com-v03-16-email-landing",
+      "path": "assets/communications/figures/v0.3/16-email-landing.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Relación entre email y landing con contenido y acción",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "880bee1b014e0aaa35a46fce6f5418501653ba4a36cbccb9822dae2407861265"
+    },
+    {
+      "id": "com-v03-17-infographic-anatomy",
+      "path": "assets/communications/figures/v0.3/17-infographic-anatomy.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Anatomía de una infografía técnica y su fuente",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "daf7a5f81f6fa609818b2060db32659653e868d9664b7783ae691203e115346b"
+    },
+    {
+      "id": "com-v03-18-data-visualization",
+      "path": "assets/communications/figures/v0.3/18-data-visualization.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Barras desde cero y tabla equivalente con datos sintéticos",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "3ea08a4af1cc1380a2c21d1966d73cdaf6bbb6d734b6234fac0053908a2952f2"
+    },
+    {
+      "id": "com-v03-19-motion",
+      "path": "assets/communications/figures/v0.3/19-motion.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Storyboard con tiempos y alternativa de movimiento reducido",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "7bc47b5da5a39aa5aa70f67fb073cc12fe8a32a5a116f513443d5568f2effee5"
+    },
+    {
+      "id": "com-v03-20-interactive-states",
+      "path": "assets/communications/figures/v0.3/20-interactive-states.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Estados de una experiencia y foco de teclado visible",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "2667040bf6d72f0a99af920c425423dd14dde06ef8de5d7d71a518830beb0df3"
+    },
+    {
+      "id": "com-v03-21-delivery",
+      "path": "assets/communications/figures/v0.3/21-delivery.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Proceso de producción y paquete de entrega revisable",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "bc21716afa163115e5b009b8ffe58be354aeeac05dbc95722da3f1dd6d55b68e"
+    },
+    {
+      "id": "com-v03-22-resource-access",
+      "path": "assets/communications/figures/v0.3/22-resource-access.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Relación entre catálogo, portal web y acceso MCP",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "b814b601198d7b6af6c4a6beb69d8f5f485d965d8636b5d9effc12558dcdf259"
+    },
+    {
+      "id": "com-v03-23-print-reference",
+      "path": "assets/communications/figures/v0.3/23-print-reference.svg",
+      "version": "0.3",
+      "status": "illustration",
+      "description": "Referencia digital, Pantone y CMYK provisional del azul principal",
+      "source": "Infografía vectorial original del proyecto; tipografía Rubik trazada y logos oficiales reutilizados.",
+      "sha256": "27e9e026d4c41511b6b58428c28bc738279a151b16b4a03db74ed595851241fb"
+    },
+    {
+      "id": "web-reference-aisgroup-hero",
+      "path": "assets/communications/references/web-2026-10-05/aisgroup-hero.webp",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/backgrounds/hero-poster.webp",
+      "retrieved_at": "2026-10-05",
+      "usage": "Referencia de análisis visual. No asumir aprobación o licencia abierta para producción.",
+      "sha256": "9e4e21fc3527085a5cedb756d156610622315cb2a006145e3cf6936baaa2f9fc"
+    },
+    {
+      "id": "web-reference-rosepetal-segmentation",
+      "path": "assets/communications/references/web-2026-10-05/rosepetal-segmentation.webp",
+      "status": "reference",
+      "source_url": "https://rosepetal.ai/images/component_localization_and_segmentation.webp",
+      "retrieved_at": "2026-10-05",
+      "usage": "Referencia de análisis visual. No asumir aprobación o licencia abierta para producción.",
+      "sha256": "9c754e3112cee7f6f46c38258cdb1264fd60146c5cd1581d4066c4b55e4afa45"
+    },
+    {
+      "id": "web-reference-vision-figure",
+      "path": "assets/communications/references/web-2026-10-05/vision-figure.svg",
+      "status": "reference",
+      "source_url": "https://aisvision.com/media/themes/aisvision-languages/assets/svg/figure__vision-artificial.svg",
+      "retrieved_at": "2026-10-05",
+      "usage": "Referencia de análisis visual. No asumir aprobación o licencia abierta para producción.",
+      "sha256": "d7790df9c6d3c6ac7fd68a64d42fe43b8ba472ce397d2cf3d9b00b95b5c04bd2"
+    },
+    {
+      "id": "web-reference-scanology-verification",
+      "path": "assets/communications/references/web-2026-10-05/scanology-verification.svg",
+      "status": "reference",
+      "source_url": "https://scanology.nl/wp-content/themes/aisvision-languages/assets/svg/figure__verificacion2.svg",
+      "retrieved_at": "2026-10-05",
+      "usage": "Referencia de análisis visual. No asumir aprobación o licencia abierta para producción.",
+      "sha256": "a708b2436f29c603b57c4a919335fad8443fabd206f878c9d33049fa16233b47"
+    },
+    {
+      "id": "web-reference-automation-inspection",
+      "path": "assets/communications/references/web-2026-10-05/automation-inspection.jpg",
+      "status": "reference",
+      "source_url": "https://www.aisautomation.ie/wp-content/uploads/2026/07/vision-inspection-solutions-scaled.jpg",
+      "retrieved_at": "2026-10-05",
+      "usage": "Referencia de análisis visual. No asumir aprobación o licencia abierta para producción.",
+      "sha256": "3aa870154f6ee450c494c924f1696bbb9d201984a3f36de53cfeca558a1f2f44"
+    },
+    {
+      "id": "communications-graphic-system-v03",
+      "path": "assets/communications/graphic-system-v0.3.json",
+      "version": "0.3",
+      "status": "draft",
+      "description": "Geometría, variantes, opacidad y reglas de los cuatro motivos.",
+      "source": "Dirección gráfica del apartado 3.4.",
+      "sha256": "28172e48361d46da0d3d5c75fb8aa7a085ffc1fe53ab05dd3168907c902eb2e5"
     }
   ],
   "manual": "docs/communications/manual-de-comunicaciones.md",
-  "manual_version": "0.2"
+  "manual_version": "0.3"
 }

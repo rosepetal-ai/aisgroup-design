@@ -4,7 +4,7 @@ Proyecto para homogeneizar la identidad y los materiales de marketing, comunicac
 
 Este README recoge el **índice de trabajo**. Cada apartado se desarrollará progresivamente.
 
-**Documentación disponible:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Manual de comunicaciones y aplicaciones v0.2](docs/communications/manual-de-comunicaciones.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
+**Documentación disponible:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Manual de comunicaciones y aplicaciones v0.3](docs/communications/manual-de-comunicaciones.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
 
 ## 1. Manual de marca
 
@@ -20,7 +20,7 @@ Este README recoge el **índice de trabajo**. Cada apartado se desarrollará pro
 
 ## 2. Manual de comunicaciones y aplicaciones
 
-**Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual. [Manual completo v0.2](docs/communications/manual-de-comunicaciones.md), con reglas, ejemplos y estado de las plantillas.
+**Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual. [Manual ampliado v0.3](docs/communications/manual-de-comunicaciones.md), con ejemplos por apartado, 23 nuevas láminas, ocho fondos y estado de las plantillas. La dirección gráfica se fundamenta en las webs actuales del grupo.
 
 - **2.1. Voz y mensajes:** tono, estilo de redacción, nomenclatura y adaptación por público y canal.
 - **2.2. Paleta de comunicación:** colores auxiliares, combinaciones, fondos, acentos y contraste.

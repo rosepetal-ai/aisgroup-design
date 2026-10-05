@@ -1,0 +1,81 @@
+{
+  "version": "0.3",
+  "status": "draft",
+  "concept": "De la captura a la acción",
+  "module_px": 8,
+  "reference_canvas": [
+    1600,
+    900
+  ],
+  "foreground_safe_area": {
+    "x": 96,
+    "y": 96,
+    "width": 704,
+    "height": 708
+  },
+  "decoration_starts_x": 960,
+  "motifs": [
+    {
+      "id": "capture-frame",
+      "function": "enfocar",
+      "default_opacity": 0.12,
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.3/capture-frame-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.3/capture-frame-dark.svg"
+      }
+    },
+    {
+      "id": "sampling-grid",
+      "function": "medir",
+      "default_opacity": 0.08,
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.3/sampling-grid-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.3/sampling-grid-dark.svg"
+      }
+    },
+    {
+      "id": "process-path",
+      "function": "conectar",
+      "default_opacity": 0.12,
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.3/process-path-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.3/process-path-dark.svg"
+      }
+    },
+    {
+      "id": "trace-bands",
+      "function": "identificar",
+      "default_opacity": 0.12,
+      "variants": {
+        "light": "assets/communications/backgrounds/draft/v0.3/trace-bands-light.svg",
+        "dark": "assets/communications/backgrounds/draft/v0.3/trace-bands-dark.svg"
+      }
+    }
+  ],
+  "colors": {
+    "on_light": "#17356E",
+    "on_dark": "#FFFFFF"
+  },
+  "rules": {
+    "one_dominant_motif": true,
+    "not_a_logo": true,
+    "not_a_measurement": true,
+    "not_a_scannable_code": true,
+    "minimum_final_informative_stroke_px": 1,
+    "decorative_layers_accessibility": "aria-hidden=true; pointer-events=none",
+    "proportional_scaling": true,
+    "reduced_motion": "static-final-state"
+  },
+  "optional_digital_field": {
+    "css": "linear-gradient(135deg, #112750 0%, #17356E 70%, #112750 100%)",
+    "one_ink_fallback": "#17356E",
+    "allowed": "large digital communication backgrounds only",
+    "not_allowed": [
+      "logos",
+      "text",
+      "buttons",
+      "icons"
+    ]
+  },
+  "manual": "docs/communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos"
+}

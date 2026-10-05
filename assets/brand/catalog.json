@@ -244,6 +244,15 @@
       "description": "Único color corporativo y reproducción a una tinta azul.",
       "source": "Color principal documentado en el Manual de marca.",
       "sha256": "ae96ee4babe6af27ab468d3129f2e25cb3121312cd38afb35a451395025c1e65"
+    },
+    {
+      "id": "primary-blue-print-v01",
+      "path": "assets/brand/print/primary-blue-v0.1.json",
+      "version": "0.1",
+      "status": "draft",
+      "description": "PANTONE 534 C y receta CMYK 100/82/36/25 como propuesta de impresión provisional.",
+      "source": "Decisión de diseño del proyecto del 5 de octubre de 2026; pendiente de muestra y prueba.",
+      "sha256": "dddee0bbf313072682f51a3971d4102590c3a0bd66f8e5bbb3e896ced7445d08"
     }
   ],
   "communications_catalog": "assets/communications/catalog.json"
