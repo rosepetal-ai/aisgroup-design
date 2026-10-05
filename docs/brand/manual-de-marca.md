@@ -40,10 +40,21 @@ Estas denominaciones son de comunicación; no sustituyen los nombres legales de 
 
 ### 1.1. Reglas de escritura
 
-- Escribir **AIS** en mayúsculas, también cuando el dibujo del logotipo pueda sugerir «AiS».
-- Escribir **Rosepetal** con mayúscula inicial en texto. La minúscula del logotipo pertenece al dibujo y se conserva.
-- Mantener «Vision Systems», «Vision Automation» y «Scanology» en sus nombres comerciales; no traducirlos dentro de la marca.
-- Utilizar el nombre completo en la primera mención y en comunicaciones externas donde pueda existir ambigüedad.
+Los nombres se escriben exactamente como aparecen en la columna «Correcto», respetando mayúsculas, minúsculas y espacios. Esta grafía se mantiene en textos, títulos, menús, asuntos de correo y materiales comerciales, también cuando el estilo del resto del texto utilice mayúsculas.
+
+| Correcto | Incorrecto |
+| --- | --- |
+| **AIS Group** | Ais Group, AiS Group, AIS GROUP |
+| **AIS Vision Systems** | Ais Vision Systems, AiS Vision Systems, AIS vision systems, AIS VISION SYSTEMS |
+| **AIS Vision Automation** | Ais Vision Automation, AiS Vision Automation, AIS vision automation |
+| **AIS Scanology** | Ais Scanology, AiS Scanology, AIS scanology, AIS SCANOLOGY |
+| **Rosepetal** | RosePetal, Rose Petal, rosepetal, ROSEPETAL |
+
+- **AIS** es una sigla y se escribe siempre con sus tres letras en mayúsculas.
+- **Group**, **Vision**, **Systems**, **Automation** y **Scanology** llevan mayúscula inicial y el resto de letras en minúscula.
+- **Rosepetal** es una sola palabra: únicamente la **R** va en mayúscula. La **p** de «petal» siempre va en minúscula.
+- Mantener los nombres comerciales sin traducir y utilizar el nombre completo en la primera mención y cuando pueda existir ambigüedad.
+- **Los logotipos son originales gráficos:** conservan el dibujo suministrado, incluidas las minúsculas de Rosepetal y los descriptores en mayúsculas. Su tratamiento gráfico no cambia la grafía del nombre en texto. Las direcciones web y los identificadores técnicos conservan su escritura exacta.
 - **AISGroup Design** es el nombre del proyecto y del sistema de diseño. La firma corporativa continúa siendo **AIS Group**.
 
 ### 1.2. Firma y pertenencia al grupo
