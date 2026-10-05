@@ -1,0 +1,298 @@
+{
+  "catalog_version": "0.1",
+  "status": "draft",
+  "brand_primary": "#17356E",
+  "assets": [
+    {
+      "id": "ais-group-blue-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-group-blue.svg",
+      "brand": "ais-group",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-group-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "d0dbf6c96d0eaceb2fd3115556c235767908dd5bff54421e68824e4d82deabec"
+    },
+    {
+      "id": "ais-group-white-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-group-white.svg",
+      "brand": "ais-group",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-group-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "4e78a82cac4c5c498c29732f26e4dafe14488c0df245bfbb6257de937d22f0cc"
+    },
+    {
+      "id": "ais-group-black-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-group-black.svg",
+      "brand": "ais-group",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-group-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "a1286bdcdf1b34eacd187eaaa59db761e5aecd35bd7f0be83a507ce455640b75"
+    },
+    {
+      "id": "ais-group-source-20261005",
+      "path": "assets/brand/logos/source/ais-group-web-2026-10-05.svg",
+      "brand": "ais-group",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/logo/ais-group-light.svg",
+      "retrieved_at": "2026-10-05",
+      "sha256": "fae9f33819298a77b17cfe9b829581399e565359df4e2dc3f64c92cfffcb7002"
+    },
+    {
+      "id": "ais-vision-systems-blue-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-systems-blue.svg",
+      "brand": "ais-vision-systems",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-systems-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "8d13ee336981dffc9ed3cd421edcafc8e0287aedaddb0e43578c6ad45bfceed2"
+    },
+    {
+      "id": "ais-vision-systems-white-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-systems-white.svg",
+      "brand": "ais-vision-systems",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-systems-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "e8fc9e8759d0432096c79445ffb7fd4bbb7e04e1d0e0bf3fd6d4731d7e43a8db"
+    },
+    {
+      "id": "ais-vision-systems-black-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-systems-black.svg",
+      "brand": "ais-vision-systems",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-systems-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "fdffa51c1cb88f43abb5eeedd3a91c74f6631feb31c37f64a09a598a72402303"
+    },
+    {
+      "id": "ais-vision-systems-source-20261005",
+      "path": "assets/brand/logos/source/ais-vision-systems-web-2026-10-05.svg",
+      "brand": "ais-vision-systems",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/logo/companies/ais-vision-systems-light.svg",
+      "retrieved_at": "2026-10-05",
+      "sha256": "e05726337d52132d816153d20926536aa527fa2bc31b6eadc632c7993d187d88"
+    },
+    {
+      "id": "ais-vision-automation-blue-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-automation-blue.svg",
+      "brand": "ais-vision-automation",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-automation-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "b021fc6def90d8c415023971ad6b72c2a7a8fb820ef1d08086e108fe18e82c7e"
+    },
+    {
+      "id": "ais-vision-automation-white-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-automation-white.svg",
+      "brand": "ais-vision-automation",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-automation-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "99085e5640de4cc8af380543c2d34991961bbf6f742a58a323e426219a587177"
+    },
+    {
+      "id": "ais-vision-automation-black-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-vision-automation-black.svg",
+      "brand": "ais-vision-automation",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-vision-automation-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "e082774a6cfd0129c8cf33877400f6e48ae9a81dfce15408a990cdd2f533c5d8"
+    },
+    {
+      "id": "ais-vision-automation-source-20261005",
+      "path": "assets/brand/logos/source/ais-vision-automation-web-2026-10-05.svg",
+      "brand": "ais-vision-automation",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/logo/companies/ais-vision-automation-light.svg",
+      "retrieved_at": "2026-10-05",
+      "sha256": "93176d647e66343abc7b4b749dbee821f9b2d6119a7372a009a09e28a233e59d"
+    },
+    {
+      "id": "ais-scanology-blue-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-scanology-blue.svg",
+      "brand": "ais-scanology",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-scanology-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "eec42984ef43a967815efea02a85e374b9707641a7cdeff5282eb692283adb3c"
+    },
+    {
+      "id": "ais-scanology-white-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-scanology-white.svg",
+      "brand": "ais-scanology",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-scanology-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "a2f474bc269a199ac3eead990b5d4a84879c6334fb16522e835471c325b786e1"
+    },
+    {
+      "id": "ais-scanology-black-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/ais-scanology-black.svg",
+      "brand": "ais-scanology",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/ais-scanology-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "1ce917cf12200b9ca5f2652f17efe730698f65d11ff7e92974638b7c8efa883c"
+    },
+    {
+      "id": "ais-scanology-source-20261005",
+      "path": "assets/brand/logos/source/ais-scanology-web-2026-10-05.svg",
+      "brand": "ais-scanology",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/logo/companies/ais-scanology-light.svg",
+      "retrieved_at": "2026-10-05",
+      "sha256": "0a6ff26f755ac05972c305759041ad4fb2f92e767f45e8dc8bf6561be7dffa64"
+    },
+    {
+      "id": "rosepetal-blue-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/rosepetal-blue.svg",
+      "brand": "rosepetal",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/rosepetal-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "c7e497065931bf1d19448d0d0bff9d53f7a3fa1e5fdbf66155afc00644cd5590"
+    },
+    {
+      "id": "rosepetal-white-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/rosepetal-white.svg",
+      "brand": "rosepetal",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/rosepetal-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "82007b439547c91569225590491abddaa1e27edb5c30928f10ae6ad81a0db442"
+    },
+    {
+      "id": "rosepetal-black-v0.1",
+      "path": "assets/brand/logos/draft/v0.1/rosepetal-black.svg",
+      "brand": "rosepetal",
+      "version": "0.1",
+      "status": "draft",
+      "source": "assets/brand/logos/source/rosepetal-web-2026-10-05.svg",
+      "transformation": "Monocromo; geometría y composición conservadas. En Automation, extracción de contornos vectoriales de las máscaras del SVG original.",
+      "sha256": "d2b7725660775cba7b712487d74da61e08e9309f7cef3152b7e0cbc118c03a74"
+    },
+    {
+      "id": "rosepetal-source-20261005",
+      "path": "assets/brand/logos/source/rosepetal-web-2026-10-05.svg",
+      "brand": "rosepetal",
+      "status": "reference",
+      "source_url": "https://aisgroup.ai/assets/logo/companies/rosepetal-light.svg",
+      "retrieved_at": "2026-10-05",
+      "sha256": "dbe5a2df561e44e56b205cfe5f72eba9ad6f7bb2177346204622b51364edf72b"
+    },
+    {
+      "id": "01-cover",
+      "path": "assets/brand/figures/v0.1/01-cover.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "AISGroup Design — manual de marca v0.1",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "d9e688b06bc1492a308feb17f83c480700c0dd94caf5809dc43d87fe9d4ca1d4"
+    },
+    {
+      "id": "02-brand-family",
+      "path": "assets/brand/figures/v0.1/02-brand-family.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Variantes en azul y blanco de las cinco marcas del grupo",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "e9a1c138eb5100a08cfabbf18d6749908d01ed120688065688d3c065c48227ec"
+    },
+    {
+      "id": "03-palette",
+      "path": "assets/brand/figures/v0.1/03-palette.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Paleta propuesta y funciones de color",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "b755a15ce24e2d07793ec1ab1320f93580b7db52e9d4583bae5fc886e07767c7"
+    },
+    {
+      "id": "04-logo-variants",
+      "path": "assets/brand/figures/v0.1/04-logo-variants.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Logotipos sobre fondos claros, azules y en una tinta",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "d7ce2eba71f44b671e4defec0db0059b486186ad35f03d0ed3d44b5e71965f74"
+    },
+    {
+      "id": "05-clear-space",
+      "path": "assets/brand/figures/v0.1/05-clear-space.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Diagrama orientativo de área de protección de logotipos",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "c077286de82c95be9012ce05d8b69f2728a9c8958eeceff27bbeaf83ed3d4c1a"
+    },
+    {
+      "id": "06-typography",
+      "path": "assets/brand/figures/v0.1/06-typography.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Muestra de Rubik en pesos 400, 500 y 600",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "7d0ed48365302a4cc9ea8a553ac9c2d258a69bc2e7e148e4a24fd1dfa300890a"
+    },
+    {
+      "id": "07-incorrect-uses",
+      "path": "assets/brand/figures/v0.1/07-incorrect-uses.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Ejemplos visuales de usos incorrectos de marca",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "6c57f8d2b8e4825a1b99d6f3e8e26ecb88d0b1587ee2115e8f41cb0aedc0cc68"
+    },
+    {
+      "id": "08-application",
+      "path": "assets/brand/figures/v0.1/08-application.svg",
+      "status": "illustration",
+      "version": "0.1",
+      "description": "Ejemplo de coherencia visual entre AIS Vision Systems y Rosepetal",
+      "source": "Composición SVG original del manual; logos derivados de fuentes registradas.",
+      "sha256": "438f847293b629e5c9b4cb0ed75c88e40736fa3628f6a40db2f252c22ad7b4ba"
+    },
+    {
+      "id": "brand-v0.1",
+      "path": "assets/brand/palette/brand-v0.1.css",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Valores propuestos y documentados en el manual v0.1.",
+      "sha256": "e100d58c148050e7629f9ee88c8fe182fc81bd001f70e44bd658933deddd8bff"
+    },
+    {
+      "id": "brand-v0.1.tokens",
+      "path": "assets/brand/palette/brand-v0.1.tokens.json",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Valores propuestos y documentados en el manual v0.1.",
+      "sha256": "9e98f53946794627b77f5e8712110fd689467844e3ebba0a66fad2661ffd7bf8"
+    },
+    {
+      "id": "contrast-v0.1",
+      "path": "assets/brand/palette/contrast-v0.1.json",
+      "status": "draft",
+      "version": "0.1",
+      "source": "Valores propuestos y documentados en el manual v0.1.",
+      "sha256": "4363942b16b01b7e223fde107d741a6e0ee68559e1b41a15006d5929e294c89a"
+    }
+  ]
+}

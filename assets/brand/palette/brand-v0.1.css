@@ -1,0 +1,14 @@
+/* AISGroup Design v0.1 — propuesta. Derivado del núcleo DTCG. */
+:root {
+  --ais-color-primary: #17356E;
+  --ais-color-deep: #112750;
+  --ais-color-accent: #00A0DE;
+  --ais-color-tint: #D2DFF0;
+  --ais-color-surface: #F4F7FB;
+  --ais-color-ink: #0F172A;
+  --ais-color-muted: #526277;
+  --ais-color-line: #C7D2E2;
+  --ais-color-white: #FFFFFF;
+  --ais-color-black: #000000;
+  --ais-font-primary: "Rubik", Arial, sans-serif;
+}

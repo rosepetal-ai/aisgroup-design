@@ -4,6 +4,8 @@ Proyecto para homogeneizar la identidad y los materiales de marketing, comunicac
 
 Este README recoge el **índice de trabajo**. Cada apartado se desarrollará progresivamente.
 
+**Primera entrega:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
+
 ## 1. Manual de marca
 
 **Horizonte: largo plazo.** Define los elementos estables de la identidad y sus reglas de uso.
@@ -67,3 +69,4 @@ Este README recoge el **índice de trabajo**. Cada apartado se desarrollará pro
 4. Desarrollar los fundamentos y componentes del Design System.
 5. Construir la plataforma Web + MCP y publicar el catálogo disponible.
 6. Completar el manual de marca y ampliar el catálogo progresivamente.
+
