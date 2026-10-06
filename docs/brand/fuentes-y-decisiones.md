@@ -62,7 +62,7 @@ En AIS Vision Automation, el SVG contiene degradados rasterizados bajo máscaras
 | B05 | Separar respaldo de grupo y descriptor | Legibilidad y problemas señalados en D03 | Propuesta; cambia el criterio anterior |
 | B06 | Área libre de H/4 y tamaños mínimos iniciales | Regla operativa nueva | Provisional; validar en soportes |
 | B07 | Estudiar cian y azul claro como apoyo en el Manual de comunicaciones | `#00A0DE` de D01 y `#D2DFF0` de D02 | Propuesta de comunicaciones; fuera de la definición de color de marca |
-| B08 | Desarrollar los fondos en comunicaciones y mantener pendientes las variantes compactas | Separación de subproyectos | Fondos propuestos en comunicaciones v0.2; variantes compactas pendientes |
+| B08 | Desarrollar los fondos en comunicaciones y mantener pendientes las variantes compactas | Separación de subproyectos | Fondos sustituidos por el sistema hexagonal de comunicaciones v0.4; variantes compactas pendientes |
 | B09 | Reservar el Manual de marca al color principal; trasladar la paleta auxiliar al Manual de comunicaciones | Instrucción del proyecto de 5 de octubre de 2026 | Organización confirmada |
 
 La revisión del 5 de octubre de 2026 retira las variantes negras del catálogo activo y corrige la lámina de una tinta. Los originales web y la documentación histórica se conservan como antecedentes; no establecen las reglas de reproducción actuales. La paleta auxiliar y su ejemplo de aplicación pasan al [Manual de comunicaciones](../communications/manual-de-comunicaciones.md).
@@ -74,3 +74,17 @@ El Manual de comunicaciones v0.2 desarrolla el índice completo y propone retíc
 - [DTCG Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/). Los tokens de color utilizan `$type`, `$value`, `colorSpace` y componentes sRGB normalizados.
 - [WCAG 2.2, contraste mínimo](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Los ratios del manual se calculan para colores opacos, sin mezclas ni transparencias.
 - [Rubik en Google Fonts](https://fonts.google.com/specimen/Rubik). La muestra tipográfica del manual utiliza Rubik en pesos 400, 500 y 600 convertida a contornos en la ilustración. Los binarios de la fuente no se redistribuyen en esta entrega.
+
+## 6. Ampliación de comunicaciones e impresión (v0.3)
+
+La instrucción del proyecto incorpora ejemplos en todos los apartados, desarrolla especialmente elementos, tramas y fondos, y solicita una referencia Pantone/CMYK para revisar en muestrario. Se añaden 23 láminas, ocho fondos y un [registro de referencias visuales](../communications/referencias-visuales-v0.3.md). La nueva dirección «De la captura a la acción» deriva cuatro familias funcionales de la actividad del grupo y de sus webs.
+
+Se propone PANTONE 534 C y la receta CMYK 100/82/36/25 como referencias iniciales de impresión, sin equivalencia exacta garantizada ni atribución de la receta a Pantone. Perfil, papel y prueba física quedan pendientes. El HEX #17356E permanece intacto. Esta decisión sustituye la ausencia de propuesta de impresión en la primera v0.1; no introduce un segundo color principal.
+
+Las reglas de nombres, de una tinta azul y de logos planos permanecen vigentes. El campo tonal azul se permite exclusivamente como fondo digital de comunicación, según las condiciones de v0.3.
+
+## 7. Revisión hexagonal de comunicaciones (v0.4)
+
+La instrucción posterior del proyecto recupera la trama de hexágonos de AIS Vision Systems y solicita explorar relieve y 3D. Sustituye el criterio de D03 y de comunicaciones v0.3 que retiraba esa geometría. El nuevo sistema «Del plano al volumen» consta de trama, relieve y prisma; añade ocho fondos y nueve láminas originales. Los fondos v0.3 y su definición se retiran del uso nuevo y conservan trazabilidad.
+
+El [registro v0.4](../communications/referencias-visuales-v0.4.md) identifica las referencias de Internet y las decisiones propias. La forma de los logos, los nombres AIS Vision Systems / AIS Scanology / Rosepetal y el azul digital permanecen intactos. La propuesta PANTONE 534 C y CMYK 100/82/36/25 continúa pendiente de muestrario y prueba de impresión.

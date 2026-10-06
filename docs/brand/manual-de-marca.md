@@ -102,7 +102,7 @@ Se conservan, por ahora, el detalle de la «I» de AIS, el símbolo de la «o» 
 
 Los archivos se encuentran en [`assets/brand/logos/draft/v0.1/`](../../assets/brand/logos/draft/v0.1/). El estado **draft** indica que forman parte de esta propuesta. Las variantes blancas tienen fondo transparente; una vista previa sobre blanco puede parecer vacía.
 
-**Regla propuesta:** color plano en todo el logotipo, incluido su descriptor. Los degradados, brillos, sombras y efectos tridimensionales quedan fuera de las nuevas aplicaciones de identidad.
+**Regla propuesta:** color plano en todo el logotipo, incluido su descriptor. Los degradados, brillos, sombras y efectos tridimensionales no se aplican al logotipo. Los fondos e ilustraciones de comunicación pueden incorporar el relieve y el volumen definidos en el apartado 3.4 del Manual de comunicaciones.
 
 ### 3.3. Descriptor, respaldo y eslogan
 
@@ -162,9 +162,21 @@ La combinación del azul principal con blanco ofrece un contraste de **11,86:1**
 
 ### 4.4. Impresión
 
-El HEX y el sRGB son la referencia digital. **No se asigna todavía una equivalencia Pantone ni CMYK definitiva al azul principal.** Deben acordarse mediante perfil de impresión, papel y prueba física.
+Se define una **propuesta provisional para revisar en muestrario**, asociada al único azul principal de marca:
 
-Para impresión a una tinta, especificar una tinta azul ajustada al color principal y validada mediante prueba física. Las equivalencias Pantone históricas del documento AIS no se trasladan automáticamente a `#17356E`, y la falta de una equivalencia definitiva no autoriza a sustituirlo por negro.
+| Sistema | Referencia | Estado |
+| --- | --- | --- |
+| Digital | **HEX #17356E · sRGB 23 / 53 / 110** | Definición digital conservada |
+| Tinta directa | **PANTONE 534 C** | Candidato inicial sobre papel estucado |
+| Cuatricromía | **C 100 % · M 82 % · Y 36 % · K 25 %** | Receta de trabajo propuesta; pendiente de prueba y perfil de salida |
+
+El Pantone es una selección inicial de diseño; el CMYK es una receta provisional del proyecto. **No se afirma una equivalencia exacta entre los tres sistemas ni que el CMYK sea una fórmula oficial de Pantone.** La referencia digital no se cambia por el RGB de una biblioteca externa. Se ajustarán tinta y cuatricromía al revisar el muestrario y una prueba en el papel previsto.
+
+En una tinta, el logo se imprime **al 100 % de la tinta azul**, usando PANTONE 534 C como candidato para la prueba. Para papel no estucado se elegirá una referencia apropiada tras comparar muestras; no se sustituye automáticamente el sufijo C por U. El negro sigue sin ser una variante monocroma de marca; el K de una mezcla CMYK forma parte de la cuatricromía azul.
+
+El [Manual de comunicaciones, apartado 2.4](../communications/manual-de-comunicaciones.md#24-impresión-y-una-tinta) detalla la aplicación. Los valores y su estado se registran en [primary-blue-v0.1.json](../../assets/brand/print/primary-blue-v0.1.json). La [ficha de Pantone 534 C](https://www.pantone.com/color-finder/534-c) identifica el candidato; la prueba física determina su aceptación.
+
+![Referencia digital, Pantone y CMYK provisional del azul principal](../../assets/communications/figures/v0.3/23-print-reference.svg)
 
 ## 5. Tipografía
 
@@ -213,7 +225,7 @@ Las imágenes generadas pueden servir como ilustración conceptual, identificada
 
 Usar iconos de una misma familia y un grosor consistente. En diagramas, conservar el significado de flechas, colores y etiquetas; la marca no debe ocultar la información.
 
-El documento de rebranding propone sustituir las tramas de hexágonos. En esta primera versión se priorizan fondos planos y bloques de color. El [Manual de comunicaciones v0.2](../communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos) desarrolla los motivos de apoyo y las reglas de animación como propuestas de aplicación, con su estado registrado en el catálogo.
+La dirección actual recupera el **hexágono de AIS Vision Systems** como elemento de comunicación. El [Manual de comunicaciones v0.4](../communications/manual-de-comunicaciones.md#34-elementos-tramas-y-fondos) desarrolla una misma geometría como trama, relieve y prisma, con ejemplos y reglas de composición. Esta decisión sustituye la propuesta anterior de eliminar los hexágonos. Los logotipos conservan sus formas planas y su zona de protección; el volumen pertenece al fondo o a la ilustración.
 
 ## 7. Usos correctos y prohibidos
 
@@ -276,7 +288,7 @@ Las decisiones visuales pendientes se señalan como propuestas. La ausencia de u
 
 ### 10.1. Qué fija esta propuesta
 
-- Azul común `#17356E`; paleta auxiliar documentada en el Manual de comunicaciones.
+- Azul común `#17356E`; candidato impreso PANTONE 534 C y CMYK 100/82/36/25 pendientes de prueba. Paleta auxiliar documentada en el Manual de comunicaciones.
 - Variantes planas azul y blanca en negativo para las cinco marcas; reproducción a una tinta en azul principal.
 - Conservación de formas, descriptores y nombres actuales.
 - Rubik como familia corporativa propuesta y criterios de transición.
@@ -291,7 +303,7 @@ Las decisiones visuales pendientes se señalan como propuestas. La ausencia de u
 | Relación de tamaños entre AIS y los descriptores | Pruebas de lectura, especialmente Vision Automation |
 | Respaldo «Part of AIS Group» separado | Confirmación de la nueva regla frente a las guidelines anteriores |
 | Tamaños mínimos y variantes compactas | Validación en pantalla, impresión y soportes especiales |
-| Color impreso | Perfil, papel, prueba física y equivalencias finales |
+| Color impreso | Revisar PANTONE 534 C y CMYK 100/82/36/25 en muestrario y prueba; fijar perfil, papel y valores finales |
 | Fuentes y recursos de producción | Originales definitivos, licencias y aprobación registrada |
 
 Tras validar la propuesta, migrar primero los materiales nuevos y los de uso frecuente. Los materiales históricos mantienen trazabilidad; se actualizan al reutilizarlos. Los agentes y equipos deben trabajar con una versión identificada para evitar mezclar reglas antiguas y nuevas.
