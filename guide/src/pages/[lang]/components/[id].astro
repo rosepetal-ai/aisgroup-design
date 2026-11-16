@@ -42,7 +42,7 @@ const t = ui[lang];
     // Runs again after every page change (client router): its own scope, and its listener leaves with the page.
     (() => { const page = new AbortController(); document.addEventListener('astro:before-swap', () => page.abort(), { once: true });
     // Each preview reports its height; the frame takes it, so a preview never scrolls inside the page.
-    // The switch shows every preview in light or dark; a preview that loads later gets the theme when it first reports.
+    // The switch shows every preview in light or dark; a preview that loads later gets the theme on load and when it first reports.
     let theme = 'light';
     try { theme = localStorage.getItem('guide-preview-theme') === 'dark' ? 'dark' : 'light'; } catch {}
     const buttons = document.querySelectorAll('.theme-switch button');
@@ -53,6 +53,7 @@ const t = ui[lang];
       try { localStorage.setItem('guide-preview-theme', theme); } catch {}
     };
     buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.theme)));
+    document.querySelectorAll('iframe.preview').forEach((f) => f.addEventListener('load', () => f.contentWindow?.postMessage({ theme }, '*'), { signal: page.signal }));
     show(theme);
     addEventListener('message', (m) => { if (!m.data?.preview) return;
       m.source?.postMessage({ theme }, '*');
