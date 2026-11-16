@@ -1,73 +1,100 @@
-# AISGroup Design
+# AIS Group design system
 
-Proyecto para homogeneizar la identidad y los materiales de marketing, comunicación, ventas y diseño digital de la empresa, facilitando su creación tanto por personas como por agentes de IA.
+Everything the AIS Group brands share in design, in one repo: the brand guide, the product components, their playground, the Claude Code plugin and the hosted MCP.
 
-Este README recoge el **índice de trabajo**. Cada apartado se desarrollará progresivamente.
+| Folder | What it is |
+| --- | --- |
+| [`guide/`](guide/) | The brand guide (Astro), in English, Spanish and Catalan: brand, design language, communications, websites and the product design system. Deployed to Firebase Hosting as design.aisgroup.ai. |
+| [`packages/design/`](packages/design/) | `@rosepetal/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). What every Rosepetal app installs. |
+| [`packages/web/`](packages/web/) | `@aisgroup/web`: the websites' Astro components, examples and tokens (`styles.css`: brand.css, the web roles and each brand's settings). What the three company websites use. |
+| [`playground/`](playground/) | The playground to try the package's components and change their variables (Vite). |
+| [`plugin/`](plugin/) | The Claude Code plugin: the guide as skills, and the studio MCP that makes on-brand posts, brochures, datasheets and decks. |
+| [`hosted/`](hosted/) | The hosted, read-only MCP (`design.aisgroup.ai/mcp`): the guide, tokens, components and assets for developers and claude.ai. A Firebase function, published with the guide. |
+| [`library/`](library/) | The curated media library: the photo masters under clean names and `library.json` (every entry, with logos and icons pointing at the guide's official files). Imported with `node scripts/import-library.mjs`; served by both MCPs, not by the public guide. |
+| `.claude-plugin/marketplace.json` | The plugin marketplace: installs `./plugin`. | |
 
-**Documentación disponible:** [Manual de marca v0.1 con imágenes](docs/brand/manual-de-marca.md) · [Manual de comunicaciones y aplicaciones v0.2](docs/communications/manual-de-comunicaciones.md) · [Recursos](assets/README.md) · [Fuentes y decisiones](docs/brand/fuentes-y-decisiones.md). Propuesta de azul común **#17356E**; pendiente de validación final.
+How the parts feed each other: [`plugin/docs/HOW-IT-WORKS.md`](plugin/docs/HOW-IT-WORKS.md). How to work here: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## 1. Manual de marca
+## Get started
 
-**Horizonte: largo plazo.** Define los elementos estables de la identidad y sus reglas de uso.
+Requires Node 22 (and npm 10). npm workspaces: one `npm ci` at the root installs everything.
 
-- **1.1. Arquitectura de marcas:** relación entre grupo, marcas y productos; firmas y convivencia entre identidades.
-- **1.2. Fundamentos de marca:** posicionamiento, personalidad y principios de identidad.
-- **1.3. Logotipos:** originales, variantes, proporciones, áreas de protección y tamaños mínimos.
-- **1.4. Color principal:** azul corporativo, especificaciones para pantalla e impresión y reproducción a una tinta en ese mismo azul.
-- **1.5. Tipografía:** familias, jerarquías y alternativas autorizadas.
-- **1.6. Criterios visuales:** dirección de fotografía, ilustración e iconografía.
-- **1.7. Usos correctos y prohibidos:** ejemplos, restricciones y aplicaciones con otras marcas.
+```bash
+git clone https://github.com/rosepetal-ai/aisgroup-design.git
+cd aisgroup-design
+npm ci
+npm run build        # the guide, the playground and the hosted MCP's snapshot of the guide
+npm test             # tokens contract, package typecheck, plugin and hosted MCP tests, components and website contracts
+```
 
-## 2. Manual de comunicaciones y aplicaciones
+| Command | What it does |
+| --- | --- |
+| `npm run dev:guide` | The guide at http://localhost:4321 |
+| `npm run dev:playground` | The playground at http://localhost:5173 (a component at `/#<id>`) |
+| `npm run build` | `guide/dist`, `playground/dist` and `hosted/data` |
+| `npm test` | `scripts/check-tokens.mjs`, the package's `vue-tsc`, `plugin` and `hosted` tests, `scripts/check-components.mjs` and `scripts/check-web.mjs` (build first: they read `hosted/data` and `guide/dist`) |
+| `npm run sync:sites` | Copies `@aisgroup/web` into the three websites next to this repo (`src/vendor/@aisgroup/web/`, with its fingerprint in their `package.json`) |
+| `npm run sync:plugin` | Copies the built guide's skills, logos, tokens and registry, and `library/`, into `plugin/` (commit the result) |
+| `npm run deploy:guide` | Builds and deploys the guide to Firebase (see Release) |
+| `npm run <script> -w <folder>` | Any script of one part, e.g. `npm run typecheck -w @rosepetal/design`, `npm run setup -w plugin` |
 
-**Horizonte: corto y medio plazo.** Traduce la identidad en recursos y plantillas para la producción habitual. [Manual completo v0.2](docs/communications/manual-de-comunicaciones.md), con reglas, ejemplos y estado de las plantillas.
+CI (`.github/workflows/ci.yml`) runs `npm ci`, `npm run build`, `npm test` and the plugin drift check on Node 22 for every push and pull request. It uses no secrets and deploys nothing.
 
-- **2.1. Voz y mensajes:** tono, estilo de redacción, nomenclatura y adaptación por público y canal.
-- **2.2. Paleta de comunicación:** colores auxiliares, combinaciones, fondos, acentos y contraste.
-- **2.3. Lenguaje gráfico:** composición, retículas, formas, tramas, fondos y tratamiento de imágenes.
-- **2.4. Papelería y documentos:** hojas corporativas, firmas, informes y documentación de empresa.
-- **2.5. Material comercial:** presentaciones, propuestas, brochures, fichas de producto y casos de éxito.
-- **2.6. Campañas y comunicación digital:** banners, publicaciones, carruseles, mailing y newsletters.
-- **2.7. Infografías y visualización:** cabeceras, pies, bloques de información, gráficos, diagramas y anotaciones.
-- **2.8. Animaciones y audiovisual:** aperturas, cierres, rótulos, transiciones y fondos.
-- **2.9. Experiencias interactivas:** cabeceras, pies, menús y controles para demos, infografías y animaciones; coordinación con el Design System.
-- **2.10. Plantillas y formatos de entrega:** originales editables, variantes por soporte y criterios de exportación.
+### What each part needs
 
-## 3. Design System digital
+- **The guide** builds with plain `astro build` and needs nothing outside the repo. Its component pages, its shadcn-vue registry (`/r/<name>.json`), its agents' index (`/components.md`) and `/downloads/ais-theme.css` read `packages/design` through the workspace: there is no copy of the components in the guide.
+- **The package** ships as source; apps compile it with Vite. Its README has the set-up for an app.
+- **The playground** reads `../packages/design`. Its Assets page reads `playground/rp-assets/`, which is not versioned: see [`playground/README.md`](playground/README.md).
+- **The plugin's studio** renders with Chromium and Python (`npm run setup -w plugin`, once per computer). Its pictures come from the media library, downloaded on demand from the private media bucket (see below).
+- **The hosted MCP** serves only `hosted/data/`, a snapshot of the built guide and of `library/` (`npm run build -w hosted`).
 
-**Horizonte: medio plazo y evolución continua.** Organiza los fundamentos, componentes y patrones compartidos de webs e interfaces.
+### Tokens contract
 
-- **3.1. Fundamentos y tokens:** color, tipografía, espaciado, tamaños, bordes, sombras y movimiento.
-- **3.2. Componentes:** botones, campos, selectores, tarjetas, tablas, mensajes y diálogos.
-- **3.3. Navegación y estructura:** headers, footers, menús, barras laterales y breadcrumbs.
-- **3.4. Bloques y composiciones:** secciones comerciales, bloques de contenido y módulos de aplicación.
-- **3.5. Plantillas de página:** landings, páginas de producto, listados, detalles y paneles.
-- **3.6. Comportamiento y accesibilidad:** estados, interacción, diseño responsive, legibilidad y navegación por teclado.
-- **3.7. Implementaciones tecnológicas:** adaptación de un mismo sistema a los stacks utilizados.
-  - Tailwind CSS.
-  - Vuetify.
-  - PrimeVue + Tailwind.
-  - shadcn-vue + Reka UI + Tailwind.
-- **3.8. Documentación y ejemplos:** catálogo de componentes, aplicaciones de referencia y criterios de uso.
+The products take their tokens from `packages/design/styles.css`; the marketing tokens are the guide's `public/downloads/ais-tokens.css` and `ais-tokens.json`. The core values they share (the blue and neutral scales, the font, the status colours) must be the same: `npm test` fails if they drift (`scripts/check-tokens.mjs`). Change both in the same pull request.
 
-## 4. Recursos compartidos y trabajo con agentes
+## Release
 
-**Área transversal.** Facilita que todos los equipos y herramientas utilicen las mismas referencias. Se construirá una **plataforma Web + MCP**, alimentada por un catálogo común de reglas, tokens, recursos, plantillas y componentes.
+Deploys are manual, from an up-to-date `dev` (the default branch), after `npm ci && npm run build && npm test`.
 
-- **4.1. Biblioteca de recursos:** logos, fuentes, iconos, imágenes, fondos y plantillas aprobadas.
-- **4.2. Organización del proyecto:** estructura, nomenclatura y localización de archivos originales.
-- **4.3. Instrucciones para agentes:** contexto de marca, selección de recursos, reglas y límites de adaptación.
-- **4.4. Briefs reutilizables:** información necesaria para encargar cada tipo de material.
-- **4.5. Revisión y mantenimiento:** responsables, versiones, aprobación de novedades y retirada de recursos antiguos.
-- **4.6. Portal web:** consulta de manuales, ejemplos y componentes; búsqueda y descarga de recursos y plantillas.
-- **4.7. Acceso mediante MCP:** consulta y recuperación de contenido según la marca, tarea y tecnología; respuestas en **DTCG, Markdown, JSON, CSS, código y enlaces a recursos**, según lo que necesite el agente.
+### The guide (Firebase Hosting)
 
-## 5. Orden de trabajo
+Firebase project `aisgroup-design`, hosting site `aisgroup-design` (`guide/.firebaserc`, `guide/firebase.json`). You need access to the project and the Firebase CLI signed in (`npx firebase-tools login`).
 
-1. Recopilar los materiales existentes y confirmar las referencias vigentes.
-2. Fijar una base mínima de marca para atender las necesidades urgentes.
-3. Priorizar las plantillas de comunicación y comerciales de mayor uso.
-4. Desarrollar los fundamentos y componentes del Design System.
-5. Construir la plataforma Web + MCP y publicar el catálogo disponible.
-6. Completar el manual de marca y ampliar el catálogo progresivamente.
+```bash
+npm run deploy:guide        # astro build, then firebase deploy --only hosting:aisgroup-design
+```
 
+### The package (`@rosepetal/design`, Artifact Registry)
+
+A tag `vX.Y.Z` publishes that version: the workflow [`publish-design.yml`](.github/workflows/publish-design.yml) sets the version from the tag, checks the package has nothing of an app and publishes it to `private-node-packages` in Artifact Registry (repo secret `GCP_SA_KEY`).
+
+```bash
+git tag v0.1.0 && git push origin v0.1.0
+```
+
+Apps authenticate once with `npm_config_registry=https://registry.npmjs.org npx google-artifactregistry-auth` and install `@rosepetal/design` (see [`packages/design/README.md`](packages/design/README.md)).
+
+### The hosted MCP (a Firebase function)
+
+The MCP is the function `mcp` in [`hosted/`](hosted/), published with the guide from `guide/`: the hosting rewrites `/mcp` to it, so it answers at the guide's own address and its download links point at the guide's files. After `npm run build -w guide`:
+
+```bash
+cd guide && firebase deploy --only hosting:aisgroup-design,functions:mcp --project aisgroup-design
+```
+
+The functions predeploy step snapshots the built guide into `hosted/data` (`node ../hosted/build.mjs`). Publishing a function needs the project on the Blaze plan, the Firebase Admin role and the Service Account User role (`roles/iam.serviceAccountUser`); Firebase turns on the Google services it builds with on the first deploy. Limits, token and costs: [`hosted/README.md`](hosted/README.md).
+
+### The plugin
+
+Colleagues install it from this repo: `/plugin marketplace add rosepetal-ai/aisgroup-design`, then `/plugin install ais-group-design@ais-group-design`. A release is a merge to the default branch (bump `plugin/.claude-plugin/plugin.json`'s version when the skills or the studio change).
+
+## Media and the marketing kit
+
+The brand photos, renders and videos (`media/`) and the delivered marketing kit (`marketing-kit/`) are in the private Cloud Storage bucket `gs://aisgroup-design-assets`, not in git. Access: a Google account with «Storage Object Viewer» on the `aisgroup-design` project (to publish changes, «Storage Object Creator»), the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and `gcloud auth login`.
+
+| Command | What it does |
+| --- | --- |
+| (nothing) | The studio downloads each picture the first time a piece uses it |
+| `npm run media:pull` | A full local copy of the media library, for offline work and the media tests |
+| `npm run media:push -w plugin` | Publishes new or changed media (adds and updates, never deletes) |
+| `npm run kit:pull` / `npm run kit:push` | The marketing kit in `marketing-kit/`; then `npm run kit -w guide` refreshes the guide's kit pages |

@@ -1,0 +1,15 @@
+# Who reviews what: a pull request needs the owner of every folder it touches.
+
+# Root files and the repo's own config: both.
+*                   @sergio-rosepetal @luciamoyap
+/.github/           @sergio-rosepetal @luciamoyap
+
+# The product components and their playground.
+/packages/design/   @sergio-rosepetal
+/playground/        @sergio-rosepetal
+
+# The brand guide, the website components, the Claude Code plugin and the hosted MCP.
+/guide/             @luciamoyap
+/packages/web/      @luciamoyap
+/plugin/            @luciamoyap
+/hosted/            @luciamoyap
