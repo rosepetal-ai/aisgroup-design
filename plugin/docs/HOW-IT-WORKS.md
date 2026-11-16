@@ -46,9 +46,9 @@ It also writes `catalogue.json`, the list of assets. Each asset's usage rule is 
   - `/mcp`: MCP over streamable HTTP, stateless;
   - `/files/…`: the snapshot's files, only when run locally (as a function, download links point at the guide);
   - `/health`.
-- **Address:** it's a Firebase function behind the guide's address: Firebase Hosting rewrites `/mcp` to it (`guide/firebase.json`), and everything else, download files included, is the static site.
+- **Address:** it's a Firebase function behind the guide's address: Firebase Hosting rewrites `/mcp` to it (`firebase.json` at the repo root), and everything else, download files included, is the static site.
 - **Pictures and PDFs:** these are served by the guide site itself (Firebase), not by the MCP. `design_examples` returns their URLs.
-- **Status:** not deployed yet; the deploy needs the Service Account User role (see `hosted/README.md`, Deploy). There is an optional bearer token, `AIS_MCP_TOKEN`.
+- **Access:** a bearer token, the secret `AIS_MCP_TOKEN` (see `hosted/README.md`, Deploy and Connect).
 
 **Tools** (`hosted/download-tools.mjs`), one per kind of download:
 
