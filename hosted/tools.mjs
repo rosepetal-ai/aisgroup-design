@@ -110,7 +110,7 @@ function tokens(data, { format = 'css', group }) {
     for (const t of flat) { if (t.parts) o[t.path] = { fontFamily: t.parts.family, fontSize: t.parts.size, lineHeight: t.parts.leading, letterSpacing: t.parts.tracking, fontWeight: t.parts.weight }; else { o[t.path] = t.css; if (t.dark) o[t.path + '.dark'] = t.dark; } }
     return { format, text: `// ${header}\nexport const tokens = ${JSON.stringify(o, null, 1)};\n` };
   }
-  // Tailwind is theme.css, @rosepetal/design's styles.css, so a site or product gets the app's classes. Its comments stay in
+  // Tailwind is theme.css, @aisgroup/design's styles.css, so a site or product gets the app's classes. Its comments stay in
   // the file (/files/downloads/ais-theme.css): without them the answer fits the budget.
   if (format === 'tailwind') return { format, text: uncommented(data.theme) };
   const tw = false, lines = [];

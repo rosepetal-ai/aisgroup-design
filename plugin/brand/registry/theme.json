@@ -3,7 +3,7 @@
   "name": "theme",
   "type": "registry:file",
   "title": "Theme",
-  "description": "The tokens of every Rosepetal product: @rosepetal/design/styles.css (Tailwind v4).",
+  "description": "The tokens of every Rosepetal product: @aisgroup/design/styles.css (Tailwind v4).",
   "dependencies": [
     "tw-animate-css"
   ],
@@ -17,7 +17,7 @@
     }
   ],
   "meta": {
-    "package": "@rosepetal/design@0.0.0",
+    "package": "@aisgroup/design@0.0.0",
     "source": "rosepetal-ai/aisgroup-design@dev:packages/design/styles.css"
   }
 }

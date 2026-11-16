@@ -14,7 +14,7 @@ npm run build -w guide     # guide/dist/
 | --- | --- |
 | `src/content/guide/<lang>/` | The pages, in English, Spanish and Catalan. Each page's `rules` feed brand.md and the skills. |
 | `public/` | Logos, marketing tokens (`downloads/ais-tokens.css`, `downloads/ais-tokens.json`), fonts, icons, imagery, the kit. |
-| `src/design/` | How the guide reads `@rosepetal/design` (`../packages/design`, through the workspace): its catalogue, examples and source. The guide never keeps a copy of the package. |
+| `src/design/` | How the guide reads `@aisgroup/design` (`../packages/design`, through the workspace): its catalogue, examples and source. The guide never keeps a copy of the package. |
 | `src/pages/[lang]/components/[id].astro`, `src/pages/preview/` | One page per component and block, each example rendered live from the package. |
 | `src/pages/r/[name].json.ts` | The package as a shadcn-vue registry (`/r/<name>.json`, `/r/theme.json`). |
 | `src/pages/components.md.ts` | The agents' component index (the hosted MCP's `design_components` and the plugin read it). |

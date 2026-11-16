@@ -1,6 +1,6 @@
 <!-- Loading, empty and error, with Retry. -->
 <script setup>
-import LogTerminal from '@rosepetal/design/blocks/LogTerminal.vue';
+import LogTerminal from '@aisgroup/design/blocks/LogTerminal.vue';
 </script>
 
 <template>

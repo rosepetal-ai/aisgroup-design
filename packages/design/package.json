@@ -1,5 +1,5 @@
 {
-  "name": "@rosepetal/design",
+  "name": "@aisgroup/design",
   "version": "0.0.0",
   "description": "Rosepetal's design: shadcn-vue components, brand blocks and tokens.",
   "type": "module",

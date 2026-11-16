@@ -117,7 +117,7 @@ Source: plugin/skills/web-design/references/assets.md:15.
 ## AIS-310eada18d01
 
 <!-- AIS-310eada18d01 -->
-How the three sites are built. Each is an Astro site that takes its tokens and shared components from `@aisgroup/web` (`packages/web` in this repo), the website counterpart of the products’ `@rosepetal/design`, and keeps its own pages, header and content.
+How the three sites are built. Each is an Astro site that takes its tokens and shared components from `@aisgroup/web` (`packages/web` in this repo), the website counterpart of the products’ `@aisgroup/design`, and keeps its own pages, header and content.
 
 Source: plugin/skills/web-design/references/web-components.md:5.
 

@@ -1,7 +1,7 @@
 <!-- Clickable entities are outline items: image first, title, muted lines, the state in the footer. -->
 <script setup>
 import { CircleCheckIcon, ClockIcon } from '@lucide/vue';
-import { Item, ItemContent, ItemDescription, ItemFooter, ItemHeader, ItemTitle } from '@rosepetal/design/ui/item';
+import { Item, ItemContent, ItemDescription, ItemFooter, ItemHeader, ItemTitle } from '@aisgroup/design/ui/item';
 const datasets = [
   { name: 'PCB inspection', meta: '1,248 images, 3 tags', image: `${import.meta.env.BASE_URL}samples/electronics.webp`, done: true },
   { name: 'Tortilla line', meta: '842 images, 2 tags', image: `${import.meta.env.BASE_URL}samples/food.webp`, done: false },

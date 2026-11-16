@@ -390,7 +390,7 @@ Source: guide/dist/ca/brand.md:124.
 ## AIS-1a8a82791bea
 
 <!-- AIS-1a8a82791bea -->
-Els webs són rectes en tot: botons, targetes, menús, desplegables, diàlegs i avisos. L’única excepció és una pantalla de producte mostrada com a finestra, que pren la cantonada de 4 px de la finestra. Les interfícies de producte prenen les cantonades de `@rosepetal/design` i no les canvien mai. Rodó només en avatars, punts i interruptors.
+Els webs són rectes en tot: botons, targetes, menús, desplegables, diàlegs i avisos. L’única excepció és una pantalla de producte mostrada com a finestra, que pren la cantonada de 4 px de la finestra. Les interfícies de producte prenen les cantonades de `@aisgroup/design` i no les canvien mai. Rodó només en avatars, punts i interruptors.
 
 Source: guide/dist/ca/brand.md:125.
 
@@ -586,7 +586,7 @@ Source: guide/dist/ca/brand.md:167.
 ## AIS-07ac366c72c2
 
 <!-- AIS-07ac366c72c2 -->
-A l’aplicació, `.dark` a `<html>` canvia el tema: primer l’elecció de l’usuari, després l’ajust del sistema. Els components prenen tots els colors dels tokens de `@rosepetal/design`, de manera que no necessiten colors propis per al mode fosc.
+A l’aplicació, `.dark` a `<html>` canvia el tema: primer l’elecció de l’usuari, després l’ajust del sistema. Els components prenen tots els colors dels tokens de `@aisgroup/design`, de manera que no necessiten colors propis per al mode fosc.
 
 Source: guide/dist/ca/brand.md:168.
 

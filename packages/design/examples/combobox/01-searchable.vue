@@ -2,7 +2,7 @@
 <script setup>
 import { ref } from 'vue';
 import { ChevronsUpDownIcon, PlusIcon } from '@lucide/vue';
-import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxSeparator, ComboboxTrigger, ComboboxViewport } from '@rosepetal/design/ui/combobox';
+import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxSeparator, ComboboxTrigger, ComboboxViewport } from '@aisgroup/design/ui/combobox';
 const datasets = ['PCB inspection', 'Tortilla line', 'Blister packaging', 'Label packaging', 'Expiry dates', 'Cable harness'];
 const value = ref('PCB inspection');
 </script>

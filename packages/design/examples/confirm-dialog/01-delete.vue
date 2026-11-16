@@ -1,8 +1,8 @@
 <!-- The app gives the texts and the action. While it runs the dialog cannot be closed; if it fails, it shows the error and offers Retry. -->
 <script setup>
 import { ref } from 'vue';
-import ConfirmDialog from '@rosepetal/design/blocks/ConfirmDialog.vue';
-import { Button } from '@rosepetal/design/ui/button';
+import ConfirmDialog from '@aisgroup/design/blocks/ConfirmDialog.vue';
+import { Button } from '@aisgroup/design/ui/button';
 
 const open = ref(true);
 const fail = ref(false);

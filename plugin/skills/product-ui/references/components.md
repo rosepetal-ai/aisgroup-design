@@ -1,6 +1,6 @@
 # Product components
 
-The components and brand blocks of `@rosepetal/design`, the package every Rosepetal product installs, live and with their code. Every product uses them as they are.
+The components and brand blocks of `@aisgroup/design`, the package every Rosepetal product installs, live and with their code. Every product uses them as they are.
 
 ## Components
 

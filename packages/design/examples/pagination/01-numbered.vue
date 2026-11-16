@@ -1,7 +1,7 @@
 <!-- Under a table: «Page x of y» at the left, numbered pages at the right. -->
 <script setup>
 import { ref } from 'vue';
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationNext, PaginationPrevious } from '@rosepetal/design/ui/pagination';
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationNext, PaginationPrevious } from '@aisgroup/design/ui/pagination';
 const page = ref(1);
 </script>
 

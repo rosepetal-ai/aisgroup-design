@@ -1,7 +1,7 @@
 <!-- Toolbar and header buttons are the default 36 px; icon-only buttons are square, with a name and a tooltip. -->
 <script setup>
 import { PlusIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

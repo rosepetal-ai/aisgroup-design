@@ -17,7 +17,7 @@ Componentes web en funcionamiento, su código y las reglas para usarlos.
 
 ## Preparación
 
-Cómo están hechas las tres webs. Cada una es un sitio Astro que toma sus tokens y sus componentes comunes de `@aisgroup/web` (`packages/web` en este repositorio), el equivalente web del `@rosepetal/design` de los productos, y conserva sus propias páginas, cabecera y contenido.
+Cómo están hechas las tres webs. Cada una es un sitio Astro que toma sus tokens y sus componentes comunes de `@aisgroup/web` (`packages/web` en este repositorio), el equivalente web del `@aisgroup/design` de los productos, y conserva sus propias páginas, cabecera y contenido.
 
 1. Primero `@aisgroup/web/styles.css`: los tokens de la marca ([ais-tokens.css](/downloads/ais-tokens.css), `--ais-*`), los papeles de la web de abajo (`--web-*`) y los ajustes de cada marca, que se eligen con `data-brand` en `<html>` (`ais-group`, `ais-vision` o `rosepetal`): altura del logotipo, tamaño de las llamadas a la acción y los detalles que cambian.
 2. Tailwind v4 para la composición, con sus tamaños de texto apuntando a los estilos de la marca (`--text-base: var(--ais-text-body)` y así con el resto). Los componentes no necesitan Tailwind.

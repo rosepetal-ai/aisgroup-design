@@ -4,7 +4,7 @@ The read-only MCP at `https://design.aisgroup.ai/mcp` (also `aisgroup-design.web
 
 | Surface | Tool | Downloads |
 | --- | --- | --- |
-| Code | `design_code` | Tailwind v4 theme, Vue component search and source (`@rosepetal/design`), website components (`@aisgroup/web`), generated PrimeVue and Vuetify presets |
+| Code | `design_code` | Tailwind v4 theme, Vue component search and source (`@aisgroup/design`), website components (`@aisgroup/web`), generated PrimeVue and Vuetify presets |
 | Assets | `design_assets` | Logos, favicons, the five decorative patterns and backgrounds, approved media, fonts |
 | Examples | `design_examples` | Document HTML and PDFs, product component views, approved images |
 | Standards | `design_standards` | Tokens (DTCG, CSS, JS), guide search and sections, brand rules in en, es and ca |

@@ -40,10 +40,10 @@ Then paste your photos into the terminal and say what you need. The studio picks
 
 ## Bring an app onto the Rosepetal components
 
-The plugin also brings product apps onto the Rosepetal components (`@rosepetal/design`, shadcn-vue). Open Claude Code in the app’s repository and ask:
+The plugin also brings product apps onto the Rosepetal components (`@aisgroup/design`, shadcn-vue). Open Claude Code in the app’s repository and ask:
 
 ```
-Redesign [the app / the screen] onto our shadcn-vue system with @rosepetal/design. First run the UI audit on src/ and the theme diff on the app’s theme CSS, and show me the findings. Then convert one component family at a time, keeping every piece of data, action and loading, empty and error state. Build after each step and check light and dark mode.
+Redesign [the app / the screen] onto our shadcn-vue system with @aisgroup/design. First run the UI audit on src/ and the theme diff on the app’s theme CSS, and show me the findings. Then convert one component family at a time, keeping every piece of data, action and loading, empty and error state. Build after each step and check light and dark mode.
 ```
 
 ## A starting prompt

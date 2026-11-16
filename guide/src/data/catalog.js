@@ -1,5 +1,5 @@
 // The parts of other repos, for the agents' component index (src/pages/components.md.ts). The product components
-// and blocks are not here: they come from @rosepetal/design's own catalogue (packages/design/catalog.ts).
+// and blocks are not here: they come from @aisgroup/design's own catalogue (packages/design/catalog.ts).
 
 export const WIDGETS = [
     ['button', 'Button', 'ui-button: text, icon left or right, icon only, disabled.'],

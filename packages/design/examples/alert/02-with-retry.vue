@@ -1,8 +1,8 @@
 <!-- A failed section says what failed and offers Retry, which repeats the same request. -->
 <script setup>
 import { CircleXIcon, RotateCwIcon } from '@lucide/vue';
-import { Alert, AlertAction, AlertDescription, AlertTitle } from '@rosepetal/design/ui/alert';
-import { Button } from '@rosepetal/design/ui/button';
+import { Alert, AlertAction, AlertDescription, AlertTitle } from '@aisgroup/design/ui/alert';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

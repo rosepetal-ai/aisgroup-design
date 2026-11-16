@@ -19,7 +19,7 @@
 - Product components, blocks, examples and product tokens change only in `packages/design`. Nothing else in the repo keeps a copy of them.
 - Try a change in the playground: `npm run dev:playground`. Its Preset page edits `styles.css` live and can save it.
 - Each component or block has examples in `packages/design/examples/<id>/NN-name.vue`, whose first comment is the line the guide shows under the title. A new component also goes in `packages/design/catalog.ts` (its id, name, description and folder): the guide's pages, registry and index are built from it.
-- Run `npm run typecheck -w @rosepetal/design` and `npm run build`; then look at the component's page in the guide (`npm run dev:guide`, `/en/components/<id>/`).
+- Run `npm run typecheck -w @aisgroup/design` and `npm run build`; then look at the component's page in the guide (`npm run dev:guide`, `/en/components/<id>/`).
 - To publish, tag `vX.Y.Z` (see README.md).
 
 ## The website components: only in `packages/web`

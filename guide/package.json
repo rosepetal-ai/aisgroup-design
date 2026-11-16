@@ -16,7 +16,7 @@
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/vue": "^7.1.1",
     "@lucide/vue": "^1.67.0",
-    "@rosepetal/design": "*",
+    "@aisgroup/design": "*",
     "@tailwindcss/vite": "^4.3.4",
     "@vueuse/core": "^15.0.0",
     "astro": "^7.3.8",

@@ -287,7 +287,7 @@ Source: plugin/skills/communications/references/communications.md:72.
 ## AIS-b579e1991c08
 
 <!-- AIS-b579e1991c08 -->
-| **Product interface** | The `@rosepetal/design` Table as it ships: 14 px, hover and selected rows | Medium, in ink (they sort) | Number columns take `text-right tabular-nums` | `--border` |
+| **Product interface** | The `@aisgroup/design` Table as it ships: 14 px, hover and selected rows | Medium, in ink (they sort) | Number columns take `text-right tabular-nums` | `--border` |
 
 Source: plugin/skills/communications/references/communications.md:73.
 

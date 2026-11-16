@@ -1,9 +1,9 @@
 import docs from '../../../packages/design/docs.json';
 import type { Lang } from '../i18n';
-// What the guide reads from @rosepetal/design (packages/design, through the workspace): its catalogue, its examples and
+// What the guide reads from @aisgroup/design (packages/design, through the workspace): its catalogue, its examples and
 // the source of its components and blocks. The guide shows the package and never keeps a copy of it.
-import { blockItems, componentItems, type CatalogItem } from '@rosepetal/design/catalog';
-import pkg from '@rosepetal/design-src/package.json';
+import { blockItems, componentItems, type CatalogItem } from '@aisgroup/design/catalog';
+import pkg from '@aisgroup/design-src/package.json';
 
 export { blockItems, componentItems, type CatalogItem };
 export const version: string = pkg.version;
@@ -13,9 +13,9 @@ export const BRANCH = 'dev';
 export const sourceOf = (path: string) => `${REPO}@${BRANCH}:${path}`;
 
 /** Every file of the package as text, by its path inside the package (ui/button/Button.vue, blocks/TopBar.vue…). */
-const raw = import.meta.glob('@rosepetal/design-src/{ui/*/*,blocks/*,lib/*,examples/*/*}.{vue,ts,svg}', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-export const files: Record<string, string> = Object.fromEntries(Object.entries(raw).map(([p, text]) => [p.replace(/^(?:@rosepetal\/design-src|.*?\/(?:packages\/design|node_modules\/@rosepetal\/design))\//, ''), text]));
-export { default as styles } from '@rosepetal/design-src/styles.css?raw';
+const raw = import.meta.glob('@aisgroup/design-src/{ui/*/*,blocks/*,lib/*,examples/*/*}.{vue,ts,svg}', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+export const files: Record<string, string> = Object.fromEntries(Object.entries(raw).map(([p, text]) => [p.replace(/^(?:@aisgroup\/design-src|.*?\/(?:packages\/design|node_modules\/@aisgroup\/design))\//, ''), text]));
+export { default as styles } from '@aisgroup/design-src/styles.css?raw';
 
 /** The examples of a component or block: each with its name, the line under its title (its first comment) and its code. */
 export const examples = (id: string, lang: Lang = 'en') => Object.keys(files).filter((p) => p.startsWith(`examples/${id}/`) && p.endsWith('.vue')).sort()

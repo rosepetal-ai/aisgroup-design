@@ -1,4 +1,4 @@
-name: Publish @rosepetal/design
+name: Publish @aisgroup/design
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
       - name: Configure npm for Artifact Registry
         # Written to ~/.npmrc: npm config set refuses to run inside a workspace (ENOWORKSPACES)
         run: |
-          echo "@rosepetal:registry=https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/" >> ~/.npmrc
+          echo "@aisgroup:registry=https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/" >> ~/.npmrc
           echo "//europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/:_authToken=$(gcloud auth print-access-token)" >> ~/.npmrc
 
       - name: Check the package depends on nothing of an app

@@ -1,6 +1,6 @@
 <!-- Between toolbar groups and in menus. Never between sections of a page. -->
 <script setup>
-import { Separator } from '@rosepetal/design/ui/separator';
+import { Separator } from '@aisgroup/design/ui/separator';
 </script>
 
 <template>

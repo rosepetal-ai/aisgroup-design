@@ -1,7 +1,7 @@
 <!-- A short list of options. -->
 <script setup>
 import { ref } from 'vue';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@rosepetal/design/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@aisgroup/design/ui/select';
 const size = ref('small');
 </script>
 

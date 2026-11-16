@@ -2,7 +2,7 @@
 <script setup>
 import { ref } from 'vue';
 import { BrushIcon, EraserIcon, HandIcon, SquareDashedIcon } from '@lucide/vue';
-import { ToggleGroup, ToggleGroupItem } from '@rosepetal/design/ui/toggle-group';
+import { ToggleGroup, ToggleGroupItem } from '@aisgroup/design/ui/toggle-group';
 const tool = ref('box');
 const view = ref('both');
 </script>

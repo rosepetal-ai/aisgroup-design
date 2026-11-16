@@ -1,8 +1,8 @@
 <!-- A choice between modes, as choice cards. -->
 <script setup>
 import { ref } from 'vue';
-import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from '@rosepetal/design/ui/field';
-import { RadioGroup, RadioGroupItem } from '@rosepetal/design/ui/radio-group';
+import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from '@aisgroup/design/ui/field';
+import { RadioGroup, RadioGroupItem } from '@aisgroup/design/ui/radio-group';
 const mode = ref('supervised');
 </script>
 

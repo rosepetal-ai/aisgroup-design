@@ -1,7 +1,7 @@
 <!-- Icons, text or buttons inside the field. -->
 <script setup>
 import { SearchIcon, XIcon } from '@lucide/vue';
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from '@rosepetal/design/ui/input-group';
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from '@aisgroup/design/ui/input-group';
 </script>
 
 <template>

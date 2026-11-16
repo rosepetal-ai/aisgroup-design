@@ -1,6 +1,6 @@
 <!-- A picture when there is one, the initials otherwise. -->
 <script setup>
-import { Avatar, AvatarFallback } from '@rosepetal/design/ui/avatar';
+import { Avatar, AvatarFallback } from '@aisgroup/design/ui/avatar';
 </script>
 
 <template>

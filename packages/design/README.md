@@ -1,4 +1,4 @@
-# @rosepetal/design
+# @aisgroup/design
 
 Rosepetal's design: the shadcn-vue components (`ui/`), the brand blocks with no app logic (`blocks/`) and the tokens (`styles.css`). Edit them from the playground of this repo; a tag `vX.Y.Z` publishes a version.
 
@@ -10,18 +10,18 @@ npm_config_registry=https://registry.npmjs.org npx google-artifactregistry-auth
 
 ```css
 /* after Tailwind's theme and utilities */
-@import '@rosepetal/design/styles.css';
+@import '@aisgroup/design/styles.css';
 ```
 
 ```js
 // vite.config.js
-optimizeDeps: { exclude: ['@rosepetal/design'] }
+optimizeDeps: { exclude: ['@aisgroup/design'] }
 ```
 
 ```vue
 <script setup>
-import { Button } from '@rosepetal/design/ui/button'
-import TopBar from '@rosepetal/design/blocks/TopBar.vue'
+import { Button } from '@aisgroup/design/ui/button'
+import TopBar from '@aisgroup/design/blocks/TopBar.vue'
 </script>
 ```
 

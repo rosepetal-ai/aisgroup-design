@@ -2,9 +2,9 @@
 <script setup>
 import { HomeIcon, MoonIcon, SettingsIcon } from '@lucide/vue';
 import { ref } from 'vue';
-import TopBar from '@rosepetal/design/blocks/TopBar.vue';
-import { Avatar, AvatarFallback } from '@rosepetal/design/ui/avatar';
-import { Button } from '@rosepetal/design/ui/button';
+import TopBar from '@aisgroup/design/blocks/TopBar.vue';
+import { Avatar, AvatarFallback } from '@aisgroup/design/ui/avatar';
+import { Button } from '@aisgroup/design/ui/button';
 
 const current = ref('home');
 </script>

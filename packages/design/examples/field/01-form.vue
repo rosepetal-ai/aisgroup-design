@@ -1,8 +1,8 @@
 <!-- Label above the control, description under it, the error replacing it once touched. Units go in an addon. -->
 <script setup>
-import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@rosepetal/design/ui/field';
-import { Input } from '@rosepetal/design/ui/input';
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@rosepetal/design/ui/input-group';
+import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@aisgroup/design/ui/field';
+import { Input } from '@aisgroup/design/ui/input';
+import { InputGroup, InputGroupAddon, InputGroupInput } from '@aisgroup/design/ui/input-group';
 </script>
 
 <template>

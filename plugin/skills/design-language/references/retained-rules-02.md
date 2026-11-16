@@ -159,7 +159,7 @@ Source: plugin/skills/design-language/references/colour.md:28.
 ## AIS-dfbc4852fcfd
 
 <!-- AIS-dfbc4852fcfd -->
-Product interfaces, charts and dark mode need finer steps. They come from the same two scales, so they always stay in the family. Pick them by role first; the scales are the reference. Each role is a token of `@rosepetal/design`, shown here in both themes; every token, its contrast and where each theme applies are on Light and dark themes.
+Product interfaces, charts and dark mode need finer steps. They come from the same two scales, so they always stay in the family. Pick them by role first; the scales are the reference. Each role is a token of `@aisgroup/design`, shown here in both themes; every token, its contrast and where each theme applies are on Light and dark themes.
 
 Source: plugin/skills/design-language/references/colour.md:32.
 

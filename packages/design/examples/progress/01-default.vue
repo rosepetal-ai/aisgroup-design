@@ -1,6 +1,6 @@
 <!-- How far a task has gone, with the number in words beside it. -->
 <script setup>
-import { Progress } from '@rosepetal/design/ui/progress';
+import { Progress } from '@aisgroup/design/ui/progress';
 </script>
 
 <template>

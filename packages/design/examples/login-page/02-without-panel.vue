@@ -1,6 +1,6 @@
 <!-- Without the side panel, with another app's texts and an error from its own sign in. -->
 <script setup>
-import LoginPage from '@rosepetal/design/blocks/LoginPage.vue';
+import LoginPage from '@aisgroup/design/blocks/LoginPage.vue';
 </script>
 
 <template>

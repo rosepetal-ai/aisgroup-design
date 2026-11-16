@@ -1,6 +1,6 @@
 <!-- Links, some grouped in a dropdown. -->
 <script setup>
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@rosepetal/design/ui/navigation-menu';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@aisgroup/design/ui/navigation-menu';
 </script>
 
 <template>

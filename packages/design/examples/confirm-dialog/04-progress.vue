@@ -1,10 +1,10 @@
 <!-- A long action: the progress goes in its slot, and with background the only button is Continue, which leaves it running. The app closes the dialog and shows the progress elsewhere. -->
 <script setup>
 import { computed, ref } from 'vue';
-import ConfirmDialog from '@rosepetal/design/blocks/ConfirmDialog.vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Progress } from '@rosepetal/design/ui/progress';
-import { Spinner } from '@rosepetal/design/ui/spinner';
+import ConfirmDialog from '@aisgroup/design/blocks/ConfirmDialog.vue';
+import { Button } from '@aisgroup/design/ui/button';
+import { Progress } from '@aisgroup/design/ui/progress';
+import { Spinner } from '@aisgroup/design/ui/spinner';
 
 const TOTAL = 40;
 const open = ref(true);

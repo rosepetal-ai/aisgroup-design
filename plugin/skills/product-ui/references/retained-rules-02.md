@@ -194,21 +194,21 @@ Source: plugin/skills/product-ui/references/components.md:142.
 ## AIS-d35c5590446e
 
 <!-- AIS-d35c5590446e -->
-Set up the private registry and install `@rosepetal/design`, as the package’s README explains.
+Set up the private registry and install `@aisgroup/design`, as the package’s README explains.
 
 Source: plugin/skills/product-ui/references/using-components.md:5.
 
 ## AIS-5dca6c6c6e5f
 
 <!-- AIS-5dca6c6c6e5f -->
-Import `@rosepetal/design/styles.css` after Tailwind’s theme and utilities.
+Import `@aisgroup/design/styles.css` after Tailwind’s theme and utilities.
 
 Source: plugin/skills/product-ui/references/using-components.md:6.
 
 ## AIS-a56ab9ebd9ec
 
 <!-- AIS-a56ab9ebd9ec -->
-Import components by folder and blocks by file: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+Import components by folder and blocks by file: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 
 Source: plugin/skills/product-ui/references/using-components.md:7.
 
@@ -411,7 +411,7 @@ Source: plugin/skills/product-ui/references/using-components.md:55.
 ## AIS-5a6bbc90a2f8
 
 <!-- AIS-5a6bbc90a2f8 -->
-Tags, chart series and dataset splits have colours of their own in `@rosepetal/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
+Tags, chart series and dataset splits have colours of their own in `@aisgroup/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
 
 Source: plugin/skills/product-ui/references/using-components.md:59.
 
@@ -446,7 +446,7 @@ Source: plugin/skills/product-ui/references/using-components.md:67.
 ## AIS-66bd66831021
 
 <!-- AIS-66bd66831021 -->
-The components and brand blocks of `@rosepetal/design`, the package every Rosepetal product installs (`packages/design` in this repo), live and with their code. Every product uses them as they are.
+The components and brand blocks of `@aisgroup/design`, the package every Rosepetal product installs (`packages/design` in this repo), live and with their code. Every product uses them as they are.
 
 Source: guide/src/content/guide/en/components.mdx:6.
 
@@ -565,7 +565,7 @@ Source: guide/src/content/guide/en/node-red-widgets.mdx:30.
 ## AIS-59ce762be02f
 
 <!-- AIS-59ce762be02f -->
-'Install `@rosepetal/design` instead of copying its files. A fix to a component is made in the package (`packages/design`) and published as a new version.'
+'Install `@aisgroup/design` instead of copying its files. A fix to a component is made in the package (`packages/design`) and published as a new version.'
 
 Source: guide/src/content/guide/en/using-components.mdx:4.
 
@@ -593,14 +593,14 @@ Source: guide/src/content/guide/en/using-components.mdx:7.
 ## AIS-b3801b74eb4e
 
 <!-- AIS-b3801b74eb4e -->
-'Use the stock shadcn-vue components from `@rosepetal/design` with their own variants and sizes. Classes are for page layout only: grid, flex, gap, width, position.'
+'Use the stock shadcn-vue components from `@aisgroup/design` with their own variants and sizes. Classes are for page layout only: grid, flex, gap, width, position.'
 
 Source: guide/src/content/guide/en/using-components.mdx:8.
 
 ## AIS-baed66498a48
 
 <!-- AIS-baed66498a48 -->
-'Every colour is a token from `@rosepetal/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.'
+'Every colour is a token from `@aisgroup/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.'
 
 Source: guide/src/content/guide/en/using-components.mdx:9.
 

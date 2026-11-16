@@ -1,7 +1,7 @@
 <!-- Every alert sits on the card surface with the default border; only the icon and the text take the tone. -->
 <script setup>
 import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon } from '@lucide/vue';
-import { Alert, AlertDescription, AlertTitle } from '@rosepetal/design/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@aisgroup/design/ui/alert';
 </script>
 
 <template>

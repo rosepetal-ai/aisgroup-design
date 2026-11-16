@@ -1,7 +1,7 @@
 <!-- The name of a field, tied to it with for. -->
 <script setup>
-import { Input } from '@rosepetal/design/ui/input';
-import { Label } from '@rosepetal/design/ui/label';
+import { Input } from '@aisgroup/design/ui/input';
+import { Label } from '@aisgroup/design/ui/label';
 </script>
 
 <template>

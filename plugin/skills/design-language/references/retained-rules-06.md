@@ -96,7 +96,7 @@ Source: guide/src/content/guide/en/colour.mdx:61.
 ## AIS-7fd6e0c93c40
 
 <!-- AIS-7fd6e0c93c40 -->
-Product interfaces, charts and dark mode need finer steps. They come from the same two scales, so they always stay in the family. Pick them by role first; the scales are the reference. Each role is a token of `@rosepetal/design`, shown here in both themes; every token, its contrast and where each theme applies are on [Light and dark themes](/en/themes/).
+Product interfaces, charts and dark mode need finer steps. They come from the same two scales, so they always stay in the family. Pick them by role first; the scales are the reference. Each role is a token of `@aisgroup/design`, shown here in both themes; every token, its contrast and where each theme applies are on [Light and dark themes](/en/themes/).
 
 Source: guide/src/content/guide/en/colour.mdx:65.
 
@@ -523,7 +523,7 @@ Source: guide/src/content/guide/en/layout.mdx:6.
 ## AIS-08020027e6cc
 
 <!-- AIS-08020027e6cc -->
-'Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@rosepetal/design` and never override them. Fully round only for avatars, dots and toggles.'
+'Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@aisgroup/design` and never override them. Fully round only for avatars, dots and toggles.'
 
 Source: guide/src/content/guide/en/layout.mdx:7.
 
@@ -607,7 +607,7 @@ Source: guide/src/content/guide/en/themes.mdx:4.
 ## AIS-fb649af57fe0
 
 <!-- AIS-fb649af57fe0 -->
-'In the app, `.dark` on `<html>` switches the theme: the user''s choice first, then the system setting. Components take every colour from the `@rosepetal/design` tokens, so they need no colours of their own for dark mode.'
+'In the app, `.dark` on `<html>` switches the theme: the user''s choice first, then the system setting. Components take every colour from the `@aisgroup/design` tokens, so they need no colours of their own for dark mode.'
 
 Source: guide/src/content/guide/en/themes.mdx:5.
 

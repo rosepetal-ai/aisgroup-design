@@ -1,9 +1,9 @@
 <!-- Edge to edge, for full-screen work like Labeling or the Editor: a separator after the logo, a breadcrumb instead of the menu, and the way out. -->
 <script setup>
 import { LogOutIcon, MoonIcon } from '@lucide/vue';
-import TopBar from '@rosepetal/design/blocks/TopBar.vue';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@rosepetal/design/ui/breadcrumb';
-import { Button } from '@rosepetal/design/ui/button';
+import TopBar from '@aisgroup/design/blocks/TopBar.vue';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@aisgroup/design/ui/breadcrumb';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

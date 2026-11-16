@@ -1,7 +1,7 @@
 <!-- One item at a time, with arrows. -->
 <script setup>
-import { Card, CardContent } from '@rosepetal/design/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@rosepetal/design/ui/carousel';
+import { Card, CardContent } from '@aisgroup/design/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@aisgroup/design/ui/carousel';
 </script>
 
 <template>

@@ -1,12 +1,12 @@
 ---
 title: Ús dels components
 rules:
-  - 'Instal·la `@rosepetal/design`, sense copiar-ne els fitxers. Una correcció en un component es fa al paquet (`packages/design`) i es publica com a versió nova.'
+  - 'Instal·la `@aisgroup/design`, sense copiar-ne els fitxers. Una correcció en un component es fa al paquet (`packages/design`) i es publica com a versió nova.'
   - 'No afegeixis mai una variant de Button o Badge, no canviïs mai el radi d’un component i no facis servir mai selectors `[&_…]` per canviar l’estil d’una peça.'
   - 'Els botons només amb icona porten `aria-label` i un Tooltip.'
   - 'Cada secció asíncrona té estat de càrrega (Skeleton o Spinner), estat buit i estat d’error amb Torna-ho a provar.'
-  - 'Fes servir els components de shadcn-vue de sèrie de `@rosepetal/design` amb les seves variants i mides. Les classes són només per a la maquetació de la pàgina: grid, flex, gap, amplada i posició.'
-  - 'Cada color és un token de `@rosepetal/design/styles.css`. Res de classes de paleta com `bg-gray-500` ni valors hexadecimals a les plantilles.'
+  - 'Fes servir els components de shadcn-vue de sèrie de `@aisgroup/design` amb les seves variants i mides. Les classes són només per a la maquetació de la pàgina: grid, flex, gap, amplada i posició.'
+  - 'Cada color és un token de `@aisgroup/design/styles.css`. Res de classes de paleta com `bg-gray-500` ni valors hexadecimals a les plantilles.'
   - 'L’estat és una icona amb el seu to i una paraula (Acabat, Pendent, Error). Mai només color i mai etiquetes tintades.'
   - 'Majúscula només inicial a títols, etiquetes i botons. Sense punts volats ni fletxes Unicode. Tot el que es llegeix fa almenys 14 px; 12 px només per a eixos de gràfics i tecles.'
 ---
@@ -15,9 +15,9 @@ Instal·la el paquet de producte i fes servir els seus components i tokens conju
 
 ## Preparar una aplicació
 
-1. Configura el registre privat i instal·la `@rosepetal/design`, com explica el README del paquet.
-2. Importa `@rosepetal/design/styles.css` després del tema i les utilitats de Tailwind.
-3. Importa els components per carpeta i els blocs per fitxer: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+1. Configura el registre privat i instal·la `@aisgroup/design`, com explica el README del paquet.
+2. Importa `@aisgroup/design/styles.css` després del tema i les utilitats de Tailwind.
+3. Importa els components per carpeta i els blocs per fitxer: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 4. Mantén Inter i la pàgina a tota l’amplada, i obre cada pàgina sota el bloc TopBar.
 5. Afegeix un test que falli amb punts volats o fletxes Unicode a les plantilles, com `tests/uiTextRules.spec.js` de rosepetal-ui.
 
@@ -69,7 +69,7 @@ DialogHeader (el títol sobre una banda grisa), DialogBody i DialogFooter amb bo
 
 ## Colors de dades
 
-Etiquetes, sèries de gràfics i particions de dataset tenen colors propis a `@rosepetal/design/styles.css`: les etiquetes (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), les particions (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) i les sèries de gràfics (de `--chart-1` a `--chart-3`):
+Etiquetes, sèries de gràfics i particions de dataset tenen colors propis a `@aisgroup/design/styles.css`: les etiquetes (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), les particions (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) i les sèries de gràfics (de `--chart-1` a `--chart-3`):
 
 - Els colors d’etiqueta són iguals en mode clar i fosc, de manera que una classe de defecte mai no canvia de color; la primera i la tercera sèrie i la partició d’entrenament passen a un to més clar en mode fosc. Tots els tokens en els dos modes són a [Temes clar i fosc](/ca/themes/#tokens).
 - Mai no apareixen a la navegació, als botons ni als gràfics de màrqueting.

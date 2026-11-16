@@ -1,6 +1,6 @@
 <!-- Every crumb opens its own page; the last one is where you are. -->
 <script setup>
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@rosepetal/design/ui/breadcrumb';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@aisgroup/design/ui/breadcrumb';
 </script>
 
 <template>

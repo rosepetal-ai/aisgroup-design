@@ -6,7 +6,7 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | --- | --- |
 | Brand guide | https://design.aisgroup.ai |
 | Hosted MCP (read-only) | https://design.aisgroup.ai/mcp |
-| Product components | `@rosepetal/design` in the company's private package registry (Artifact Registry) |
+| Product components | `@aisgroup/design` in the company's private package registry (Artifact Registry) |
 | Claude Code plugin | This repository, as a plugin marketplace |
 
 ## Repository layout
@@ -14,7 +14,7 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | Folder | What it is | Published as |
 | --- | --- | --- |
 | [`guide/`](guide/) | The brand guide (Astro), in English, Spanish and Catalan: brand, design language, communications, websites and the product design system. | design.aisgroup.ai (Firebase Hosting) |
-| [`packages/design/`](packages/design/) | `@rosepetal/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). | npm package, Artifact Registry |
+| [`packages/design/`](packages/design/) | `@aisgroup/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). | npm package, Artifact Registry |
 | [`packages/web/`](packages/web/) | `@aisgroup/web`: the websites' Astro components, examples and web tokens. | Copied into each company website |
 | [`packages/vue-themes/`](packages/vue-themes/) | PrimeVue and Vuetify presets generated from the product tokens. | Served by the guide and the MCP |
 | [`playground/`](playground/) | A Vite app to try the product components and tune their variables. | Local only |
@@ -65,7 +65,7 @@ npm test
 | `npm test` | Every check: tokens contract, package typecheck, plugin and hosted MCP tests, component, website and spec contracts, guide search. Run after a build |
 | `npm run sync:plugin` | Copies the built guide into `plugin/`; commit the result with the guide change |
 | `npm run sync:sites` | Copies `@aisgroup/web` into the company websites checked out next to this repository |
-| `npm run <script> -w <workspace>` | Any script of one part, for example `npm run typecheck -w @rosepetal/design` |
+| `npm run <script> -w <workspace>` | Any script of one part, for example `npm run typecheck -w @aisgroup/design` |
 
 The plugin's studio also needs Chromium and Python packages. `npm run setup -w plugin` installs them once per computer.
 
@@ -91,7 +91,7 @@ Releases are manual, from an up-to-date `dev` after `npm ci && npm run build && 
 | --- | --- |
 | Guide | `npm run deploy:guide`: builds, then deploys to the Firebase site `aisgroup-design` |
 | Hosted MCP | `cd guide && firebase deploy --only hosting:aisgroup-design,functions:mcp --project aisgroup-design`, after a guide build. The predeploy step snapshots the guide into `hosted/data`. Limits and costs: [`hosted/README.md`](hosted/README.md) |
-| `@rosepetal/design` | Push a tag `vX.Y.Z`. The [`publish-design`](.github/workflows/publish-design.yml) workflow sets that version, checks the package and publishes it |
+| `@aisgroup/design` | Push a tag `vX.Y.Z`. The [`publish-design`](.github/workflows/publish-design.yml) workflow sets that version, checks the package and publishes it |
 | Plugin | Merge to `dev`. Bump the version in `plugin/.claude-plugin/plugin.json` when the skills or the studio change |
 
 Install the plugin in Claude Code:
@@ -114,8 +114,8 @@ All Google Cloud roles are on the `aisgroup-design` project.
 | Upload media or the marketing kit | «Storage Object Creator» |
 | Deploy the guide | Firebase Hosting access and `npx firebase-tools login` |
 | Deploy the hosted MCP | «Firebase Admin» and «Service Account User» (`roles/iam.serviceAccountUser`); the project is on the Blaze plan |
-| Publish `@rosepetal/design` | A version tag; the workflow uses the repository secret `GCP_SA_KEY` |
-| Install `@rosepetal/design` | Read access to the `private-node-packages` registry |
+| Publish `@aisgroup/design` | A version tag; the workflow uses the repository secret `GCP_SA_KEY` |
+| Install `@aisgroup/design` | Read access to the `private-node-packages` registry |
 
 ## Licence
 

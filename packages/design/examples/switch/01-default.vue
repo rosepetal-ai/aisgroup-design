@@ -1,8 +1,8 @@
 <!-- A setting on or off. Rows with a description use a switch row (see Field). -->
 <script setup>
 import { ref } from 'vue';
-import { Field, FieldLabel } from '@rosepetal/design/ui/field';
-import { Switch } from '@rosepetal/design/ui/switch';
+import { Field, FieldLabel } from '@aisgroup/design/ui/field';
+import { Switch } from '@aisgroup/design/ui/switch';
 const on = ref(true);
 </script>
 

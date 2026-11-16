@@ -283,7 +283,7 @@
       "name": "theme",
       "type": "registry:file",
       "title": "Theme",
-      "description": "The tokens of every Rosepetal product: @rosepetal/design/styles.css (Tailwind v4)."
+      "description": "The tokens of every Rosepetal product: @aisgroup/design/styles.css (Tailwind v4)."
     }
   ]
 }
