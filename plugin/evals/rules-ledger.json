@@ -16163,28 +16163,28 @@
     },
     {
       "id": "AIS-d485320deb65",
-      "rule": "**Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.",
+      "rule": "**Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.",
       "source": "plugin/skills/brand-guidelines/references/logos.md:54",
       "sources": [
         {
           "file": "plugin/skills/brand-guidelines/references/logos.md",
           "line": 54,
-          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
+          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
         },
         {
           "file": "guide/src/content/guide/en/logos.mdx",
           "line": 62,
-          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
+          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
         },
         {
           "file": "guide/src/content/guide/en/logos.mdx",
           "line": 64,
-          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
+          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
         },
         {
           "file": "plugin/skills/brand-guidelines/references/logos.md",
           "line": 56,
-          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
+          "text": "- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones."
         }
       ],
       "ownerSkill": "brand-guidelines",
