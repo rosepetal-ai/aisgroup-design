@@ -373,7 +373,7 @@ Source: brand decisions.
 ## AIS-670305b84b76
 
 <!-- AIS-670305b84b76 -->
-**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 72 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm).
+**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 48 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm).
 
 Source: brand decisions.
 

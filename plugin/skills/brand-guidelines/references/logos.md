@@ -20,7 +20,7 @@ Keep a free margin of **x on all four sides**, where **x is one quarter of the l
 
 | Logo | On screen | In print |
 | --- | ---: | ---: |
-| AIS Group | 72 px | 15 mm |
+| AIS Group | 48 px | 15 mm |
 | AIS Vision Systems | 100 px | 18 mm |
 | AIS Vision Automation | 110 px | 20 mm |
 | AIS Scanology | 95 px | 17 mm |
@@ -53,7 +53,7 @@ Partner and customer logos keep their own colours and sit apart from the signing
 ## On websites
 
 - **Only the official files** from Downloads. Never re-export, crop or trace them: an export from a design app clipped the Rosepetal ring and the descender of the «p».
-- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.
+- **Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.
 - **Favicons:** the bare mark from the website set, blue in light mode and white in dark mode, pixel-snapped at each size (see [Favicons](#favicons)). AIS Group and AIS Vision Systems use the Λ, Rosepetal the «o».
 - **Tab titles:** «Page title | Brand», for example «AIS REV 360 | AIS Vision Systems» or «Platform | Rosepetal». No dashes, middle dots or brand-first titles.
 

@@ -390,7 +390,7 @@ Source: guide/dist/es/brand.md:100.
 ## AIS-702cebe41dca
 
 <!-- AIS-702cebe41dca -->
-Anchos mínimos: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.
+Anchos mínimos: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.
 
 Source: guide/dist/es/brand.md:101.
 

@@ -229,7 +229,7 @@ Source: plugin/skills/brand-guidelines/references/logos.md:20.
 ## AIS-ea5fb2f37cc8
 
 <!-- AIS-ea5fb2f37cc8 -->
-| AIS Group | 72 px | 15 mm |
+| AIS Group | 48 px | 15 mm |
 
 Source: plugin/skills/brand-guidelines/references/logos.md:21.
 
@@ -376,7 +376,7 @@ Source: plugin/skills/brand-guidelines/references/logos.md:53.
 ## AIS-d485320deb65
 
 <!-- AIS-d485320deb65 -->
-**Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.
+**Header sizes:** the AIS Group and AIS Vision Systems lockups are 44 px tall, 36 px on phones; the Rosepetal wordmark is 27 px tall (140 px wide), 25 px (130 px wide, its minimum on screen) on phones.
 
 Source: plugin/skills/brand-guidelines/references/logos.md:54.
 

@@ -20,7 +20,7 @@
   --link: var(--ais-blue-500);
   --mono: "JetBrains Mono", "JetBrains Mono Fallback", var(--ais-font-mono);
   --side: 280px;
-  --top: 77px; /* header and logo match the AIS site: 77 px bar, 44 px logo */
+  --top: 77px; /* header and logo match the AIS site: 77 px bar, 44 px logo (64 and 36 on phones, below) */
   --gutter: 24px;
   --start: 48px; /* first line of sidebar, page and contents list */
   --content: 880px; /* one width for headings, figures and tables; text keeps a reading measure inside it */
@@ -225,6 +225,8 @@ body:has(.guide-search[open]) { overflow: hidden; }
   html[data-menu-open]::view-transition-old(guide-main), html[data-menu-open]::view-transition-new(guide-main) { visibility: hidden; }
 }
 @media (max-width: 420px) { .top { padding-inline: 16px; } }
+/* On phones the bar is 64 px and the logo signs at 36 px, so the page starts sooner. */
+@media (max-width: 900px) { :root { --top: 64px; } .brand svg { height: 36px; } }
 
 /* Tables keep complete tokens and scroll locally rather than widening the page. */
 .prose table code { white-space: nowrap; overflow-wrap: normal; word-break: normal; }
@@ -235,7 +237,10 @@ body:has(.guide-search[open]) { overflow: hidden; }
   .prose table:has(tr > :nth-child(5)) > :is(thead, tbody) { min-width: 680px; }
   .prose table :is(th, td) { overflow-wrap: normal; word-break: normal; }
   .dl-cap { flex-wrap: wrap; }
-
+}
+/* On a phone, download cards go two to a row so name, format and actions fit. */
+@media (max-width: 600px) {
+  .dl-grid, .dl-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Code and comparative tables keep their controls inside their own frame. */
