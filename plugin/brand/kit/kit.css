@@ -1,0 +1,94 @@
+/* AIS Group marketing kit, v0.2.
+   Every piece in the kit is built from this file and the guide's tokens, nothing else:
+   - the four grounds and their pairings (Colour, Combinations): white, section grey, brand blue, deep blue;
+   - Inter for everything people read, JetBrains Mono only for machine values (Typography);
+   - the document, slide and email type sizes (Typography, Documents, slides and email);
+   - square corners, 1 px borders, no shadows on the page (Layout and shape);
+   - the hexagon pattern, only on blue grounds without a photograph, fading out from one corner (Imagery, Backgrounds).
+   A piece is an HTML file with one or more artboards (.artboard); kit.mjs renders them to PNG and, for print, PDF. */
+@import url(../downloads/ais-tokens.css);
+@font-face { font-family: Inter; src: url(../fonts/inter-latin.woff2) format('woff2'); font-weight: 100 900; font-display: block; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: Inter; src: url(../fonts/inter-latin-ext.woff2) format('woff2'); font-weight: 100 900; font-display: block; unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+/* Print uses static Inter faces: Chromium writes the variable font into a PDF as Type 3, which printers' preflight rejects. */
+@font-face { font-family: 'Inter Print'; src: url(fonts/Inter.ttf) format('truetype'); font-weight: 400; }
+@font-face { font-family: 'Inter Print'; src: url(fonts/InterMedium.ttf) format('truetype'); font-weight: 500; }
+@font-face { font-family: 'Inter Print'; src: url(fonts/InterSemiBold.ttf) format('truetype'); font-weight: 600; }
+@media print { :root { --ais-font-primary: 'Inter Print', Arial, sans-serif; } }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { font-family: var(--ais-font-primary); color: var(--ais-neutral-900); font-feature-settings: 'ss01' 0; }
+img { display: block; max-width: 100%; }
+
+/* The viewer: artboards on neutral-200, each labelled with its name and size, as in the guide's specimens. */
+body.kit { background: var(--ais-neutral-200); padding: 48px 32px 96px; }
+.kit-head { max-width: 1200px; margin: 0 auto 40px; }
+.kit-head p { color: var(--ais-neutral-600); font-size: 14px; line-height: 1.5; max-width: 68ch; margin-top: 8px; }
+.kit-head h1 { font-size: 34px; line-height: 36px; letter-spacing: -0.035em; font-weight: 500; }
+.board { width: max-content; margin: 0 auto 56px; }
+.board-label { display: flex; gap: 12px; align-items: baseline; height: 20px; margin-bottom: 12px; color: var(--ais-neutral-600); font-size: 13px; line-height: 20px; } /* whole pixels, so artboards start on a pixel */
+.board-label b { color: var(--ais-neutral-900); font-weight: 600; }
+.boards-row { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start; margin: 0 auto 56px; }
+.boards-row .board { margin: 0; }
+.artboard { position: relative; overflow: hidden; }
+@media print {
+  body.kit { background: none; padding: 0; }
+  .kit-head, .board-label { display: none; }
+  .board { margin: 0; }
+  .artboard { break-after: page; }
+}
+
+/* The four grounds and what goes on each (Colour, Combinations). Every text pairing passes WCAG AA. */
+.g-white { --g-bg: #FFFFFF; --g-eyebrow: #3664B3; --g-title: #0F1729; --g-accent: #17356E; --g-body: #4B5563; --g-action: #3664B3; --g-line: #E2E8F0; --g-btn-bg: #17356E; --g-btn-fg: #FFFFFF; }
+.g-grey  { --g-bg: #F1F5F9; --g-eyebrow: #3664B3; --g-title: #0F1729; --g-accent: #17356E; --g-body: #4B5563; --g-action: #3664B3; --g-line: #CBD5E1; --g-btn-bg: #17356E; --g-btn-fg: #FFFFFF; }
+.g-blue  { --g-bg: #17356E; --g-eyebrow: #A7BFE4; --g-title: #FFFFFF; --g-accent: #A7BFE4; --g-body: #FFFFFF; --g-action: #FFFFFF; --g-line: rgba(167, 191, 228, .35); --g-btn-bg: #FFFFFF; --g-btn-fg: #17356E; }
+.g-deep  { --g-bg: #10254C; --g-eyebrow: #A7BFE4; --g-title: #FFFFFF; --g-accent: #FFFFFF; --g-body: #A7BFE4; --g-action: #A7BFE4; --g-line: rgba(167, 191, 228, .25); --g-btn-bg: #FFFFFF; --g-btn-fg: #10254C; }
+:is(.g-white, .g-grey, .g-blue, .g-deep) { background: var(--g-bg); color: var(--g-title); }
+
+/* Text roles. Sizes come from the piece (documents in pt, screens in px); the roles carry colour, weight and tracking. */
+.eyebrow { display: block; color: var(--g-eyebrow); font-weight: 500; letter-spacing: 0.045em; line-height: 1.4; }
+.hl { font-weight: 500; letter-spacing: -0.035em; line-height: 1.07; text-wrap: balance; color: var(--g-title); }
+.hl em, .hl .acc { font-style: normal; color: var(--g-accent); }
+.hl > span { display: block; } /* one phrase per line (Typography, break by phrase) */
+.lead { color: var(--g-body); font-weight: 400; line-height: 1.5; letter-spacing: -0.005em; text-wrap: pretty; }
+.txt { color: var(--g-body); font-weight: 400; line-height: 1.6; text-wrap: pretty; }
+.g-white .txt, .g-grey .txt { color: var(--ais-neutral-900); } /* running text in ink; the secondary grey is for leads and notes */
+.note { color: var(--g-body); line-height: 1.45; }
+.mono { font-family: var(--ais-font-mono); font-weight: 500; letter-spacing: 0; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* The text action: label plus the Lucide arrow, never a typed arrow (Typography). */
+.action { display: inline-flex; align-items: center; gap: .5em; color: var(--g-action); font-weight: 500; line-height: 1.35; text-decoration: none; }
+.action svg { width: 1.2em; height: 1.2em; flex: none; }
+/* The split button: label and a separate arrow segment, square (Web, Split button). */
+.btn { display: inline-flex; align-items: stretch; background: var(--g-btn-bg); color: var(--g-btn-fg); font-weight: 500; line-height: 1; text-decoration: none; }
+.btn > span { display: flex; align-items: center; padding: 0 1.1em; min-height: 3.2em; }
+.btn > svg { box-sizing: content-box; width: 1.4em; height: 1.4em; padding: .9em; border-left: 1px solid color-mix(in srgb, currentColor 20%, transparent); flex: none; }
+
+/* Pictures: real photographs at their true grade, square, never masked into a shape (Imagery). */
+.photo { position: relative; overflow: hidden; background: var(--ais-neutral-100); }
+.photo > img { width: 100%; height: 100%; object-fit: cover; }
+/* A caption names the picture on an ink chip in its corner (Imagery, Captions). */
+.chip { position: absolute; left: 0; bottom: 0; padding: .55em .9em; background: rgba(15, 23, 41, .9); color: #fff; font-weight: 500; line-height: 1.3; }
+
+/* Hairlines separate content; nothing casts a shadow (Layout, Elevation). */
+.rule { height: 1px; background: var(--g-line); }
+.rows > * + * { border-top: 1px solid var(--g-line); }
+
+.hexfield { position: absolute; top: 0; bottom: 0; right: 0; left: auto; height: 100%; aspect-ratio: 1; max-width: none; pointer-events: none; background: url(hex-field-tr.svg) center / 100% 100% no-repeat; }
+/* One pattern everywhere: the fields come from studio/print/pattern.py --assets, a square as tall as its zone (the piece's short side on banners), anchored to its corner; zones must not clip it. */
+.hexfield.tl, .hexfield.edge-l { background-image: url(hex-field-tl.svg); left: 0; right: auto; }
+.hexfield.br { background-image: url(hex-field-br.svg); }
+.hexfield.bl, .hexfield.corner-bl { background-image: url(hex-field-bl.svg); left: 0; right: auto; }
+
+/* The single hexagon: an outline that holds an icon or a number. */
+.hexi { position: relative; display: inline-grid; place-items: center; flex: none; width: 2.6em; height: 2.6em; color: var(--g-accent); }
+.hexi::before { content: ''; position: absolute; inset: 0; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4 L90 27 V73 L50 96 L10 73 V27 Z' fill='none' stroke='black' stroke-width='4'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4 L90 27 V73 L50 96 L10 73 V27 Z' fill='none' stroke='black' stroke-width='4'/%3E%3C/svg%3E") center / contain no-repeat; opacity: .9; }
+.hexi > svg, .hexi > b { position: relative; width: 44%; height: 44%; font-weight: 500; font-size: .95em; line-height: 1; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+.g-white .hexi, .g-grey .hexi { color: #3664B3; }
+.g-white .hexi > b, .g-grey .hexi > b { color: #17356E; }
+.g-blue .hexi > b, .g-deep .hexi > b { color: #FFFFFF; }
+
+/* Logos: the official files only, signing at the foot; clear space of a quarter of their height (Logos). */
+.logo { display: block; height: auto; }
+.endorse { color: var(--g-body); }

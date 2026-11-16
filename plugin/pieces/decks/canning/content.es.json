@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, sector conservas",
+    "footer": "AIS Vision Systems, sector conservas",
+    "file": "ais-vision-systems_presentation-canning_es"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "image": {
+        "src": "tpl:ext/rev360-compact_cans-infeed_cover.jpg",
+        "pos": "50% 50%"
+      },
+      "title": "Control de calidad automatizado en líneas de conservas",
+      "lead": "Latas, cierres, contenido y marcajes, con visión artificial e IA.",
+      "meta": "Engineering peace of mind",
+      "notes": "Presentación de AIS Vision Systems para el sector de conservas."
+    },
+    {
+      "include": "../../../decks/sections/group-intro.es.json"
+    },
+    {
+      "include": "../../../decks/sections/vision-ai.es.json"
+    },
+    {
+      "layout": "statement",
+      "title": "Diseñamos un sistema a medida que se adapta de la mejor forma a tus necesidades",
+      "image": {
+        "src": "library/media/deck-media/chickpea-jars_four-views.jpg",
+        "pos": "50% 55%"
+      },
+      "notes": "Cuatro vistas de cámara de un tarro de garbanzos en la línea (foto del original, etiqueta del cliente difuminada). Los dos tipos de producto, en las dos diapositivas siguientes."
+    },
+    {
+      "layout": "product",
+      "title": "Productos con un patrón único",
+      "lead": "Inspección con visión convencional e interfaz a medida.",
+      "image": {
+        "src": "library/media/deck-media/jar-mouth_top-view.jpg",
+        "keep": 1
+      },
+      "facts": [
+        {
+          "k": "Inspección",
+          "v": "Cuellos de botellas y tarros"
+        }
+      ],
+      "tiles": [
+        {
+          "image": "library/media/deck-media/jar-neck_glass-thread.jpg",
+          "label": "Cuello de un tarro"
+        },
+        {
+          "image": "library/media/deck-media/jar-mouth_processed-view.jpg",
+          "label": "Imagen procesada"
+        }
+      ],
+      "notes": "Productos con un patrón único: visión convencional con interfaz a medida. Imágenes del original: la boca de un tarro vista desde arriba, el cuello de un tarro y la imagen procesada de la boca."
+    },
+    {
+      "layout": "product",
+      "title": "Productos orgánicos",
+      "lead": "Inspección con IA.",
+      "image": {
+        "src": "pieces/decks/canning/source-media/jar-mixed-contents.png",
+        "keep": 0.78
+      },
+      "tiles": [
+        {
+          "image": "pieces/decks/canning/source-media/jar-segmentation-overlay.png",
+          "label": "Segmentación del contenido"
+        },
+        {
+          "image": "pieces/decks/canning/source-media/jar-piece-contours.png",
+          "label": "Contorno de cada pieza"
+        }
+      ],
+      "notes": "Productos orgánicos, inspeccionados con IA: un tarro de encurtidos, la segmentación de su contenido y el contorno de cada pieza, como en el original.",
+      "facts": [
+        {
+          "k": "Producto",
+          "v": "Control del producto"
+        },
+        {
+          "k": "Piezas",
+          "v": "Recuento y tamaño de las piezas"
+        }
+      ]
+    },
+    {
+      "layout": "product",
+      "image": {
+        "src": "pieces/decks/canning/source-media/rp-tuna-can-live-view-crop.jpg",
+        "keep": 0.7
+      },
+      "title": "Sistemas de control de calidad con IA",
+      "facts": [
+        {
+          "k": "Inspecciona",
+          "v": "Patrón correcto, piel, metal, espinas, transparente, sangacho"
+        }
+      ],
+      "notes": "Vista en directo de Rosepetal inspeccionando una lata de atún abierta. En las dos teselas del original, papel y plástico entre el atún. La lista completa: patrón correcto, papel, piel, metal, espinas, plástico, transparente y sangacho.",
+      "tiles": [
+        {
+          "image": "library/media/deck-media/tuna-can_paper.png",
+          "label": "Papel"
+        },
+        {
+          "image": "library/media/deck-media/tuna-can_plastic.png",
+          "label": "Plástico"
+        }
+      ]
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "library/media/deck-media/can-inspection-machine_workshop.jpg",
+        "pos": "60% 50%"
+      },
+      "title": "Litografía, abolladuras, doble cierre y abombamientos",
+      "lead": "Inspección de latas en línea con el AIS REV 360 2C.",
+      "detail": {
+        "image": "library/media/deck-media/can_sidewall-dent.jpg",
+        "title": "Abolladura en el lateral de una lata"
+      },
+      "notes": "El AIS REV 360 2C en nuestro taller (foto del original). Inspecciona litografía, abolladuras, doble cierre y abombamientos. En el detalle, una abolladura en el lateral de una lata (foto del original)."
+    },
+    {
+      "layout": "stage",
+      "title": "AIS REV CAN: inspección del doble cierre",
+      "image": {
+        "src": "library/media/deck-media/tuna-can_packshot.jpg",
+        "pos": "50% 50%"
+      },
+      "facts": [
+        {
+          "k": "Fallos",
+          "v": "Falso cierre y fallos de la rulina de segunda operación, del plato del mandril, de la pestaña del fondo y por pico"
+        },
+        {
+          "k": "Inspecciona",
+          "v": "Defectos de cierre, picos, abombamientos y OCR"
+        }
+      ],
+      "detail": {
+        "image": "library/media/real/rev360-compact_seam-screen.jpg",
+        "title": "Imagen de cámara del cierre"
+      },
+      "notes": "Fallos del doble cierre que inspecciona el AIS REV CAN: falso cierre, fallo de la rulina de segunda operación, fallo del plato del mandril, fallo de la pestaña del fondo y fallo por pico. Arriba, una lata redonda como la del original; abajo, la imagen de cámara del cierre."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/rev360-compact_cans-entering.jpg",
+        "pos": "50% 50%",
+        "fit": "contain",
+        "maxScale": 1.0
+      },
+      "title": "Defectos de cierre, picos, abombamientos y OCR",
+      "lead": "Con el AIS REV 360 8C.",
+      "detail": {
+        "image": "tpl:ext/oval-tin-seam-dent-wide-blurred.jpg",
+        "w": 400,
+        "h": 160,
+        "title": "Imagen real de cámara",
+        "text": "Defecto en el borde del cierre"
+      },
+      "notes": "Latas entrando en el AIS REV 360 8C. En el detalle, un defecto en el borde del cierre."
+    },
+    {
+      "layout": "grid",
+      "title": "Inspección de envases metálicos",
+      "cols": 3,
+      "ratio": 1.5,
+      "tiles": [
+        {
+          "image": "library/media/deck-media/can_upper-seam.jpg",
+          "label": "Cierre superior"
+        },
+        {
+          "image": "library/media/deck-media/can_lower-rim-deformation.jpg",
+          "label": "Deformación del borde inferior"
+        },
+        {
+          "image": "library/media/deck-media/metal-pail_hazard-label.jpg",
+          "label": "Envase con etiqueta de peligro"
+        }
+      ],
+      "notes": "Fotos de las diapositivas del AIS REV 360 8C del original: el cierre superior, una deformación del borde inferior y un envase con su etiqueta."
+    },
+    {
+      "layout": "grid",
+      "title": "OPTICAIS",
+      "lead": "Inspección de lote, QR y Data Matrix.",
+      "cols": 3,
+      "tiles": [
+        {
+          "image": "tpl:ext/cans_code-pair_clean.jpg",
+          "label": "Marcaje en la tapa de una lata"
+        },
+        {
+          "image": "tpl:ext/af26-can-demo_date-tile.png",
+          "label": "En la pantalla del equipo"
+        },
+        {
+          "image": "pieces/decks/canning/source-media/opticais-can-line-context.png",
+          "label": "Sobre una línea de latas"
+        }
+      ],
+      "notes": "OPTICAIS lee lotes, códigos QR y Data Matrix. La foto de la línea es del original. Enlaces del original: vídeo de inspección de cúpulas, OCR en fondos de botellas, OCR en botellas de cerveza y OCR en cupones."
+    },
+    {
+      "layout": "divider",
+      "part": "Muelles de carga",
+      "title": "AIS Conwell: muelles de carga inteligentes"
+    },
+    {
+      "layout": "product",
+      "title": "Escáner y aplicador de etiquetas en el muelle",
+      "image": {
+        "src": "library/media/deck-media/loading-dock_scanner-diagram.png",
+        "keep": 1
+      },
+      "facts": [
+        {
+          "k": "Escáner",
+          "v": "Lateral, en diagonal a 45°"
+        },
+        {
+          "k": "Etiquetas",
+          "v": "Aplicador robotizado"
+        }
+      ],
+      "tiles": [
+        {
+          "image": "library/media/deck-media/loading-dock_scanners-large.jpg",
+          "label": "Muelles de carga y descarga"
+        },
+        {
+          "image": "library/media/deck-media/loading-dock_label-applicator-portal-large.jpg",
+          "label": "Pórtico en un muelle de carga"
+        }
+      ],
+      "notes": "Identificación automática en los muelles de carga y descarga: el esquema del escáner lateral en diagonal a 45°, los escáneres en los muelles y el aplicador robotizado de etiquetas (fotos del original)."
+    },
+    {
+      "include": "../../../decks/sections/conwell.es.json"
+    },
+    {
+      "include": "../../../decks/sections/graphic-arts.es.json"
+    },
+    {
+      "layout": "logos",
+      "title": "Nuestras referencias",
+      "cols": 5,
+      "logoH": 96,
+      "logoW": 230,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/calvo.png",
+          "name": "calvo"
+        },
+        {
+          "src": "tpl:logos-ref/danone.png",
+          "name": "danone"
+        },
+        {
+          "src": "tpl:logos-ref/nestle.png",
+          "name": "nestle"
+        },
+        {
+          "src": "tpl:logos-ref/campofrio.png",
+          "name": "campofrio"
+        },
+        {
+          "src": "tpl:logos-ref/heinz.png",
+          "name": "heinz"
+        },
+        {
+          "src": "tpl:logos-ref/elpozo.png",
+          "name": "elpozo"
+        },
+        {
+          "src": "tpl:logos-ref/cerealto-siro.png",
+          "name": "cerealto-siro"
+        },
+        {
+          "src": "tpl:logos-ref/belcan.png",
+          "name": "belcan"
+        },
+        {
+          "src": "tpl:logos-ref/panabad.png",
+          "name": "panabad"
+        },
+        {
+          "src": "tpl:logos-ref/palacios.png",
+          "name": "palacios"
+        },
+        {
+          "src": "tpl:logos-ref/elaborados-naturales.png",
+          "name": "elaborados-naturales"
+        },
+        {
+          "src": "tpl:logos-ref/naming.png",
+          "name": "naming"
+        },
+        {
+          "src": "tpl:logos-ref/rensika.png",
+          "name": "rensika"
+        }
+      ],
+      "notes": "Clientes del sector de alimentación."
+    },
+    {
+      "layout": "split",
+      "title": "Nuestra oficina en España",
+      "notes": "Contacto de AIS Vision Systems; el teléfono y la web, en la diapositiva final.",
+      "lead": "AIS Vision Systems",
+      "points": [
+        {
+          "text": "Dirección\nCarrer de Can Camps, 10, Pol. Ind. Can Roqueta, 08202 Sabadell (Barcelona)"
+        },
+        {
+          "text": "Correo electrónico\ninfo@aisvision.com"
+        }
+      ],
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      }
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Diapositiva final del original: «Thank you! You can find us at: LinkedIn, YouTube, www.aisvision.com». Enlaces del original: https://www.linkedin.com/company/ais-vision-systems-s-l-/ y http://www.youtube.com/@Aisvision. El teléfono, como en las piezas aprobadas."
+    }
+  ]
+}

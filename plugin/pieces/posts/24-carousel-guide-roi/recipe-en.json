@@ -1,0 +1,165 @@
+{
+  "name": "ais-vision-systems_carousel-guide-roi_en_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Before investing in machine vision, gather the cost of the problem, volume and defects, manual inspection, integration and maintenance. Estimate net monthly savings and compare three scenarios. Initial investment divided by positive net monthly savings estimates simple payback in months; it is not a percentage ROI or a promise of savings. Tell us about your line.",
+  "shots": [
+    {
+      "type": "list",
+      "headline": "Before you invest,|calculate|*with your line’s data*",
+      "alt": "Before you invest, calculate with your line’s data. Problem costs, investment and scenarios. A guide to preparing your inputs.",
+      "bg": "white",
+      "items": [
+        {
+          "text": "Cost of the problem",
+          "icon": "check",
+          "detail": "Scrap, rework and claims."
+        },
+        {
+          "text": "Initial investment",
+          "icon": "check",
+          "detail": "Integration and maintenance."
+        },
+        {
+          "text": "Three scenarios",
+          "icon": "check",
+          "detail": "Conservative, base and optimistic."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Why estimate it|before investing",
+      "items": [
+        {
+          "text": "Prioritise and justify",
+          "detail": "Identify real impact and present objective data to management and purchasing.",
+          "icon": "check"
+        },
+        {
+          "text": "Compare scenarios",
+          "detail": "Evaluate options on technical criteria, without commercial pressure.",
+          "icon": "check"
+        },
+        {
+          "text": "Reduce decision risk",
+          "detail": "Less uncertainty about the expected return before committing.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Why estimate it before investing. Prioritise and justify: Identify real impact and present objective data to management and purchasing. Compare scenarios: Evaluate options on technical criteria, without commercial pressure. Reduce decision risk: Less uncertainty about the expected return before committing."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "What does|the current|problem cost?",
+      "items": [
+        {
+          "text": "Scrap, rework and claims",
+          "detail": "Actual costs for the period. Count each loss only once.",
+          "icon": "check"
+        },
+        {
+          "text": "Volume and defects",
+          "detail": "Total output and measured defect rate for the same period.",
+          "icon": "check"
+        },
+        {
+          "text": "Manual inspection",
+          "detail": "Direct and indirect costs of the current process.",
+          "icon": "check"
+        }
+      ],
+      "alt": "What does the current problem cost? Scrap, rework and claims: Actual costs for the period. Count each loss only once. Volume and defects: Total output and measured defect rate for the same period. Manual inspection: Direct and indirect costs of the current process."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Investment|and savings",
+      "items": [
+        {
+          "text": "Integration and maintenance",
+          "detail": "Separate initial investment from recurring costs.",
+          "icon": "check"
+        },
+        {
+          "text": "Net monthly savings",
+          "detail": "Estimated avoidable costs less added monthly costs.",
+          "icon": "check"
+        },
+        {
+          "text": "Three scenarios",
+          "detail": "Conservative, base and optimistic. Vary assumptions, not measured data.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Estimate investment and savings. Integration and maintenance: Separate initial investment from recurring costs. Net monthly savings: Estimated avoidable costs less added monthly costs. Three scenarios: Conservative, base and optimistic. Vary assumptions, not measured data."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Compare|three scenarios",
+      "items": [
+        {
+          "text": "Conservative",
+          "detail": "A cautious estimate of monthly savings and the payback period.",
+          "icon": "check"
+        },
+        {
+          "text": "Baseline",
+          "detail": "A reference scenario using the assumptions expected for your line.",
+          "icon": "check"
+        },
+        {
+          "text": "Optimistic",
+          "detail": "A favourable estimate checked against your line conditions.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Compare three scenarios. Conservative: A cautious estimate of monthly savings and the payback period. Baseline: A reference scenario using the assumptions expected for your line. Optimistic: A favourable estimate checked against your line conditions."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Initial investment|÷ net monthly savings|= months",
+      "alt": "Initial investment ÷ monthly savings = months. Use positive net monthly savings and a consistent scope. This estimates simple payback; it excludes the time value of money. Check each scenario against product trials and line conditions.",
+      "items": [
+        {
+          "text": "Condition",
+          "icon": "check",
+          "detail": "Use positive net monthly savings and a consistent scope."
+        },
+        {
+          "text": "Simple payback",
+          "icon": "check",
+          "detail": "This estimates simple payback; it excludes the time value of money."
+        },
+        {
+          "text": "Validation",
+          "icon": "check",
+          "detail": "Check each scenario against product trials and line conditions."
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "headline": "Put numbers|*on your project*",
+      "action": "Tell us about your line",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "Put numbers on your project. Tell us about your line. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

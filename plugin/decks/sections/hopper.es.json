@@ -1,0 +1,128 @@
+{
+  "slides": [
+    {
+      "layout": "stage",
+      "image": {
+        "src": "pieces/brochures/catalogue-beverage/assets/hopper-water-line.png",
+        "fit": "contain",
+        "bg": "white"
+      },
+      "title": "Control del tapón y del nivel de llenado",
+      "lead": "El 100 % de la producción, hasta 30 000 unidades/hora.",
+      "facts": [
+        {
+          "k": "Tapón",
+          "v": "Presencia, integridad y posición, a 360° sin orientar el envase"
+        },
+        {
+          "k": "Aprendizaje profundo",
+          "v": "Visión artificial que se ajusta con ejemplos, sin programación"
+        },
+        {
+          "k": "Producción",
+          "v": "Estadísticas de cada producción"
+        }
+      ],
+      "notes": "Cadencia según formato e inspecciones. En la foto, el AIS Hopper en una línea de agua embotellada."
+    },
+    {
+      "layout": "grid",
+      "title": "Del cierre al nivel de llenado",
+      "cols": 6,
+      "lead": "Tapón, boca y cuello del envase, y nivel de llenado. Los controles se definen con las muestras de cada línea.",
+      "tiles": [
+        {
+          "image": "tpl:ext/juice_det-cap_tile.jpg",
+          "label": "Defectos del tapón"
+        },
+        {
+          "image": "tpl:ext/juice_det-tilted-cap_tile.jpg",
+          "label": "Tapón inclinado"
+        },
+        {
+          "image": "tpl:ext/stillwine_capsule-missing_tile.jpg",
+          "label": "Cápsula ausente"
+        },
+        {
+          "image": "tpl:ext/jug_det-handle-ok_tile.jpg",
+          "label": "Presencia y orientación del asa"
+        },
+        {
+          "image": "tpl:ext/stillwine_fill-low_tile.jpg",
+          "label": "Nivel de llenado"
+        },
+        {
+          "image": "tpl:ext/juice_det-lot-read_tile.jpg",
+          "label": "Lectura y presencia de lote"
+        }
+      ],
+      "notes": "También controla el tapón solidario. Tapón en 360°, sin orientar el envase, sobre el 100 % de la producción."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/still-machine-hmi.jpg",
+        "pos": "50% 50%"
+      },
+      "title": "Sobre la cinta, junto al recorrido del producto",
+      "facts": [
+        {
+          "k": "Cabezal",
+          "v": "Tres cámaras en color para el control lateral del tapón; cámara cenital opcional para la boca"
+        },
+        {
+          "k": "Iluminación",
+          "v": "Cúpula que aísla de la luz exterior"
+        },
+        {
+          "k": "Equipo",
+          "v": "Acero inoxidable, compacto, con regulación automática de altura según la referencia"
+        }
+      ],
+      "detail": {
+        "image": "tpl:img/hopper_bottles-in-head.jpg",
+        "w": 400,
+        "h": 225
+      },
+      "notes": "El AIS Hopper con su pantalla de operario, sobre una línea."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:img/hopper_software-screen.jpg",
+        "pos": "35% 50%"
+      },
+      "title": "Ajustes basados en ejemplos, sin programación",
+      "facts": [
+        {
+          "k": "Software",
+          "v": "Motor de aprendizaje profundo de Rosepetal; copia en la nube de recetas, imágenes y estadísticas"
+        },
+        {
+          "k": "Opciones",
+          "v": "Rechazo progresivo o por impacto, acumulación, cintas, centrador, etiquetas y marcaje, TrazAIS"
+        }
+      ],
+      "notes": "Vista en directo y detecciones del tapón. Opciones: rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto, control de etiquetas y marcaje láser o de tinta, y TrazAIS para trazabilidad y serialización."
+    },
+    {
+      "layout": "steps",
+      "title": "Envíanos muestras: las probamos antes de la oferta",
+      "steps": [
+        {
+          "title": "Muestras",
+          "text": "Envases reales de tu producción, con sus formatos y defectos."
+        },
+        {
+          "title": "Pruebas de laboratorio",
+          "text": "Un informe técnico fija el hardware del proyecto."
+        },
+        {
+          "title": "Oferta técnica y económica",
+          "text": "Con cada partida y los opcionales."
+        }
+      ],
+      "notes": "El mismo proceso de preventa que en todos nuestros proyectos."
+    }
+  ]
+}

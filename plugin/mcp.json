@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "studio": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${PLUGIN_ROOT}/mcp/start.mjs"],
+      "env": {
+        "AIS_PLUGIN_DATA": "${PLUGIN_DATA}",
+        "AIS_INBOX": "${PLUGIN_DATA}/inbox"
+      }
+    },
+    "design": {
+      "type": "streamable-http",
+      "url": "https://design.aisgroup.ai/mcp"
+    }
+  }
+}

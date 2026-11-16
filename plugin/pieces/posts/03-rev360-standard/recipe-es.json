@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-rev360-standard_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Con cuatro cámaras a color alrededor del envase, el AIS REV 360 STANDARD ve la botella entera a la vez: la etiqueta, la contraetiqueta y la cápsula, sin tener que orientarla. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/social-composites/03-rev360-standard-cava_callout_es.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "Etiqueta, contraetiqueta|y cápsula, *a la vez*"
+    }
+  ]
+}

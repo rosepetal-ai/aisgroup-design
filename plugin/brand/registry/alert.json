@@ -1,0 +1,44 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "description": "A status message inside a section: icon and text take the tone, the surface stays the card.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/alert/Alert.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { AlertVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { alertVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AlertVariants['variant']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "components/ui/alert/AlertAction.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-action\"\n    :class=\"cn('absolute top-2.5 right-3', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "components/ui/alert/AlertDescription.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground text-sm text-balance md:text-pretty [&_p:not(:last-child)]:mb-4 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "components/ui/alert/AlertTitle.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('font-medium group-has-[>svg]/alert:col-start-2 cn-font-heading [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "components/ui/alert/index.ts",
+      "type": "registry:ui",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Alert } from './Alert.vue'\nexport { default as AlertAction } from './AlertAction.vue'\nexport { default as AlertDescription } from './AlertDescription.vue'\nexport { default as AlertTitle } from './AlertTitle.vue'\n\nexport const alertVariants = cva('grid gap-0.5 rounded-lg border px-4 py-3 text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2.5 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*=size-])]:size-4 group/alert relative w-full', {\n  variants: {\n    variant: {\n      default: 'bg-card text-card-foreground',\n      destructive: 'border-destructive/30 bg-destructive/10 text-destructive *:data-[slot=alert-description]:text-destructive/90',\n      success: 'border-success/30 bg-success/10 text-success *:data-[slot=alert-description]:text-success/90',\n      info: 'border-info/30 bg-info/8 text-info *:data-[slot=alert-description]:text-info/90',\n      warning: 'border-warning/40 bg-warning/10 text-foreground *:[svg]:text-warning *:data-[slot=alert-description]:text-foreground/90',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n})\n\nexport type AlertVariants = VariantProps<typeof alertVariants>\n"
+    }
+  ],
+  "meta": {
+    "package": "@rosepetal/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/alert/Alert.vue"
+  }
+}

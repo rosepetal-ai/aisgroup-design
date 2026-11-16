@@ -1,0 +1,712 @@
+{
+  "hopper": {
+    "name": "AIS Hopper",
+    "source": "datasheet-hopper.md",
+    "cover_headline": "Control a 360° del tapón, la boca, el cuello y el nivel de llenado con visión artificial y aprendizaje profundo. Analiza el 100 % de la producción, hasta 30 000 unidades/hora.",
+    "cover_image": "cover_juice-lineup.jpg",
+    "cover_alt": "Botellas de zumo en la cinta del AIS Hopper, una de ellas con el nivel de llenado bajo",
+    "inspection_title": "Del cierre al nivel de llenado",
+    "inspection_lead": "Comprueba que el tapón está presente, íntegro y bien colocado, controla el precinto y el nivel, y lee el marcaje del envase. En vidrio y PET, desde 0,33 L hasta garrafas de varios litros.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Botellas de vidrio y PET con tapón de plástico, de corcho o de rosca (pilfer). Rango habitual: de formatos pequeños (~0,33 L) a garrafas de varios litros (p. ej., 8 L)"
+      ],
+      [
+        "Diseño",
+        "Fabricado en INOX 304, con cúpula cerrada que protege las cámaras y la iluminación"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 30 000 unidades/hora (según el número de inspecciones y el formato)"
+      ],
+      [
+        "Separación mínima",
+        "Un envase de separación entre botellas (a cargo del cliente)"
+      ],
+      [
+        "Cámaras",
+        "3 cámaras en color de alta resolución para el tapón, el nivel y el asa de las garrafas; 4.ª cámara opcional para la presencia del lote y la etiqueta"
+      ],
+      [
+        "Iluminador",
+        "Cúpula de LED de alta potencia con controlador diseñado por AIS Vision Systems, para iluminar el cierre de forma homogénea"
+      ],
+      [
+        "Dimensiones",
+        "Módulo compacto de unos 750 × 950 mm"
+      ],
+      [
+        "Controladora",
+        "Procesador multicámara para visión artificial y aprendizaje profundo"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "still-machine-hmi.jpg",
+    "technical_alt": "AIS Hopper con el cabezal de inspección sobre la cinta y la pantalla de control",
+    "technical_caption": "Cabezal de inspección sobre la cinta, con la pantalla de control al lado.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "hopper_software-live-view.jpg",
+    "screen_alt": "Vista de inspección y resultados de AIS Hopper",
+    "caption": "Imágenes y resultados de la inspección en la interfaz del equipo.",
+    "software": [
+      [
+        "Aprendizaje profundo",
+        "Modelos precargados y entrenamiento con ejemplos mediante Rosepetal"
+      ],
+      [
+        "Recetas",
+        "Creación y ajuste de formatos sin programación"
+      ],
+      [
+        "Datos de producción",
+        "Registro estadístico y copia de seguridad en la nube de recetas, imágenes y resultados"
+      ],
+      [
+        "Gestión remota",
+        "Supervisión de producción y gestión de recetas vía web con credenciales seguras"
+      ],
+      [
+        "Cierre y boca",
+        "Control del tapón y del nivel; en retornables, detección de roturas, deformaciones y desgaste en la boca"
+      ],
+      [
+        "Marcaje",
+        "Lectura de lote, caducidad, códigos 2D y números de serie en el tapón o el cuello, según configuración"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. Cámara adicional para boca, nivel, lote o etiqueta según la aplicación. AIS PRO 8: rechazo progresivo de cinco pistones para desviar el envase sin volcarlo.",
+    "cover_fx": "50%",
+    "cover_fy": "55%",
+    "technical_fit": "contain",
+    "screen_height": 65,
+    "fy": "50%",
+    "screen_fit": "contain"
+  },
+  "kariko": {
+    "name": "AIS KARIKÓ",
+    "source": "datasheet-kariko.md",
+    "cover_headline": "Control de calidad en línea de las dos caras del envase, con cámaras en color y aprendizaje profundo. Inspecciona el 100 % de la producción en tiempo real, hasta 30 000 unidades/hora.",
+    "cover_image": "kariko_trays-3q.jpg",
+    "cover_alt": "AIS KARIKÓ con la cinta de entrada, la pantalla de control y envases termosellados",
+    "inspection_title": "Las dos caras de cada envase, en tiempo real",
+    "inspection_lead": "AIS KARIKÓ detecta los defectos que pueden afectar a la seguridad o a la imagen del producto y comprueba que el lote y la caducidad estén presentes, legibles y correctos. El alcance de cada detección depende del producto, las muestras y la configuración.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Bandejas y boles termosellados de geometría circular o rectangular (dimensiones según el producto)"
+      ],
+      [
+        "Diseño",
+        "Estructura de acero inoxidable (INOX 304)"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 30 000 unidades/hora, según las inspecciones y el formato"
+      ],
+      [
+        "Separación mínima",
+        "130 mm entre envases"
+      ],
+      [
+        "Cámaras",
+        "2 cámaras en color de alta resolución: superior matricial e inferior lineal"
+      ],
+      [
+        "Iluminador",
+        "Iluminación superior de alta potencia y proyector lineal inferior (luz difusa)"
+      ],
+      [
+        "Dimensiones",
+        "Transporte de 2 o 3 tramos según el producto: 920 mm (inspección) + 920 mm (rechazo); banda de 300 mm"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "kariko_trays-infeed.jpg",
+    "technical_alt": "Entrada de AIS KARIKÓ: envases termosellados en la cinta, bajo la pantalla de control",
+    "technical_caption": "Envases termosellados entrando en la zona de inspección, bajo la pantalla de control.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "kariko_screen-sealing.jpg",
+    "screen_alt": "Vista en directo de un bol termosellado por las dos caras, marcado como sellado NOK, con la lista de detecciones y los resultados",
+    "caption": "Un bol con el sellado defectuoso: la marca roja señala el fallo en el borde del film.",
+    "software": [
+      [
+        "Auto Labeling",
+        "Localiza el contorno, el film, el sellado y la zona de producto. Verifica la referencia del film para detectar errores de variedad o alérgeno"
+      ],
+      [
+        "AutoDetect",
+        "Propone controles de contaminación, falta de cierre, canales, burbujas, pliegues y desalineación del film"
+      ],
+      [
+        "UltraOCR",
+        "Lee y valida lote, caducidad y texto variable con distintos contrastes y perspectivas"
+      ],
+      [
+        "Smart Labeling",
+        "Propone la región y la categoría del defecto al anotarlo"
+      ],
+      [
+        "Rosepetal",
+        "Modelos precargados, entrenamiento con ejemplos y gestión web con acceso seguro"
+      ],
+      [
+        "Recetas y resultados",
+        "Creación de formatos, registro estadístico y copias de seguridad en la nube"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. Expulsores separados para producto recuperable y no recuperable.",
+    "cover_fx": "62%",
+    "cover_fy": "50%",
+    "technical_fx": "50%",
+    "technical_fy": "45%",
+    "technical_fit": "contain",
+    "screen_height": 65.5,
+    "screen_fit": "contain"
+  },
+  "cables": {
+    "name": "AIS REV 360 Cables",
+    "source": "datasheet-rev360-cables.md",
+    "cover_headline": "Inspección a 360° de la superficie de cables y tubos en producción continua: aislantes, recubrimientos y acabados. Inspecciona el 100 % de la producción con aprendizaje profundo, hasta 300 m/min, sin frenar la línea.",
+    "cover_image": "cables-product-clean-1672.webp",
+    "cover_alt": "AIS REV 360 Cables con el cabezal cerrado y el equipo de la línea",
+    "inspection_title": "Toda la superficie del cable y del tubo",
+    "inspection_lead": "Cables y tubos de hasta 80 mm de diámetro. Cada defecto dispara una alarma con su tipo, para que el producto defectuoso no llegue al mercado.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Cables y tubos de hasta 80 mm de diámetro. Superficies lisas o estriadas; distintos colores, según la configuración"
+      ],
+      [
+        "Diseño",
+        "Integración en línea para inspección en movimiento (configuración mecánica según la línea)"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 300 m/min"
+      ],
+      [
+        "Lectura de texto (OCR)",
+        "Según la configuración"
+      ],
+      [
+        "Cámaras",
+        "4 cámaras para la inspección de 360°"
+      ],
+      [
+        "Iluminador",
+        "Según la configuración"
+      ],
+      [
+        "Dimensiones",
+        "Aprox. 1960 × 600 × 1960 mm (largo × ancho × alto)"
+      ],
+      [
+        "Controladora",
+        "Unidad de procesamiento industrial, según la configuración"
+      ],
+      [
+        "Expulsor",
+        "No aplica; gestión mediante señal OK/NOK al PLC (alarma, parada o gestión del tramo según la lógica de la línea)"
+      ],
+      [
+        "Centrador",
+        "Guiado y centrado a la entrada y a la salida, adaptados a la línea"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "rev360-cables_tunnel.jpg",
+    "technical_alt": "AIS REV 360 Cables con protecciones cerradas",
+    "technical_caption": "Guiado del cable y protecciones del cabezal de inspección.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "rev360-cables_rosepetal-screen.jpg",
+    "screen_alt": "Vista de inspección y resultados de AIS REV 360 Cables",
+    "caption": "Imágenes y resultados de la inspección en la interfaz del equipo.",
+    "software": [
+      [
+        "Aprendizaje profundo",
+        "Modelos precargados; entrenamiento con ejemplos para adaptar la detección de anomalías al producto, con Rosepetal"
+      ],
+      [
+        "Recetas",
+        "Creación y ajuste de formatos sin programación"
+      ],
+      [
+        "Datos de producción",
+        "Registro estadístico y copia de seguridad en la nube de recetas, imágenes y resultados"
+      ],
+      [
+        "Gestión remota",
+        "Supervisión de producción y gestión de recetas vía web con credenciales seguras"
+      ],
+      [
+        "Detección y alarma",
+        "Inspección a 360° en tiempo real y alarma con el tipo de defecto detectado"
+      ],
+      [
+        "OCR",
+        "Lectura en línea de lote, fecha, referencia o contador, según configuración"
+      ]
+    ],
+    "options": "Guiado y centrado; señal OK/NOK al PLC para alarma, parada o gestión del tramo; estación fuera de línea con desbobinado y bobinado; marcaje de defectos; mapa de metraje; TrazAIS: trazabilidad y serialización. No incorpora expulsor de envases.",
+    "cover_fx": "50%",
+    "cover_fy": "50%",
+    "technical_half": 75,
+    "technical_wide": true,
+    "screen_height": 77
+  },
+  "compact": {
+    "name": "AIS REV 360 COMPACT",
+    "source": "datasheet-rev360-compact.md",
+    "cover_headline": "Control de calidad a 360° del metal, el doble cierre, la litografía y el marcaje de cada envase. Analiza el 100 % de la producción, hasta 30 000 unidades/hora, sin afectar al ritmo de la línea.",
+    "cover_image": "rev360-compact_cans-infeed_cover.jpg",
+    "cover_alt": "AIS REV 360 COMPACT con latas de garbanzos entrando en la zona de inspección",
+    "inspection_title": "Cada envase, en todo su perímetro",
+    "inspection_lead": "Defectos y abolladuras en el metal o el doble cierre, litografía impresa, etiquetas y marcajes de lote, caducidad y código de barras.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Envases de distintas geometrías. Hasta 220 mm en la versión Lite"
+      ],
+      [
+        "Diseño",
+        "Fabricado en INOX 304"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 30 000 unidades/hora (según el número de inspecciones)"
+      ],
+      [
+        "Separación mínima",
+        "80 mm"
+      ],
+      [
+        "Cámaras",
+        "4 × 9 Mpx en color; 5.ª cámara cenital opcional"
+      ],
+      [
+        "Iluminador",
+        "7200 LED, con controlador diseñado por AIS Vision Systems"
+      ],
+      [
+        "Dimensiones",
+        "630 × 630 mm"
+      ],
+      [
+        "Controladora",
+        "FPGA para la gestión inmediata de señales digitales"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "rev360-compact-exterior.jpg",
+    "technical_alt": "Plataforma AIS REV 360 COMPACT con cinta verde y guías metálicas",
+    "technical_caption": "Plataforma AIS REV 360 COMPACT con transportador.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "cans_code-pair_close.jpg",
+    "screen_alt": "Dos tapas de lata con el lote y la caducidad: arriba legible, abajo con la tinta corrida",
+    "caption": "Marcaje de lote y caducidad en la tapa: legible arriba, con la tinta corrida abajo.",
+    "software": [
+      [
+        "Profiler",
+        "Crea recetas a partir de un envase o de su diseño digital; ajusta las tolerancias de tamaño, posición y relación entre etiquetas"
+      ],
+      [
+        "Auto Labeling y Smart Labeling",
+        "Localización asistida de elementos y anotación de regiones para preparar el conjunto de datos"
+      ],
+      [
+        "UltraOCR",
+        "Lectura de lotes, caducidades y números de serie con distintas perspectivas, contrastes y calidades de impresión"
+      ],
+      [
+        "AutoDetect",
+        "Localiza textos, logotipos, códigos y contenido regulatorio para seleccionar los controles"
+      ],
+      [
+        "Vista desplegada",
+        "Inspección de envases circulares, cuadrados, ovalados o de geometría irregular"
+      ],
+      [
+        "Rosepetal",
+        "Modelos precargados, entrenamiento con ejemplos, recetas y estadísticas en la nube y supervisión web con acceso seguro"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. Cámara cenital, lectura de marcaje láser o de tinta y expulsor AIS PRO 8 de cinco pistones o expulsor de empuje.",
+    "cover_fx": "50%",
+    "cover_fy": "0%",
+    "technical_fit": "contain",
+    "screen_height": 92.5,
+    "software_layout": "evidence-and-options"
+  },
+  "pharma": {
+    "name": "AIS REV 360 PHARMA",
+    "source": "datasheet-rev360-compact-farma.md",
+    "cover_headline": "Inspección visual de etiquetas en viales y envases farmacéuticos pequeños, a 360°. Analiza el 100 % de la producción, hasta 18 000 unidades/hora.",
+    "cover_image": "rev360-pharma_vials-infeed.jpg",
+    "cover_alt": "AIS REV 360 PHARMA con viales entrando en la zona de inspección",
+    "inspection_title": "Cada etiqueta, en todo su perímetro",
+    "inspection_lead": "La visión en color revisa la presencia, la orientación y el contenido de las etiquetas, incluidos los marcajes de trazabilidad: detecta marcajes incompletos o ilegibles, y lee y comprueba el código de cada vial.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Hasta 207 mm de altura y 140 mm de diámetro (versión Lite)"
+      ],
+      [
+        "Diseño",
+        "Fabricado en INOX 304"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 18 000 unidades/hora, según el número de inspecciones"
+      ],
+      [
+        "Separación mínima",
+        "80 mm"
+      ],
+      [
+        "Cámaras",
+        "4 cámaras en color de alta resolución"
+      ],
+      [
+        "Iluminador",
+        "7200 LED, con controlador diseñado por AIS Vision Systems"
+      ],
+      [
+        "Dimensiones",
+        "600 × 600 mm"
+      ],
+      [
+        "Controladora",
+        "FPGA para la gestión inmediata de señales digitales"
+      ],
+      [
+        "Integridad de los datos",
+        "Pista de auditoría (audit trail) completa; conexión con el directorio activo (AD)"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "rev360-compact_vials-infeed.jpg",
+    "technical_alt": "Viales en la cinta de AIS REV 360 PHARMA entrando en el túnel de inspección",
+    "technical_caption": "Viales entrando en el túnel de inspección por la cinta de transporte.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "vial_lineup_clean.jpg",
+    "screen_alt": "Viales etiquetados con cierre azul",
+    "caption": "Viales y envases pequeños con etiquetado y códigos de trazabilidad.",
+    "software": [
+      [
+        "Profiler",
+        "Crea recetas a partir de un envase o de su diseño digital; ajusta las tolerancias de tamaño, posición y relación entre etiquetas. Vista desplegada de envases circulares, cuadrados, ovalados o irregulares"
+      ],
+      [
+        "Auto Labeling y Smart Labeling",
+        "Localización asistida de elementos y anotación de regiones para preparar el conjunto de datos"
+      ],
+      [
+        "UltraOCR",
+        "Lectura de lotes, caducidades y números de serie con distintas perspectivas, contrastes y calidades de impresión"
+      ],
+      [
+        "AutoDetect",
+        "Localiza textos, logotipos, códigos y contenido regulatorio para seleccionar los controles"
+      ],
+      [
+        "Integridad de los datos",
+        "Pista de auditoría completa y conexión con directorio activo (AD). Funciones para 21 CFR Part 11"
+      ],
+      [
+        "Rosepetal",
+        "Modelos precargados, entrenamiento con ejemplos, recetas y estadísticas en la nube y supervisión web con acceso seguro. Generación de imágenes OK/NOK para acelerar el entrenamiento"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. Cámara cenital, lectura de marcaje láser o de tinta y expulsor AIS PRO 8 de cinco pistones o expulsor de empuje.",
+    "cover_fx": "50%",
+    "cover_fy": "50%",
+    "technical_fx": "45%",
+    "technical_fy": "55%",
+    "technical_fit": "contain",
+    "screen_height": 51,
+    "fy": "50%"
+  },
+  "standard": {
+    "name": "AIS REV 360 STANDARD",
+    "source": "datasheet-rev360-standard.md",
+    "cover_headline": "Inspección a 360° del etiquetado y el acabado de los envases: etiquetas, medallones, cápsulas y fundas termorretráctiles. Inspecciona el 100 % de la producción con aprendizaje profundo, hasta 30 000 unidades/hora, sin frenar la línea.",
+    "cover_image": "cover_wine-conveyor.jpg",
+    "cover_alt": "Botellas de vino tinto avanzando en fila por un transportador de acero inoxidable",
+    "inspection_title": "Trece controles de etiquetado y acabado en cada envase",
+    "inspection_lead": "Cuatro cámaras en color ven el envase entero, sin orientarlo, para detectar defectos de etiqueta, cápsula y código durante la producción, incluida la integridad de la etiqueta: logos, grado de alcohol y volumen.",
+    "lead": "Especificaciones para la integración del equipo en la línea. La cadencia depende del formato y de las inspecciones configuradas.",
+    "fields": [
+      [
+        "Formatos compatibles",
+        "Envases de distintas geometrías. Hasta 420 mm de altura"
+      ],
+      [
+        "Diseño",
+        "Fabricado en acero inoxidable 304 (INOX 304)"
+      ],
+      [
+        "Cadencia máxima",
+        "Hasta 30 000 unidades/hora, según las inspecciones y el formato"
+      ],
+      [
+        "Separación mínima",
+        "80 mm"
+      ],
+      [
+        "Cámaras",
+        "4 × 9 Mpx en color; 5.ª cámara cenital opcional"
+      ],
+      [
+        "Iluminador",
+        "7200 LED, con controlador diseñado por AIS Vision Systems"
+      ],
+      [
+        "Dimensiones",
+        "1500 × 1500 mm"
+      ],
+      [
+        "Controladora",
+        "FPGA para la gestión inmediata de señales digitales"
+      ]
+    ],
+    "installation": [
+      [
+        "Panel de control",
+        "Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema"
+      ],
+      [
+        "Señalización",
+        "Baliza luminosa de estado del equipo"
+      ],
+      [
+        "Instalación eléctrica",
+        "Alimentación monofásica en el punto de instalación"
+      ],
+      [
+        "Mecánica",
+        "Acceso para limpieza y mantenimiento; guiado adaptado a la línea"
+      ]
+    ],
+    "technical_image": "rev360-standard-studio.jpg",
+    "technical_alt": "El AIS REV 360 STANDARD con su cinta de transporte y su pantalla",
+    "technical_caption": "Equipo con su cinta de transporte y la pantalla de control.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Ajuste de recetas, análisis de imágenes y registro de resultados en un mismo entorno de producción.",
+    "screen": "standard-camera-elements_capsule.jpg",
+    "screen_alt": "Cuatro vistas de cámara con la cápsula y los elementos del cuello localizados",
+    "caption": "Elementos del envase localizados por el sistema en cuatro vistas.",
+    "software": [
+      [
+        "Profiler",
+        "Crea recetas a partir de un envase o de su diseño digital; ajusta las tolerancias de tamaño, posición y relación entre etiquetas"
+      ],
+      [
+        "Auto Labeling y Smart Labeling",
+        "Localización asistida de elementos y anotación de regiones para preparar el conjunto de datos"
+      ],
+      [
+        "UltraOCR",
+        "Lectura de lotes, caducidades y números de serie con distintas perspectivas, contrastes y calidades de impresión"
+      ],
+      [
+        "AutoDetect",
+        "Localiza textos, logotipos, códigos y contenido regulatorio para seleccionar los controles"
+      ],
+      [
+        "Vista desplegada",
+        "Inspección de envases circulares, cuadrados, ovalados o de geometría irregular"
+      ],
+      [
+        "Rosepetal",
+        "Modelos precargados, entrenamiento con ejemplos, recetas y estadísticas en la nube y supervisión web con acceso seguro. Generación de imágenes OK/NOK para acelerar el entrenamiento"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. Cámara cenital, lectura de marcaje láser o de tinta y expulsor AIS PRO 8 de cinco pistones o expulsor de empuje.",
+    "cover_fx": "50%",
+    "cover_fy": "50%",
+    "technical_fx": "50%",
+    "technical_fy": "50%",
+    "technical_fit": "contain",
+    "screen_height": 58,
+    "screen_fit": "contain"
+  },
+  "opticais": {
+    "name": "OPTICAIS",
+    "source": "datasheet-opticais.md",
+    "cover_headline": "Lee y valida la impresión variable de cada producto al final de la línea, en tiempo real: lotes, fechas de caducidad, números de serie y códigos 1D y 2D, hasta 500 piezas por minuto.",
+    "cover_image": "carton-date-comparison.jpg",
+    "cover_alt": "Dos ejemplos de fecha y lote impresos en la solapa de un estuche",
+    "inspection_title": "Cada marcaje, leído y comparado con la receta",
+    "inspection_lead": "OPTICAIS lee el contenido variable impreso, lo contrasta con los datos esperados del producto y clasifica cada lectura como OK o NOK en tiempo real.",
+    "lead": "Lectura de impresión variable entre 120 y 500 piezas por minuto, según el número de campos. Los tamaños de lectura dependen del campo de visión y de que los caracteres no se toquen.",
+    "fields": [
+      [
+        "Campos OCR",
+        "Número ilimitado de campos OCR"
+      ],
+      [
+        "Códigos 1D y 2D",
+        "Número ilimitado de campos de lectura 1D o 2D (Data Matrix)"
+      ],
+      [
+        "Motivos",
+        "Detección de motivos fijos impresos"
+      ],
+      [
+        "Cadencia",
+        "120-500 piezas por minuto"
+      ],
+      [
+        "Protocolos",
+        "TCP/IP, EtherNet/IP, Modbus, Profibus, RS-232, señales digitales"
+      ]
+    ],
+    "installation": [
+      [
+        "Cámara inteligente",
+        "Objetivo, iluminación, polarizador e indicador OK/NOK integrados. Cables de alimentación y señales de 10 m"
+      ],
+      [
+        "Panel PC",
+        "Pantalla táctil con procesador Intel y Windows 10 IoT"
+      ],
+      [
+        "Integración",
+        "Comunicación con marcadores, PLC, expulsores y sistemas de gestión de producción"
+      ],
+      [
+        "Transporte y expulsión",
+        "Sistemas opcionales adaptados al producto y a la línea"
+      ]
+    ],
+    "technical_image": "opticais-stand.jpg",
+    "technical_alt": "OPTICAIS: equipo y pantalla de lectura sobre tapas",
+    "technical_caption": "OPTICAIS: equipo de inspección y pantalla de lectura sobre tapas.",
+    "software_title": "De la imagen a la acción",
+    "software_lead": "Lectura y validación para embotellado, automoción, conservas, embalaje automatizado, pulverizadores de gatillo y farmacia.",
+    "screen": "variable-print-screen.png",
+    "screen_alt": "Pantalla real OPTICAIS «Variable Print Inspection» con campos de lectura y contadores por control",
+    "caption": "Pantalla de OPTICAIS: cada campo leído en su recuadro, con los contadores por control.",
+    "software": [
+      [
+        "OCR y códigos",
+        "Campos OCR, 1D y 2D ilimitados; el número de campos influye en la cadencia. Los caracteres no deben tocarse"
+      ],
+      [
+        "Validación",
+        "Presencia, legibilidad y contenido del marcaje; control de motivos fijos, textos y símbolos"
+      ],
+      [
+        "Marcado industrial",
+        "Transferencia térmica, TIJ, láser, CIJ, micropercusión y rayado"
+      ],
+      [
+        "Recetas y datos",
+        "Recetas creadas por el usuario, registro estadístico y copia de seguridad en la nube"
+      ]
+    ],
+    "options": "Rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto y TrazAIS: trazabilidad y serialización. La integración con sistemas de TI puede requerir desarrollo de software específico.",
+    "cover_fx": "50%",
+    "cover_fy": "50%",
+    "technical_half": 96,
+    "technical_wide": true,
+    "screen_height": 100,
+    "screen_fit": "contain"
+  }
+}

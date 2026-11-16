@@ -1,0 +1,20 @@
+{
+  "name": "ais-vision-systems_post-code-legibility_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "La presencia del código y su legibilidad son comprobaciones distintas. Aquí el marcado sigue presente, pero la tinta se extiende sobre los caracteres. Para definir un control de lote y fecha hay que acordar el texto esperado y probar muestras representativas en las condiciones de la línea. Comparación de muestras de demostración; no es una lectura ni un resultado de OPTICAIS. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "headline": "El código está.|¿Se puede leer?",
+      "src": "@lib/media/3d/renders/social-composites/15-callout-code-legibility-code-stack_es.png",
+      "evidence": "render",
+      "alt": "Ventana de impresión con fecha 10/2027 y lote L6299B2 14:32. El mismo marcado, con tinta que se extiende horizontalmente sobre los caracteres."
+    }
+  ]
+}

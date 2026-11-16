@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, sector bebidas",
+    "footer": "AIS Vision Systems, sector bebidas",
+    "file": "ais-vision-systems_presentation-beverage_es"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "image": {
+        "src": "tpl:ext/wine-bottle-conveyor.jpg",
+        "pos": "30% 50%"
+      },
+      "title": "Control de calidad en líneas de bebidas",
+      "lead": "Visión artificial para revisar envases, cierres, etiquetas y marcajes.",
+      "meta": "Engineering peace of mind",
+      "notes": "Presentación de AIS Vision Systems para el sector de bebidas."
+    },
+    {
+      "include": "../../../decks/sections/group-intro.es.json"
+    },
+    {
+      "include": "../../../decks/sections/vision-ai.es.json"
+    },
+    {
+      "layout": "features",
+      "title": "Qué revisamos en el envase",
+      "items": [
+        {
+          "icon": "circle-dot",
+          "title": "Tapón y boca",
+          "text": "Presencia, posición e integridad del cierre y del precinto"
+        },
+        {
+          "icon": "scan-text",
+          "title": "Marcaje",
+          "text": "Lectura OCR de textos y datos impresos"
+        },
+        {
+          "icon": "tag",
+          "title": "Etiqueta",
+          "text": "Posición, estado e información, a 360°"
+        }
+      ],
+      "notes": "Tapón, boca y nivel de líquido: AIS Hopper. Marcaje: OPTICAIS. Etiqueta: AIS REV 360. Las muestras y la configuración determinan el alcance de la inspección."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/rev360-product.jpg",
+        "pos": "50% 55%"
+      },
+      "title": "AIS REV 360: inspección de etiquetas",
+      "facts": [
+        {
+          "k": "Etiqueta, a 360°",
+          "v": "Ausencia, doble etiqueta, inversión, inclinación, roturas, arrugas, pliegues, manchas y levantamientos"
+        },
+        {
+          "k": "Códigos y marcajes",
+          "v": "Verificación y relación entre etiquetas, con IA de Rosepetal"
+        }
+      ],
+      "detail": {
+        "image": "tpl:ext/cava-capsule-detections-blurred.jpg",
+        "w": 400,
+        "h": 162,
+        "title": "Cápsula y medallón"
+      },
+      "notes": "Las opciones dependen de la variante y del proyecto. Enlaces del original: vídeo de configuración de etiquetas, vídeo del AIS REV 360 y catálogo del AIS REV 360."
+    },
+    {
+      "layout": "grid",
+      "title": "Sistemas de control de calidad con IA",
+      "cols": 2,
+      "lead": "Sistema de inspección de etiquetas a 360° con IA, para botellas de vino, cava y bebidas.",
+      "tiles": [
+        {
+          "image": {
+            "src": "tpl:ext/still-rev360-wine-four-views_blurred.png",
+            "pos": "50% 50%"
+          },
+          "label": "Las cuatro vistas de una botella en el AIS REV 360"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/labelling-tool-cava-blurred.jpg",
+            "pos": "35% 50%"
+          },
+          "label": "Defectos de etiqueta marcados en Rosepetal"
+        }
+      ],
+      "notes": "Los controles de etiqueta del AIS REV 360: arrugas, doble etiqueta, sin etiqueta y etiqueta invertida (la lista completa, en la diapositiva anterior). A la izquierda, las cuatro vistas de cámara de una botella en una línea de cliente; a la derecha, el etiquetado de defectos en Rosepetal sobre botellas de cava. Marcas de cliente difuminadas."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "pieces/brochures/catalogue-beverage/assets/hopper-water-line.png",
+        "fit": "contain"
+      },
+      "title": "AIS Hopper: inspección de tapones a 360°",
+      "lead": "El 100 % de la producción, hasta 30 000 unidades/hora.",
+      "facts": [
+        {
+          "k": "Tapón",
+          "v": "Presencia, integridad y posición, a 360° sin orientar el envase"
+        },
+        {
+          "k": "Producción",
+          "v": "Estadísticas de cada producción"
+        }
+      ],
+      "notes": "Cadencia según formato e inspecciones (folleto del AIS Hopper: hasta 30 000 unidades/hora). En la foto, el AIS Hopper en una línea de agua embotellada. El ajuste con ejemplos, sin programación, en la diapositiva de software. Enlaces del original: vídeo de la pantalla con botellas, vídeo de la pantalla con garrafas y vídeo del AIS Hopper."
+    },
+    {
+      "layout": "features",
+      "title": "Del cierre al nivel de llenado",
+      "cols": 3,
+      "lead": "Tapón, boca y cuello del envase, y nivel de llenado.",
+      "items": [
+        {
+          "icon": "circle-alert",
+          "title": "Defectos del tapón"
+        },
+        {
+          "icon": "rotate-ccw",
+          "title": "Tapón inclinado"
+        },
+        {
+          "icon": "circle-off",
+          "title": "Cápsula ausente"
+        },
+        {
+          "icon": "hand",
+          "title": "Presencia y orientación del asa"
+        },
+        {
+          "icon": "beaker",
+          "title": "Nivel de llenado"
+        },
+        {
+          "icon": "scan-text",
+          "title": "Lectura y presencia de lote"
+        }
+      ],
+      "notes": "Los controles se definen con las muestras de cada línea. También controla el tapón solidario. Tapón en 360°, sin orientar el envase, sobre el 100 % de la producción."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/still-machine-hmi.jpg",
+        "pos": "50% 50%"
+      },
+      "title": "Sobre la cinta, junto al recorrido del producto",
+      "facts": [
+        {
+          "k": "Cabezal",
+          "v": "Tres cámaras en color para el control lateral del tapón; cámara cenital opcional para la boca"
+        },
+        {
+          "k": "Iluminación",
+          "v": "Cúpula que aísla de la luz exterior"
+        }
+      ],
+      "detail": {
+        "image": "tpl:img/hopper_bottles-in-head.jpg",
+        "w": 400,
+        "h": 225,
+        "title": "Botellas atravesando el cabezal",
+        "text": "Inspección en línea"
+      },
+      "notes": "El AIS Hopper con su pantalla de operario, sobre una línea."
+    },
+    {
+      "layout": "stage",
+      "title": "Equipo compacto, de acero inoxidable",
+      "image": {
+        "src": "library/media/3d/machines/hopper/hopper_01_3q-left_light.jpg",
+        "fit": "contain"
+      },
+      "facts": [
+        {
+          "k": "Altura",
+          "v": "Regulación automática según la referencia"
+        }
+      ],
+      "notes": "El AIS Hopper visto desde fuera: acero inoxidable, compacto, con regulación automática de altura según la referencia. En el detalle, la detección de boca dañada (pantalla del original, sistema de inspección de boca).",
+      "detail": {
+        "image": "library/media/deck-media/bottle-mouth_damaged-detection.jpg",
+        "title": "Sistema de inspección de boca",
+        "text": "Detección de boca dañada"
+      }
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:img/hopper_software-screen.jpg",
+        "pos": "0% 50%"
+      },
+      "title": "Ajustes basados en ejemplos, sin programación",
+      "facts": [
+        {
+          "k": "Software",
+          "v": "Motor de aprendizaje profundo de Rosepetal; copia en la nube de recetas, imágenes y estadísticas"
+        },
+        {
+          "k": "Opciones",
+          "v": "Rechazo progresivo o por impacto, acumulación, cintas, centrador, etiquetas y marcaje, TrazAIS"
+        }
+      ],
+      "notes": "Vista en directo y detecciones del tapón. Opciones: rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto, control de etiquetas y marcaje láser o de tinta, y TrazAIS para trazabilidad y serialización."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/laboratory-test-bench.jpg",
+        "pos": "40% 50%"
+      },
+      "title": "Probamos tus muestras antes de la oferta",
+      "points": [
+        {
+          "icon": "package",
+          "text": "**Muestras:** envases reales de tu producción, con sus formatos y defectos"
+        },
+        {
+          "icon": "flask-conical",
+          "text": "**Pruebas de laboratorio:** un informe técnico fija el hardware del proyecto"
+        },
+        {
+          "icon": "file-text",
+          "text": "**Oferta técnica y económica** detallada"
+        }
+      ],
+      "notes": "El mismo proceso de preventa que en todos nuestros proyectos."
+    },
+    {
+      "layout": "columns",
+      "title": "Inspección de tapón a 360°, de nivel y de boca",
+      "columns": [
+        {
+          "title": "Etiqueta",
+          "items": [
+            "Bandera y lote",
+            "Código de barras",
+            "Inclinación"
+          ]
+        },
+        {
+          "title": "Tapón",
+          "items": [
+            "Presencia y rotura",
+            "Inclinación y puente roto",
+            "Color del tapón"
+          ]
+        },
+        {
+          "title": "Tapón solidario",
+          "items": [
+            "Control a 360°"
+          ]
+        },
+        {
+          "title": "Nivel y boca",
+          "items": [
+            "Nivel de líquido",
+            "Asa",
+            "Boca"
+          ]
+        }
+      ],
+      "notes": "Del original: sistema de inspección de tapón a 360° y de nivel, y sistema de inspección de boca. Etiqueta: bandera, lote, código de barras, inclinación. Tapón: rotura, presencia, inclinación, puente roto, color, control del tapón solidario en los 360°. Nivel de líquido y asa. La boca se revisa con la cámara cenital."
+    },
+    {
+      "layout": "grid",
+      "title": "OPTICAIS",
+      "lead": "Sistemas de control de textos (OCR): reconocimiento de textos, códigos 1D y 2D.",
+      "cols": 3,
+      "tiles": [
+        {
+          "image": "pieces/decks/beverage/source-media/opticais-reading-statistics.jpg",
+          "label": "En la pantalla del equipo"
+        },
+        {
+          "image": "tpl:ext/camera-over-can-line.jpg",
+          "label": "La cámara, sobre el paso de los envases"
+        },
+        {
+          "image": "pieces/decks/beverage/source-media/opticais-can-line-context.png",
+          "label": "Sobre una línea de latas"
+        }
+      ],
+      "notes": "OPTICAIS: sistema de reconocimiento de textos, códigos 1D y 2D (sistemas de control de textos, OCR). Lotes y otros datos; textos impresos contrastados con los campos de cada referencia; campos y recetas desde la interfaz (folleto de OPTICAIS). Enlaces del original: OCR en cupones, OCR en envases de cerveza, OCR en fondos de envases y vídeo de inspección de cúpulas."
+    },
+    {
+      "layout": "grid",
+      "title": "Otras soluciones",
+      "lead": "Objetos flotantes dentro de una botella de vino, espumoso o bebida espirituosa.",
+      "cols": 3,
+      "tiles": [
+        {
+          "image": "library/media/deck-media/bottle_backlit-ok.jpg",
+          "label": "Botella OK"
+        },
+        {
+          "image": "library/media/deck-media/bottle_backlit-floating-particles.jpg",
+          "label": "Botella NOK con partículas"
+        },
+        {
+          "image": "library/media/deck-media/bottle_backlit-particle.jpg",
+          "label": "Partícula flotante"
+        }
+      ],
+      "notes": "Control de objetos flotantes en botellas de vino, espumoso o bebida espirituosa: imágenes de cámara a contraluz del original (botella OK, botella NOK con partículas en suspensión y una partícula flotante)."
+    },
+    {
+      "layout": "divider",
+      "part": "Muelles de carga",
+      "title": "AIS Conwell: muelles de carga inteligentes"
+    },
+    {
+      "layout": "product",
+      "title": "Pórticos de identificación automática para muelles de carga y descarga",
+      "lead": "Muelles de carga automáticos sin necesidad de escaneo manual.",
+      "image": {
+        "src": "library/media/deck-media/loading-dock_scanner-diagram.png",
+        "keep": 1
+      },
+      "facts": [
+        {
+          "k": "Escáner",
+          "v": "Lateral, en diagonal a 45°"
+        },
+        {
+          "k": "Cota del esquema",
+          "v": "700 mm"
+        }
+      ],
+      "tiles": [
+        {
+          "image": "library/media/deck-media/loading-dock_scanners-large.jpg",
+          "label": "Muelles de carga y descarga"
+        },
+        {
+          "image": "library/media/deck-media/loading-dock_label-applicator-portal-large.jpg",
+          "label": "Pórtico en un muelle de carga"
+        }
+      ],
+      "notes": "Esquema del original: el muelle, el escáner lateral en diagonal a 45° y la cota de 700 mm. Las dos fotos de muelles son las de la diapositiva 27 del original («Muelles de carga y descarga»)."
+    },
+    {
+      "include": "../../../decks/sections/conwell.es.json"
+    },
+    {
+      "include": "../../../decks/sections/graphic-arts.es.json"
+    },
+    {
+      "layout": "logos",
+      "title": "Nuestros clientes y referencias",
+      "cols": 3,
+      "logoH": 96,
+      "logoW": 230,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/coca-cola.png",
+          "name": "coca-cola"
+        },
+        {
+          "src": "tpl:logos-ref/juver.png",
+          "name": "juver"
+        },
+        {
+          "src": "tpl:logos-ref/font-agudes.png",
+          "name": "font-agudes"
+        },
+        {
+          "src": "tpl:logos-ref/juve-camps.png",
+          "name": "juve-camps"
+        },
+        {
+          "src": "tpl:logos-ref/marie-brizard.png",
+          "name": "marie-brizard"
+        },
+        {
+          "src": "tpl:logos-ref/mg-destilerias.png",
+          "name": "mg-destilerias"
+        },
+        {
+          "src": "tpl:logos-ref/boix.png",
+          "name": "boix"
+        },
+        {
+          "src": "tpl:logos-ref/delafruit.png",
+          "name": "delafruit"
+        },
+        {
+          "src": "tpl:logos-ref/sanmy.png",
+          "name": "sanmy"
+        }
+      ],
+      "notes": "Clientes del sector de bebidas."
+    },
+    {
+      "layout": "split",
+      "title": "Nuestra oficina en España",
+      "notes": "Contacto de AIS Vision Systems; el teléfono y la web, en la diapositiva final.",
+      "lead": "AIS Vision Systems",
+      "points": [
+        {
+          "text": "Dirección\nCarrer de Can Camps, 10, Pol. Ind. Can Roqueta; 08202 Sabadell (Barcelona)"
+        },
+        {
+          "text": "Correo electrónico\ninfo@aisvision.com"
+        }
+      ],
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      }
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Cierre del original (diapositiva 37): «¡Gracias! Podéis encontrarnos en: LinkedIn, YouTube, www.aisvision.com». Enlaces: https://www.linkedin.com/company/ais-vision-systems-s-l-/ y http://www.youtube.com/@Aisvision. El teléfono, como en las piezas aprobadas."
+    }
+  ]
+}

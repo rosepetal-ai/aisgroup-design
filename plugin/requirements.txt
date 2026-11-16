@@ -1,0 +1,7 @@
+# Python packages the generators use (installed into the plugin's own venv by `npm run setup`)
+Pillow>=10
+python-pptx>=1.0
+PyMuPDF>=1.24
+numpy>=1.26
+psutil>=5.9  # render guard on macOS/Windows: memory, process tree, priority
+opencv-contrib-python-headless>=4.9  # video: tracked detection boxes (brand-video)

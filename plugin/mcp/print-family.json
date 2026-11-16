@@ -1,0 +1,321 @@
+{
+  "version": 1,
+  "family": "accepted-spanish-technical-sheets",
+  "language": "es",
+  "pages": 4,
+  "products": {
+    "hopper": {
+      "name": "AIS Hopper",
+      "source": "datasheets/data.json#hopper",
+      "template": "pieces/datasheets/hopper/hopper.es.html",
+      "sourceDigest": "06c1385859beb50d8f8ffebc95d89b75bebc064513d031fd8c693f212f1a6c45",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "55%",
+        "technical_fit": "contain",
+        "screen_height": 65,
+        "fy": "50%",
+        "screen_fit": "contain"
+      },
+      "inputs": {
+        "rasterCount": 10,
+        "baselinePixels": 15703800,
+        "baselineBytes": 2010308,
+        "maxTotalPixels": 23703800
+      }
+    },
+    "kariko": {
+      "name": "AIS KARIKÓ",
+      "source": "datasheets/data.json#kariko",
+      "template": "pieces/datasheets/kariko/kariko.es.html",
+      "sourceDigest": "2cd634f26d29566e5b0da1d4129cd45f1b8a2caad60edb9340e8c584c1d416d3",
+      "layout": {
+        "cover_fx": "62%",
+        "cover_fy": "50%",
+        "technical_fx": "50%",
+        "technical_fy": "45%",
+        "technical_fit": "contain",
+        "screen_height": 65.5,
+        "screen_fit": "contain"
+      },
+      "inputs": {
+        "rasterCount": 9,
+        "baselinePixels": 10814480,
+        "baselineBytes": 1621155,
+        "maxTotalPixels": 18814480
+      }
+    },
+    "cables": {
+      "name": "AIS REV 360 Cables",
+      "source": "datasheets/data.json#cables",
+      "template": "pieces/datasheets/cables/cables.es.html",
+      "sourceDigest": "0172e05aec47066c99fdb3ebbd34a2ec3600edb0facfce8f11dc67155e9376f8",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "50%",
+        "technical_half": 75,
+        "technical_wide": true,
+        "screen_height": 77
+      },
+      "inputs": {
+        "rasterCount": 11,
+        "baselinePixels": 5786552,
+        "baselineBytes": 771392,
+        "maxTotalPixels": 13786552
+      }
+    },
+    "compact": {
+      "name": "AIS REV 360 COMPACT",
+      "source": "datasheets/data.json#compact",
+      "template": "pieces/datasheets/compact/compact.es.html",
+      "sourceDigest": "8cd3d48fc6fd51b2e7c8814e077fb43d1a6793afcf0d245861a4064f658e6810",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "0%",
+        "technical_fit": "contain",
+        "screen_height": 92.5,
+        "software_layout": "evidence-and-options"
+      },
+      "inputs": {
+        "rasterCount": 12,
+        "baselinePixels": 10261480,
+        "baselineBytes": 1372654,
+        "maxTotalPixels": 18261480
+      }
+    },
+    "pharma": {
+      "name": "AIS REV 360 PHARMA",
+      "source": "datasheets/data.json#pharma",
+      "template": "pieces/datasheets/pharma/pharma.es.html",
+      "sourceDigest": "075909aa5b7a3cad4f810445686080683146d10d7e40769493912c605a7d484c",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "50%",
+        "technical_fx": "45%",
+        "technical_fy": "55%",
+        "technical_fit": "contain",
+        "screen_height": 51,
+        "fy": "50%"
+      },
+      "inputs": {
+        "rasterCount": 8,
+        "baselinePixels": 16343157,
+        "baselineBytes": 2064127,
+        "maxTotalPixels": 24343157
+      }
+    },
+    "standard": {
+      "name": "AIS REV 360 STANDARD",
+      "source": "datasheets/data.json#standard",
+      "template": "pieces/datasheets/standard/standard.es.html",
+      "sourceDigest": "e6efbf3f38ff0251f6c209e8ba675beecaf510b2e7caf4001d8f657e4ad4086f",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "50%",
+        "technical_fx": "50%",
+        "technical_fy": "50%",
+        "technical_fit": "contain",
+        "screen_height": 58,
+        "screen_fit": "contain"
+      },
+      "inputs": {
+        "rasterCount": 13,
+        "baselinePixels": 11506600,
+        "baselineBytes": 2190240,
+        "maxTotalPixels": 19506600
+      }
+    },
+    "opticais": {
+      "name": "OPTICAIS",
+      "source": "datasheets/data.json#opticais",
+      "template": "pieces/datasheets/opticais/opticais.es.html",
+      "sourceDigest": "97187fd9c3154d453279b0b9130f7647b69c595e09211618c2af38e8110fb1b9",
+      "layout": {
+        "cover_fx": "50%",
+        "cover_fy": "50%",
+        "technical_half": 96,
+        "technical_wide": true,
+        "screen_height": 100,
+        "screen_fit": "contain"
+      },
+      "inputs": {
+        "rasterCount": 8,
+        "baselinePixels": 7000524,
+        "baselineBytes": 1562403,
+        "maxTotalPixels": 15000524
+      }
+    }
+  },
+  "generators": {
+    "_note": "The only generators. Every piece type routes here; HTML is always written first, PDF/PNG/PPTX only on request. Rejected systems: figures/machine-pieces.mjs, work/brochures/_final (v1), marketing-kit-review-2026-10-28 drafts, public/kit brochure pages, any hexagon drawing not from print/pattern.py.",
+    "brochure": {
+      "skill": "brochure",
+      "source": "pieces/brochures/<piece>/<name>.<lang>.html",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/brochures/cables/cables.es.html",
+        "pieces/brochures/compact/compact.es.html",
+        "pieces/brochures/hopper/hopper.es.html"
+      ],
+      "html": "edit the source (copy the closest reference)",
+      "pdf": "node print/render.mjs <html>",
+      "outputs": {
+        "pdf": "<name>.<lang>.pdf",
+        "png": "previews/<name>.<lang>-N.png"
+      }
+    },
+    "catalogue": {
+      "skill": "brochure",
+      "source": "pieces/brochures/catalogue-<sector>/catalogue.<lang>.html",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/brochures/catalogue-beverage/catalogue.es.html",
+        "pieces/brochures/catalogue-pharma/catalogue.es.html"
+      ],
+      "html": "edit the source (copy the closest reference)",
+      "pdf": "node print/render.mjs <html>",
+      "outputs": {
+        "pdf": "catalogue.<lang>.pdf",
+        "png": "previews/catalogue.<lang>-N.png"
+      }
+    },
+    "one-pager": {
+      "skill": "brochure",
+      "source": "pieces/brochures/<piece>/<name>.<lang>.html",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/brochures/cables/cables.es.html"
+      ],
+      "html": "one .page.inner.last on the brochure components",
+      "pdf": "node print/render.mjs <html>",
+      "outputs": {
+        "pdf": "<name>.<lang>.pdf",
+        "png": "previews/<name>.<lang>-N.png"
+      }
+    },
+    "datasheet": {
+      "skill": "brochure",
+      "source": "datasheets/data.json#<key>",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/datasheets/cables/cables.es.html"
+      ],
+      "html": "pieces/datasheets/<key>/<key>.es.html is the source, edited by hand; then npm run mcp:pin (re-extracts datasheets/data.json and re-pins)",
+      "pdf": "node print/render.mjs pieces/datasheets/<key>/<key>.es.html",
+      "outputs": {
+        "pdf": "<key>.es.pdf",
+        "png": "previews/<key>.es-N.png"
+      }
+    },
+    "deck": {
+      "skill": "presentation",
+      "source": "pieces/decks/<deck>/content.<lang>.json",
+      "stylesheet": "decks/layouts.css",
+      "references": [
+        "pieces/decks/corporate-2026/content.es.json",
+        "pieces/decks/automotive/content.es.json",
+        "pieces/decks/beverage/content.es.json",
+        "pieces/decks/biscuits/content.es.json",
+        "pieces/decks/canning/content.es.json",
+        "pieces/decks/wine/content.es.json"
+      ],
+      "html": "node decks/build.mjs <content> --html-only",
+      "pdf": "node decks/build.mjs <content>",
+      "outputs": {
+        "html": "<meta.file>.html",
+        "pdf": "<meta.file>.pdf",
+        "pptx": "<meta.file>.pptx",
+        "png": "slides/NN.png"
+      }
+    },
+    "post": {
+      "skill": "social-post",
+      "source": "work/<slug>/recipe-<lang>.json",
+      "stylesheet": "engine/stage.html",
+      "references": [
+        "templates/post-*.json",
+        "pieces/posts/"
+      ],
+      "png": "node engine/render.mjs <recipe>",
+      "outputs": {
+        "png": "out/<name>_<format>.png",
+        "txt": "out/<name>_copy.txt"
+      }
+    },
+    "carousel": {
+      "skill": "linkedin-carousel",
+      "source": "work/<slug>/recipe-<lang>.json",
+      "stylesheet": "engine/stage.html",
+      "references": [
+        "templates/carousel-*.json",
+        "pieces/posts/23-carousel-muesli-reference/"
+      ],
+      "pdf": "node engine/render.mjs <recipe>",
+      "outputs": {
+        "pdf": "out/<name>_4x5.pdf",
+        "png": "out/<name>_4x5_NN.png"
+      }
+    },
+    "business-card": {
+      "skill": "print-stationery",
+      "source": "stationery/build.py (PEOPLE)",
+      "stylesheet": "inline CSS in build.py",
+      "references": [
+        "pieces/stationery/business-cards/laura-martin.html"
+      ],
+      "html": "python3 stationery/build.py  (KIT_ROOT=<dir> builds elsewhere)",
+      "pdf": "node stationery/export.mjs <html>",
+      "outputs": {
+        "pdf": "<slug>.pdf",
+        "png": "<slug>-N.png"
+      }
+    },
+    "letterhead": {
+      "skill": "print-stationery",
+      "source": "stationery/build.py",
+      "stylesheet": "inline CSS in build.py",
+      "references": [
+        "pieces/stationery/letterhead/ais-vision-systems.html"
+      ],
+      "html": "python3 stationery/build.py  (KIT_ROOT=<dir> builds elsewhere)",
+      "pdf": "node stationery/export.mjs <html>",
+      "outputs": {
+        "pdf": "ais-vision-systems.pdf",
+        "png": "ais-vision-systems-1.png"
+      }
+    },
+    "pattern": {
+      "source": "print/pattern.py ASSETS",
+      "html": "python3 print/pattern.py --assets",
+      "check": "python3 print/pattern.py --assets --check"
+    },
+    "proposal": {
+      "skill": "sales-documents",
+      "source": "pieces/sales/proposal/proposal.<lang>.html",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/sales/proposal/proposal.es.html"
+      ],
+      "html": "edit_piece copy, then slots: texts, pictures, price and calendar rows (row add/remove); the price table recomputes",
+      "pdf": "node print/render.mjs <html>",
+      "outputs": {
+        "pdf": "proposal.<lang>.pdf",
+        "png": "previews/proposal.<lang>-N.png"
+      }
+    },
+    "case-study": {
+      "skill": "sales-documents",
+      "source": "pieces/sales/case-study/case-study.<lang>.html",
+      "stylesheet": "print/system.css",
+      "references": [
+        "pieces/sales/case-study/case-study.es.html"
+      ],
+      "html": "edit_piece copy, then slots; meta.approved_by and meta.approved_on record the customer's written approval, required to export",
+      "pdf": "node print/render.mjs <html>",
+      "outputs": {
+        "pdf": "case-study.<lang>.pdf",
+        "png": "previews/case-study.<lang>-N.png"
+      }
+    }
+  }
+}

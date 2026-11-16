@@ -1,0 +1,24 @@
+{
+  "name": "rosepetal_post-rosepetal-software_en_2026-10-29",
+  "kind": "post",
+  "brand": "rosepetal",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Rosepetal inspects baguettes in real time: it measures the length and width of the pieces, flags the ones out of tolerance and counts the errors by type. The image shows preparation of a bread image dataset in Rosepetal. Book a demo",
+  "shots": [
+    {
+      "type": "showcase",
+      "look": "light",
+      "src": "@lib/media/real/rosepetal_bread-formation-dataset.webp",
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "Bread inspection|*from your images*",
+      "fit": "contain",
+      "alt": "Bread image dataset in the light Rosepetal interface."
+    }
+  ]
+}

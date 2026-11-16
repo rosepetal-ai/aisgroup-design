@@ -1,0 +1,4024 @@
+{
+ "about": "The curated media library. Photos are in photos/; logos and icons are the official files. Paths are relative to the brand files root: /files/ on the hosted server, brand/ in the plugin.",
+ "origins": {
+  "photo": "Real photograph",
+  "video-frame": "Frame from our film, never a print cover",
+  "render": "Approved catalogue render, never called a render in public text",
+  "unknown": "Origin not recorded",
+  "screenshot": "Current light-mode product screenshot",
+  "stock": "Stock photograph, context only; download from its source"
+ },
+ "entries": [
+  {
+   "name": "ais-group_app-mark",
+   "title": "AIS app mark",
+   "kind": "logo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/app/ais/app-icon.svg",
+     "width": 512,
+     "height": 512,
+     "bytes": 500
+    },
+    {
+     "variant": "app-icon",
+     "file": "logos/app/ais/app-icon-rounded.svg",
+     "width": 512,
+     "height": 512,
+     "bytes": 512
+    },
+    {
+     "variant": "favicon",
+     "file": "logos/app/ais/favicon.svg",
+     "width": 32,
+     "height": 32,
+     "bytes": 564
+    }
+   ]
+  },
+  {
+   "name": "ais-group_logo",
+   "title": "AIS Group logo",
+   "kind": "logo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/ais-group-blue.svg",
+     "width": 260,
+     "height": 195,
+     "bytes": 4732
+    },
+    {
+     "variant": "black",
+     "file": "logos/ais-group-black.svg",
+     "width": 260,
+     "height": 195,
+     "bytes": 4732
+    },
+    {
+     "variant": "white",
+     "file": "logos/ais-group-white.svg",
+     "width": 260,
+     "height": 195,
+     "bytes": 4733
+    }
+   ]
+  },
+  {
+   "name": "ais-group_mark",
+   "title": "AIS mark",
+   "kind": "logo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/ais-mark-blue.svg",
+     "width": 110,
+     "height": 146,
+     "bytes": 416
+    },
+    {
+     "variant": "black",
+     "file": "logos/ais-mark-black.svg",
+     "width": 110,
+     "height": 146,
+     "bytes": 416
+    },
+    {
+     "variant": "favicon",
+     "file": "logos/favicons/ais/favicon.svg",
+     "width": 32,
+     "height": 32,
+     "bytes": 594
+    },
+    {
+     "variant": "white",
+     "file": "logos/ais-mark-white.svg",
+     "width": 110,
+     "height": 146,
+     "bytes": 416
+    }
+   ]
+  },
+  {
+   "name": "ais-vision-systems_logo",
+   "title": "AIS Vision Systems logo",
+   "kind": "logo",
+   "subject": "ais-vision-systems",
+   "subjectLabel": "AIS Vision Systems",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/ais-vision-systems-blue.svg",
+     "width": 128,
+     "height": 88,
+     "bytes": 6988
+    },
+    {
+     "variant": "black",
+     "file": "logos/ais-vision-systems-black.svg",
+     "width": 128,
+     "height": 88,
+     "bytes": 6988
+    },
+    {
+     "variant": "white",
+     "file": "logos/ais-vision-systems-white.svg",
+     "width": 128,
+     "height": 88,
+     "bytes": 6989
+    }
+   ]
+  },
+  {
+   "name": "ais-vision-automation_logo",
+   "title": "AIS Vision Automation logo",
+   "kind": "logo",
+   "subject": "ais-vision-automation",
+   "subjectLabel": "AIS Vision Automation",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/ais-vision-automation-blue.svg",
+     "width": 3736,
+     "height": 2597,
+     "bytes": 16027
+    },
+    {
+     "variant": "black",
+     "file": "logos/ais-vision-automation-black.svg",
+     "width": 3736,
+     "height": 2597,
+     "bytes": 16027
+    },
+    {
+     "variant": "white",
+     "file": "logos/ais-vision-automation-white.svg",
+     "width": 3736,
+     "height": 2597,
+     "bytes": 16028
+    }
+   ]
+  },
+  {
+   "name": "ais-scanology_logo",
+   "title": "AIS Scanology logo",
+   "kind": "logo",
+   "subject": "ais-scanology",
+   "subjectLabel": "AIS Scanology",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/ais-scanology-blue.svg",
+     "width": 91,
+     "height": 63,
+     "bytes": 5574
+    },
+    {
+     "variant": "black",
+     "file": "logos/ais-scanology-black.svg",
+     "width": 91,
+     "height": 63,
+     "bytes": 5574
+    },
+    {
+     "variant": "white",
+     "file": "logos/ais-scanology-white.svg",
+     "width": 91,
+     "height": 63,
+     "bytes": 5575
+    }
+   ]
+  },
+  {
+   "name": "rosepetal_app-mark",
+   "title": "Rosepetal app mark",
+   "kind": "logo",
+   "subject": "rosepetal",
+   "subjectLabel": "Rosepetal",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/app/rosepetal/app-icon.svg",
+     "width": 512,
+     "height": 512,
+     "bytes": 423
+    },
+    {
+     "variant": "app-icon",
+     "file": "logos/app/rosepetal/app-icon-rounded.svg",
+     "width": 512,
+     "height": 512,
+     "bytes": 435
+    },
+    {
+     "variant": "favicon",
+     "file": "logos/app/rosepetal/favicon.svg",
+     "width": 32,
+     "height": 32,
+     "bytes": 488
+    }
+   ]
+  },
+  {
+   "name": "rosepetal_logo",
+   "title": "Rosepetal logo",
+   "kind": "logo",
+   "subject": "rosepetal",
+   "subjectLabel": "Rosepetal",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/rosepetal-blue.svg",
+     "width": 118,
+     "height": 22,
+     "bytes": 2295
+    },
+    {
+     "variant": "black",
+     "file": "logos/rosepetal-black.svg",
+     "width": 118,
+     "height": 22,
+     "bytes": 2295
+    },
+    {
+     "variant": "white",
+     "file": "logos/rosepetal-white.svg",
+     "width": 118,
+     "height": 22,
+     "bytes": 2296
+    }
+   ]
+  },
+  {
+   "name": "rosepetal_mark",
+   "title": "Rosepetal mark",
+   "kind": "logo",
+   "subject": "rosepetal",
+   "subjectLabel": "Rosepetal",
+   "variants": [
+    {
+     "variant": "",
+     "file": "logos/rosepetal-mark-blue.svg",
+     "width": 21,
+     "height": 21,
+     "bytes": 329
+    },
+    {
+     "variant": "black",
+     "file": "logos/rosepetal-mark-black.svg",
+     "width": 21,
+     "height": 21,
+     "bytes": 329
+    },
+    {
+     "variant": "favicon",
+     "file": "logos/favicons/rosepetal/favicon.svg",
+     "width": 32,
+     "height": 32,
+     "bytes": 518
+    },
+    {
+     "variant": "white",
+     "file": "logos/rosepetal-mark-white.svg",
+     "width": 21,
+     "height": 21,
+     "bytes": 329
+    }
+   ]
+  },
+  {
+   "name": "icon_activity",
+   "title": "Activity icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/activity.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 425
+    }
+   ]
+  },
+  {
+   "name": "icon_aperture",
+   "title": "Aperture icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/aperture.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 519
+    }
+   ]
+  },
+  {
+   "name": "icon_arrow-down",
+   "title": "Arrow down icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/arrow-down.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 343
+    }
+   ]
+  },
+  {
+   "name": "icon_arrow-left",
+   "title": "Arrow left icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/arrow-left.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 343
+    }
+   ]
+  },
+  {
+   "name": "icon_arrow-right",
+   "title": "Arrow right icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/arrow-right.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 343
+    }
+   ]
+  },
+  {
+   "name": "icon_arrow-up",
+   "title": "Arrow up icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/arrow-up.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 340
+    }
+   ]
+  },
+  {
+   "name": "icon_arrow-up-right",
+   "title": "Arrow up right icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/arrow-up-right.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 345
+    }
+   ]
+  },
+  {
+   "name": "icon_award",
+   "title": "Award icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/award.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 452
+    }
+   ]
+  },
+  {
+   "name": "icon_badge-check",
+   "title": "Badge check icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/badge-check.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 499
+    }
+   ]
+  },
+  {
+   "name": "icon_ban",
+   "title": "Ban icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/ban.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 359
+    }
+   ]
+  },
+  {
+   "name": "icon_barcode",
+   "title": "Barcode icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/barcode.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 404
+    }
+   ]
+  },
+  {
+   "name": "icon_book-open",
+   "title": "Book open icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/book-open.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 467
+    }
+   ]
+  },
+  {
+   "name": "icon_bot",
+   "title": "Bot icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/bot.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 454
+    }
+   ]
+  },
+  {
+   "name": "icon_boxes",
+   "title": "Boxes icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/boxes.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 900
+    }
+   ]
+  },
+  {
+   "name": "icon_brain-circuit",
+   "title": "Brain circuit icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/brain-circuit.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 836
+    }
+   ]
+  },
+  {
+   "name": "icon_building-2",
+   "title": "Building 2 icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/building-2.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 522
+    }
+   ]
+  },
+  {
+   "name": "icon_calendar",
+   "title": "Calendar icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/calendar.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 408
+    }
+   ]
+  },
+  {
+   "name": "icon_camera",
+   "title": "Camera icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/camera.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 514
+    }
+   ]
+  },
+  {
+   "name": "icon_captions",
+   "title": "Captions icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/captions.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 393
+    }
+   ]
+  },
+  {
+   "name": "icon_car",
+   "title": "Car icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/car.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 560
+    }
+   ]
+  },
+  {
+   "name": "icon_chart-column",
+   "title": "Chart column icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chart-column.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 403
+    }
+   ]
+  },
+  {
+   "name": "icon_chart-line",
+   "title": "Chart line icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chart-line.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 362
+    }
+   ]
+  },
+  {
+   "name": "icon_chart-pie",
+   "title": "Chart pie icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chart-pie.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 451
+    }
+   ]
+  },
+  {
+   "name": "icon_check",
+   "title": "Check icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/check.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 315
+    }
+   ]
+  },
+  {
+   "name": "icon_chevron-down",
+   "title": "Chevron down icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chevron-down.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 319
+    }
+   ]
+  },
+  {
+   "name": "icon_chevron-left",
+   "title": "Chevron left icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chevron-left.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 321
+    }
+   ]
+  },
+  {
+   "name": "icon_chevron-right",
+   "title": "Chevron right icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chevron-right.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 321
+    }
+   ]
+  },
+  {
+   "name": "icon_chevron-up",
+   "title": "Chevron up icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/chevron-up.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 319
+    }
+   ]
+  },
+  {
+   "name": "icon_circle-alert",
+   "title": "Circle alert icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/circle-alert.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 415
+    }
+   ]
+  },
+  {
+   "name": "icon_circle-check",
+   "title": "Circle check icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/circle-check.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 361
+    }
+   ]
+  },
+  {
+   "name": "icon_circle-x",
+   "title": "Circle x icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/circle-x.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 372
+    }
+   ]
+  },
+  {
+   "name": "icon_clock",
+   "title": "Clock icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/clock.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 347
+    }
+   ]
+  },
+  {
+   "name": "icon_cloud",
+   "title": "Cloud icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/cloud.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 351
+    }
+   ]
+  },
+  {
+   "name": "icon_code-xml",
+   "title": "Code xml icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/code-xml.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 373
+    }
+   ]
+  },
+  {
+   "name": "icon_cog",
+   "title": "Cog icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/cog.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 698
+    }
+   ]
+  },
+  {
+   "name": "icon_cpu",
+   "title": "Cpu icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/cpu.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 664
+    }
+   ]
+  },
+  {
+   "name": "icon_crosshair",
+   "title": "Crosshair icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/crosshair.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 492
+    }
+   ]
+  },
+  {
+   "name": "icon_database",
+   "title": "Database icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/database.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 408
+    }
+   ]
+  },
+  {
+   "name": "icon_download",
+   "title": "Download icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/download.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 397
+    }
+   ]
+  },
+  {
+   "name": "icon_duplicate",
+   "title": "Duplicate icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/copy.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 414
+    }
+   ]
+  },
+  {
+   "name": "icon_ellipsis",
+   "title": "Ellipsis icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/ellipsis.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 391
+    }
+   ]
+  },
+  {
+   "name": "icon_euro",
+   "title": "Euro icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/euro.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 425
+    }
+   ]
+  },
+  {
+   "name": "icon_external-link",
+   "title": "External link icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/external-link.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 416
+    }
+   ]
+  },
+  {
+   "name": "icon_eye",
+   "title": "Eye icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/eye.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 434
+    }
+   ]
+  },
+  {
+   "name": "icon_factory",
+   "title": "Factory icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/factory.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 559
+    }
+   ]
+  },
+  {
+   "name": "icon_file-diff",
+   "title": "File diff icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/file-diff.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 484
+    }
+   ]
+  },
+  {
+   "name": "icon_file-text",
+   "title": "File text icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/file-text.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 524
+    }
+   ]
+  },
+  {
+   "name": "icon_filter",
+   "title": "Filter icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/filter.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 447
+    }
+   ]
+  },
+  {
+   "name": "icon_flask-conical",
+   "title": "Flask conical icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/flask-conical.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 467
+    }
+   ]
+  },
+  {
+   "name": "icon_focus",
+   "title": "Focus icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/focus.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 477
+    }
+   ]
+  },
+  {
+   "name": "icon_gauge",
+   "title": "Gauge icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/gauge.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 354
+    }
+   ]
+  },
+  {
+   "name": "icon_globe",
+   "title": "Globe icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/globe.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 407
+    }
+   ]
+  },
+  {
+   "name": "icon_grid-3x3",
+   "title": "Grid 3×3 icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/grid-3x3.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 434
+    }
+   ]
+  },
+  {
+   "name": "icon_handshake",
+   "title": "Handshake icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/handshake.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 585
+    }
+   ]
+  },
+  {
+   "name": "icon_hourglass",
+   "title": "Hourglass icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/hourglass.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 512
+    }
+   ]
+  },
+  {
+   "name": "icon_house",
+   "title": "House icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/house.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 459
+    }
+   ]
+  },
+  {
+   "name": "icon_info",
+   "title": "Info icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/info.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 369
+    }
+   ]
+  },
+  {
+   "name": "icon_layers",
+   "title": "Layers icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/layers.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 587
+    }
+   ]
+  },
+  {
+   "name": "icon_leaf",
+   "title": "Leaf icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/leaf.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 479
+    }
+   ]
+  },
+  {
+   "name": "icon_lightbulb",
+   "title": "Lightbulb icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/lightbulb.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 451
+    }
+   ]
+  },
+  {
+   "name": "icon_link",
+   "title": "Link icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/link.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 434
+    }
+   ]
+  },
+  {
+   "name": "icon_lock",
+   "title": "Lock icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/lock.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 384
+    }
+   ]
+  },
+  {
+   "name": "icon_lock-open",
+   "title": "Lock open icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/lock-open.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 388
+    }
+   ]
+  },
+  {
+   "name": "icon_log-in",
+   "title": "Log in icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/log-in.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 396
+    }
+   ]
+  },
+  {
+   "name": "icon_log-out",
+   "title": "Log out icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/log-out.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 395
+    }
+   ]
+  },
+  {
+   "name": "icon_mail",
+   "title": "Mail icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/mail.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 391
+    }
+   ]
+  },
+  {
+   "name": "icon_map-pin",
+   "title": "Map pin icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/map-pin.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 437
+    }
+   ]
+  },
+  {
+   "name": "icon_maximize",
+   "title": "Maximize icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/maximize.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 445
+    }
+   ]
+  },
+  {
+   "name": "icon_menu",
+   "title": "Menu icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/menu.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 354
+    }
+   ]
+  },
+  {
+   "name": "icon_microchip",
+   "title": "Microchip icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/microchip.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 551
+    }
+   ]
+  },
+  {
+   "name": "icon_milk",
+   "title": "Milk icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/milk.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 537
+    }
+   ]
+  },
+  {
+   "name": "icon_minus",
+   "title": "Minus icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/minus.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 308
+    }
+   ]
+  },
+  {
+   "name": "icon_network",
+   "title": "Network icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/network.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 523
+    }
+   ]
+  },
+  {
+   "name": "icon_package",
+   "title": "Package icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/package.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 524
+    }
+   ]
+  },
+  {
+   "name": "icon_package-search",
+   "title": "Package search icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/package-search.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 599
+    }
+   ]
+  },
+  {
+   "name": "icon_pause",
+   "title": "Pause icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/pause.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 389
+    }
+   ]
+  },
+  {
+   "name": "icon_pencil",
+   "title": "Pencil icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/pencil.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 454
+    }
+   ]
+  },
+  {
+   "name": "icon_percent",
+   "title": "Percent icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/percent.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 407
+    }
+   ]
+  },
+  {
+   "name": "icon_phone",
+   "title": "Phone icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/phone.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 513
+    }
+   ]
+  },
+  {
+   "name": "icon_picture",
+   "title": "Picture icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/image.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 434
+    }
+   ]
+  },
+  {
+   "name": "icon_pill",
+   "title": "Pill icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/pill.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 391
+    }
+   ]
+  },
+  {
+   "name": "icon_play",
+   "title": "Play icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/play.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 381
+    }
+   ]
+  },
+  {
+   "name": "icon_plus",
+   "title": "Plus icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/plus.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 331
+    }
+   ]
+  },
+  {
+   "name": "icon_qr-code",
+   "title": "Qr code icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/qr-code.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 698
+    }
+   ]
+  },
+  {
+   "name": "icon_recycle",
+   "title": "Recycle icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/recycle.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 708
+    }
+   ]
+  },
+  {
+   "name": "icon_refresh-cw",
+   "title": "Refresh cw icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/refresh-cw.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 473
+    }
+   ]
+  },
+  {
+   "name": "icon_robot-arm",
+   "title": "Robot arm icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/robot-arm.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 535
+    }
+   ]
+  },
+  {
+   "name": "icon_rotate-axes",
+   "title": "Rotate axes icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/rotate-3d.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 451
+    }
+   ]
+  },
+  {
+   "name": "icon_ruler",
+   "title": "Ruler icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/ruler.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 537
+    }
+   ]
+  },
+  {
+   "name": "icon_save",
+   "title": "Save icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/save.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 492
+    }
+   ]
+  },
+  {
+   "name": "icon_scale",
+   "title": "Scale icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/scale.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 471
+    }
+   ]
+  },
+  {
+   "name": "icon_scan-barcode",
+   "title": "Scan barcode icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/scan-barcode.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 520
+    }
+   ]
+  },
+  {
+   "name": "icon_scan-eye",
+   "title": "Scan eye icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/scan-eye.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 587
+    }
+   ]
+  },
+  {
+   "name": "icon_scan-line",
+   "title": "Scan line icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/scan-line.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 470
+    }
+   ]
+  },
+  {
+   "name": "icon_scan-text",
+   "title": "Scan text icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/scan-text.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 515
+    }
+   ]
+  },
+  {
+   "name": "icon_search",
+   "title": "Search icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/search.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 352
+    }
+   ]
+  },
+  {
+   "name": "icon_search-check",
+   "title": "Search check icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/search-check.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 385
+    }
+   ]
+  },
+  {
+   "name": "icon_search-x",
+   "title": "Search x icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/search-x.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 409
+    }
+   ]
+  },
+  {
+   "name": "icon_server",
+   "title": "Server icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/server.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 490
+    }
+   ]
+  },
+  {
+   "name": "icon_settings",
+   "title": "Settings icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/settings.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 665
+    }
+   ]
+  },
+  {
+   "name": "icon_share-2",
+   "title": "Share 2 icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/share-2.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 496
+    }
+   ]
+  },
+  {
+   "name": "icon_shield-check",
+   "title": "Shield check icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/shield-check.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 498
+    }
+   ]
+  },
+  {
+   "name": "icon_skip-back",
+   "title": "Skip back icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/skip-back.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 415
+    }
+   ]
+  },
+  {
+   "name": "icon_skip-forward",
+   "title": "Skip forward icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/skip-forward.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 416
+    }
+   ]
+  },
+  {
+   "name": "icon_sparkles",
+   "title": "Sparkles icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/sparkles.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 646
+    }
+   ]
+  },
+  {
+   "name": "icon_stamp",
+   "title": "Stamp icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/stamp.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 486
+    }
+   ]
+  },
+  {
+   "name": "icon_sun",
+   "title": "Sun icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/sun.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 559
+    }
+   ]
+  },
+  {
+   "name": "icon_tag",
+   "title": "Tag icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/tag.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 504
+    }
+   ]
+  },
+  {
+   "name": "icon_target",
+   "title": "Target icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/target.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 391
+    }
+   ]
+  },
+  {
+   "name": "icon_thermometer",
+   "title": "Thermometer icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/thermometer.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 348
+    }
+   ]
+  },
+  {
+   "name": "icon_timer",
+   "title": "Timer icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/timer.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 403
+    }
+   ]
+  },
+  {
+   "name": "icon_trash-2",
+   "title": "Trash 2 icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/trash-2.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 467
+    }
+   ]
+  },
+  {
+   "name": "icon_trending-down",
+   "title": "Trending down icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/trending-down.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 357
+    }
+   ]
+  },
+  {
+   "name": "icon_trending-up",
+   "title": "Trending up icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/trending-up.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 353
+    }
+   ]
+  },
+  {
+   "name": "icon_triangle-alert",
+   "title": "Triangle alert icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/triangle-alert.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 430
+    }
+   ]
+  },
+  {
+   "name": "icon_truck",
+   "title": "Truck icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/truck.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 545
+    }
+   ]
+  },
+  {
+   "name": "icon_upload",
+   "title": "Upload icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/upload.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 395
+    }
+   ]
+  },
+  {
+   "name": "icon_user",
+   "title": "User icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/user.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 374
+    }
+   ]
+  },
+  {
+   "name": "icon_users",
+   "title": "Users icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/users.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 459
+    }
+   ]
+  },
+  {
+   "name": "icon_video",
+   "title": "Video icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/video.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 426
+    }
+   ]
+  },
+  {
+   "name": "icon_volume-2",
+   "title": "Volume 2 icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/volume-2.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 555
+    }
+   ]
+  },
+  {
+   "name": "icon_volume-x",
+   "title": "Volume x icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/volume-x.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 522
+    }
+   ]
+  },
+  {
+   "name": "icon_warehouse",
+   "title": "Warehouse icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/warehouse.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 527
+    }
+   ]
+  },
+  {
+   "name": "icon_wheat",
+   "title": "Wheat icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/wheat.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 980
+    }
+   ]
+  },
+  {
+   "name": "icon_wine",
+   "title": "Wine icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/wine.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 435
+    }
+   ]
+  },
+  {
+   "name": "icon_wrench",
+   "title": "Wrench icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/wrench.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 494
+    }
+   ]
+  },
+  {
+   "name": "icon_x",
+   "title": "X icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/x.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 332
+    }
+   ]
+  },
+  {
+   "name": "icon_zap",
+   "title": "Zap icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/zap.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 464
+    }
+   ]
+  },
+  {
+   "name": "icon_zoom-in",
+   "title": "Zoom in icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/zoom-in.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 454
+    }
+   ]
+  },
+  {
+   "name": "icon_zoom-out",
+   "title": "Zoom out icon",
+   "kind": "icon",
+   "subject": "ui",
+   "subjectLabel": "Interface",
+   "variants": [
+    {
+     "variant": "",
+     "file": "downloads/icons/svg/zoom-out.svg",
+     "width": 24,
+     "height": 24,
+     "bytes": 413
+    }
+   ]
+  },
+  {
+   "name": "ais-group_beugen-office",
+   "title": "Beugen office",
+   "kind": "photo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "origin": "photo",
+   "type": "facility",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-group_beugen-office.jpg",
+     "width": 740,
+     "height": 693,
+     "bytes": 110277,
+     "source": "rosepetal-design/studio/library/media/deck-media/ais-group_beugen-building.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "ais-group_dublin-office",
+   "title": "Dublin office",
+   "kind": "photo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "origin": "photo",
+   "type": "facility",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-group_dublin-office.jpg",
+     "width": 740,
+     "height": 693,
+     "bytes": 114022,
+     "source": "rosepetal-design/studio/library/media/deck-media/ais-group_dublin-building.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "ais-group_dundalk-workshop",
+   "title": "Dundalk workshop",
+   "kind": "photo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "origin": "photo",
+   "type": "facility",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-group_dundalk-workshop.jpg",
+     "width": 740,
+     "height": 693,
+     "bytes": 128118,
+     "source": "rosepetal-design/studio/library/media/deck-media/ais-group_dundalk-workshop.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "ais-group_sabadell-aerial",
+   "title": "Sabadell site, aerial view",
+   "kind": "photo",
+   "subject": "ais-group",
+   "subjectLabel": "AIS Group",
+   "origin": "photo",
+   "type": "facility",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-group_sabadell-aerial.jpg",
+     "width": 740,
+     "height": 693,
+     "bytes": 193945,
+     "source": "rosepetal-design/studio/library/media/deck-media/ais-group_sabadell-aerial.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "ais-vision-systems_sabadell-building",
+   "title": "Sabadell building",
+   "kind": "photo",
+   "subject": "ais-vision-systems",
+   "subjectLabel": "AIS Vision Systems",
+   "origin": "photo",
+   "type": "facility",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-vision-systems_sabadell-building.jpg",
+     "width": 1500,
+     "height": 997,
+     "bytes": 170820,
+     "source": "rosepetal-design/studio/library/media/real/ais_sabadell-building.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "ais-vision-systems_v275-label-printer",
+   "title": "V275 label printer",
+   "kind": "photo",
+   "subject": "ais-vision-systems",
+   "subjectLabel": "AIS Vision Systems",
+   "origin": "photo",
+   "type": "machine",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/ais-vision-systems_v275-label-printer.png",
+     "width": 3072,
+     "height": 1728,
+     "bytes": 3567952,
+     "source": "rosepetal-design/linkedin-templates/TEMPLATES LINKEDIN/CARRUSELS EXEMPLES/V275 (1) (1).pdf [image extracted, page 1 #0]"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rosepetal_engineer-at-workstation",
+   "title": "Engineer at a Rosepetal workstation",
+   "kind": "photo",
+   "subject": "rosepetal",
+   "subjectLabel": "Rosepetal",
+   "origin": "video-frame",
+   "type": "people",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rosepetal_engineer-at-workstation.png",
+     "width": 1280,
+     "height": 720,
+     "bytes": 727984,
+     "source": "rosepetal-design/studio/library/media/real/ais-engineer-rosepetal-screen.png"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-standard_spray-cans-entering",
+   "title": "Spray cans entering AIS REV 360",
+   "kind": "photo",
+   "subject": "rev360-standard",
+   "subjectLabel": "AIS REV 360 STANDARD",
+   "product": "AIS REV 360 STANDARD",
+   "origin": "video-frame",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-standard_spray-cans-entering.jpg",
+     "width": 1680,
+     "height": 945,
+     "bytes": 293184,
+     "source": "rosepetal-design/studio/library/media/real/rev360_spray-cans-entering.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-dent",
+   "title": "Dented can",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-dent.jpg",
+     "width": 804,
+     "height": 1228,
+     "bytes": 153635,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_pair-nok_clean.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-dent-pair",
+   "title": "Can dent, OK and NOK",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "tile+es",
+     "file": "library/photos/rev360-compact_can-dent-pair_tile_es.jpg",
+     "width": 1627,
+     "height": 1228,
+     "bytes": 341750,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_dent-pair_es.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-end-code-pair",
+   "title": "Can end codes, OK and NOK",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-end-code-pair.jpg",
+     "width": 1882,
+     "height": 1418,
+     "bytes": 353795,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_code-pair_clean.jpg"
+    },
+    {
+     "variant": "tile+es",
+     "file": "library/photos/rev360-compact_can-end-code-pair_tile_es.jpg",
+     "width": 1882,
+     "height": 1418,
+     "bytes": 413967,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_code-pair_es.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-end-code-smudged",
+   "title": "Can end code smudged",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-end-code-smudged.jpg",
+     "width": 1882,
+     "height": 705,
+     "bytes": 173251,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_code-smudged_clean.jpg"
+    },
+    {
+     "variant": "tile+es",
+     "file": "library/photos/rev360-compact_can-end-code-smudged_tile_es.jpg",
+     "width": 1882,
+     "height": 705,
+     "bytes": 158938,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_code-smudged_es.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-line",
+   "title": "AIS REV 360 COMPACT on a can line",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "video-frame",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-line.jpg",
+     "width": 1138,
+     "height": 535,
+     "bytes": 245568,
+     "source": "rosepetal-design/studio/library/media/real/rev360-compact_can-line.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-sidewall-dent",
+   "title": "Can sidewall dent",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-sidewall-dent.jpg",
+     "width": 1066,
+     "height": 710,
+     "bytes": 99672,
+     "source": "rosepetal-design/studio/library/media/deck-media/can_sidewall-dent.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_can-upper-seam",
+   "title": "Can upper seam",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-upper-seam.jpg",
+     "width": 1066,
+     "height": 710,
+     "bytes": 104988,
+     "source": "rosepetal-design/studio/library/media/deck-media/can_upper-seam.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_cans-entering",
+   "title": "Cans entering AIS REV 360 COMPACT",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "video-frame",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_cans-entering.jpg",
+     "width": 1138,
+     "height": 535,
+     "bytes": 151564,
+     "source": "rosepetal-design/studio/library/media/real/rev360-compact_cans-entering.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_chickpea-can-label-skew",
+   "title": "Chickpea can label skew",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_chickpea-can-label-skew.jpg",
+     "width": 1850,
+     "height": 925,
+     "bytes": 236508,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_label-skew_clean.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_chickpea-can-lineup",
+   "title": "Chickpea can lineup",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_chickpea-can-lineup.jpg",
+     "width": 1924,
+     "height": 1443,
+     "bytes": 470250,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_lineup_clean.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_chickpea-cans-still-life",
+   "title": "Chickpea cans still life",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_chickpea-cans-still-life.jpg",
+     "width": 960,
+     "height": 540,
+     "bytes": 88866,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_label-still.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_chickpea-jar-four-views",
+   "title": "Chickpea jar, four views",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_chickpea-jar-four-views.jpg",
+     "width": 1854,
+     "height": 634,
+     "bytes": 152975,
+     "source": "rosepetal-design/studio/library/media/deck-media/chickpea-jars_four-views.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_machine-in-workshop",
+   "title": "AIS REV 360 COMPACT in the workshop",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "type": "machine",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_machine-in-workshop.jpg",
+     "width": 1598,
+     "height": 1064,
+     "bytes": 429094,
+     "source": "rosepetal-design/studio/library/media/deck-media/can-inspection-machine_workshop.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_plain-cans-still-life",
+   "title": "Plain cans still life",
+   "kind": "photo",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "product": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_plain-cans-still-life.jpg",
+     "width": 2160,
+     "height": 1215,
+     "bytes": 344853,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_still-light.jpg"
+    },
+    {
+     "variant": "dark",
+     "file": "library/photos/rev360-compact_plain-cans-still-life_dark.jpg",
+     "width": 960,
+     "height": 540,
+     "bytes": 81330,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/cans_still-dark.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-compact_exterior",
+   "title": "AIS REV 360 COMPACT, exterior",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/sales-proposal.pdf",
+      "page": 3
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-compact.pdf",
+      "page": 3
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/datasheets/compact/assets/rev360-compact-exterior.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_exterior.jpg",
+     "width": 2000,
+     "height": 1333,
+     "bytes": 327866,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/revcompact_01_light.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-compact_can-infeed",
+   "title": "AIS REV 360 COMPACT with cans",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-rev360-compact-es.png",
+      "source": "ais-group-design/pieces/posts/04-rev360-compact/recipe-es.json"
+     }
+    ]
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_can-infeed.jpg",
+     "width": 3000,
+     "height": 2000,
+     "bytes": 752957,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/revcompact_cans-infeed_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-compact_cans-three-quarter",
+   "title": "AIS REV 360 COMPACT with cans, three-quarter view",
+   "subject": "rev360-compact",
+   "subjectLabel": "AIS REV 360 COMPACT",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-compact.pdf",
+      "page": 3
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/compact/assets/rev360-compact_cans-3q.jpg",
+    "lineage": "Uncropped 3000 × 2000 source of the final brochure image. Producer: studio/work/machines-with-product/render_line.py, revcompact cans 3q; exterior with guards closed."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-compact_cans-three-quarter.jpg",
+     "width": 3000,
+     "height": 2000,
+     "bytes": 763018,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact/revcompact_cans-3q_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-cables_camera-mounts",
+   "title": "AIS REV 360 Cables camera mounts",
+   "kind": "photo",
+   "subject": "rev360-cables",
+   "subjectLabel": "AIS REV 360 Cables",
+   "product": "AIS REV 360 Cables",
+   "origin": "video-frame",
+   "type": "detail",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-cables_camera-mounts.jpg",
+     "width": 1280,
+     "height": 600,
+     "bytes": 150458,
+     "source": "rosepetal-design/studio/library/media/real/rev360-cables_camera-mounts.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rev360-cables_factory-floor",
+   "title": "AIS REV 360 Cables on the factory floor",
+   "kind": "photo",
+   "subject": "rev360-cables",
+   "subjectLabel": "AIS REV 360 Cables",
+   "product": "AIS REV 360 Cables",
+   "origin": "video-frame",
+   "type": "machine",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-cables_factory-floor.jpg",
+     "width": 1280,
+     "height": 600,
+     "bytes": 231381,
+     "source": "rosepetal-design/studio/library/media/real/rev360-cables_factory-floor.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "kariko_on-the-line",
+   "title": "AIS KARIKÓ on the line",
+   "kind": "photo",
+   "subject": "kariko",
+   "subjectLabel": "AIS KARIKÓ",
+   "product": "AIS KARIKÓ",
+   "origin": "video-frame",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/kariko_on-the-line.jpg",
+     "width": 1138,
+     "height": 540,
+     "bytes": 147312,
+     "source": "rosepetal-design/studio/library/media/real/kariko_on-the-line.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "kariko_trays-3q",
+   "title": "AIS KARIKÓ with trays",
+   "subject": "kariko",
+   "subjectLabel": "AIS KARIKÓ",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-kariko.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-kariko.pdf",
+      "page": 1
+     }
+    ],
+    "lineage": "Full-size exterior image; byte-identical to ~/.cache/gdm/machines-with-product/kariko_trays_3q_light.jpg. Producer: studio/work/machines-with-product/render_line.py, guards closed."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/kariko_trays-3q.jpg",
+     "width": 2400,
+     "height": 1600,
+     "bytes": 491102,
+     "source": "ais-group-design/pieces/brochures/kariko/assets/kariko_trays-3q_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "kariko_trays-infeed",
+   "title": "AIS KARIKÓ, tray infeed",
+   "subject": "kariko",
+   "subjectLabel": "AIS KARIKÓ",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-kariko.pdf",
+      "page": 3
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-food.pdf",
+      "page": 1
+     }
+    ],
+    "lineage": "Full-size exterior image; byte-identical to ~/.cache/gdm/machines-with-product/kariko_trays_infeed_light.jpg. Producer: studio/work/machines-with-product/render_line.py, guards closed."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/kariko_trays-infeed.jpg",
+     "width": 2400,
+     "height": 1600,
+     "bytes": 565081,
+     "source": "ais-group-design/pieces/brochures/kariko/assets/kariko_trays-infeed.jpg"
+    }
+   ]
+  },
+  {
+   "name": "opticais_camera-over-can-line",
+   "title": "OPTICAIS camera over a can line",
+   "kind": "photo",
+   "subject": "opticais",
+   "subjectLabel": "OPTICAIS",
+   "product": "OPTICAIS",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/opticais_camera-over-can-line.jpg",
+     "width": 592,
+     "height": 347,
+     "bytes": 38479,
+     "source": "rosepetal-design/studio/library/media/originals/opticais/camera-over-can-line.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "opticais_muesli-carton-lineup",
+   "title": "Muesli carton lineup",
+   "subject": "opticais",
+   "subjectLabel": "OPTICAIS",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-carousel-muesli-reference-es.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-opticais.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-carousel-muesli-reference-en.pdf",
+      "page": 1
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/datasheets/opticais/assets/carton_lineup.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/opticais_muesli-carton-lineup.jpg",
+     "width": 2039,
+     "height": 1529,
+     "bytes": 463770,
+     "source": "rosepetal-design/studio/library/media/3d/renders/opticais/carton_lineup_clean.jpg"
+    }
+   ]
+  },
+  {
+   "name": "pharma_blister-and-carton",
+   "title": "Blister pack and carton",
+   "kind": "photo",
+   "subject": "pharma",
+   "subjectLabel": "Pharma",
+   "origin": "unknown",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/pharma_blister-and-carton.webp",
+     "width": 960,
+     "height": 540,
+     "bytes": 29120,
+     "source": "aisgroup-design/assets/brand/imagery/references/subject-3.webp"
+    }
+   ]
+  },
+  {
+   "name": "automotive_gears-and-housing",
+   "title": "Gears and gearbox housing",
+   "kind": "photo",
+   "subject": "automotive",
+   "subjectLabel": "Automotive",
+   "origin": "unknown",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/automotive_gears-and-housing.webp",
+     "width": 960,
+     "height": 540,
+     "bytes": 38250,
+     "source": "aisgroup-design/assets/brand/imagery/references/subject-1.webp"
+    }
+   ]
+  },
+  {
+   "name": "industry_circuit-board",
+   "title": "Circuit board",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "unknown",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_circuit-board.webp",
+     "width": 960,
+     "height": 540,
+     "bytes": 56782,
+     "source": "aisgroup-design/assets/brand/imagery/references/subject-2.webp"
+    }
+   ]
+  },
+  {
+   "name": "industry_factory-floor",
+   "title": "Factory floor",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_factory-floor.webp",
+     "width": 708,
+     "height": 698,
+     "bytes": 66436,
+     "source": "aisgroup-design/assets/brand/imagery/references/line-1.webp"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "industry_jerrycan-camera-inspection",
+   "title": "Jerrycan camera inspection",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_jerrycan-camera-inspection.webp",
+     "width": 651,
+     "height": 372,
+     "bytes": 25886,
+     "source": "aisgroup-design/assets/brand/imagery/references/line-2.webp"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "industry_jerrycan-vision-station",
+   "title": "Jerrycan vision station",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_jerrycan-vision-station.webp",
+     "width": 709,
+     "height": 301,
+     "bytes": 11762,
+     "source": "aisgroup-design/assets/brand/imagery/references/line-3.webp"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "industry_loading-dock-labelling-portal",
+   "title": "Loading dock labelling portal",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_loading-dock-labelling-portal.jpg",
+     "width": 800,
+     "height": 637,
+     "bytes": 139323,
+     "source": "rosepetal-design/studio/library/media/deck-media/loading-dock_label-applicator-portal-large.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "industry_loading-dock-scanners",
+   "title": "Loading dock scanners",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "in-production",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_loading-dock-scanners.jpg",
+     "width": 817,
+     "height": 513,
+     "bytes": 121882,
+     "source": "rosepetal-design/studio/library/media/deck-media/loading-dock_scanners-large.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "industry_metal-pail-hazard-label",
+   "title": "Metal pail with hazard label",
+   "kind": "photo",
+   "subject": "industry",
+   "subjectLabel": "Industry",
+   "origin": "photo",
+   "type": "subject",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/industry_metal-pail-hazard-label.jpg",
+     "width": 1066,
+     "height": 710,
+     "bytes": 126434,
+     "source": "rosepetal-design/studio/library/media/deck-media/metal-pail_hazard-label.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "events_advanced-factories-2026-stand",
+   "title": "Advanced Factories 2026 stand",
+   "kind": "photo",
+   "subject": "events",
+   "subjectLabel": "Events",
+   "origin": "photo",
+   "type": "machine",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/events_advanced-factories-2026-stand.webp",
+     "width": 960,
+     "height": 540,
+     "bytes": 55522,
+     "source": "rosepetal-design/public/imagery/machine-1.webp"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "events_advanced-factories-2026-stand-hexagon-lights",
+   "title": "Advanced Factories 2026 stand, hexagon lights",
+   "kind": "photo",
+   "subject": "events",
+   "subjectLabel": "Events",
+   "origin": "photo",
+   "type": "event",
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/events_advanced-factories-2026-stand-hexagon-lights.jpg",
+     "width": 1152,
+     "height": 1536,
+     "bytes": 272454,
+     "source": "rosepetal-design/studio/library/media/advanced-factories-2026/af26_stand-hexagons.jpg"
+    }
+   ],
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "rosepetal_model-metrics",
+   "title": "Model metrics",
+   "kind": "photo",
+   "subject": "rosepetal-app",
+   "subjectLabel": "Rosepetal app",
+   "origin": "screenshot",
+   "type": "interface",
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rosepetal_model-metrics.webp",
+     "width": 445,
+     "height": 593,
+     "bytes": 13574,
+     "source": "guide/public/examples/brochure/rosepetal/assets/rosepetal_model-metrics.webp"
+    }
+   ]
+  },
+  {
+   "name": "rosepetal_smart-labeling-crack",
+   "title": "Smart Labeling, crack annotation",
+   "kind": "photo",
+   "subject": "rosepetal-app",
+   "subjectLabel": "Rosepetal app",
+   "origin": "screenshot",
+   "type": "interface",
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rosepetal_smart-labeling-crack.webp",
+     "width": 597,
+     "height": 796,
+     "bytes": 16654,
+     "source": "guide/public/examples/brochure/rosepetal/assets/rosepetal_smart-labeling-crack.webp"
+    }
+   ]
+  },
+  {
+   "name": "stock-vials-1",
+   "title": "Glass vials on a laboratory tray",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/clear-glass-vials-on-round-container-9259963/",
+   "author": "Jess Loiterton",
+   "authorUrl": "https://www.pexels.com/@jess-vide/",
+   "preview": "https://images.pexels.com/photos/9259963/pexels-photo-9259963.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-cartons-1",
+   "title": "Printed code on a can end",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/can-seal-over-printed-numbers-15038479/",
+   "author": "Towfiqu barbhuiya",
+   "authorUrl": "https://www.pexels.com/@towfiqu-barbhuiya-3440682/",
+   "preview": "https://images.pexels.com/photos/15038479/pexels-photo-15038479.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-juice-bottles-1",
+   "title": "Bottling line",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://unsplash.com/photos/glass-bottles-on-top-of-gray-machine-Xlc8HG_FB2k",
+   "author": "Waldemar Brandt",
+   "authorUrl": "https://unsplash.com/@waldemarbrandt67w",
+   "preview": "",
+   "rights": {
+    "licence": "Unsplash License",
+    "licenceUrl": "https://unsplash.com/license",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-juice-bottles-4",
+   "title": "Wine bottles on a line",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/wine-bottles-on-an-industrial-machinery-4176427/",
+   "author": "Lucian Pirvu",
+   "authorUrl": "https://www.pexels.com/@lucian-pirvu-2565857/",
+   "preview": "https://images.pexels.com/photos/4176427/pexels-photo-4176427.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-cans-1",
+   "title": "Aluminium cans on a line",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/aluminum-cans-in-the-production-line-5532671/",
+   "author": "cottonbro studio",
+   "authorUrl": "https://www.pexels.com/@cottonbro/",
+   "preview": "https://images.pexels.com/photos/5532671/pexels-photo-5532671.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-cans-3",
+   "title": "Empty cans on a conveyor",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/aluminum-cans-in-the-assembly-line-5532658/",
+   "author": "cottonbro studio",
+   "authorUrl": "https://www.pexels.com/@cottonbro/",
+   "preview": "https://images.pexels.com/photos/5532658/pexels-photo-5532658.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "stock-bakery-2",
+   "title": "Dough on a bakery line",
+   "kind": "stock",
+   "subject": "stock",
+   "subjectLabel": "Stock",
+   "origin": "stock",
+   "source": "https://www.pexels.com/photo/dough-on-tape-6291408/",
+   "author": "Anna Shvets",
+   "authorUrl": "https://www.pexels.com/@shvetsa/",
+   "preview": "https://images.pexels.com/photos/6291408/pexels-photo-6291408.jpeg?auto=compress&cs=tinysrgb&w=640",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "variants": []
+  },
+  {
+   "name": "hopper_exterior",
+   "title": "AIS Hopper, exterior",
+   "subject": "hopper",
+   "subjectLabel": "AIS Hopper",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-pharma.pdf",
+      "page": 10
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-cosmetics.pdf",
+      "page": 4
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/catalogue-pharma/assets/hopper-exterior.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/hopper_exterior.jpg",
+     "width": 3000,
+     "height": 3750,
+     "bytes": 1108536,
+     "source": "rosepetal-design/studio/library/media/3d/machines/hopper/hopper_01_3q-left_light.jpg"
+    }
+   ]
+  },
+  {
+   "name": "hopper_juice-bottles-on-conveyor",
+   "title": "Juice bottles on the AIS Hopper conveyor",
+   "subject": "hopper",
+   "subjectLabel": "AIS Hopper",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-carousel-juice-hopper-es.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-hopper.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-carousel-juice-hopper-en.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-hopper.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-beverage.pdf",
+      "page": 10
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/hopper/assets/cover_juice-lineup.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/hopper_juice-bottles-on-conveyor.jpg",
+     "width": 3000,
+     "height": 2250,
+     "bytes": 1039870,
+     "source": "rosepetal-design/studio/library/media/3d/renders/hopper/juice_lineup-conveyor_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "hopper_juice-infeed",
+   "title": "AIS Hopper with juice bottles",
+   "subject": "hopper",
+   "subjectLabel": "AIS Hopper",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/linkedin-hopper-es.png",
+      "source": "ais-group-design/pieces/posts/01-hopper/recipe-es.json"
+     }
+    ]
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/hopper_juice-infeed.jpg",
+     "width": 2400,
+     "height": 1600,
+     "bytes": 555319,
+     "source": "rosepetal-design/studio/library/media/3d/renders/hopper/hopper_juice_infeed_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "hopper_cosmetics-infeed",
+   "title": "AIS Hopper with pump bottles",
+   "subject": "hopper",
+   "subjectLabel": "AIS Hopper",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-cosmetics.pdf",
+      "page": 1
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/catalogue-cosmetics/assets/hopper_cosmetics-infeed_cover.jpg",
+    "lineage": "Uncropped 3000 × 2000 source of the final catalogue cover; cover crop begins at (680, 200), 2320 × 1706. Producer: studio/work/machines-with-product/render_line.py, hopper cosmetics infeed."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/hopper_cosmetics-infeed.jpg",
+     "width": 3000,
+     "height": 2000,
+     "bytes": 823109,
+     "source": "rosepetal-design/studio/library/media/3d/renders/cosmetics/hopper_cosmetics-infeed_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vial-infeed",
+   "title": "AIS REV 360 PHARMA with vials",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-pharma.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 1
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 3
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/pharma/assets/rev360-pharma_vials-infeed.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vial-infeed.jpg",
+     "width": 2400,
+     "height": 1600,
+     "bytes": 487986,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/revcompact_vials-infeed_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vials-three-quarter",
+   "title": "AIS REV 360 PHARMA with vials, three-quarter view",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "machine",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-pharma.pdf",
+      "page": 7
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-pharma.pdf",
+      "page": 3
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/pharma/assets/rev360-pharma_vials-3q.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vials-three-quarter.jpg",
+     "width": 2400,
+     "height": 1600,
+     "bytes": 485856,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/revcompact_vials-3q_cover.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vials-still-life",
+   "title": "Vials, still life",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/catalogue-pharma.pdf",
+      "page": 10
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/catalogue-pharma/assets/vial_still.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vials-still-life.jpg",
+     "width": 2160,
+     "height": 1215,
+     "bytes": 312641,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/vial_still.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vial-lineup",
+   "title": "Vial lineup",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 4
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/datasheets/pharma/assets/vial_lineup_clean.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vial-lineup.jpg",
+     "width": 2036,
+     "height": 1527,
+     "bytes": 515986,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/vial_lineup_clean.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vial-without-label",
+   "title": "Vial without a label",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-pharma.pdf",
+      "page": 2
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 2
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/pharma/assets/vial_det-label-missing.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vial-without-label.jpg",
+     "width": 1200,
+     "height": 1200,
+     "bytes": 152484,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/det/vial_det-label-missing.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vial-upside-down-label",
+   "title": "Vial with an upside-down label",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-pharma.pdf",
+      "page": 2
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 2
+     }
+    ],
+    "sourceAsset": "ais-group-design/pieces/brochures/pharma/assets/vial_det-label-upside-down.jpg"
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vial-upside-down-label.jpg",
+     "width": 1200,
+     "height": 1200,
+     "bytes": 161402,
+     "source": "rosepetal-design/studio/library/media/3d/renders/rev360-compact-pharma/det/vial_det-label-upside-down.jpg"
+    }
+   ]
+  },
+  {
+   "name": "rev360-pharma_vial-misaligned-label",
+   "title": "Vial with a misaligned label",
+   "subject": "rev360-pharma",
+   "subjectLabel": "AIS REV 360 PHARMA",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-rev360-pharma.pdf",
+      "page": 2
+     },
+     {
+      "piece": "rosepetal-design/public/kit/files/datasheet-rev360-pharma.pdf",
+      "page": 2
+     }
+    ],
+    "lineage": "Full 1200 × 1200 product shot, byte-identical to ~/.cache/gdm/det/rev360-pharma/vial_det-label-misaligned.jpg; studio/3d/vial.py. Provenance: studio/work/brochures/rev360/README.md, Pharma page 2."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/rev360-pharma_vial-misaligned-label.jpg",
+     "width": 1200,
+     "height": 1200,
+     "bytes": 172370,
+     "source": "ais-group-design/pieces/brochures/pharma/assets/vial_det-label-misaligned.jpg"
+    }
+   ]
+  },
+  {
+   "name": "vacuum_jar-lineup",
+   "title": "Jar lineup on the conveyor",
+   "subject": "vacuum",
+   "subjectLabel": "AIS Vacuum",
+   "kind": "photo",
+   "origin": "render",
+   "type": "subject",
+   "approval": {
+    "basis": "Approved for use in the marketing kit.",
+    "evidence": [
+     {
+      "piece": "rosepetal-design/public/kit/files/brochure-vacuum.pdf",
+      "page": 1
+     }
+    ],
+    "lineage": "Full 3000 × 2250 cover image from the jars-lineup scene, studio/3d/jars.py; marketing kit label version. No crop or resizing."
+   },
+   "variants": [
+    {
+     "variant": "",
+     "file": "library/photos/vacuum_jar-lineup.jpg",
+     "width": 3000,
+     "height": 2250,
+     "bytes": 948089,
+     "source": "ais-group-design/pieces/brochures/vacuum/assets/jars_lineup_cover.jpg"
+    }
+   ]
+  }
+ ]
+}

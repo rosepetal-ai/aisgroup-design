@@ -1,0 +1,22 @@
+{
+  "name": "ais-vision-systems_post-recap_es_template",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "En Packaging Talks 2026 hablamos de digitalización y trazabilidad en el envase. Gracias a la organización y a los compañeros de mesa. Cuéntanos cómo es tu línea",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/real/packaging-talks2026_panel.jpg",
+      "split": 0.55,
+      "focus": [
+        50,
+        75
+      ],
+      "headline": "Hablamos|*de trazabilidad*"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "ais-vision-systems_carousel-application_es_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "Una etiqueta con burbujas, despegada o torcida suele estar en la cara del envase que nadie mira. El AIS REV 360 revisa la etiqueta alrededor de todo el envase con cámaras de alta resolución y deep learning, en la línea. Las imágenes son del sistema en una planta real: en la pantalla, las vistas de las cámaras alrededor del envase. Pruébalo con tus productos",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/rev360/still-rev360-operator-screen.png",
+      "split": 0.6,
+      "focus": [
+        38,
+        40
+      ],
+      "headline": "La etiqueta entera, *sin orientar el envase*"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360_spray-cans-entering.jpg",
+      "split": 0.6,
+      "focus": [
+        60,
+        50
+      ],
+      "headline": "El defecto suele estar|en la cara que no miras",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/rev360/still-rev360-pet-four-views.png",
+      "split": 0.6,
+      "focus": [
+        50,
+        45
+      ],
+      "headline": "Todas las caras|de la botella",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360_machine-on-line.jpg",
+      "split": 0.6,
+      "focus": [
+        45,
+        40
+      ],
+      "headline": "Sobre el transportador que ya tienes",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "¿Lo probamos|*con tus productos*?",
+      "action": "Pruébalo con tus productos",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ]
+    }
+  ]
+}

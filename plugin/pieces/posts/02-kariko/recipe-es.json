@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-kariko_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS KARIKÓ inspecciona las bandejas termoselladas por ambas caras. En esta bandeja de muestra, un fragmento de plástico azul ha quedado sobre el film, junto a la etiqueta. Es un ejemplo ilustrativo, no el resultado de una prueba de máquina. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/social-composites/02-kariko-tray_foreign-body_es.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "Un cuerpo extraño|sobre el film"
+    }
+  ]
+}

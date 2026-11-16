@@ -1,0 +1,20 @@
+{
+  "name": "rosepetal_post-quote-rosepetal_es_2026-10-29",
+  "kind": "post",
+  "brand": "rosepetal",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "En VISION 2026, José Racionero habló de cómo valorar los riesgos de la IA: con tasas de fallos medidas e ingeniería, no con estimaciones personales. La entrevista completa está en nuestro canal de YouTube. Envíanos muestras.",
+  "shots": [
+    {
+      "type": "quote",
+      "look": "navy",
+      "name": "José Racionero",
+      "quote": "Una estimación personal no es una tasa de fallos medida.",
+      "role": "CEO y cofundador de Rosepetal",
+      "permission": "Sus palabras en la entrevista publicada por Rosepetal en YouTube (dVtk_PbZgHU, minuto 13:04, octubre de 2026)"
+    }
+  ]
+}

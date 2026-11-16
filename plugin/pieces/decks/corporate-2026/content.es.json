@@ -1,0 +1,1572 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, presentación general 2026",
+    "footer": "AIS Vision Systems, presentación general 2026",
+    "file": "ais-vision-systems_presentation-corporate-2026_es",
+    "source": "Presentación General AIS Vision- Spanish (Drive 1r2KjoK7…), 27 diapositivas; textos de studio/work/catalog/copy/deck-corporate-2026.md",
+    "pdfStrategy": "per-slide"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "title": "Engineering\npeace of mind",
+      "lead": "Automated quality control",
+      "notes": "AIS Vision Systems diseña e integra sistemas de control de calidad automatizado con visión artificial para líneas de producción.",
+      "meta": "2026",
+      "image": {
+        "src": "library/media/advanced-factories-2026/af26_stand-hexagons.jpg",
+        "pos": "50% 50%",
+        "alt": "Estand de AIS Vision Systems en Advanced Factories 2026"
+      }
+    },
+    {
+      "layout": "agenda",
+      "title": "Lo que veremos",
+      "items": [
+        {
+          "title": "Quiénes somos",
+          "text": "AIS Group, evolución, equipo y alianzas"
+        },
+        {
+          "title": "Cómo trabajamos",
+          "text": "Preventa, fases del proyecto y posventa"
+        },
+        {
+          "title": "Referencias",
+          "text": "Clientes por sector y casos de éxito"
+        },
+        {
+          "title": "Soluciones y productos",
+          "text": "El sistema de visión y nuestros equipos"
+        },
+        {
+          "title": "Proyectos a medida",
+          "text": "I+D y proyectos replicables"
+        }
+      ],
+      "notes": "Cinco partes; se puede ir directamente a la parte 4 si el cliente viene por un producto."
+    },
+    {
+      "layout": "divider",
+      "part": "Quiénes somos",
+      "title": "Quiénes somos"
+    },
+    {
+      "layout": "statement",
+      "title": "AIS Vision Systems forma parte de AIS Group, originado en Dublín (Irlanda) en 1998",
+      "lead": "Fundada en 2013 en Sabadell, AIS Vision Systems ofrece soluciones automatizadas de control de calidad en líneas de producción mediante visión artificial.",
+      "notes": "Quiénes somos: AIS Vision Systems, fundada en Sabadell en 2013, dentro de AIS Group, originado en Dublín en 1998. Diapositiva 2 del original. En la imagen, el edificio de AIS Vision Systems en Sabadell."
+    },
+    {
+      "layout": "columns",
+      "title": "AIS Group",
+      "columns": [
+        {
+          "eyebrow": "Irlanda",
+          "title": "Automatic Identification Systems",
+          "items": [
+            "Impresión y aplicación de etiquetas",
+            "Lectura de códigos",
+            "Visión artificial"
+          ]
+        },
+        {
+          "eyebrow": "Países Bajos",
+          "title": "AIS Scanology",
+          "items": [
+            "Lectura de códigos",
+            "Verificación de códigos",
+            "Visión artificial"
+          ]
+        },
+        {
+          "eyebrow": "Irlanda",
+          "title": "AIS Vision Automation",
+          "items": [
+            "Automatización en línea",
+            "Robótica",
+            "Transporte"
+          ]
+        },
+        {
+          "eyebrow": "España",
+          "title": "Rosepetal",
+          "items": [
+            "Plataforma de software",
+            "Entrenamiento de modelos de IA",
+            "Control de calidad industrial"
+          ]
+        }
+      ],
+      "notes": "Las empresas de AIS Group junto a AIS Vision Systems: Automatic Identification Systems (Irlanda), AIS Scanology (Países Bajos), AIS Vision Automation (Irlanda) y Rosepetal (España): plataforma de software para el entrenamiento de modelos de IA de control de calidad industrial. Diapositiva 2 del original."
+    },
+    {
+      "layout": "steps",
+      "title": "De la programación de cámaras a las soluciones llave en mano",
+      "steps": [
+        {
+          "title": "Programación de cámaras"
+        },
+        {
+          "title": "Orientación a OEM"
+        },
+        {
+          "title": "Equipo comercial y diseño mecánico propios"
+        },
+        {
+          "title": "Soluciones llave en mano"
+        }
+      ],
+      "notes": "Cuatro etapas de la empresa: de programar cámaras a entregar soluciones llave en mano."
+    },
+    {
+      "layout": "figures",
+      "title": "Equipo propio",
+      "figures": [
+        {
+          "value": "24",
+          "label": "empleados en AIS Vision Systems",
+          "text": "Oficinas en Can Camps, 10, Sabadell"
+        },
+        {
+          "value": "12",
+          "label": "empleados en Rosepetal",
+          "text": "Can Camps, 10: taller y desarrollo de proyectos"
+        }
+      ],
+      "notes": "AIS Vision Systems, 24 empleados, oficinas en Can Camps, 10; Rosepetal, 12 empleados, taller y desarrollo de proyectos, también en Can Camps, 10. Ambos en Sabadell.",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      }
+    },
+    {
+      "layout": "features",
+      "title": "Proyectos llave en mano",
+      "cols": 2,
+      "items": [
+        {
+          "title": "Oficina técnica",
+          "text": "Diseño mecánico con SOLIDWORKS, diseño eléctrico con EPLAN y montaje.",
+          "logos": [
+            {
+              "src": "library/media/deck-media/logo_solidworks.png",
+              "w": 128,
+              "h": 96
+            },
+            {
+              "src": "library/media/deck-media/logo_eplan.png",
+              "w": 68,
+              "h": 96
+            }
+          ]
+        },
+        {
+          "title": "Gestión de proyectos",
+          "text": "Con monday.com.",
+          "logos": [
+            {
+              "src": "library/media/deck-media/logo_monday.png",
+              "w": 166,
+              "h": 96
+            }
+          ]
+        },
+        {
+          "title": "Departamento de software",
+          "text": "Software, visión artificial, paneles de control, .NET para dispositivos de terceros, electrónica.",
+          "icon": "code-xml"
+        },
+        {
+          "title": "Administración, logística, ventas y marketing",
+          "text": "Con Zoho.",
+          "logos": [
+            {
+              "src": "library/media/deck-media/logo_zoho.png",
+              "w": 223,
+              "h": 96
+            }
+          ]
+        }
+      ],
+      "notes": "Todos los departamentos de un proyecto llave en mano están en la empresa, con los logotipos del original (SOLIDWORKS, EPLAN, monday.com y Zoho). Diapositiva 4 del original."
+    },
+    {
+      "layout": "features",
+      "title": "Alianzas estratégicas y reconocimiento",
+      "cols": 3,
+      "items": [
+        {
+          "logos": [
+            {
+              "src": "tpl:logos-ref/datalogic.png",
+              "w": 300,
+              "h": 36
+            },
+            {
+              "src": "tpl:logos-ref/omron.png",
+              "w": 200,
+              "h": 38
+            },
+            {
+              "src": "tpl:logos-ref/globalvision.png",
+              "w": 230,
+              "h": 36
+            }
+          ],
+          "title": "Fabricantes",
+          "text": "AIS Vision Systems mantiene alianzas estratégicas con fabricantes de componentes para automatización industrial."
+        },
+        {
+          "logos": [
+            {
+              "src": "tpl:logos-ref/pyme-innovadora.png",
+              "w": 120,
+              "h": 124
+            }
+          ],
+          "title": "PYME Innovadora",
+          "text": "AIS Vision Systems ha recibido el reconocimiento de PYME Innovadora por parte del Ministerio de Economía y Competitividad."
+        },
+        {
+          "logos": [
+            {
+              "src": "tpl:logos-ref/cdti.png",
+              "w": 400,
+              "h": 124
+            }
+          ],
+          "title": "CDTI",
+          "text": "Concesión de un CDTI por parte del Ministerio de Ciencia e Innovación para el desarrollo del AIS REV 360, un producto revolucionario para inspeccionar envases a 360 grados."
+        }
+      ],
+      "notes": "Alianzas con fabricantes (Datalogic, OMRON y GlobalVision, con sus logotipos en la diapositiva 5 del original), el reconocimiento PYME Innovadora y la concesión de un CDTI para el desarrollo del AIS REV 360."
+    },
+    {
+      "layout": "grid",
+      "title": "Líneas de producto",
+      "cols": 3,
+      "ratio": 2.4,
+      "tiles": [
+        {
+          "image": {
+            "src": "tpl:img/cobot-labelling-cell.jpg",
+            "pos": "50% 0%"
+          },
+          "label": "Impresión y aplicación de etiquetas"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/vision-station-jerrycans.jpg",
+            "pos": "70% 55%"
+          },
+          "label": "Visión artificial"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/oval-tin-date-code.jpg",
+            "pos": "30% 50%"
+          },
+          "label": "Impresión y marcaje"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-001-000.png",
+            "pos": "45% 48%"
+          },
+          "label": "Impresión de etiquetas"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-002-001.png",
+            "pos": "40% 35%"
+          },
+          "label": "Verificación de códigos"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/carton-ocr-read-neutral-blurred.jpg",
+            "pos": "50% 40%"
+          },
+          "label": "Trazabilidad y captura de datos"
+        }
+      ],
+      "notes": "Las seis líneas de producto del grupo: impresión y aplicación de etiquetas, visión artificial, impresión y marcaje, impresión de etiquetas, verificación de códigos y trazabilidad."
+    },
+    {
+      "layout": "divider",
+      "part": "Cómo trabajamos",
+      "title": "Cómo trabajamos"
+    },
+    {
+      "layout": "steps",
+      "title": "Proceso de trabajo",
+      "steps": [
+        {
+          "title": "Preventa",
+          "text": "Necesidades, diversas preguntas, pruebas y oferta",
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-camera-bench-16x9.jpg",
+            "pos": "50% 50%"
+          }
+        },
+        {
+          "title": "Ejecución del proyecto",
+          "text": "Jefe de proyecto, estudio de integración, etapas, cierre",
+          "image": {
+            "src": "tpl:ext/rev360-compact_can-line.jpg",
+            "pos": "50% 50%"
+          }
+        },
+        {
+          "title": "Posventa",
+          "text": "Mantenimiento, ampliaciones y mejoras, asistencia",
+          "image": {
+            "src": "tpl:ext/still-rev360-operator-screen.png",
+            "pos": "50% 40%"
+          }
+        },
+        {
+          "title": "Responsable de cuenta",
+          "text": "Nuevos proyectos en clientes existentes",
+          "image": {
+            "src": "tpl:ext/camera-over-can-line.jpg",
+            "pos": "50% 50%"
+          }
+        }
+      ],
+      "notes": "Proceso de trabajo en cuatro pasos alrededor del cliente. Preventa: análisis de las necesidades del cliente y su proceso, diversas preguntas, pruebas de laboratorio con muestras reales y oferta técnico-económica. Ejecución: la figura del jefe de proyecto, estudio detallado de las necesidades de integración, desarrollo de las etapas del proyecto y cierre. Posventa: mantenimiento, ampliaciones y mejoras, asistencia. Responsable de cuenta: nuevos proyectos en clientes existentes. Diapositiva 7 del original."
+    },
+    {
+      "layout": "features",
+      "title": "Análisis de necesidades",
+      "cols": 3,
+      "lead": "Entendemos a fondo las necesidades del cliente y su proceso de producción.",
+      "items": [
+        {
+          "icon": "package",
+          "title": "Producto",
+          "text": "Medidas, colores, formatos. Errores a detectar."
+        },
+        {
+          "icon": "gauge",
+          "title": "Producción",
+          "text": "Velocidad. Cadencia."
+        },
+        {
+          "icon": "cog",
+          "title": "Integración",
+          "text": "Rechazo. Interacción con terceros. Software, mecánica, eléctrica."
+        }
+      ],
+      "notes": "Fases de la preventa, 1 de 3: análisis de necesidades del producto, la producción y la integración."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/laboratory-test-bench.jpg",
+        "pos": "40% 50%"
+      },
+      "title": "Pruebas de laboratorio",
+      "points": [
+        {
+          "icon": "file-text",
+          "text": "Informe técnico de las pruebas de laboratorio"
+        },
+        {
+          "icon": "cpu",
+          "text": "Determina el hardware necesario para el proyecto"
+        },
+        {
+          "icon": "package",
+          "text": "Se requieren muestras reales de producto"
+        }
+      ],
+      "notes": "Fases de la preventa, 2 de 3: pruebas de laboratorio con muestras reales; informe técnico de pruebas de laboratorio con determinación del hardware que será necesario incluir en el proyecto.",
+      "lead": "Realizamos pruebas con muestras reales para validar la solución."
+    },
+    {
+      "layout": "features",
+      "title": "Presentación de la oferta",
+      "cols": 3,
+      "lead": "Elaboramos una oferta técnica y económica detallada.",
+      "items": [
+        {
+          "icon": "search-check",
+          "title": "Justificación",
+          "text": "Justificación de los elementos de visión artificial escogidos."
+        },
+        {
+          "icon": "euro",
+          "title": "Precio",
+          "text": "Precio de todas las partidas incluidas en el proyecto."
+        },
+        {
+          "icon": "truck",
+          "title": "Opcionales",
+          "text": "Opcionales o elementos periféricos (transporte, rechazo, pesaje…)."
+        }
+      ],
+      "notes": "Fases de la preventa, 3 de 3: la oferta técnica y económica."
+    },
+    {
+      "layout": "phases",
+      "title": "Fases del proyecto",
+      "items": [
+        {
+          "title": "Reunión de lanzamiento",
+          "text": "Reuniones iniciales internas y con el cliente"
+        },
+        {
+          "title": "Diseño",
+          "text": "Arquitectura mecánica, eléctrica y de software"
+        },
+        {
+          "title": "Fabricación y entrega de materiales",
+          "text": "Suministro de diversos proveedores"
+        },
+        {
+          "title": "Montaje",
+          "text": "Integración del sistema en nuestras instalaciones"
+        }
+      ],
+      "notes": "Fases 1 a 4. Original: inicio del proyecto con reuniones iniciales internas y con el cliente; definición de la arquitectura del sistema a nivel mecánico, eléctrico y de software; suministro de elementos de diversos proveedores; integración de los elementos del sistema en nuestras instalaciones de Sabadell."
+    },
+    {
+      "layout": "phases",
+      "start": 5,
+      "title": "Pruebas y puesta en marcha",
+      "items": [
+        {
+          "title": "Pruebas",
+          "text": "Validación del funcionamiento en nuestras instalaciones"
+        },
+        {
+          "title": "FAT (prueba de aceptación en fábrica)",
+          "text": "Validación del cliente en nuestras instalaciones"
+        },
+        {
+          "title": "Instalación",
+          "text": "Implantación en la línea del cliente"
+        },
+        {
+          "title": "Puesta en marcha y formación",
+          "text": "Inicio de la operatividad"
+        }
+      ],
+      "notes": "Fases 5 a 8: pruebas y FAT en nuestras instalaciones, instalación y puesta en marcha en la línea del cliente."
+    },
+    {
+      "layout": "phases",
+      "start": 9,
+      "title": "Ajustes, aceptación en planta y cierre",
+      "items": [
+        {
+          "title": "Ajustes y optimización",
+          "text": "Puede incluir entrenar redes neuronales o crear formatos"
+        },
+        {
+          "title": "SAT (prueba de aceptación en planta)",
+          "text": "Validación del funcionamiento del sistema"
+        },
+        {
+          "title": "Cierre del proyecto",
+          "text": "Entrega de documentación y cierre"
+        }
+      ],
+      "notes": "Fases 9 a 11: ajustes (optimización del sistema; puede incluir entrenamiento de redes neuronales o creación de formatos), SAT en la línea del cliente y cierre del proyecto."
+    },
+    {
+      "layout": "features",
+      "title": "La figura del jefe de proyecto",
+      "cols": 3,
+      "items": [
+        {
+          "icon": "users",
+          "title": "Comunicación",
+          "text": "Eje central entre cliente, proveedores y equipo interno."
+        },
+        {
+          "icon": "calendar",
+          "title": "Calendario",
+          "text": "Asegura que se cumplen las fechas establecidas."
+        },
+        {
+          "icon": "circle-check",
+          "title": "Tareas",
+          "text": "Asigna tareas con monday.com para la correcta ejecución."
+        }
+      ],
+      "notes": "El jefe de proyecto actúa como eje central de la comunicación entre cliente, proveedores y equipo interno; gestiona el calendario del proyecto para asegurar que se cumplen las fechas establecidas; asigna tareas internas utilizando monday.com para garantizar la correcta ejecución del proyecto. Su calendario tipo, en la diapositiva siguiente."
+    },
+    {
+      "layout": "gantt",
+      "title": "Calendario del proyecto",
+      "months": [
+        "Mes 1",
+        "Mes 2",
+        "Mes 3",
+        "Mes 4"
+      ],
+      "rows": [
+        {
+          "label": "Pedido y anticipo",
+          "from": 0,
+          "to": 0.4
+        },
+        {
+          "label": "Lanzamiento",
+          "from": 0.4,
+          "to": 0.7
+        },
+        {
+          "label": "Desarrollo",
+          "from": 0.7,
+          "to": 2.45
+        },
+        {
+          "label": "Instalación",
+          "from": 2.45,
+          "to": 2.95
+        },
+        {
+          "label": "Cierre",
+          "from": 2.95,
+          "to": 3.35
+        },
+        {
+          "label": "Posventa",
+          "from": 3.35,
+          "to": 4,
+          "tone": "light"
+        }
+      ],
+      "caption": "Calendario de ejemplo. Cada proyecto tiene el suyo.",
+      "notes": "Calendario de ejemplo de cuatro meses: pedido y anticipo, lanzamiento, desarrollo, instalación, cierre y posventa. No es un plazo comprometido."
+    },
+    {
+      "layout": "divider",
+      "part": "Referencias",
+      "title": "Referencias"
+    },
+    {
+      "layout": "bars",
+      "title": "Presencia por sector",
+      "bars": [
+        {
+          "label": "Farma y dispositivos médicos",
+          "value": 45
+        },
+        {
+          "label": "Alimentación y bebidas",
+          "value": 25
+        },
+        {
+          "label": "Fabricación en general",
+          "value": 20
+        },
+        {
+          "label": "Artes gráficas",
+          "value": 10
+        }
+      ],
+      "notes": "Gráfico de la diapositiva 11 del original (en imagen): farma y dispositivos médicos 45, alimentación y bebidas 25, fabricación en general 20, artes gráficas 10. El original no indica la unidad."
+    },
+    {
+      "layout": "logos",
+      "title": "Referencias en alimentación",
+      "cols": 5,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/danone.png",
+          "name": "danone"
+        },
+        {
+          "src": "tpl:logos-ref/nestle.png",
+          "name": "nestle"
+        },
+        {
+          "src": "tpl:logos-ref/campofrio.png",
+          "name": "campofrio"
+        },
+        {
+          "src": "tpl:logos-ref/calvo.png",
+          "name": "calvo"
+        },
+        {
+          "src": "tpl:logos-ref/heinz.png",
+          "name": "heinz"
+        },
+        {
+          "src": "tpl:logos-ref/elpozo.png",
+          "name": "elpozo"
+        },
+        {
+          "src": "tpl:logos-ref/cerealto-siro.png",
+          "name": "cerealto-siro"
+        },
+        {
+          "src": "tpl:logos-ref/belcan.png",
+          "name": "belcan"
+        },
+        {
+          "src": "tpl:logos-ref/panabad.png",
+          "name": "panabad"
+        },
+        {
+          "src": "tpl:logos-ref/palacios.png",
+          "name": "palacios"
+        },
+        {
+          "src": "tpl:logos-ref/elaborados-naturales.png",
+          "name": "elaborados-naturales"
+        },
+        {
+          "src": "tpl:logos-ref/naming.png",
+          "name": "naming"
+        },
+        {
+          "src": "tpl:logos-ref/rensika.png",
+          "name": "rensika"
+        }
+      ],
+      "notes": "Clientes del sector de alimentación.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "title": "Referencias en bebidas",
+      "cols": 3,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/coca-cola.png",
+          "name": "coca-cola"
+        },
+        {
+          "src": "tpl:logos-ref/juver.png",
+          "name": "juver"
+        },
+        {
+          "src": "tpl:logos-ref/font-agudes.png",
+          "name": "font-agudes"
+        },
+        {
+          "src": "tpl:logos-ref/juve-camps.png",
+          "name": "juve-camps"
+        },
+        {
+          "src": "tpl:logos-ref/marie-brizard.png",
+          "name": "marie-brizard"
+        },
+        {
+          "src": "tpl:logos-ref/mg-destilerias.png",
+          "name": "mg-destilerias"
+        },
+        {
+          "src": "tpl:logos-ref/boix.png",
+          "name": "boix"
+        },
+        {
+          "src": "tpl:logos-ref/delafruit.png",
+          "name": "delafruit"
+        },
+        {
+          "src": "tpl:logos-ref/sanmy.png",
+          "name": "sanmy"
+        }
+      ],
+      "notes": "Clientes del sector de bebidas.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "title": "Referencias en industria",
+      "cols": 6,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/toyota.png",
+          "name": "toyota"
+        },
+        {
+          "src": "tpl:logos-ref/seat.png",
+          "name": "seat"
+        },
+        {
+          "src": "tpl:logos-ref/ktm.png",
+          "name": "ktm"
+        },
+        {
+          "src": "tpl:logos-ref/saica.png",
+          "name": "saica"
+        },
+        {
+          "src": "tpl:logos-ref/prysmian.png",
+          "name": "prysmian"
+        },
+        {
+          "src": "tpl:logos-ref/la-farga.png",
+          "name": "la-farga"
+        },
+        {
+          "src": "tpl:logos-ref/endurance.png",
+          "name": "endurance"
+        },
+        {
+          "src": "tpl:logos-ref/brasilata.png",
+          "name": "brasilata"
+        },
+        {
+          "src": "tpl:logos-ref/grupo-copo.png",
+          "name": "grupo-copo"
+        },
+        {
+          "src": "tpl:logos-ref/colep.png",
+          "name": "colep"
+        },
+        {
+          "src": "tpl:logos-ref/rodenas-rivera.png",
+          "name": "rodenas-rivera"
+        },
+        {
+          "src": "tpl:logos-ref/fiberpachs.png",
+          "name": "fiberpachs"
+        },
+        {
+          "src": "tpl:logos-ref/montana-colors.png",
+          "name": "montana-colors"
+        },
+        {
+          "src": "tpl:logos-ref/kartogroup.png",
+          "name": "kartogroup"
+        },
+        {
+          "src": "tpl:logos-ref/kh7.png",
+          "name": "kh7"
+        },
+        {
+          "src": "tpl:logos-ref/once.png",
+          "name": "once"
+        },
+        {
+          "src": "tpl:logos-ref/barinsa.png",
+          "name": "barinsa"
+        }
+      ],
+      "notes": "Clientes industriales.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "title": "Referencias en farmacia",
+      "cols": 4,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/grifols.png",
+          "name": "grifols"
+        },
+        {
+          "src": "tpl:logos-ref/baxter.png",
+          "name": "baxter"
+        },
+        {
+          "src": "tpl:logos-ref/b-braun.png",
+          "name": "b-braun"
+        },
+        {
+          "src": "tpl:logos-ref/abbott.png",
+          "name": "abbott"
+        },
+        {
+          "src": "tpl:logos-ref/astrazeneca.png",
+          "name": "astrazeneca"
+        },
+        {
+          "src": "tpl:logos-ref/stryker.png",
+          "name": "stryker"
+        },
+        {
+          "src": "tpl:logos-ref/werfen.png",
+          "name": "werfen"
+        },
+        {
+          "src": "tpl:logos-ref/cinfa.png",
+          "name": "cinfa"
+        },
+        {
+          "src": "tpl:logos-ref/macopharma.png",
+          "name": "macopharma"
+        },
+        {
+          "src": "tpl:logos-ref/insud-pharma.png",
+          "name": "insud-pharma"
+        },
+        {
+          "src": "tpl:logos-ref/labiana.png",
+          "name": "labiana"
+        },
+        {
+          "src": "tpl:logos-ref/rnb.png",
+          "name": "rnb"
+        }
+      ],
+      "notes": "Clientes del sector farmacéutico y de dispositivos médicos.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "library/media/deck-media/leventon_four-views.png",
+        "pos": "50% 0%",
+        "fit": "contain"
+      },
+      "title": "Leventon S.A.U.",
+      "lead": "Sector industrial farmacéutico. Detección de defectos en piezas de plástico inyectado en moldes.",
+      "points": [
+        "**Solución:** Impact con panel de control",
+        "Cuatro cámaras con luz frontal y retroiluminación",
+        "Filtros colimadores en la retroiluminación"
+      ],
+      "notes": "Caso de éxito, 1 de 2. Leventon S.A.U., sector industrial farmacéutico. Problema: detección de defectos en piezas de plástico inyectado en moldes. Solución: Impact con panel de control para 4 cámaras con luz frontal y backlights con filtros colimadores. En la imagen, la medida del largo y el alto de la pieza. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 16)"
+    },
+    {
+      "layout": "split",
+      "title": "Leventon: qué hace cada cámara",
+      "lead": "",
+      "points": [
+        "Dos cámaras controlan el largo, el ancho y el alto de la pieza",
+        "Una tercera controla una parte concreta de la pieza",
+        "La cuarta lee un identificador"
+      ],
+      "image": {
+        "src": "library/media/deck-media/leventon_identifier-reading.png",
+        "fit": "contain"
+      },
+      "notes": "Caso de éxito, 2 de 2. Dos cámaras controlan el largo, ancho y alto de la pieza; una tercera, una parte concreta de la pieza, y la cuarta lee un identificador. En la imagen, la lectura del identificador de la cavidad del molde. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 16)"
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/case-in2-proofreading.png",
+        "fit": "contain",
+        "pad": 72
+      },
+      "title": "IN2: impresión sobre aluminio",
+      "lead": "IN2 Ingeniería de la información, sector industrial farmacéutico. Clientes: Esteve, B. Braun, Lesvi, Accord…",
+      "points": [
+        "**Problema:** defectos, OCR/OCV y lectura de códigos",
+        "**En bobinas y blísteres,** máquina roll to roll"
+      ],
+      "notes": "Caso de éxito, 1 de 2. IN2 Ingeniería de la información, sector industrial farmacéutico; clientes: Esteve, B. Braun, Lesvi, Accord… Problema: detección de defectos/errores, OCR/OCV y lectura de códigos durante la impresión sobre aluminio, máquina roll to roll (R2R) en bobinas y blísteres. Solución: AIS ProofReading, solución de software y hardware que controla una cámara lineal junto con un encoder para la captura de imágenes; gran resolución y calidad de imagen y fácil de adaptar a cualquier tipo de plantilla. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 17)"
+    },
+    {
+      "layout": "features",
+      "title": "Solución: AIS ProofReading",
+      "cols": 3,
+      "items": [
+        {
+          "icon": "scan-line",
+          "title": "Software y hardware",
+          "text": "Cámara lineal con encoder para capturar imágenes."
+        },
+        {
+          "icon": "zoom-in",
+          "title": "Gran resolución",
+          "text": "Y calidad de imagen."
+        },
+        {
+          "icon": "layout-template",
+          "title": "Fácil de adaptar",
+          "text": "A cualquier tipo de plantilla."
+        }
+      ],
+      "notes": "Caso IN2, 2 de 2: AIS ProofReading, solución de software y hardware que controla una cámara lineal junto con un encoder para la captura de imágenes. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 17)"
+    },
+    {
+      "layout": "divider",
+      "part": "Soluciones y productos",
+      "title": "Soluciones y productos"
+    },
+    {
+      "layout": "milestones",
+      "title": "Componentes de un sistema de visión artificial",
+      "items": [
+        {
+          "date": "Cámara",
+          "text": "Resolución, tamaño y tipo de sensor (CCD, CMOS, color, grises)."
+        },
+        {
+          "date": "Lente",
+          "text": "Según la cámara y el iluminador empleados."
+        },
+        {
+          "date": "Iluminación",
+          "text": "Diversas tecnologías, colores y tamaños."
+        },
+        {
+          "date": "Cuadro eléctrico",
+          "text": "Elementos de potencia, protección y comunicación."
+        },
+        {
+          "date": "Soportes mecánicos",
+          "text": "Esenciales para integrar en la línea del cliente."
+        }
+      ],
+      "notes": "Componentes de un sistema de visión artificial: cámara, lente, iluminación, cuadro eléctrico y soportes mecánicos. Procesador, software y pantalla, en la diapositiva siguiente. Diapositiva 16 del original."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "tpl:ext/still-machine-hmi.jpg",
+        "pos": "40% 50%"
+      },
+      "title": "Procesamiento y operación",
+      "points": [
+        {
+          "icon": "cpu",
+          "text": "**Procesador:** cámaras inteligentes (smart cameras) o procesadores que analizan las imágenes y se comunican con otros dispositivos"
+        },
+        {
+          "icon": "code-xml",
+          "text": "**Software:** criterios de análisis y decisión; interacción usuario-máquina"
+        },
+        {
+          "icon": "monitor",
+          "text": "**Pantalla:** sin ella, no ves"
+        }
+      ],
+      "notes": "Componentes, 2 de 3: procesador, software y pantalla. Diapositiva 16 del original."
+    },
+    {
+      "layout": "photo",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/rev360-four-views-dispenser.jpg",
+        "pos": "50% 0%"
+      },
+      "title": "Soluciones y productos de AIS Vision Systems",
+      "lead": "AIS Vision Systems ofrece una gama completa de soluciones de visión artificial personalizadas para una variedad de aplicaciones. Nuestros sistemas se han diseñado para mejorar la eficiencia, la precisión y la calidad en líneas de producción. Hemos desarrollado un amplio catálogo de productos adaptados a las necesidades específicas de nuestros clientes.",
+      "notes": "Diapositiva 17 del original, entera. En la imagen, las vistas laterales de un mismo envase que ven las cámaras del AIS REV 360, en una línea de producción."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-vision-system-fh.png",
+        "fit": "contain",
+        "pad": 150,
+        "bg": "#FFFFFF"
+      },
+      "title": "Visión artificial llave en mano",
+      "points": [
+        "**Control** de impresión en bobina; lote, caducidad y códigos; taponado; llenado",
+        "**Metodologías de alta precisión,** guiado de robot y aprendizaje profundo (Rosepetal)",
+        "**Sectores:** farma y dispositivos médicos, automoción, alimentación"
+      ],
+      "notes": "Soluciones llave en mano. Sistemas multicámara con procesador, cámaras inteligentes y cámaras lineales. Soluciones: control de impresión en bobina, inspección de lote/caducidad y códigos, control de taponado, metodologías de alta precisión, control de llenado, guiado de robot, deep learning (Rosepetal). Sectores: farma y dispositivos médicos, automoción, alimentación. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 8)",
+      "lead": "Sistemas multicámara con procesador, cámaras inteligentes y cámaras lineales."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-iso-verifier.png",
+        "fit": "contain",
+        "pad": 96
+      },
+      "title": "Verificación ISO/GS1 de códigos 1D y 2D",
+      "lead": "Lineales, bidimensionales (Data Matrix, QR Code y Aztec Code) y apilados (PDF 417, Micro PDF y Composite Codes).",
+      "points": [
+        "**En línea y fuera de línea,** incluso en piezas complejas y diminutas"
+      ],
+      "notes": "Verificación ISO/GS1, 1 de 2. Compromiso con los más altos estándares de calidad. Verificación inline y offline con facilidad de uso y capacidad de verificar múltiples tipos de códigos. Soluciones inline y offline incluso de las piezas más complejas y diminutas; modelos portátiles y de sobremesa; sin ningún cambio de equipo; conexión a Directorio Activo Windows; garantiza la calidad de códigos 1D y 2D; certificado por GS1; cumplimiento 21 CFR Part 11, FMD y otras regulaciones farma; inspección de todos los parámetros incluso de las multicolumnas; autodiscrimina la simbología y el ancho de barra y destaca los puntos conflictivos del código; generación de informes detallados. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 9)"
+    },
+    {
+      "layout": "features",
+      "title": "Verificadores de códigos",
+      "cols": 3,
+      "items": [
+        {
+          "icon": "scan-barcode",
+          "title": "Modelos portátiles y de sobremesa",
+          "text": ""
+        },
+        {
+          "icon": "shield-check",
+          "title": "Certificado por GS1",
+          "text": "Cumple 21 CFR Part 11, FMD y otras regulaciones farma."
+        },
+        {
+          "icon": "file-text",
+          "title": "Todos los parámetros",
+          "text": "También en multicolumnas, con informes detallados."
+        }
+      ],
+      "notes": "Verificación ISO/GS1, 2 de 2: modelos portátiles y de sobremesa, certificación GS1 y regulaciones, inspección de todos los parámetros con informes detallados. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 9)",
+      "image": {
+        "src": "library/factory-library/assets/original-marketing-wave5/microscan-lvs-9580-verifier.png",
+        "fit": "contain",
+        "alt": "Verificador portátil Microscan LVS-9580 de los materiales originales de marketing"
+      }
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-code-readers.png",
+        "fit": "contain",
+        "pad": 120
+      },
+      "title": "Autoidentificación: lectura de códigos",
+      "points": [
+        "**Trazabilidad integral,** picking e identificación de referencia en la línea",
+        "**Software TrazAIS**",
+        "**Sectores:** transporte y logística, electrónica, alimentación"
+      ],
+      "notes": "Lectores de mano industriales con y sin cables; lectores autónomos en línea de producción; sistemas con cámara lineal de altas prestaciones (velocidad y resolución). Soluciones: trazabilidad integral mediante lectura de código, soluciones para picking, identificación de referencia en línea de producción, software TrazAIS para procesado de datos y generación de BBDD. Sectores: transporte y logística, electrónica, alimentación. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 10)",
+      "lead": "Lectores de mano industriales con y sin cables, lectores autónomos en línea y sistemas con cámara lineal de altas prestaciones."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-software-ais-control.jpg",
+        "fit": "contain",
+        "pad": 72
+      },
+      "title": "Software a medida y trazabilidad",
+      "points": [
+        "**VerifAIS:** informes en PDF para cualquier verificador de LVS, con el logo del cliente",
+        "**SerialBox:** estuches serializados, sin números repetidos ni fuera de la base de datos",
+        "**TrazAIS:** identificación unitaria y agrupamiento, de la unidad al palé",
+        "**AIS Control:** la eficiencia de la planta de producción, en gráficos"
+      ],
+      "notes": "Personalización al detalle. VerifAIS: aplicación que complementa cualquier verificador de LVS; crea informes en PDF a partir de criterios de búsqueda configurables, personalizable con el logo del cliente. SerialBox: controla la producción de estuches serializados en una máquina de encolado; verifica que todos los números de serie pertenecen a la base de datos autorizada y sin repeticiones; permite la conciliación después de cada producción para identificar las unidades descartadas, muestras o incidencias. TrazAIS: sistema de identificación unitaria y de agrupamiento para gamas de producto Profesional y Retail; gestiona el marcaje y la lectura de códigos y la asociación de unidades a agrupaciones y de agrupaciones a palés. AIS Control: analiza la eficiencia de una planta de producción; muestra en gráficos el tiempo de preparación de una máquina, las paradas, la cadencia, la frecuencia y el tipo de averías y las tendencias de calidad, desechos y mermas. En la imagen, AIS Control. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 11)"
+    },
+    {
+      "layout": "grid",
+      "title": "Control de artes: textos, gráficos y códigos",
+      "cols": 3,
+      "tiles": [
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts-texts.png",
+            "pos": "50% 50%"
+          },
+          "label": "Textos en segundos, en prácticamente cualquier idioma"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts.png",
+            "pos": "50% 50%"
+          },
+          "label": "Gráficos de pruebas, envases y cualquier material impreso"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts-codes.png",
+            "pos": "50% 50%"
+          },
+          "label": "Códigos de barras: los verifica, decodifica y clasifica"
+        }
+      ],
+      "notes": "Compromiso con los más altos estándares de calidad. Revisión de textos: inspecciona documentos de texto frente a un archivo aprobado en segundos y en prácticamente cualquier idioma. Inspección gráfica: pruebas, empaquetado y cualquier material impreso frente a un archivo de ilustraciones aprobado. Inspección de códigos: verifica, decodifica y clasifica los códigos de barras. Revisión ortográfica en hasta 37 idiomas, con diccionarios personalizables y diccionario médico. Inspección de Braille: inspecciona, traduce y verifica Braille para puntos adicionales o faltantes. Inspección de pruebas de impresión frente al archivo aprobado. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 12) Las seis capturas son de la plataforma de GlobalVision."
+    },
+    {
+      "layout": "grid",
+      "title": "Ortografía, Braille y pruebas de impresión",
+      "cols": 3,
+      "tiles": [
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts-spelling.png",
+            "pos": "50% 50%"
+          },
+          "label": "Ortografía en hasta 37 idiomas, con diccionario médico"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts-braille.png",
+            "pos": "50% 50%"
+          },
+          "label": "Braille: lo traduce y verifica los puntos sobrantes o faltantes"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/template-graphic-arts-proofs.png",
+            "pos": "50% 50%"
+          },
+          "label": "Pruebas de impresión frente al archivo aprobado"
+        }
+      ],
+      "notes": "Revisión ortográfica en hasta 37 idiomas, con diccionarios personalizables y diccionario médico; inspección de Braille; pruebas de impresión frente al archivo aprobado. Capturas de la plataforma de GlobalVision."
+    },
+    {
+      "layout": "stage",
+      "title": "OPTICAIS Label",
+      "image": {
+        "src": "library/media/deck-media/opticais-label_reading-screen.png",
+        "pos": "50% 50%",
+        "fit": "contain"
+      },
+      "facts": [
+        {
+          "k": "Control de impresión",
+          "v": "Lote, caducidad, lectura y verificación de códigos 1D y 2D, información fija y variable"
+        },
+        {
+          "k": "Productos inspeccionados",
+          "v": "Etiqueta, estuche, film"
+        },
+        {
+          "k": "Rechazo",
+          "v": "Expulsor opcional para producto no conforme"
+        }
+      ],
+      "detail": {
+        "image": "library/media/deck-media/opticais-label_label-reading.png",
+        "title": "Fechas, lote y código 2D",
+        "text": ""
+      },
+      "notes": "OPTICAIS Label. La pantalla compara lo leído con el texto esperado; en el detalle, la lectura sobre la etiqueta. La marca del cliente está difuminada. Diapositiva 18 del original."
+    },
+    {
+      "layout": "product",
+      "title": "OPTICAIS Web",
+      "lead": "Control de impresión en continuo a alta velocidad.",
+      "image": {
+        "src": "library/media/deck-media/opticais-web_print-control-screen.jpg",
+        "keep": 1
+      },
+      "facts": [
+        {
+          "k": "Controla",
+          "v": "Lote, caducidad, lectura y verificación de códigos 1D y 2D, logotipos y gráficos, cotejo con información variable"
+        },
+        {
+          "k": "Producto inspeccionado",
+          "v": "Bobina continua de film, papel y Tyvek"
+        }
+      ],
+      "tiles": [
+        {
+          "image": "tpl:img/opticais-web-unit.jpg",
+          "label": "El equipo"
+        },
+        {
+          "image": "library/media/deck-media/opticais-web_reel-on-machine.png",
+          "label": "La bobina"
+        }
+      ],
+      "notes": "OPTICAIS Web revisa la impresión en bobina continua. En la imagen, su pantalla de control de calidad de impresión; debajo, el equipo y la bobina. Diapositiva 19 del original."
+    },
+    {
+      "layout": "features",
+      "title": "Sectores de OPTICAIS",
+      "cols": 2,
+      "items": [
+        {
+          "icon": "tag",
+          "title": "OPTICAIS Label",
+          "text": "Farmacéutico y sanitario, alimentación, bebidas, dispositivos médicos, artes gráficas."
+        },
+        {
+          "icon": "scroll",
+          "title": "OPTICAIS Web",
+          "text": "Farmacéutico y sanitario, dispositivos médicos, artes gráficas."
+        }
+      ],
+      "notes": "Sectores de OPTICAIS Label y OPTICAIS Web (diapositivas 18 y 19 del original)."
+    },
+    {
+      "layout": "stage",
+      "title": "AIS Hopper",
+      "lead": "Control de tapón, nivel, marcaje y etiquetado.",
+      "image": {
+        "src": "pieces/decks/wine/source-media/hopper-water-line-orig.png",
+        "pos": "50% 50%"
+      },
+      "facts": [
+        {
+          "k": "Envases y rechazo",
+          "v": "Botellas de PET o de vidrio, garrafas y viales. Expulsor opcional para producto no conforme."
+        },
+        {
+          "k": "Sectores",
+          "v": "Farmacéutico y sanitario, vinos y cavas, aguas y refrescos, aceite"
+        }
+      ],
+      "notes": "AIS Hopper en una línea de agua. Las detecciones, en la diapositiva siguiente. Diapositiva 20 del original."
+    },
+    {
+      "layout": "grid",
+      "title": "AIS Hopper: tapones y bocas",
+      "cols": 2,
+      "tiles": [
+        {
+          "image": "library/media/deck-media/rosepetal_caps-view.png",
+          "label": "Tapones, vista en directo de Rosepetal"
+        },
+        {
+          "image": "library/media/deck-media/glass-bottle_mouths.png",
+          "label": "Bocas de botella"
+        }
+      ],
+      "notes": "Lo que ve el AIS Hopper: la vista en directo de Rosepetal sobre tapones, con sus detecciones, y bocas de botella de vidrio. Diapositiva 20 del original."
+    },
+    {
+      "layout": "stage",
+      "title": "AIS REV 360",
+      "lead": "Control de botellas y viales con IA.",
+      "image": {
+        "src": "tpl:ext/rev360-product.jpg",
+        "pos": "45% 50%"
+      },
+      "facts": [
+        {
+          "k": "Envases",
+          "v": "Botellas con cualquier geometría"
+        },
+        {
+          "k": "Rechazo",
+          "v": "Expulsor opcional para producto no conforme"
+        }
+      ],
+      "notes": "El AIS REV 360 STANDARD con su transporte, botellas de vino y la pantalla de inspección. Lo que controla, en la diapositiva siguiente. Diapositiva 21 del original. Debajo, viales etiquetados (muestras de prueba).",
+      "detail": {
+        "image": "library/media/deck-media/vials_labels.png",
+        "pos": "50% 50%"
+      }
+    },
+    {
+      "layout": "steps",
+      "title": "Etiquetas, códigos y defectos en el producto",
+      "steps": [
+        {
+          "title": "Presencia y posición de etiquetas"
+        },
+        {
+          "title": "Alineamiento de etiquetas"
+        },
+        {
+          "title": "Defectos estéticos (arrugas o roturas)"
+        },
+        {
+          "title": "Lectura de códigos y OCR"
+        }
+      ],
+      "notes": "Lo que controla el AIS REV 360: presencia y posición de etiquetas, defectos estéticos (arrugas o roturas), alineamiento de etiquetas, lectura de códigos y OCR y defectos en el producto. Diapositiva 21 del original."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/rev360-cables_factory-floor.jpg",
+        "pos": "50% 50%"
+      },
+      "title": "AIS REV 360 Cables",
+      "facts": [
+        {
+          "k": "Dónde",
+          "v": "Bobina a bobina o a salida de extrusión"
+        },
+        {
+          "k": "Controla",
+          "v": "Defectos de cobertura, defectos estéticos (golpes, suciedad o roturas), medida intensiva del diámetro"
+        },
+        {
+          "k": "Capacidad",
+          "v": "Diámetros de hasta 80 mm; velocidad de hasta 300 m/min"
+        }
+      ],
+      "detail": {
+        "image": "tpl:ext/rev360-cables_camera-mounts.jpg",
+        "w": 400,
+        "h": 188,
+        "title": "",
+        "text": ""
+      },
+      "notes": "El AIS REV 360 Cables en planta, con un tubo de cobre pasando por el túnel. Diámetro y velocidad, del folleto del AIS REV 360 Cables. Lo que controla, en la diapositiva siguiente. Diapositiva 22 del original.",
+      "lead": "Control de cables a 360° con IA."
+    },
+    {
+      "layout": "grid",
+      "title": "Mapas de anomalías sobre el cable",
+      "cols": 1,
+      "ratio": 3.4,
+      "tiles": [
+        {
+          "image": {
+            "src": "library/media/deck-media/rev360-cables_tube-defect-map.png",
+            "pos": "50% 50%"
+          },
+          "label": "Tubo con defecto"
+        },
+        {
+          "image": {
+            "src": "library/media/deck-media/rev360-cables_tube-ok-map.png",
+            "pos": "50% 50%"
+          },
+          "label": "Tubo correcto"
+        },
+        {
+          "image": {
+            "src": "library/media/deck-media/cable_braided-mesh.png",
+            "pos": "50% 0%"
+          },
+          "label": "Cable con malla trenzada"
+        }
+      ],
+      "notes": "AIS REV 360 Cables con IA: un tubo de cobre con un defecto y su mapa de anomalías (imagen, mapa y máscara), un tubo correcto y un cable con malla trenzada. Diapositiva 22 del original."
+    },
+    {
+      "layout": "stage",
+      "title": "AIS KARIKÓ",
+      "lead": "Control de envases termosellados con IA.",
+      "image": {
+        "src": "tpl:ext/kariko_on-the-line.jpg",
+        "pos": "40% 50%"
+      },
+      "facts": [
+        {
+          "k": "Envases",
+          "v": "Bandejas plásticas o de pasta de celulosa"
+        },
+        {
+          "k": "Rechazo",
+          "v": "Doble expulsor para producto recuperable y no recuperable"
+        },
+        {
+          "k": "Sectores",
+          "v": "Alimentación: laminados, cárnicas, comida preparada"
+        }
+      ],
+      "notes": "El AIS KARIKÓ en una línea de bandejas, con su pantalla de inspección. El control a dos caras, en la diapositiva siguiente. Diapositiva 23 del original."
+    },
+    {
+      "layout": "features",
+      "title": "AIS KARIKÓ: control a dos caras",
+      "cols": 4,
+      "items": [
+        {
+          "title": "Dos caras",
+          "text": "Correspondencia etiqueta superior-inferior",
+          "image": {
+            "src": "library/media/deck-media/kariko_two-sides-screen.png",
+            "pos": "50% 50%"
+          }
+        },
+        {
+          "title": "Lote y caducidad",
+          "text": "Lectura OCR",
+          "image": {
+            "src": "pieces/brochures/catalogue-food/assets/tray-marking.jpg",
+            "pos": "50% 50%"
+          }
+        },
+        {
+          "title": "Sellado",
+          "text": "Migas en el sellado; lámina correcta y en posición",
+          "image": {
+            "src": "pieces/brochures/catalogue-food/assets/tray-bubbles.jpg",
+            "pos": "50% 50%"
+          }
+        },
+        {
+          "title": "Producto",
+          "text": "Defectos en el producto",
+          "image": {
+            "src": "pieces/brochures/catalogue-food/assets/tray-foreign-body.jpg",
+            "pos": "50% 50%"
+          }
+        }
+      ],
+      "notes": "AIS KARIKÓ: la pantalla con las dos caras de una bandeja; un defecto de sellado (burbujas) y un cuerpo extraño en el producto. Diapositiva 23 del original."
+    },
+    {
+      "layout": "divider",
+      "part": "Proyectos a medida",
+      "title": "Proyectos a medida"
+    },
+    {
+      "layout": "split",
+      "title": "Proyecto de I+D Barinsa",
+      "lead": "Detección de errores de impresión en tableros de gran formato decorados mediante impresora digital de inyección de tinta.",
+      "points": [
+        "8 cámaras lineales en color y procesador NVIDIA",
+        "Rosepetal: aprendizaje profundo",
+        "Comunicación con el sistema de impresión"
+      ],
+      "image": {
+        "src": "tpl:img/barinsa-printing-line.jpg",
+        "pos": "50% 50%"
+      },
+      "notes": "Proyecto de I+D con Barinsa: objetivo y tecnologías. Suministro y defectos, en la diapositiva siguiente. Diapositiva 24 del original."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/board-three-defects.jpg",
+        "fit": "contain",
+        "pad": 72
+      },
+      "title": "Suministro y tipología de defectos",
+      "notes": "Proyecto Barinsa. Suministro: solución integrada en línea de producción (diseño mecánico ad hoc), armario eléctrico y software a medida para gestión de cola de trabajos. Defectos: gotas, missings y bandings. Diapositiva 24 del original.",
+      "points": [
+        {
+          "icon": "factory",
+          "text": "**Integrada en la línea** de producción, con diseño mecánico ad hoc"
+        },
+        {
+          "icon": "zap",
+          "text": "**Armario eléctrico** y software a medida para la gestión de cola de trabajos"
+        },
+        {
+          "icon": "search-x",
+          "text": "**Defectos,** de arriba abajo: gotas, missings (faltas de impresión) y bandings (bandas)"
+        }
+      ]
+    },
+    {
+      "layout": "product",
+      "image": {
+        "src": "library/media/deck-media/biscuits_live-view.jpg",
+        "keep": 1
+      },
+      "title": "Proyecto a medida replicable",
+      "facts": [
+        {
+          "k": "Rechazo",
+          "v": "Expulsor opcional para producto no conforme"
+        },
+        {
+          "k": "Sectores",
+          "v": "Alimentación: galletas, pan, bollería"
+        }
+      ],
+      "notes": "Proyecto a medida replicable para galletas; los controles, en la diapositiva siguiente. En la imagen, la vista en directo de Rosepetal sobre una bandeja de galletas tipo sándwich (exceso de crema rosa en tres de ellas); debajo, una grieta y una rotura detectadas. Diapositiva 25 del original.",
+      "tiles": [
+        {
+          "image": "tpl:img/biscuit-det-2.jpg",
+          "label": "Grieta"
+        },
+        {
+          "image": "tpl:img/biscuit-det-1.jpg",
+          "label": "Rotura"
+        }
+      ],
+      "lead": "Muy alta cadencia: hasta 1500 uds./min."
+    },
+    {
+      "layout": "features",
+      "title": "Control de galletas a altas velocidades",
+      "cols": 3,
+      "compact": true,
+      "items": [
+        {
+          "icon": "search-x",
+          "title": "Galleta rota"
+        },
+        {
+          "icon": "scale",
+          "title": "Pasta de chocolate o glasa",
+          "text": "Exceso o defecto en la aplicación"
+        },
+        {
+          "icon": "layers",
+          "title": "Galletas tipo sándwich",
+          "text": "Falta tapa, base o chocolate"
+        },
+        {
+          "icon": "ruler",
+          "title": "Dimensiones incorrectas"
+        }
+      ],
+      "notes": "Los cuatro controles del proyecto de galletas: galleta rota, pasta de chocolate o glasa, galletas tipo sándwich y dimensiones incorrectas (diapositiva 25 del original)."
+    },
+    {
+      "layout": "stage",
+      "title": "Panadería industrial: control geométrico inline de panes",
+      "facts": [
+        {
+          "v": "Largo, ancho, deformaciones"
+        },
+        {
+          "v": "Medición en tiempo real con la misma plataforma Rosepetal"
+        }
+      ],
+      "image": {
+        "src": "library/media/real/rosepetal_bread-formation-dataset.webp",
+        "fit": "contain",
+        "alt": "Conjunto de imágenes de panadería en la interfaz de Rosepetal"
+      },
+      "notes": "Texto de la presentación de galletas (bloque de panadería). En la imagen, barras de pan en línea con sus detecciones. Diapositiva 25 del original. La imagen principal muestra el conjunto de datos de panadería en Rosepetal; debajo se conserva la vista en directo con las medidas y detecciones.",
+      "detail": {
+        "image": "tpl:img/bread-detections.png",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      }
+    },
+    {
+      "layout": "split",
+      "title": "Proyecto a medida replicable II",
+      "lead": "2023, ampliación del proyecto de 2018: impresión y etiquetado con cobot.",
+      "points": [
+        "Lectura de códigos, impresión de etiquetas y robot colaborativo OMRON",
+        "Software de comunicaciones con el ERP del cliente",
+        "**Sectores:** cualquier sector industrial que paletice"
+      ],
+      "image": {
+        "src": "tpl:img/cobot-palletising-line.jpg",
+        "pos": "50% 50%"
+      },
+      "notes": "Proyectos de 2018 y de 2023 (pies de foto del original): el segundo amplía el primero con un robot colaborativo que imprime y etiqueta. Diapositiva 26 del original."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      },
+      "title": "Nuestra oficina en España",
+      "points": [
+        {
+          "text": "Carrer de Can Camps, 10"
+        },
+        {
+          "text": "CEI Can Roqueta, Pol. Ind. Can Roqueta"
+        },
+        {
+          "text": "08202 Sabadell (Barcelona)"
+        },
+        {
+          "text": "info@aisvision.com"
+        }
+      ],
+      "notes": "Nuestra oficina en España; el teléfono y la web, en la diapositiva final. (Plantilla Presentación GENERAL - AIS Vision Systems, diapositiva 19) En la imagen, una fotografía aérea de las instalaciones de Sabadell."
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Cierre: Gracias, con la web, el teléfono, LinkedIn y YouTube, como en el resto de presentaciones originales. Este original decía «Contacta con nosotros» con la dirección, el teléfono, el correo y la web; la dirección y el correo están en la diapositiva anterior."
+    }
+  ]
+}

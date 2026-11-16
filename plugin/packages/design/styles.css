@@ -1,0 +1,488 @@
+/* The tokens and shared rules of Rosepetal's design: the one source. Apps import this after Tailwind's theme and utilities. */
+@import "tw-animate-css";
+@source "./ui";
+@source "./blocks";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant short (@media (max-height: 56rem));
+
+@theme inline {
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--reka-accordion-content-height, var(--accordion-panel-height, auto));
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--reka-accordion-content-height, var(--accordion-panel-height, auto));
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@custom-variant data-open {
+  &:where([data-state="open"]),
+  &:where([data-open]:not([data-open="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-closed {
+  &:where([data-state="closed"]),
+  &:where([data-closed]:not([data-closed="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-checked {
+  &:where([data-state="checked"]),
+  &:where([data-checked]:not([data-checked="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-unchecked {
+  &:where([data-state="unchecked"]),
+  &:where([data-unchecked]:not([data-unchecked="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-selected {
+  &:where([data-selected="true"]) {
+    @slot;
+  }
+}
+
+@custom-variant data-disabled {
+  &:where([data-disabled="true"]),
+  &:where([data-disabled]:not([data-disabled="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-active {
+  &:where([data-state="active"]),
+  &:where([data-active]:not([data-active="false"])) {
+    @slot;
+  }
+}
+
+@custom-variant data-horizontal {
+  &:where([data-orientation="horizontal"]) {
+    @slot;
+  }
+}
+
+@custom-variant data-vertical {
+  &:where([data-orientation="vertical"]) {
+    @slot;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-thumb-transparent {
+  --tw-scrollbar-thumb: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track, transparent);
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+@utility scrollbar-track-transparent {
+  --tw-scrollbar-track: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb, transparent) var(--tw-scrollbar-track);
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-thumb-transparent {
+  --tw-scrollbar-thumb: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track, transparent);
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+@utility scrollbar-track-transparent {
+  --tw-scrollbar-track: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb, transparent) var(--tw-scrollbar-track);
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+@theme {
+  --text-xs--line-height: 1rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl--line-height: 1;
+  --text-6xl--line-height: 1;
+  --text-7xl--line-height: 1;
+  --text-8xl--line-height: 1;
+  --text-9xl--line-height: 1;
+}
+
+@theme inline {
+    --color-matrix-full: var(--matrix-full);
+    --color-matrix-full-foreground: var(--matrix-full-foreground);
+    --color-matrix-high: var(--matrix-high);
+    --color-matrix-high-foreground: var(--matrix-high-foreground);
+    --color-matrix-cell: var(--matrix-cell);
+    --font-sans: var(--font-family);
+    --font-heading: var(--font-heading-family);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-primary-hover: var(--primary-hover);
+    --color-secondary-hover: var(--secondary-hover);
+    --color-heading: var(--heading);
+    --color-brand: var(--brand);
+    --color-brand-foreground: var(--brand-foreground);
+    --color-topbar: var(--topbar);
+    --color-topbar-foreground: var(--topbar-foreground);
+    --color-topbar-muted: var(--topbar-muted);
+    --color-topbar-border: var(--topbar-border);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-info: var(--info);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-page: var(--page);
+    --color-split-train: var(--split-train);
+    --color-split-validation: var(--split-validation);
+    --color-split-test: var(--split-test);
+    --color-split-predetermined: var(--split-predetermined);
+    --color-action-soft: var(--action-soft);
+    --color-action-soft-border: var(--action-soft-border);
+    --color-action-soft-foreground: var(--action-soft-foreground);
+    --color-inset: var(--inset);
+    --color-success-foreground: var(--success-foreground);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-success-solid: var(--success-solid);
+    --color-warning-solid: var(--warning-solid);
+    --color-warning-solid-hover: var(--warning-solid-hover);
+    --color-warning-solid-foreground: var(--warning-solid-foreground);
+    --color-danger-solid: var(--danger-solid);
+    --color-danger-solid-hover: var(--danger-solid-hover);
+    --color-danger-solid-foreground: var(--danger-solid-foreground);
+    --color-overlay: var(--overlay);
+    --color-overlay-foreground: var(--overlay-foreground);
+    --color-media-backdrop: var(--fixed-dark);
+    --color-editor-watermark: var(--editor-watermark);
+    --color-editor-surface: var(--editor-surface);
+    --color-artwork-plate: var(--artwork-plate);
+    --color-control-thumb: var(--control-thumb);
+    --color-topbar-hover: var(--topbar-hover);
+    --color-code-block: var(--code-block);
+    --color-code-block-foreground: var(--code-block-foreground);
+    --color-tag-unclassified: var(--tag-unclassified);
+    --radius-sm: calc(var(--radius) * 0.5);
+    --radius-md: calc(var(--radius) * 0.75);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.5);
+}
+
+:root {
+    /* Typography: runtime variables (a preset can swap them); each app loads the font */
+    --font-family: 'Inter Variable', sans-serif;
+    --font-heading-family: var(--font-family);
+    /* Corners: the base radius, the scale of the components follows it; modals have their own */
+    --radius: 8px;
+    --radius-modal: 12px;
+    /* Blue: the scale of the AIS Group guide (written by hand; the same in both modes). 700 is the Rosepetal brand */
+    --blue-50: #EDF2FA;               /* soft surface: even rows, soft actions */
+    --blue-100: #B8CDE6;              /* info tint */
+    --blue-200: #A7BFE4;              /* light blue: highlights on blue, dark-mode button hover */
+    --blue-300: #7C9FD7;              /* dark-mode action: primary, links */
+    --blue-400: #517FC9;              /* dark-mode chart */
+    --blue-500: #3664B3;              /* action: links, text actions, focus rings, charts */
+    --blue-600: #1E4591;              /* action hover */
+    --blue-700: #17356E;              /* Brand: logo, primary button, top bar, login hero */
+    --blue-800: #10254C;              /* deep blue: deep sections, primary hover */
+    --blue-900: #111A2E;              /* dark-mode card */
+    --blue-950: #0B1220;              /* dark-mode page */
+    /* Neutral: one slate family for text, lines and surfaces (written by hand; never warm or pure greys) */
+    --neutral-0: #FFFFFF;             /* white: pages, cards, text on blue */
+    --neutral-50: #F8FAFC;            /* navigation, muted blocks */
+    --neutral-100: #F1F5F9;           /* section grey: page behind the cards; dark-mode text */
+    --neutral-200: #E2E8F0;           /* dividers and borders */
+    --neutral-300: #CBD5E1;           /* strong divider; field border */
+    --neutral-400: #94A3B8;           /* dark-mode secondary text */
+    --neutral-500: #64748B;           /* strong field border (the guide's text; the apps use neutral-300) */
+    --neutral-600: #4B5563;           /* secondary text */
+    --neutral-700: #334155;           /* dark-mode field border; dark secondary hover */
+    --neutral-800: #1E293B;           /* dark-mode surface and borders */
+    --neutral-900: #0F1729;           /* text */
+    /* Others: the status colours and those of the data division, charts, tags and image backdrops (written by hand) */
+    --green-400: #4ADE80;             /* success, dark */
+    --green-500: #2BBC33;             /* Normal (OK) tag */
+    --green-700: #15803D;             /* success: text, icons and fills with white text */
+    --amber-500: #F59E0B;             /* warning, dark */
+    --amber-600: #D97706;             /* warning */
+    --red-400: #F87171;               /* error, dark */
+    --red-600: #DC2626;               /* error */
+    --rose-700: #BC2B5F;              /* Anomaly (NOK) tag */
+    --azure-600: #2563EB;             /* a tag without a colour of its own (OCR text) */
+    --cyan-600: #0891B2;              /* validation */
+    --orange-600: #EA580C;            /* test; second chart series */
+    --violet-500: #8B5CF6;            /* third chart series */
+    --purple-500: #A855F7;            /* violet, dark */
+    --slate-400: #A0AEC0;             /* rosepetal-ui's editor canvas (not in the guide) */
+    --grey-100: #F5F5F5;              /* grid behind an image (not in the guide) */
+    --grey-300: #D8D8D8;              /* lines of that grid (not in the guide) */
+    /* Surfaces and text (AIS Group guide roles) */
+    --background: var(--neutral-0);   /* page background */
+    --page: var(--neutral-100);       /* section grey: the app page behind the cards; login footer */
+    --card: var(--neutral-0);         /* cards and popovers */
+    --stripe: var(--blue-50);         /* soft surface: soft action buttons and chips */
+    --inset: var(--neutral-50);       /* blocks inside a card, e.g. each controller in Status */
+    --muted: var(--neutral-50);       /* modal header background; playground sidebar */
+    --foreground: var(--neutral-900); /* text: headlines and body, on pages, cards, popovers */
+    --muted-foreground: var(--neutral-600); /* secondary text */
+    --border: var(--neutral-200);     /* dividers and borders; row hover */
+    --input: var(--neutral-300);      /* field border and the off switch: light, as stock shadcn (as the brand guide's app) */
+    --code-block: var(--neutral-800); /* code block background */
+    --code-block-foreground: var(--neutral-200); /* code block text */
+    /* Actions */
+    --primary: var(--blue-700);       /* primary button */
+    --primary-hover: var(--blue-800); /* primary button on hover */
+    --primary-foreground: var(--neutral-0); /* text on the primary button */
+    --secondary: var(--neutral-100);  /* secondary button; hovered menu items */
+    --secondary-hover: var(--neutral-200); /* secondary button on hover */
+    --secondary-foreground: var(--neutral-700); /* text on the secondary button */
+    --action-soft-border: var(--blue-200); /* soft action border */
+    --action-soft-foreground: var(--blue-600); /* soft action text */
+    --info: var(--blue-500);          /* links, text actions and focus rings */
+    /* Brand and fixed: the top bar and login hero, and what stays the same in both modes */
+    --brand: var(--blue-700);         /* Rosepetal brand: top bar, login hero */
+    --brand-muted: var(--blue-200);   /* highlights on blue: inactive top bar items, focus ring on the bar, login motifs and accent hover */
+    --fixed-light: var(--neutral-0);  /* white in both modes: text on the brand and on solid colours (status pills, overlays, defect labels), light asset backdrop, artwork plate, switch thumb */
+    --fixed-dark: var(--neutral-900); /* dark in both modes: modal scrim and shadows, image viewer, dark asset backdrop, text on amber */
+    /* Status */
+    --destructive: var(--red-600);    /* error */
+    --success: var(--green-700);
+    --warning: var(--amber-600);
+    /* Data division: train / validation / test / predetermined in models */
+    --split-train: var(--blue-500);
+    --split-validation: var(--cyan-600);
+    --split-test: var(--orange-600);
+    --split-predetermined: var(--neutral-400); /* images not assigned yet */
+    /* Charts: the series, in this order */
+    --chart-1: var(--blue-500);
+    --chart-2: var(--orange-600);
+    --chart-3: var(--violet-500);
+    /* Tags: the colours the base tags of a new dataset start with (rosepetal-model TAG_COLORS is the fallback); any other tag gets a random colour */
+    --tag-unclassified: var(--neutral-500);  /* Unclassified, and "No group" */
+    --tag-normal: var(--green-500);   /* Normal (OK) */
+    --tag-anomaly: var(--rose-700);   /* Anomaly (NOK) */
+    --tag-default: var(--azure-600);  /* a tag without a colour of its own (OCR text) */
+    /* Confusion matrix: its cells by percentage (ConfusionMatrix) */
+    --matrix-full: var(--blue-600);
+    --matrix-full-foreground: var(--neutral-0);
+    --matrix-high: var(--blue-100);
+    --matrix-high-foreground: var(--blue-600);
+    --matrix-cell: var(--neutral-200);
+    /* Image backdrops: behind an image in the editor and Validator (EditorBackdrop) and in EvaluationImage (.canvas-grid) */
+    --editor-surface: var(--slate-400); /* rosepetal-ui's editor: grey */
+    --editor-watermark: var(--neutral-0); /* the back-editor.png watermark's lines (a mask): white, as rosepetal-ui */
+    --canvas-grid: var(--grey-100);
+    --canvas-grid-line: var(--grey-300);
+}
+
+/* Dark mode: only the tokens that point elsewhere; the rest (brand, overlays, data colours…) keep their light-mode value */
+.dark {
+    /* Confusion matrix and image backdrops, dark */
+    --matrix-full: var(--blue-500);
+    --matrix-full-foreground: var(--neutral-0);
+    --matrix-high: var(--blue-600);
+    --matrix-high-foreground: var(--blue-100);
+    --matrix-cell: var(--neutral-800);
+    --canvas-grid: var(--neutral-900);
+    --canvas-grid-line: var(--neutral-800);
+    /* Surfaces and text, dark */
+    --background: var(--blue-950);    /* dark page */
+    --page: var(--blue-950);
+    --card: var(--blue-900);          /* dark card */
+    --stripe: var(--neutral-900);
+    --inset: var(--neutral-800);
+    --muted: var(--neutral-900);
+    --foreground: var(--neutral-100);
+    --muted-foreground: var(--neutral-400);
+    --border: var(--neutral-800);
+    --input: var(--neutral-700);      /* dark field border */
+    /* Actions, dark */
+    --primary: var(--blue-300);
+    --primary-hover: var(--blue-200); /* primary button on hover */
+    --primary-foreground: var(--neutral-900); /* text on the primary button */
+    --secondary: var(--neutral-800);
+    --secondary-hover: var(--neutral-700); /* secondary button on hover */
+    --secondary-foreground: var(--neutral-300); /* text on the secondary button */
+    --action-soft-border: var(--blue-600); /* soft action border */
+    --action-soft-foreground: var(--blue-200); /* soft action text */
+    /* Status, dark */
+    --destructive: var(--red-400);
+    --destructive-foreground: var(--neutral-900); /* readable text on the dark-mode destructive button */
+    --success: var(--green-400);
+    --warning: var(--amber-500);
+    --info: var(--blue-300);
+    /* Code blocks, dark */
+    --code-block: var(--neutral-900); /* code block background */
+    --code-block-foreground: var(--neutral-300); /* code block text */
+    /* Data division and charts, dark: the same hues stepped for dark backgrounds */
+    --split-train: var(--blue-400);
+    --split-predetermined: var(--neutral-500);
+    --chart-1: var(--blue-400);
+    --chart-3: var(--purple-500);
+    /* Top bar, dark: the dark card (blue-900) with light text, as the brand guide's app */
+    --topbar: var(--card);
+    --topbar-foreground: var(--foreground);
+    --topbar-muted: var(--muted-foreground);
+    --topbar-border: var(--border);
+    --topbar-hover: color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
+/* Aliases: names the components use that aren't edited on their own in the Preset page. Each one
+   follows a token above or a palette colour (edit that one to change it), in both modes. */
+html {
+    /* shadcn's names for the surfaces, text and focus ring */
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--foreground);
+    --accent: var(--secondary);
+    --accent-foreground: var(--foreground);
+    --ring: var(--info);
+    --heading: var(--foreground);         /* titles: the same text colour, weight sets them apart */
+    /* Playground sidebar */
+    --sidebar: var(--muted);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--secondary);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--info);
+    /* Soft action buttons and chips */
+    --action-soft: var(--stripe);
+    /* Top bar and its menus */
+    --topbar: var(--brand);
+    --topbar-foreground: var(--fixed-light);
+    --topbar-muted: var(--brand-muted);
+    --topbar-border: var(--blue-600);     /* a step lighter than the bar */
+    --topbar-hover: color-mix(in oklab, var(--neutral-0) 10%, transparent);
+    --brand-foreground: var(--fixed-light);
+    /* Status: text on solid colours, solid pills (the same in both modes) */
+    --success-foreground: var(--fixed-light);
+    --destructive-foreground: var(--fixed-light);
+    --success-solid: var(--green-700);
+    --warning-solid: var(--amber-600);
+    --warning-solid-hover: var(--amber-500);
+    --warning-solid-foreground: var(--fixed-dark);
+    --danger-solid: var(--red-600);
+    --danger-solid-hover: color-mix(in oklab, var(--red-600) 88%, var(--neutral-900));
+    --danger-solid-foreground: var(--fixed-light);
+    /* Overlays and image viewer */
+    --overlay: var(--fixed-dark);
+    --overlay-foreground: var(--fixed-light);
+    --artwork-plate: var(--fixed-light);
+    --control-thumb: var(--fixed-light);
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+.canvas-grid {
+    background-color: var(--canvas-grid);
+    background-image:
+        linear-gradient(to right, var(--canvas-grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--canvas-grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+[data-slot="select-trigger"]:not(:disabled),
+[data-slot="select-item"]:not([data-disabled]),
+[data-slot="combobox-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-checkbox-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-radio-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-sub-trigger"]:not([data-disabled]),
+[data-slot="navigation-menu-link"] {
+    cursor: pointer;
+}
+
+[data-slot="dialog-overlay"],
+[data-slot="dialog-content"] {
+    z-index: 1000000;
+}
+[data-slot="select-content"],
+[data-slot="combobox-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="dropdown-menu-sub-content"],
+[data-slot="tooltip-content"] {
+    z-index: 1000010;
+}
+
+/* What components inherit: text with no size of its own measures 14px in every app. */
+body {
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+}

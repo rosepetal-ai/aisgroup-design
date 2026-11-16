@@ -1,0 +1,57 @@
+{
+  "name": "rosepetal_carousel-event-mwc_en_2026-11-12",
+  "kind": "carousel",
+  "brand": "rosepetal",
+  "lang": "en",
+  "copy": "Rosepetal took part in 4YFN at MWC Barcelona 2026 on the Tech Barcelona stand. These photographs, already published in our event recap, show the stand, a live demonstration and a talk. Book a demo",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/mwc2026_stand.jpg",
+      "headline": "Rosepetal|MWC Barcelona 2026",
+      "focus": [
+        40,
+        45
+      ],
+      "alt": "Rosepetal demonstration at the Tech Barcelona stand at 4YFN, MWC Barcelona 2026."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/mwc2026_demo.jpg",
+      "headline": "Camera, robot arm|and software",
+      "focus": [
+        50,
+        55
+      ],
+      "alt": "Visitors watching a demonstration with a camera, a robot arm and Rosepetal software."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/mwc2026_talk.jpg",
+      "headline": "Rosepetal|on the stage",
+      "focus": [
+        50,
+        45
+      ],
+      "alt": "A talk at the Tech Barcelona stand with Rosepetal on the screen."
+    },
+    {
+      "type": "contact",
+      "headline": "See Rosepetal|*on your images*",
+      "action": "Book a demo",
+      "rows": [
+        {
+          "text": "rosepetal.ai"
+        }
+      ],
+      "hex": "br",
+      "alt": "Book a demo. rosepetal.ai"
+    }
+  ],
+  "formats": [
+    "4x5"
+  ]
+}

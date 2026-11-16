@@ -1,0 +1,11 @@
+{
+  "scan-eye": "vision-artificial",
+  "scan-barcode": "automatic-identification",
+  "scan-text": "text-reading",
+  "shield-check": "verificacion",
+  "brain-circuit": "deep-learning",
+  "database": "trazabilidad",
+  "bot": "robotica",
+  "camera": "captura",
+  "settings": "integracion"
+}

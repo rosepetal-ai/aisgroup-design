@@ -1,0 +1,31 @@
+{
+  "name": "ais-vision-systems_post-features-kariko_es_2026-11-12",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS KARIKÓ inspecciona los envases termosellados por ambas caras. Las imágenes de demostración muestran dos defectos recogidos en su documentación: deformaciones del envase y burbujas en el termosellado. Envíanos muestras",
+  "shots": [
+    {
+      "type": "grid",
+      "bg": "white",
+      "headline": "Envase y termosellado",
+      "tile": "5 / 6",
+      "hex": "none",
+      "items": [
+        {
+          "src": "@lib/media/3d/renders/social-composites/26-features-kariko-tray-deformed.jpg",
+          "text": "Deformaciones"
+        },
+        {
+          "src": "@lib/media/3d/renders/social-composites/26-features-kariko-tray-seal-bubbles.jpg",
+          "text": "Burbujas en el sellado"
+        }
+      ],
+      "alt": "Detalles de una bandeja termosellada: esquina deformada y burbujas en el cordón de sellado.",
+      "evidence": "render"
+    }
+  ]
+}

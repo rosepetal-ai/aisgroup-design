@@ -1,0 +1,123 @@
+{
+  "name": "ais-vision-systems_carousel-sector-canning_en_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Machine vision with AI inspects 100% of cans in line to ensure airtightness, avoid claims and protect your reputation. Double-seam inspection detects defects that can compromise airtightness, with decisions in real time: false seams, droops, OCR reading and dents in the can. AIS REV 360 COMPACT provides full 360° double-seam analysis, detects micrometre-scale defects and works without reducing production speed, with traceability and reports for continuous improvement from the first container. Send us samples.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_pair-ok_clean.jpg",
+      "evidence": "render",
+      "headline": "Quality control|*on your canning line*",
+      "alt": "A whole metal can on a grey background beside the headline about quality control on a canning line."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "100% of seams,|inspected in line",
+      "items": [
+        {
+          "text": "Airtightness",
+          "detail": "Detect defects that could compromise the seam.",
+          "icon": "check"
+        },
+        {
+          "text": "Claims",
+          "detail": "Avoid quality problems before products reach the market.",
+          "icon": "check"
+        },
+        {
+          "text": "Reputation",
+          "detail": "Protect the quality of your canned goods from the first container.",
+          "icon": "check"
+        }
+      ],
+      "alt": "100% inspection coverage stated in AIS Vision Systems’ POST Conservas. This is not a measured detection rate."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "The double seam|and the can",
+      "items": [
+        {
+          "text": "Double seam",
+          "detail": "Defects that can compromise airtightness.",
+          "icon": "check"
+        },
+        {
+          "text": "False seam and droop",
+          "detail": "Inspection of the can seam.",
+          "icon": "check"
+        },
+        {
+          "text": "OCR and dents",
+          "detail": "Reading printed marks and checking can damage.",
+          "icon": "check"
+        }
+      ],
+      "alt": "The double seam and the can. Double seam: Defects that can compromise airtightness. False seam and droop: Inspection of the can seam. OCR and dents: Reading printed marks and checking can damage."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "src": "@lib/media/real/rev360-compact_can-line.jpg",
+      "split": 0.4,
+      "headline": "AIS REV 360|COMPACT in line",
+      "alt": "AIS REV 360 COMPACT installed on a canning line.",
+      "items": [
+        {
+          "text": "Double seam at 360°",
+          "detail": "Full analysis on the canning line.",
+          "icon": "check"
+        },
+        {
+          "icon": "check",
+          "text": "In line",
+          "detail": "Without reducing production speed."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Full inspection|of the double seam",
+      "items": [
+        {
+          "text": "360° inspection",
+          "detail": "Full double seam analysis and detection of micrometre scale defects.",
+          "icon": "check"
+        },
+        {
+          "text": "Without slowing production",
+          "detail": "Inspection in line, from the first container.",
+          "icon": "check"
+        },
+        {
+          "text": "Traceability and reports",
+          "detail": "Data for continuous improvement.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Full inspection of the double seam. 360° inspection: Full double seam analysis and detection of micrometre scale defects. Without slowing production: Inspection in line, from the first container. Traceability and reports: Data for continuous improvement."
+    },
+    {
+      "type": "contact",
+      "headline": "Automate inspection|*on your canning line*",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "alt": "Automate inspection on your canning line. Send us samples. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

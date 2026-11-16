@@ -1,0 +1,22 @@
+{
+  "name": "ais-vision-systems_post-rev360-cables_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "The AIS REV 360 Cables inspects the whole surface of cables and tubes up to 80 mm across at speeds of up to 300 m/min, with colour cameras and lighting built for the surface. When it finds a defect, it raises an alarm and names the type. Here it is on an extrusion line. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/real/rev360-cables_extrusion-line.jpg",
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "The whole tube surface, *in production*"
+    }
+  ]
+}

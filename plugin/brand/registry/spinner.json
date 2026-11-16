@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "spinner",
+  "type": "registry:ui",
+  "title": "Spinner",
+  "description": "Something working: in its button, or filling an empty area.",
+  "dependencies": [
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/spinner/Spinner.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { Loader2Icon } from '@lucide/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <Loader2Icon role=\"status\" aria-label=\"Loading\" :class=\"cn('size-4 animate-spin', props.class)\" />\n</template>\n"
+    },
+    {
+      "path": "components/ui/spinner/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Spinner } from './Spinner.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@rosepetal/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/spinner/Spinner.vue"
+  }
+}

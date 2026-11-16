@@ -1,0 +1,27 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "description": "Content loading, in the shape of the content.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/skeleton/Skeleton.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface SkeletonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div\n    data-slot=\"skeleton\"\n    :class=\"cn('bg-muted rounded-md animate-pulse', props.class)\"\n  />\n</template>\n"
+    },
+    {
+      "path": "components/ui/skeleton/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Skeleton } from './Skeleton.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@rosepetal/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/skeleton/Skeleton.vue"
+  }
+}

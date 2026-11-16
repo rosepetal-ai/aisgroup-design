@@ -1,0 +1,31 @@
+{
+  "name": "ais-vision-systems_post-features-kariko_en_2026-11-12",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS KARIKÓ inspects heat-sealed packs on both sides. The demonstration images show two defects covered in its documentation: deformed packs and bubbles in the seal. Send us samples",
+  "shots": [
+    {
+      "type": "grid",
+      "bg": "white",
+      "headline": "Pack and seal",
+      "tile": "5 / 6",
+      "hex": "none",
+      "items": [
+        {
+          "src": "@lib/media/3d/renders/social-composites/26-features-kariko-tray-deformed.jpg",
+          "text": "Deformation"
+        },
+        {
+          "src": "@lib/media/3d/renders/social-composites/26-features-kariko-tray-seal-bubbles.jpg",
+          "text": "Bubbles in the seal"
+        }
+      ],
+      "alt": "Heat-sealed tray details: a deformed corner and bubbles along the sealing bead.",
+      "evidence": "render"
+    }
+  ]
+}

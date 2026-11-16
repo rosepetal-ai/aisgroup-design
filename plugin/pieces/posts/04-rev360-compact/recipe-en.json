@@ -1,0 +1,26 @@
+{
+  "name": "ais-vision-systems_post-rev360-compact_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "The AIS REV 360 COMPACT inspects cans all the way round in real time, with four colour cameras: dents in the body or the double seam, print errors, missing or misplaced labels, and the batch, expiry date and barcode. Tell us about your line",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/rev360-compact/revcompact_cans-infeed_cover.jpg",
+      "headline": "Can inspection,|all the way round",
+      "evidence": "render",
+      "bleed": 1.3,
+      "subject": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

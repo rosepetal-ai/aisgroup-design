@@ -1,0 +1,84 @@
+{
+  "slides": [
+    {
+      "layout": "divider",
+      "part": "Visión artificial e IA",
+      "title": "Control de calidad con visión artificial y plataforma de IA"
+    },
+    {
+      "layout": "columns",
+      "title": "Nuestros servicios",
+      "columns": [
+        {
+          "title": "AIS Vision Systems",
+          "items": [
+            "Equipos y soluciones llave en mano",
+            "Diseño mecánico y eléctrico"
+          ]
+        },
+        {
+          "title": "Inspección de producto",
+          "items": [
+            "Por fuera o dentro del envase",
+            "Cuerpos extraños, falta de producto, defectos",
+            "Exceso de grasa, etiqueta, tapón, OCR, etc."
+          ]
+        }
+      ],
+      "notes": "Nuestros servicios: equipos y soluciones llave en mano de AIS Vision Systems, e inspección de producto. La IA de Rosepetal, en la diapositiva siguiente."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "tpl:ext/rosepetal_labelling-tool-demo.jpg",
+        "fit": "contain",
+        "pad": 48
+      },
+      "title": "IA con Rosepetal",
+      "points": [
+        {
+          "icon": "images",
+          "text": "Aprende a partir de imágenes"
+        },
+        {
+          "icon": "users",
+          "text": "Un operario decide si hay un error y de qué tipo"
+        },
+        {
+          "icon": "target",
+          "text": "Precisión variable según el entrenamiento"
+        }
+      ],
+      "notes": "Software con inteligencia artificial basado en aprendizaje profundo, para productos sin un patrón único, que requieren crear una red neuronal. El sistema aprende a partir de imágenes, con un operario que decide si hay un error e indica de qué tipo es; según el entrenamiento, la red reconoce los errores con un grado de precisión variable. En la imagen, la herramienta de etiquetado de Rosepetal.",
+      "wide": true,
+      "lead": "Software de aprendizaje profundo para productos sin un patrón único, que requieren crear una red neuronal."
+    },
+    {
+      "layout": "milestones",
+      "title": "¿Dónde se aplica? En productos orgánicos con defectos visibles",
+      "items": [
+        {
+          "date": "Semillas",
+          "text": "Clasificación por tamaño y color"
+        },
+        {
+          "date": "Atún y sardinas",
+          "text": "Homogeneidad del producto, recuento de unidades, cuerpos extraños"
+        },
+        {
+          "date": "Galletas",
+          "text": "Roturas, grietas, color"
+        },
+        {
+          "date": "Tortillas",
+          "text": "Termosellado, producto, roturas, lote, huevo crudo"
+        },
+        {
+          "date": "Otras aplicaciones",
+          "text": "Latas a 360°, cualquier producto sin un patrón único, lectura OCR de marcajes complejos"
+        }
+      ],
+      "notes": "Dónde se aplica la inspección con IA: productos orgánicos sin un patrón único, con defectos visibles (semillas, atún y sardinas, galletas, tortillas) y otras aplicaciones: inspección de latas a 360°, cualquier producto sin un patrón único y lectura OCR de marcajes complejos."
+    }
+  ]
+}

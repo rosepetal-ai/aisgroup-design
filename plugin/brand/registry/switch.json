@@ -1,0 +1,30 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "description": "A setting on or off, in a switch row.",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/switch/Switch.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { SwitchRootEmits, SwitchRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport {\n  SwitchRoot,\n  SwitchThumb,\n  useForwardPropsEmits,\n} from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<SwitchRootProps & {\n  class?: HTMLAttributes['class']\n  size?: 'sm' | 'default'\n}>(), {\n  size: 'default',\n})\n\nconst emits = defineEmits<SwitchRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SwitchRoot\n    v-slot=\"slotProps\"\n    data-slot=\"switch\"\n    :data-size=\"size\"\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'data-checked:bg-primary data-unchecked:bg-input focus-visible:border-ring focus-visible:ring-ring/15 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 dark:data-unchecked:bg-input/80 shrink-0 rounded-full border border-transparent shadow-xs focus-visible:ring-3 aria-invalid:ring-3 data-[size=default]:h-[18.4px] data-[size=default]:w-8 data-[size=sm]:h-3.5 data-[size=sm]:w-6 peer group/switch relative inline-flex items-center transition-all outline-none after:absolute after:-inset-x-3 after:-inset-y-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',\n      props.class,\n    )\"\n  >\n    <SwitchThumb\n      data-slot=\"switch-thumb\"\n      class=\"bg-background dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground rounded-full group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 group-data-[size=default]/switch:data-checked:translate-x-[calc(100%-2px)] group-data-[size=sm]/switch:data-checked:translate-x-[calc(100%-2px)] group-data-[size=default]/switch:data-unchecked:translate-x-0 group-data-[size=sm]/switch:data-unchecked:translate-x-0 pointer-events-none block ring-0 transition-transform\"\n    >\n      <slot name=\"thumb\" v-bind=\"slotProps\" />\n    </SwitchThumb>\n  </SwitchRoot>\n</template>\n"
+    },
+    {
+      "path": "components/ui/switch/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Switch } from './Switch.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@rosepetal/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/switch/Switch.vue"
+  }
+}

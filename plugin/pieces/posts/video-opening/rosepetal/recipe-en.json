@@ -1,0 +1,14 @@
+{
+  "name": "rosepetal_opening_en_v01",
+  "kind": "video",
+  "brand": "rosepetal",
+  "lang": "en",
+  "formats": [
+    "16x9"
+  ],
+  "shots": [
+    {
+      "type": "opening"
+    }
+  ]
+}

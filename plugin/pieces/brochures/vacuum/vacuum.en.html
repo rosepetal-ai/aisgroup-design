@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AIS Vacuum | AIS Vision Systems</title>
+<link rel="stylesheet" href="../../shared/system.css">
+<script src="../../shared/assets/icons.js"></script>
+</head>
+<body>
+
+<section class="page cover" aria-label="Cover">
+  <header class="cover-head">
+    <img class="logo" src="../../shared/assets/ais-vision-systems-white.svg" alt="AIS Vision Systems">
+    <h1>AIS Vacuum</h1>
+    <p>In-line vacuum inspection of jars, bottles and cans with metal or flexible lids. Measures each lid with a 3D laser profilometer and detects containers that have lost their vacuum from the shape of the lid.</p>
+    <div class="hexfield"></div>
+  </header>
+  <figure class="hero" style="--fx:60%;--fy:55%"><img src="assets/jars_lineup_cover.jpg" alt="Glass jars with metal lids exiting the system on the conveyor; one has a raised lid"></figure>
+  <div class="cover-bottom">
+    <div class="facts">
+      <div class="fact"><i data-i="scan-line"></i><p>3D laser profilometer: each lid's shape, not its height</p></div>
+      <div class="fact"><i data-i="scan-eye"></i><p>Unaffected by height, tilt or lateral offset</p></div>
+      <div class="fact"><i data-i="chart-column"></i><p>Verdict, measurements and images for each container</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page inner" aria-label="What it inspects">
+  <main class="page-content">
+    <h2>Lid shape, container by container</h2>
+    <p class="lead">If the closure fails or air enters, the lid loses the deformation caused by the vacuum and its centre rises. The profilometer measures each lid on the conveyor and compares its shape with a learned reference of good lids: it also detects dents or a different lid.</p>
+
+    <div class="block">
+      
+      <ul class="tiles" style="--n:3;--ar:1.5">
+        <li class="tile"><div class="frame"><img src="assets/jars_vacuum-ok_tile.jpg" alt="Metal lid with its centre depressed by the vacuum"></div><h3>Correct vacuum</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/jars_vacuum-lost_tile.jpg" alt="Metal lid with a raised centre"></div><h3>Raised centre</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/vacuum-profile-vs-pattern_tile.jpg" alt="Central lid profile compared with the good-lid reference and its tolerance band"></div><h3>Outside the reference</h3></li>
+      </ul>
+    </div>
+
+    <div class="split block">
+      <figure class="photo" style="--h:40mm"><div class="frame"><img src="assets/jars_code-ok_clean.jpg" alt="Batch and best-before date printed on a metal lid" style="--fy:72%"></div></figure>
+      <div class="text">
+        <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Printed batch</h3>
+        <p>Reading or verification of the date and batch printed on the lid itself, without an additional camera.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">3D view</h3>
+      <p>Each lid is reconstructed in 3D from its profiles. Deformation is visible and compared with the learned reference of good lids.</p>
+    </div>
+    <figure class="photo block" style="--h:63mm"><div class="frame"><img src="assets/vacuum-3d-profile-view.jpg" alt="3D view of a lid profile in the software, with height shown in colour"></div><figcaption>3D view of the measured lid.</figcaption></figure>
+  </main>
+  <footer class="foot">2</footer>
+</section>
+
+<section class="page inner last" aria-label="Equipment and software">
+  <main class="page-content">
+    <h2>Measure, record and reanalyse each container</h2>
+
+    <div class="split block" style="align-items:start">
+      <div class="text"><h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Equipment</h3><table class="table"><tbody>
+          <tr><th scope="row">Sensor</th><td>High-frequency 3D laser profilometer</td></tr>
+          <tr><th scope="row">Code</th><td>Reading without an additional camera</td></tr>
+          <tr><th scope="row">Formats</th><td>Saved as recipes</td></tr>
+          <tr><th scope="row">Insufficient data</th><td>Does not pass the container</td></tr>
+        </tbody></table></div>
+      <div class="text"><h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Software</h3><table class="table"><tbody>
+          <tr><th scope="row">Vacuum threshold</th><td>Assisted learning</td></tr>
+          <tr><th scope="row">Views</th><td>2D, 3D and trend per container</td></tr>
+          <tr><th scope="row">Sessions</th><td>Recording and playback</td></tr>
+          <tr><th scope="row">Reanalysis</th><td>Containers reanalysed with different settings</td></tr>
+          <tr><th scope="row">Records</th><td>Results per container</td></tr>
+          <tr><th scope="row">Without a screen</th><td>Command-line mode</td></tr>
+        </tbody></table></div>
+    </div>
+    <figure class="photo block grow" style="--h:90mm"><div class="frame"><img src="assets/vacuum-profile-and-code-full-blurred.jpg" alt="Software view showing the lid profile, intensity image and printed-code region" style="object-fit:contain"></div><figcaption>Lid profile and printed-code region in the same view.</figcaption></figure>
+
+    <div class="block">
+      <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Options</h3>
+      <ul class="options">
+        <li class="option"><span class="hx"><i data-i="scan-text"></i></span><p>OCR reading or OCV verification of date and batch</p></li>
+        <li class="option"><span class="hx"><i data-i="ban"></i></span><p>Rejection for incorrect printed code</p></li>
+        <li class="option"><span class="hx"><i data-i="cpu"></i></span><p>Rejector integrated with the line PLC</p></li>
+        <li class="option"><span class="hx"><i data-i="truck"></i></span><p>Conveyors and centring guides</p></li>
+        <li class="option"><span class="hx"><i data-i="boxes"></i></span><p>Rejected-product accumulation area</p></li>
+      </ul>
+    </div>
+  </main>
+  <footer class="band">
+    <h2>Send us samples</h2>
+    <div class="contacts"><span>www.aisvision.com</span><span>+34 931 003 035</span></div>
+    <div class="hexfield"></div>
+  </footer>
+</section>
+
+</body>
+</html>

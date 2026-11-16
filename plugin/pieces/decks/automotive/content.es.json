@@ -1,0 +1,564 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, sector automoción",
+    "footer": "AIS Vision Systems, sector automoción",
+    "file": "ais-vision-systems_presentation-automotive_es"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/laboratory-test-bench.jpg",
+        "pos": "30% 50%",
+        "alt": "Banco de pruebas con cámara, óptica e iluminación en el taller de AIS Vision Systems"
+      },
+      "title": "Soluciones para automoción",
+      "lead": "Control de calidad automatizado en líneas de producción mediante visión artificial.",
+      "meta": "Engineering peace of mind",
+      "notes": "Presentación de AIS Vision Systems para automoción. En la foto, un banco de pruebas de visión artificial en el taller de Sabadell."
+    },
+    {
+      "layout": "divider",
+      "part": "Quiénes somos",
+      "title": "Quiénes somos"
+    },
+    {
+      "layout": "statement",
+      "title": "AIS Vision Systems forma parte de AIS Group, originado en Dublín (Irlanda) en 1998",
+      "lead": "Fundada en 2013 en Sabadell, AIS Vision Systems ofrece soluciones automatizadas de control de calidad en líneas de producción mediante visión artificial.",
+      "notes": "Quiénes somos: AIS Vision Systems, fundada en Sabadell en 2013, dentro de AIS Group, originado en Dublín en 1998. En la foto, el edificio de AIS Vision Systems en Sabadell.",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      }
+    },
+    {
+      "layout": "columns",
+      "title": "AIS Group",
+      "columns": [
+        {
+          "eyebrow": "Irlanda",
+          "title": "Automatic Identification Systems",
+          "items": [
+            "Impresión y aplicación de etiquetas",
+            "Lectura de códigos",
+            "Visión artificial"
+          ]
+        },
+        {
+          "eyebrow": "Países Bajos",
+          "title": "AIS Scanology",
+          "items": [
+            "Lectura de códigos",
+            "Verificación de códigos",
+            "Visión artificial"
+          ]
+        },
+        {
+          "eyebrow": "Irlanda",
+          "title": "AIS Vision Automation",
+          "items": [
+            "Automatización en línea",
+            "Robótica",
+            "Transporte"
+          ]
+        },
+        {
+          "eyebrow": "España",
+          "title": "Rosepetal",
+          "items": [
+            "Plataforma de software para el entrenamiento de modelos de IA de control de calidad industrial"
+          ]
+        }
+      ],
+      "notes": "Las cuatro empresas del grupo además de AIS Vision Systems: Automatic Identification Systems (Irlanda), AIS Scanology (Países Bajos), AIS Vision Automation (Irlanda) y Rosepetal (España)."
+    },
+    {
+      "layout": "milestones",
+      "title": "Desde 1998",
+      "items": [
+        {
+          "date": "24 de septiembre de 1998",
+          "text": "Simon Smyth (director general) y Mick Heavey (actual director ejecutivo) fundan AIS Ltd en Irlanda"
+        },
+        {
+          "date": "Junio de 2003",
+          "text": "Traslado a Park West"
+        },
+        {
+          "date": "Noviembre de 2012",
+          "text": "AIS Vision Spain"
+        },
+        {
+          "date": "Abril de 2013",
+          "text": "AIS Scanology, Países Bajos"
+        },
+        {
+          "date": "Diciembre de 2013",
+          "text": "Ampliación del edificio de Park West"
+        }
+      ],
+      "notes": "La historia de AIS Group, primera parte: de la fundación de AIS Ltd en Irlanda, el 24 de septiembre de 1998, a la ampliación de Park West en 2013."
+    },
+    {
+      "layout": "milestones",
+      "title": "De 2020 a 2024",
+      "items": [
+        {
+          "date": "Noviembre de 2020",
+          "text": "Rosepetal; compra de dos edificios en Park West"
+        },
+        {
+          "date": "Febrero de 2021",
+          "text": "Edificio de AIS Vision Spain en Sabadell"
+        },
+        {
+          "date": "Julio de 2022",
+          "text": "AIS Vision Automation, Irlanda"
+        },
+        {
+          "date": "Agosto de 2023",
+          "text": "25.º aniversario"
+        },
+        {
+          "date": "Julio de 2024",
+          "text": "Compra del segundo edificio en Sabadell"
+        }
+      ],
+      "notes": "Segunda parte: Rosepetal, los edificios de Sabadell, AIS Vision Automation y el 25.º aniversario.",
+      "dateWidth": 528
+    },
+    {
+      "layout": "steps",
+      "title": "De la programación de cámaras a las soluciones llave en mano",
+      "steps": [
+        {
+          "title": "Programación de cámaras"
+        },
+        {
+          "title": "Orientación a OEM"
+        },
+        {
+          "title": "Equipo comercial y diseño mecánico propios"
+        },
+        {
+          "title": "Soluciones llave en mano"
+        }
+      ],
+      "notes": "Cuatro etapas de la empresa: de programar cámaras a entregar soluciones llave en mano."
+    },
+    {
+      "layout": "figures",
+      "title": "Equipo propio",
+      "figures": [
+        {
+          "value": "24",
+          "label": "empleados en AIS Vision Systems",
+          "text": "Oficinas en Can Camps, 10, Sabadell"
+        },
+        {
+          "value": "12",
+          "label": "empleados en Rosepetal",
+          "text": "Can Camps, 10: taller y desarrollo de proyectos"
+        }
+      ],
+      "notes": "El equipo en Sabadell: AIS Vision Systems y Rosepetal, ambos en Can Camps, 10.",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      }
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-original-p2-0.jpg",
+        "pos": "45% 50%",
+        "alt": "Ingenieros de AIS Vision Systems en la oficina técnica"
+      },
+      "title": "Proyectos llave en mano",
+      "points": [
+        {
+          "icon": "cpu",
+          "text": "**Software:** desarrollo, visión artificial y paneles de control"
+        },
+        {
+          "icon": "network",
+          "text": "Aplicaciones .NET para comunicación con dispositivos de terceros"
+        },
+        {
+          "icon": "microchip",
+          "text": "Programación de elementos electrónicos"
+        }
+      ],
+      "notes": "Proyectos llave en mano: el departamento de software, en la empresa. En la foto, ingenieros de AIS Vision Systems. La oficina técnica y las herramientas, en la diapositiva siguiente."
+    },
+    {
+      "layout": "features",
+      "title": "Oficina técnica, gestión y administración",
+      "items": [
+        {
+          "title": "Diseño mecánico",
+          "text": "Con SOLIDWORKS",
+          "icon": "wrench"
+        },
+        {
+          "title": "Diseño eléctrico",
+          "text": "Con EPLAN",
+          "icon": "zap"
+        },
+        {
+          "title": "Gestión de proyectos",
+          "text": "Con monday.com",
+          "icon": "calendar"
+        },
+        {
+          "title": "Administración y logística, ventas y marketing",
+          "text": "Con Zoho",
+          "icon": "users"
+        }
+      ],
+      "notes": "Las herramientas de la diapositiva original (allí como logos): SOLIDWORKS y EPLAN en la oficina técnica, monday.com para la gestión de proyectos y Zoho en administración y logística, y ventas y marketing.",
+      "lead": "**Oficina técnica:** diseño mecánico, diseño eléctrico y montaje."
+    },
+    {
+      "layout": "columns",
+      "title": "Alianzas estratégicas y reconocimiento",
+      "lead": "AIS Vision Systems mantiene alianzas estratégicas con fabricantes de componentes para automatización industrial.",
+      "columns": [
+        {
+          "eyebrow": "Fabricantes",
+          "title": "Datalogic, OMRON y GlobalVision",
+          "items": []
+        },
+        {
+          "eyebrow": "Reconocimiento",
+          "title": "PYME Innovadora",
+          "items": [
+            "Por parte del Ministerio de Economía y Competitividad"
+          ]
+        },
+        {
+          "eyebrow": "Proyecto del CDTI",
+          "title": "AIS REV 360",
+          "items": [
+            "Concedido por el Ministerio de Ciencia e Innovación",
+            "Un producto revolucionario para inspeccionar envases a 360 grados"
+          ]
+        }
+      ],
+      "notes": "Alianzas estratégicas con fabricantes (Datalogic, OMRON y GlobalVision, como logos en la diapositiva original). Reconocimiento de PYME Innovadora por parte del Ministerio de Economía y Competitividad. Proyecto del CDTI concedido por el Ministerio de Ciencia e Innovación para el desarrollo del AIS REV 360, un producto revolucionario para inspeccionar envases a 360 grados."
+    },
+    {
+      "layout": "grid",
+      "title": "Líneas de producto",
+      "cols": 3,
+      "ratio": 2.4,
+      "tiles": [
+        {
+          "image": {
+            "src": "tpl:img/cobot-labelling-cell.jpg",
+            "pos": "50% 0%"
+          },
+          "label": "Impresión y aplicación de etiquetas"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/corporate-2026/source-media/vision-station-jerrycans.jpg",
+            "pos": "70% 55%"
+          },
+          "label": "Visión artificial"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/oval-tin-date-code.jpg",
+            "pos": "30% 50%"
+          },
+          "label": "Impresión y marcaje"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-001-000.png",
+            "pos": "45% 48%"
+          },
+          "label": "Impresión de etiquetas"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-002-001.png",
+            "pos": "40% 35%"
+          },
+          "label": "Verificación de códigos"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/carton-ocr-read-neutral-blurred.jpg",
+            "pos": "50% 40%"
+          },
+          "label": "Trazabilidad y captura de datos"
+        }
+      ],
+      "notes": "Las líneas de producto del grupo: impresión y aplicación de etiquetas, visión artificial, impresión y marcaje, impresión de etiquetas, verificación de códigos y trazabilidad y captura de datos."
+    },
+    {
+      "layout": "divider",
+      "part": "Referencias",
+      "title": "Referencias"
+    },
+    {
+      "layout": "logos",
+      "title": "Referencias en automoción: fabricantes de vehículos y proveedores de componentes",
+      "logos": [
+        {
+          "name": "SEAT",
+          "src": "tpl:logos-ref/seat.png"
+        },
+        {
+          "name": "Faurecia",
+          "src": "library/media/deck-media/logo_faurecia.png"
+        },
+        {
+          "name": "KTM",
+          "src": "library/media/deck-media/logo_ktm.png"
+        },
+        {
+          "name": "Novares",
+          "src": "library/media/deck-media/logo_novares.png"
+        },
+        {
+          "name": "CEFA",
+          "src": "library/media/deck-media/logo_cefa.png"
+        },
+        {
+          "name": "Toyota",
+          "src": "tpl:logos-ref/toyota.png"
+        },
+        {
+          "name": "SMRC",
+          "src": "library/media/deck-media/logo_smrc.png"
+        },
+        {
+          "name": "KOSTAL",
+          "src": "library/media/deck-media/logo_kostal.png"
+        }
+      ],
+      "notes": "Las referencias en automoción de la presentación original: SEAT, Faurecia, KTM, Novares, CEFA, Toyota, SMRC y KOSTAL."
+    },
+    {
+      "layout": "divider",
+      "part": "Soluciones",
+      "title": "Soluciones para automoción"
+    },
+    {
+      "layout": "stage",
+      "title": "Componentes de un sistema de visión artificial",
+      "facts": [
+        {
+          "k": "Cámara",
+          "v": "Resolución, tamaño del sensor, tipo de sensor (CCD, CMOS, color, escala de grises)"
+        },
+        {
+          "k": "Lente",
+          "v": "Deben tenerse en cuenta la cámara y el iluminador empleados"
+        },
+        {
+          "k": "Iluminación",
+          "v": "Diversas tecnologías, colores y tamaños"
+        }
+      ],
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-smart-camera.png",
+        "fit": "contain",
+        "pad": 120,
+        "bg": "#FFFFFF"
+      },
+      "notes": "Componentes de un sistema de visión artificial, primera parte: cámara, lente e iluminación. Siguen el procesador y el software, y después el cuadro eléctrico, los soportes mecánicos y la pantalla."
+    },
+    {
+      "layout": "split",
+      "title": "Procesamiento y software",
+      "points": [
+        {
+          "text": "**Procesador:** cámaras inteligentes (smart cameras) o procesadores que analizan las imágenes y se comunican con otros dispositivos."
+        },
+        {
+          "icon": "code-xml",
+          "text": "**Software:** criterios de análisis y decisión"
+        },
+        {
+          "icon": "users",
+          "text": "Interacción usuario-máquina"
+        }
+      ],
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/template-software-ais-control.jpg",
+        "fit": "contain",
+        "alt": "Interfaz de control industrial de AIS Vision Systems"
+      },
+      "notes": "Componentes, segunda parte: el procesador y el software. En la foto, un operario ante la pantalla del sistema."
+    },
+    {
+      "layout": "split",
+      "title": "Operación e integración del sistema",
+      "points": [
+        {
+          "text": "**Soportes mecánicos:** esenciales para integrar el sistema en la línea del cliente."
+        },
+        {
+          "icon": "zap",
+          "text": "**Cuadro eléctrico:** elementos de potencia, protección y comunicación"
+        },
+        {
+          "icon": "monitor",
+          "text": "**Pantalla:** resultados y ajustes en línea"
+        }
+      ],
+      "image": {
+        "src": "tpl:ext/still-machine-hmi.jpg",
+        "pos": "40% 50%"
+      },
+      "notes": "Componentes, tercera parte: soportes mecánicos, cuadro eléctrico y pantalla."
+    },
+    {
+      "layout": "statement",
+      "title": "Soluciones y productos de AIS Vision Systems",
+      "lead": "AIS Vision Systems ofrece una gama completa de soluciones de visión artificial personalizadas para una variedad de aplicaciones.",
+      "notes": "Soluciones y productos de AIS Vision Systems: una gama completa de soluciones de visión artificial personalizadas. En la foto, una impresora de etiquetas con verificador imprimiendo una etiqueta de AIS.",
+      "image": {
+        "src": "library/media/linkedin-2026/pdf-images/v275/img-001-000.png",
+        "pos": "45% 60%",
+        "alt": "Impresora de etiquetas con verificador y una etiqueta de AIS"
+      }
+    },
+    {
+      "layout": "statement",
+      "title": "Nuestros sistemas se han diseñado para mejorar la eficiencia, la precisión y la calidad en líneas de producción",
+      "lead": "Hemos desarrollado un amplio catálogo de productos adaptados a las necesidades específicas de nuestros clientes.",
+      "notes": "Sistemas para la eficiencia, la precisión y la calidad, y un amplio catálogo de productos adaptados a cada cliente."
+    },
+    {
+      "layout": "split",
+      "title": "Aplicaciones en automoción",
+      "lead": "AIS Vision Systems proporciona soluciones para:",
+      "points": [
+        {
+          "icon": "car",
+          "text": "Defectos por falta de llenado de plástico"
+        },
+        {
+          "icon": "ruler",
+          "text": "Rebabas, montajes y control dimensional"
+        },
+        {
+          "icon": "search-x",
+          "text": "Roturas de material"
+        }
+      ],
+      "image": {
+        "src": "library/media/deck-media/automotive_car-body-assembly-line.jpg",
+        "pos": "40% 50%",
+        "alt": "Línea de montaje de carrocerías"
+      },
+      "notes": "Aplicaciones en automoción. Los ejemplos que siguen: ráfagas, rebabas, falta de material y montajes. Foto de la diapositiva original: línea de montaje de carrocerías (marcas del fabricante difuminadas)."
+    },
+    {
+      "layout": "grid",
+      "title": "Ejemplos",
+      "cols": 3,
+      "ratio": 1.4,
+      "tiles": [
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/burst-nok-crop.jpg",
+            "fit": "contain"
+          },
+          "label": "Ráfagas: no conforme"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-12-1.png",
+            "fit": "contain"
+          },
+          "label": "Ráfagas: conforme"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-12-2.png",
+            "fit": "contain"
+          },
+          "label": "Rebabas: no conforme"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-12-3.png",
+            "fit": "contain"
+          },
+          "label": "Rebabas: conforme"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-12-4.png",
+            "fit": "contain"
+          },
+          "label": "Falta de material: no conforme"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-12-5.png",
+            "fit": "contain"
+          },
+          "label": "Falta de material: conforme"
+        }
+      ],
+      "notes": "Ejemplos, como en la diapositiva original: ráfagas, rebabas y falta de material; en cada caso, la imagen de cámara de la pieza no conforme y de la conforme. La marca magenta del software señala la ráfaga."
+    },
+    {
+      "layout": "grid",
+      "title": "Montajes",
+      "cols": 2,
+      "ratio": 1.4,
+      "tiles": [
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-13-6.png",
+            "pos": "50% 50%"
+          },
+          "label": "No conforme: falta de remache"
+        },
+        {
+          "image": {
+            "src": "pieces/decks/automotive/source-media/original-13-7.png",
+            "pos": "50% 50%"
+          },
+          "label": "Conforme"
+        }
+      ],
+      "notes": "Ejemplo de montajes: falta el remache de la derecha en la barra de abajo. Imágenes de cámara completas de la pieza no conforme y de la conforme."
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Gracias. Visítanos en: LinkedIn (linkedin.com/company/ais-vision-systems-s-l-), YouTube (youtube.com/@Aisvision) y www.aisvision.com, como en la diapositiva original. El teléfono es el de las piezas aprobadas."
+    }
+  ]
+}

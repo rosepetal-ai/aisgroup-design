@@ -1,0 +1,173 @@
+# Video
+
+- ais-vision-systems intro: [1080p](../../../brand/downloads/video/ais-vision-systems-intro.mp4), [poster](../../../brand/downloads/video/ais-vision-systems-intro.jpg); the 4K original is on the guide's Downloads page
+- rosepetal intro: [1080p](../../../brand/downloads/video/rosepetal-intro.mp4), [poster](../../../brand/downloads/video/rosepetal-intro.jpg); the 4K original is on the guide's Downloads page
+
+## Principles
+
+- **Proof, not promise.** Show the inspection happening: the part, the camera, the result. A clip of a reject leaving the line says more than any claim.
+- **Calm.** Steady camera, long enough shots, hard cuts. The product is precise; the film is too.
+- **Quiet graphics.** Type and overlays appear only to name, explain or measure. They enter like the web does and leave faster.
+- **Readable without sound.** Most video is watched muted. Captions and on-screen text carry the meaning on their own.
+
+## Video types
+
+Marketing uses seven footage templates and the product-interface workflow below. Each structure follows what the strongest industrial brands publish: no logo at the start of films up to 60 s, the subject within two seconds, one line of text at a time, and an end card with somewhere to go. Anything else needs a brief and sign-off first.
+
+| Type | Length and formats | Structure  |
+| --- | --- | ---  |
+| **Defect showcase** | 10 to 20 s; 9:16, 1:1, 4:5 | The question (4 words at most) by 0.5 s; the inspection frame locks on, the verdict lands; the product name; the end card. Music only.  |
+| **Event teaser** | 8 to 15 s; 9:16, 4:5, 16:9 | One striking shot and one question; the stand card with dates, hall and stand; the end card  |
+| **Event recap** | 30 to 60 s; 16:9, 9:16 | Faces and demos cut every 1.5 to 2 s; a thank-you card; the end card. Published within a week of the fair.  |
+| **Announcement** | 15 to 20 s; 16:9, 4:5 | The product or partners on screen by 2 s; three claims of one or two words; one date or market line; the end card  |
+| **Sector film** | 60 to 90 s; 16:9, plus a 20 s cutdown | The sector’s world for the first 10 s; the line; the inspection by 30 s; statements of 2 to 4 words every 6 s or more; one verified result; the end card  |
+| **Case study** | 60 to 90 s; 16:9, 9:16 | The customer’s line; their own words with a lower third by 10 s and captions; one verified figure on its own card; the end card  |
+| **Interview** | Full version: any length, 16:9, with chapters. Social cut: 45 to 60 s, no opening logo; 16:9, 1:1, 4:5 | The opening logo on the full version; the first question on a title card (by 2 s on the social cut); the person with a lower third right after it; event or product b-roll under the voice every 6 to 10 s; one quote card; captions throughout; the end card  |
+
+Every long video also ships a 20 s vertical cutdown that links back to it.
+
+## Product interface demonstrations
+
+Record Rosepetal as the application actually appears: its navigation, page structure, tabs, full-screen editor, canvas and panels. Use one consistent product revision and preserve the original layout, typography, density and control placement. Real controls rearranged into a custom graphic are not an application recording.
+
+Open with a readable full-screen view, then follow a useful task with a source-bound cursor, selective zoom and enough time to read the result. Preserve UI status colours. Brand titles and transitions can frame the recording; they must not replace the screen. Use the supplied logo on the closing card.
+
+Demonstration data may come from local services, with the real pages left intact. Record only what the application really does: never imitate missing backend, drawing or training behaviour with generic success responses. Confirm actual screen fidelity before making language and format variants.
+
+## Formats
+
+Shoot and finish in 16:9 at 1920 × 1080 or above, framing the action in the centre so the same footage crops to the other formats.
+
+- **Title safe** is 5% in from every edge: 96 px on the long side of a 1920 × 1080 frame, 54 px on the short side.
+- **Vertical video** keeps text out of the top 270 px, the bottom 670 px and 120 px on each side, where Reels, TikTok and Shorts draw their buttons and captions. That leaves a 840 × 980 px box that works on every platform.
+- A 16:9 film shown on a stand screen or in a webinar uses the same safe area; projectors crop unpredictably.
+
+## Graphics in motion
+
+Video graphics use the [motion tokens](../../design-language/references/motion.md), converted to whole frames. Video uses the moderate, slow and expressive durations, the moderate one only for graphics leaving; anything faster reads as a flicker on screen.
+
+| Token | Milliseconds | 25 fps | 30 fps | 50 fps | Use in video |
+| --- | --- | --- | --- | --- | --- |
+| `--ais-duration-moderate-1` | 180 ms | 5 | 5 | 9 | Anything leaving |
+| `--ais-duration-slow-1` | 500 ms | 13 | 15 | 25 | Lower thirds, end card, overlays entering |
+| `--ais-duration-slow-2` | 700 ms | 18 | 21 | 35 | Logo entering |
+| `--ais-duration-expressive` | 1100 ms | 28 | 33 | 55 | Titles, line by line, 3 frames apart |
+
+The curves are the same as on the web. Enter them as custom easing in After Effects, Premiere or DaVinci Resolve:
+
+| Curve | Value | Use |
+| --- | --- | --- |
+| Enter | `cubic-bezier(.16, 1, .3, 1)` | Everything arriving |
+| Exit | `cubic-bezier(.4, 0, 1, 1)` | Everything leaving |
+| Standard | `cubic-bezier(.2, 0, 0, 1)` | Anything moving within the frame, such as a zoom on a screen recording |
+
+Graphics move 16 px at 1080p, fade with the move, and never scale, rotate or blur.
+
+### Brand devices
+
+Four devices make our videos recognisable. They come built into the templates; never draw them by hand.
+
+- **The inspection frame.** Corner brackets travel from the title-safe corners onto the subject over 18 frames, a scan line sweeps it, then the reading appears above it in JetBrains Mono and the verdict below it. A defect turns the brackets red as the verdict lands. It is what our systems do, shown the way they show it.
+- **The blue wipe.** A full-frame panel in brand blue `#17356E` rises over the cut on the exit curve and leaves on the enter curve. It is the main transition and separates beats: into a claim, a result, the stand card or the end card.
+- **Masked type.** Headlines and claims rise line by line from behind a mask, 3 frames apart, after a JetBrains Mono overline and a hairline that draws on. Never letter by letter, never with a blur or a bounce.
+- **Counting results.** A verified figure counts up over 1.1 s, the expressive duration, in tabular numerals, with its unit and one line of context.
+
+The hexagon is a brand device too, in the two forms and with the limits in [Imagery](../../design-language/references/imagery.md#backgrounds).
+
+## Opening, names and end card
+
+| Element | When | Spec |
+| --- | --- | --- |
+| **Opening logo** | Films over 60 s: product films, case studies, webinars, tutorials | Brand blue `#17356E`, white logo 560 px wide. 8 frames of blue, logo in over 18 frames, held to 2 s, then a cut. No sound sting. |
+| **Brand intro** | Instead of the opening logo, once per film: event screens, social video, the website, presentations | The hexagon landscape, white on brand blue, rolls slowly while one inspection pass travels from near to far and brightens its lines. The white logo, every brand at the same area as AIS Vision Systems at 560 px wide (see Logo), fades in and rises 16 px over the clear blue above it, and the film fades out at the end. 5 s, or 10 s without the logo as a background. No glow, particles or vignette. |
+| **Title** | Chapters and the film title | Inter Semibold 96 px, sentence case, on blue or white, at most 20 characters a line and two lines, entering over 28 frames, 3 frames apart |
+| **Lower third** | First time a person speaks | Ink plate `#0F1729`, 24 px by 32 px padding, on the title-safe corner. A 6 px blue-300 `#7C9FD7` bar on its left edge grows first, then the plate opens from it. Name Inter Semibold 44 px white; role and company Inter Regular 32 px neutral 400. On screen at least 4 s. |
+| **Location** | First shot of a site | Same plate, one line, 32 px: «Bottling line, La Rioja» |
+| **End card** | Every video | White, the brand’s blue logo 560 px wide, centred; one line underneath in Inter Medium 40 px: the web address or one action. Held 1.5 s on social video up to 30 s, 3 s on standard films, 5 s on brand films. It follows a hard cut or the blue wipe. Brands other than AIS Group add «Part of AIS Group» in 32 px. |
+
+The opening and end card use the logo of the brand that made the video; a group film uses the AIS Group logo. The logo appears once at each end and never as a watermark in between.
+
+## Captions
+
+| Rule | Value |
+| --- | --- |
+| Type | Inter Medium 40 px at 1080p, white on an ink plate `#0F1729`, sentence case |
+| Position | Centred at the bottom of the title-safe area; moved up above a lower third or on-screen text while it shows |
+| Length | Two lines at most, 42 characters per line, broken at natural phrases |
+| Timing | Between 1 s and 7 s each, no faster than 20 characters per second |
+| Files | WebVTT (`.vtt`) for the website, SRT (`.srt`) for YouTube and LinkedIn, one file per language |
+| Languages | English, Spanish and Catalan written natively, as in [Localisation](../../communications/references/localisation.md); never machine translation without a native review |
+
+Social video always has captions burned in. Website and YouTube video uses a caption file so viewers can switch them off and choose a language.
+
+## Interviews and talks
+
+An interview or a talk at a fair shows the real person at the real event. These rules keep it in the same look as every other film.
+
+- **Question cards.** Each question gets its own title card, on brand blue `#17356E`, never on the same card as the logo. The mono overline names the event and the place, in sentence case: «VISION 2026, Stuttgart». The question is the title. On long versions the overline numbers the question too: «Question 2, VISION 2026, Stuttgart».
+- **Lower third.** The first time the person appears, on screen at least 4 s.
+- **B-roll.** Footage of the stand, the stage and the demos runs under the voice, so the answer never stops for the picture. Another company’s logo is never the subject of a shot.
+- **One quote card.** White, with the words exactly as they were said, in «» quotes, and the speaker in the overline: «José Racionero, Rosepetal». One per film.
+- **Captions** come from the transcript and are corrected by a person: automatic transcripts get names wrong. They use the one caption style above, never boxes, shadows or word-by-word colour.
+- **Sound.** The voice is levelled to −14 LUFS, with music under it or none.
+- **The long version** publishes a caption file and chapters.
+- **The social cut** has its captions burned in and ends on the end card.
+
+Everything else follows the rest of this page: brand blue, never a campaign blue or a vignette; the logo at the ends only, never a watermark or an event strip; square plates, never pills; cuts or the blue wipe, never dips to black. Screens are shown as recorded, with no cards or figures composited on top. A figure comes only from a real run and keeps its conditions.
+
+## Footage
+
+- **Real.** Real installations, real parts, real operators, filmed with permission. Generated footage follows the rules in [Imagery](../../design-language/references/imagery.md) and never stands in for a customer site.
+- **Steady.** Tripod, slider or gimbal. Slow pushes and lateral moves only; no whip pans, drone swoops or handheld shake.
+- **Close.** Get near the inspection: camera head, lighting, part, result on the screen. Macro shots of the part are the brand’s signature.
+- **Long enough.** Each shot holds 2 to 6 s; event recaps cut every 1.5 to 2 s. Cuts by default; the blue wipe, the main transition, between beats; a 13-frame cross-dissolve only between shots of the same scene.
+- **One look.** One colour scheme per film: title and claim cards go on blue or on white, not both; the fixed devices (opening logo on blue, blue wipe, white end card, question cards, quote card) keep their own.
+- **Light.** Neutral, cool daylight balance, no colour grade looks, no lens flares or light leaks.
+- **Screens.** Record interfaces at native resolution, with the cursor visible and moving deliberately. Zoom in on the standard curve over 13 frames, never more than 2×.
+- **Detection overlays.** Rendered with the [overlay kit](../../design-language/references/imagery.md#detection-overlays): boxes fade in over 3 frames, the verdict chip follows, and every result holds at least 1.5 s.
+
+## Sound
+
+- Voice first, recorded with an external microphone; sound quality matters more than picture quality. Music sits under it and never competes; when nobody speaks, the machine’s own sound is often better than music.
+- Music is licensed for the use, instrumental, steady and unobtrusive: no risers, impacts or whooshes on cuts.
+- Loudness: −14 LUFS integrated for web and social, −23 LUFS (EBU R128) for events and broadcast, true peak −1 dBTP.
+- Video on the website never plays sound by itself.
+
+## Delivery
+
+| Use | Format | Settings |
+| --- | --- | --- |
+| **Master** | ProRes 422 HQ, `.mov` | Full resolution, 25 fps, Rec. 709, 48 kHz audio, no burned-in captions |
+| **Web and social** | H.264, `.mp4` | 1080p at 10 to 16 Mbit/s, 25 fps, Rec. 709, AAC 48 kHz 320 kbit/s |
+| **Website loop** | H.264 `.mp4`, no audio track | 1080p at most, under 6 MB, 6 to 15 s, seamless, with a poster frame |
+| **Poster frame** | `.webp` | Same size as the video, a frame that reads without playback |
+
+Film in Europe at 25 or 50 fps; use 30 fps only when the source footage is 30 fps. Name files by brand, subject, language, version and format:
+
+```
+ais-vision-systems_wine-inspection_es_v03_16x9.mp4
+```
+
+## Never
+
+- An animated logo outside the opening and end card, or a logo built, drawn or assembled on screen.
+- Stock motion templates, glitch, zoom or spin transitions, kinetic typography, emoji or stickers.
+- Text over busy footage without the ink plate or the headline scrim.
+- Sound that starts by itself on the website, or flashes more than three times a second.
+- Footage of a customer site, part or brand without written permission.
+
+## Opening and end-card files
+
+| Brand | Opening ES | Opening EN | End card ES | End card EN |
+| --- | --- | --- | --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: opening ES (MP4)](../../../brand/kit/files/ais-vision-systems_opening_es_v01_16x9.mp4) | [AIS Vision Systems: opening EN (MP4)](../../../brand/kit/files/ais-vision-systems_opening_en_v01_16x9.mp4) | [AIS Vision Systems: end card ES (MP4)](../../../brand/kit/files/ais-vision-systems_end-card_es_v01_16x9.mp4) | [AIS Vision Systems: end card EN (MP4)](../../../brand/kit/files/ais-vision-systems_end-card_en_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: opening ES (MP4)](../../../brand/kit/files/rosepetal_opening_es_v01_16x9.mp4) | [Rosepetal: opening EN (MP4)](../../../brand/kit/files/rosepetal_opening_en_v01_16x9.mp4) | [Rosepetal: end card ES (MP4)](../../../brand/kit/files/rosepetal_end-card_es_v01_16x9.mp4) | [Rosepetal: end card EN (MP4)](../../../brand/kit/files/rosepetal_end-card_en_v01_16x9.mp4) |
+
+## Brand intro files
+
+| Brand | Brand intro, 5 s |
+| --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: brand intro (MP4)](../../../brand/kit/files/ais-vision-systems_brand-intro_v01_16x9.mp4) |
+| AIS Group | [AIS Group: brand intro (MP4)](../../../brand/kit/files/ais-group_brand-intro_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: brand intro (MP4)](../../../brand/kit/files/rosepetal_brand-intro_v01_16x9.mp4) |
+| Hexagon landscape background, 10 s, no logo | [Hexagon landscape background, 10 s (MP4)](../../../brand/kit/files/hexagon-landscape_background_v01_16x9.mp4) |

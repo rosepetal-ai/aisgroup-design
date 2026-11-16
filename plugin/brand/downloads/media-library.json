@@ -1,0 +1,1310 @@
+{
+ "version": 1,
+ "base": "guide root",
+ "entries": [
+  {
+   "name": "logos-app-ais-app-icon-svg",
+   "title": "AIS app mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/app/ais/app-icon.svg",
+   "file": "logos/app/ais/app-icon.svg",
+   "width": 512,
+   "height": 512,
+   "bytes": 500,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-app-ais-app-icon-rounded-svg",
+   "title": "AIS app mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "app-icon",
+   "url": "/logos/app/ais/app-icon-rounded.svg",
+   "file": "logos/app/ais/app-icon-rounded.svg",
+   "width": 512,
+   "height": 512,
+   "bytes": 512,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-app-ais-favicon-svg",
+   "title": "AIS app mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "favicon",
+   "url": "/logos/app/ais/favicon.svg",
+   "file": "logos/app/ais/favicon.svg",
+   "width": 32,
+   "height": 32,
+   "bytes": 564,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-group-blue-svg",
+   "title": "AIS Group logo",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/ais-group-blue.svg",
+   "file": "logos/ais-group-blue.svg",
+   "width": 260,
+   "height": 195,
+   "bytes": 4732,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-group-black-svg",
+   "title": "AIS Group logo",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/ais-group-black.svg",
+   "file": "logos/ais-group-black.svg",
+   "width": 260,
+   "height": 195,
+   "bytes": 4732,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-group-white-svg",
+   "title": "AIS Group logo",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/ais-group-white.svg",
+   "file": "logos/ais-group-white.svg",
+   "width": 260,
+   "height": 195,
+   "bytes": 4733,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-mark-blue-svg",
+   "title": "AIS mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/ais-mark-blue.svg",
+   "file": "logos/ais-mark-blue.svg",
+   "width": 110,
+   "height": 146,
+   "bytes": 416,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-mark-black-svg",
+   "title": "AIS mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/ais-mark-black.svg",
+   "file": "logos/ais-mark-black.svg",
+   "width": 110,
+   "height": 146,
+   "bytes": 416,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-favicons-ais-favicon-svg",
+   "title": "AIS mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "favicon",
+   "url": "/logos/favicons/ais/favicon.svg",
+   "file": "logos/favicons/ais/favicon.svg",
+   "width": 32,
+   "height": 32,
+   "bytes": 594,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-mark-white-svg",
+   "title": "AIS mark",
+   "kind": "logo",
+   "subject": "AIS Group",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/ais-mark-white.svg",
+   "file": "logos/ais-mark-white.svg",
+   "width": 110,
+   "height": 146,
+   "bytes": 416,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-systems-blue-svg",
+   "title": "AIS Vision Systems logo",
+   "kind": "logo",
+   "subject": "AIS Vision Systems",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/ais-vision-systems-blue.svg",
+   "file": "logos/ais-vision-systems-blue.svg",
+   "width": 128,
+   "height": 88,
+   "bytes": 6988,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-systems-black-svg",
+   "title": "AIS Vision Systems logo",
+   "kind": "logo",
+   "subject": "AIS Vision Systems",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/ais-vision-systems-black.svg",
+   "file": "logos/ais-vision-systems-black.svg",
+   "width": 128,
+   "height": 88,
+   "bytes": 6988,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-systems-white-svg",
+   "title": "AIS Vision Systems logo",
+   "kind": "logo",
+   "subject": "AIS Vision Systems",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/ais-vision-systems-white.svg",
+   "file": "logos/ais-vision-systems-white.svg",
+   "width": 128,
+   "height": 88,
+   "bytes": 6989,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-automation-blue-svg",
+   "title": "AIS Vision Automation logo",
+   "kind": "logo",
+   "subject": "AIS Vision Automation",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/ais-vision-automation-blue.svg",
+   "file": "logos/ais-vision-automation-blue.svg",
+   "width": 3736,
+   "height": 2597,
+   "bytes": 16027,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-automation-black-svg",
+   "title": "AIS Vision Automation logo",
+   "kind": "logo",
+   "subject": "AIS Vision Automation",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/ais-vision-automation-black.svg",
+   "file": "logos/ais-vision-automation-black.svg",
+   "width": 3736,
+   "height": 2597,
+   "bytes": 16027,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-vision-automation-white-svg",
+   "title": "AIS Vision Automation logo",
+   "kind": "logo",
+   "subject": "AIS Vision Automation",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/ais-vision-automation-white.svg",
+   "file": "logos/ais-vision-automation-white.svg",
+   "width": 3736,
+   "height": 2597,
+   "bytes": 16028,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-scanology-blue-svg",
+   "title": "AIS Scanology logo",
+   "kind": "logo",
+   "subject": "AIS Scanology",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/ais-scanology-blue.svg",
+   "file": "logos/ais-scanology-blue.svg",
+   "width": 91,
+   "height": 63,
+   "bytes": 5574,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-scanology-black-svg",
+   "title": "AIS Scanology logo",
+   "kind": "logo",
+   "subject": "AIS Scanology",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/ais-scanology-black.svg",
+   "file": "logos/ais-scanology-black.svg",
+   "width": 91,
+   "height": 63,
+   "bytes": 5574,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-ais-scanology-white-svg",
+   "title": "AIS Scanology logo",
+   "kind": "logo",
+   "subject": "AIS Scanology",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/ais-scanology-white.svg",
+   "file": "logos/ais-scanology-white.svg",
+   "width": 91,
+   "height": 63,
+   "bytes": 5575,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-app-rosepetal-app-icon-svg",
+   "title": "Rosepetal app mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/app/rosepetal/app-icon.svg",
+   "file": "logos/app/rosepetal/app-icon.svg",
+   "width": 512,
+   "height": 512,
+   "bytes": 423,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-app-rosepetal-app-icon-rounded-svg",
+   "title": "Rosepetal app mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "app-icon",
+   "url": "/logos/app/rosepetal/app-icon-rounded.svg",
+   "file": "logos/app/rosepetal/app-icon-rounded.svg",
+   "width": 512,
+   "height": 512,
+   "bytes": 435,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-app-rosepetal-favicon-svg",
+   "title": "Rosepetal app mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "favicon",
+   "url": "/logos/app/rosepetal/favicon.svg",
+   "file": "logos/app/rosepetal/favicon.svg",
+   "width": 32,
+   "height": 32,
+   "bytes": 488,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-blue-svg",
+   "title": "Rosepetal logo",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/rosepetal-blue.svg",
+   "file": "logos/rosepetal-blue.svg",
+   "width": 118,
+   "height": 22,
+   "bytes": 2295,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-black-svg",
+   "title": "Rosepetal logo",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/rosepetal-black.svg",
+   "file": "logos/rosepetal-black.svg",
+   "width": 118,
+   "height": 22,
+   "bytes": 2295,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-white-svg",
+   "title": "Rosepetal logo",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/rosepetal-white.svg",
+   "file": "logos/rosepetal-white.svg",
+   "width": 118,
+   "height": 22,
+   "bytes": 2296,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-mark-blue-svg",
+   "title": "Rosepetal mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "",
+   "url": "/logos/rosepetal-mark-blue.svg",
+   "file": "logos/rosepetal-mark-blue.svg",
+   "width": 21,
+   "height": 21,
+   "bytes": 329,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-mark-black-svg",
+   "title": "Rosepetal mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "black",
+   "url": "/logos/rosepetal-mark-black.svg",
+   "file": "logos/rosepetal-mark-black.svg",
+   "width": 21,
+   "height": 21,
+   "bytes": 329,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-favicons-rosepetal-favicon-svg",
+   "title": "Rosepetal mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "favicon",
+   "url": "/logos/favicons/rosepetal/favicon.svg",
+   "file": "logos/favicons/rosepetal/favicon.svg",
+   "width": 32,
+   "height": 32,
+   "bytes": 518,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "logos-rosepetal-mark-white-svg",
+   "title": "Rosepetal mark",
+   "kind": "logo",
+   "subject": "Rosepetal",
+   "origin": "official",
+   "variant": "white",
+   "url": "/logos/rosepetal-mark-white.svg",
+   "file": "logos/rosepetal-mark-white.svg",
+   "width": 21,
+   "height": 21,
+   "bytes": 329,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "library-photos-ais-group_beugen-office-jpg",
+   "title": "Beugen office",
+   "kind": "photo",
+   "subject": "AIS Group",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-group_beugen-office.jpg",
+   "file": "library/photos/ais-group_beugen-office.jpg",
+   "width": 740,
+   "height": 693,
+   "bytes": 110277,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-ais-group_dublin-office-jpg",
+   "title": "Dublin office",
+   "kind": "photo",
+   "subject": "AIS Group",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-group_dublin-office.jpg",
+   "file": "library/photos/ais-group_dublin-office.jpg",
+   "width": 740,
+   "height": 693,
+   "bytes": 114022,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-ais-group_dundalk-workshop-jpg",
+   "title": "Dundalk workshop",
+   "kind": "photo",
+   "subject": "AIS Group",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-group_dundalk-workshop.jpg",
+   "file": "library/photos/ais-group_dundalk-workshop.jpg",
+   "width": 740,
+   "height": 693,
+   "bytes": 128118,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-ais-group_sabadell-aerial-jpg",
+   "title": "Sabadell site, aerial view",
+   "kind": "photo",
+   "subject": "AIS Group",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-group_sabadell-aerial.jpg",
+   "file": "library/photos/ais-group_sabadell-aerial.jpg",
+   "width": 740,
+   "height": 693,
+   "bytes": 193945,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-ais-vision-systems_sabadell-building-jpg",
+   "title": "Sabadell building",
+   "kind": "photo",
+   "subject": "AIS Vision Systems",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-vision-systems_sabadell-building.jpg",
+   "file": "library/photos/ais-vision-systems_sabadell-building.jpg",
+   "width": 1500,
+   "height": 997,
+   "bytes": 170820,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-ais-vision-systems_v275-label-printer-png",
+   "title": "V275 label printer",
+   "kind": "photo",
+   "subject": "AIS Vision Systems",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/ais-vision-systems_v275-label-printer.png",
+   "file": "library/photos/ais-vision-systems_v275-label-printer.png",
+   "width": 3072,
+   "height": 1728,
+   "bytes": 3567952,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rosepetal_engineer-at-workstation-png",
+   "title": "Engineer at a Rosepetal workstation",
+   "kind": "photo",
+   "subject": "Rosepetal",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rosepetal_engineer-at-workstation.png",
+   "file": "library/photos/rosepetal_engineer-at-workstation.png",
+   "width": 1280,
+   "height": 720,
+   "bytes": 727984,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-standard_spray-cans-entering-jpg",
+   "title": "Spray cans entering AIS REV 360",
+   "kind": "photo",
+   "subject": "AIS REV 360 STANDARD",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rev360-standard_spray-cans-entering.jpg",
+   "file": "library/photos/rev360-standard_spray-cans-entering.jpg",
+   "width": 1680,
+   "height": 945,
+   "bytes": 293184,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-dent-jpg",
+   "title": "Dented can",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-dent.jpg",
+   "file": "library/photos/rev360-compact_can-dent.jpg",
+   "width": 804,
+   "height": 1228,
+   "bytes": 153635,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-dent-pair_tile_es-jpg",
+   "title": "Can dent, OK and NOK",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "tile+es",
+   "url": "/library/photos/rev360-compact_can-dent-pair_tile_es.jpg",
+   "file": "library/photos/rev360-compact_can-dent-pair_tile_es.jpg",
+   "width": 1627,
+   "height": 1228,
+   "bytes": 341750,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-end-code-pair-jpg",
+   "title": "Can end codes, OK and NOK",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-end-code-pair.jpg",
+   "file": "library/photos/rev360-compact_can-end-code-pair.jpg",
+   "width": 1882,
+   "height": 1418,
+   "bytes": 353795,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-end-code-pair_tile_es-jpg",
+   "title": "Can end codes, OK and NOK",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "tile+es",
+   "url": "/library/photos/rev360-compact_can-end-code-pair_tile_es.jpg",
+   "file": "library/photos/rev360-compact_can-end-code-pair_tile_es.jpg",
+   "width": 1882,
+   "height": 1418,
+   "bytes": 413967,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-end-code-smudged-jpg",
+   "title": "Can end code smudged",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-end-code-smudged.jpg",
+   "file": "library/photos/rev360-compact_can-end-code-smudged.jpg",
+   "width": 1882,
+   "height": 705,
+   "bytes": 173251,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-end-code-smudged_tile_es-jpg",
+   "title": "Can end code smudged",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "tile+es",
+   "url": "/library/photos/rev360-compact_can-end-code-smudged_tile_es.jpg",
+   "file": "library/photos/rev360-compact_can-end-code-smudged_tile_es.jpg",
+   "width": 1882,
+   "height": 705,
+   "bytes": 158938,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-line-jpg",
+   "title": "AIS REV 360 COMPACT on a can line",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-line.jpg",
+   "file": "library/photos/rev360-compact_can-line.jpg",
+   "width": 1138,
+   "height": 535,
+   "bytes": 245568,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-sidewall-dent-jpg",
+   "title": "Can sidewall dent",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-sidewall-dent.jpg",
+   "file": "library/photos/rev360-compact_can-sidewall-dent.jpg",
+   "width": 1066,
+   "height": 710,
+   "bytes": 99672,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_can-upper-seam-jpg",
+   "title": "Can upper seam",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_can-upper-seam.jpg",
+   "file": "library/photos/rev360-compact_can-upper-seam.jpg",
+   "width": 1066,
+   "height": 710,
+   "bytes": 104988,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_cans-entering-jpg",
+   "title": "Cans entering AIS REV 360 COMPACT",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_cans-entering.jpg",
+   "file": "library/photos/rev360-compact_cans-entering.jpg",
+   "width": 1138,
+   "height": 535,
+   "bytes": 151564,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_chickpea-can-label-skew-jpg",
+   "title": "Chickpea can label skew",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_chickpea-can-label-skew.jpg",
+   "file": "library/photos/rev360-compact_chickpea-can-label-skew.jpg",
+   "width": 1850,
+   "height": 925,
+   "bytes": 236508,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_chickpea-can-lineup-jpg",
+   "title": "Chickpea can lineup",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_chickpea-can-lineup.jpg",
+   "file": "library/photos/rev360-compact_chickpea-can-lineup.jpg",
+   "width": 1924,
+   "height": 1443,
+   "bytes": 470250,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_chickpea-cans-still-life-jpg",
+   "title": "Chickpea cans still life",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_chickpea-cans-still-life.jpg",
+   "file": "library/photos/rev360-compact_chickpea-cans-still-life.jpg",
+   "width": 960,
+   "height": 540,
+   "bytes": 88866,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_chickpea-jar-four-views-jpg",
+   "title": "Chickpea jar, four views",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_chickpea-jar-four-views.jpg",
+   "file": "library/photos/rev360-compact_chickpea-jar-four-views.jpg",
+   "width": 1854,
+   "height": 634,
+   "bytes": 152975,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_machine-in-workshop-jpg",
+   "title": "AIS REV 360 COMPACT in the workshop",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_machine-in-workshop.jpg",
+   "file": "library/photos/rev360-compact_machine-in-workshop.jpg",
+   "width": 1598,
+   "height": 1064,
+   "bytes": 429094,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_plain-cans-still-life-jpg",
+   "title": "Plain cans still life",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "",
+   "url": "/library/photos/rev360-compact_plain-cans-still-life.jpg",
+   "file": "library/photos/rev360-compact_plain-cans-still-life.jpg",
+   "width": 2160,
+   "height": 1215,
+   "bytes": 344853,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-compact_plain-cans-still-life_dark-jpg",
+   "title": "Plain cans still life",
+   "kind": "photo",
+   "subject": "AIS REV 360 COMPACT",
+   "origin": "render",
+   "variant": "dark",
+   "url": "/library/photos/rev360-compact_plain-cans-still-life_dark.jpg",
+   "file": "library/photos/rev360-compact_plain-cans-still-life_dark.jpg",
+   "width": 960,
+   "height": 540,
+   "bytes": 81330,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-cables_camera-mounts-jpg",
+   "title": "AIS REV 360 Cables camera mounts",
+   "kind": "photo",
+   "subject": "AIS REV 360 Cables",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rev360-cables_camera-mounts.jpg",
+   "file": "library/photos/rev360-cables_camera-mounts.jpg",
+   "width": 1280,
+   "height": 600,
+   "bytes": 150458,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rev360-cables_factory-floor-jpg",
+   "title": "AIS REV 360 Cables on the factory floor",
+   "kind": "photo",
+   "subject": "AIS REV 360 Cables",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/rev360-cables_factory-floor.jpg",
+   "file": "library/photos/rev360-cables_factory-floor.jpg",
+   "width": 1280,
+   "height": 600,
+   "bytes": 231381,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-kariko_on-the-line-jpg",
+   "title": "AIS KARIKÓ on the line",
+   "kind": "photo",
+   "subject": "AIS KARIKÓ",
+   "origin": "video-frame",
+   "variant": "",
+   "url": "/library/photos/kariko_on-the-line.jpg",
+   "file": "library/photos/kariko_on-the-line.jpg",
+   "width": 1138,
+   "height": 540,
+   "bytes": 147312,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-opticais_camera-over-can-line-jpg",
+   "title": "OPTICAIS camera over a can line",
+   "kind": "photo",
+   "subject": "OPTICAIS",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/opticais_camera-over-can-line.jpg",
+   "file": "library/photos/opticais_camera-over-can-line.jpg",
+   "width": 592,
+   "height": 347,
+   "bytes": 38479,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_factory-floor-webp",
+   "title": "Factory floor",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_factory-floor.webp",
+   "file": "library/photos/industry_factory-floor.webp",
+   "width": 708,
+   "height": 698,
+   "bytes": 66436,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_jerrycan-camera-inspection-webp",
+   "title": "Jerrycan camera inspection",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_jerrycan-camera-inspection.webp",
+   "file": "library/photos/industry_jerrycan-camera-inspection.webp",
+   "width": 651,
+   "height": 372,
+   "bytes": 25886,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_jerrycan-vision-station-webp",
+   "title": "Jerrycan vision station",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_jerrycan-vision-station.webp",
+   "file": "library/photos/industry_jerrycan-vision-station.webp",
+   "width": 709,
+   "height": 301,
+   "bytes": 11762,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_loading-dock-labelling-portal-jpg",
+   "title": "Loading dock labelling portal",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_loading-dock-labelling-portal.jpg",
+   "file": "library/photos/industry_loading-dock-labelling-portal.jpg",
+   "width": 800,
+   "height": 637,
+   "bytes": 139323,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_loading-dock-scanners-jpg",
+   "title": "Loading dock scanners",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_loading-dock-scanners.jpg",
+   "file": "library/photos/industry_loading-dock-scanners.jpg",
+   "width": 817,
+   "height": 513,
+   "bytes": 121882,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-industry_metal-pail-hazard-label-jpg",
+   "title": "Metal pail with hazard label",
+   "kind": "photo",
+   "subject": "Industry",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/industry_metal-pail-hazard-label.jpg",
+   "file": "library/photos/industry_metal-pail-hazard-label.jpg",
+   "width": 1066,
+   "height": 710,
+   "bytes": 126434,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-events_advanced-factories-2026-stand-webp",
+   "title": "Advanced Factories 2026 stand",
+   "kind": "photo",
+   "subject": "Events",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/events_advanced-factories-2026-stand.webp",
+   "file": "library/photos/events_advanced-factories-2026-stand.webp",
+   "width": 960,
+   "height": 540,
+   "bytes": 55522,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-events_advanced-factories-2026-stand-hexagon-lights-jpg",
+   "title": "Advanced Factories 2026 stand, hexagon lights",
+   "kind": "photo",
+   "subject": "Events",
+   "origin": "photo",
+   "variant": "",
+   "url": "/library/photos/events_advanced-factories-2026-stand-hexagon-lights.jpg",
+   "file": "library/photos/events_advanced-factories-2026-stand-hexagon-lights.jpg",
+   "width": 1152,
+   "height": 1536,
+   "bytes": 272454,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only; no third-party stock resale"
+   }
+  },
+  {
+   "name": "library-photos-rosepetal_model-metrics-webp",
+   "title": "Model metrics",
+   "kind": "photo",
+   "subject": "Rosepetal app",
+   "origin": "screenshot",
+   "variant": "",
+   "url": "/library/photos/rosepetal_model-metrics.webp",
+   "file": "library/photos/rosepetal_model-metrics.webp",
+   "width": 445,
+   "height": 593,
+   "bytes": 13574,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only"
+   }
+  },
+  {
+   "name": "library-photos-rosepetal_smart-labeling-crack-webp",
+   "title": "Smart Labeling, crack annotation",
+   "kind": "photo",
+   "subject": "Rosepetal app",
+   "origin": "screenshot",
+   "variant": "",
+   "url": "/library/photos/rosepetal_smart-labeling-crack.webp",
+   "file": "library/photos/rosepetal_smart-labeling-crack.webp",
+   "width": 597,
+   "height": 796,
+   "bytes": 16654,
+   "rights": {
+    "licence": "AIS marketing use",
+    "redistribution": "AIS brand and marketing materials only"
+   }
+  },
+  {
+   "name": "stock-vials-1",
+   "title": "Glass vials on a laboratory tray",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/clear-glass-vials-on-round-container-9259963/",
+   "author": "Jess Loiterton",
+   "authorUrl": "https://www.pexels.com/@jess-vide/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/9259963/pexels-photo-9259963.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "stock-cartons-1",
+   "title": "Printed code on a can end",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/can-seal-over-printed-numbers-15038479/",
+   "author": "Towfiqu barbhuiya",
+   "authorUrl": "https://www.pexels.com/@towfiqu-barbhuiya-3440682/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/15038479/pexels-photo-15038479.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "stock-juice-bottles-1",
+   "title": "Bottling line",
+   "kind": "stock",
+   "source": "https://unsplash.com/photos/glass-bottles-on-top-of-gray-machine-Xlc8HG_FB2k",
+   "author": "Waldemar Brandt",
+   "authorUrl": "https://unsplash.com/@waldemarbrandt67w",
+   "rights": {
+    "licence": "Unsplash License",
+    "licenceUrl": "https://unsplash.com/license",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": ""
+  },
+  {
+   "name": "stock-juice-bottles-4",
+   "title": "Wine bottles on a line",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/wine-bottles-on-an-industrial-machinery-4176427/",
+   "author": "Lucian Pirvu",
+   "authorUrl": "https://www.pexels.com/@lucian-pirvu-2565857/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/4176427/pexels-photo-4176427.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "stock-cans-1",
+   "title": "Aluminium cans on a line",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/aluminum-cans-in-the-production-line-5532671/",
+   "author": "cottonbro studio",
+   "authorUrl": "https://www.pexels.com/@cottonbro/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/5532671/pexels-photo-5532671.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "stock-cans-3",
+   "title": "Empty cans on a conveyor",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/aluminum-cans-in-the-assembly-line-5532658/",
+   "author": "cottonbro studio",
+   "authorUrl": "https://www.pexels.com/@cottonbro/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/5532658/pexels-photo-5532658.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "stock-bakery-2",
+   "title": "Dough on a bakery line",
+   "kind": "stock",
+   "source": "https://www.pexels.com/photo/dough-on-tape-6291408/",
+   "author": "Anna Shvets",
+   "authorUrl": "https://www.pexels.com/@shvetsa/",
+   "rights": {
+    "licence": "Pexels License",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "redistribution": "source-only",
+    "usage": "Context only, never an AIS installation, product or customer"
+   },
+   "preview": "https://images.pexels.com/photos/6291408/pexels-photo-6291408.jpeg?auto=compress&cs=tinysrgb&w=640"
+  },
+  {
+   "name": "ais-vision-systems-intro-mp4",
+   "title": "ais-vision-systems intro",
+   "kind": "video",
+   "format": "MP4 1080p",
+   "url": "/downloads/video/ais-vision-systems-intro.mp4",
+   "file": "downloads/video/ais-vision-systems-intro.mp4",
+   "bytes": 1818541,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "ais-vision-systems-intro-4k-mp4",
+   "title": "ais-vision-systems intro",
+   "kind": "video",
+   "format": "MP4 4K",
+   "url": "/downloads/video/ais-vision-systems-intro-4k.mp4",
+   "file": "downloads/video/ais-vision-systems-intro-4k.mp4",
+   "bytes": 16696139,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "ais-vision-systems-intro-jpg",
+   "title": "ais-vision-systems intro",
+   "kind": "poster",
+   "format": "JPG",
+   "url": "/downloads/video/ais-vision-systems-intro.jpg",
+   "file": "downloads/video/ais-vision-systems-intro.jpg",
+   "bytes": 65324,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "rosepetal-intro-mp4",
+   "title": "rosepetal intro",
+   "kind": "video",
+   "format": "MP4 1080p",
+   "url": "/downloads/video/rosepetal-intro.mp4",
+   "file": "downloads/video/rosepetal-intro.mp4",
+   "bytes": 1983033,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "rosepetal-intro-4k-mp4",
+   "title": "rosepetal intro",
+   "kind": "video",
+   "format": "MP4 4K",
+   "url": "/downloads/video/rosepetal-intro-4k.mp4",
+   "file": "downloads/video/rosepetal-intro-4k.mp4",
+   "bytes": 20936811,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  },
+  {
+   "name": "rosepetal-intro-jpg",
+   "title": "rosepetal intro",
+   "kind": "poster",
+   "format": "JPG",
+   "url": "/downloads/video/rosepetal-intro.jpg",
+   "file": "downloads/video/rosepetal-intro.jpg",
+   "bytes": 62242,
+   "rights": {
+    "licence": "AIS brand use"
+   }
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "ais-vision-systems_post-features_es_template",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "OPTICAIS lee el lote y la caducidad impresos, en la propia línea: sobre una etiqueta o sobre la tapa de una lata. Solicita una demo",
+  "shots": [
+    {
+      "type": "grid",
+      "bg": "white",
+      "headline": "Lee el lote|y la caducidad",
+      "tile": "3 / 2",
+      "hex": "none",
+      "items": [
+        {
+          "src": "@lib/media/real/opticais_ocr-read.jpg",
+          "text": "Lote y caducidad en etiqueta",
+          "detail": "Pantalla de OPTICAIS",
+          "focus": [
+            50,
+            50
+          ]
+        },
+        {
+          "src": "@lib/media/advanced-factories-2026/af26-can-demo_date-tile.png",
+          "text": "La fecha, leída en la tapa",
+          "detail": "OPTICAIS, en Advanced Factories 2026",
+          "focus": [
+            50,
+            60
+          ]
+        }
+      ]
+    }
+  ]
+}

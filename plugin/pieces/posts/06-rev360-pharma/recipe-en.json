@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-rev360-pharma_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS REV 360 PHARMA checks the labels on vials and small containers all the way round, at up to 18,000 containers an hour. On this sample vial, a second label has been stuck over the first. It is an illustrative example, not the result of a machine validation. See it on your products",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/social-composites/06-rev360-pharma-vial_label-double_en.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "A double label,|in plain sight"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "ais-vision-systems_carousel-partner-v275_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "El Omron V275 verifica códigos 1D y 2D al imprimir la etiqueta, para asegurar que sean correctos y legibles y detectar errores en tiempo real antes de que el producto salga al mercado. Comprueba la presencia o ausencia de etiquetas y códigos, la calidad de impresión y la corrección de los datos codificados. AIS Vision Systems distribuye los verificadores de Omron LVS. Envíanos muestras.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/v275-printer-whole.jpg",
+      "focus": [
+        50,
+        55
+      ],
+      "headline": "Códigos verificados|con el *Omron V275*",
+      "alt": "Impresora de etiquetas Zebra con el verificador Omron V275 imprimiendo una etiqueta de prueba de AIS.",
+      "scale": 1,
+      "fit": "contain"
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/v275-operator-screen.jpg",
+      "focus": [
+        0,
+        45
+      ],
+      "split": 0.6,
+      "headline": "Errores detectados|antes de salir|al mercado",
+      "alt": "Una operaria ante la pantalla del software del V275, que marca en rojo una etiqueta de prueba defectuosa."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/v275-verifier-head.jpg",
+      "focus": [
+        45,
+        45
+      ],
+      "split": 0.6,
+      "headline": "Códigos 1D y 2D,|presencia, impresión|y datos",
+      "alt": "El cabezal del Omron V275 sobre una etiqueta de prueba con código de barras, DataMatrix y marcado CE."
+    },
+    {
+      "type": "contact",
+      "headline": "¿Verificamos|*tus etiquetas*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "alt": "¿Verificamos tus etiquetas? Envíanos muestras. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

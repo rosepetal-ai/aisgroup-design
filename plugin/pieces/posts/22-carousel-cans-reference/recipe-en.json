@@ -1,0 +1,56 @@
+{
+  "name": "ais-vision-systems_carousel-defects-cans_en_2026-10-29",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "copy": "Which of these cans would you reject? The AIS REV 360 COMPACT checks cans all the way round, right on the line: the label, the can body and the batch and date code. That is how it finds crooked labels, dented cans and unreadable codes. The images are illustrative examples of defects. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_lineup_clean.jpg",
+      "evidence": "render",
+      "headline": "Which|of these cans|*would you reject*?",
+      "bleed": 1.06
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/22-carousel-cans-reference-slide-2_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|crooked label",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/22-carousel-cans-reference-slide-3_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|dented can",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/22-carousel-cans-reference-slide-4_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The bottom one:|unreadable code",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "What would it reject|*on your line*?",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "What would it reject on your line?. Send us samples. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

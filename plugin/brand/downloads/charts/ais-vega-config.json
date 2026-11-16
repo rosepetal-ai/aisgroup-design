@@ -1,0 +1,205 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "background": "#FFFFFF",
+  "padding": 16,
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "title": {
+    "anchor": "start",
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 16,
+    "fontWeight": 600,
+    "color": "#0F1729",
+    "subtitleFont": "Inter, Arial, sans-serif",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#4B5563",
+    "subtitlePadding": 4,
+    "offset": 16
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 12,
+    "labelColor": "#4B5563",
+    "titleFont": "Inter, Arial, sans-serif",
+    "titleFontSize": 12,
+    "titleFontWeight": 500,
+    "titleColor": "#4B5563",
+    "titlePadding": 12,
+    "labelPadding": 6,
+    "gridColor": "#E2E8F0",
+    "gridWidth": 1,
+    "domainColor": "#94A3B8",
+    "domainWidth": 1,
+    "tickColor": "#94A3B8",
+    "tickSize": 4,
+    "tickCount": 5,
+    "labelFlush": false
+  },
+  "axisY": {
+    "domain": false,
+    "ticks": false,
+    "titleAngle": -90,
+    "grid": true
+  },
+  "axisBand": {
+    "grid": false,
+    "ticks": false,
+    "labelPadding": 8
+  },
+  "axisDiscrete": {
+    "grid": false,
+    "ticks": false,
+    "labelPadding": 8
+  },
+  "legend": {
+    "orient": "top",
+    "direction": "horizontal",
+    "title": null,
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 13,
+    "labelColor": "#0F1729",
+    "symbolSize": 120,
+    "symbolStrokeWidth": 2,
+    "columnPadding": 24,
+    "padding": 0,
+    "offset": 16,
+    "gradientLength": 240,
+    "gradientThickness": 12,
+    "symbolType": "square"
+  },
+  "header": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 13,
+    "labelColor": "#0F1729",
+    "titleFont": "Inter, Arial, sans-serif",
+    "titleFontSize": 13,
+    "titleColor": "#4B5563"
+  },
+  "range": {
+    "category": [
+      "#3664B3",
+      "#EA580C",
+      "#0891B2",
+      "#DB2777",
+      "#8B5CF6",
+      "#0D9488"
+    ],
+    "ordinal": [
+      "#7C9FD7",
+      "#517FC9",
+      "#3664B3",
+      "#1E4591",
+      "#17356E",
+      "#10254C"
+    ],
+    "ramp": [
+      "#7C9FD7",
+      "#517FC9",
+      "#3664B3",
+      "#1E4591",
+      "#17356E",
+      "#10254C"
+    ],
+    "heatmap": [
+      "#7C9FD7",
+      "#517FC9",
+      "#3664B3",
+      "#1E4591",
+      "#17356E",
+      "#10254C"
+    ],
+    "diverging": [
+      "#92400E",
+      "#EA580C",
+      "#CBD5E1",
+      "#3664B3",
+      "#1E4591"
+    ]
+  },
+  "bar": {
+    "fill": "#3664B3",
+    "discreteBandSize": 24,
+    "continuousBandSize": 24,
+    "binSpacing": 2,
+    "cornerRadius": 0
+  },
+  "rect": {
+    "fill": "#3664B3",
+    "binSpacing": 2,
+    "stroke": "#FFFFFF",
+    "strokeWidth": 2
+  },
+  "line": {
+    "stroke": "#3664B3",
+    "strokeWidth": 2,
+    "strokeJoin": "round",
+    "strokeCap": "round"
+  },
+  "point": {
+    "filled": true,
+    "size": 64,
+    "stroke": "#FFFFFF",
+    "strokeWidth": 2
+  },
+  "circle": {
+    "size": 64,
+    "stroke": "#FFFFFF",
+    "strokeWidth": 2
+  },
+  "area": {
+    "fillOpacity": 0.1,
+    "line": {
+      "strokeWidth": 2
+    }
+  },
+  "rule": {
+    "stroke": "#94A3B8",
+    "strokeWidth": 1
+  },
+  "tick": {
+    "thickness": 2
+  },
+  "boxplot": {
+    "size": 24,
+    "box": {
+      "fill": "#3664B3",
+      "fillOpacity": 0.16,
+      "stroke": "#3664B3",
+      "strokeWidth": 1
+    },
+    "median": {
+      "stroke": "#0F1729",
+      "strokeWidth": 2
+    },
+    "rule": {
+      "stroke": "#94A3B8"
+    },
+    "ticks": false,
+    "outliers": {
+      "size": 24,
+      "stroke": "#94A3B8",
+      "fill": "#94A3B8"
+    }
+  },
+  "text": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 12,
+    "fill": "#0F1729"
+  },
+  "style": {
+    "guide-label": {
+      "font": "Inter, Arial, sans-serif"
+    },
+    "guide-title": {
+      "font": "Inter, Arial, sans-serif"
+    },
+    "group-title": {
+      "font": "Inter, Arial, sans-serif"
+    }
+  },
+  "axisX": {
+    "grid": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "ais-vision-systems_post-opticais_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "OPTICAIS reads the printed batch, date and time with OCR, and 1D and 2D codes, as the product moves down the line. Here its screen compares the text and code that should be printed on the label with what it reads. See it on your products",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/opticais-variable-print-screen.png",
+      "headline": "Date and lot,|read on the label",
+      "fit": "contain"
+    }
+  ]
+}

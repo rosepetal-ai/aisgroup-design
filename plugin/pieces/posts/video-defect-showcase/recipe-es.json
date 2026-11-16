@@ -1,0 +1,80 @@
+{
+  "name": "ais-vision-systems_video-defect-showcase_es_v01",
+  "kind": "video",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "9x16",
+    "4x5",
+    "1x1"
+  ],
+  "shots": [
+    {
+      "type": "clip",
+      "src": "@lib/media/advanced-factories-2026/af26-can-demo_9x16_steady.mp4",
+      "in": 0.3,
+      "out": 3.1,
+      "zoom": 1.03,
+      "focus": [
+        45,
+        55
+      ],
+      "headline": "¿Lata intacta?",
+      "headlineAt": 3
+    },
+    {
+      "type": "still",
+      "src": "@lib/media/advanced-factories-2026/af26-can-demo_dents.png",
+      "seconds": 3.6,
+      "scale": 1.3,
+      "zoom": 1.03,
+      "focus": [
+        40,
+        40
+      ],
+      "evidence": "system",
+      "lowerThird": {
+        "name": "Dos abolladuras en la lata"
+      },
+      "wipe": true
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/advanced-factories-2026/af26-can-demo_9x16_steady.mp4",
+      "in": 26.4,
+      "out": 29.2,
+      "zoom": 1.03,
+      "focus": [
+        50,
+        45
+      ],
+      "dissolve": true,
+      "evidence": "system",
+      "lowerThird": {
+        "name": "Fecha en la tapa: 22/04/2031"
+      }
+    },
+    {
+      "type": "end",
+      "seconds": 1.5,
+      "wipe": true
+    }
+  ],
+  "captions": [
+    {
+      "from": 0.5,
+      "to": 2.7,
+      "text": "¿Lata intacta?"
+    },
+    {
+      "from": 3.5,
+      "to": 6.2,
+      "text": "Dos abolladuras en la lata"
+    },
+    {
+      "from": 7.2,
+      "to": 9.6,
+      "text": "Fecha en la tapa: 22/04/2031"
+    }
+  ]
+}

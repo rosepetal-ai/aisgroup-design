@@ -1,0 +1,23 @@
+node_modules/
+# media library: in the private media bucket (npm run media:pull), too large for git
+library/media/
+# scratch copies, MCP state and test runs
+work/
+out/
+# hosted server snapshot, rebuilt from the guide with npm run hosted:build
+hosted/data/
+# rendered outputs live next to their source but are rebuilt, not versioned
+pieces/**/previews/
+pieces/**/*.pdf
+pieces/**/*.pptx
+pieces/**/slides/
+pieces/**/build/
+pieces/decks/*/media/
+pieces/decks/*/*.html
+pieces/patterns/deck/*.html
+pieces/patterns/deck/media/
+/examples/
+__pycache__/
+*.bak*
+
+evals/results/

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cosmetics inspection | AIS Vision Systems</title>
+<link rel="stylesheet" href="../../shared/system.css">
+<script src="../../shared/assets/icons.js"></script>
+</head>
+<body>
+
+<section class="page cover" aria-label="Cover">
+  <header class="cover-head">
+    <img class="logo" src="../../shared/assets/ais-vision-systems-white.svg" alt="AIS Vision Systems">
+    <h1>Quality control on cosmetics lines</h1>
+    <p>Machine vision inspects containers, caps, labels and codes to detect defects before products reach consumers.</p>
+    <div class="hexfield"></div>
+  </header>
+  <figure class="hero" style="--fx:50%;--fy:50%"><img src="assets/hopper_cosmetics-infeed_cover.jpg" alt="AIS Hopper with cosmetics bottles on the conveyor beneath the inspection head"></figure>
+  <div class="cover-bottom">
+    <div class="facts">
+      <div class="fact"><i data-i="scan-eye"></i><p>Cap and mouth: presence, position and integrity</p></div>
+      <div class="fact"><i data-i="rotate-3d"></i><p>Label: 360° position and condition</p></div>
+      <div class="fact"><i data-i="scan-text"></i><p>Codes: OCR reading and validation</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page inner" aria-label="Inspection zones">
+  <main class="page-content">
+    <h2>A check for each area of the container</h2>
+    <p class="lead">We develop machine vision systems that automatically inspect containers, caps, labels and codes on cosmetics production lines.</p>
+
+    <div class="application block" style="grid-template-columns:78mm 1fr">
+      <figure class="zones-figure">
+        <img src="assets/pet-bottle-front-blurred.jpg" alt="PET soap bottle with dispenser, viewed by one of the AIS REV 360 cameras">
+        <span class="key" style="--y:12%;--len:14mm;--c:#fff">1</span><span class="key" style="--y:40%;--len:12mm;--c:#fff">2</span><span class="key" style="--y:76%;--len:20mm;--c:#fff">3</span>
+      </figure>
+      <div>
+        <article class="zone" style="--y:12%"><h3>Cap and mouth</h3><p>Presence, position and integrity of the cap or dispenser.</p></article>
+        <article class="zone" style="--y:40%"><h3>Pack</h3><p>Visual container defects, inspected around the entire perimeter.</p></article>
+        <article class="zone" style="--y:76%"><h3>Label and codes</h3><p>360° label position and condition; OCR reading and validation of batches and dates.</p></article>
+      </div>
+    </div>
+
+    <figure class="photo block grow"><div class="frame"><img src="assets/bottle-line.jpg" alt="White bottles moving along the conveyor of a filling line" style="--fy:55%"></div></figure>
+  </main>
+  <footer class="foot">2</footer>
+</section>
+
+<section class="page inner" aria-label="Cosmetics formats">
+  <main class="page-content"><h2>Bottles, tubes, aerosols and jars</h2>
+    <p class="lead">The format determines where to look: closure, mouth, container, label or marking. We adapt cameras and criteria to each product reference.</p>
+    <div class="block"><ul class="tiles" style="--n:4;--ar:0.35">
+      <li class="tile"><div class="frame"><img src="assets/format-dispenser.jpg" alt="PET liquid-soap bottle with pump dispenser and label"></div><h3>Bottle with dispenser</h3></li>
+      <li class="tile"><div class="frame"><img src="assets/format-cream-tube.jpg" alt="Hand-cream tube resting on its cap, with the batch printed on the crimp"></div><h3>Tube</h3></li>
+      <li class="tile"><div class="frame"><img src="assets/format-aerosol-deodorant.jpg" alt="Printed aluminium aerosol with its overcap"></div><h3>Aerosol</h3></li>
+      <li class="tile"><div class="frame"><img src="assets/format-jar.jpg" alt="Frosted-glass facial-cream jar with printed lid and label"></div><h3>Jar</h3></li>
+    </ul></div>
+    <div class="block">
+      <table class="table">
+        <thead><tr><th>Format</th><th>AIS Hopper</th><th>AIS REV 360</th></tr></thead>
+        <tbody>
+          <tr><td>Bottle with dispenser</td><td>Dispenser and mouth</td><td>Label</td></tr>
+          <tr><td>Tube</td><td>Cap</td><td>Label</td></tr>
+          <tr><td>Aerosol</td><td>Overcap</td><td>Container and decoration</td></tr>
+          <tr><td>Jar</td><td>Lid</td><td>Label</td></tr>
+        </tbody>
+      </table>
+      <figcaption>OPTICAIS reads the marking: OCR on the bottle and the batch on the tube crimp.</figcaption>
+    </div>
+    <div class="block"><h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Product-specific configuration</h3><ul class="options" style="--n:2">
+     <li class="option"><span class="hx"><i data-i="camera"></i></span><p>Inspection views to suit the container geometry</p></li>
+     <li class="option"><span class="hx"><i data-i="scan-text"></i></span><p>Recipes for batch, expiry date and codes for each product reference</p></li>
+    </ul></div>
+  </main><footer class="foot">3</footer>
+</section>
+
+<section class="page inner" aria-label="AIS Hopper">
+  <main class="page-content">
+    <h2>Cap inspection, container by container</h2>
+    <p class="lead">In AIS Hopper, high-resolution cameras and a deep learning model inspect the cap and mouth of glass, PET and derivative containers.</p>
+
+    <div class="block">
+      
+      <ul class="tiles" style="--n:4;--ar:1.12">
+        <li class="tile"><div class="frame"><img src="assets/dispenser-missing.jpg" alt="Threaded bottle mouth without its dispenser"></div><h3>Missing cap</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/dispenser-tilted.jpg" alt="Tilted dispenser on the bottle mouth"></div><h3>Tilted cap</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/jar-lid-tilted.jpg" alt="Jar with its lid lifted on one side"></div><h3>Incorrectly closed lid</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/aerosol-no-cap.jpg" alt="Aerosol without an overcap, exposing the actuator and valve"></div><h3>Missing overcap</h3></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <ul class="tiles" style="--n:3;--ar:1.74">
+        <li class="tile"><div class="frame"><img src="assets/hopper_screen-cap-label.jpg" alt="Cap and label inspection screen showing three views of the closure"></div><h3>Cap and label screen</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/hopper_software-live-view.jpg" alt="Live view of three caps with verification in the software" style="--fx:20%"></div><h3>Three live views of the cap</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/hopper-cosmetics.jpg" alt="AIS Hopper with conveyor and screen"></div><h3>Version with conveyor</h3></li>
+      </ul>
+    </div>
+
+    <div class="split block grow">
+      <figure class="photo cutout grow" style="--h:53mm;--pad:0mm"><div class="frame"><img src="assets/hopper-exterior.jpg" alt="AIS Hopper with its column and inspection head"></div></figure>
+      <div class="text">
+        <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Equipment</h3>
+        <table class="table"><tbody>
+          <tr><th scope="row">Cameras</th><td>Three colour cameras for side inspection of the cap; optional overhead camera for the mouth</td></tr>
+          <tr><th scope="row">Software</th><td>Proprietary deep learning engine, with programming-free setup using examples</td></tr>
+          <tr><th scope="row">Height</th><td>Automatic adjustment to suit the product reference</td></tr>
+          <tr><th scope="row">Throughput</th><td>Up to 30,000 units/hour</td></tr>
+          <tr><th scope="row">Rejection</th><td>Automatic progressive or impact rejection of defective units</td></tr>
+          <tr><th scope="row">Options</th><td>Product centring device and TrazAIS for traceability and serialisation</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </main>
+  <footer class="foot">4</footer>
+</section>
+
+<section class="page inner" aria-label="AIS REV 360">
+  <main class="page-content">
+    <h2>The label, around its entire perimeter</h2>
+    <p class="lead">In AIS REV 360, four colour cameras inspect the container through 360° without orienting it, with integrated Rosepetal artificial intelligence software.</p>
+
+    <figure class="photo cutout block" style="--h:69mm;--fx:50%;--fy:55%;--pad:0mm"><div class="frame"><img src="assets/rev360-studio.jpg" alt="AIS REV 360 with its conveyor and screen"></div></figure>
+
+    <div class="split block">
+      <figure class="photo" style="--h:69mm;--fx:100%"><div class="frame"><img src="assets/rev360_in-line.jpg" alt="AIS REV 360 on a production line, with its control panel and the conveyor exiting the tunnel"></div><figcaption>AIS REV 360 on a production line.</figcaption></figure>
+      <div class="text">
+        <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">What it inspects</h3>
+        <ul class="specs" style="grid-template-columns:1fr">
+          <li>Label presence, position and tilt, and relative position between labels</li>
+          <li>Double, inverted or lifted labels</li>
+          <li>Tears, wrinkles, folds, stains and print defects</li>
+          <li>Label integrity: logos, text and volume</li>
+          <li>QR codes, barcodes and OCR marking</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <ul class="tiles" style="--n:4;--ar:0.84">
+        <li class="tile"><div class="frame"><img src="assets/jar-no-label.jpg" alt="Frosted-glass jar without a label"></div><h3>Missing label</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/bottle-label-crooked.jpg" alt="Bottle with the front label applied at an angle"></div><h3>Tilted label</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/aerosol-dent.jpg" alt="Aerosol with a dent in its body"></div><h3>Damaged container</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/tube-lot-blurred.jpg" alt="Tube crimp with smeared batch and expiry date"></div><h3>Illegible marking</h3></li>
+      </ul>
+    </div>
+  </main>
+  <footer class="foot">5</footer>
+</section>
+
+<section class="page inner" aria-label="OPTICAIS">
+  <main class="page-content">
+    <h2>Reading and validation of printed content</h2>
+    <p class="lead">OPTICAIS reads text, codes and printed patterns and checks them against the criteria configured for each product, in line and in real time.</p>
+
+    <div class="block">
+      <ul class="tiles" style="--n:2;--ar:1.94">
+        <li class="tile"><div class="frame"><img src="assets/opticais_full-screen.jpg" alt="OPTICAIS inspection screen showing batch and expiry-date readings"></div><h3>Batch and expiry date</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/opticais_pack-date.jpg" alt="OPTICAIS screen showing a printed date on a container, read and marked in green"></div><h3>Date on the container</h3></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Readings and checks</h3>
+      <table class="table"><tbody>
+        <tr><th scope="row">OCR text</th><td>Batches, dates and serial numbers</td></tr>
+        <tr><th scope="row">1D codes</th><td>Presence, legibility and content</td></tr>
+        <tr><th scope="row">2D codes</th><td>Data Matrix and QR</td></tr>
+        <tr><th scope="row">Fixed patterns</th><td>Printed symbols and fixed patterns</td></tr>
+        <tr><th scope="row">Marking</th><td>Thermal transfer, TIJ, CIJ, laser, dot peen and scribing</td></tr>
+        <tr><th scope="row">Recipes</th><td>Product-specific, without programming</td></tr>
+      </tbody></table>
+    </div>
+
+    <div class="block">
+      <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">Equipment</h3>
+      <table class="table"><tbody>
+        <tr><th scope="row">Camera</th><td>Compact smart camera with high-resolution lens and lighting</td></tr>
+        <tr><th scope="row">Polariser</th><td>For satin-finish materials</td></tr>
+        <tr><th scope="row">Indicator</th><td>Integrated visual OK/NOK status indicator</td></tr>
+        <tr><th scope="row">Operation</th><td>Touchscreen panel PC</td></tr>
+      </tbody></table>
+    </div>
+
+    <div class="block">
+      <ul class="options" style="--n:2">
+        <li class="option"><span class="hx"><i data-i="scan-text"></i></span><p>Automated marking inspection</p></li>
+        <li class="option"><span class="hx"><i data-i="timer"></i></span><p>Real-time processing, up to 500 items per minute</p></li>
+        <li class="option"><span class="hx"><i data-i="factory"></i></span><p>Adaptable to different industrial environments</p></li>
+        <li class="option"><span class="hx"><i data-i="settings"></i></span><p>Intuitive interface and easy integration</p></li>
+        <li class="option"><span class="hx"><i data-i="chart-column"></i></span><p>Statistics and cloud backup</p></li>
+        <li class="option"><span class="hx"><i data-i="qr-code"></i></span><p>TrazAIS: traceability and serialisation</p></li>
+      </ul>
+    </div>
+  </main>
+  <footer class="foot">6</footer>
+</section>
+
+<section class="page inner" aria-label="On the line">
+  <main class="page-content">
+    <h2>A check at every stage of the line</h2>
+    <p class="lead">Each system is installed where the feature it inspects is produced: closure after capping, marking after printing and label after labelling.</p>
+
+    <div class="block">
+      <ul class="tiles" style="--n:3;--ar:1">
+        <li class="tile"><div class="frame"><img src="assets/hopper_in-line.jpg" alt="Column-mounted AIS Hopper above a bottle line" style="--fx:62%"></div><h3>AIS Hopper</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/carton-ocr-read-blurred.jpg" alt="Carton with batch and date read by OCR and marked in green" style="--fx:30%"></div><h3>OPTICAIS</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/rev360-trade-fair.jpg" alt="AIS REV 360 with its conveyor and screen at an industry exhibition" style="--fx:45%"></div><h3>AIS REV 360</h3></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <ol class="steps" style="--n:5">
+        <li class="step"><span class="hx">1</span><h3>Filling</h3></li>
+        <li class="step"><span class="hx">2</span><h3>Capping</h3><p>Cap and mouth, with AIS Hopper</p></li>
+        <li class="step"><span class="hx">3</span><h3>Marking</h3><p>OCR reading and validation on the container and carton, with OPTICAIS</p></li>
+        <li class="step"><span class="hx">4</span><h3>Labelling</h3><p>360° label and container inspection, with AIS REV 360</p></li>
+        <li class="step"><span class="hx">5</span><h3>Case packing</h3><p>Conforming units continue; defective units are rejected in line</p></li>
+      </ol>
+    </div>
+
+    <figure class="photo block grow"><div class="frame"><img src="assets/jar-line.jpg" alt="Cream jars with white lids moving in a row along a conveyor" style="--fy:62%"></div><figcaption>Cream jars on the conveyor, heading for capping and labelling.</figcaption></figure>
+  </main>
+  <footer class="foot">7</footer>
+</section>
+
+<section class="page inner last" aria-label="Benefits">
+  <main class="page-content">
+    <h2>Visible quality in every container</h2>
+    <p class="lead">Automatic inspection provides data from each production run to act on product quality and brand image.</p>
+
+    <figure class="photo block grow" style="--h:72mm;--fy:80%"><div class="frame"><img src="assets/af2026_stand-machines.jpg" alt="AIS Vision Systems inspection equipment on its Advanced Factories 2026 stand"></div><figcaption>AIS Vision Systems equipment at Advanced Factories 2026.</figcaption></figure>
+
+    <div class="block">
+      <ul class="options" style="--n:2">
+        <li class="option"><span class="hx"><i data-i="trending-up"></i></span><p>Greater productivity through automatic inspection</p></li>
+        <li class="option"><span class="hx"><i data-i="shield-check"></i></span><p>Support for regulatory compliance and traceability</p></li>
+        <li class="option"><span class="hx"><i data-i="award"></i></span><p>A consistent brand image in every unit</p></li>
+        <li class="option"><span class="hx"><i data-i="zap"></i></span><p>Integration into existing lines</p></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3 class="editorial-heading" style="font-weight:500;line-height:12pt;margin-bottom:4mm">A portfolio for every check</h3>
+      <table class="table"><tbody>
+        <tr><th scope="row">AIS Hopper</th><td>Cap inspection</td></tr>
+        <tr><th scope="row">AIS REV 360</th><td>All-round inspection</td></tr>
+        <tr><th scope="row">OPTICAIS</th><td>OCR reading and validation</td></tr>
+        <tr><th scope="row">TrazAIS</th><td>Traceability and serialisation</td></tr>
+      </tbody></table>
+    </div>
+  </main>
+  <footer class="band">
+    <h2>Send us samples</h2>
+    <div class="contacts"><span>www.aisvision.com</span><span>+34 931 003 035</span></div>
+    <div class="hexfield"></div>
+  </footer>
+</section>
+
+</body>
+</html>

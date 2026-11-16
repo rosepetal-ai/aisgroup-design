@@ -1,0 +1,4 @@
+{
+  "meta": {"lang": "es", "title": "AIS Hopper, sección de máquina", "footer": "AIS Vision Systems, AIS Hopper", "file": "ais-vision-systems_machine-section-hopper_es"},
+  "slides": [{"include": "../../../decks/sections/hopper.es.json"}]
+}

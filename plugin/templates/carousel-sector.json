@@ -1,0 +1,76 @@
+{
+  "name": "ais-vision-systems_carousel-sector_es_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "En una línea de conservas, la inspección puede abarcar el envase y el marcaje. El AIS REV 360 COMPACT revisa la lata a 360° con cámaras laterales, sin orientarla y a la velocidad de la línea. Las imágenes muestran el sistema en planta y ejemplos de detección en eventos. Cuéntanos cómo es tu línea",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/real/rev360-compact_can-line.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "Inspección de latas|a 360°|*en tu línea*"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360-compact_cans-entering.jpg",
+      "split": 0.6,
+      "headline": "Cada lata entra|en la inspección",
+      "bg": "white"
+    },
+    {
+      "type": "grid",
+      "headline": "Del golpe|a la fecha impresa",
+      "tile": "5 / 6",
+      "hex": "none",
+      "items": [
+        {
+          "src": "@lib/media/advanced-factories-2026/af26-can-demo_dents-tile.png",
+          "text": "Golpes dentro de la lata",
+          "detail": "Rosepetal, en Advanced Factories 2026",
+          "focus": [
+            50,
+            60
+          ],
+          "scale": 1.35
+        },
+        {
+          "src": "@lib/media/advanced-factories-2026/af26-can-demo_date-tile.png",
+          "text": "La fecha, leída en la tapa",
+          "detail": "OPTICAIS, en Advanced Factories 2026",
+          "focus": [
+            40,
+            62
+          ],
+          "scale": 1.35
+        }
+      ],
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360-compact_cans-on-guide.jpg",
+      "split": 0.6,
+      "headline": "Sin orientar la lata,|a la velocidad de la línea",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "¿Hablamos|*de tu línea*?",
+      "action": "Cuéntanos cómo es tu línea",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "scale": 1.15
+    }
+  ]
+}

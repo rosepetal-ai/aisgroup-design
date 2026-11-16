@@ -1,0 +1,22 @@
+{
+  "name": "ais-vision-systems_post-news-cluster_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "The Packaging Cluster came to see us in Sabadell: we showed how we take machine vision from the lab to the line. Thank you for coming. Tell us about your line",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/real/ais_packaging-cluster-visit.jpg",
+      "focus": [
+        50,
+        55
+      ],
+      "headline": "A visit to our offices"
+    }
+  ]
+}

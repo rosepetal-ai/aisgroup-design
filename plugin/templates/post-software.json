@@ -1,0 +1,24 @@
+{
+  "name": "rosepetal_post-software_es_template",
+  "kind": "post",
+  "brand": "rosepetal",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Rosepetal inspecciona barras de pan en tiempo real: mide el largo y el ancho de las piezas, marca las que no cumplen y cuenta los errores por tipo. La imagen muestra la preparación de un conjunto de imágenes de pan en Rosepetal. Solicita una demo",
+  "shots": [
+    {
+      "type": "showcase",
+      "look": "light",
+      "src": "@lib/media/real/rosepetal_bread-formation-dataset.webp",
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "Inspección de pan|*con tus imágenes*",
+      "fit": "contain",
+      "alt": "Conjunto de imágenes de barras de pan en la interfaz clara de Rosepetal."
+    }
+  ]
+}

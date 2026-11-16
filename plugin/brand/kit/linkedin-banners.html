@@ -1,0 +1,120 @@
+<!doctype html>
+<!-- LinkedIn banners: the company page cover and the personal profile banner
+     of each brand with a LinkedIn page (AIS Vision Systems, AIS Group, Rosepetal; links in each site's footer).
+     Each is the brand blue ground, the hexagon landscape (Rolling, white on blue; LinkedIn only, never on print) and one
+     approved line, nothing above it, every line ending with a full stop:
+     - AIS Vision Systems: the company line "Engineering peace of mind." (English on every version);
+     - AIS Group: its site's headline "Engineering the autonomous factory.";
+     - Rosepetal: its site's headline "Computer vision. Ready for production."
+     The landscape is linkedin-landscape-company.svg / -personal.svg, drawn by linkedin_banner_fields.py next to
+     landscape.py (plugin/print/). Its unchanged edges fade in opacity at the horizon and from the left, with a
+     broad feathered clearing and an opaque inner mask round the words and the profile logo. Moving the words means
+     redrawing the field.
+     Sizes from LinkedIn Help (Page image specifications, read 2026-11-10): company cover 1512 x 256, at most 3 MB;
+     profile background 1584 x 396. Both export at 2x.
+     Safe zones (LinkedIn moves its overlays between versions, so these are conservative):
+     - company cover: the page logo covers about x 0-410 in the lower half on desktop; phones show about x 244-1268 and
+       put the logo over about x 290-490 at the foot. The words (58 px) start at x 520, 40 px from the top, and end before x 1080;
+       the landscape rises to about a third of the height on the right and fills the band under the words, so phones still show it.
+     - personal: the profile photo covers about x 0-634 in the lower 60 %; phones keep about x 200-1384. Words (60 px) and logo
+       hang from x 664; the landscape rises almost to the top right of the words and runs under them, clear of the logo. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LinkedIn banners | Marketing kit</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  .kit-sec { max-width: 1600px; margin: 64px auto 24px; font-size: 20px; line-height: 1.3; font-weight: 500; letter-spacing: -0.02em; color: var(--ais-neutral-900); }
+  .artboard .words { position: absolute; }
+  .artboard .hl { letter-spacing: -0.035em; line-height: 1.04; }
+  .artboard .logo { position: absolute; }
+  /* The hexagon landscape, the full artboard (its own keep-out leaves the words and the logo clear). */
+  .land { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .artboard .words, .artboard .logo { z-index: 1; }
+
+  /* Company page cover, 1512 x 256. No logo: LinkedIn lays the page logo over the lower left. */
+  .co { width: 1512px; height: 256px; }
+  .co .words { left: 520px; top: 40px; }
+  .co .hl { font-size: 58px; white-space: nowrap; }
+
+  /* Personal profile banner, 1584 x 396. The profile photo covers the lower left; words and logo hang right of it. */
+  .pe { width: 1584px; height: 396px; }
+  .pe .words { left: 664px; top: 64px; }
+  .pe .hl { font-size: 60px; white-space: nowrap; }
+  .pe .logo { left: 664px; bottom: 64px; }
+  .pe .logo.aisvs { width: 150px; }
+  .pe .logo.aisg { width: 120px; }
+  .pe .logo.rp { width: 200px; }
+
+  /* Reference boards: the zones LinkedIn covers. Not for publishing. */
+  .guides .zone { position: absolute; border: 1px dashed #F87171; z-index: 2; }
+  .guides .zone.safe { border-color: #4ADE80; }
+  .guides .zone span { position: absolute; left: 6px; top: 4px; font-size: 12px; line-height: 1.3; font-weight: 500; color: #FFFFFF; background: #0F1729; padding: 1px 6px; }
+</style>
+</head>
+<body class="kit" data-medium="screen">
+<header class="kit-head">
+  <h1>LinkedIn banners</h1>
+  <p>The company page cover and the personal profile banner of AIS Vision Systems, AIS Group and Rosepetal, each at its pixel size and exported at 2x. The words stay clear of the page logo and the profile photo, and inside what phones show; the hexagon landscape never runs behind them.</p>
+</header>
+
+<h2 class="kit-sec">Company page covers</h2>
+<div class="board"><div class="board-label"><b>AIS Vision Systems</b><span>1512 × 256 px</span></div>
+<section class="artboard co g-blue" data-id="company-ais-vision-systems" lang="en">
+  <img class="land" src="linkedin-landscape-company-ais-vision-systems.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering</span><span>peace of mind.</span></p></div>
+</section></div>
+<div class="board"><div class="board-label"><b>AIS Group</b><span>1512 × 256 px</span></div>
+<section class="artboard co g-blue" data-id="company-ais-group" lang="en">
+  <img class="land" src="linkedin-landscape-company-ais-group.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering the</span><span>autonomous factory.</span></p></div>
+</section></div>
+<div class="board"><div class="board-label"><b>Rosepetal</b><span>1512 × 256 px</span></div>
+<section class="artboard co g-blue" data-id="company-rosepetal" lang="en">
+  <img class="land" src="linkedin-landscape-company-rosepetal.svg" alt="">
+  <div class="words"><p class="hl"><span>Computer vision.</span><span>Ready for production.</span></p></div>
+</section></div>
+
+<h2 class="kit-sec">Personal profile banners</h2>
+<div class="board"><div class="board-label"><b>AIS Vision Systems</b><span>1584 × 396 px</span></div>
+<section class="artboard pe g-blue" data-id="personal-ais-vision-systems" lang="en">
+  <img class="land" src="linkedin-landscape-personal-ais-vision-systems.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering</span><span>peace of mind.</span></p></div>
+  <img class="logo aisvs" src="../logos/ais-vision-systems-white.svg" alt="AIS Vision Systems">
+</section></div>
+<div class="board"><div class="board-label"><b>AIS Group</b><span>1584 × 396 px</span></div>
+<section class="artboard pe g-blue" data-id="personal-ais-group" lang="en">
+  <img class="land" src="linkedin-landscape-personal-ais-group.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering the</span><span>autonomous factory.</span></p></div>
+  <img class="logo aisg" src="../logos/ais-group-white.svg" alt="AIS Group">
+</section></div>
+<div class="board"><div class="board-label"><b>Rosepetal</b><span>1584 × 396 px</span></div>
+<section class="artboard pe g-blue" data-id="personal-rosepetal" lang="en">
+  <img class="land" src="linkedin-landscape-personal-rosepetal.svg" alt="">
+  <div class="words"><p class="hl"><span>Computer vision.</span><span>Ready for production.</span></p></div>
+  <img class="logo rp" src="../logos/rosepetal-white.svg" alt="Rosepetal">
+</section></div>
+
+<h2 class="kit-sec">LinkedIn zones (reference only, not for publishing)</h2>
+<div class="board"><div class="board-label"><b>Company cover, zones</b><span>Red: under the page logo or cut on phones. Green: the words</span></div>
+<section class="artboard co g-blue guides" data-id="zones-company" lang="en">
+  <img class="land" src="linkedin-landscape-company.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering</span><span>peace of mind.</span></p></div>
+  <div class="zone" style="left:0;width:410px;top:128px;bottom:0"><span>Page logo, desktop</span></div>
+  <div class="zone" style="left:290px;width:200px;top:150px;bottom:0"><span>Phone logo</span></div>
+  <div class="zone" style="left:0;width:244px;top:0;height:120px"><span>Phone</span></div>
+  <div class="zone" style="right:0;width:244px;top:0;bottom:0"><span>Phone</span></div>
+  <div class="zone safe" style="left:510px;width:580px;top:30px;height:142px"><span>Words</span></div>
+</section></div>
+<div class="board"><div class="board-label"><b>Personal banner, zones</b><span>Red: under the profile photo or cut on phones. Green: words and logo</span></div>
+<section class="artboard pe g-blue guides" data-id="zones-personal" lang="en">
+  <img class="land" src="linkedin-landscape-personal.svg" alt="">
+  <div class="words"><p class="hl"><span>Engineering</span><span>peace of mind.</span></p></div>
+  <img class="logo aisvs" src="../logos/ais-vision-systems-white.svg" alt="AIS Vision Systems">
+  <div class="zone" style="left:0;width:634px;top:158px;bottom:0"><span>Profile photo</span></div>
+  <div class="zone" style="left:0;width:200px;top:0;height:150px"><span>Phone</span></div>
+  <div class="zone" style="right:0;width:200px;top:0;bottom:0"><span>Phone</span></div>
+  <div class="zone safe" style="left:654px;width:730px;top:48px;bottom:48px"><span>Words and logo</span></div>
+</section></div>
+</body>
+</html>
