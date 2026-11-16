@@ -20,7 +20,7 @@ Keep a free margin of **x on all four sides**, where **x is one quarter of the l
 
 | Logo | On screen | In print |
 | --- | ---: | ---: |
-| AIS Group | 72 px | 15 mm |
+| AIS Group | 48 px | 15 mm |
 | AIS Vision Systems | 100 px | 18 mm |
 | AIS Vision Automation | 110 px | 20 mm |
 | AIS Scanology | 95 px | 17 mm |

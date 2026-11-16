@@ -277,7 +277,7 @@
   const ease = { ...Object.fromEntries(Object.entries(CURVE).map(([k, v]) => [k, bezier(v)])), linear: (x) => Math.min(1, Math.max(0, x)) }; // linear: counters and progress only
 
   // Optical logo widths: equal visual weight across the family (square root of each logo's proportions).
-  const LOGO_MIN = { 'ais-group': 72, 'ais-vision-systems': 100, 'ais-vision-automation': 110, 'ais-scanology': 95, 'rosepetal': 130 };
+  const LOGO_MIN = { 'ais-group': 48, 'ais-vision-systems': 100, 'ais-vision-automation': 110, 'ais-scanology': 95, 'rosepetal': 130 };
   const LOGO_RATIO = { 'ais-group': 259.52 / 195, 'ais-vision-systems': 127.6 / 87.66, 'ais-vision-automation': 3735.581 / 2596.9283, 'ais-scanology': 91.14 / 62.62, 'rosepetal': 117.56 / 22.34 };
   const SIZES = { '16x9': [1920, 1080], '1x1': [1080, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920], '191x1': [1200, 628] };
   // Title safe: 5% of each side; vertical video also clears the platform interface (top 270, bottom 670, sides 120).

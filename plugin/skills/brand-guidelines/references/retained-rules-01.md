@@ -488,7 +488,7 @@ Source: plugin/skills/brand-guidelines/SKILL.md:32.
 ## AIS-617c293d85dc
 
 <!-- AIS-617c293d85dc -->
-Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.
+Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.
 
 Source: plugin/skills/brand-guidelines/SKILL.md:33.
 

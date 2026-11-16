@@ -133,7 +133,7 @@ Source: plugin/skills/brand-review/SKILL.md:37.
 ## AIS-afe518d1ab8c
 
 <!-- AIS-afe518d1ab8c -->
-**Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 72 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text.
+**Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 48 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text.
 
 Source: plugin/skills/brand-review/SKILL.md:38.
 

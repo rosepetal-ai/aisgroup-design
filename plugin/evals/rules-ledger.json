@@ -3192,18 +3192,18 @@
     },
     {
       "id": "AIS-617c293d85dc",
-      "rule": "Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.",
+      "rule": "Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.",
       "source": "plugin/skills/brand-guidelines/SKILL.md:33",
       "sources": [
         {
           "file": "plugin/skills/brand-guidelines/SKILL.md",
           "line": 33,
-          "text": "- Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide."
+          "text": "- Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide."
         },
         {
           "file": "guide/dist/en/brand.md",
           "line": 101,
-          "text": "- Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide."
+          "text": "- Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide."
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -3668,13 +3668,13 @@
     },
     {
       "id": "AIS-afe518d1ab8c",
-      "rule": "**Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 72 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text.",
+      "rule": "**Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 48 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text.",
       "source": "plugin/skills/brand-review/SKILL.md:38",
       "sources": [
         {
           "file": "plugin/skills/brand-review/SKILL.md",
           "line": 38,
-          "text": "8. **Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 72 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text."
+          "text": "8. **Logos.** Ours: the supplied file, right version for the ground, clear space, signing small at the foot, not leading (about 120 px wide on a 1080 px post, 140 px on a 1920 slide, 20 mm on A4 (Rosepetal 38 mm); never under the minimums: AIS Vision Systems 100 px, AIS Group 48 px, Rosepetal 130 px). The original marketing customer-logo wall is approved. For other third-party logos, use the actual rights/permission evidence; otherwise remove them and write the name in text."
         }
       ],
       "ownerSkill": "brand-review",
@@ -15603,28 +15603,28 @@
     },
     {
       "id": "AIS-ea5fb2f37cc8",
-      "rule": "| AIS Group | 72 px | 15 mm |",
+      "rule": "| AIS Group | 48 px | 15 mm |",
       "source": "plugin/skills/brand-guidelines/references/logos.md:21",
       "sources": [
         {
           "file": "plugin/skills/brand-guidelines/references/logos.md",
           "line": 21,
-          "text": "| AIS Group | 72 px | 15 mm |"
+          "text": "| AIS Group | 48 px | 15 mm |"
         },
         {
           "file": "guide/src/content/guide/en/logos.mdx",
           "line": 39,
-          "text": "| AIS Group | 72 px | 15 mm |"
+          "text": "| AIS Group | 48 px | 15 mm |"
         },
         {
           "file": "guide/src/content/guide/en/logos.mdx",
           "line": 41,
-          "text": "| AIS Group | 72 px | 15 mm |"
+          "text": "| AIS Group | 48 px | 15 mm |"
         },
         {
           "file": "plugin/skills/brand-guidelines/references/logos.md",
           "line": 23,
-          "text": "| AIS Group | 72 px | 15 mm |"
+          "text": "| AIS Group | 48 px | 15 mm |"
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -61574,13 +61574,13 @@
     },
     {
       "id": "AIS-906ceb8144d2",
-      "rule": "'Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.'",
+      "rule": "'Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.'",
       "source": "guide/src/content/guide/en/logos.mdx:6",
       "sources": [
         {
           "file": "guide/src/content/guide/en/logos.mdx",
           "line": 6,
-          "text": "  - 'Minimum widths: AIS Group 72 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.'"
+          "text": "  - 'Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.'"
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -64589,13 +64589,13 @@
     },
     {
       "id": "AIS-670305b84b76",
-      "rule": "**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 72 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm).",
+      "rule": "**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 48 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm).",
       "source": "brand-decisions:67",
       "sources": [
         {
           "file": "brand-decisions",
           "line": 67,
-          "text": "**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 72 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm)."
+          "text": "**The logo signs, it does not lead.** Keep it small: about 20 mm on A4, 18 mm on a business card, 100 px in an email signature, 140 px on a 1920 slide. Minimums: AIS Group 48 px (15 mm in print), AIS Vision Systems 100 px (18 mm), Rosepetal 130 px (24 mm)."
         }
       ],
       "ownerSkill": "presentation",
@@ -70904,13 +70904,13 @@
     },
     {
       "id": "AIS-702cebe41dca",
-      "rule": "Anchos mínimos: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.",
+      "rule": "Anchos mínimos: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.",
       "source": "guide/dist/es/brand.md:101",
       "sources": [
         {
           "file": "guide/dist/es/brand.md",
           "line": 101,
-          "text": "- Anchos mínimos: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px."
+          "text": "- Anchos mínimos: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px."
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -73844,13 +73844,13 @@
     },
     {
       "id": "AIS-d2812e24da8a",
-      "rule": "Amplades mínimes: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.",
+      "rule": "Amplades mínimes: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.",
       "source": "guide/dist/ca/brand.md:101",
       "sources": [
         {
           "file": "guide/dist/ca/brand.md",
           "line": 101,
-          "text": "- Amplades mínimes: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px."
+          "text": "- Amplades mínimes: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px."
         }
       ],
       "ownerSkill": "brand-guidelines",

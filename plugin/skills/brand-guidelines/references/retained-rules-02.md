@@ -229,7 +229,7 @@ Source: plugin/skills/brand-guidelines/references/logos.md:20.
 ## AIS-ea5fb2f37cc8
 
 <!-- AIS-ea5fb2f37cc8 -->
-| AIS Group | 72 px | 15 mm |
+| AIS Group | 48 px | 15 mm |
 
 Source: plugin/skills/brand-guidelines/references/logos.md:21.
 

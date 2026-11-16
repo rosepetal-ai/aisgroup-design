@@ -285,7 +285,7 @@ Source: guide/dist/ca/brand.md:100.
 ## AIS-d2812e24da8a
 
 <!-- AIS-d2812e24da8a -->
-Amplades mínimes: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.
+Amplades mínimes: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.
 
 Source: guide/dist/ca/brand.md:101.
 
