@@ -1,0 +1,51 @@
+---
+// The call to action: the label and a separate arrow segment, square. The default size is the brand's
+// (--web-button-size); compact is 44 px, for headers and cards.
+import type { HTMLAttributes } from 'astro/types';
+import Arrow from '../arrow/Arrow.astro';
+type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'white';
+  size?: 'default' | 'compact';
+  arrow?: boolean;
+};
+const { href, variant = 'primary', size = 'default', arrow = true, class: className, ...attributes } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+<Tag href={href} {...attributes} class:list={['web-split-button', `web-split-button--${variant}`, { 'web-split-button--compact': size === 'compact', 'web-split-button--plain': !arrow }, className]}>
+  <span class="web-split-button__label"><slot /></span>
+  {arrow && <span class="web-split-button__arrow" aria-hidden="true"><slot name="icon"><Arrow /></slot></span>}
+</Tag>
+<style>
+  .web-split-button {
+    --split-size: var(--web-button-size); --split-icon: var(--web-button-icon); --split-inset: var(--web-button-inset); --split-border: 0px;
+    display: inline-flex; box-sizing: border-box; align-items: center; justify-content: space-between; flex-shrink: 0;
+    min-height: var(--split-size); gap: var(--split-inset); padding: 0 0 0 var(--split-inset);
+    border: var(--split-border) solid transparent; border-radius: 0; background: var(--web-action); color: var(--web-action-ink);
+    font: var(--ais-text-label-weight) var(--ais-text-label) / var(--ais-text-label-leading) var(--ais-font-primary);
+    letter-spacing: var(--ais-text-label-tracking); text-decoration: none; white-space: nowrap; cursor: pointer;
+    transition: background-color var(--ais-duration-moderate-1) var(--ais-ease-standard), color var(--ais-duration-moderate-1) var(--ais-ease-standard), border-color var(--ais-duration-moderate-1) var(--ais-ease-standard);
+  }
+  .web-split-button--compact { --split-size: 44px; --split-icon: 20px; --split-inset: var(--ais-space-200); }
+  .web-split-button__label { min-width: 0; }
+  .web-split-button__arrow {
+    display: grid; place-items: center; flex: none; box-sizing: border-box;
+    width: calc(var(--split-size) - 2 * var(--split-border)); height: calc(var(--split-size) - 2 * var(--split-border));
+    background: linear-gradient(color-mix(in srgb, currentColor var(--web-button-divider), transparent), color-mix(in srgb, currentColor var(--web-button-divider), transparent)) left / 1px 100% no-repeat;
+  }
+  .web-split-button__arrow > :global(svg) { display: block; flex: none; width: var(--split-icon); height: var(--split-icon); }
+  .web-split-button:not(:disabled):is(:hover, :focus-visible) { background: var(--web-action-hover); color: var(--web-action-ink); }
+  .web-split-button:not(:disabled):active { background: var(--web-action-press); filter: var(--web-button-press); transition-duration: var(--ais-duration-fast-1); }
+  .web-split-button--secondary { --split-border: 1px; background: transparent; color: var(--web-ink); border-color: var(--web-line-strong); }
+  .web-split-button--secondary:not(:disabled):is(:hover, :focus-visible) { background: var(--web-hover-fill); color: var(--web-ink); border-color: var(--web-ink); }
+  .web-split-button--white { background: var(--ais-neutral-0); color: var(--ais-blue-700); }
+  .web-split-button--white:not(:disabled):is(:hover, :focus-visible) { background: var(--ais-blue-50); color: var(--ais-blue-700); }
+  .web-split-button--plain { justify-content: center; padding-inline: var(--ais-space-200); }
+  .web-split-button:disabled { cursor: not-allowed; opacity: .55; }
+  .web-split-button:focus-visible { outline: 2px solid var(--web-focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .web-split-button__arrow :global(path) { transition: transform var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+    .web-split-button:not(:disabled):is(:hover, :focus-visible) .web-split-button__arrow :global(path) { transform: translateX(var(--ais-distance-nudge)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .web-split-button { transition: none; } }
+</style>

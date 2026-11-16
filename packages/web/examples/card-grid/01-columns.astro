@@ -1,0 +1,10 @@
+---
+// Two, three or four columns with 48 px gaps; four and three drop to two on tablets and everything is one column on phones.
+import Card from '@aisgroup/web/components/card'
+import CardGrid from '@aisgroup/web/components/card-grid'
+---
+<CardGrid columns={3} style="width: 100%">
+  <Card layout="text" href="/a/" title="Food and beverage" description="Labels, caps and fill levels." />
+  <Card layout="text" href="/b/" title="Pharma" description="Codes, seals and serialisation." />
+  <Card layout="text" href="/c/" title="Logistics" description="Parcels, pallets and labels." />
+</CardGrid>

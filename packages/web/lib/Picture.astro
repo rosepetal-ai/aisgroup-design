@@ -1,0 +1,11 @@
+---
+// A picture from the site's public/ folder, with its own width and height, so the page keeps its layout while it loads.
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { imageMetadata } from 'astro/assets/utils';
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'img'> & { src: string; alt: string };
+const { src, alt, ...attributes } = Astro.props;
+const size = src.startsWith('/') ? await readFile(join(process.cwd(), 'public', src)).then((file) => imageMetadata(file, src)).catch(() => undefined) : undefined;
+---
+<img {...attributes} src={src} alt={alt} width={size?.width} height={size?.height} />

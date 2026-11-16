@@ -1,0 +1,122 @@
+
+
+@import "tailwindcss";
+@source not "../../guide";
+@import "../../../packages/design/styles.css";
+@plugin "@tailwindcss/typography";
+
+/* The Assets page's previews, on white or on dark. */
+@theme inline {
+  --color-backdrop-light: var(--fixed-light);
+  --color-backdrop-dark: var(--fixed-dark);
+}
+
+/* Light-mode surface tones to compare (Playground tools, useTone): only the page, cards and grey
+   panels move; menus, popovers and dialogs stay white, the top layer. */
+html[data-tone='page']:not(.dark) {
+    --page: #e9eef4;
+}
+html[data-tone='soft']:not(.dark) {
+    --page: #e5eaf0;
+    --card: var(--neutral-50);
+    --muted: var(--neutral-100);
+    --inset: var(--neutral-100);
+    --popover: var(--neutral-0);
+}
+html[data-tone='grey']:not(.dark) {
+    --page: #dfe5ec;
+    --card: var(--neutral-100);
+    --muted: #eaeff4;
+    --inset: #eaeff4;
+    --popover: var(--neutral-0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-sans;
+    }
+}
+
+/* Unlayered on purpose: the Artifact viewer injects an unlayered body reset
+   (off-white background, system font) that would beat `@layer base`. */
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family);
+}
+
+/* Tailwind v4 dropped `cursor: pointer` on buttons from its preflight (v3, and so rosepetal-ui, had it).
+   Restore it for every clickable control, including reka-ui ones (checkbox, radio, switch, select, toggle,
+   menu items), and use `not-allowed` when disabled like .rp-btn-*:disabled. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  [role="option"]:not([data-disabled]),
+  [role="menuitem"]:not([data-disabled]),
+  [role="menuitemcheckbox"]:not([data-disabled]),
+  [role="menuitemradio"]:not([data-disabled]),
+  [role="tab"]:not(:disabled),
+  label:has(> button:not(:disabled)),
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"]:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* Transparency checkerboard for the asset previews, built from theme tokens. */
+@utility bg-checker {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(45deg, var(--muted) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--muted) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--muted) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--muted) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+/* Scrollbars are never shown (user's rule): everything still scrolls with wheel, touch and keys,
+   just without a visible bar. If a design ever needs a visible one, opt in with `scrollbar-visible`. */
+@layer base {
+  * {
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* A thin bar in the theme's colours (the field-border grey on a clear track) where one is wanted
+   (e.g. Labeling's mosaic). */
+@utility scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: var(--input) transparent;
+  &::-webkit-scrollbar {
+    display: block;
+  }
+}
+
+[data-slot="select-trigger"]:not(:disabled),
+[data-slot="select-item"]:not([data-disabled]),
+[data-slot="combobox-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-checkbox-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-radio-item"]:not([data-disabled]),
+[data-slot="dropdown-menu-sub-trigger"]:not([data-disabled]),
+
+[data-slot="dialog-overlay"],
+
+[data-slot="select-content"],
+[data-slot="combobox-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="dropdown-menu-sub-content"],
+

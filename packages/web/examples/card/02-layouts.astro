@@ -1,0 +1,13 @@
+---
+// Text puts a rule on top instead of a picture, with a text action; row is for long lists, a thumbnail beside the title.
+import Card from '@aisgroup/web/components/card'
+import CardGrid from '@aisgroup/web/components/card-grid'
+---
+<CardGrid columns={2} style="width: 100%">
+  <Card layout="text" href="/research/" title="Research" description="Papers and datasets from our team." action="Read more" />
+  <Card layout="text" href="/flows/" title="Flows marketplace" description="Ready workflows for common inspections." action="Open the marketplace" />
+</CardGrid>
+<CardGrid layout="row" columns={2} style="width: 100%">
+  <Card layout="row" href="#" image="/web/ais-vision/industries/food-beverage.webp" title="Edge AI on the production line" />
+  <Card layout="row" href="#" image="/imagery/machine-1.webp" title="Label inspection at line speed" />
+</CardGrid>

@@ -1,0 +1,111 @@
+/* The websites' tokens, in three layers: the brand's core tokens (brand.css, the guide's file), the web roles every
+ * component reads, and each brand's settings, chosen with data-brand on <html>. A dark section or theme sets the roles
+ * again; the components never change. */
+@import './brand.css';
+
+:root {
+  --web-page: var(--ais-neutral-0);
+  --web-surface: var(--ais-neutral-50);
+  --web-section: var(--ais-neutral-100);
+  --web-ink: var(--ais-neutral-900);
+  --web-muted: var(--ais-neutral-600);
+  --web-line: var(--ais-neutral-200);
+  --web-line-strong: var(--ais-neutral-500);
+  --web-action: var(--ais-blue-700);
+  --web-action-ink: var(--ais-neutral-0);
+  --web-action-hover: var(--ais-blue-800);
+  --web-action-press: var(--ais-blue-950);
+  --web-link: var(--ais-blue-500);
+  --web-link-hover: var(--ais-blue-600);
+  --web-hover-fill: var(--ais-neutral-100);
+  --web-focus: var(--ais-blue-500);
+  --web-band: var(--ais-blue-700);
+  --web-band-ink: var(--ais-neutral-0);
+  --web-footer: var(--ais-blue-800);
+  --web-footer-ink: var(--ais-blue-200);
+
+  --web-button-size: 52px;
+  --web-button-icon: 24px;
+  --web-button-inset: var(--ais-space-300);
+  --web-button-divider: 20%;
+  --web-button-press: none;
+  --web-link-offset: 5px;
+  --web-link-card-end: 0;
+  --web-breadcrumb-icon-shrink: 0;
+  --web-logo-height: 44px;
+}
+
+/* AIS Group lines up the actions of cards in a row, whatever the length of their copy. */
+[data-brand="ais-group"] {
+  --web-link-card-end: auto;
+}
+
+/* AIS Vision lets the chevrons of a long trail narrow before its last page is cut. */
+[data-brand="ais-vision"] {
+  --web-breadcrumb-icon-shrink: 1;
+}
+
+/* Rosepetal keeps one 44 px size for every call to action. */
+[data-brand="rosepetal"] {
+  --web-action-press: var(--ais-blue-900);
+  --web-button-size: 44px;
+  --web-button-icon: 20px;
+  --web-button-inset: var(--ais-space-200);
+  --web-button-divider: 13%;
+  --web-button-press: brightness(.94);
+  --web-link-offset: 4px;
+  --web-logo-height: 27px;
+}
+
+:root {
+  --web-rule: var(--ais-neutral-300);   /* the rule under a table's column titles */
+  --web-figure: var(--ais-blue-700);    /* a key figure's number */
+}
+
+/* Emphasis: Semibold in the text's own colour; never colour, italics, underline or capitals. */
+:where(strong, b) { font-weight: 600; color: inherit; }
+
+/* Table (guide, Documents and presentations > Table). Column titles in Small Semibold secondary text over the rule; rows
+   split by hairlines, none after the last; no fills, stripes, frames or vertical rules. Numbers right-aligned (.num) in
+   tabular figures (on number cells only: Inter draws the hyphen digit-wide in tabular figures, so RS-232 would read
+   RS - 232), the unit once in the column title or the row label. 12 px above and below, 24 px between columns,
+   the outer columns flush with the text. Without a header row (.ais-table--spec) it is the specification block. */
+.ais-table-wrap { max-width: 100%; overflow-x: auto; }
+.ais-table { width: 100%; border-collapse: collapse; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--web-ink); }
+.ais-table :is(th, td) { padding: var(--ais-space-150) var(--ais-space-300) var(--ais-space-150) 0; border-bottom: 1px solid var(--web-line); text-align: left; vertical-align: top; font-weight: 400; }
+.ais-table :is(th, td):last-child { padding-right: 0; }
+.ais-table thead th { padding-top: 0; vertical-align: bottom; font-weight: 600; color: var(--web-muted); border-bottom-color: var(--web-rule); }
+.ais-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* Value columns share the width left by the first column equally (set the first with a col, the table lays out fixed). */
+.ais-table:has(> colgroup) { table-layout: fixed; }
+.ais-table .num svg { display: inline-block; vertical-align: -3px; }
+.ais-table tbody:last-child > tr:last-child > * { border-bottom: 0; }
+/* A long table in groups: one tbody per group, its name as the first row, in ink over the rule. */
+.ais-table tr.group > th { padding-top: var(--ais-space-400); font-weight: 600; color: var(--web-ink); border-bottom-color: var(--web-rule); }
+.ais-table tbody > tr:has(+ tr.group) > *, .ais-table tbody:has(+ tbody > tr.group) > tr:last-child > * { border-bottom: 0; }
+.ais-table caption { caption-side: bottom; padding-top: var(--ais-space-200); text-align: left; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--web-muted); }
+.ais-table--spec tbody th { width: 33%; color: var(--web-muted); }
+@media (max-width: 599px) {
+  .ais-table-wrap > .ais-table:not(.ais-table--spec) { min-width: 560px; }
+  .ais-table--spec, .ais-table--spec :is(tbody, tr, th, td) { display: block; width: auto; }
+  .ais-table--spec tbody th { padding-bottom: 0; border-bottom: 0; }
+}
+
+/* Key figures: one to three in a row. The number in brand blue (Title, Medium), then what it counts (Body, Medium, ink),
+   then its condition (Small, secondary). No box, no icon. */
+.ais-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--ais-space-500) var(--ais-grid-gap); margin: 0; }
+.ais-figures > div { display: flex; flex-direction: column; min-width: 0; }
+.ais-figures dd { order: -1; margin: 0 0 var(--ais-space-150); color: var(--web-figure); font-size: var(--ais-text-title); line-height: var(--ais-text-title-leading); letter-spacing: var(--ais-text-title-tracking); font-weight: var(--ais-text-title-weight); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ais-figures dt { max-width: 30ch; color: var(--web-ink); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); font-weight: 500; }
+.ais-figures .condition { margin: var(--ais-space-050) 0 0; max-width: 34ch; color: var(--web-muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+
+/* Quote: the exact words (« » in Spanish and Catalan, “ ” in English) in Subheading, Medium, ink; the author under them in
+   Small: the name in Semibold ink, the role in secondary text. No quote glyph, rule, fill or italics. */
+.ais-quote { margin: 0; max-width: 40rem; }
+.ais-quote blockquote { margin: 0; }
+.ais-quote blockquote p { margin: 0; color: var(--web-ink); font-size: var(--ais-text-subheading); line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); font-weight: var(--ais-text-subheading-weight); text-wrap: balance; }
+.ais-quote figcaption { margin-top: var(--ais-space-200); color: var(--web-muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+.ais-quote figcaption strong { color: var(--web-ink); }
+
+/* Note: one qualifier under the block it qualifies, Small, secondary text. No label, fill, border or icon. */
+.ais-note { margin: var(--ais-space-300) 0 0; max-width: var(--ais-measure); color: var(--web-muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }

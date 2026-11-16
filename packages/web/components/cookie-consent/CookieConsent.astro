@@ -1,0 +1,56 @@
+---
+// The cookie notice: one ink bar at the bottom, the same on every theme. Settings is a quiet text action; Reject all and
+// Accept all are white and of equal weight. Settings opens Necessary, Analytics and Marketing.
+// It renders hidden; the site's consent script shows it and handles the data-cookie-* buttons.
+interface Props {
+  text: {
+    title: string; message: string; policy: string; settings: string; reject: string; accept: string; save: string;
+    necessary: string; necessaryInfo: string; analytics: string; analyticsInfo: string; marketing: string; marketingInfo: string;
+  };
+  policyHref: string;
+}
+const { text: c, policyHref } = Astro.props;
+---
+<div id="cookie-banner" class="web-cookie-bar" role="dialog" aria-live="polite" aria-label={c.title} hidden>
+  <div class="web-cookie-bar__row">
+    <p class="web-cookie-bar__text">{c.message} <a href={policyHref}>{c.policy}</a></p>
+    <div class="web-cookie-bar__actions">
+      <button type="button" data-cookie-settings-toggle class="web-cookie-bar__quiet" aria-expanded="false" aria-controls="cookie-settings">{c.settings}</button>
+      <button type="button" data-cookie-reject class="web-cookie-bar__button">{c.reject}</button>
+      <button type="button" data-cookie-accept class="web-cookie-bar__button">{c.accept}</button>
+    </div>
+  </div>
+  <div id="cookie-settings" class="web-cookie-bar__settings" data-cookie-settings hidden>
+    <label class="web-cookie-bar__option"><input type="checkbox" checked disabled /><span>{c.necessary}<small>{c.necessaryInfo}</small></span></label>
+    <label class="web-cookie-bar__option"><input type="checkbox" data-cookie-analytics /><span>{c.analytics}<small>{c.analyticsInfo}</small></span></label>
+    <label class="web-cookie-bar__option"><input type="checkbox" data-cookie-marketing /><span>{c.marketing}<small>{c.marketingInfo}</small></span></label>
+    <button type="button" data-cookie-save class="web-cookie-bar__button web-cookie-bar__save">{c.save}</button>
+  </div>
+</div>
+<style>
+  .web-cookie-bar { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; padding-block: var(--ais-space-200); background: var(--ais-neutral-900); color: var(--ais-neutral-0); border-top: 1px solid var(--ais-neutral-800); box-shadow: var(--ais-shadow-overlay); color-scheme: dark; }
+  .web-cookie-bar[hidden], .web-cookie-bar__settings[hidden] { display: none; }
+  .web-cookie-bar__row, .web-cookie-bar__settings { box-sizing: border-box; max-width: var(--ais-content-max); margin-inline: auto; padding-inline: var(--ais-gutter); }
+  .web-cookie-bar__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--ais-space-200) var(--ais-space-400); }
+  .web-cookie-bar__text { max-width: 60ch; margin: 0; color: var(--ais-neutral-300); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .web-cookie-bar__text a { color: var(--ais-neutral-0); text-decoration: underline; text-underline-offset: 4px; }
+  .web-cookie-bar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ais-space-150); }
+  .web-cookie-bar__quiet { min-height: 44px; padding: 0 var(--ais-space-100); border: 0; background: none; color: var(--ais-neutral-300); font: var(--ais-text-label-weight) var(--ais-text-label) / var(--ais-text-label-leading) var(--ais-font-primary); text-underline-offset: 4px; cursor: pointer; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-cookie-bar__quiet:is(:hover, :focus-visible) { color: var(--ais-neutral-0); text-decoration: underline; }
+  .web-cookie-bar__button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 var(--ais-space-300); border: 0; border-radius: 0; background: var(--ais-neutral-0); color: var(--ais-neutral-900); font: var(--ais-text-label-weight) var(--ais-text-label) / var(--ais-text-label-leading) var(--ais-font-primary); cursor: pointer; transition: background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-cookie-bar__button:is(:hover, :focus-visible) { background: var(--ais-neutral-200); }
+  .web-cookie-bar :focus-visible { outline: 2px solid var(--ais-neutral-0); outline-offset: 2px; }
+  .web-cookie-bar__settings { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ais-space-200) var(--ais-space-400); margin-top: var(--ais-space-200); padding-top: var(--ais-space-200); border-top: 1px solid var(--ais-neutral-800); }
+  .web-cookie-bar__option { display: flex; align-items: flex-start; gap: var(--ais-space-100); min-height: 24px; color: var(--ais-neutral-0); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .web-cookie-bar__option small { display: block; color: var(--ais-neutral-300); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  .web-cookie-bar__option input { width: 16px; height: 16px; margin: 2px 0 0; accent-color: var(--ais-blue-200); }
+  .web-cookie-bar__save { margin-left: auto; }
+  /* Phones: Reject and Accept side by side at the same width, Settings under them. */
+  @media (max-width: 599px) {
+    .web-cookie-bar__actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+    .web-cookie-bar__actions .web-cookie-bar__quiet { grid-column: 1 / -1; order: 1; }
+    .web-cookie-bar__button { white-space: nowrap; padding-inline: var(--ais-space-150); }
+    .web-cookie-bar__option { width: 100%; }
+    .web-cookie-bar__save { flex: 1; margin-left: 0; }
+  }
+</style>

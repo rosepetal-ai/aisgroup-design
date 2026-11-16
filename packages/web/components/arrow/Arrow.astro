@@ -1,0 +1,7 @@
+---
+// The arrow of split buttons, text actions and cards: Lucide's, 24 px in split buttons and 20 px elsewhere.
+import Icon from '../../lib/Icon.astro';
+interface Props { direction?: 'right' | 'left'; size?: 20 | 24; class?: string; [key: string]: unknown }
+const { direction = 'right', size = 20, ...rest } = Astro.props;
+---
+<Icon name={`arrow-${direction}`} size={size} {...rest} />

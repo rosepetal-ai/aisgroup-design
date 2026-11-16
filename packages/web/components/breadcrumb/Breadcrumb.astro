@@ -1,0 +1,37 @@
+---
+// Where a page sits: a white strip under the header, the trail in Caption with chevrons, the current page as plain
+// muted text. On phones the trail stays on one line and the current page is cut with an ellipsis.
+import Icon from '../../lib/Icon.astro';
+interface Props { items: { label: string; href?: string }[] }
+const { items } = Astro.props;
+const last = items.length - 1;
+---
+<nav aria-label="Breadcrumb" class="web-breadcrumb">
+  <ol class="web-breadcrumb__list">
+    {items.map((item, i) => (
+      <li>
+        {i > 0 && <Icon name="chevron-right" size={16} />}
+        {i === last || !item.href ? <span aria-current="page">{item.label}</span> : <a href={item.href}>{item.label}</a>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<style>
+  .web-breadcrumb { background: var(--web-page); border-bottom: 1px solid var(--web-line); }
+  .web-breadcrumb__list {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: var(--ais-content-max); margin: 0 auto; padding: 8px var(--ais-gutter);
+    list-style: none; color: var(--web-muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight);
+  }
+  .web-breadcrumb li { display: flex; align-items: center; gap: 8px; }
+  .web-breadcrumb li > :global(svg) { flex: 0 var(--web-breadcrumb-icon-shrink) auto; }
+  .web-breadcrumb :is(a, span) { display: inline-flex; align-items: center; min-height: 24px; }
+  .web-breadcrumb a { color: inherit; text-decoration: none; text-underline-offset: 3px; }
+  .web-breadcrumb a:hover { color: var(--web-link-hover); text-decoration: underline; }
+  .web-breadcrumb [aria-current] { font-weight: 400; color: var(--web-muted); }
+  @media (max-width: 599px) {
+    .web-breadcrumb__list { flex-wrap: nowrap; overflow: hidden; }
+    .web-breadcrumb li { min-width: 0; flex-shrink: 1; overflow: hidden; }
+    .web-breadcrumb li:last-child { flex-shrink: 1; }
+    .web-breadcrumb [aria-current] { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+// A product screen on a brand-blue or deep-blue band: a light browser bar (three dots and the address) over the
+// screen, so the app's own navy top bar never melts into the band. On white or grey sections a screen sits in the
+// plain window instead (1 px border, 4 px corners, shadow); never use this frame there.
+// Give it an image (src, width, height, alt) or put a film or other media in its slot.
+import Icon from '../../lib/Icon.astro';
+interface Props {
+  /** The address in the bar. */
+  address?: string;
+  src?: string;
+  alt?: string;
+  width: number;
+  height: number;
+  /** The first paint of the page: load the image eagerly. */
+  priority?: boolean;
+  class?: string;
+}
+const { address = 'app.rosepetal.ai', src, alt = '', width, height, priority = false, class: className } = Astro.props;
+---
+<figure class:list={['web-browser-frame', className]} style={`--web-browser-ratio: ${width} / ${height}`}>
+  <div class="web-browser-frame__bar" aria-hidden="true"><span></span><span></span><span></span><span class="web-browser-frame__address"><Icon name="lock" size={16} />{address}</span></div>
+  <div class="web-browser-frame__screen">
+    {Astro.slots.has('default') ? <slot /> : <img src={src} alt={alt} width={width} height={height} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />}
+  </div>
+</figure>
+<style>
+  .web-browser-frame { min-width: 0; margin: 0; overflow: hidden; background: var(--ais-neutral-0); box-shadow: var(--ais-shadow-overlay); }
+  .web-browser-frame__bar { display: flex; align-items: center; gap: 6px; height: 36px; padding-inline: var(--ais-space-150); background: var(--ais-neutral-100); border-bottom: 1px solid var(--ais-neutral-200); }
+  .web-browser-frame__bar > span:not(.web-browser-frame__address) { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ais-neutral-300); }
+  .web-browser-frame__address { display: inline-flex; align-items: center; gap: 6px; min-width: 0; margin-inline: auto; padding: 2px var(--ais-space-200); overflow: hidden; background: var(--ais-neutral-0); color: var(--ais-neutral-600); white-space: nowrap; font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .web-browser-frame__screen { aspect-ratio: var(--web-browser-ratio); background: var(--ais-neutral-0); }
+  .web-browser-frame__screen > :global(*) { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+  @media (max-width: 599px) { .web-browser-frame__bar { height: 28px; } .web-browser-frame__address { font-size: var(--ais-text-caption); } }
+</style>

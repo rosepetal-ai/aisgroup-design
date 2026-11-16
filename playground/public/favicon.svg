@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- The Rosepetal ring (rosepetal-ui favicon.ico / logoLoading): brand blue, white on dark browser chrome -->
+  <style>circle.ring { fill: #17356e } @media (prefers-color-scheme: dark) { circle.ring { fill: #ffffff } }</style>
+  <mask id="m">
+    <rect width="256" height="256" fill="white" />
+    <circle cx="128" cy="128" r="52" fill="black" />
+    <circle cx="169" cy="74" r="17" fill="black" />
+  </mask>
+  <circle class="ring" cx="128" cy="128" r="93" mask="url(#m)" />
+</svg>

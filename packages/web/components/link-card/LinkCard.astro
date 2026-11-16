@@ -1,0 +1,60 @@
+---
+// A link to a page under a rule: its title, a line of text and a text action. Compact stands alone, row puts the
+// action on the right (with a picture first, if there is one) and catalog puts the picture above.
+import Arrow from '../arrow/Arrow.astro';
+interface Props {
+  href: string;
+  title: string;
+  description?: string;
+  image?: { src: string; srcset?: string; sizes?: string; width?: number; height?: number };
+  action: string;
+  variant?: 'compact' | 'row' | 'catalog';
+}
+const { href, title, description, image, action, variant = 'compact' } = Astro.props;
+---
+<a href={href} class:list={['web-link-card', `web-link-card--${variant}`, { 'web-link-card--image': image }]}>
+  {image && <figure><img src={image.src} srcset={image.srcset} sizes={image.sizes ?? '(min-width: 900px) 28vw, 90vw'} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" /></figure>}
+  <div class="web-link-card__copy">
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+  </div>
+  <span class="web-link-card__action">
+    <span>{action}</span>
+    <Arrow size={24} />
+  </span>
+</a>
+<style>
+  .web-link-card { display: flex; flex-direction: column; min-width: 0; height: 100%; padding: var(--ais-space-300) 0; border-top: 1px solid var(--web-line); color: var(--web-ink); text-decoration: none; }
+  .web-link-card h3 { margin: 0; font-size: var(--ais-text-subheading); overflow-wrap: break-word; line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); font-weight: var(--ais-text-subheading-weight); }
+  .web-link-card__copy { min-width: 0; }
+  .web-link-card p { max-width: 62ch; margin: var(--ais-space-150) 0 0; font-size: var(--ais-text-body); color: var(--web-muted); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+  .web-link-card__action { display: inline-flex; align-items: center; gap: var(--ais-space-100); min-height: 44px; padding-top: var(--ais-space-200); font-size: var(--ais-text-label); color: var(--web-link); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: var(--ais-text-label-weight); text-decoration-thickness: 1px; text-underline-offset: var(--web-link-offset); transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-link-card__action :global(svg) { display: block; width: 20px; height: 20px; flex-shrink: 0; align-self: center; transition: transform var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-link-card:is(:hover, :focus-visible) .web-link-card__action { color: var(--web-link-hover); text-decoration-line: underline; }
+  .web-link-card:is(:hover, :focus-visible) .web-link-card__action :global(svg) { transform: translateX(var(--ais-distance-nudge)); }
+  .web-link-card:hover h3 { color: var(--web-link); }
+  .web-link-card--compact .web-link-card__action { margin-top: var(--web-link-card-end); }
+  .web-link-card--row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--ais-space-400); padding-block: var(--ais-space-400); }
+  .web-link-card--row .web-link-card__action { padding-top: 0; }
+  .web-link-card--image { grid-template-columns: minmax(150px, .8fr) minmax(0, 1.2fr) auto; }
+  .web-link-card figure { margin: 0; background: var(--web-section); }
+  .web-link-card img { display: block; width: 100%; height: 180px; object-fit: scale-down; }
+  .web-link-card--catalog { display: flex; padding-top: 0; border-top: 0; gap: var(--ais-space-300); }
+  .web-link-card--catalog figure { width: 100%; }
+  .web-link-card--catalog img { height: auto; aspect-ratio: 1672 / 941; }
+  .web-link-card--catalog .web-link-card__action { margin-top: auto; padding-top: 0; }
+  @media (max-width: 899px) {
+    .web-link-card--image { grid-template-columns: 140px minmax(0, 1fr); gap: var(--ais-space-300); }
+    .web-link-card--image .web-link-card__action { grid-column: 2; }
+    .web-link-card img { height: 130px; }
+  }
+  @media (max-width: 599px) {
+    .web-link-card--row { grid-template-columns: 1fr; gap: var(--ais-space-300); }
+    .web-link-card--image .web-link-card__action { grid-column: auto; }
+    .web-link-card figure { max-width: 220px; }
+    .web-link-card img { height: 160px; }
+    .web-link-card--catalog figure { max-width: none; }
+    .web-link-card--catalog img { height: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .web-link-card__action, .web-link-card__action :global(svg) { transition: none; } }
+</style>

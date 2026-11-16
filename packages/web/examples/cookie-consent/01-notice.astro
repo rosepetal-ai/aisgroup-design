@@ -1,0 +1,12 @@
+---
+// The notice renders hidden; the site's consent script shows it. Here it is shown.
+import CookieConsent from '@aisgroup/web/components/cookie-consent'
+const text = {
+  title: 'Cookies', message: 'We use cookies to measure visits and improve the site.', policy: 'Cookie policy',
+  settings: 'Settings', reject: 'Reject all', accept: 'Accept all', save: 'Save settings',
+  necessary: 'Necessary', necessaryInfo: 'Always on', analytics: 'Analytics', analyticsInfo: 'Visits and pages',
+  marketing: 'Marketing', marketingInfo: 'Advertising and visitor tracking',
+}
+---
+<CookieConsent text={text} policyHref="/cookies-policy/" />
+<script>document.getElementById('cookie-banner')!.hidden = false</script>

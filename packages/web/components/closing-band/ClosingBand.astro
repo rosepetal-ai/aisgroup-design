@@ -1,0 +1,61 @@
+---
+// The end of a page: brand blue, the invitation as a Heading and one white split button. Every home page ends on it,
+// and every AIS page. A long legal note folds under its summary; extra links sit under the text.
+// tone="page" is Rosepetal's ending on its other pages: on the page, a 1 px rule above, the brand-blue split button and
+// an optional text link beside it (they already close on product screens, so a blue band would compete).
+import SplitButton from '../split-button/SplitButton.astro';
+import TextLink from '../text-link/TextLink.astro';
+interface Props {
+  title: string;
+  paragraphs?: string[];
+  note?: { summary: string; paragraphs: string[] };
+  links?: { label: string; href: string }[];
+  label: string;
+  href: string;
+  tone?: 'band' | 'page';
+  secondary?: { label: string; href: string };
+}
+const { title, paragraphs = [], note, links = [], label, href, tone = 'band', secondary } = Astro.props;
+---
+<section class:list={['web-closing-band', `web-closing-band--${tone}`, { 'web-closing-band--with-copy': paragraphs.length > 0 }]}>
+  <div class="web-closing-band__inner">
+    <div class="web-closing-band__copy">
+      <h2>{title}</h2>
+      {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {note && <details class="web-closing-band__note">
+        <summary>{note.summary}</summary>
+        {note.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </details>}
+      {links.length > 0 && <div class="web-closing-band__links">{links.map((link) => <a href={link.href}>{link.label}</a>)}</div>}
+    </div>
+    <div class="web-closing-band__actions">
+      <SplitButton variant={tone === 'band' ? 'white' : 'primary'} href={href}>{label}</SplitButton>
+      {secondary && <TextLink href={secondary.href}>{secondary.label}</TextLink>}
+    </div>
+  </div>
+</section>
+<style>
+  .web-closing-band { background: var(--web-band); color: var(--web-band-ink); }
+  .web-closing-band__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--ais-space-block); max-width: var(--ais-content-max); margin-inline: auto; padding: var(--ais-space-block) var(--ais-gutter); }
+  .web-closing-band--with-copy .web-closing-band__inner { align-items: end; }
+  .web-closing-band h2 { max-width: 30ch; margin: 0; font-size: var(--ais-text-heading); text-wrap: balance; line-height: var(--ais-text-heading-leading); letter-spacing: var(--ais-text-heading-tracking); font-weight: var(--ais-text-heading-weight); }
+  .web-closing-band__copy { min-width: 0; }
+  .web-closing-band__copy > p { max-width: 60ch; margin: var(--ais-space-200) 0 0; font-size: var(--ais-text-body); color: var(--ais-blue-50); text-wrap: pretty; line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+  .web-closing-band__copy > p:first-of-type { margin-top: var(--ais-space-300); }
+  .web-closing-band__note { max-width: 68ch; margin-top: var(--ais-space-300); font-size: var(--ais-text-small); color: var(--ais-blue-50); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .web-closing-band__note summary { width: fit-content; padding-block: var(--ais-space-100); cursor: pointer; text-underline-offset: 4px; }
+  .web-closing-band__note summary:hover { text-decoration: underline; }
+  .web-closing-band__note p { margin: var(--ais-space-150) 0 0; }
+  .web-closing-band__links { display: flex; flex-wrap: wrap; gap: var(--ais-space-100) var(--ais-space-300); margin-top: var(--ais-space-200); }
+  .web-closing-band__links a { color: inherit; font-size: var(--ais-text-eyebrow); border: 0; padding-block: var(--ais-space-100); text-decoration: underline; text-underline-offset: 4px; line-height: var(--ais-text-eyebrow-leading); letter-spacing: var(--ais-text-eyebrow-tracking); font-weight: var(--ais-text-eyebrow-weight); transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-closing-band__links a:is(:hover, :focus-visible) { color: var(--ais-blue-200); }
+  .web-closing-band--band :focus-visible { outline-color: var(--ais-neutral-0); }
+  .web-closing-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ais-space-300) var(--ais-space-400); }
+  .web-closing-band--page { background: none; color: var(--web-ink); }
+  .web-closing-band--page .web-closing-band__inner { position: relative; }
+  .web-closing-band--page .web-closing-band__inner::before { content: ''; position: absolute; top: 0; inset-inline: var(--ais-gutter); height: 1px; background: var(--web-line); }
+  .web-closing-band--page .web-closing-band__copy > p { color: var(--web-muted); }
+  @media (max-width: 599px) {
+    .web-closing-band__inner { grid-template-columns: 1fr; justify-items: start; gap: var(--ais-space-300); }
+  }
+</style>
