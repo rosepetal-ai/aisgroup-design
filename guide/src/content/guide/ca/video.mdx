@@ -1,0 +1,189 @@
+---
+title: Vídeo
+rules:
+  - 'Enregistra línies reals, peces reals i persones reals. Mantén cada pla almenys 2 s (1,5 s en els resums de fira) i talla. La cortineta blava és la transició principal; entre plans d’una mateixa escena s’admet un fos encadenat de 13 fotogrames.'
+  - 'Fes servir les set plantilles de vídeo de sota o el flux de demostració de la interfície. Tots els vídeos acaben amb el tancament. Només les peces de més de 60 s comencen amb el logotip; les més curtes comencen amb el pla més revelador.'
+  - 'Els grafismes es mouen amb els tokens de moviment, passats a fotogrames. Res no rebota, gira, fa glitch ni entra volant.'
+  - 'El text va en Inter, amb majúscula només inicial, dins de la zona segura de títols i mai per sota de 32 px en 1080p.'
+  - 'Tots els vídeos porten subtítols. El vídeo per a xarxes els porta incrustats; el del web porta a més un fitxer de subtítols.'
+  - 'Lliura a 25 fps, Rec. 709 i sonoritat de −14 LUFS per a web i xarxes, −23 LUFS per a esdeveniments i emissió.'
+---
+
+import VideoSpecimens from '../../../components/VideoSpecimens.astro';
+import VideoDownloads from '../../../components/VideoDownloads.astro';
+
+<VideoDownloads lang="ca" single />
+
+## Principis
+
+- **Proves, no promeses.** Ensenya la inspecció en marxa: la peça, la càmera, el resultat. Un rebuig sortint de la línia diu més que qualsevol frase.
+- **Calma.** Càmera estable, plans llargs, talls secs. El producte és precís; el vídeo també.
+- **Grafisme discret.** El text i les capes només apareixen per anomenar, explicar o mesurar. Entren com al web i surten més de pressa.
+- **S’entén sense so.** Gairebé tot el vídeo es mira en silenci. Els subtítols i el text en pantalla porten el missatge tot sols.
+
+## Tipus de vídeo
+
+Màrqueting fa servir set plantilles de vídeo i el flux de demostració de la interfície que s’explica a continuació. Cada estructura segueix el que publiquen les millors marques industrials: sense logotip al principi en les peces de fins a 60 s, el tema en pantalla abans de dos segons, una sola línia de text cada vegada i un tancament amb un lloc on anar. Tota la resta necessita un briefing i una aprovació prèvia.
+
+| Tipus | Durada i formats | Estructura  |
+| --- | --- | ---  |
+| **Defecte detectat** | De 10 a 20 s; 9:16, 1:1, 4:5 | La pregunta (4 paraules com a màxim) abans de 0,5 s; l’enquadrament d’inspecció es fixa i arriba el veredicte; el nom del producte; el tancament. Només música.  |
+| **Anunci de fira** | De 8 a 15 s; 9:16, 4:5, 16:9 | Un pla cridaner i una pregunta; la targeta d’estand amb dates, pavelló i estand; el tancament  |
+| **Resum de fira** | De 30 a 60 s; 16:9, 9:16 | Cares i demostracions amb talls d’1,5 a 2 s; una targeta d’agraïment; el tancament. Es publica en menys d’una setmana.  |
+| **Anunci** | De 15 a 20 s; 16:9, 4:5 | El producte o els socis en pantalla abans de 2 s; tres frases d’una o dues paraules; una línia de data o mercat; el tancament  |
+| **Vídeo sectorial** | De 60 a 90 s; 16:9, més una versió curta de 20 s | El món del sector durant els primers 10 s; la línia; la inspecció abans dels 30 s; frases de 2 a 4 paraules cada 6 s o més; un resultat verificat; el tancament  |
+| **Cas d’èxit** | De 60 a 90 s; 16:9, 9:16 | La línia del client; les seves pròpies paraules amb rètol abans de 10 s i subtítols; una xifra verificada en la seva pròpia targeta; el tancament  |
+| **Entrevista** | Versió completa: qualsevol durada, 16:9, amb capítols. Versió per a xarxes: de 45 a 60 s, sense logotip d’obertura; 16:9, 1:1, 4:5 | El logotip d’obertura a la versió completa; la primera pregunta com a títol (abans de 2 s a la versió per a xarxes); la persona amb el seu rètol just després; plans de recurs de la fira o del producte sota la veu, un cada 6 a 10 s; una targeta de cita; subtítols de principi a fi; el tancament  |
+
+Cada vídeo llarg té a més una versió vertical de 20 s que hi enllaça.
+
+## Demostracions de la interfície del producte
+
+Grava Rosepetal tal com apareix a l’aplicació: navegació, estructura de pàgina, pestanyes, editor a pantalla completa, llenç i panells. Fes servir una única versió del producte i conserva la distribució, tipografia, densitat i posició dels controls. Reordenar controls reals en una composició gràfica no equival a gravar l’aplicació.
+
+Comença amb una vista completa i llegible; després segueix una tasca útil amb el cursor vinculat als controls, zoom selectiu i temps per llegir el resultat. Conserva els colors d’estat. Els títols i les transicions de marca poden acompanyar la gravació, sense substituir la pantalla. Fes servir el logotip subministrat al tancament.
+
+Les dades d’exemple poden arribar mitjançant serveis locals, sense tocar les pàgines reals. Grava només el que l’aplicació fa de debò: no imitis mai amb respostes genèriques d’èxit funcions de servidor, dibuix o entrenament que faltin. Comprova la fidelitat de les pantalles abans de crear variants d’idioma i format.
+
+## Formats
+
+Enregistra i acaba en 16:9 a 1920 × 1080 o més, amb l’acció al centre de l’enquadrament perquè el mateix material es pugui retallar als altres formats.
+
+- **La zona segura de títols** és a un 5 % de cada vora: 96 px al costat llarg d’un fotograma de 1920 × 1080 i 54 px al curt.
+- **El vídeo vertical** deixa sense text els 270 px de dalt, els 670 px de baix i 120 px a cada costat, on Reels, TikTok i Shorts dibuixen els botons i els textos. Queda una capsa de 840 × 980 px que funciona a totes les plataformes.
+- Un vídeo 16:9 que es projecta en un estand o en un webinar fa servir la mateixa zona segura; els projectors retallen de manera imprevisible.
+
+## Grafisme en moviment
+
+El grafisme de vídeo fa servir els [tokens de moviment](/ca/motion/), passats a fotogrames sencers. En vídeo es fan servir les durades moderada, lentes i expressiva, la moderada només per al que surt; el que és més ràpid es veu com un parpelleig.
+
+| Token | Mil·lisegons | 25 fps | 30 fps | 50 fps | Ús en vídeo |
+| --- | --- | --- | --- | --- | --- |
+| `--ais-duration-moderate-1` | 180 ms | 5 | 5 | 9 | Tot el que surt |
+| `--ais-duration-slow-1` | 500 ms | 13 | 15 | 25 | Rètols, tancament i capes en entrar |
+| `--ais-duration-slow-2` | 700 ms | 18 | 21 | 35 | Entrada del logotip |
+| `--ais-duration-expressive` | 1100 ms | 28 | 33 | 55 | Títols, línia a línia, amb 3 fotogrames entre línies |
+
+Les corbes són les mateixes que al web. Introdueix-les com a corba personalitzada a After Effects, Premiere o DaVinci Resolve:
+
+| Corba | Valor | Ús |
+| --- | --- | --- |
+| Entrada | `cubic-bezier(.16, 1, .3, 1)` | Tot el que arriba |
+| Sortida | `cubic-bezier(.4, 0, 1, 1)` | Tot el que se’n va |
+| Estàndard | `cubic-bezier(.2, 0, 0, 1)` | El que es mou dins de l’enquadrament, com un zoom en un enregistrament de pantalla |
+
+El grafisme es desplaça 16 px en 1080p, apareix alhora que es mou i mai no s’escala, no gira ni es desenfoca.
+
+### Recursos de marca
+
+Quatre recursos fan reconeixibles els nostres vídeos. Vénen inclosos a les plantilles; no els dibuixis mai a mà.
+
+- **L’enquadrament d’inspecció.** Unes cantonades viatgen des de les cantonades de la zona segura fins a l’objecte en 18 fotogrames, una línia d’escaneig el recorre, la lectura apareix a sobre en JetBrains Mono i el veredicte a sota. Un defecte torna vermelles les cantonades quan arriba el veredicte. És el que fan els nostres sistemes, ensenyat com ho ensenyen ells.
+- **La cortineta blava.** Un panell a pantalla completa en blau de marca `#17356E` puja sobre el tall amb la corba de sortida i se’n va amb la d’entrada. És la transició principal i separa blocs: cap a una frase, un resultat, la targeta d’estand o el tancament.
+- **Text amb màscara.** Titulars i frases pugen línia a línia des de darrere d’una màscara, amb 3 fotogrames entre línies, després d’una entradeta en JetBrains Mono i una línia fina que es dibuixa. Mai lletra a lletra, mai amb desenfocament ni rebot.
+- **Resultats que compten.** Una xifra verificada compta cap amunt en 1,1 s, la durada expressiva, amb números tabulars, amb la seva unitat i una línia de context.
+
+L’hexàgon també és un recurs de marca, en les dues formes i amb els límits d’[Imatge](/ca/imagery/#fons).
+
+<VideoSpecimens lang="ca" part="frames" only={['inspection']} />
+
+## Obertura, rètols i tancament
+
+| Element | Quan | Especificació |
+| --- | --- | --- |
+| **Logotip d’obertura** | Peces de més de 60 s: vídeos de producte, casos d’èxit, webinars, tutorials | Blau de marca `#17356E`, logotip blanc de 560 px d’amplada. 8 fotogrames de blau, el logotip entra en 18 fotogrames, es manté fins als 2 s i tall. Sense efecte de so. |
+| **Intro de marca** | En lloc del logotip d’obertura, un cop per peça: pantalles de fira, vídeo social, el web, presentacions | El paisatge d’hexàgons, blanc sobre blau de marca, ondula lentament mentre una passada d’inspecció avança de prop a lluny i ressalta les seves línies. El logotip blanc, cada marca amb la mateixa àrea que AIS Vision Systems a 560 px d’amplada (vegeu Logotip), apareix i puja 16 px sobre el blau net de dalt, i la peça acaba amb un fos. 5 s, o 10 s sense logotip com a fons. Sense brillantors, partícules ni vinyeta. |
+| **Títol** | Capítols i títol de la peça | Inter Semibold 96 px, majúscula només inicial, sobre blau o blanc, 20 caràcters per línia i dues línies com a màxim, les línies entren en 28 fotogrames, amb 3 fotogrames entre elles |
+| **Rètol** | La primera vegada que parla una persona | Placa en tinta `#0F1729`, amb 24 px per 32 px de marge interior, a la cantonada de la zona segura. Primer creix una barra de 6 px en blue-300 `#7C9FD7` a la seva vora esquerra i després la placa s’obre des d’ella. Nom en Inter Semibold 44 px blanc; càrrec i empresa en Inter Regular 32 px neutre 400. Almenys 4 s en pantalla. |
+| **Lloc** | Primer pla d’una instal·lació | La mateixa placa, una línia, 32 px: «Línia d’embotellament, la Rioja» |
+| **Tancament** | Tots els vídeos | Blanc, logotip blau de la marca de 560 px d’amplada, centrat; a sota, una línia en Inter Medium 40 px: l’adreça web o una sola acció. Es manté 1,5 s en vídeos per a xarxes de fins a 30 s, 3 s en peces estàndard i 5 s en peces de marca. Entra amb un tall sec o amb la cortineta blava. Les marques que no són AIS Group hi afegeixen «Part of AIS Group» en 32 px. |
+
+L’obertura i el tancament porten el logotip de la marca que fa el vídeo; una peça del grup porta el logotip d’AIS Group. El logotip apareix un cop a cada extrem i mai com a marca d’aigua entremig.
+
+<VideoSpecimens lang="ca" part="frames" only={['lower-third', 'end']} />
+
+## Subtítols
+
+| Regla | Valor |
+| --- | --- |
+| Tipografia | Inter Medium 40 px en 1080p, blanc sobre placa en tinta `#0F1729`, majúscula només inicial |
+| Posició | Centrats a la part inferior de la zona segura; pugen per sobre del rètol o del text en pantalla mentre es veu |
+| Llargada | Dues línies com a màxim, 42 caràcters per línia, tallades per frases naturals |
+| Temps | Entre 1 s i 7 s cadascun, a no més de 20 caràcters per segon |
+| Fitxers | WebVTT (`.vtt`) per al web, SRT (`.srt`) per a YouTube i LinkedIn, un fitxer per llengua |
+| Llengües | Anglès, castellà i català redactats de manera nativa, com indica [Localització](/ca/localisation/); mai traducció automàtica sense revisió nativa |
+
+El vídeo per a xarxes porta sempre els subtítols incrustats. El del web i YouTube fa servir un fitxer de subtítols perquè es puguin desactivar i triar la llengua.
+
+## Entrevistes i ponències
+
+Una entrevista o una ponència en una fira mostra la persona real a l’esdeveniment real. Aquestes regles la mantenen en el mateix estil que qualsevol altre vídeo.
+
+- **Targetes de pregunta.** Cada pregunta va en el seu propi títol, sobre blau de marca `#17356E`, mai a la mateixa targeta que el logotip. L’entradeta en mono anomena l’esdeveniment i el lloc, amb majúscula només inicial: «VISION 2026, Stuttgart». La pregunta és el títol. En les versions llargues, l’entradeta també numera la pregunta: «Pregunta 2, VISION 2026, Stuttgart».
+- **Rètol.** La primera vegada que apareix la persona, almenys 4 s en pantalla.
+- **Plans de recurs.** L’estand, l’escenari i les demostracions van sota la veu, de manera que la resposta no s’atura mai per la imatge. El logotip d’una altra empresa no és mai el protagonista d’un pla.
+- **Una targeta de cita.** Blanca, amb les paraules tal com es van dir, entre cometes «», i el nom de qui parla a l’entradeta: «José Racionero, Rosepetal». Una per vídeo.
+- **Subtítols** extrets de la transcripció i corregits per una persona: les transcripcions automàtiques s’equivoquen amb els noms. Fan servir l’únic estil de subtítols de dalt, mai requadres, ombres ni colors paraula per paraula.
+- **So.** La veu, anivellada a −14 LUFS; la música, per sota, o sense música.
+- **La versió llarga** es publica amb el fitxer de subtítols i els capítols.
+- **La versió per a xarxes** porta els subtítols incrustats i acaba amb el tancament.
+
+La resta segueix aquesta pàgina: blau de marca, mai un blau de campanya ni una vinyeta; el logotip només als extrems, mai com a marca d’aigua ni en una franja amb l’esdeveniment; plaques de cantonades rectes, mai en forma de píndola; talls o la cortineta blava, mai fosos a negre. Les pantalles es mostren tal com es van enregistrar, sense targetes ni xifres superposades. Una xifra només surt d’una execució real i en conserva les condicions.
+
+## Imatge enregistrada
+
+- **Real.** Instal·lacions, peces i operaris reals, enregistrats amb permís. El material generat segueix les regles d’[Imatge](/ca/imagery/) i mai no substitueix la instal·lació d’un client.
+- **Estable.** Trípode, slider o estabilitzador. Només acostaments lents i desplaçaments laterals; sense escombrades, vols de dron ni càmera en mà tremolosa.
+- **De prop.** Acosta’t a la inspecció: capçal de càmera, il·luminació, peça i resultat en pantalla. Els plans macro de la peça són la signatura de la marca.
+- **Amb temps.** Cada pla dura de 2 a 6 s; els resums de fira tallen cada 1,5 a 2 s. Talls per defecte; la cortineta blava, la transició principal, entre blocs; un fos encadenat de 13 fotogrames només entre plans d’una mateixa escena.
+- **Un sol estil.** Un esquema de color per peça: els títols i les frases van sobre blau o sobre blanc, no tots dos; els recursos fixos (logotip d’obertura sobre blau, cortineta blava, tancament blanc, targetes de pregunta, targeta de cita) mantenen el seu.
+- **Llum.** Equilibri neutre i fred de llum de dia, sense estils d’etalonatge, destells de lent ni fuites de llum.
+- **Pantalles.** Enregistra les interfícies a la resolució nativa, amb el cursor visible i moviments deliberats. Acosta la imatge amb la corba estàndard en 13 fotogrames, mai més de 2×.
+- **Capes de detecció.** Es generen amb el [kit de capes](/ca/imagery/#capes-de-detecció): els requadres apareixen en 3 fotogrames, després l’etiqueta del veredicte, i cada resultat es manté almenys 1,5 s.
+
+## So
+
+- Primer la veu, enregistrada amb micròfon extern; la qualitat del so importa més que la de la imatge. La música va per sota i mai no hi competeix; quan no parla ningú, el so de la mateixa màquina sol funcionar millor que la música.
+- La música té llicència per a l’ús, és instrumental, constant i discreta: sense pujades, cops ni efectes als talls.
+- Sonoritat: −14 LUFS integrats per a web i xarxes, −23 LUFS (EBU R128) per a esdeveniments i emissió, pic real −1 dBTP.
+- El vídeo del web mai no reprodueix so tot sol.
+
+## Lliurament
+
+| Ús | Format | Ajustos |
+| --- | --- | --- |
+| **Màster** | ProRes 422 HQ, `.mov` | Resolució completa, 25 fps, Rec. 709, àudio a 48 kHz, sense subtítols incrustats |
+| **Web i xarxes** | H.264, `.mp4` | 1080p a 10–16 Mbit/s, 25 fps, Rec. 709, AAC 48 kHz a 320 kbit/s |
+| **Bucle per al web** | H.264 `.mp4`, sense pista d’àudio | 1080p com a màxim, menys de 6 MB, de 6 a 15 s, sense salt visible, amb imatge de portada |
+| **Imatge de portada** | `.webp` | La mateixa mida que el vídeo, un fotograma que s’entengui sense reproduir-lo |
+
+A Europa s’enregistra a 25 o 50 fps; fes servir 30 fps només si el material original és a 30 fps. Anomena els fitxers per marca, tema, llengua, versió i format:
+
+```
+ais-vision-systems_wine-inspection_es_v03_16x9.mp4
+```
+
+## Mai
+
+- Un logotip animat fora de l’obertura i el tancament, ni un logotip que es construeix, es dibuixa o es munta en pantalla.
+- Plantilles de moviment d’estoc, transicions amb glitch, zoom o gir, tipografia cinètica, emojis ni adhesius.
+- Text sobre imatge carregada sense la placa en tinta o el degradat dels titulars.
+- So que comença tot sol al web, o destells més de tres cops per segon.
+- Imatges de la instal·lació, les peces o la marca d’un client sense permís per escrit.
+
+
+## Fitxers d’obertura i tancament
+
+| Marca | Obertura ES | Obertura EN | Tancament ES | Tancament EN |
+| --- | --- | --- | --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: obertura ES (MP4)](/kit/files/ais-vision-systems_opening_es_v01_16x9.mp4) | [AIS Vision Systems: obertura EN (MP4)](/kit/files/ais-vision-systems_opening_en_v01_16x9.mp4) | [AIS Vision Systems: tancament ES (MP4)](/kit/files/ais-vision-systems_end-card_es_v01_16x9.mp4) | [AIS Vision Systems: tancament EN (MP4)](/kit/files/ais-vision-systems_end-card_en_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: obertura ES (MP4)](/kit/files/rosepetal_opening_es_v01_16x9.mp4) | [Rosepetal: obertura EN (MP4)](/kit/files/rosepetal_opening_en_v01_16x9.mp4) | [Rosepetal: tancament ES (MP4)](/kit/files/rosepetal_end-card_es_v01_16x9.mp4) | [Rosepetal: tancament EN (MP4)](/kit/files/rosepetal_end-card_en_v01_16x9.mp4) |
+
+## Fitxers d’intro de marca
+
+| Marca | Intro de marca, 5 s |
+| --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: intro de marca (MP4)](/kit/files/ais-vision-systems_brand-intro_v01_16x9.mp4) |
+| AIS Group | [AIS Group: intro de marca (MP4)](/kit/files/ais-group_brand-intro_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: intro de marca (MP4)](/kit/files/rosepetal_brand-intro_v01_16x9.mp4) |
+| Fons de paisatge hexagonal, 10 s, sense logotip | [Fons de paisatge hexagonal, 10 s (MP4)](/kit/files/hexagon-landscape_background_v01_16x9.mp4) |

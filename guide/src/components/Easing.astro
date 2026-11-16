@@ -1,0 +1,67 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// The three brand curves, drawn from their control points so the chart is the spec.
+const curves = [
+  { id: 'standard', p: [0.2, 0, 0, 1], gsap: 'ais-standard' },
+  { id: 'enter', p: [0.16, 1, 0.3, 1], gsap: 'ais-enter' },
+  { id: 'exit', p: [0.4, 0, 1, 1], gsap: 'ais-exit' },
+];
+const copy = {
+  en: { standard: ['Standard', 'State changes and moves within the view'], enter: ['Enter', 'Everything that arrives or settles'], exit: ['Exit', 'Everything that leaves'], play: 'Play' },
+  es: { standard: ['Estándar', 'Cambios de estado y movimientos dentro de la vista'], enter: ['Entrada', 'Todo lo que llega o se asienta'], exit: ['Salida', 'Todo lo que se va'], play: 'Reproducir' },
+  ca: { standard: ['Estàndard', 'Canvis d’estat i moviments dins de la vista'], enter: ['Entrada', 'Tot el que arriba o s’assenta'], exit: ['Sortida', 'Tot el que se’n va'], play: 'Reprodueix' },
+}[lang];
+const S = 120; // chart size
+const path = ([x1, y1, x2, y2]: number[]) => `M0,${S}C${x1 * S},${S - y1 * S} ${x2 * S},${S - y2 * S} ${S},0`;
+---
+<div class="easing">
+  {curves.map((c) => (
+    <figure>
+      <svg viewBox={`-6 -6 ${S + 12} ${S + 12}`} aria-hidden="true">
+        <path d={`M0,${S}L${S},0`} class="diag" />
+        <path d={path(c.p)} class="curve" />
+        <circle cx={c.p[0] * S} cy={S - c.p[1] * S} r="3" class="cp" />
+        <circle cx={c.p[2] * S} cy={S - c.p[3] * S} r="3" class="cp" />
+      </svg>
+      <div class="track"><span class="dot" style={`transition-timing-function: var(--ais-ease-${c.id})`} /></div>
+      <figcaption>
+        <strong>{copy[c.id][0]}</strong>
+        <code data-copy={`var(--ais-ease-${c.id})`}>--ais-ease-{c.id}</code>
+        <span>cubic-bezier({c.p.join(', ')})</span>
+        <span>{copy[c.id][1]}</span>
+      </figcaption>
+    </figure>
+  ))}
+  <button type="button" class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l14 9-14 9V3z" /></svg>{copy.play}</button>
+</div>
+<script>
+  // Moves every dot across its track in 700 ms (--ais-duration-slow-2), each with its own curve.
+  // Runs on every page load, including page changes through the client router.
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('.easing').forEach((root) => {
+      root.querySelector('.play')?.addEventListener('click', () => root.classList.toggle('run'));
+    });
+  });
+</script>
+<style>
+  .easing { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
+  figure { margin: 0; padding: 16px; border: 1px solid var(--line); border-radius: 0; }
+  svg { display: block; width: 100%; max-width: 160px; overflow: visible; }
+  .diag { fill: none; stroke: var(--ais-neutral-200); stroke-width: 1; stroke-dasharray: 3 3; }
+  .curve { fill: none; stroke: var(--primary); stroke-width: 2; }
+  .cp { fill: #fff; stroke: var(--link); stroke-width: 1.5; }
+  .track { position: relative; height: 12px; margin: 16px 0 16px; border-radius: 0; background: var(--ais-neutral-100); }
+  .dot { position: absolute; left: 0; top: 0; width: 12px; height: 12px; border-radius: 0; background: var(--primary); transition-property: transform; transition-duration: var(--ais-duration-slow-2); }
+  .track { container-type: inline-size; }
+  .run .dot { transform: translateX(calc(100cqw - 12px)); }
+  figcaption { display: flex; flex-direction: column; gap: 4px; font-size: var(--ais-text-caption); color: var(--muted); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  figcaption strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  figcaption code { align-self: flex-start; font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); color: var(--ink); background: none; padding: 0; cursor: copy; }
+  .play { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 0; background: var(--primary); color: #fff; font: 500 var(--ais-text-label)/var(--ais-text-label-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-label-tracking); cursor: pointer; transition: background var(--ais-duration-moderate-1) var(--ais-ease-standard); text-box: trim-both cap alphabetic; }
+  .play:hover { background: var(--ais-blue-800); }
+  .play svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+  @media (max-width: 760px) { .easing { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .dot { transition: none; } }
+</style>

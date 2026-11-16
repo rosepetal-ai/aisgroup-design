@@ -1,0 +1,163 @@
+---
+title: Moviment
+rules:
+  - 'Fes servir només els tokens de moviment: set durades (--ais-duration-*), tres corbes (--ais-ease-standard, -enter, -exit) i les distàncies fixes. No inventis mai una durada ni una corba.'
+  - 'Anima només transform i opacity, i grid-template-rows en els acordions. No animis mai el disseny, degradats de color ni desenfocaments.'
+  - 'Les interfícies fan servir durades de fins a 240 ms; només els webs fan servir 500 ms o més, per a l’arribada, el revelat en fer scroll i els titulars.'
+  - 'El contingut és visible sense JavaScript; el moviment només el millora. Totes les animacions s’aturen amb prefers-reduced-motion.'
+  - 'Sense rebots, efectes elàstics, parallax, biblioteques de desplaçament suau, targetes que s’eleven, bucles decoratius ni logotips animats al web.'
+---
+import Easing from '../../../components/Easing.astro';
+import MotionDemos from '../../../components/MotionDemos.astro';
+
+Fes servir el moviment per explicar els canvis i facilitar la navegació.
+
+## Principis
+
+- **Amb propòsit.** Anima el que canvia: un menú que s’obre, un resultat que arriba, un contingut que entra a la pantalla. Si res no canvia, res no es mou.
+- **Físic.** El que arriba frena i el que se’n va accelera, com els objectes reals. Res no apareix de cop, salta ni rebota.
+- **Ràpid.** La resposta s’acaba abans que ningú l’esperi. El moviment més llarg d’un web dura 1,1 s, i només en titulars.
+- **Opcional.** Cada pàgina es llegeix perfectament sense moviment, i totes les animacions respecten l’ajust de moviment reduït del sistema.
+
+**Productiu i expressiu.** Les interfícies de producte són productives: només fan servir les durades ràpides i moderades, perquè la feina no esperi mai una animació. Els webs poden ser, a més, expressius en tres moments: l’arribada a la pàgina, el revelat en fer scroll i els titulars.
+
+## Durades
+
+| Token | Valor | Ús |
+| --- | --- | --- |
+| `--ais-duration-fast-1` | 80 ms | Pulsació i estats actius |
+| `--ais-duration-fast-2` | 120 ms | Descripcions emergents, interruptors, caselles |
+| `--ais-duration-moderate-1` | 180 ms | Hover: color, subratllat, fletxa; tot el que es tanca |
+| `--ais-duration-moderate-2` | 240 ms | Menús, desplegables, acordions i diàlegs en obrir-se |
+| `--ais-duration-slow-1` | 500 ms | Arribada de pàgina, panells grans |
+| `--ais-duration-slow-2` | 700 ms | Revelat en fer scroll, zoom d’imatge en hover |
+| `--ais-duration-expressive` | 1100 ms | Titulars per línies, xifres que compten |
+
+Tancar és més ràpid que obrir: un menú s’obre en 240 ms i es tanca en 180 ms.
+
+## Corbes
+
+Tres corbes ho cobreixen tot.
+
+<Easing lang="ca" />
+
+La corba lineal només es fa servir en bucles continus i barres de progrés.
+
+## Distàncies i ritme
+
+| Token | Valor | Ús |
+| --- | --- | --- |
+| `--ais-distance-nudge` | 3 px | Fletxa en hover, endavant o enrere |
+| `--ais-distance-menu` | 8 px | Menús i desplegables en entrar |
+| `--ais-distance-reveal` | 16 px | Blocs que entren en fer scroll |
+| `--ais-stagger` | 60 ms | Entre elements d’una llista, fins a sis |
+| `--ais-stagger-lines` | 100 ms | Entre línies d’un titular |
+
+El zoom d’imatge en hover és 1,03. El contingut de la pàgina entra 16 px (`--ais-distance-reveal`) i surt 8 px.
+
+## Patrons
+
+Tots els webs fan servir aquests patrons amb aquests valors exactes.
+
+<div id="motion-demos"></div>
+<MotionDemos lang="ca" />
+
+| Patró | Desencadenant | Animació | Durada | Corba |
+| --- | --- | --- | --- | --- |
+| **Enllaç de text** | Hover, focus | Apareix el subratllat i el color passa a blue-600 | 180 ms | Estàndard |
+| **Fletxa** | Hover sobre el seu enllaç o botó | Avança 3 px (en els enllaços de tornar, retrocedeix) | 180 ms | Estàndard |
+| **Botó** | Hover / pulsació | El fons passa al color de hover / 80 ms més fosc; mai no escala | 180 / 80 ms | Estàndard |
+| **Anell de focus** | Focus amb teclat | Apareix a l’instant | 0 ms | Cap |
+| **Menú, desplegable, megamenú** | Obrir / tancar | Fos i 8 px avall / fos de sortida | 240 / 180 ms | Entrada / sortida |
+| **Acordió** | Obrir / tancar | Alçada amb `grid-template-rows`; el xebró gira 180° | 240 ms | Estàndard |
+| **Diàleg** | Obrir / tancar | El fons es fon; el panell es fon i escala des de 0,98 / a la inversa | 240 / 180 ms | Entrada / sortida |
+| **Descripció emergent** | Hover durant 400 ms | Fos d’entrada | 120 ms | Estàndard |
+| **Avís** | Apareix / se’n va | Fos i 16 px amunt / fos de sortida | 240 / 180 ms | Entrada / sortida |
+| **Revelat en fer scroll** | Bloc visible al 10 %, un cop | Fos i 16 px amunt, elements a 60 ms | 700 ms | Entrada |
+| **Titular per línies** | Arribada de pàgina, secció a la pantalla | Les línies pugen des d’una màscara, a 100 ms, després de carregar la font | 1100 ms | Entrada |
+| **Imatge de targeta** | Hover sobre la targeta | La imatge escala a 1,03; la targeta no s’eleva ni projecta ombra | 700 ms | Entrada |
+| **Transició de pàgina** | Navegació | La pàgina anterior es fon i puja 8 px; la capçalera no es mou; la nova es fon i puja 16 px | 180 / 500 ms | Sortida / entrada |
+| **Xifra** | Secció a la pantalla | Compta fins a un valor real, amb xifres tabulars | 1100 ms | Entrada |
+| **Banda de logotips** | Continu | Es desplaça a 40 s per volta; s’atura en hover i fora de la pantalla | 40 s | Lineal |
+| **Capa de detecció** | A la pantalla | Requadres i màscares es dibuixen a 60 ms; el veredicte apareix al final | 500 ms, veredicte 240 ms | Entrada |
+| **Senyal** | Continu en il·lustracions | Un pols recorre el cable real; el receptor respon amb un llum | 1100 ms | Estàndard |
+
+### Enllaços i estats en passar el punter
+
+Cada tipus d’enllaç té un sol comportament, idèntic a tots els webs: 180 ms amb la corba estàndard. Un element interactiu sense estat en passar el punter és un defecte.
+
+| Tipus | En repòs | En passar el punter |
+| --- | --- | --- |
+| **Acció de text amb fletxa** | Blau d’acció `#3664B3` | blue-600 `#1E4591`, subratllat, fletxa 3 px endavant |
+| **Enllaç dins del text** | Blau d’acció, subratllat | blue-600 `#1E4591` |
+| **Enllaç de navegació** | Tinta `#0F1729` | Blau d’acció |
+| **Element de menú** | Tinta | Blau d’acció; la fletxa avança 3 px si n’hi ha |
+| **Enllaç de targeta** | Títol en tinta | Títol en blau d’acció, fletxa 3 px endavant, imatge a 1,03; sense subratllat |
+| **Botó partit** | Blau de marca `#17356E` | Blau profund, blue-800 `#10254C` |
+| **Botó neutre** | Gris de secció `#F1F5F9` | neutral-200 `#E2E8F0` |
+| **Enllaços sobre fons foscos** | Blau clar `#A7BFE4` o pissarra `#94A3B8` | `#F1F5F9` |
+
+**Revela només el que s’ho val.** El revelat en fer scroll s’aplica a blocs de secció: una fila de targetes, una figura, una cita. Mai al text corregut, la navegació, els formularis ni res visible en carregar, tret del titular.
+
+## Mai
+
+- Rebots, efectes elàstics, molles que es passen de llarg ni tremolors.
+- Parallax, segrest de l’scroll ni biblioteques de desplaçament suau; l’scroll és el del navegador.
+- Targetes que s’eleven, ombres que creixen ni botons que escalen.
+- Bucles decoratius: halos flotants, formes a la deriva, fons que bateguen.
+- Logotips animats als webs. L’animació del logotip és només per a entrades i tancaments de vídeo.
+- Animar amplada, alçada, top, left, marges, degradats de color o desenfocaments.
+- Contingut amagat fins que s’executa un script.
+- Vídeo amb so que es reprodueix sol, o vídeo darrere del text corregut. Un vídeo només va darrere d’un titular sota el degradat fosc d’una obertura de pàgina.
+
+## Moviment reduït
+
+Quan el sistema demana moviment reduït, s’eliminen totes les transicions i animacions, no s’escurcen: el contingut simplement hi és. Els bucles s’aturen, els vídeos mostren la imatge fixa i els comptadors, el valor final.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+```
+
+## Implementació
+
+Tots els webs importen `brand.css` i fan servir els tokens directament. El revelat en fer scroll és progressiu: la pàgina és completa sense JavaScript, i l’estat amagat només existeix quan l’script ha marcat la pàgina.
+
+```css
+.has-motion [data-reveal] { opacity: 0; transform: translateY(var(--ais-distance-reveal)); }
+.has-motion [data-reveal].is-in {
+  opacity: 1; transform: none;
+  transition: opacity var(--ais-duration-slow-2) var(--ais-ease-enter),
+              transform var(--ais-duration-slow-2) var(--ais-ease-enter);
+  transition-delay: calc(var(--i, 0) * var(--ais-stagger));
+}
+```
+
+```js
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  }), { threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+}
+```
+
+Els webs que animen amb GSAP registren les mateixes corbes pel nom, perquè el codi i el CSS siguin idèntics:
+
+```js
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
+gsap.registerPlugin(CustomEase);
+CustomEase.create('ais-standard', '.2,0,0,1');
+CustomEase.create('ais-enter', '.16,1,.3,1');
+CustomEase.create('ais-exit', '.4,0,1,1');
+// gsap.to(lines, { yPercent: 0, duration: 1.1, ease: 'ais-enter', stagger: 0.1 });
+```
+
+Les transicions de pàgina fan servir les View Transitions del navegador (el `ClientRouter` d’Astro): la pàgina anterior surt en 180 ms amb la corba de sortida i la nova arriba en 500 ms amb la corba d’entrada.
+
+## Vídeo i bucles
+
+Els bucles són continus, silenciosos i s’aturen fora de la pantalla; tot el que es mou sol durant més de cinc segons té un control de pausa, excepte els efectes purament decoratius de la capçalera i la banda de logotips. Mostra una imatge fixa amb moviment reduït. Un vídeo només va darrere d’un titular sota el degradat fosc d’una obertura de pàgina, mai darrere del text corregut. Les entrades, els tancaments, els títols i els subtítols de vídeo segueixen [Vídeo](/ca/video/).

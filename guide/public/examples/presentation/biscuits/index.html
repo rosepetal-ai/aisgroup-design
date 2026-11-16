@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIS Vision Systems, líneas de galletas</title>
+<style>
+/* AIS HTML decks: the fixed 1920 × 1080 stage.
+   Adapted from viewport-base.css of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang, see LICENSE-frontend-slides.txt):
+   the stage is authored at 1920 × 1080 and scaled as a whole; slides switch with visibility and opacity, never display;
+   print lays out one slide per 1920 × 1080 page. Changes for AIS: Inter from local files, AIS grounds, motion tokens,
+   an export mode (?export) that shows every slide statically for the PNG, PDF and PPTX measurements. */
+@font-face{font-family:Inter;src:url('media/Inter.ttf');font-weight:400}
+@font-face{font-family:Inter;src:url('media/InterMedium.ttf');font-weight:500}
+@font-face{font-family:Inter;src:url('media/InterSemiBold.ttf');font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#0B1220}
+body{font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+@page{size:1920px 1080px;margin:0}
+.deck-viewport{position:fixed;inset:0;overflow:hidden}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;isolation:isolate;visibility:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+/* Chrome outside the slide: page count, fades out when idle. */
+.deck-count{position:fixed;right:24px;bottom:20px;z-index:10;font:500 13px/1 Inter,sans-serif;color:#A7BFE4;font-variant-numeric:tabular-nums;opacity:0;transition:opacity 240ms cubic-bezier(.2,0,0,1)}
+.deck-count.show{opacity:.9}
+.deck-notes{position:fixed;left:0;right:0;bottom:0;z-index:11;max-height:30vh;overflow:auto;padding:16px 24px;background:#0B1220;color:#F1F5F9;font:400 16px/1.6 Inter,sans-serif;border-top:1px solid #1E293B;display:none}
+.deck-notes.show{display:block}
+/* Export and print: every slide visible, stacked, static. */
+.is-export,.is-export body{overflow:visible;height:auto;background:#fff}
+.is-export .deck-viewport{position:static;overflow:visible}
+.is-export .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+.is-export .slide{position:relative;visibility:visible;opacity:1}
+.is-export .deck-count,.is-export .deck-notes{display:none}
+.is-export *,.is-export *::before,.is-export *::after{animation:none!important;transition:none!important}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible}
+  .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+  .slide{position:relative;visibility:visible!important;opacity:1!important;break-after:page}
+  .slide:last-child{break-after:auto}
+  .deck-count,.deck-notes{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* Beats: an element with data-beat="k" arrives on the k-th click of its slide (ease-enter, 500 ms), and is simply
+   there in export, print and ?send. */
+.slide [data-beat]{opacity:0;transform:translateY(16px);transition:opacity 500ms cubic-bezier(.16,1,.3,1),transform 500ms cubic-bezier(.16,1,.3,1)}
+.slide [data-beat].on{opacity:1;transform:none}
+@media print{.slide [data-beat]{opacity:1!important;transform:none!important}}
+.is-still *,.is-still *::before,.is-still *::after{transition:none!important;animation:none!important}
+.is-still .deck-count{display:none}
+/* Overview (O) and blackout (B): operator tools, never part of the story. */
+.is-overview .deck-viewport{overflow:auto}
+.is-overview .deck-stage{position:static;width:auto;height:auto;overflow:visible}
+.is-overview .slide{visibility:visible;opacity:1;pointer-events:auto;transform-origin:0 0;cursor:pointer;outline:6px solid transparent}
+.is-overview .slide.active{outline-color:#7C9FD7}
+.is-black .deck-viewport::after{content:'';position:fixed;inset:0;background:#000;z-index:20}
+/* Presenter window: current position large, next position, timer and notes. */
+.is-presenter .deck-viewport,.is-presenter .deck-count,.is-presenter .deck-notes{display:none}
+.is-presenter body{background:#0B1220;overflow:hidden}
+.pv{position:fixed;inset:0;display:grid;grid-template-columns:62% 1fr;gap:24px;padding:24px;color:#F1F5F9;font-family:Inter,sans-serif}
+.pv iframe{width:100%;aspect-ratio:16/9;border:0;background:#000;display:block}
+.pv-side{display:flex;flex-direction:column;gap:16px;min-height:0}
+.pv-pos{font:500 16px/1.4 Inter,sans-serif;color:#A7BFE4}
+.pv-time{font:500 40px/1 Inter,sans-serif;font-variant-numeric:tabular-nums}
+.pv-notes{font:400 20px/1.6 Inter,sans-serif;overflow:auto;flex:1}
+
+/* AIS HTML decks: tokens, type and motion of the deck.
+   Colours, durations and curves are the brand tokens (public/downloads/brand.css). Screen type at 1920 px:
+   cover 120, divider 136, headline 76, lead 44, item 46, body 38 (never under 36), labels 28, slide number 22.
+   Inter 400/500/600, sentence case. Motion: transform and opacity only, enter curve, 700 ms reveals with a 60 ms
+   stagger, the masked headline in 1100 ms, the blue wipe on the opening picture. */
+:root{
+  --brand:#17356E;--deep:#10254C;--night:#0B1220;--action:#3664B3;--light:#A7BFE4;--sky:#7C9FD7;
+  --ink:#0F1729;--muted:#4B5563;--grey:#F1F5F9;--line:#CBD5E1;--soft:#E2E8F0;
+  --ease-enter:cubic-bezier(.16,1,.3,1);--ease-standard:cubic-bezier(.2,0,0,1);
+  --slow2:700ms;--expressive:1100ms;--stagger:60ms;
+}
+.slide{color:var(--ink)}
+.slide.g-brand{background:var(--brand);color:#fff}
+.slide.g-deep{background:var(--deep);color:#fff}
+.slide.g-night{background:var(--night);color:#fff}
+.slide.g-white{background:#fff}
+.abs{position:absolute}
+.stack{position:absolute;display:flex;flex-direction:column}
+.stack>*{flex:none}
+
+/* Type */
+.t-display{font-size:120px;line-height:124px;font-weight:500;letter-spacing:-.035em}
+.t-divider{font-size:136px;line-height:140px;font-weight:500;letter-spacing:-.035em}
+.t-num{font-size:240px;line-height:240px;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.t-h{font-size:76px;line-height:84px;font-weight:500;letter-spacing:-.02em}
+.t-lead{font-size:44px;line-height:60px;font-weight:400}
+.t-item{font-size:46px;line-height:56px;font-weight:500;letter-spacing:-.01em}
+.t-body{font-size:38px;line-height:52px;font-weight:400}
+.t-label{font-size:28px;line-height:38px;font-weight:500}
+.t-meta{font-size:22px;line-height:32px;font-weight:400;font-variant-numeric:tabular-nums}
+.t-h,.t-lead,.t-item,.t-body,.t-display,.t-divider{text-wrap:balance}
+b{font-weight:600}
+.c-white{color:#fff}.c-light{color:var(--light)}.c-sky{color:var(--sky)}.c-ink{color:var(--ink)}.c-muted{color:var(--muted)}.c-brand{color:var(--brand)}.c-action{color:var(--action)}
+
+/* Rules separate, never frame */
+.rl{height:2px;background:var(--line);flex:none}
+.g-brand .rl,.g-deep .rl,.g-night .rl,.on-blue .rl{background:rgba(167,191,228,.35)}
+
+/* Pictures: an absolutely placed frame, the image cover-fitted inside it */
+.pic{position:absolute;overflow:hidden}
+.pic img{width:100%;height:100%;display:block;object-fit:cover}
+.pic.contain img{object-fit:contain}
+.logo{position:absolute;display:block}
+.hex{position:absolute;width:520px;height:520px;pointer-events:none;display:block}
+.scrim{position:absolute;pointer-events:none}
+.num{position:absolute;right:128px;bottom:40px;font-size:22px;line-height:32px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.g-brand .num,.g-deep .num,.g-night .num{color:var(--light)}
+
+/* Motion: reveals run when the slide arrives (.shown). Export and print show the end state. */
+.rv{opacity:0;transform:translateY(16px);transition:opacity var(--slow2) var(--ease-enter),transform var(--slow2) var(--ease-enter);transition-delay:calc(200ms + var(--i,0) * var(--stagger))}
+.shown .rv{opacity:1;transform:none}
+.mask{overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.mask>.mi{display:block;transform:translateY(105%);transition:transform var(--expressive) var(--ease-enter);transition-delay:calc(100ms + var(--i,0) * 100ms)}
+.shown .mask>.mi{transform:none}
+.pic img{transform:scale(1.03);transition:transform var(--expressive) var(--ease-enter)}
+.shown .pic img{transform:none}
+.wipe{position:absolute;background:var(--brand);transform-origin:100% 50%;transition:transform var(--slow2) var(--ease-enter) 150ms}
+.shown .wipe{transform:scaleX(0)}
+
+/* AIS decks, "Hoy + azul": the layout components. Facts and points are spec rows split by rules (never framed). */
+.facts,.points{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.contacts{display:flex;flex-direction:column}
+.contacts>.rl.gap{margin:20px 0}
+.crow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;column-gap:40px}
+.cline{display:flex;gap:64px}
+
+/* Grid, scale and rhythm (layouts.mjs).
+   Rhythm: label to value 8, caption 16, item 24, block 40, headline to content 64. Columns: 12 of 102 px, gutters 40. */
+.hbody{display:flex;flex-direction:column;margin-top:64px}
+.hbody.centre{flex:1 1 auto;min-height:0;justify-content:center;padding-bottom:64px}
+.stack>.hbody.centre{flex:1 1 auto}
+.gridc{display:grid;column-gap:40px}
+.gridc.rows{row-gap:64px}
+.gridc.c2{grid-template-columns:repeat(2,812px)}.gridc.c3{grid-template-columns:repeat(3,528px)}.gridc.c4{grid-template-columns:repeat(4,386px)}
+.phcell,.col,.fig{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.rows4{display:flex;flex-direction:column;width:1664px}
+.rows4 .rl.gap{margin:24px 0}
+.rows4.tight .rl.gap{margin:16px 0}
+.arow-in{display:grid;grid-template-columns:102px 954px 528px;column-gap:40px;align-items:baseline}
+/* The marker sits on the name's first line (84 px, the .t-h line), never centred on a row the description makes taller. */
+.arow-in>.mk{align-self:start;height:84px;display:flex;align-items:center}
+.mrow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:baseline}
+.hexwrap{position:relative;width:112px;height:97px;flex:none}
+.hexwrap>.abs{position:absolute}
+.hexnum{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-weight:500;font-variant-numeric:tabular-nums}
+.steprow{display:flex}
+.pic-box{position:relative;flex:none}
+.pic-fill{position:relative;flex:1 1 auto!important}
+.tiles2{display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;row-gap:40px}
+.ico{width:64px;height:64px;color:var(--action)}
+.logorow{display:flex;align-items:center;gap:40px;height:96px}
+.bars{display:flex;flex-direction:column;row-gap:64px}
+.brow{display:grid;grid-template-columns:528px 1096px;column-gap:40px;align-items:center}
+.bwrap{display:flex;align-items:center;gap:24px}
+.bar{height:60px;flex:none}
+.gantt{display:flex;flex-direction:column}
+.gantt .rl.gap{margin:24px 0}
+.grow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:center}
+.gm{display:flex}
+.gbar{display:flex;align-items:center}
+.slide{--panel:#F1F5F9}.slide.g-brand{--panel:var(--brand)}.slide.g-deep{--panel:var(--deep)}
+.g-white .rl{background:var(--line)}
+.g-brand .rl,.g-deep .rl{background:rgba(167,191,228,.35)}
+.strips{display:flex;flex-direction:column;row-gap:40px}
+.srow{display:grid;grid-template-columns:812px 812px;column-gap:40px;align-items:center}
+/* One step up or down the closed scale for a whole block (deck.js snap): body 38 / lead 44 / headline 76. */
+.up1 .t-body:not(.hexnum){font-size:44px;line-height:60px}
+.up1 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-body:not(.hexnum),.up2 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-label{font-size:38px;line-height:52px}
+.up2 .t-h:not(.mi){font-size:120px;line-height:124px;letter-spacing:-.035em}
+.dn1 .t-lead{font-size:38px;line-height:52px}
+.dn1 .t-h:not(.mi){font-size:44px;line-height:60px;letter-spacing:0}
+.gantt .bar{height:40px}
+
+/* Table (layout table): one grid row per table row, every cell a text box on its grid columns. Column titles bottom-aligned
+   over the stronger rule; rows split by the hairline. Numbers right-aligned in tabular figures. */
+.tbl{display:flex;flex-direction:column;width:1664px}
+.tbl .rl.gap{margin:24px 0}
+.tbl .rl{background:var(--soft)}
+.tbl .rl.head{background:var(--line)}
+.trow{display:grid;column-gap:40px;align-items:start}
+.trow.thead{align-items:end}
+.trow .th{font-weight:500}
+.tbl.tight .rl.gap{margin:16px 0}
+.trow .tn{text-align:right;font-variant-numeric:tabular-nums}
+.L-statement.g-brand b{color:#fff}
+.trow .tn .hy{font-variant-numeric:normal}
+
+/* Match the title's first line when the existing stage selects another type-scale step. */
+.dn1 .arow-in>.mk{height:60px}
+.up2 .arow-in>.mk{height:124px}
+
+/* Corporate content has a stable scale; whitespace never promotes a row name to a headline. */
+.L-features .arow-in>.t-h,.L-phases .arow-in>.t-h,.L-steps .arow-in>.t-h{font-size:44px;line-height:60px;letter-spacing:0}
+.L-features .arow-in>.mk,.L-phases .arow-in>.mk,.L-steps .arow-in>.mk{height:60px}
+.L-features .arow-in>.t-body,.L-phases .arow-in>.t-body,.L-steps .arow-in>.t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body[style*="font-weight:500"]{font-size:44px;line-height:60px;letter-spacing:0}
+.L-photo.panorama .hbody.centre{padding-bottom:0}
+
+.L-photo.panorama .hbody.centre>.pic{margin-top:96px}
+
+</style></head>
+<body>
+<div class="deck-viewport"><main class="deck-stage">
+<section class="slide g-brand L-cover " data-band-exempt data-notes="Fotografía real de Rosepetal. Fuente: rosepetal-web-static/astro/public/images/landing/product-film-poster-workflow.webp. Ventana de la fotografía (318,95)–(914,795), sin la interfaz; se mantienen las anotaciones originales de grietas."><div class="pic" style="left:1000px;top:0px;width:920px;height:1080px"><img data-k="img" src="media/product-film-poster-workflow.webp" alt="Fotografía real de una galleta inspeccionada con Rosepetal, con sus anotaciones de grietas" style="object-position:50% 50%;position:absolute;width:2494.496644295302px;height:1308.993288590604px;left:-490.8724832214765px;top:-146.91275167785236px;object-fit:fill"></div><div class="wipe" style="left:1000px;top:0px;width:920px;height:1080px"></div><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="left:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:0px;bottom:168px;width:820px;justify-content:flex-end"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Visión artificial con IA para el control de calidad de galletas</div></div><div class="t-body c-white rv" data-k="text" style=";--i:3;margin-top:40px">Soluciones para líneas de producción de alta cadencia.</div></div><div class="t-meta c-light rv abs" data-k="text" style="left:128px;bottom:40px;--i:4">Engineering peace of mind</div></section>
+<section class="slide g-white L-photo panorama" data-notes="Quiénes somos, para el sector galletero. Sistema de AIS Vision Systems en una planta, de la presentación original. Se conserva la fotografía panorámica original de la planta en una franja ancha bajo el texto."><div class="stack " style="left:128px;top:96px;width:1522px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Especialistas en visión artificial con IA</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Soluciones llave en mano para la industria alimentaria: electromecánica, bandas, electrónica, expulsión y software propio Rosepetal. Diseño y fabricación propios: integramos hardware, software e IA.<br>Experiencia contrastada: sistemas operando en plantas de producción de varios grupos europeos líderes del sector galletero.</div><div class="pic contain" style="position:relative;flex:none;left:0px;top:0px;width:1522px;height:312px"><img data-k="img" src="media/biscuits_system-in-plant.webp" alt="Sistema de inspección de AIS Vision Systems en una planta de galletas" style="object-position:50% 50%"></div></div></div><div class="num" data-k="text">2</div></section>
+<section class="slide g-white L-statement " data-notes="Conocemos el proceso de fabricación. El esquema de la línea, en la diapositiva siguiente. En la imagen, una galleta con rotura detectada."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Identificamos los 4 puntos críticos de control a lo largo de la línea de galleta sándwich</div></div><div class="hbody centre"><div class="t-lead c-muted rv" data-k="text" style=";--i:1">Los puntos de inspección de AIS Vision Systems están ubicados estratégicamente para maximizar la detección temprana y minimizar el desperdicio aguas abajo.</div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1108px;top:298px;width:684px;height:484px"><img data-k="img" src="media/biscuit-det-1.webp" alt="Galleta con rotura detectada" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">3</div></section>
+<section class="slide g-white L-phases " data-notes="Los cuatro controles de AIS Vision Systems en el esquema «Proceso de producción y puntos de control de calidad» de la presentación original: 1.er control tras el horno, 2.º control en el enfriado, 3.er control tras el baño de chocolate (grietas evidentes, checking) y 4.º control del paquete en film transparente, tras la agrupación."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Puntos de control</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:2;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">1</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Horno</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Desarrollo, forma, decoración de glasa, color y quemado</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:3;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">2</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Enfriado</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Presencia de galleta, posición y glasa correcta</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:4;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">3</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Baño de chocolate</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Roturas, grietas, falta o defecto de relleno, chips y formas</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:5;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">4</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Film transparente</div><div class="t-body c-muted rv" data-k="text" style=";--i:5">Roturas, polvo, falta de producto y galleta invertida</div></div></div></div></div></div><div class="num" data-k="text">4</div></section>
+<section class="slide g-white L-stage " data-notes="Punto de control post-horno. En la imagen, una galleta con grieta, que se retira antes de dosificar la crema. Los otros tres defectos, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Control post-horno: reducción de mermas desde el origen</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Defectos eliminados antes de dosificar.</div><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Rotura o grieta</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Expulsión antes de crema: cero desperdicio de relleno</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Descascarillado o pérdida de cobertura</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Se elimina antes de dosificar para proteger calidad total</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1108px;top:298px;width:684px;height:484px"><img data-k="img" src="media/biscuit-det-2.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">5</div></section>
+<section class="slide g-white L-features " data-notes="Punto de control post-horno: manchado superficial, dimensiones fuera de rango y color incorrecto de cocción."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Control post-horno: manchas, dimensiones y color</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-eye"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="1" />
+  <path d="M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Manchado superficial</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Fuera de línea antes de crema y empaque, sin arrastre de merma</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-ruler"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+  <path d="m14.5 12.5 2-2" />
+  <path d="m11.5 9.5 2-2" />
+  <path d="m8.5 6.5 2-2" />
+  <path d="m17.5 15.5 2-2" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Dimensiones fuera de rango</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Alta cadencia con rechazo temprano y flujo estable</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-sun"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Color incorrecto (cocción)</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Control inmediato para asegurar consistencia y estándar</div></div></div></div></div></div><div class="num" data-k="text">6</div></section>
+<section class="slide g-white L-statement " data-notes="Impacto en la línea de producción de galletas. Cada galleta KO que sale aquí no recibe crema ni pasa por el capper ni por el envasado. La cobertura multicanal sobre banda ancha está en la diapositiva de experiencia («banda ancha, múltiples carriles»)."><div class="stack " style="left:128px;top:96px;bottom:96px;width:1664px;justify-content:center"><div class="mask" style=""><div class="mi t-display c-ink" data-k="text" style="--i:0">Rechazar las galletas defectuosas antes del dosificador de crema elimina el 100 % del desperdicio de crema en galletas KO</div></div><div class="t-lead c-muted rv" data-k="text" style=";--i:2;margin-top:40px">Y protege la eficiencia de la línea. Cada galleta KO detectada aquí evita el coste de crema, capper y envasado.</div></div><div class="num" data-k="text">7</div></section>
+<section class="slide g-white L-stage " data-notes="Punto de control post-capper, con una cámara cenital y una cámara lateral; sus defectos, en las dos diapositivas siguientes. En la imagen, la vista en directo de Rosepetal sobre una bandeja de galletas sándwich."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Control post‑capper: calidad total antes del envase</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Hasta 1500 uds./min: inspección al 100 % sin reducir velocidad de línea.</div><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Arquitectura</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">2 carriles con el sistema Rosepetal: máxima cadencia sin comprometer la calidad total del sándwich</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:423px;width:940px;height:657px"><img data-k="img" src="media/biscuits_live-view.webp" alt="Vista en directo de galletas sándwich en bandeja" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">8</div></section>
+<section class="slide g-white L-features " data-notes="Punto de control post-capper: los cuatro defectos que ve la cámara cenital y lo que evita detectar cada uno."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Cámara cenital</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-search-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m13.5 8.5-5 5" />
+  <path d="m8.5 8.5 5 5" />
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Galleta rota o con grieta</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Evita rechazo tardío, reclamaciones y merma de producto terminado</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-crosshair"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="22" x2="18" y1="12" y2="12" />
+  <line x1="6" x2="2" y1="12" y2="12" />
+  <line x1="12" x2="12" y1="6" y2="2" />
+  <line x1="12" x2="12" y1="22" y2="18" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Desplazamiento de tapa (tolerancia: ±5 % del diámetro)</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Evita devoluciones de cliente y pérdida de calidad total</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-target"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Crema fuera del contorno</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Evita desperdicio de crema y reprocesos en alta cadencia</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-eye"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="1" />
+  <path d="M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Manchado o picado superficial</div><div class="t-body c-muted rv" data-k="text" style=";--i:5">Evita incidencias de presentación y riesgo de no conformidad en envase</div></div></div></div></div></div><div class="num" data-k="text">9</div></section>
+<section class="slide g-white L-features " data-notes="Punto de control post-capper: los tres defectos que ve la cámara lateral y lo que evita detectar cada uno."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Cámara lateral</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-ruler"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+  <path d="m14.5 12.5 2-2" />
+  <path d="m11.5 9.5 2-2" />
+  <path d="m8.5 6.5 2-2" />
+  <path d="m17.5 15.5 2-2" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Ancho y altura de crema fuera de rango</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Evita variabilidad de sándwich y pérdida de estándar</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-layers"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Falta de tapa inferior o superior</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Evita producto incompleto, merma y bloqueo en empaque</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-rotate-3d"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15.194 13.707 3.814 1.86-1.86 3.814" />
+  <path d="M16.47214 7.52786 A 5 10 0 1 0 13 21.79796" />
+  <path d="M21.79796 11 A 10 5 0 1 0 19 15.57071" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Inclinación diagonal de tapa (defecto típico del capper)</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Evita reclamaciones, retrabajos y afectación de calidad total</div></div></div></div></div></div><div class="num" data-k="text">10</div></section>
+<section class="slide g-brand L-figures " data-notes="Punto de control del paquete con el sistema AIS-RP-C: 6 cámaras en color con cúpula de iluminación cerrada, inspección al 100 % sin muestreo, cadencia de hasta 180 paquetes/minuto y trazabilidad completa de cada unidad."><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:96px;width:1238px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Control de paquete: calidad total en el producto final con el sistema AIS-RP-C</div></div><div class="hbody centre"><div class="gridc c3" style="width:1664px"><div class="fig" data-beat="1"><div class="t-display c-white rv" data-k="text" style=";--i:2">6</div><div class="t-body c-white rv" data-k="text" style=";--i:2;font-weight:500;margin-top:16px">cámaras en color</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:8px">Con cúpula de iluminación cerrada</div></div><div class="fig" data-beat="2"><div class="t-display c-white rv" data-k="text" style=";--i:3">100 %</div><div class="t-body c-white rv" data-k="text" style=";--i:3;font-weight:500;margin-top:16px">inspección</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:8px">Sin muestreo</div></div><div class="fig" data-beat="3"><div class="t-display c-white rv" data-k="text" style=";--i:4">180</div><div class="t-body c-white rv" data-k="text" style=";--i:4;font-weight:500;margin-top:16px">paquetes/minuto, como máximo</div><div class="t-body c-light rv" data-k="text" style=";--i:4;margin-top:8px">Con trazabilidad completa de cada unidad</div></div></div></div></div><div class="num" data-k="text">11</div></section>
+<section class="slide g-white L-features " data-notes="El sistema AIS-RP-C: para qué está diseñado y los cuatro defectos que detecta en el paquete, con lo que aporta detectar cada uno."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Defectos detectados</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Diseñado para sostener la eficiencia en alta cadencia, reducir mermas y asegurar calidad total en el producto final.</div><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-search-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m13.5 8.5-5 5" />
+  <path d="m8.5 8.5 5 5" />
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Galleta rota visible</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Evita reclamaciones y devoluciones de cliente final</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-refresh-cw"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Galleta invertida</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Garantiza presentación perfecta en lineal</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-filter"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Polvo o fragmentos</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Seguridad alimentaria y cumplimiento normativo</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M7 8h8" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Marcaje de lote al 100 %</div><div class="t-body c-muted rv" data-k="text" style=";--i:5">Trazabilidad total y cumplimiento legal</div></div></div></div></div></div><div class="num" data-k="text">12</div></section>
+<section class="slide g-white L-stage " data-notes="Inspección de glasa con aprendizaje profundo. En la imagen, la pantalla de Rosepetal en una línea de galletas glaseadas, con sus estadísticas de errores. Sin IA y con IA, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Inspección de glasa con IA</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Lo que solo es posible con inteligencia artificial.</div><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Resuelve</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Diversos patrones en una misma producción, exceso de glasa, cobertura insuficiente, descascarillado (5 niveles de severidad, de OK a KO), grieta en cuerpo glaseado</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1108px;top:298px;width:684px;height:484px"><img data-k="img" src="media/biscuit-screen.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">13</div></section>
+<section class="slide g-white L-features " data-notes="Glasa: sin IA, cada patrón variable sale como defecto; con Rosepetal, el modelo distingue la variación aceptable del defecto real."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Con y sin inteligencia artificial</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-circle-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="m15 9-6 6" />
+  <path d="m9 9 6 6" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Sin IA</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Cada patrón variable se detecta como defecto. Imposible en producción real.</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-circle-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="m16 9-5.5 5.5L8 12" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Con Rosepetal</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Distingue variación aceptable de defecto real. Entrenado por tipología.</div></div></div></div></div></div><div class="num" data-k="text">14</div></section>
+<section class="slide g-white L-stage " data-notes="Rosepetal, la plataforma de IA del sistema. En la imagen, su herramienta de etiquetado. Estadísticas y acceso remoto, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Rosepetal: el cerebro del sistema</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Deep learning</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Modelos entrenados por tipología de defecto con cientos de imágenes reales</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Recetas múltiples</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Cambio de referencia en segundos. Formatos ilimitados almacenados.</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:227px;width:844px;height:627px"><img data-k="img" src="media/br-rosepetal-sp-027.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">15</div></section>
+<section class="slide g-white L-stage " data-notes="Rosepetal registra cada NOK con su imagen y permite la supervisión y el soporte remotos. En la imagen, un ingeniero de AIS con las estadísticas de Rosepetal en pantalla (el original reservaba aquí una captura de la interfaz de Rosepetal)."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Estadísticas y acceso remoto</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Estadísticas en tiempo real</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Registro de cada NOK con imagen, fecha, tipo de defecto y umbrales configurables</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Acceso remoto web</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Supervisión y soporte remoto protegido, disponible 24/7</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:144px;width:940px;height:936px"><img data-k="img" src="media/ais-engineer-rosepetal-screen.webp" alt="Ingeniero de AIS revisando las estadísticas de Rosepetal" style="object-position:18% 50%"></div></div><div class="num" data-k="text" style="right:980px">16</div></section>
+<section class="slide g-white L-statement " data-notes="GlobalVision, con AIS Vision Systems como partner oficial en España. En la imagen, el escáner GlobalVision C8."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">GlobalVision: control de artes gráficas</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1">AIS Vision Systems es partner oficial de GlobalVision en España, el software líder mundial de inspección de artes gráficas, utilizado por el 72 % de las grandes compañías farmacéuticas y los principales fabricantes de gran consumo.</div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1151px;top:295px;width:599px;height:490px"><img data-k="img" src="media/c8-source.webp" alt="Escáner GlobalVision C8" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">17</div></section>
+<section class="slide g-white L-stage " data-notes="Aplicación directa de GlobalVision. En la imagen, un escáner de gran formato de GlobalVision con su puesto de revisión. Las dos artes de la presentación original, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Verificación de artes de bobinas de film y estuches de cartón</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Antes de aprobar la impresión y a la recepción de materiales de proveedor.</div><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Evita reprocesamientos y retiradas de mercado por errores de packaging</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Funciona offline, con escáner o entre archivos digitales, sobre cualquier material impreso</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1118px;top:339px;width:664px;height:403px"><img data-k="img" src="media/globalvision_large-format-scanner.webp" alt="Escáner de gran formato de GlobalVision" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">18</div></section>
+<section class="slide g-white L-features " data-notes="Lo que detecta GlobalVision al comparar artes finales y muestras físicas: gráficos, texto, color, códigos y Braille. Cómo compara, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">¿Qué detecta?</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-image"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+  <circle cx="9" cy="9" r="2" />
+  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Gráficos e ilustraciones</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Logos incorrectos, elementos desplazados, diferencias de registro</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-file-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Texto</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Palabras erróneas, fuentes incorrectas, texto faltante</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-eye"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+  <circle cx="12" cy="12" r="3" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Color</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Desviaciones delta E: Pantone, CMYK, RGB, LAB</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-barcode"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M8 7v10" />
+  <path d="M12 7v10" />
+  <path d="M17 7v10" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Códigos y Braille</div><div class="t-body c-muted rv" data-k="text" style=";--i:5">Verificación ANSI/CEN/ISO y Braille en 44 idiomas</div></div></div></div></div></div><div class="num" data-k="text">19</div></section>
+<section class="slide g-white L-stage " data-notes="GlobalVision encuentra las diferencias automáticamente entre dos artes finales, entre el arte final y la muestra impresa, o entre dos muestras. Las dos artes son las de la presentación original: dos versiones del mismo envase de ejemplo."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Encuentra diferencias automáticamente</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Artwork vs. artwork</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Artwork vs. muestra física</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:4">Muestra vs. muestra</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:640px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:88px;width:844px;height:465px"><img data-k="img" src="media/globalvision_artwork-comparison-1.webp" alt="" style="object-fit:fill"></div><div class="abs panel" data-k="rect" style="left:980px;top:664px;width:940px;height:416px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1160px;top:712px;width:581px;height:320px"><img data-k="img" src="media/globalvision_artwork-comparison-2.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">20</div></section>
+<section class="slide g-white L-features " data-notes="Todo el proyecto con un solo proveedor, sin integraciones entre terceros."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Solución llave en mano</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Un solo proveedor. Cero integraciones. Responsabilidad total del proyecto. Marcado CE, diseño higiénico sin cavidades, inox 304.</div><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 10.27 7 3.34" />
+  <path d="m11 13.73-4 6.93" />
+  <path d="M12 22v-2" />
+  <path d="M12 2v2" />
+  <path d="M14 12h8" />
+  <path d="m17 20.66-1-1.73" />
+  <path d="m17 3.34-1 1.73" />
+  <path d="M2 12h2" />
+  <path d="m20.66 17-1.73-1" />
+  <path d="m20.66 7-1.73 1" />
+  <path d="m3.34 17 1.73-1" />
+  <path d="m3.34 7 1.73 1" />
+  <circle cx="12" cy="12" r="2" />
+  <circle cx="12" cy="12" r="8" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Diseño electromecánico completo</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-truck"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+  <path d="M15 18H9" />
+  <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+  <circle cx="17" cy="18" r="2" />
+  <circle cx="7" cy="18" r="2" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Bandas de transporte</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-camera"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+  <circle cx="12" cy="13" r="3" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Cámaras, ópticas y electrónica</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-brain-circuit"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+  <path d="M9 13a4.5 4.5 0 0 0 3-4" />
+  <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+  <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+  <path d="M6 18a4 4 0 0 1-1.967-.516" />
+  <path d="M12 13h4" />
+  <path d="M12 18h6a2 2 0 0 1 2 2v1" />
+  <path d="M12 8h8" />
+  <path d="M16 8V5a2 2 0 0 1 2-2" />
+  <circle cx="16" cy="13" r=".5" />
+  <circle cx="18" cy="3" r=".5" />
+  <circle cx="20" cy="21" r=".5" />
+  <circle cx="20" cy="8" r=".5" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Software Rosepetal</div></div></div></div></div></div><div class="num" data-k="text">21</div></section>
+<section class="slide g-white L-features " data-notes="FAT en nuestras instalaciones, SAT e instalación en planta, formación y soporte remoto, y garantía de 2 años."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Pruebas, formación y garantía</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-badge-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <path d="m16 9-5.5 5.5L8 12" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">FAT en nuestras instalaciones</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-factory"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16h.01" />
+  <path d="M16 16h.01" />
+  <path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+  <path d="M8 16h.01" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">SAT e instalación en planta</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-users"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Formación y soporte remoto</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-shield-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Garantía de 2 años</div></div></div></div></div></div><div class="num" data-k="text">22</div></section>
+<section class="slide g-white L-phases " data-notes="Nuestra experiencia en el sector: galletería industrial. La panadería industrial, en la diapositiva siguiente."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Experiencia en galletería industrial</div></div><div class="hbody centre"><div class="gridc c3 rows"><div class="phcell" data-band data-beat="1"><div class="hexwrap rv" style="--i:2;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">1</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:2">Post-horno</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:2">Inspección en banda ancha, múltiples carriles</div></div><div class="phcell" data-band data-beat="2"><div class="hexwrap rv" style="--i:3;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">2</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:3">Post-capper</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:3">Alta cadencia: hasta 1500 uds./min, doble cámara</div></div><div class="phcell" data-band data-beat="3"><div class="hexwrap rv" style="--i:4;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">3</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:4">Múltiples referencias</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:4">En la misma línea (circulares y rectangulares)</div></div><div class="phcell" data-band data-beat="4"><div class="hexwrap rv" style="--i:5;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">4</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:5">Glasa</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:5">Patrones variables mediante IA</div></div><div class="phcell" data-band data-beat="5"><div class="hexwrap rv" style="--i:6;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">5</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:6">Paquete encelofanado</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:6">A 6 caras</div></div><div class="phcell" data-band data-beat="6"><div class="hexwrap rv" style="--i:7;width:112px;height:97px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:112px;height:97px"><svg viewBox="-2.5 -2.5 117 102" width="100%" height="100%"><polygon points="0.0,48.5 28.0,0.0 84.0,0.0 112.0,48.5 84.0,97.0 28.0,97.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">6</div></div><div class="t-body c-ink rv" data-k="text" style="font-weight:500;margin-top:24px;--i:7">FAT y SAT</div><div class="t-body c-muted rv" data-k="text" style="margin-top:8px;--i:7">Documentados y firmados</div></div></div></div></div><div class="num" data-k="text">23</div></section>
+<section class="slide g-white L-stage " data-notes="Panadería industrial, con la misma plataforma que en galletas. En la imagen, la vista en directo de Rosepetal midiendo barras de pan en línea, con sus detecciones. La imagen principal muestra el conjunto de datos de panadería en Rosepetal; debajo se conserva la vista en directo con las medidas y detecciones."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Panadería industrial: control geométrico inline de panes</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Largo, ancho, deformaciones</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Medición en tiempo real con la misma plataforma Rosepetal</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:640px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:62px;width:844px;height:516px"><img data-k="img" src="media/rosepetal_bread-formation-dataset.webp" alt="Conjunto de imágenes de panadería en la interfaz de Rosepetal" style="object-fit:fill"></div><div class="abs panel" data-k="rect" style="left:980px;top:664px;width:940px;height:416px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1216px;top:712px;width:469px;height:320px"><img data-k="img" src="media/rosepetal-bread-live-view.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">24</div></section>
+<section class="slide g-white L-steps " data-notes="Cuatro pasos, de la visita técnica a la planta al soporte continuo."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Próximos pasos</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:2;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">1</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Visita técnica a planta</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Toma de datos, muestras y layout de línea</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:3;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">2</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Propuesta técnica y económica</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Personalizada a tu línea y referencias</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:4;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">3</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">FAT en Barcelona</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Validación completa en las instalaciones de AIS Vision Systems</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:5;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">4</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">SAT, puesta a punto y soporte continuo</div><div class="t-body c-muted rv" data-k="text" style=";--i:5">De 2 a 3 semanas por referencia y ampliación de recetas</div></div></div></div></div></div><div class="num" data-k="text">25</div></section>
+<section class="slide g-brand L-closing " data-notes="Gracias. El pie del original decía: «AIS Vision Systems, aisvision.com, Contacte con nuestro equipo técnico para iniciar la visita». El teléfono es el de las piezas aprobadas. LinkedIn, como en las piezas aprobadas."><img class="hex" data-k="vec" src="media/hex-deck-br.svg" alt="" style="right:0px;bottom:0px"><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="right:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:96px;bottom:96px;width:1096px"><div class="mask" style=""><div class="mi t-display c-white" data-k="text" style="--i:0">Gracias</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-label c-light rv" data-k="text" style=";--i:2">Web</div><div class="t-h c-white rv" data-k="text" style=";--i:2;margin-top:8px;font-variant-numeric:tabular-nums">www.aisvision.com</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:3">Teléfono</div><div class="t-h c-white rv" data-k="text" style=";--i:3;margin-top:8px;font-variant-numeric:tabular-nums">+34 931 003 035</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:4">LinkedIn</div><div class="t-h c-white rv" data-k="text" style=";--i:4;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:5">YouTube</div><div class="t-h c-white rv" data-k="text" style=";--i:5;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div></div></div></div></section>
+</main></div>
+<div class="deck-count" aria-hidden="true"></div><div class="deck-notes" aria-live="polite"></div>
+<script>
+/* AIS HTML decks: the presenter.
+   Adapted from the SlidePresentation controller and deck-stage.js of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang,
+   see LICENSE-frontend-slides.txt): uniform scale of the 1920 × 1080 stage, keyboard, wheel and swipe navigation, the
+   count outside the slide, print. The beat model follows beatdeck (MIT, Borja Pérez): one click shows one beat, every
+   position is #slide.beat and renders the same whether reached forwards, backwards or straight from the URL; P opens a
+   presenter window (notes, next, timer) kept in step over BroadcastChannel; O overview; B blackout.
+   Modes: ?export (every slide, every beat, static: PNG, PDF, PPTX measurement), ?still (one position, no motion: the
+   presenter's previews), ?view=presenter, ?send (no beats: each slide arrives whole). */
+(() => {
+  const html = document.documentElement, q = location.search;
+  const slides = [...document.querySelectorAll('.slide')];
+  // A content block centred under its headline sits on the 8 px baseline: its offset is snapped once the fonts are in
+  // (layout only, transforms ignored). html[data-snapped] tells the builder and verify the layout is final.
+  // Scale the composition, not the decoration: a block with a lot of room left steps its body text up one size of the
+  // closed scale (38 to 44, 44 to 76: class up1), or two if there is still room (up2: words at 76, names at 120); a block
+  // that does not fit steps down one (dn1). Then the block is
+  // centred and its offset snapped to the 8 px baseline.
+  const snap = () => { document.querySelectorAll('.hbody.centre').forEach((h) => {
+    h.style.justifyContent = 'flex-start'; h.style.paddingTop = '0px';
+    const kids = () => [...h.children];
+    const room = h.offsetParent.clientHeight - h.offsetTop;
+    const wide = () => [...h.querySelectorAll('[data-k="text"]')].some((e) => e.scrollWidth > e.clientWidth + 2);
+    const free = () => { const k = kids(); if (!k.length) return 0; const top = Math.min(...k.map((x) => x.offsetTop)), bot = Math.max(...k.map((x) => x.offsetTop + x.offsetHeight)); return wide() ? -1 : room - (h.querySelector('.rows4') && !h.closest('.L-agenda') ? 48 : 64) - (bot - top); };
+    const rows = h.querySelector('.rows4');
+    if (rows && !h.closest('.L-agenda')) {
+      const titles = [...rows.querySelectorAll('.arow-in')];
+      const used = titles.reduce((sum, row) => sum + row.offsetHeight, 0);
+      const budget = (room - 128 - used - (titles.length-1)*2) / Math.max(1, 2*(titles.length-1));
+      const gap = [24, 40, 64, 96].filter(v => v <= budget).pop() || 24;
+      rows.querySelectorAll('.rl.gap').forEach(rule => rule.style.margin = `${gap}px 0`);
+    }
+    let f = free();
+    // A sentence of more than 12 words never reaches headline size: it may step 38 to 44, no further.
+    const long = Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) > 12;
+    if (!h.closest('.L-features,.L-phases,.L-steps,.panorama') && f > 200 && !(long && h.querySelector('.t-lead, .t-h'))) {
+      h.classList.add('up1'); if (free() < 0) h.classList.remove('up1');
+      // A sentence of more than 12 words stays at lead size: running text never goes to headline size.
+      else if (free() > 200 && Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) <= 12) { h.classList.replace('up1', 'up2'); if (free() < 0) h.classList.replace('up2', 'up1'); }
+    }
+    else if (f < 0) h.classList.add('dn1');
+    f = free();
+    h.style.paddingTop = Math.max(0, Math.floor(f / 2 / 8) * 8) + 'px';
+  }); html.dataset.snapped = '1'; };
+  document.fonts.ready.then(snap);
+  if (/[?&]export\b/.test(q)) { html.classList.add('is-export'); slides.forEach((s) => { s.classList.add('active', 'shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); }); return; }
+  const still = /[?&]still\b/.test(q), send = /[?&]send\b/.test(q), presenter = /[?&]view=presenter\b/.test(q);
+  if (still) html.classList.add('is-still');
+  const stage = document.querySelector('.deck-stage');
+  const count = document.querySelector('.deck-count');
+  const notes = document.querySelector('.deck-notes');
+  const beats = slides.map((s) => send ? 0 : Math.max(0, ...[...s.querySelectorAll('[data-beat]')].map((e) => +e.dataset.beat)));
+  let i = 0, b = 0, idle, over = false;
+  const chan = 'BroadcastChannel' in window ? new BroadcastChannel('ais-deck:' + location.pathname) : null;
+
+  const fit = () => {
+    if (over) return;
+    const f = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = `translate(${(innerWidth - 1920 * f) / 2}px,${(innerHeight - 1080 * f) / 2}px) scale(${f})`;
+  };
+  // Show slide n at beat k. Beats up to k are on; the entrance replays only when the slide changes.
+  const go = (n, k, from = 'nav') => {
+    n = Math.max(0, Math.min(n, slides.length - 1)); k = Math.max(0, Math.min(k, beats[n]));
+    const changed = n !== i || from === 'load';
+    i = n; b = k;
+    slides.forEach((s, x) => s.classList.toggle('active', x === i));
+    slides[i].querySelectorAll('[data-beat]').forEach((e) => e.classList.toggle('on', send || +e.dataset.beat <= b));
+    if (changed) {
+      slides.forEach((s) => s.classList.remove('shown'));
+      if (still) slides[i].classList.add('shown');
+      else requestAnimationFrame(() => requestAnimationFrame(() => slides[i].classList.add('shown')));
+    }
+    history.replaceState(null, '', '#' + (i + 1) + (beats[i] ? '.' + b : ''));
+    count.textContent = `${i + 1} / ${slides.length}`;
+    if (!still) { count.classList.add('show'); clearTimeout(idle); idle = setTimeout(() => count.classList.remove('show'), 1800); }
+    notes.textContent = slides[i].dataset.notes || '';
+    if (chan && from !== 'remote') chan.postMessage({i, b});
+    if (presenter) paintPresenter();
+  };
+  const next = () => (b < beats[i] ? go(i, b + 1) : i < slides.length - 1 && go(i + 1, 0));
+  const prev = () => (b > 0 ? go(i, b - 1) : i > 0 && go(i - 1, beats[i - 1]));
+  const parse = () => { const m = location.hash.match(/^#(\d+)(?:\.(\d+))?/); return m ? [m[1] - 1, +(m[2] || 0)] : [0, 0]; };
+
+  // Overview (O): every slide as a thumbnail; click one to go there.
+  const overview = (on) => {
+    over = on; html.classList.toggle('is-overview', on);
+    if (!on) { slides.forEach((s) => (s.style.transform = '')); fit(); return; }
+    const cols = 4, gap = 24, w = (innerWidth - gap * (cols + 1)) / cols, f = w / 1920;
+    stage.style.transform = 'none';
+    slides.forEach((s, x) => { s.style.transform = `translate(${gap + (x % cols) * (w + gap)}px,${gap + Math.floor(x / cols) * (w * 9 / 16 + gap)}px) scale(${f})`; s.classList.add('shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); });
+  };
+  // Presenter window: current position, next position, notes, timer. Both previews are this file in ?still mode.
+  let t0 = null, pres;
+  function paintPresenter() {
+    if (!pres) return;
+    const n = b < beats[i] ? [i, b + 1] : [i + 1, 0];
+    const src = (p) => location.pathname + '?still#' + (p[0] + 1) + '.' + p[1];
+    if (pres.cur.dataset.at !== src([i, b])) { pres.cur.src = src([i, b]); pres.cur.dataset.at = src([i, b]); }
+    if (n[0] < slides.length) { if (pres.nxt.dataset.at !== src(n)) { pres.nxt.src = src(n); pres.nxt.dataset.at = src(n); } } else pres.nxt.removeAttribute('src');
+    pres.pos.textContent = `Diapositiva ${i + 1} de ${slides.length}` + (beats[i] ? `, paso ${b} de ${beats[i]}` : '');
+    pres.notes.textContent = slides[i].dataset.notes || '';
+  }
+  if (presenter) {
+    html.classList.add('is-presenter');
+    document.body.insertAdjacentHTML('beforeend', `<div class="pv"><iframe class="pv-cur" title="Actual"></iframe><div class="pv-side"><iframe class="pv-next" title="Siguiente"></iframe><div class="pv-pos"></div><div class="pv-time">00:00</div><div class="pv-notes"></div></div></div>`);
+    pres = {cur: document.querySelector('.pv-cur'), nxt: document.querySelector('.pv-next'), pos: document.querySelector('.pv-pos'), notes: document.querySelector('.pv-notes'), time: document.querySelector('.pv-time')};
+    setInterval(() => { if (t0 === null) return; const s = Math.floor((Date.now() - t0) / 1000); pres.time.textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; }, 500);
+  }
+
+  if (chan) chan.onmessage = (e) => { if (still) return; if (e.data.cmd === 'next') next(); else if (e.data.cmd === 'prev') prev(); else if (typeof e.data.i === 'number' && (e.data.i !== i || e.data.b !== b)) go(e.data.i, e.data.b, 'remote'); };
+  const send2 = (cmd) => (presenter && chan ? (chan.postMessage({cmd}), cmd === 'next' ? next() : prev()) : cmd === 'next' ? next() : prev());
+  if (!still) {
+    addEventListener('resize', () => (over ? overview(true) : fit()));
+    addEventListener('keydown', (e) => {
+      if (t0 === null) t0 = Date.now();
+      if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); send2('next'); }
+      else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); send2('prev'); }
+      else if (e.key === 'Home') go(0, 0);
+      else if (e.key === 'End') go(slides.length - 1, beats[slides.length - 1]);
+      else if (/^[nN]$/.test(e.key)) notes.classList.toggle('show');
+      else if (/^[fF]$/.test(e.key)) document.fullscreenElement ? document.exitFullscreen() : html.requestFullscreen();
+      else if (/^[oO]$/.test(e.key)) overview(!over);
+      else if (e.key === 'Escape' && over) overview(false);
+      else if (/^[bB.]$/.test(e.key)) html.classList.toggle('is-black');
+      else if (/^[pP]$/.test(e.key) && !presenter) open(location.pathname + '?view=presenter' + location.hash, 'ais-presenter', 'width=1400,height=820');
+    });
+    let wheelLock = 0;
+    addEventListener('wheel', (e) => { const t = Date.now(); if (over || presenter || t - wheelLock < 600 || Math.abs(e.deltaY) < 20) return; wheelLock = t; e.deltaY > 0 ? next() : prev(); }, {passive: true});
+    let x0 = null;
+    addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, {passive: true});
+    addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) dx < 0 ? next() : prev(); x0 = null; });
+    addEventListener('click', (e) => {
+      if (presenter || e.target.closest('a,iframe')) return;
+      if (over) { const s = e.target.closest('.slide'); if (s) { overview(false); go(slides.indexOf(s), 0); } return; }
+      e.clientX > innerWidth / 3 ? next() : prev();
+    });
+  }
+  addEventListener('hashchange', () => { const [n, k] = parse(); if (n !== i || k !== b) go(n, k); });
+  fit();
+  const [n, k] = parse();
+  go(n, k, 'load');
+})();
+
+</script>
+</body></html>

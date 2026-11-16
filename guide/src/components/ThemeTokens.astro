@@ -1,0 +1,34 @@
+---
+// The semantic tokens of @rosepetal/design, read from its styles.css at build time: those that change in dark mode
+// or those that keep one value in both modes. Under each token, the package's note on its use, or the token an alias follows.
+import { changing, fixed, tokenNote } from '../design/themes';
+import Swatch from './Swatch.astro';
+interface Props { set: 'changing' | 'fixed'; labels: { token: string; light: string; dark: string; value: string; follows: string } }
+const { set, labels } = Astro.props;
+const rows = set === 'changing' ? changing : fixed;
+---
+<div class="table-wrap"><table class="theme-tokens">
+  <thead><tr><th>{labels.token}</th>{set === 'changing' ? <><th>{labels.light}</th><th>{labels.dark}</th></> : <th>{labels.value}</th>}</tr></thead>
+  <tbody>
+    {rows.map((t) => (
+      <tr>
+        <td><code>--{t.name}</code>{t.follows ? <span class="use">{labels.follows} <code>--{t.follows}</code></span> : t.use && <span class="use">{tokenNote(t.name, Astro.params.lang as import('../i18n').Lang)}</span>}</td>
+        <td data-label={set === 'changing' ? labels.light : labels.value}><Swatch {...t.light} /></td>
+        {set === 'changing' && <td data-label={labels.dark}><Swatch {...t.dark} /></td>}
+      </tr>
+    ))}
+  </tbody>
+</table></div>
+<style>
+  .theme-tokens td { vertical-align: middle; }
+  td > code { white-space: nowrap; overflow-wrap: normal; }
+  .use { display: block; margin-top: 4px; color: var(--muted); }
+  /* Phones: the token on its own line, then its values side by side, each under its column name. */
+  @media (max-width: 760px) {
+    thead { display: none; }
+    tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    td { display: block; padding: 0; border: 0; }
+    td:first-child { grid-column: 1 / -1; }
+    td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 4px; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  }
+</style>

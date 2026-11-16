@@ -1,0 +1,26 @@
+---
+import { core, hexFor } from '../palette';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<ul class="core">
+  {core.map((c) => { const hex = hexFor(c.key); return (
+    <li>
+      <button type="button" class="block" data-copy={hex} style={`background:${hex}`} aria-label={`${c.name[lang]} ${hex}`}><code>{hex}</code></button>
+      <h3>{c.name[lang]}</h3>
+      <p>{c.role[lang]}</p>
+    </li>); })}
+</ul>
+<style>
+  /* Eight equal cards: blues on the first row, neutrals on the second: same block height, same text rhythm, one outline per block. */
+  .core { list-style: none; margin: 32px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
+  li { margin: 0 !important; }
+  .block { all: unset; box-sizing: border-box; display: flex; align-items: flex-end; width: 100%; height: 120px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 0; cursor: copy; }
+  .block:hover { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ink) 30%, transparent); }
+  .block:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .block code { font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); padding: 4px 8px; border-radius: 0; background: #fff; color: var(--ink); }
+  h3 { margin: 16px 0 4px; font-size: var(--ais-text-body); font-weight: 600; line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); }
+  p { margin: 0; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--muted); }
+  @media (max-width: 760px) { .core { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

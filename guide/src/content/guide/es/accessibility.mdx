@@ -1,0 +1,112 @@
+---
+title: Accesibilidad
+rules:
+  - 'Cumple las WCAG 2.2 de nivel AA en todas las webs, interfaces de producto, documentos y vídeos.'
+  - 'El texto alcanza 4,5:1 con su fondo, o 3:1 a partir de 24 px o de 18,7 px en negrita (14 pt); los bordes de controles, los anillos de foco y los gráficos con significado alcanzan 3:1. Usa solo las combinaciones aprobadas.'
+  - 'Nunca transmitas un significado solo con color: los estados, las series de gráficos y las detecciones llevan además una palabra, un icono, una etiqueta o una trama.'
+  - 'Todo funciona con teclado, muestra el anillo de foco de la marca y ofrece zonas de al menos 24 × 24 px. En webs y pantallas de operario, las zonas táctiles, las que se usan con guantes y los botones solo con icono miden 44 × 44 px; las barras de herramientas de producto en escritorio pueden usar botones de 36 px.'
+  - 'Toda imagen, gráfico e ilustración informativos tienen alternativa textual; los decorativos se ocultan a las tecnologías de apoyo. Los vídeos llevan subtítulos.'
+  - 'Las páginas declaran su idioma, ordenan los títulos y mantienen el texto como texto real, nunca como imagen.'
+---
+import A11yPairs from '../../../components/A11yPairs.astro';
+
+Aplica estos requisitos para que todas las personas puedan usar el contenido y los controles.
+
+## El estándar
+
+Las **WCAG 2.2 de nivel AA** se aplican a todo lo que publicamos: webs, páginas de campaña, la aplicación Rosepetal, PDF, presentaciones, correos y vídeos. Es también el nivel que la legislación europea de accesibilidad espera a través de la norma EN 301 549. Las reglas siguientes lo trasladan a nuestra marca; en caso de duda, manda el criterio de las WCAG.
+
+| Principio | Qué significa para nosotros |
+| --- | --- |
+| **Perceptible** | Contraste de las combinaciones aprobadas, alternativas textuales, subtítulos, nada transmitido solo con color |
+| **Operable** | Acceso con teclado en todo, anillo de foco visible, zonas de pulsación amplias, movimiento que respeta el ajuste del sistema |
+| **Comprensible** | Lenguaje claro en inglés, español y catalán, navegación previsible, errores de formulario claros |
+| **Robusto** | HTML semántico primero, ARIA solo para cubrir huecos, pruebas con tecnologías de apoyo reales |
+
+## Contraste
+
+Cada combinación se mide a partir de los valores de los tokens al generar la guía; si una no llega a su mínimo, la generación se detiene.
+
+<A11yPairs lang="es" />
+
+- **El texto** necesita 4,5:1, o 3:1 si mide al menos 24 px, o 18,7 px en negrita (14 pt).
+- **Los controles y los gráficos con significado** necesitan 3:1: bordes de campo, interruptores, anillos de foco, líneas de gráficos, recuadros de detección e iconos de estado.
+- **Nunca solo con color.** Un estado combina su color con un icono y una palabra; las series de un gráfico tienen leyenda o etiquetas directas; las detecciones tienen etiqueta y veredicto.
+- El azul claro `#A7BFE4` es solo para texto sobre fondos azules; sobre blanco es decoración, no texto.
+- Los bordes de los campos de formulario son `#64748B` (`--ais-border-strong`), que alcanza 3:1, en todos los productos y webs.
+- El texto y los iconos de éxito usan el verde de éxito `#15803D` (5:1 sobre blanco), que también es el relleno bajo texto blanco. El verde más claro `#16A34A` solo alcanza 3,3:1 sobre blanco y nunca se usa para texto ni bajo él.
+
+## Tipografía y lectura
+
+- En webs, el texto corrido mide 16 px y nada mide menos de 12 px; en documentos impresos y PDF, nada mide menos de 8,5 pt. En las interfaces de producto, todo lo que se lee mide al menos 14 px; 12 px solo para ejes de gráficos y teclas.
+- Las páginas se recomponen a 320 px CSS de ancho y al 200 % de zoom sin scroll horizontal ni pérdida de contenido.
+- Las composiciones toleran el espaciado de texto del usuario: interlineado de 1,5, el doble de espacio entre párrafos, 0,12 em entre letras y 0,16 em entre palabras.
+- Los intervalos numéricos, los nombres de archivo o de producto y las palabras con guion nunca se parten entre líneas.
+- El texto sigue siendo texto: nunca una imagen de texto ni un texto incrustado en una fotografía.
+
+## Teclado y foco
+
+- Todas las acciones funcionan con teclado, en un orden que sigue la composición visual. Nada atrapa el foco.
+- El anillo de foco (`--ais-focus-ring`, 2 px de azul de acción con una separación blanca de 2 px) aparece en todo elemento interactivo y nunca se elimina.
+- Las cabeceras fijas nunca tapan el elemento con foco: las páginas fijan `scroll-padding-top` a la altura de la cabecera.
+- Cada página empieza con un enlace para saltar al contenido principal.
+
+## Zonas de pulsación
+
+Las zonas interactivas miden al menos **24 × 24 px**. En webs y pantallas de operario, las acciones principales, la navegación, las zonas táctiles, los controles que se usan con guantes y los botones solo con icono miden **44 × 44 px**. Las barras de herramientas de producto en escritorio pueden usar botones de 36 px con iconos de 16 px. Los enlaces dentro del texto quedan exentos, pero conservan el subrayado.
+
+## Movimiento y multimedia
+
+- Todo el movimiento sigue [Movimiento](/es/motion/) y se detiene cuando el sistema pide movimiento reducido.
+- Nada parpadea más de tres veces por segundo.
+- Todo lo que se mueve o se actualiza solo durante más de cinco segundos tiene un control de pausa, salvo los efectos puramente decorativos de la cabecera y la banda de logotipos, que se detiene en hover y fuera de pantalla.
+- Un vídeo nunca reproduce sonido por sí solo. Todos los vídeos llevan subtítulos; lo que solo transmite la imagen lleva audiodescripción o transcripción.
+
+## Imágenes, ilustraciones y gráficos
+
+| Contenido | Alternativa textual |
+| --- | --- |
+| **Fotografía que informa** | Lo que demuestra la imagen, en una frase: «AIS REV 360 inspeccionando botellas de vino en una línea de embotellado». |
+| **Detección o resultado** | El veredicto y el hallazgo: «Rechazo: el lote dice A2391 y se esperaba A2319». |
+| **Ilustración** | Lo que explica, como en los pies de la biblioteca |
+| **Gráfico** | Título y una frase con la conclusión como alternativa, más una vista de tabla con los datos |
+| **Logotipo** | Solo el nombre de la marca; nunca «logotipo de» |
+| **Imagen decorativa o icono junto a su etiqueta** | Alternativa vacía (`alt=""`) o `aria-hidden="true"` |
+
+## Formularios
+
+- Cada campo tiene una etiqueta visible encima; los marcadores de posición son ejemplos, nunca etiquetas.
+- La ayuda va bajo la etiqueta y está vinculada al campo.
+- Los errores aparecen junto al campo, en texto y con icono de error, se anuncian a los lectores de pantalla y explican cómo resolver el problema.
+- Los campos obligatorios se indican con palabras, no solo con un asterisco.
+
+## Idioma y contenido
+
+- Cada página declara su idioma (`lang="es"`, `lang="ca"`, `lang="en"`), y los fragmentos en otro idioma declaran el suyo.
+- Los títulos van en orden sin saltar niveles, y cada página tiene un solo H1.
+- El texto de un enlace dice adónde lleva: «Descarga la ficha técnica de AIS REV 360 (PDF, 2 MB)», nunca «haz clic aquí».
+- Escribe con lenguaje claro, según [Voz](/es/voice/).
+
+## Documentos y presentaciones
+
+- Los PDF van etiquetados (PDF/UA), con título, idioma, títulos de sección, orden de lectura y alternativas para cada imagen informativa.
+- Cada diapositiva tiene un título único, usa los tamaños de Tipografía y mantiene el orden de lectura desde arriba a la izquierda.
+- Nunca entregues como única versión un documento escaneado o aplanado.
+
+## Pruebas
+
+Cada versión de una web, una página de campaña o una pantalla de producto supera estas pruebas antes de publicarse.
+
+| Prueba | Cómo | Se supera si |
+| --- | --- | --- |
+| **Automática** | axe-core en cada plantilla de página, en escritorio y en móvil | No hay incumplimientos |
+| **Revisión de marca** | El [script de revisión de marca](/downloads/qa/brand-check.js) en cada plantilla | No hay hallazgos |
+| **Tipografía y estados** | `type-check.mjs` y `hover-audit.mjs` en cada plantilla | Ningún texto fuera de los diez estilos; un comportamiento por tipo de enlace |
+| **Estados** | Captura cada estado al pasar el puntero, menú abierto, foco, menú móvil y overlay, en cada tema | Cada estado sigue la guía; los scripts no ven estados |
+| **Teclado** | Recorrer cada página con el tabulador y completar cada tarea | Todo es accesible y el foco siempre se ve |
+| **Lector de pantalla** | NVDA con Firefox o Chrome; VoiceOver con Safari | Las tareas se completan y el contenido sigue su orden |
+| **Zoom y recomposición** | Zoom al 200 % y ventana de 320 px de ancho | Nada se pierde ni se corta, sin scroll horizontal |
+| **Movimiento reducido** | Activar el ajuste del sistema | Nada se mueve y no falta nada |
+| **Color** | Simulación de daltonismo en gráficos y estados | Todos los significados siguen legibles |
+
+Esta guía cumple el mismo listón: sus páginas superan axe-core con las reglas de las WCAG 2.2 AA en escritorio y en móvil, y la revisión de marca.

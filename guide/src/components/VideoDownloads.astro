@@ -1,0 +1,39 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; single?: boolean }
+const { lang, single = false } = Astro.props;
+const t = { en: { intro: 'Brand intro', film: 'Intro film', poster: 'Poster JPG' }, es: { intro: 'Intro de marca', film: 'Película de presentación', poster: 'Portada JPG' }, ca: { intro: 'Intro de marca', film: 'Pel·lícula de presentació', poster: 'Portada JPG' } }[lang];
+// Marketing's intro films with real footage (Guion de marca): 1080p for the web, 4K original for editing.
+const films = [['ais-vision-systems', 'AIS Vision Systems'], ['rosepetal', 'Rosepetal']];
+const videos = [['ais-vision-systems', 'AIS Vision Systems'], ['ais-group', 'AIS Group'], ['rosepetal', 'Rosepetal']];
+const shown = single ? videos.slice(0, 1) : videos;
+---
+<div class:list={['dl-grid', single ? 'one' : 'two']}>
+  {shown.map(([id, name]) => {
+    const file = `/kit/files/${id}_brand-intro_v01_16x9`;
+    return <div class="dl">
+      <video class="dl-tile video" width="1920" height="1080" controls preload="none" playsinline poster={`${file}.jpg`} aria-label={`${name}, ${t.intro}`}>
+        <source src={`${file}.mp4`} type="video/mp4" />
+      </video>
+      <span class="dl-cap"><strong>{name}</strong><span class="links">
+        <a href={`${file}.mp4`} download>{name}: {t.intro} (MP4)</a>
+        <a href={`${file}.jpg`} download>{t.poster}</a>
+      </span></span>
+    </div>;
+  })}
+</div>
+{!single && <div class="dl-grid two">
+  {films.map(([id, name]) => (
+    <div class="dl">
+      <video class="dl-tile video" width="1920" height="1080" controls preload="none" playsinline poster={`/downloads/video/${id}-intro.jpg`} aria-label={`${name}, ${t.film}`}>
+        <source src={`/downloads/video/${id}-intro.mp4`} type="video/mp4" />
+      </video>
+      <span class="dl-cap"><strong>{name}, {t.film}</strong><span class="links">
+        <a href={`/downloads/video/${id}-intro.mp4`} download>{name}: {t.film} (MP4, 1080p)</a>
+        <a href={`/downloads/video/${id}-intro-4k.mp4`} download>{name}: {t.film} (MP4, 4K)</a>
+        <a href={`/downloads/video/${id}-intro.jpg`} download>{t.poster}</a>
+      </span></span>
+    </div>
+  ))}
+</div>}
+

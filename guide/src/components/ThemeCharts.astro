@@ -1,0 +1,15 @@
+---
+// The same chart rendered with the light and the dark config (scripts/build-charts.mjs).
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; alt: [string, string] }
+const { lang, alt } = Astro.props;
+---
+<figure class="theme-charts">
+  <img src={`/charts/${lang}/line.svg`} alt={alt[0]} loading="lazy" />
+  <img src={`/charts/${lang}/line-dark.svg`} alt={alt[1]} loading="lazy" />
+</figure>
+<style>
+  .theme-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0 32px; }
+  img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  @media (max-width: 760px) { .theme-charts { grid-template-columns: minmax(0, 1fr); } }
+</style>

@@ -1,0 +1,115 @@
+---
+title: Imagen
+rules:
+  - 'Elige cada imagen entre los seis tipos según lo que tiene que decir: Máquina, En producción, Detalle y resultado, Interfaz, Producto del sector, Personas.'
+  - 'Parte de fotografías y capturas reales, de productos renderizados a sus medidas reales y de vistas exteriores de nuestras máquinas a partir de los modelos de ingeniería, con todas las protecciones cerradas.'
+  - 'Una imagen generada o compuesta solo se usa si el resultado es creíble a su tamaño final: sin textos deformados o inventados, sin geometría ni luz imposibles, nunca una máquina distinta de la que se nombra y con las marcas de clientes difuminadas.'
+  - 'Nunca dejes que un modelo de imagen dibuje recuadros, máscaras, etiquetas, veredictos ni textos. Dibuja las detecciones con overlay.mjs a partir de una especificación JSON, solo con los colores del kit de capas.'
+  - 'Las etiquetas de las capas nunca tapan lo inspeccionado y su texto se centra en la altura de las mayúsculas.'
+  - 'Nunca muestres hologramas flotantes, luz azul de ciencia ficción, robots con cara, marcas inventadas ni textos incrustados en una imagen.'
+  - 'Nunca muestres una imagen por encima del límite de su medio: 1,25 veces su tamaño nativo en impresión y en las diapositivas de un carrusel, 1,3 veces en el panel de foto de una presentación (las portadas de presentación siempre llenan su panel) y 1,5 veces en un post individual.'
+  - 'Los renders de producto van sobre el fondo gris de sección, sin transportadores ni guías. Si aparece un transportador, la banda o la cadena es marrón, gris o azul, nunca verde, y las guías laterales son metálicas.'
+  - 'Las capturas de marketing no muestran datos de prueba ni de administración y se recortan por los bordes de los paneles.'
+---
+import ImageTypes from '../../../components/ImageTypes.astro';
+import DoDont from '../../../components/DoDont.astro';
+
+Elige las imágenes por lo que muestran y las pruebas que aportan.
+
+## Elige por intención
+
+Empieza por el mensaje, no por el banco de imágenes. Cada mensaje tiene un tipo de imagen que lo demuestra.
+
+| Cuando necesitas decir | Usa |
+| --- | --- |
+| Esto es lo que construimos | [Máquina](#type-machine) |
+| Funciona en una fábrica real | [En producción](#type-line) |
+| Detecta lo que importa | [Detalle y resultado](#type-result) |
+| El software es real y fácil de usar | [Interfaz](#type-interface) |
+| Conocemos tu sector | [Producto del sector](#type-subject) |
+| Hablarás con expertos | [Personas](#type-people) |
+| Así es como funciona | Ilustración |
+
+## Tipos de imagen
+
+Cada tipo tiene una función, referencias aprobadas y una dirección para quien fotografía, selecciona o encarga la imagen. Las referencias son el estándar: una imagen nueva debe encajar a su lado.
+
+<ImageTypes lang="es" />
+
+## Nunca
+
+La imagen genérica de «IA» promete magia. Nuestros clientes compran pruebas, así que estas imágenes no se usan nunca, las haya hecho quien las haya hecho: hologramas y cubos de datos flotantes, luz azul de ciencia ficción, robots con cara, marcas inventadas y textos incrustados en una fotografía.
+
+<ImageTypes lang="es" never={['never-1', 'never-2']} />
+
+## Imágenes generadas y compuestas
+
+Primero, las fotografías reales, nuestros productos renderizados y las vistas exteriores de nuestras máquinas. Una imagen generada o compuesta se puede usar si el resultado es creíble al tamaño en que se publica: se juzga el resultado, no la herramienta. Los resultados reales con cifras salen siempre del sistema.
+
+<DoDont doLabel="Úsala si se sostiene" dontLabel="Recházala"
+  dos={['Fotografías, vídeos y capturas reales primero', 'Bodegones de producto y parejas de Detalle y resultado renderizados a sus medidas reales', 'Una imagen generada o compuesta creíble a su tamaño final, con las marcas de clientes difuminadas']}
+  donts={['Textos deformados, fundidos o inventados en pantallas, etiquetas o envases', 'Geometría, luz o reflejos imposibles; piezas que flotan, se funden o se repiten', 'Una máquina que no es la máquina de AIS que se nombra, o un logotipo pegado en la máquina de otro fabricante', 'Marcas inventadas, o marcas de clientes legibles', 'Recuadros, máscaras, etiquetas o veredictos dentro de la imagen']} />
+
+**Antes de usarla**
+
+- Mírala al 100 % y a su tamaño final: cada letra de pantallas, etiquetas y envases se lee como texto real, o no está.
+- Es físicamente posible: geometría real, piezas que encajan y se sostienen, nada fundido ni duplicado.
+- En una pareja, el defecto es la única diferencia, ocurre en producción y se ve sin su capa.
+- Encaja con el resto de la pieza en luz, superficie y color.
+- No sugiere un cliente, una instalación ni un resultado medido que no tiene.
+
+## Renders, máquinas y material de clientes
+
+- **Los renders de producto** (un bodegón, una pieza buena junto a su gemela defectuosa, una imagen de detección) se construyen con las dimensiones reales del producto y un único aspecto de estudio: un fondo, una luz desde arriba a la izquierda y un encuadre por serie, de modo que solo cambia el defecto. Se colocan como imágenes normales, sin pie «Ilustración», y su texto alternativo describe el producto como si fuera una fotografía. Donde se registra un render (la biblioteca de recursos, las notas de trabajo) consta como render; en la página, en un pie o en un nombre de archivo nunca se llama render, CAD ni 3D.
+- **Nuestras máquinas** pueden mostrarse como vistas exteriores de los modelos de ingeniería mientras no haya fotografías reales: con las protecciones cerradas y sin cortes, interiores, ópticas ni vistas acotadas. Una máquina en una portada o un banner está trabajando, con su producto, y es siempre la máquina que se nombra.
+- **Las imágenes de detección** son cuadradas, muestran un solo defecto sobre nuestro producto de demostración, sin capa de detección, y comparten producto, objetivo y encuadre en cada máquina; cada una se recorta sobre su propio defecto y nunca se imprime por encima de su tamaño nativo.
+- **El material de clientes** (fotogramas de cámara, pantallas y fotos de líneas de clientes) puede reutilizarse con los logotipos de clientes, las marcas y los códigos identificativos desenfocados: un desenfoque suave, sin cajas negras y sin inventar nada. El recorte sin desenfocar queda en interno. Una línea de cliente necesita su aprobación antes de publicarse.
+- **Primero lo real.** Busca en la biblioteca de recursos una fotografía, un vídeo o una pantalla reales antes de hacer o generar nada. Solo entran en una pieza los recursos con estado aprobado; un fotograma de vídeo nunca es portada.
+
+## Capas de detección
+
+Los recuadros, máscaras, lecturas, mediciones y veredictos se dibujan sobre la imagen con un único programa, [`overlay.mjs`](/downloads/overlays/overlay.mjs), a partir de una breve especificación JSON. Los ejemplos de arriba salen de ese mismo archivo; descarga su especificación desde cada pie.
+
+| Regla | Detalle |
+| --- | --- |
+| **Solo los colores del kit** | Detecciones en `#3664B3`, o `#A7BFE4` sobre imágenes oscuras. Defectos en `#DC2626`, o `#F87171` sobre imágenes oscuras. Las etiquetas de veredicto van rellenas con texto blanco: apto sobre éxito sólido `#15803D`, rechazo sobre `#DC2626`; un apto nunca se indica solo con color. Ningún otro color, degradado, brillo, sombra ni esquina redondeada. |
+| **Grosores** | Al tamaño de visualización: un objeto encontrado lleva marcas de esquina de 2 px sobre un recuadro fino de 1 px; un defecto, un marco completo de 2 px sobre un tinte del 8 %, para que se distinga por la forma y no solo por el color. Las máscaras se rellenan al 20 % (las de defecto, al 28 %) dentro de un borde suave de 2 px. Las lecturas llevan un tinte de subrayador y una línea de 2 px bajo el texto. Las mediciones se dibujan como en un plano: línea de cota de 2 px, líneas de referencia, flechas cerradas y el valor en un corte de la línea. Cada línea va sobre un contorno de 1 px (blanco bajo los colores oscuros, tinta bajo los claros), para mantener 3:1 sobre cualquier imagen; sin desenfoques ni brillos. |
+| **Un veredicto** | Un veredicto por imagen, arriba a la izquierda: una etiqueta de 28 px con un check o una x, OK o NOK, y un recuento o un motivo breve tras un separador. |
+| **Pestañas** | 20 px de alto, rellenas del color del estado y pegadas a la esquina del recuadro, para que nunca haya duda de a qué pertenecen. Inter Semibold de 12 px para la clase y Medium para el valor, con cifras tabulares; en blanco sobre los colores oscuros y en tinta sobre los claros (4,5:1 o más). La pestaña de un defecto empieza con una x. Los valores leídos, en JetBrains Mono. El texto se centra en la altura de las mayúsculas, nunca en la caja de la fuente. |
+| **Nunca tapes la prueba** | La pestaña va en la esquina de un recuadro, sobre el punto más alto de una máscara, junto a una lectura y en la línea de una medición; el programa la lleva al primer sitio libre y nunca encima de otro recuadro, máscara, pestaña o del veredicto. Con `"chip"` se prueba antes un lado. |
+| **Máscaras de una herramienta** | Los puntos de una máscara salen del sistema o de un modelo de segmentación, nunca se calcan a ojo; el programa dibuja un contorno suave entre ellos, o aristas rectas con `"smooth": false` para piezas rectas. Sin herramienta, usa un recuadro. |
+| **Etiqueta lo justo** | Una etiqueta por tipo de objeto; el resto, solo recuadros. La etiqueta de un defecto dice qué se esperaba. |
+
+**Para campañas y lanzamientos**
+
+Los ejemplos de esta página muestran el estilo. Una pieza de marketing necesita además:
+
+1. Una imagen base de al menos 2400 px en el lado largo, una fotografía, un producto renderizado o una pareja generada que pase las comprobaciones de arriba.
+2. Máscaras exportadas con la herramienta de polígono inteligente de la aplicación Rosepetal, o del propio sistema de inspección, para que cada contorno siga el borde real.
+3. Una revisión final al 100 %: cada contorno sobre el borde de la pieza y cada etiqueta fuera de la prueba.
+
+## Tratamiento
+
+| Formato | Proporción | Uso |
+| --- | --- | --- |
+| Apertura web | 16:9 | Aperturas de portada, sector y campaña |
+| Tarjeta | 4:3 | Tarjetas de sector y de solución |
+| Publicación social | 4:5 | LinkedIn e Instagram |
+| Retrato cuadrado | 1:1 | Equipo, ponentes, autores |
+| Documento | 3:2 | Fichas técnicas, casos de éxito, presentaciones |
+
+- Mantén un color neutro y fiel a la realidad en toda una serie. Sin filtros, duotonos ni viñeteados marcados.
+- Recorta al motivo; deja espacio para el titular en la composición, nunca encima del detalle.
+- El texto va en la composición, no en la imagen. Los pies indican el lugar, el año y, en los resultados, las condiciones.
+- Cada instalación necesita la aprobación del cliente y cada persona, su consentimiento. Guarda ambos con el archivo.
+
+## Fondos
+
+Usa color plano y el fondo azul de marca. Sin degradados ni resplandores.
+
+El hexágono es un recurso de marca de AIS. Úsalo de dos formas:
+
+- **La trama de hexágonos.** Una retícula de hexágonos solo de contorno, con la parte superior plana. El trazo es una línea fina con una opacidad de entre el 15 y el 30 %, aproximadamente: blanca o `#7C9FD7` sobre azul de marca `#17356E` y azul profundo `#10254C`, `#3664B3` sobre blanco. Se desvanece desde una esquina o un borde, sobre esos fondos o detrás de un panel de texto.
+- **El hexágono suelto.** Un hexágono de contorno que contiene un icono, un número de paso o una marca pequeña.
+
+Consulta las [tramas decorativas](/es/patterns/) para todos los medios y sus variantes claras y transparentes. Sin resplandor ni rellenos degradados. Se permite desvanecer la opacidad de las líneas. Conserva la geometría original; nunca cortes una arista de celda en una forma extraña.

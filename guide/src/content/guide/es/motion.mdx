@@ -1,0 +1,163 @@
+---
+title: Movimiento
+rules:
+  - 'Usa solo los tokens de movimiento: siete duraciones (--ais-duration-*), tres curvas (--ais-ease-standard, -enter, -exit) y las distancias fijas. Nunca inventes una duración ni una curva.'
+  - 'Anima solo transform y opacity, además de grid-template-rows en los acordeones. Nunca animes el diseño, degradados de color ni desenfoques.'
+  - 'Las interfaces usan duraciones de hasta 240 ms; solo las webs usan 500 ms o más, para la llegada, el revelado al hacer scroll y los titulares.'
+  - 'El contenido es visible sin JavaScript; el movimiento solo lo mejora. Todas las animaciones se detienen con prefers-reduced-motion.'
+  - 'Sin rebotes, efectos elásticos, parallax, bibliotecas de desplazamiento suave, tarjetas que se elevan, bucles decorativos ni logotipos animados en la web.'
+---
+import Easing from '../../../components/Easing.astro';
+import MotionDemos from '../../../components/MotionDemos.astro';
+
+Usa el movimiento para explicar los cambios y facilitar la navegación.
+
+## Principios
+
+- **Con propósito.** Anima lo que cambia: un menú que se abre, un resultado que llega, un contenido que entra en pantalla. Si nada cambia, nada se mueve.
+- **Físico.** Lo que llega frena y lo que se va acelera, como los objetos reales. Nada aparece de golpe, salta ni rebota.
+- **Rápido.** La respuesta termina antes de que nadie la espere. El movimiento más largo de una web dura 1,1 s, y solo en titulares.
+- **Opcional.** Cada página se lee perfectamente sin movimiento, y todas las animaciones respetan el ajuste de movimiento reducido del sistema.
+
+**Productivo y expresivo.** Las interfaces de producto son productivas: solo usan las duraciones rápidas y moderadas, para que el trabajo nunca espere a una animación. Las webs pueden ser además expresivas en tres momentos: la llegada a la página, el revelado al hacer scroll y los titulares.
+
+## Duraciones
+
+| Token | Valor | Uso |
+| --- | --- | --- |
+| `--ais-duration-fast-1` | 80 ms | Pulsación y estados activos |
+| `--ais-duration-fast-2` | 120 ms | Descripciones emergentes, interruptores, casillas |
+| `--ais-duration-moderate-1` | 180 ms | Hover: color, subrayado, flecha; todo lo que se cierra |
+| `--ais-duration-moderate-2` | 240 ms | Menús, desplegables, acordeones y diálogos al abrirse |
+| `--ais-duration-slow-1` | 500 ms | Llegada de página, paneles grandes |
+| `--ais-duration-slow-2` | 700 ms | Revelado al hacer scroll, zoom de imagen en hover |
+| `--ais-duration-expressive` | 1100 ms | Titulares por líneas, cifras que cuentan |
+
+Cerrar es más rápido que abrir: un menú se abre en 240 ms y se cierra en 180 ms.
+
+## Curvas
+
+Tres curvas lo cubren todo.
+
+<Easing lang="es" />
+
+La curva lineal solo se usa en bucles continuos y barras de progreso.
+
+## Distancias y ritmo
+
+| Token | Valor | Uso |
+| --- | --- | --- |
+| `--ais-distance-nudge` | 3 px | Flecha en hover, hacia delante o hacia atrás |
+| `--ais-distance-menu` | 8 px | Menús y desplegables al entrar |
+| `--ais-distance-reveal` | 16 px | Bloques que entran al hacer scroll |
+| `--ais-stagger` | 60 ms | Entre elementos de una lista, hasta seis |
+| `--ais-stagger-lines` | 100 ms | Entre líneas de un titular |
+
+El zoom de imagen en hover es 1,03. El contenido de la página entra 16 px (`--ais-distance-reveal`) y sale 8 px.
+
+## Patrones
+
+Todas las webs usan estos patrones con estos valores exactos.
+
+<div id="motion-demos"></div>
+<MotionDemos lang="es" />
+
+| Patrón | Desencadenante | Animación | Duración | Curva |
+| --- | --- | --- | --- | --- |
+| **Enlace de texto** | Hover, foco | Aparece el subrayado y el color pasa a blue-600 | 180 ms | Estándar |
+| **Flecha** | Hover sobre su enlace o botón | Avanza 3 px (en los enlaces de volver, retrocede) | 180 ms | Estándar |
+| **Botón** | Hover / pulsación | El fondo pasa al color de hover / 80 ms más oscuro; nunca escala | 180 / 80 ms | Estándar |
+| **Anillo de foco** | Foco con teclado | Aparece al instante | 0 ms | Ninguna |
+| **Menú, desplegable, megamenú** | Abrir / cerrar | Fundido y 8 px hacia abajo / fundido de salida | 240 / 180 ms | Entrada / salida |
+| **Acordeón** | Abrir / cerrar | Altura con `grid-template-rows`; el chevron gira 180° | 240 ms | Estándar |
+| **Diálogo** | Abrir / cerrar | El fondo se funde; el panel se funde y escala desde 0,98 / a la inversa | 240 / 180 ms | Entrada / salida |
+| **Descripción emergente** | Hover durante 400 ms | Fundido de entrada | 120 ms | Estándar |
+| **Aviso** | Aparece / se va | Fundido y 16 px hacia arriba / fundido de salida | 240 / 180 ms | Entrada / salida |
+| **Revelado al hacer scroll** | Bloque visible al 10 %, una vez | Fundido y 16 px hacia arriba, elementos a 60 ms | 700 ms | Entrada |
+| **Titular por líneas** | Llegada de página, sección en pantalla | Las líneas suben desde una máscara, a 100 ms, tras cargar la fuente | 1100 ms | Entrada |
+| **Imagen de tarjeta** | Hover sobre la tarjeta | La imagen escala a 1,03; la tarjeta no se eleva ni proyecta sombra | 700 ms | Entrada |
+| **Transición de página** | Navegación | La página anterior se funde y sube 8 px; la cabecera no se mueve; la nueva se funde y sube 16 px | 180 / 500 ms | Salida / entrada |
+| **Cifra** | Sección en pantalla | Cuenta hasta un valor real, con cifras tabulares | 1100 ms | Entrada |
+| **Banda de logotipos** | Continuo | Se desplaza a 40 s por vuelta; se detiene en hover y fuera de pantalla | 40 s | Lineal |
+| **Capa de detección** | En pantalla | Recuadros y máscaras se dibujan a 60 ms; el veredicto aparece al final | 500 ms, veredicto 240 ms | Entrada |
+| **Señal** | Continuo en ilustraciones | Un pulso recorre el cable real; el receptor responde con una luz | 1100 ms | Estándar |
+
+### Enlaces y estados al pasar el puntero
+
+Cada tipo de enlace tiene un único comportamiento, idéntico en todas las webs: 180 ms con la curva estándar. Un elemento interactivo sin estado al pasar el puntero es un defecto.
+
+| Tipo | En reposo | Al pasar el puntero |
+| --- | --- | --- |
+| **Acción de texto con flecha** | Azul de acción `#3664B3` | blue-600 `#1E4591`, subrayado, flecha 3 px adelante |
+| **Enlace en el texto** | Azul de acción, subrayado | blue-600 `#1E4591` |
+| **Enlace de navegación** | Tinta `#0F1729` | Azul de acción |
+| **Elemento de menú** | Tinta | Azul de acción; la flecha avanza 3 px si la hay |
+| **Enlace de tarjeta** | Título en tinta | Título en azul de acción, flecha 3 px adelante, imagen a 1,03; sin subrayado |
+| **Botón partido** | Azul de marca `#17356E` | Azul profundo, blue-800 `#10254C` |
+| **Botón neutro** | Gris de sección `#F1F5F9` | neutral-200 `#E2E8F0` |
+| **Enlaces sobre fondos oscuros** | Azul claro `#A7BFE4` o pizarra `#94A3B8` | `#F1F5F9` |
+
+**Revela solo lo que lo merece.** El revelado al hacer scroll se aplica a bloques de sección: una fila de tarjetas, una figura, una cita. Nunca al texto corrido, la navegación, los formularios ni a nada visible al cargar, salvo el titular.
+
+## Nunca
+
+- Rebotes, efectos elásticos, muelles que se pasan de largo ni temblores.
+- Parallax, secuestro del scroll ni bibliotecas de desplazamiento suave; el scroll es el del navegador.
+- Tarjetas que se elevan, sombras que crecen ni botones que escalan.
+- Bucles decorativos: halos flotantes, formas a la deriva, fondos que laten.
+- Logotipos animados en webs. La animación del logotipo es solo para entradas y cierres de vídeo.
+- Animar ancho, alto, top, left, márgenes, degradados de color o desenfoques.
+- Contenido oculto hasta que se ejecute un script.
+- Vídeo con sonido que se reproduce solo, o vídeo detrás del texto corrido. Un vídeo solo va detrás de un titular bajo el degradado oscuro de una apertura de página.
+
+## Movimiento reducido
+
+Cuando el sistema pide movimiento reducido, se eliminan todas las transiciones y animaciones, no se acortan: el contenido simplemente está ahí. Los bucles se detienen, los vídeos muestran su imagen fija y los contadores, su valor final.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+```
+
+## Implementación
+
+Todas las webs importan `brand.css` y usan los tokens directamente. El revelado al hacer scroll es progresivo: la página está completa sin JavaScript, y el estado oculto solo existe cuando el script ha marcado la página.
+
+```css
+.has-motion [data-reveal] { opacity: 0; transform: translateY(var(--ais-distance-reveal)); }
+.has-motion [data-reveal].is-in {
+  opacity: 1; transform: none;
+  transition: opacity var(--ais-duration-slow-2) var(--ais-ease-enter),
+              transform var(--ais-duration-slow-2) var(--ais-ease-enter);
+  transition-delay: calc(var(--i, 0) * var(--ais-stagger));
+}
+```
+
+```js
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  }), { threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+}
+```
+
+Las webs que animan con GSAP registran las mismas curvas por nombre, para que el código y el CSS sean idénticos:
+
+```js
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
+gsap.registerPlugin(CustomEase);
+CustomEase.create('ais-standard', '.2,0,0,1');
+CustomEase.create('ais-enter', '.16,1,.3,1');
+CustomEase.create('ais-exit', '.4,0,1,1');
+// gsap.to(lines, { yPercent: 0, duration: 1.1, ease: 'ais-enter', stagger: 0.1 });
+```
+
+Las transiciones de página usan las View Transitions del navegador (el `ClientRouter` de Astro): la página anterior sale en 180 ms con la curva de salida y la nueva llega en 500 ms con la curva de entrada.
+
+## Vídeo y bucles
+
+Los bucles son continuos, silenciosos y se detienen fuera de pantalla; todo lo que se mueve solo durante más de cinco segundos tiene un control de pausa, salvo los efectos puramente decorativos de la cabecera y la banda de logotipos. Muestra una imagen fija con movimiento reducido. Un vídeo solo va detrás de un titular bajo el degradado oscuro de una apertura de página, nunca detrás del texto corrido. Las entradas, cierres, títulos y subtítulos de vídeo siguen [Vídeo](/es/video/).

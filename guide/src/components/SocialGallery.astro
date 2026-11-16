@@ -1,0 +1,91 @@
+---
+import AssetActions from './AssetActions.astro';
+import type { Lang } from '../i18n';
+import { linkedin, postTypes, KIT_DIR, type PostType } from '../data/linkedin';
+// The social page's two galleries, from the marketing kit (public/kit/files/, the same files as the Marketing kit page):
+// "types" shows each post and carousel type once, "pairs" sets what marketing published beside the kit piece on the same subject.
+// The "before" pictures are marketing's own posts and carousels (public/social/pairs/).
+interface Props { lang: Lang; mode: 'types' | 'pairs' }
+const { lang, mode } = Astro.props;
+const L = (en: string, es: string, ca: string) => ({ en, es, ca })[lang];
+const kit = linkedin(lang);
+const piece = (id: string) => kit.find((p) => p.id === id)!;
+const full = (id: string) => { const m = piece(id).media; return KIT_DIR + (m.pdf ?? m.png ?? m.slides![0]); };
+const cover = (id: string) => { const m = piece(id).media; return KIT_DIR + (m.thumb ?? m.slides![0]); };
+
+// One example of each type, in the kit's order; a type with no piece in the kit is left out.
+const types = (Object.keys(postTypes) as PostType[]).flatMap((type) => kit.filter((p) => p.type === type).slice(0, 1).map((p) => ({ type, id: p.id })));
+
+const tab = L('opens in a new tab', 'se abre en una pestaña nueva', 's’obre en una pestanya nova');
+const before = L('Before', 'Antes', 'Abans'), now = L('Now', 'Ahora', 'Ara');
+const posts = [
+  { id: 'linkedin-hopper', img: '/social/pairs/post-product-before.jpg', ratio: 1506 / 560, name: L('Product post, AIS Hopper', 'Post de producto, AIS Hopper', 'Post de producte, AIS Hopper'),
+    b: L('Product and line imagery in a wide composition.', 'Imagen de producto y línea en una composición horizontal.', 'Imatge de producte i línia en una composició horitzontal.'),
+    a: L('The AIS Hopper on a real line, one headline, the logo at the foot.', 'El AIS Hopper en una línea real, un titular y el logotipo al pie.', 'L’AIS Hopper en una línia real, un titular i el logotip al peu.') },
+  { id: 'linkedin-opticais', img: '/social/pairs/post-features-before.jpg', ratio: 840 / 560, name: L('Reading post, OPTICAIS', 'Post de lectura, OPTICAIS', 'Post de lectura, OPTICAIS'),
+    b: L('Codes presented in separate graphic panels.', 'Códigos presentados en paneles gráficos separados.', 'Codis presentats en panells gràfics separats.'),
+    a: L('White: the real OPTICAIS screen comparing the expected date, lot and codes with what it reads on the label.', 'Blanco: la pantalla real de OPTICAIS compara la fecha, el lote y los códigos esperados con lo que lee en la etiqueta.', 'Blanc: la pantalla real d’OPTICAIS compara la data, el lot i els codis esperats amb el que llegeix a l’etiqueta.') },
+];
+const carousels = [
+  { id: 'linkedin-carousel-juice-hopper', imgs: [1, 2, 3, 4].map((n) => `/social/pairs/carousel-hopper-before-${n}.jpg`), name: L('Defects carousel, AIS Hopper', 'Carrusel de defectos, AIS Hopper', 'Carrusel de defectes, AIS Hopper'),
+    b: L('Line imagery and feature lists across the slides.', 'Imágenes de líneas y listas de características en las diapositivas.', 'Imatges de línies i llistes de característiques a les diapositives.'),
+    a: L('One defect per slide, a good bottle beside the bad one, and one call to action.', 'Un defecto por diapositiva, una botella buena junto a la mala y una llamada a la acción.', 'Un defecte per diapositiva, una ampolla bona al costat de la dolenta i una crida a l’acció.') },
+  { id: 'linkedin-carousel-cans-reference', imgs: [1, 2, 3, 4, 5].map((n) => `/social/pairs/carousel-cans-before-${n}.jpg`), name: L('Defects carousel, cans', 'Carrusel de defectos, latas', 'Carrusel de defectes, llaunes'),
+    b: L('Can imagery and text across the slides.', 'Imágenes de latas y texto en las diapositivas.', 'Imatges de llaunes i text a les diapositives.'),
+    a: L('One defect per slide, always beside a good can, and one call to action.', 'Un defecto por diapositiva, siempre junto a una lata buena, y una llamada a la acción.', 'Un defecte per diapositiva, sempre al costat d’una llauna bona, i una crida a l’acció.') },
+];
+---
+{mode === 'types' ? (
+  <ul class="types">
+    {types.map(({ type, id }) => (
+      <li><a data-asset-thumb href={full(id)} target="_blank" rel="noopener" aria-label={`${postTypes[type][0][lang]}, ${tab}`}><img src={cover(id)} alt={postTypes[type][0][lang]} loading="lazy" width="600" height="750" /></a><strong>{postTypes[type][0][lang]}</strong><span>{postTypes[type][1][lang]}</span><AssetActions lang={lang} href={full(id)} name={postTypes[type][0][lang]} /></li>
+    ))}
+  </ul>
+) : (
+  <div class="pairs">
+    {posts.map((p) => (
+      <section>
+        <h3>{p.name}</h3>
+        <div class="pair">
+          <figure style={`flex: ${p.ratio} 1 0`}><a href={p.img} target="_blank" rel="noopener" aria-label={`${p.name}, ${tab}`}><img src={p.img} alt={`${before}: ${p.b}`} loading="lazy" /></a><figcaption><strong>{before}.</strong> {p.b}</figcaption></figure>
+          <figure style="flex: 0.8 1 0"><a href={full(p.id)} target="_blank" rel="noopener" aria-label={`${p.name}, ${tab}`}><img src={cover(p.id)} alt={`${now}: ${p.a}`} loading="lazy" /></a><figcaption><strong>{now}.</strong> {p.a}</figcaption></figure>
+        </div>
+      </section>
+    ))}
+    {carousels.map((c) => (
+      <section>
+        <h3>{c.name}</h3>
+        {[[before, c.b, c.imgs], [now, c.a, piece(c.id).media.slides!.map((s) => KIT_DIR + s)]].map(([label, text, imgs]) => (
+          <figure class="slides">
+            <div>{(imgs as string[]).map((src, k) => <a href={src} target="_blank" rel="noopener" aria-label={`${label}, ${k + 1}, ${tab}`}><img src={src} alt={`${label}: ${text}, ${k + 1}`} loading="lazy" /></a>)}</div>
+            <figcaption><strong>{label}.</strong> {text}</figcaption>
+          </figure>
+        ))}
+      </section>
+    ))}
+  </div>
+)}
+<style>
+  .types { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
+  .types li { margin: 0 !important; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .types img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); margin-bottom: 8px; }
+  .types strong { color: var(--ink); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; }
+  .types span { color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  .pairs section { margin: 48px 0 0; padding-top: 24px; border-top: 1px solid var(--line); }
+  .pairs h3 { margin: 0 0 24px !important; }
+  .pair { display: flex; gap: 24px; align-items: flex-start; }
+  .pairs figure { margin: 0; min-width: 0; }
+  .pairs img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  .pairs figcaption { margin-top: 8px; color: var(--muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .pairs figcaption strong { color: var(--ink); font-weight: 600; }
+  .slides + .slides { margin-top: 24px; }
+  .slides > div { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; align-items: start; }
+  @media (max-width: 760px) {
+    .types { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+    .pair { flex-direction: column; }
+    .pair figure { flex: none !important; width: 100%; }
+    /* On a phone a carousel shows its cover and one slide, two to a row, so both stay readable. */
+    .slides > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .slides img:nth-child(n + 3) { display: none; }
+  }
+</style>

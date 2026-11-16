@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 240,
+  "data": {
+    "values": [
+      {
+        "week": 1,
+        "line": "Cap inspection",
+        "rate": 97.1
+      },
+      {
+        "week": 2,
+        "line": "Cap inspection",
+        "rate": 97.6
+      },
+      {
+        "week": 3,
+        "line": "Cap inspection",
+        "rate": 97.4
+      },
+      {
+        "week": 4,
+        "line": "Cap inspection",
+        "rate": 98.0
+      },
+      {
+        "week": 5,
+        "line": "Cap inspection",
+        "rate": 98.3
+      },
+      {
+        "week": 6,
+        "line": "Cap inspection",
+        "rate": 98.2
+      },
+      {
+        "week": 7,
+        "line": "Cap inspection",
+        "rate": 98.7
+      },
+      {
+        "week": 8,
+        "line": "Cap inspection",
+        "rate": 98.9
+      },
+      {
+        "week": 1,
+        "line": "Label inspection",
+        "rate": 95.8
+      },
+      {
+        "week": 2,
+        "line": "Label inspection",
+        "rate": 96.2
+      },
+      {
+        "week": 3,
+        "line": "Label inspection",
+        "rate": 96.9
+      },
+      {
+        "week": 4,
+        "line": "Label inspection",
+        "rate": 96.5
+      },
+      {
+        "week": 5,
+        "line": "Label inspection",
+        "rate": 97.2
+      },
+      {
+        "week": 6,
+        "line": "Label inspection",
+        "rate": 97.8
+      },
+      {
+        "week": 7,
+        "line": "Label inspection",
+        "rate": 97.6
+      },
+      {
+        "week": 8,
+        "line": "Label inspection",
+        "rate": 98.1
+      },
+      {
+        "week": 1,
+        "line": "Fill-level inspection",
+        "rate": 96.9
+      },
+      {
+        "week": 2,
+        "line": "Fill-level inspection",
+        "rate": 96.4
+      },
+      {
+        "week": 3,
+        "line": "Fill-level inspection",
+        "rate": 96.0
+      },
+      {
+        "week": 4,
+        "line": "Fill-level inspection",
+        "rate": 96.3
+      },
+      {
+        "week": 5,
+        "line": "Fill-level inspection",
+        "rate": 96.8
+      },
+      {
+        "week": 6,
+        "line": "Fill-level inspection",
+        "rate": 96.6
+      },
+      {
+        "week": 7,
+        "line": "Fill-level inspection",
+        "rate": 97.0
+      },
+      {
+        "week": 8,
+        "line": "Fill-level inspection",
+        "rate": 97.1
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "week",
+      "type": "quantitative",
+      "title": "Week",
+      "axis": {
+        "tickMinStep": 1
+      }
+    },
+    "y": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Pass rate (%)",
+      "scale": {
+        "domain": [
+          95,
+          99
+        ]
+      }
+    },
+    "color": {
+      "field": "line",
+      "type": "nominal",
+      "legend": {
+        "symbolType": "stroke"
+      },
+      "sort": [
+        "Cap inspection",
+        "Label inspection",
+        "Fill-level inspection"
+      ]
+    }
+  },
+  "layer": [
+    {
+      "mark": "line"
+    },
+    {
+      "mark": "point",
+      "transform": [
+        {
+          "filter": "datum.week == 8"
+        }
+      ]
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Pass rate by inspection",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

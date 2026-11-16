@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": {
+    "step": 40
+  },
+  "data": {
+    "values": [
+      {
+        "line": "Cap inspection",
+        "result": "Passed",
+        "share": 96.2,
+        "k": 1
+      },
+      {
+        "line": "Cap inspection",
+        "result": "Rejected",
+        "share": 2.1,
+        "k": 2
+      },
+      {
+        "line": "Cap inspection",
+        "result": "Re-inspected",
+        "share": 1.7,
+        "k": 3
+      },
+      {
+        "line": "Label inspection",
+        "result": "Passed",
+        "share": 94.8,
+        "k": 1
+      },
+      {
+        "line": "Label inspection",
+        "result": "Rejected",
+        "share": 3.4,
+        "k": 2
+      },
+      {
+        "line": "Label inspection",
+        "result": "Re-inspected",
+        "share": 1.8,
+        "k": 3
+      },
+      {
+        "line": "Fill-level inspection",
+        "result": "Passed",
+        "share": 95.5,
+        "k": 1
+      },
+      {
+        "line": "Fill-level inspection",
+        "result": "Rejected",
+        "share": 2.6,
+        "k": 2
+      },
+      {
+        "line": "Fill-level inspection",
+        "result": "Re-inspected",
+        "share": 1.9,
+        "k": 3
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "line",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelExpr": "split(datum.label, ' ')",
+        "labelLimit": 0,
+        "labelLineHeight": 14,
+        "labelPadding": 8
+      }
+    },
+    "x": {
+      "field": "share",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Share of parts",
+      "axis": {
+        "format": "%",
+        "grid": true
+      }
+    },
+    "color": {
+      "field": "result",
+      "type": "nominal",
+      "sort": {
+        "field": "k"
+      }
+    },
+    "order": {
+      "field": "k",
+      "type": "quantitative",
+      "sort": "ascending"
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Inspection outcomes",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

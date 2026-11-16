@@ -1,0 +1,89 @@
+---
+title: Color
+rules:
+  - 'Usa los ocho colores principales para su función: azul de marca `#17356E` para el logotipo, los botones principales y las bandas de cierre; blue-800 `#10254C` para secciones profundas, pies y botones principales en hover o pulsados; azul de acción `#3664B3` para enlaces y acciones de texto, que pasan a blue-600 `#1E4591` en hover; azul claro `#A7BFE4` para resaltes y enlaces sobre fondo azul.'
+  - 'El texto es tinta `#0F1729`; el texto secundario, `#4B5563`. Sobre fondo oscuro, usa `#F1F5F9` y `#94A3B8`.'
+  - 'Éxito `#15803D`, aviso `#D97706` y error `#DC2626` indican solo estados, siempre con una palabra o un icono. El mismo verde de éxito sirve para el texto y los iconos de éxito y para el relleno bajo texto blanco; `#16A34A` no se usa (3,3:1 sobre blanco).'
+  - 'Cualquier otro color es un paso de la escala azul (50–950) o neutra (0–900), o un color de estado. Nunca uses un color fuera de la paleta, un azul aproximado ni un degradado. El logotipo negro es solo para impresión en negro y cabeceras de las webs de AIS sobre blanco.'
+---
+import Balance from '../../../components/Balance.astro';
+import CorePalette from '../../../components/CorePalette.astro';
+import Combinations from '../../../components/Combinations.astro';
+import Swatches from '../../../components/Swatches.astro';
+import Usage from '../../../components/Usage.astro';
+import Contrast from '../../../components/Contrast.astro';
+import { blue, neutral, status, statusDark } from '../../../palette';
+
+La paleta define los colores de marca, estado y datos.
+
+## Colores principales
+
+Ocho colores llevan la marca en todas las webs, documentos, presentaciones, publicaciones y campañas: cuatro azules y cuatro neutros. Cualquier otro color de esas piezas es un paso de sus escalas o un color de estado. Cada azul tiene una sola función, así que nunca compiten: el azul de marca dice quiénes somos, el profundo da profundidad, el de acción indica «pulsa aquí» y el claro resalta sobre azul.
+
+<CorePalette lang="es" />
+
+## Combinaciones
+
+Los cuatro fondos aprobados y lo que va sobre cada uno. Todas las combinaciones de texto cumplen WCAG AA.
+
+<Combinations lang="es" />
+
+## Estados
+
+<Swatches lang="es" colours={status} />
+
+Sobre fondos oscuros, los tres estados usan sus pasos del modo oscuro:
+
+<Swatches lang="es" colours={statusDark} />
+
+Los colores de estado pertenecen a las interfaces, los gráficos y los resultados de inspección. Siempre van con una palabra o un icono, para que el color nunca sea la única señal, y nunca decoran.
+
+## Equilibrio
+
+<Balance />
+
+Estas proporciones orientan las áreas gráficas, no los píxeles individuales; las fotografías no cuentan.
+
+## Contraste
+
+Los valores siguen las WCAG 2.2. El texto de lectura necesita al menos **4,5:1**; el texto grande, 24 px o 18,7 px en negrita (14 pt), **3:1**. Los pares clave de la aplicación, en modo claro y oscuro, están en [Temas claro y oscuro](/es/themes/#contraste).
+
+<Contrast lang="es" pairs={[
+  ['#FFFFFF', '#17356E', 'Botones principales, logotipo en negativo y texto sobre azul de marca'],
+  ['#FFFFFF', '#10254C', 'Texto sobre secciones profundas y pies'],
+  ['#3664B3', '#FFFFFF', 'Enlaces y acciones de texto sobre blanco'],
+  ['#3664B3', '#F1F5F9', 'Enlaces sobre gris de sección'],
+  ['#A7BFE4', '#17356E', 'Resaltes y enlaces sobre azul de marca'],
+  ['#0F1729', '#F1F5F9', 'Texto sobre fondos de sección'],
+  ['#4B5563', '#FFFFFF', 'Texto secundario sobre blanco'],
+  ['#15803D', '#FFFFFF', 'Mensajes de éxito'],
+  ['#DC2626', '#FFFFFF', 'Mensajes de error'],
+]} />
+
+## Colores de interfaz
+
+Las interfaces de producto, los gráficos y el modo oscuro necesitan tonos intermedios. Salen de las mismas dos escalas, así que siempre se mantienen en la familia. Elígelos primero por su función; las escalas son la referencia. Cada función es un token de `@rosepetal/design`, aquí en los dos temas; todos los tokens, su contraste y dónde se aplica cada tema están en [Temas claro y oscuro](/es/themes/).
+
+### Funciones
+
+<Usage lang="es" labels={{ role: 'Función', token: 'Token', light: 'Claro', dark: 'Oscuro' }} />
+
+### Escala de azul
+
+<Swatches lang="es" colours={blue} />
+
+### Neutros
+
+Una sola familia de grises pizarra para texto, líneas y superficies. Su matiz frío combina con el azul; no la mezcles con grises cálidos ni puros.
+
+<Swatches lang="es" colours={neutral} />
+
+## Colores de datos e ilustración
+
+Los gráficos y las interfaces de producto necesitan más colores que la marca: series de gráficos, etiquetas, clases de defecto, divisiones del conjunto de datos. Son los seis **colores de datos** (de `--ais-data-1` a `-6`), validados para personas con daltonismo y para contraste y tomados, como todo lo demás, del sistema de diseño de Rosepetal. Solo aparecen en gráficos, interfaces de producto y gráficos de datos, nunca en logotipos, maquetas ni como adorno. Consulta [Visualización de datos](/es/data/).
+
+Las ilustraciones usan los neutros para los materiales y el color solo para significar: azul para la señal de la cámara, y los colores de éxito y error del modo oscuro para apto y rechazo.
+
+## Impresión
+
+El HEX y el sRGB son la referencia digital. Referencias de impresión: usa los valores RGB y hexadecimales; las equivalencias Pantone y CMYK no están definidas. Especifica una tinta azul ajustada a `#17356E`. El negro solo aparece como logotipo negro, cuando un trabajo no puede imprimir otro color.

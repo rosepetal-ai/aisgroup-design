@@ -1,0 +1,52 @@
+---
+import type { Lang } from '../i18n';
+import { logoBox } from '../logoSize';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Endorsed family: the group stands behind four operating brands. Logos are optically sized (logoSize.ts).
+const roles = {
+  en: { group: 'Corporate identity and joint communication', 'ais-vision-systems': 'Machine vision and industrial inspection systems', 'ais-vision-automation': 'Automation, marking, labelling and vision', 'ais-scanology': 'Labels, barcodes and verification', rosepetal: 'AI software for industrial vision' },
+  es: { group: 'Identidad corporativa y comunicación conjunta', 'ais-vision-systems': 'Visión artificial y sistemas de inspección industrial', 'ais-vision-automation': 'Automatización, marcaje, etiquetado y visión', 'ais-scanology': 'Etiquetas, códigos de barras y verificación', rosepetal: 'Software de IA para visión industrial' },
+  ca: { group: 'Identitat corporativa i comunicació conjunta', 'ais-vision-systems': 'Visió artificial i sistemes d’inspecció industrial', 'ais-vision-automation': 'Automatització, marcatge, etiquetatge i visió', 'ais-scanology': 'Etiquetes, codis de barres i verificació', rosepetal: 'Programari d’IA per a la visió industrial' },
+}[lang];
+const brands = [
+  ['ais-vision-systems', 'AIS Vision Systems', 'aisvision.com', 'https://aisvision.com/'],
+  ['ais-vision-automation', 'AIS Vision Automation', 'aisautomation.ie', 'https://www.aisautomation.ie/'],
+  ['ais-scanology', 'AIS Scanology', 'scanology.nl', 'https://scanology.nl/'],
+  ['rosepetal', 'Rosepetal', 'rosepetal.ai', 'https://rosepetal.ai/'],
+];
+---
+<figure class="arch">
+  <div class="group">
+    <img src="/logos/ais-group-blue.svg" alt="AIS Group" {...logoBox('ais-group-blue.svg', 7000)} />
+    <p class="role">{roles.group}<a href="https://aisgroup.ai/">aisgroup.ai</a></p>
+  </div>
+  <ol class="brands">
+    {brands.map(([id, name, site, url]) => (
+      <li>
+        <div class="mark"><img src={`/logos/${id}-blue.svg`} alt={name} {...logoBox(`${id}-blue.svg`, 5200)} /></div>
+        <p class="role">{roles[id as keyof typeof roles]}<a href={url}>{site}</a></p>
+      </li>
+    ))}
+  </ol>
+</figure>
+<style>
+  .arch { margin: 32px 0 48px; }
+  .group { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-bottom: 32px; text-align: center; }
+  .group img, .mark img { display: block; height: auto; max-width: 100%; }
+  .role { display: flex; flex-direction: column; gap: 2px; margin: 0; color: var(--muted); font-size: var(--ais-text-small); font-weight: 400; line-height: 1.45; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .role a { color: var(--link); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  /* One rule from the group down to a bar, and one rule down to each brand. */
+  .brands { position: relative; list-style: none; margin: 0; padding: 32px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  .brands::before { content: ''; position: absolute; left: 50%; top: -28px; height: 28px; border-left: 1px solid var(--ais-neutral-300); }
+  .brands li { position: relative; margin: 0 !important; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .brands li::before { content: ''; position: absolute; left: 50%; top: -28px; height: 20px; border-left: 1px solid var(--ais-neutral-300); }
+  .brands li::after { content: ''; position: absolute; top: -28px; left: -10px; right: -10px; border-top: 1px solid var(--ais-neutral-300); }
+  .brands li:first-child::after { left: 50%; }
+  .brands li:last-child::after { right: 50%; }
+  .mark { display: grid; place-items: center; height: 72px; }
+  @media (max-width: 760px) {
+    .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+    .brands li::before, .brands li::after, .brands::before { display: none; }
+  }
+</style>

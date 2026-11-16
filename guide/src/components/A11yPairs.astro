@@ -1,0 +1,64 @@
+---
+import type { Lang } from '../i18n';
+import { contrast } from '../palette';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Every approved pairing, measured at build time from the token values (WCAG 2.2 relative luminance).
+type Pair = [fg: string, bg: string, kind: 'text' | 'ui', use: Record<Lang, string>];
+const pairs: Pair[] = [
+  ['#0F1729', '#FFFFFF', 'text', { en: 'Text on white', es: 'Texto sobre blanco', ca: 'Text sobre blanc' }],
+  ['#4B5563', '#FFFFFF', 'text', { en: 'Secondary text on white', es: 'Texto secundario sobre blanco', ca: 'Text secundari sobre blanc' }],
+  ['#64748B', '#FFFFFF', 'text', { en: 'Metadata and placeholders', es: 'Metadatos y marcadores de posición', ca: 'Metadades i marcadors de posició' }],
+  ['#3664B3', '#FFFFFF', 'text', { en: 'Links and text actions', es: 'Enlaces y acciones de texto', ca: 'Enllaços i accions de text' }],
+  ['#3664B3', '#F1F5F9', 'text', { en: 'Links on section grey', es: 'Enlaces sobre gris de sección', ca: 'Enllaços sobre gris de secció' }],
+  ['#FFFFFF', '#17356E', 'text', { en: 'White on brand blue', es: 'Blanco sobre azul de marca', ca: 'Blanc sobre blau de marca' }],
+  ['#A7BFE4', '#17356E', 'text', { en: 'Light blue on brand blue', es: 'Azul claro sobre azul de marca', ca: 'Blau clar sobre blau de marca' }],
+  ['#FFFFFF', '#10254C', 'text', { en: 'White on deep blue', es: 'Blanco sobre azul profundo', ca: 'Blanc sobre blau profund' }],
+  ['#15803D', '#FFFFFF', 'text', { en: 'Success text and icons', es: 'Texto e iconos de éxito', ca: 'Text i icones d’èxit' }],
+  ['#FFFFFF', '#15803D', 'text', { en: 'White on success', es: 'Blanco sobre éxito', ca: 'Blanc sobre èxit' }],
+  ['#0F1729', '#D97706', 'text', { en: 'Ink on warning', es: 'Tinta sobre aviso', ca: 'Tinta sobre avís' }],
+  ['#FFFFFF', '#DC2626', 'text', { en: 'White on error', es: 'Blanco sobre error', ca: 'Blanc sobre error' }],
+  ['#F1F5F9', '#0B1220', 'text', { en: 'Text on dark', es: 'Texto sobre oscuro', ca: 'Text sobre fosc' }],
+  ['#94A3B8', '#0B1220', 'text', { en: 'Secondary text on dark', es: 'Texto secundario sobre oscuro', ca: 'Text secundari sobre fosc' }],
+  ['#7C9FD7', '#0B1220', 'text', { en: 'Links on dark', es: 'Enlaces sobre oscuro', ca: 'Enllaços sobre fosc' }],
+  ['#64748B', '#FFFFFF', 'ui', { en: 'Field and control borders', es: 'Bordes de campos y controles', ca: 'Vores de camps i controls' }],
+  ['#3664B3', '#FFFFFF', 'ui', { en: 'Focus ring', es: 'Anillo de foco', ca: 'Anell de focus' }],
+];
+const t = {
+  en: { colours: 'Colours', pair: 'Pairing', ratio: 'Ratio', need: 'Required', text: 'Text 4.5:1', ui: 'Control 3:1', sample: 'Aa' },
+  es: { colours: 'Colores', pair: 'Combinación', ratio: 'Relación', need: 'Mínimo', text: 'Texto 4,5:1', ui: 'Control 3:1', sample: 'Aa' },
+  ca: { colours: 'Colors', pair: 'Combinació', ratio: 'Relació', need: 'Mínim', text: 'Text 4,5:1', ui: 'Control 3:1', sample: 'Aa' },
+}[lang];
+const fmt = (n: number) => (lang === 'en' ? n.toFixed(2) : n.toFixed(2).replace('.', ',')) + ':1';
+// Lucide check.
+const check = '<path d="M20 6 9 17l-5-5"/>';
+---
+<div class="table-wrap">
+  <table class="pairs">
+    <thead><tr><th>{t.pair}</th><th>{t.colours}</th><th>{t.ratio}</th><th>{t.need}</th></tr></thead>
+    <tbody>
+      {pairs.map(([fg, bg, kind, use]) => {
+        const r = contrast(fg, bg);
+        if (r < (kind === 'text' ? 4.5 : 3)) throw new Error(`A11yPairs: ${fg} on ${bg} is ${r.toFixed(2)}:1, below the minimum`);
+        return (
+          <tr>
+            <td><span class="sample" style={`color:${fg};background:${bg}`}>{kind === 'text' ? t.sample : <span class="ring" style={`border-color:${fg}`} />}</span>{use[lang]}</td>
+            <td><code>{fg}</code> / <code>{bg}</code></td>
+            <td class="num">{fmt(r)}</td>
+            <td><span class="pass"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={check} />{kind === 'text' ? t.text : t.ui}</span></td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>
+<style>
+  .pairs td { vertical-align: middle; }
+  .pairs td:first-child { display: flex; align-items: center; gap: var(--ais-space-150); }
+  .sample { display: grid; place-items: center; flex: none; width: 40px; height: 32px; border: var(--ais-border); font-weight: 600; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .ring { width: 20px; height: 14px; border: 2px solid; }
+  .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .pass { display: inline-flex; align-items: center; gap: var(--ais-space-100); white-space: nowrap; color: var(--ink); }
+  .pass svg { width: 16px; height: 16px; fill: none; stroke: var(--ais-success-solid); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  code { font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); background: none; padding: 0; white-space: nowrap; }
+</style>

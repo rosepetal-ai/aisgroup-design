@@ -1,0 +1,1 @@
+AIS Hopper comprueba el tapón, el marcado y el nivel de llenado en la línea. Estos ejemplos ilustrativos muestran un lote ausente, un tapón inclinado y un nivel bajo. No representan resultados de una validación de máquina. Envíanos muestras

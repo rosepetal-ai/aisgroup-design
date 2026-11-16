@@ -1,0 +1,16 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; href: string; name: string; label?: string; viewHref?: string; filename?: string; marker?: string }
+const { lang, href, name, label, viewHref = href, filename = '', marker } = Astro.props;
+const downloadHref=href.split('#')[0];
+const t = {
+ en: { view: 'View', download: 'Download', tab: 'opens in a new tab' },
+ es: { view: 'Ver', download: 'Descargar', tab: 'se abre en una pestaña nueva' },
+ ca: { view: 'Veure', download: 'Baixa', tab: 's’obre en una pestanya nova' },
+}[lang];
+---
+<span class="asset-actions" data-format={marker}>
+ {label && <span class="asset-format">{label}</span>}
+ <a data-view href={viewHref} target="_blank" rel="noopener" aria-label={`${t.view} ${name}, ${t.tab}`}>{t.view}</a>
+ <a data-download href={downloadHref} download={filename} aria-label={`${t.download} ${name}`}>{t.download}</a>
+</span>

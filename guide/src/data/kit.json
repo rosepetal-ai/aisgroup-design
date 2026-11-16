@@ -1,0 +1,2189 @@
+[
+ {
+  "id": "catalogue-food",
+  "family": "print",
+  "name": "Food catalogue ES",
+  "pages": 10,
+  "thumb": "catalogue-food.jpg",
+  "pdf": "catalogue-food.pdf",
+  "language": "es"
+ },
+ {
+  "id": "catalogue-food-en",
+  "family": "print",
+  "name": "Food catalogue EN",
+  "pages": 10,
+  "thumb": "catalogue-food-en.jpg",
+  "pdf": "catalogue-food-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "catalogue-beverage",
+  "family": "print",
+  "name": "Beverage catalogue ES",
+  "pages": 10,
+  "thumb": "catalogue-beverage.jpg",
+  "pdf": "catalogue-beverage.pdf",
+  "language": "es"
+ },
+ {
+  "id": "catalogue-beverage-en",
+  "family": "print",
+  "name": "Beverage catalogue EN",
+  "pages": 10,
+  "thumb": "catalogue-beverage-en.jpg",
+  "pdf": "catalogue-beverage-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "catalogue-cosmetics",
+  "family": "print",
+  "name": "Cosmetics catalogue ES",
+  "pages": 8,
+  "thumb": "catalogue-cosmetics.jpg",
+  "pdf": "catalogue-cosmetics.pdf",
+  "language": "es"
+ },
+ {
+  "id": "catalogue-cosmetics-en",
+  "family": "print",
+  "name": "Cosmetics catalogue EN",
+  "pages": 8,
+  "thumb": "catalogue-cosmetics-en.jpg",
+  "pdf": "catalogue-cosmetics-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "catalogue-pharma",
+  "family": "print",
+  "name": "Pharmaceutical catalogue ES",
+  "pages": 10,
+  "thumb": "catalogue-pharma.jpg",
+  "pdf": "catalogue-pharma.pdf",
+  "language": "es"
+ },
+ {
+  "id": "catalogue-pharma-en",
+  "family": "print",
+  "name": "Pharmaceutical catalogue EN",
+  "pages": 10,
+  "thumb": "catalogue-pharma-en.jpg",
+  "pdf": "catalogue-pharma-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "catalogue-wine",
+  "family": "print",
+  "name": "Wine catalogue ES",
+  "pages": 9,
+  "thumb": "catalogue-wine.jpg",
+  "pdf": "catalogue-wine.pdf",
+  "language": "es"
+ },
+ {
+  "id": "catalogue-wine-en",
+  "family": "print",
+  "name": "Wine catalogue EN",
+  "pages": 9,
+  "thumb": "catalogue-wine-en.jpg",
+  "pdf": "catalogue-wine-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-hopper",
+  "family": "print",
+  "name": "AIS Hopper ES",
+  "pages": 3,
+  "thumb": "brochure-hopper.jpg",
+  "pdf": "brochure-hopper.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-hopper-en",
+  "family": "print",
+  "name": "AIS Hopper EN",
+  "pages": 3,
+  "thumb": "brochure-hopper-en.jpg",
+  "pdf": "brochure-hopper-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-kariko",
+  "family": "print",
+  "name": "AIS KARIKÓ ES",
+  "pages": 3,
+  "thumb": "brochure-kariko.jpg",
+  "pdf": "brochure-kariko.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-kariko-en",
+  "family": "print",
+  "name": "AIS KARIKÓ EN",
+  "pages": 3,
+  "thumb": "brochure-kariko-en.jpg",
+  "pdf": "brochure-kariko-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-rev360-cables",
+  "family": "print",
+  "name": "AIS REV 360 Cables ES",
+  "pages": 3,
+  "thumb": "brochure-rev360-cables.jpg",
+  "pdf": "brochure-rev360-cables.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-rev360-cables-en",
+  "family": "print",
+  "name": "AIS REV 360 Cables EN",
+  "pages": 3,
+  "thumb": "brochure-rev360-cables-en.jpg",
+  "pdf": "brochure-rev360-cables-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-rev360-compact",
+  "family": "print",
+  "name": "AIS REV 360 COMPACT Canning ES",
+  "pages": 3,
+  "thumb": "brochure-rev360-compact.jpg",
+  "pdf": "brochure-rev360-compact.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-rev360-compact-en",
+  "family": "print",
+  "name": "AIS REV 360 COMPACT Canning EN",
+  "pages": 3,
+  "thumb": "brochure-rev360-compact-en.jpg",
+  "pdf": "brochure-rev360-compact-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-rev360-pharma",
+  "family": "print",
+  "name": "AIS REV 360 PHARMA ES",
+  "pages": 3,
+  "thumb": "brochure-rev360-pharma.jpg",
+  "pdf": "brochure-rev360-pharma.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-rev360-pharma-en",
+  "family": "print",
+  "name": "AIS REV 360 PHARMA EN",
+  "pages": 3,
+  "thumb": "brochure-rev360-pharma-en.jpg",
+  "pdf": "brochure-rev360-pharma-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-rev360-standard",
+  "family": "print",
+  "name": "AIS REV 360 STANDARD ES",
+  "pages": 3,
+  "thumb": "brochure-rev360-standard.jpg",
+  "pdf": "brochure-rev360-standard.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-vacuum",
+  "family": "print",
+  "name": "AIS Vacuum ES",
+  "pages": 3,
+  "thumb": "brochure-vacuum.jpg",
+  "pdf": "brochure-vacuum.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-vacuum-en",
+  "family": "print",
+  "name": "AIS Vacuum EN",
+  "pages": 3,
+  "thumb": "brochure-vacuum-en.jpg",
+  "pdf": "brochure-vacuum-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "brochure-opticais",
+  "family": "print",
+  "name": "OPTICAIS ES",
+  "pages": 3,
+  "thumb": "brochure-opticais.jpg",
+  "pdf": "brochure-opticais.pdf",
+  "language": "es"
+ },
+ {
+  "id": "brochure-rosepetal",
+  "family": "print",
+  "name": "Rosepetal ES",
+  "pages": 3,
+  "thumb": "brochure-rosepetal.jpg",
+  "pdf": "brochure-rosepetal.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-hopper",
+  "family": "datasheet",
+  "name": "AIS Hopper datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-hopper.jpg",
+  "pdf": "datasheet-hopper.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-kariko",
+  "family": "datasheet",
+  "name": "AIS KARIKÓ datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-kariko.jpg",
+  "pdf": "datasheet-kariko.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-rev360-cables",
+  "family": "datasheet",
+  "name": "AIS REV 360 Cables datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-rev360-cables.jpg",
+  "pdf": "datasheet-rev360-cables.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-rev360-compact",
+  "family": "datasheet",
+  "name": "AIS REV 360 COMPACT Canning datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-rev360-compact.jpg",
+  "pdf": "datasheet-rev360-compact.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-rev360-pharma",
+  "family": "datasheet",
+  "name": "AIS REV 360 PHARMA datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-rev360-pharma.jpg",
+  "pdf": "datasheet-rev360-pharma.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-rev360-standard",
+  "family": "datasheet",
+  "name": "AIS REV 360 STANDARD datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-rev360-standard.jpg",
+  "pdf": "datasheet-rev360-standard.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-opticais",
+  "family": "datasheet",
+  "name": "OPTICAIS datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-opticais.jpg",
+  "pdf": "datasheet-opticais.pdf",
+  "language": "es"
+ },
+ {
+  "id": "sales-proposal",
+  "family": "sales",
+  "name": "Technical and commercial proposal ES",
+  "pages": 5,
+  "thumb": "sales-proposal.jpg",
+  "pdf": "sales-proposal.pdf",
+  "language": "es"
+ },
+ {
+  "id": "sales-case-study",
+  "family": "sales",
+  "name": "Daymsa case study ES",
+  "pages": 2,
+  "thumb": "sales-case-study.jpg",
+  "pdf": "sales-case-study.pdf",
+  "language": "es"
+ },
+ {
+  "id": "presentation-corporate-2026",
+  "family": "deck",
+  "name": "Corporate presentation 2026 ES",
+  "pages": 61,
+  "thumb": "presentation-corporate-2026.jpg",
+  "pdf": "presentation-corporate-2026.pdf",
+  "pptx": "presentation-corporate-2026.pptx"
+ },
+ {
+  "id": "presentation-automotive",
+  "family": "deck",
+  "name": "Automotive presentation ES",
+  "pages": 24,
+  "thumb": "presentation-automotive.jpg",
+  "pdf": "presentation-automotive.pdf",
+  "pptx": "presentation-automotive.pptx"
+ },
+ {
+  "id": "presentation-beverage",
+  "family": "deck",
+  "name": "Beverage presentation ES",
+  "pages": 30,
+  "thumb": "presentation-beverage.jpg",
+  "pdf": "presentation-beverage.pdf",
+  "pptx": "presentation-beverage.pptx"
+ },
+ {
+  "id": "presentation-biscuits",
+  "family": "deck",
+  "name": "Biscuits presentation ES",
+  "pages": 26,
+  "thumb": "presentation-biscuits.jpg",
+  "pdf": "presentation-biscuits.pdf",
+  "pptx": "presentation-biscuits.pptx"
+ },
+ {
+  "id": "presentation-canning",
+  "family": "deck",
+  "name": "Canning presentation ES",
+  "pages": 27,
+  "thumb": "presentation-canning.jpg",
+  "pdf": "presentation-canning.pdf",
+  "pptx": "presentation-canning.pptx"
+ },
+ {
+  "id": "presentation-wine",
+  "family": "deck",
+  "name": "Wine presentation ES",
+  "pages": 14,
+  "thumb": "presentation-wine.jpg",
+  "pdf": "presentation-wine.pdf",
+  "pptx": "presentation-wine.pptx"
+ },
+ {
+  "id": "linkedin-hopper",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "01 AIS Hopper ES",
+    "text": "linkedin-hopper-es.txt",
+    "thumb": "linkedin-hopper-es.jpg",
+    "png": "linkedin-hopper-es.png"
+   },
+   "en": {
+    "name": "01 AIS Hopper EN",
+    "text": "linkedin-hopper-en.txt",
+    "thumb": "linkedin-hopper-en.jpg",
+    "png": "linkedin-hopper-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-kariko",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "02 AIS KARIKÓ ES",
+    "text": "linkedin-kariko-es.txt",
+    "thumb": "linkedin-kariko-es.jpg",
+    "png": "linkedin-kariko-es.png"
+   },
+   "en": {
+    "name": "02 AIS KARIKÓ EN",
+    "text": "linkedin-kariko-en.txt",
+    "thumb": "linkedin-kariko-en.jpg",
+    "png": "linkedin-kariko-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-rev360-standard",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "03 AIS REV 360 STANDARD ES",
+    "text": "linkedin-rev360-standard-es.txt",
+    "thumb": "linkedin-rev360-standard-es.jpg",
+    "png": "linkedin-rev360-standard-es.png"
+   },
+   "en": {
+    "name": "03 AIS REV 360 STANDARD EN",
+    "text": "linkedin-rev360-standard-en.txt",
+    "thumb": "linkedin-rev360-standard-en.jpg",
+    "png": "linkedin-rev360-standard-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-rev360-compact",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "04 AIS REV 360 COMPACT ES",
+    "text": "linkedin-rev360-compact-es.txt",
+    "thumb": "linkedin-rev360-compact-es.jpg",
+    "png": "linkedin-rev360-compact-es.png"
+   },
+   "en": {
+    "name": "04 AIS REV 360 COMPACT EN",
+    "text": "linkedin-rev360-compact-en.txt",
+    "thumb": "linkedin-rev360-compact-en.jpg",
+    "png": "linkedin-rev360-compact-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-rev360-cables",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "05 AIS REV 360 Cables ES",
+    "text": "linkedin-rev360-cables-es.txt",
+    "thumb": "linkedin-rev360-cables-es.jpg",
+    "png": "linkedin-rev360-cables-es.png"
+   },
+   "en": {
+    "name": "05 AIS REV 360 Cables EN",
+    "text": "linkedin-rev360-cables-en.txt",
+    "thumb": "linkedin-rev360-cables-en.jpg",
+    "png": "linkedin-rev360-cables-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-rev360-pharma",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "06 AIS REV 360 PHARMA ES",
+    "text": "linkedin-rev360-pharma-es.txt",
+    "thumb": "linkedin-rev360-pharma-es.jpg",
+    "png": "linkedin-rev360-pharma-es.png"
+   },
+   "en": {
+    "name": "06 AIS REV 360 PHARMA EN",
+    "text": "linkedin-rev360-pharma-en.txt",
+    "thumb": "linkedin-rev360-pharma-en.jpg",
+    "png": "linkedin-rev360-pharma-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-opticais",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "07 OPTICAIS ES",
+    "text": "linkedin-opticais-es.txt",
+    "thumb": "linkedin-opticais-es.jpg",
+    "png": "linkedin-opticais-es.png"
+   },
+   "en": {
+    "name": "07 OPTICAIS EN",
+    "text": "linkedin-opticais-en.txt",
+    "thumb": "linkedin-opticais-en.jpg",
+    "png": "linkedin-opticais-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-rosepetal-software",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "09 Rosepetal in a bakery ES",
+    "text": "linkedin-rosepetal-software-es.txt",
+    "thumb": "linkedin-rosepetal-software-es.jpg",
+    "png": "linkedin-rosepetal-software-es.png"
+   },
+   "en": {
+    "name": "09 Rosepetal in a bakery EN",
+    "text": "linkedin-rosepetal-software-en.txt",
+    "thumb": "linkedin-rosepetal-software-en.jpg",
+    "png": "linkedin-rosepetal-software-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-news-cluster",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "10 Packaging Cluster ES",
+    "text": "linkedin-news-cluster-es.txt",
+    "thumb": "linkedin-news-cluster-es.jpg",
+    "png": "linkedin-news-cluster-es.png"
+   },
+   "en": {
+    "name": "10 Packaging Cluster EN",
+    "text": "linkedin-news-cluster-en.txt",
+    "thumb": "linkedin-news-cluster-en.jpg",
+    "png": "linkedin-news-cluster-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-recap-packaging-talks",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "11 Packaging Talks 2026 ES",
+    "text": "linkedin-recap-packaging-talks-es.txt",
+    "thumb": "linkedin-recap-packaging-talks-es.jpg",
+    "png": "linkedin-recap-packaging-talks-es.png"
+   },
+   "en": {
+    "name": "11 Packaging Talks 2026 EN",
+    "text": "linkedin-recap-packaging-talks-en.txt",
+    "thumb": "linkedin-recap-packaging-talks-en.jpg",
+    "png": "linkedin-recap-packaging-talks-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-quote-rosepetal",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "13 José Racionero ES",
+    "text": "linkedin-quote-rosepetal-es.txt",
+    "thumb": "linkedin-quote-rosepetal-es.jpg",
+    "png": "linkedin-quote-rosepetal-es.png"
+   },
+   "en": {
+    "name": "13 José Racionero EN",
+    "text": "linkedin-quote-rosepetal-en.txt",
+    "thumb": "linkedin-quote-rosepetal-en.jpg",
+    "png": "linkedin-quote-rosepetal-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-result-daymsa",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "14 Daymsa ES",
+    "text": "linkedin-result-daymsa-es.txt",
+    "thumb": "linkedin-result-daymsa-es.jpg",
+    "png": "linkedin-result-daymsa-es.png"
+   },
+   "en": {
+    "name": "14 Daymsa EN",
+    "text": "linkedin-result-daymsa-en.txt",
+    "thumb": "linkedin-result-daymsa-en.jpg",
+    "png": "linkedin-result-daymsa-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-callout-code-legibility",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "15 Lot and date ES",
+    "text": "linkedin-callout-code-legibility-es.txt",
+    "thumb": "linkedin-callout-code-legibility-es.jpg",
+    "png": "linkedin-callout-code-legibility-es.png"
+   },
+   "en": {
+    "name": "15 Lot and date EN",
+    "text": "linkedin-callout-code-legibility-en.txt",
+    "thumb": "linkedin-callout-code-legibility-en.jpg",
+    "png": "linkedin-callout-code-legibility-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-juice-hopper",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "20 AIS Hopper juice carousel ES",
+    "text": "linkedin-carousel-juice-hopper-es.txt",
+    "slides": [
+     "linkedin-carousel-juice-hopper-es-1.jpg",
+     "linkedin-carousel-juice-hopper-es-2.jpg",
+     "linkedin-carousel-juice-hopper-es-3.jpg",
+     "linkedin-carousel-juice-hopper-es-4.jpg",
+     "linkedin-carousel-juice-hopper-es-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-juice-hopper-es.pdf"
+   },
+   "en": {
+    "name": "20 AIS Hopper juice carousel EN",
+    "text": "linkedin-carousel-juice-hopper-en.txt",
+    "slides": [
+     "linkedin-carousel-juice-hopper-en-1.jpg",
+     "linkedin-carousel-juice-hopper-en-2.jpg",
+     "linkedin-carousel-juice-hopper-en-3.jpg",
+     "linkedin-carousel-juice-hopper-en-4.jpg",
+     "linkedin-carousel-juice-hopper-en-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-juice-hopper-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-vials-pharma",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "21 AIS REV 360 PHARMA vials carousel ES",
+    "text": "linkedin-carousel-vials-pharma-es.txt",
+    "slides": [
+     "linkedin-carousel-vials-pharma-es-1.jpg",
+     "linkedin-carousel-vials-pharma-es-2.jpg",
+     "linkedin-carousel-vials-pharma-es-3.jpg",
+     "linkedin-carousel-vials-pharma-es-4.jpg",
+     "linkedin-carousel-vials-pharma-es-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-vials-pharma-es.pdf"
+   },
+   "en": {
+    "name": "21 AIS REV 360 PHARMA vials carousel EN",
+    "text": "linkedin-carousel-vials-pharma-en.txt",
+    "slides": [
+     "linkedin-carousel-vials-pharma-en-1.jpg",
+     "linkedin-carousel-vials-pharma-en-2.jpg",
+     "linkedin-carousel-vials-pharma-en-3.jpg",
+     "linkedin-carousel-vials-pharma-en-4.jpg",
+     "linkedin-carousel-vials-pharma-en-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-vials-pharma-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-cans-reference",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "22 AIS REV 360 COMPACT cans carousel ES",
+    "text": "linkedin-carousel-cans-reference-es.txt",
+    "slides": [
+     "linkedin-carousel-cans-reference-es-1.jpg",
+     "linkedin-carousel-cans-reference-es-2.jpg",
+     "linkedin-carousel-cans-reference-es-3.jpg",
+     "linkedin-carousel-cans-reference-es-4.jpg",
+     "linkedin-carousel-cans-reference-es-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-cans-reference-es.pdf"
+   },
+   "en": {
+    "name": "22 AIS REV 360 COMPACT cans carousel EN",
+    "text": "linkedin-carousel-cans-reference-en.txt",
+    "slides": [
+     "linkedin-carousel-cans-reference-en-1.jpg",
+     "linkedin-carousel-cans-reference-en-2.jpg",
+     "linkedin-carousel-cans-reference-en-3.jpg",
+     "linkedin-carousel-cans-reference-en-4.jpg",
+     "linkedin-carousel-cans-reference-en-5.jpg"
+    ],
+    "pdf": "linkedin-carousel-cans-reference-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-muesli-reference",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "23 OPTICAIS muesli carousel ES",
+    "text": "linkedin-carousel-muesli-reference-es.txt",
+    "slides": [
+     "linkedin-carousel-muesli-reference-es-1.jpg",
+     "linkedin-carousel-muesli-reference-es-2.jpg",
+     "linkedin-carousel-muesli-reference-es-3.jpg",
+     "linkedin-carousel-muesli-reference-es-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-muesli-reference-es.pdf"
+   },
+   "en": {
+    "name": "23 OPTICAIS muesli carousel EN",
+    "text": "linkedin-carousel-muesli-reference-en.txt",
+    "slides": [
+     "linkedin-carousel-muesli-reference-en-1.jpg",
+     "linkedin-carousel-muesli-reference-en-2.jpg",
+     "linkedin-carousel-muesli-reference-en-3.jpg",
+     "linkedin-carousel-muesli-reference-en-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-muesli-reference-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-guide-roi",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "24 ROI guide carousel ES",
+    "text": "linkedin-carousel-guide-roi-es.txt",
+    "slides": [
+     "linkedin-carousel-guide-roi-es-1.jpg",
+     "linkedin-carousel-guide-roi-es-2.jpg",
+     "linkedin-carousel-guide-roi-es-3.jpg",
+     "linkedin-carousel-guide-roi-es-4.jpg",
+     "linkedin-carousel-guide-roi-es-5.jpg",
+     "linkedin-carousel-guide-roi-es-6.jpg",
+     "linkedin-carousel-guide-roi-es-7.jpg"
+    ],
+    "pdf": "linkedin-carousel-guide-roi-es.pdf"
+   },
+   "en": {
+    "name": "24 ROI guide carousel EN",
+    "text": "linkedin-carousel-guide-roi-en.txt",
+    "slides": [
+     "linkedin-carousel-guide-roi-en-1.jpg",
+     "linkedin-carousel-guide-roi-en-2.jpg",
+     "linkedin-carousel-guide-roi-en-3.jpg",
+     "linkedin-carousel-guide-roi-en-4.jpg",
+     "linkedin-carousel-guide-roi-en-5.jpg",
+     "linkedin-carousel-guide-roi-en-6.jpg",
+     "linkedin-carousel-guide-roi-en-7.jpg"
+    ],
+    "pdf": "linkedin-carousel-guide-roi-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-partner-v275",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "25 Omron V275 carousel ES",
+    "text": "linkedin-carousel-partner-v275-es.txt",
+    "slides": [
+     "linkedin-carousel-partner-v275-es-1.jpg",
+     "linkedin-carousel-partner-v275-es-2.jpg",
+     "linkedin-carousel-partner-v275-es-3.jpg",
+     "linkedin-carousel-partner-v275-es-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-partner-v275-es.pdf"
+   },
+   "en": {
+    "name": "25 Omron V275 carousel EN",
+    "text": "linkedin-carousel-partner-v275-en.txt",
+    "slides": [
+     "linkedin-carousel-partner-v275-en-1.jpg",
+     "linkedin-carousel-partner-v275-en-2.jpg",
+     "linkedin-carousel-partner-v275-en-3.jpg",
+     "linkedin-carousel-partner-v275-en-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-partner-v275-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-features-kariko",
+  "family": "post",
+  "langs": {
+   "es": {
+    "name": "26 AIS KARIKÓ features ES",
+    "text": "linkedin-features-kariko-es.txt",
+    "thumb": "linkedin-features-kariko-es.jpg",
+    "png": "linkedin-features-kariko-es.png"
+   },
+   "en": {
+    "name": "26 AIS KARIKÓ features EN",
+    "text": "linkedin-features-kariko-en.txt",
+    "thumb": "linkedin-features-kariko-en.jpg",
+    "png": "linkedin-features-kariko-en.png"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-application-labels",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "27 Label inspection carousel ES",
+    "text": "linkedin-carousel-application-labels-es.txt",
+    "slides": [
+     "linkedin-carousel-application-labels-es-1.jpg",
+     "linkedin-carousel-application-labels-es-2.jpg",
+     "linkedin-carousel-application-labels-es-3.jpg",
+     "linkedin-carousel-application-labels-es-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-application-labels-es.pdf"
+   },
+   "en": {
+    "name": "27 Label inspection carousel EN",
+    "text": "linkedin-carousel-application-labels-en.txt",
+    "slides": [
+     "linkedin-carousel-application-labels-en-1.jpg",
+     "linkedin-carousel-application-labels-en-2.jpg",
+     "linkedin-carousel-application-labels-en-3.jpg",
+     "linkedin-carousel-application-labels-en-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-application-labels-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-event-mwc",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "28 MWC Barcelona 2026 carousel ES",
+    "text": "linkedin-carousel-event-mwc-es.txt",
+    "slides": [
+     "linkedin-carousel-event-mwc-es-1.jpg",
+     "linkedin-carousel-event-mwc-es-2.jpg",
+     "linkedin-carousel-event-mwc-es-3.jpg",
+     "linkedin-carousel-event-mwc-es-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-event-mwc-es.pdf"
+   },
+   "en": {
+    "name": "28 MWC Barcelona 2026 carousel EN",
+    "text": "linkedin-carousel-event-mwc-en.txt",
+    "slides": [
+     "linkedin-carousel-event-mwc-en-1.jpg",
+     "linkedin-carousel-event-mwc-en-2.jpg",
+     "linkedin-carousel-event-mwc-en-3.jpg",
+     "linkedin-carousel-event-mwc-en-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-event-mwc-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-product-hopper",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "29 AIS Hopper product carousel ES",
+    "text": "linkedin-carousel-product-hopper-es.txt",
+    "slides": [
+     "linkedin-carousel-product-hopper-es-1.jpg",
+     "linkedin-carousel-product-hopper-es-2.jpg",
+     "linkedin-carousel-product-hopper-es-3.jpg",
+     "linkedin-carousel-product-hopper-es-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-product-hopper-es.pdf"
+   },
+   "en": {
+    "name": "29 AIS Hopper product carousel EN",
+    "text": "linkedin-carousel-product-hopper-en.txt",
+    "slides": [
+     "linkedin-carousel-product-hopper-en-1.jpg",
+     "linkedin-carousel-product-hopper-en-2.jpg",
+     "linkedin-carousel-product-hopper-en-3.jpg",
+     "linkedin-carousel-product-hopper-en-4.jpg"
+    ],
+    "pdf": "linkedin-carousel-product-hopper-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "linkedin-carousel-sector-canning",
+  "family": "carousel",
+  "langs": {
+   "es": {
+    "name": "30 Canning sector carousel ES",
+    "text": "linkedin-carousel-sector-canning-es.txt",
+    "slides": [
+     "linkedin-carousel-sector-canning-es-1.jpg",
+     "linkedin-carousel-sector-canning-es-2.jpg",
+     "linkedin-carousel-sector-canning-es-3.jpg",
+     "linkedin-carousel-sector-canning-es-4.jpg",
+     "linkedin-carousel-sector-canning-es-5.jpg",
+     "linkedin-carousel-sector-canning-es-6.jpg"
+    ],
+    "pdf": "linkedin-carousel-sector-canning-es.pdf"
+   },
+   "en": {
+    "name": "30 Canning sector carousel EN",
+    "text": "linkedin-carousel-sector-canning-en.txt",
+    "slides": [
+     "linkedin-carousel-sector-canning-en-1.jpg",
+     "linkedin-carousel-sector-canning-en-2.jpg",
+     "linkedin-carousel-sector-canning-en-3.jpg",
+     "linkedin-carousel-sector-canning-en-4.jpg",
+     "linkedin-carousel-sector-canning-en-5.jpg",
+     "linkedin-carousel-sector-canning-en-6.jpg"
+    ],
+    "pdf": "linkedin-carousel-sector-canning-en.pdf"
+   }
+  }
+ },
+ {
+  "id": "banner-company-ais-vision-systems",
+  "family": "banner",
+  "kind": "company",
+  "brand": "AIS Vision Systems",
+  "name": "Banner AIS Vision Systems EN",
+  "thumb": "banner-company-ais-vision-systems.png",
+  "png": "banner-company-ais-vision-systems.png"
+ },
+ {
+  "id": "banner-personal-ais-vision-systems",
+  "family": "banner",
+  "kind": "personal",
+  "brand": "AIS Vision Systems",
+  "name": "Personal banner AIS Vision Systems EN",
+  "thumb": "banner-personal-ais-vision-systems.png",
+  "png": "banner-personal-ais-vision-systems.png"
+ },
+ {
+  "id": "banner-company-ais-group",
+  "family": "banner",
+  "kind": "company",
+  "brand": "AIS Group",
+  "name": "Banner AIS Group EN",
+  "thumb": "banner-company-ais-group.png",
+  "png": "banner-company-ais-group.png"
+ },
+ {
+  "id": "banner-personal-ais-group",
+  "family": "banner",
+  "kind": "personal",
+  "brand": "AIS Group",
+  "name": "Personal banner AIS Group EN",
+  "thumb": "banner-personal-ais-group.png",
+  "png": "banner-personal-ais-group.png"
+ },
+ {
+  "id": "banner-company-rosepetal",
+  "family": "banner",
+  "kind": "company",
+  "brand": "Rosepetal",
+  "name": "Banner Rosepetal EN",
+  "thumb": "banner-company-rosepetal.png",
+  "png": "banner-company-rosepetal.png"
+ },
+ {
+  "id": "banner-personal-rosepetal",
+  "family": "banner",
+  "kind": "personal",
+  "brand": "Rosepetal",
+  "name": "Personal banner Rosepetal EN",
+  "thumb": "banner-personal-rosepetal.png",
+  "png": "banner-personal-rosepetal.png"
+ },
+ {
+  "id": "stationery-letterhead",
+  "family": "office",
+  "name": "AIS Vision Systems letterhead ES",
+  "pages": 1,
+  "thumb": "stationery-letterhead.jpg",
+  "pdf": "stationery-letterhead.pdf"
+ },
+ {
+  "id": "office-word",
+  "family": "office",
+  "name": "AIS Vision Systems letter ES",
+  "thumb": "office-word.jpg",
+  "file": "/kit/office/letter-ais-vision-systems.docx"
+ },
+ {
+  "id": "video-ais-vision-systems_opening_es_v01_16x9",
+  "family": "video",
+  "name": "AIS Vision Systems Apertura ES",
+  "lang": "es",
+  "thumb": "ais-vision-systems_opening_es_v01_16x9.webp",
+  "mp4": "ais-vision-systems_opening_es_v01_16x9.mp4",
+  "file": "/kit/files/ais-vision-systems_opening_es_v01_16x9.mp4"
+ },
+ {
+  "id": "video-ais-vision-systems_opening_en_v01_16x9",
+  "family": "video",
+  "name": "AIS Vision Systems Apertura EN",
+  "lang": "en",
+  "thumb": "ais-vision-systems_opening_en_v01_16x9.webp",
+  "mp4": "ais-vision-systems_opening_en_v01_16x9.mp4",
+  "file": "/kit/files/ais-vision-systems_opening_en_v01_16x9.mp4"
+ },
+ {
+  "id": "video-rosepetal_opening_en_v01_16x9",
+  "family": "video",
+  "name": "Rosepetal Apertura EN",
+  "lang": "en",
+  "thumb": "rosepetal_opening_en_v01_16x9.webp",
+  "mp4": "rosepetal_opening_en_v01_16x9.mp4",
+  "file": "/kit/files/rosepetal_opening_en_v01_16x9.mp4"
+ },
+ {
+  "id": "video-rosepetal_opening_es_v01_16x9",
+  "family": "video",
+  "name": "Rosepetal Apertura ES",
+  "lang": "es",
+  "thumb": "rosepetal_opening_es_v01_16x9.webp",
+  "mp4": "rosepetal_opening_es_v01_16x9.mp4",
+  "file": "/kit/files/rosepetal_opening_es_v01_16x9.mp4"
+ },
+ {
+  "id": "video-ais-vision-systems_end-card_en_v01_16x9",
+  "family": "video",
+  "name": "AIS Vision Systems Cierre EN",
+  "lang": "en",
+  "thumb": "ais-vision-systems_end-card_en_v01_16x9.webp",
+  "mp4": "ais-vision-systems_end-card_en_v01_16x9.mp4",
+  "file": "/kit/files/ais-vision-systems_end-card_en_v01_16x9.mp4"
+ },
+ {
+  "id": "video-ais-vision-systems_end-card_es_v01_16x9",
+  "family": "video",
+  "name": "AIS Vision Systems Cierre ES",
+  "lang": "es",
+  "thumb": "ais-vision-systems_end-card_es_v01_16x9.webp",
+  "mp4": "ais-vision-systems_end-card_es_v01_16x9.mp4",
+  "file": "/kit/files/ais-vision-systems_end-card_es_v01_16x9.mp4"
+ },
+ {
+  "id": "video-rosepetal_end-card_en_v01_16x9",
+  "family": "video",
+  "name": "Rosepetal Cierre EN",
+  "lang": "en",
+  "thumb": "rosepetal_end-card_en_v01_16x9.webp",
+  "mp4": "rosepetal_end-card_en_v01_16x9.mp4",
+  "file": "/kit/files/rosepetal_end-card_en_v01_16x9.mp4"
+ },
+ {
+  "id": "video-rosepetal_end-card_es_v01_16x9",
+  "family": "video",
+  "name": "Rosepetal Cierre ES",
+  "lang": "es",
+  "thumb": "rosepetal_end-card_es_v01_16x9.webp",
+  "mp4": "rosepetal_end-card_es_v01_16x9.mp4",
+  "file": "/kit/files/rosepetal_end-card_es_v01_16x9.mp4"
+ },
+ {
+  "id": "datasheet-lvs-9510",
+  "family": "datasheet",
+  "name": "Omron LVS-9510 datasheet ES",
+  "pages": 4,
+  "thumb": "datasheet-lvs-9510.jpg",
+  "pdf": "datasheet-lvs-9510.pdf",
+  "language": "es"
+ },
+ {
+  "id": "datasheet-lvs-9510-en",
+  "family": "datasheet",
+  "name": "Omron LVS-9510 datasheet EN",
+  "pages": 4,
+  "thumb": "datasheet-lvs-9510-en.jpg",
+  "pdf": "datasheet-lvs-9510-en.pdf",
+  "language": "en"
+ },
+ {
+  "id": "pattern-hexagon-landscape-rolling",
+  "family": "pattern",
+  "name": "hexagon-landscape-rolling",
+  "file": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling.zip",
+  "variants": [
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-blue-1240x1754.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-on-deep-blue-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-white-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-on-grey-1240x1754.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1584x396.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1512x256.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-white-transparent-1240x1754.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1584x396.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1512x256.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-rolling-blue-transparent-1240x1754.png"
+   }
+  ]
+ },
+ {
+  "id": "pattern-hexagon-landscape-dramatic",
+  "family": "pattern",
+  "name": "hexagon-landscape-dramatic",
+  "file": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic.zip",
+  "variants": [
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-blue-1240x1754.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-on-deep-blue-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-white-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-on-grey-1240x1754.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1584x396.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1512x256.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-white-transparent-1240x1754.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1584x396.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1512x256.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-hexagon-landscape-dramatic-blue-transparent-1240x1754.png"
+   }
+  ]
+ },
+ {
+  "id": "pattern-circuit-globe",
+  "family": "pattern",
+  "name": "circuit-globe",
+  "file": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe.zip",
+  "variants": [
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-blue-1240x1754.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-on-deep-blue-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-white-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-on-grey-1240x1754.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1584x396.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1512x256.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-white-transparent-1240x1754.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1584x396.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1512x256.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-globe-blue-transparent-1240x1754.png"
+   }
+  ]
+ },
+ {
+  "id": "pattern-circuit-traces",
+  "family": "pattern",
+  "name": "circuit-traces",
+  "file": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces.zip",
+  "variants": [
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-blue-1240x1754.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-on-deep-blue-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-white-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-on-grey-1240x1754.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1584x396.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1512x256.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-white-transparent-1240x1754.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1584x396.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1512x256.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-circuit-traces-blue-transparent-1240x1754.png"
+   }
+  ]
+ },
+ {
+  "id": "pattern-scan-profiles",
+  "family": "pattern",
+  "name": "scan-profiles",
+  "file": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles.zip",
+  "variants": [
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-blue-1240x1754.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1080x1350.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1080x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1584x396.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1512x256.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1920x1080.png"
+   },
+   {
+    "colourway": "white-on-deep-blue",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-on-deep-blue-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-white",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-white-1240x1754.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1080x1350.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1080x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1584x396.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1512x256.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1920x1080.png"
+   },
+   {
+    "colourway": "blue-on-grey",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-on-grey-1240x1754.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1584x396.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1512x256.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "white-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-white-transparent-1240x1754.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1350",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1080x1350.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1080x1350.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1080x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1080x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1080x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1584x396",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1584x396.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1584x396.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1512x256",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1512x256.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1512x256.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1920x1080",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1920x1080.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1920x1080.png"
+   },
+   {
+    "colourway": "blue-transparent",
+    "size": "1240x1754",
+    "svg": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1240x1754.svg",
+    "png": "/downloads/linkedin-patterns/ais-linkedin-background-scan-profiles-blue-transparent-1240x1754.png"
+   }
+  ]
+ }
+]

@@ -1,0 +1,175 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 440,
+  "data": {
+    "values": [
+      {
+        "actual": "OK",
+        "predicted": "OK",
+        "n": 948
+      },
+      {
+        "actual": "OK",
+        "predicted": "Tilted cap",
+        "n": 9
+      },
+      {
+        "actual": "OK",
+        "predicted": "Missing cap",
+        "n": 2
+      },
+      {
+        "actual": "OK",
+        "predicted": "No label",
+        "n": 4
+      },
+      {
+        "actual": "Tilted cap",
+        "predicted": "OK",
+        "n": 12
+      },
+      {
+        "actual": "Tilted cap",
+        "predicted": "Tilted cap",
+        "n": 183
+      },
+      {
+        "actual": "Tilted cap",
+        "predicted": "Missing cap",
+        "n": 5
+      },
+      {
+        "actual": "Tilted cap",
+        "predicted": "No label",
+        "n": 0
+      },
+      {
+        "actual": "Missing cap",
+        "predicted": "OK",
+        "n": 3
+      },
+      {
+        "actual": "Missing cap",
+        "predicted": "Tilted cap",
+        "n": 4
+      },
+      {
+        "actual": "Missing cap",
+        "predicted": "Missing cap",
+        "n": 212
+      },
+      {
+        "actual": "Missing cap",
+        "predicted": "No label",
+        "n": 1
+      },
+      {
+        "actual": "No label",
+        "predicted": "OK",
+        "n": 6
+      },
+      {
+        "actual": "No label",
+        "predicted": "Tilted cap",
+        "n": 0
+      },
+      {
+        "actual": "No label",
+        "predicted": "Missing cap",
+        "n": 1
+      },
+      {
+        "actual": "No label",
+        "predicted": "No label",
+        "n": 97
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "predicted",
+      "type": "nominal",
+      "sort": [
+        "OK",
+        "Tilted cap",
+        "Missing cap",
+        "No label"
+      ],
+      "title": "Predicted",
+      "axis": {
+        "labelAngle": 0,
+        "orient": "top",
+        "labelExpr": "split(datum.label, ' ')",
+        "labelLimit": 0,
+        "labelLineHeight": 14,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "actual",
+      "type": "nominal",
+      "sort": [
+        "OK",
+        "Tilted cap",
+        "Missing cap",
+        "No label"
+      ],
+      "title": "Actual",
+      "axis": {
+        "labelExpr": "split(datum.label, ' ')",
+        "labelLimit": 0,
+        "labelLineHeight": 14,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "color": {
+          "field": "n",
+          "type": "quantitative",
+          "scale": {
+            "type": "symlog",
+            "range": [
+              "#EDF2FA",
+              "#B8CDE6",
+              "#7C9FD7",
+              "#3664B3",
+              "#17356E"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 500
+      },
+      "encoding": {
+        "text": {
+          "field": "n"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.n > 40",
+            "value": "#FFFFFF"
+          },
+          "value": "#0F1729"
+        }
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Actual and predicted classes",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

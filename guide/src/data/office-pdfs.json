@@ -1,0 +1,37 @@
+{
+  "/kit/files/presentation-automotive.pptx": {
+    "pdf": "/kit/files/presentation-automotive.pdf",
+    "sourceHash": "e100afa17a397119a7b024864d4ac784e0f9d305295a13a5a7822cdeccbe4e5e",
+    "pdfHash": "5480a41b50113058696749f1d2faadc52355b9ec4a071bff2ba3526046d5fc55"
+  },
+  "/kit/files/presentation-beverage.pptx": {
+    "pdf": "/kit/files/presentation-beverage.pdf",
+    "sourceHash": "f41470fe1ed73daf13518b2ea609dd6203f2b97e660574e878f288358f9c96e5",
+    "pdfHash": "7e36a71686e04ca1618fe64ac0107a66a2ffcfaf53eeb95eeeb1f4dc82ba20e0"
+  },
+  "/kit/files/presentation-biscuits.pptx": {
+    "pdf": "/kit/files/presentation-biscuits.pdf",
+    "sourceHash": "b66673f617b416c0e5665dbc50a79624ae165a2fe2ff78af912e8ba229fb54e8",
+    "pdfHash": "1a4e5097a395b9c69742d95d18284b9b08abcabb1c13c59527614d4620e8cd1c"
+  },
+  "/kit/files/presentation-canning.pptx": {
+    "pdf": "/kit/files/presentation-canning.pdf",
+    "sourceHash": "0d8313a693b953f53c915a2026e4c56bdb1d3644b074a054f92720075c1a50b0",
+    "pdfHash": "aa61f2c828f8f5d614cc155dbbe27d2e9d62f236e9184920a8c1c6bab1e6bb1e"
+  },
+  "/kit/files/presentation-corporate-2026.pptx": {
+    "pdf": "/kit/files/presentation-corporate-2026.pdf",
+    "sourceHash": "809c7e6a83dc619a0230a115ea0814a960091ff07dbb0aa714e0e806145dc819",
+    "pdfHash": "f4f46d2e05a1ff1f1f8acf8c01f613f4ae6a758370370312349758590e84d8ba"
+  },
+  "/kit/files/presentation-wine.pptx": {
+    "pdf": "/kit/files/presentation-wine.pdf",
+    "sourceHash": "e3aca1c249411fef894ace704bf6c255168421c2eb1e8147596371a3a0bb38d8",
+    "pdfHash": "39d9968597f194b4c2d4ec9cbe3a1ace70ef1920621fd7d003058ce52f1d2127"
+  },
+  "/kit/office/letter-ais-vision-systems.docx": {
+    "pdf": "/kit/office/letter-ais-vision-systems.pdf",
+    "sourceHash": "6eaa0a2d4150f5f9a4ac64fbff2abbb27686c3d84732ecfc74ac52cf4ddf70f0",
+    "pdfHash": "10aaf978ccd0bcda4780181f0d0750666b5865ec91d98ab43ffc99f7b7d23485"
+  }
+}

@@ -1,0 +1,1 @@
+OPTICAIS reads the printed batch, date and time with OCR, and 1D and 2D codes, as the product moves down the line. Here its screen compares the text and code that should be printed on the label with what it reads. See it on your products

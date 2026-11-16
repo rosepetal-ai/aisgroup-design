@@ -1,0 +1,66 @@
+---
+title: Agentes de IA
+---
+
+Usa estas reglas y estos archivos de origen cuando un agente crea piezas de marca.
+
+## El archivo
+
+Cada idioma tiene un único archivo de reglas generado a partir de esta guía: [inglés](/en/brand.md), [español](/es/brand.md) y [catalán](/ca/brand.md). Contiene lo esencial, los valores exactos de color, la ubicación de los logotipos y las reglas de cada página. Como sale de la misma fuente que estas páginas, nunca se contradicen.
+
+Para el producto, [components.md](/components.md) enumera cada componente, bloque de marca, widget y parte del Profiler, con su archivo fuente. Dáselo a los agentes que construyen pantallas o skills.
+
+## Cómo preparar el encargo
+
+1. **Dale el archivo de reglas** del idioma de la pieza. En Claude, añádelo al conocimiento del proyecto o refiérelo desde el `CLAUDE.md` del repositorio. En otras herramientas, pégalo al principio de la conversación.
+2. **Indica la marca, el formato y el público.** Por ejemplo: «Rosepetal, carrusel de LinkedIn, responsables de calidad en alimentación».
+3. **Dale los datos.** Nombres de producto, cifras con sus condiciones y enlaces. Un agente no debe inventar afirmaciones; si le falta evidencia, debe preguntar.
+4. **Pide el idioma que necesitas,** no una traducción de otra versión.
+
+## Conectar el MCP
+
+El MCP de AIS Group Design da a cualquier agente las reglas de marca, los tokens, los logotipos, el código de los componentes y los ejemplos aprobados. Solo lee: nunca cambia ni publica nada. En Claude Code:
+
+```
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+```
+
+En claude.ai, añade la misma dirección como conector personalizado.
+
+## Usar el plugin AIS Group Design
+
+El plugin AIS Group Design para Claude Code trae esta guía como skills y un estudio local que crea publicaciones, carruseles, folletos, catálogos, fichas técnicas y presentaciones a partir de tus fotos y un encargo breve. Instálalo en Claude Code:
+
+```
+/plugin marketplace add rosepetal-ai/aisgroup-design
+/plugin install ais-group-design@ais-group-design
+```
+
+Después, una vez por ordenador, pide a Claude: «Configura AIS Group Design». El repositorio y las fotos de marca son privados: pide acceso al equipo de marketing.
+
+Después pega tus fotos en el terminal y di qué necesitas. El estudio elige la plantilla, edita la fuente (cualquier texto o imagen por su espacio), la comprueba con la marca y te enseña el resultado. Revísalo, pide cambios y exporta el PDF, el PNG o el PowerPoint cuando esté bien. No se publica ni se sube nada si no lo pides.
+
+## Llevar una aplicación a los componentes de Rosepetal
+
+El plugin también lleva las aplicaciones de producto a los componentes de Rosepetal (`@rosepetal/design`, shadcn-vue). Abre Claude Code en el repositorio de la aplicación y pide:
+
+```
+Rediseña [la aplicación / la pantalla] con nuestro sistema shadcn-vue y @rosepetal/design. Primero pasa la auditoría de UI sobre src/ y la comparación de temas sobre el CSS del tema de la aplicación, y enséñame los resultados. Después cambia una familia de componentes cada vez y conserva todos los datos, las acciones y los estados de carga, vacío y error. Compila después de cada paso y revisa el modo claro y el oscuro.
+```
+
+## Un encargo de partida
+
+```
+Usa las reglas de marca de AIS Group de brand.md. Escribe para [marca], [formato], [público], en [idioma]. Usa solo los datos de abajo. Respeta la mayúscula solo inicial, los nombres de marca exactos y las reglas de voz. Si falta un dato, pregunta en lugar de suponer.
+```
+
+## Lo que un agente nunca debe hacer
+
+- Redibujar, recolorear o regenerar un logotipo. Usa siempre los archivos que indica brand.md.
+- Inventar clientes, testimonios, certificaciones o datos de rendimiento.
+- Aproximar un color o cambiar la tipografía.
+- Mezclar idiomas o traducir nombres de marcas y productos.
+
+## Revisión antes de publicar
+
+Compara el resultado con lo esencial de la portada, contrasta cada dato con su fuente y pide que una persona nativa revise las piezas en español y catalán. En todo lo que sea una página, ejecuta la [revisión de marca](/downloads/qa/brand-check.js) con axe-core cargado y corrige cada hallazgo antes de que lo revise una persona.

@@ -1,0 +1,7 @@
+1. A Zebra label printer fitted with the Omron V275 verifier, printing an AIS test label.
+
+2. An operator at the V275 software screen, which flags a defective test label in red.
+
+3. The Omron V275 head over a test label with a barcode, a DataMatrix code and the CE mark.
+
+4. Shall we verify your labels? Send us samples. aisvision.com. +34 931 003 035.

@@ -1,0 +1,1539 @@
+{
+  "$description": "AIS Group Design 1.0. Every value comes from the Rosepetal design system: the blue scale, slate neutrals and three status colours.",
+  "color": {
+    "$type": "color",
+    "primary": {
+      "$value": "{color.blue.700}",
+      "$description": "The one corporate colour and the logo’s reproduction ink."
+    },
+    "blue": {
+      "50": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.92941176,
+            0.94901961,
+            0.98039216
+          ],
+          "alpha": 1
+        },
+        "$description": "Soft surface, soft actions (--action-soft)"
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.72156863,
+            0.80392157,
+            0.90196078
+          ],
+          "alpha": 1
+        },
+        "$description": "Information backgrounds"
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.65490196,
+            0.74901961,
+            0.89411765
+          ],
+          "alpha": 1
+        },
+        "$description": "Highlights and links on blue backgrounds"
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.48627451,
+            0.62352941,
+            0.84313725
+          ],
+          "alpha": 1
+        },
+        "$description": "Primary action and signals in dark mode (dark --primary)"
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.31764706,
+            0.49803922,
+            0.78823529
+          ],
+          "alpha": 1
+        },
+        "$description": "Charts in dark mode"
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.21176471,
+            0.39215686,
+            0.70196078
+          ],
+          "alpha": 1
+        },
+        "$description": "Action blue: links and text actions, focus ring, charts (--chart-1)"
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.11764706,
+            0.27058824,
+            0.56862745
+          ],
+          "alpha": 1
+        },
+        "$description": "Link and action hover (--action-soft-foreground)"
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.09019608,
+            0.20784314,
+            0.43137255
+          ],
+          "alpha": 1
+        },
+        "$description": "Brand blue: logo, primary buttons, call-to-action bands (--brand)"
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0627451,
+            0.14509804,
+            0.29803922
+          ],
+          "alpha": 1
+        },
+        "$description": "Deep sections, footers, button hover (--primary-hover)"
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.06666667,
+            0.10196078,
+            0.18039216
+          ],
+          "alpha": 1
+        },
+        "$description": "Cards and panels in dark mode (dark --card)"
+      },
+      "950": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.04313725,
+            0.07058824,
+            0.1254902
+          ],
+          "alpha": 1
+        },
+        "$description": "Dark mode background (dark --background)"
+      }
+    },
+    "neutral": {
+      "0": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "alpha": 1
+        },
+        "$description": "White: background and reversed logo"
+      },
+      "50": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.97254902,
+            0.98039216,
+            0.98823529
+          ],
+          "alpha": 1
+        },
+        "$description": "Navigation backgrounds"
+      },
+      "100": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.94509804,
+            0.96078431,
+            0.97647059
+          ],
+          "alpha": 1
+        },
+        "$description": "Section surface"
+      },
+      "200": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.88627451,
+            0.90980392,
+            0.94117647
+          ],
+          "alpha": 1
+        },
+        "$description": "Dividers and borders"
+      },
+      "300": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.79607843,
+            0.83529412,
+            0.88235294
+          ],
+          "alpha": 1
+        },
+        "$description": "Strong dividers; not a field border (1.5:1)"
+      },
+      "400": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.58039216,
+            0.63921569,
+            0.72156863
+          ],
+          "alpha": 1
+        },
+        "$description": "Secondary text in dark mode"
+      },
+      "500": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.39215686,
+            0.45490196,
+            0.54509804
+          ],
+          "alpha": 1
+        },
+        "$description": "Field borders (3:1 or more), metadata and placeholders"
+      },
+      "600": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.29411765,
+            0.33333333,
+            0.38823529
+          ],
+          "alpha": 1
+        },
+        "$description": "Secondary text (--muted-foreground)"
+      },
+      "700": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2,
+            0.25490196,
+            0.33333333
+          ],
+          "alpha": 1
+        },
+        "$description": "Field borders in dark mode"
+      },
+      "800": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.11764706,
+            0.16078431,
+            0.23137255
+          ],
+          "alpha": 1
+        },
+        "$description": "Secondary surfaces in dark mode"
+      },
+      "900": {
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.05882353,
+            0.09019608,
+            0.16078431
+          ],
+          "alpha": 1
+        },
+        "$description": "Primary text"
+      }
+    },
+    "success": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.08235294,
+          0.50196078,
+          0.23921569
+        ],
+        "alpha": 1
+      },
+      "$description": "Success: text and icons, 5.02:1 on white (--success)"
+    },
+    "warning": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.85098039,
+          0.46666667,
+          0.02352941
+        ],
+        "alpha": 1
+      },
+      "$description": "Warning (--warning)"
+    },
+    "danger": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8627451,
+          0.14901961,
+          0.14901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Error (--destructive)"
+    },
+    "success-dark": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.29019608,
+          0.87058824,
+          0.50196078
+        ],
+        "alpha": 1
+      },
+      "$description": "Success in dark mode (dark --success)"
+    },
+    "warning-dark": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.96078431,
+          0.61960784,
+          0.04313725
+        ],
+        "alpha": 1
+      },
+      "$description": "Warning in dark mode"
+    },
+    "danger-dark": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.97254902,
+          0.44313725,
+          0.44313725
+        ],
+        "alpha": 1
+      },
+      "$description": "Error in dark mode (dark --destructive)"
+    },
+    "success-solid": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.08235294,
+          0.50196078,
+          0.23921569
+        ],
+        "alpha": 1
+      },
+      "$description": "Success fill with white text (5.02:1)"
+    },
+    "warning-solid": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.85098039,
+          0.46666667,
+          0.02352941
+        ],
+        "alpha": 1
+      },
+      "$description": "Warning fill with ink text (5.61:1)"
+    },
+    "danger-solid": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8627451,
+          0.14901961,
+          0.14901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Error fill with white text (4.83:1)"
+    }
+  },
+  "font": {
+    "family": {
+      "primary": {
+        "$type": "fontFamily",
+        "$value": [
+          "Inter",
+          "Arial",
+          "sans-serif"
+        ]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "JetBrains Mono",
+          "ui-monospace",
+          "Menlo",
+          "Consolas",
+          "monospace"
+        ]
+      }
+    }
+  },
+  "typography": {
+    "display": {
+      "$type": "typography",
+      "$description": "Hero headline, one per page (fluid 44–72 px, 375–1440 px)",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 72,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.04,
+        "letterSpacing": {
+          "value": -2.88,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "ais.fluid": {
+          "min": {
+            "value": 44,
+            "unit": "px"
+          },
+          "max": {
+            "value": 72,
+            "unit": "px"
+          },
+          "css": "clamp(44px, 34.14px + 2.629vw, 72px)"
+        }
+      }
+    },
+    "title": {
+      "$type": "typography",
+      "$description": "Page headline (fluid 34–56 px, 375–1440 px)",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 56,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.07,
+        "letterSpacing": {
+          "value": -1.96,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "ais.fluid": {
+          "min": {
+            "value": 34,
+            "unit": "px"
+          },
+          "max": {
+            "value": 56,
+            "unit": "px"
+          },
+          "css": "clamp(34px, 26.25px + 2.066vw, 56px)"
+        }
+      }
+    },
+    "heading": {
+      "$type": "typography",
+      "$description": "Section titles (fluid 28–40 px, 375–1440 px)",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 40,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.12,
+        "letterSpacing": {
+          "value": -1.0,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "ais.fluid": {
+          "min": {
+            "value": 28,
+            "unit": "px"
+          },
+          "max": {
+            "value": 40,
+            "unit": "px"
+          },
+          "css": "clamp(28px, 23.77px + 1.127vw, 40px)"
+        }
+      }
+    },
+    "subheading": {
+      "$type": "typography",
+      "$description": "Cards and subsections (fluid 20–24 px, 375–1440 px)",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 24,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.25,
+        "letterSpacing": {
+          "value": -0.36,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "ais.fluid": {
+          "min": {
+            "value": 20,
+            "unit": "px"
+          },
+          "max": {
+            "value": 24,
+            "unit": "px"
+          },
+          "css": "clamp(20px, 18.59px + .376vw, 24px)"
+        }
+      }
+    },
+    "lead": {
+      "$type": "typography",
+      "$description": "Leads (fluid 18–20 px, 375–1440 px)",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 20,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacing": {
+          "value": -0.1,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "ais.fluid": {
+          "min": {
+            "value": 18,
+            "unit": "px"
+          },
+          "max": {
+            "value": 20,
+            "unit": "px"
+          },
+          "css": "clamp(18px, 17.3px + .188vw, 20px)"
+        }
+      }
+    },
+    "body": {
+      "$type": "typography",
+      "$description": "Running text",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 16,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.6,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "label": {
+      "$type": "typography",
+      "$description": "Buttons, action links and navigation",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 15,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.35,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$description": "Secondary text, tables and metadata",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 14,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "eyebrow": {
+      "$type": "typography",
+      "$description": "Eyebrows above a headline",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 13,
+          "unit": "px"
+        },
+        "fontWeight": 500,
+        "lineHeight": 1.4,
+        "letterSpacing": {
+          "value": 0.58,
+          "unit": "px"
+        }
+      }
+    },
+    "caption": {
+      "$type": "typography",
+      "$description": "Captions, notes and legal text",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 12,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.45,
+        "letterSpacing": {
+          "value": 0.06,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "typography-ui": {
+    "xs": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 12,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.333,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "sm": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 13,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.385,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "base": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 14,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.429,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 16,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "letterSpacing": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "lg": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 20,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.4,
+        "letterSpacing": {
+          "value": -0.2,
+          "unit": "px"
+        }
+      }
+    },
+    "xl": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.primary}",
+        "fontSize": {
+          "value": 24,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.333,
+        "letterSpacing": {
+          "value": -0.24,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "fast-1": {
+        "$type": "duration",
+        "$value": {
+          "value": 80,
+          "unit": "ms"
+        },
+        "$description": "Press and active states"
+      },
+      "fast-2": {
+        "$type": "duration",
+        "$value": {
+          "value": 120,
+          "unit": "ms"
+        },
+        "$description": "Tooltips, switches, checkboxes"
+      },
+      "moderate-1": {
+        "$type": "duration",
+        "$value": {
+          "value": 180,
+          "unit": "ms"
+        },
+        "$description": "Hover: colour, underline, arrow"
+      },
+      "moderate-2": {
+        "$type": "duration",
+        "$value": {
+          "value": 240,
+          "unit": "ms"
+        },
+        "$description": "Menus, dropdowns, accordions, dialogs"
+      },
+      "slow-1": {
+        "$type": "duration",
+        "$value": {
+          "value": 500,
+          "unit": "ms"
+        },
+        "$description": "Page arrival, large panels"
+      },
+      "slow-2": {
+        "$type": "duration",
+        "$value": {
+          "value": 700,
+          "unit": "ms"
+        },
+        "$description": "Reveal on scroll, image zoom"
+      },
+      "expressive": {
+        "$type": "duration",
+        "$value": {
+          "value": 1100,
+          "unit": "ms"
+        },
+        "$description": "Headlines line by line, counting figures"
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.2,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "$description": "State changes and movement within the view"
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.16,
+          1.0,
+          0.3,
+          1.0
+        ],
+        "$description": "Everything that arrives or settles"
+      },
+      "exit": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "$description": "Everything that leaves"
+      }
+    },
+    "distance": {
+      "nudge": {
+        "$type": "dimension",
+        "$value": {
+          "value": 3,
+          "unit": "px"
+        }
+      },
+      "menu": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "reveal": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      }
+    },
+    "stagger": {
+      "items": {
+        "$type": "duration",
+        "$value": {
+          "value": 60,
+          "unit": "ms"
+        }
+      },
+      "lines": {
+        "$type": "duration",
+        "$value": {
+          "value": 100,
+          "unit": "ms"
+        }
+      }
+    }
+  },
+  "space": {
+    "050": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "100": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "150": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "500": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      }
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "800": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "1000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 80,
+        "unit": "px"
+      }
+    },
+    "1200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      }
+    },
+    "1600": {
+      "$type": "dimension",
+      "$value": {
+        "value": 128,
+        "unit": "px"
+      }
+    }
+  },
+  "layout": {
+    "contentMax": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1440,
+        "unit": "px"
+      }
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      },
+      "$description": "Fluid 24–64 px: clamp(24px, 4vw, 64px)"
+    },
+    "gridGap": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$description": "Fluid 16–24 px"
+    },
+    "columns": {
+      "$type": "number",
+      "$value": 12
+    },
+    "breakpoints": {
+      "sm": {
+        "$type": "dimension",
+        "$value": {
+          "value": 600,
+          "unit": "px"
+        }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": {
+          "value": 900,
+          "unit": "px"
+        }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1200,
+          "unit": "px"
+        }
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1440,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      }
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      }
+    }
+  },
+  "shadow": {
+    "raised": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.05882353,
+              0.09019608,
+              0.16078431
+            ],
+            "alpha": 0.0392
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 6,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.05882353,
+              0.09019608,
+              0.16078431
+            ],
+            "alpha": 0.0588
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 24,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ]
+    },
+    "overlay": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.05882353,
+              0.09019608,
+              0.16078431
+            ],
+            "alpha": 0.0588
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 12,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.05882353,
+              0.09019608,
+              0.16078431
+            ],
+            "alpha": 0.1216
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 24,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 48,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ]
+    }
+  },
+  "data": {
+    "categorical": {
+      "1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.21176471,
+            0.39215686,
+            0.70196078
+          ],
+          "alpha": 1
+        },
+        "$description": "blue",
+        "$extensions": {
+          "ais.dark": "#517FC9"
+        }
+      },
+      "2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.91764706,
+            0.34509804,
+            0.04705882
+          ],
+          "alpha": 1
+        },
+        "$description": "orange",
+        "$extensions": {
+          "ais.dark": "#EA580C"
+        }
+      },
+      "3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.03137255,
+            0.56862745,
+            0.69803922
+          ],
+          "alpha": 1
+        },
+        "$description": "cyan",
+        "$extensions": {
+          "ais.dark": "#0891B2"
+        }
+      },
+      "4": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.85882353,
+            0.15294118,
+            0.46666667
+          ],
+          "alpha": 1
+        },
+        "$description": "pink",
+        "$extensions": {
+          "ais.dark": "#DB2777"
+        }
+      },
+      "5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.54509804,
+            0.36078431,
+            0.96470588
+          ],
+          "alpha": 1
+        },
+        "$description": "violet",
+        "$extensions": {
+          "ais.dark": "#A855F7"
+        }
+      },
+      "6": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.05098039,
+            0.58039216,
+            0.53333333
+          ],
+          "alpha": 1
+        },
+        "$description": "teal",
+        "$extensions": {
+          "ais.dark": "#0D9488"
+        }
+      }
+    },
+    "sequential": {
+      "light": {
+        "1": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.48627451,
+              0.62352941,
+              0.84313725
+            ],
+            "alpha": 1
+          }
+        },
+        "2": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.31764706,
+              0.49803922,
+              0.78823529
+            ],
+            "alpha": 1
+          }
+        },
+        "3": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.21176471,
+              0.39215686,
+              0.70196078
+            ],
+            "alpha": 1
+          }
+        },
+        "4": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11764706,
+              0.27058824,
+              0.56862745
+            ],
+            "alpha": 1
+          }
+        },
+        "5": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.09019608,
+              0.20784314,
+              0.43137255
+            ],
+            "alpha": 1
+          }
+        },
+        "6": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0627451,
+              0.14509804,
+              0.29803922
+            ],
+            "alpha": 1
+          }
+        }
+      },
+      "dark": {
+        "1": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11764706,
+              0.27058824,
+              0.56862745
+            ],
+            "alpha": 1
+          }
+        },
+        "2": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.21176471,
+              0.39215686,
+              0.70196078
+            ],
+            "alpha": 1
+          }
+        },
+        "3": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.31764706,
+              0.49803922,
+              0.78823529
+            ],
+            "alpha": 1
+          }
+        },
+        "4": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.48627451,
+              0.62352941,
+              0.84313725
+            ],
+            "alpha": 1
+          }
+        },
+        "5": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.65490196,
+              0.74901961,
+              0.89411765
+            ],
+            "alpha": 1
+          }
+        }
+      }
+    },
+    "diverging": {
+      "light": {
+        "1": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.57254902,
+              0.25098039,
+              0.05490196
+            ],
+            "alpha": 1
+          }
+        },
+        "2": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.91764706,
+              0.34509804,
+              0.04705882
+            ],
+            "alpha": 1
+          }
+        },
+        "3": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.79607843,
+              0.83529412,
+              0.88235294
+            ],
+            "alpha": 1
+          }
+        },
+        "4": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.21176471,
+              0.39215686,
+              0.70196078
+            ],
+            "alpha": 1
+          }
+        },
+        "5": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.11764706,
+              0.27058824,
+              0.56862745
+            ],
+            "alpha": 1
+          }
+        }
+      },
+      "dark": {
+        "1": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.99215686,
+              0.85098039,
+              0.65882353
+            ],
+            "alpha": 1
+          }
+        },
+        "2": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.91764706,
+              0.34509804,
+              0.04705882
+            ],
+            "alpha": 1
+          }
+        },
+        "3": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.2,
+              0.25490196,
+              0.33333333
+            ],
+            "alpha": 1
+          }
+        },
+        "4": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.31764706,
+              0.49803922,
+              0.78823529
+            ],
+            "alpha": 1
+          }
+        },
+        "5": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.65490196,
+              0.74901961,
+              0.89411765
+            ],
+            "alpha": 1
+          }
+        }
+      }
+    }
+  }
+}

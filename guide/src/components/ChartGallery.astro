@@ -1,0 +1,79 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import titles from '../data/chart-titles.json';
+import {chartTerms} from '../data/chart-terms.mjs';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// The same downloadable Vega-Lite specifications drive the responsive live examples.
+const note={en:'Synthetic example data, not AIS measurements or model benchmarks.',es:'Datos de ejemplo sintéticos, no mediciones de AIS ni comparativas de modelos.',ca:'Dades d’exemple sintètiques, no mesures d’AIS ni comparatives de models.'}[lang];
+const spec=(name:string)=>{const raw=fs.readFileSync(path.join(process.cwd(),'public/downloads/charts/specs',`${name}.vl.json`),'utf8');const data=JSON.parse(raw.replace(/"((?:[^"\\]|\\.)*)"/g,(m,key)=>chartTerms[lang]?.[key]?JSON.stringify(chartTerms[lang][key]):m));data.title={text:titles[name][['en','es','ca'].indexOf(lang)],anchor:'start'};data.description=`${data.title.text}. ${note}`;return data;};
+const c = {
+  en: { groups: ['Marketing and statistics', 'Model evaluation'], spec: 'Spec', note: 'Illustrative values.',
+    charts: { bar: ['Bars', 'Compare categories, sorted by value.'], column: ['Columns', 'A few discrete periods.'], line: ['Lines', 'Change over time for up to four series.'], stacked: ['Stacked bar', 'Part of a whole, per group.'], area: ['Area', 'One growing total.'],
+      'pr-curve': ['Precision and recall', 'Model quality per class.'], confusion: ['Confusion matrix', 'Where a classifier is right and wrong.'], boxplot: ['Box plot', 'Spread of a measure, such as inference time.'], histogram: ['Histogram', 'Distribution of one value, such as confidence.'], scatter: ['Scatter', 'Two measures per item, such as size against accuracy.'] } },
+  es: { groups: ['Marketing y estadística', 'Evaluación de modelos'], spec: 'Especificación', note: 'Valores ilustrativos.',
+    charts: { bar: ['Barras', 'Comparar categorías, ordenadas por valor.'], column: ['Columnas', 'Pocos periodos discretos.'], line: ['Líneas', 'Evolución en el tiempo, hasta cuatro series.'], stacked: ['Barra apilada', 'Parte de un todo, por grupo.'], area: ['Área', 'Un total que crece.'],
+      'pr-curve': ['Precisión y exhaustividad', 'Calidad del modelo por clase.'], confusion: ['Matriz de confusión', 'Dónde acierta y dónde falla un clasificador.'], boxplot: ['Diagrama de caja', 'Dispersión de una medida, como el tiempo de inferencia.'], histogram: ['Histograma', 'Distribución de un valor, como la confianza.'], scatter: ['Dispersión', 'Dos medidas por elemento, como tamaño frente a precisión.'] } },
+  ca: { groups: ['Màrqueting i estadística', 'Avaluació de models'], spec: 'Especificació', note: 'Valors il·lustratius.',
+    charts: { bar: ['Barres', 'Comparar categories, ordenades per valor.'], column: ['Columnes', 'Pocs períodes discrets.'], line: ['Línies', 'Evolució en el temps, fins a quatre sèries.'], stacked: ['Barra apilada', 'Part d’un tot, per grup.'], area: ['Àrea', 'Un total que creix.'],
+      'pr-curve': ['Precisió i exhaustivitat', 'Qualitat del model per classe.'], confusion: ['Matriu de confusió', 'On encerta i on falla un classificador.'], boxplot: ['Diagrama de caixa', 'Dispersió d’una mesura, com el temps d’inferència.'], histogram: ['Histograma', 'Distribució d’un valor, com la confiança.'], scatter: ['Dispersió', 'Dues mesures per element, com la mida davant la precisió.'] } },
+}[lang];
+const groups = [['bar', 'column', 'line', 'stacked', 'area'], ['pr-curve', 'confusion', 'boxplot', 'histogram', 'scatter']];
+---
+<div class="gallery">
+  <p class="note">{note}</p>
+  {groups.map((names, gi) => (
+    <section>
+      <h3>{c.groups[gi]}</h3>
+      <ul>
+        {names.map((n) => (
+          <li>
+            <figure>
+              <div class="plot" data-chart data-lang={lang} data-spec={JSON.stringify(spec(n))} aria-label={`${spec(n).title.text}. ${note}`} role="img"></div>
+              <figcaption><strong>{c.charts[n][0]}.</strong> {c.charts[n][1]} <a href={`/downloads/charts/specs/${n}.vl.json`}>{n}.vl.json</a></figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+</div>
+<style>
+  .gallery section + section { margin-top: var(--ais-space-500); }
+  .gallery h3 { margin: 0 0 var(--ais-space-200); }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-300); }
+  li { margin: 0 !important; }
+  figure { min-width: 0; margin: 0; padding: var(--ais-space-200); border: var(--ais-border); border-radius: 0; }
+  /* Native size on wide screens (no upscaling), scaled down only when the column is narrower. */
+  .plot { width:100%; min-height:280px; }
+  .plot :global(svg) { display: block; max-width:100%; height:auto; }
+  figcaption { margin-top: var(--ais-space-150); padding-top: var(--ais-space-150); border-top: var(--ais-border); font-size: var(--ais-text-body); color: var(--ink); line-height: var(--ais-text-body-leading); }
+  figcaption strong { color: var(--ink); font-weight: 600; }
+  figcaption a { font-family: var(--mono); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+  .note { margin: var(--ais-space-200) 0 0 !important; color: var(--muted); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+</style>
+
+<script>
+import * as vega from 'vega';
+import {compile} from 'vega-lite';
+import {chartTime} from '../data/chart-time.mjs';
+import config from '../../public/downloads/charts/ais-vega-config.json';
+document.addEventListener('astro:page-load',()=>{
+ const views:vega.View[]=[];
+ const observer=new IntersectionObserver(entries=>entries.forEach(async entry=>{
+  if(!entry.isIntersecting)return;const el=entry.target as HTMLElement;observer.unobserve(el);
+  const lang=el.dataset.lang!;vega.formatLocale(lang==='en'?{decimal:'.',thousands:',',grouping:[3],currency:['€','']}:{decimal:',',thousands:' ',grouping:[3],currency:['',' €']});
+  vega.timeFormatLocale(chartTime[lang]);
+  const spec=JSON.parse(el.dataset.spec!);const width=el.clientWidth;
+  if(width<480){const title=spec.title.text;const words=title.split(' ');const lines:string[]=[];let line='';for(const word of words){if((line+' '+word).trim().length>32&&line){lines.push(line);line=word;}else line=(line+' '+word).trim();}if(line)lines.push(line);spec.title.text=lines;}
+  const cfg={...config,padding:8,legend:{...config.legend,columns:width<480?1:3,direction:width<480?'vertical':'horizontal',labelLimit:0},axis:{...config.axis,labelLimit:0,titleLimit:width-20,tickCount:4},mark:{aria:false}};
+  const view=new vega.View(vega.parse(compile({...spec,config:cfg} as any).spec),{renderer:'svg',container:el,hover:true});views.push(view);await view.runAsync();
+  const svg=el.querySelector('svg');svg?.setAttribute('role','img');svg?.setAttribute('aria-label',spec.description);svg?.querySelectorAll('[role]').forEach(node=>node.setAttribute('aria-hidden','true'));
+ }),{rootMargin:'300px'});
+ document.querySelectorAll('[data-chart]').forEach(el=>observer.observe(el));
+ document.addEventListener('astro:before-swap',()=>{observer.disconnect();views.forEach(v=>v.finalize());},{once:true});
+});
+</script>

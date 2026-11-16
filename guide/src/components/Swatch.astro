@@ -1,0 +1,16 @@
+---
+// One token value in a table cell: a square of the colour, its hex and the palette step it comes from.
+interface Props { value: string; step?: string }
+const { value, step } = Astro.props;
+const solid = /^#/.test(value);
+---
+<span class:list={['token', { mix: !solid }]}><i style={`background:${value}`} /><code>{value}</code>{step && <span class="key">{step.replace('-', ' ')}</span>}</span>
+<style>
+  .token { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; }
+  .mix { white-space: normal; }
+  /* Hex values never break (the guide lets inline code wrap anywhere on phones). */
+  .token:not(.mix) code { white-space: nowrap; overflow-wrap: normal; }
+  @media (max-width: 760px) { .key { display: none; } }
+  i { width: 22px; height: 22px; border-radius: 0; box-shadow: inset 0 0 0 1px var(--line); flex: none; }
+  .key { color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+</style>

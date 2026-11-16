@@ -1,0 +1,224 @@
+/* AIS print system v2: every product brochure is built from these components only, so they read as one family.
+   Calm pages: white space instead of rules, real pictures large, one accent colour. Hairlines only where a list needs them.
+   Grid: A4, 15 mm margins, 12 columns (10.417 mm, 5 mm gaps). Type: Inter 400/500/600, nothing under 8.5 pt.
+   Page set for a machine (3 pages): 1 cover, 2 "Qué inspecciona" (detections as picture tiles), 3 "Equipo" (machine, specification
+   block, options, contact band). Catalogues repeat page 2/3 patterns per product.
+   Keep it simple (2026-11-03): a page has a headline and at most one short intro; no eyebrow, no running header; picture tiles carry
+   the name only; the footer is the page number alone, and the last page has the contact band instead. */
+
+@font-face { font-family: Inter; src: url(assets/Inter.ttf); font-weight: 400; }
+@font-face { font-family: Inter; src: url(assets/InterMedium.ttf); font-weight: 500; }
+@font-face { font-family: Inter; src: url(assets/InterSemiBold.ttf); font-weight: 600; }
+
+:root {
+  --brand: #17356E; --deep: #0B1220; --action: #3664B3; --light: #A7BFE4;
+  --ink: #0F1729; --muted: #4B5563; --pale: #F1F5F9; --line: #E2E8F0; --strong: #CBD5E1; --success: #16A34A; --danger: #DC2626;
+  --m: 15mm; --gap: 5mm; --col: 10.417mm;
+  --band-gap: 8mm; /* last page: from the last line or picture to the contact band, the same on every piece (render.mjs checks it) */
+}
+* { box-sizing: border-box; }
+html { background: #E2E8F0; }
+body { margin: 0; font-family: Inter, Arial, sans-serif; color: var(--ink); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+h1, h2, h3, p, figure, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { display: block; }
+p, li { font-size: 10.5pt; line-height: 15pt; }
+h1, h2, h3 { text-wrap: balance; hyphens: none; }
+p { text-wrap: pretty; }
+
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; margin: 8mm auto; background: #fff; display: flex; flex-direction: column; }
+@page { size: A4; margin: 0; }
+@media print { html { background: #fff; } .page { margin: 0; break-after: page; } .page:last-child { break-after: auto; } }
+@media screen { .page { box-shadow: 0 3px 20px #0002; } }
+
+/* ---------- type roles ---------- */
+.eyebrow { font-size: 8.5pt; line-height: 12pt; font-weight: 600; letter-spacing: normal; color: var(--action); }
+h2 { font-size: 26pt; line-height: 1.12; font-weight: 500; letter-spacing: -.02em; color: var(--ink); margin-top: 3mm; }
+.lead { font-size: 11.5pt; line-height: 17pt; color: var(--muted); margin-top: 4mm; max-width: 150mm; }
+h3 { font-size: 11pt; line-height: 15pt; font-weight: 600; color: var(--ink); }
+.sub { font-size: 8.5pt; line-height: 12pt; font-weight: 600; letter-spacing: normal; color: var(--brand); margin-bottom: 4mm; }
+figcaption, .caption { font-size: 8.5pt; line-height: 12pt; color: var(--muted); margin-top: 2mm; }
+
+/* ---------- cover ---------- */
+/* Navy head with the logo and the product's words, the real picture full bleed under it, three facts at the foot. */
+.cover-head { flex: none; background: var(--brand); color: #fff; position: relative; padding: 13mm var(--m) 11mm; min-height: 88mm; }
+.cover-head .logo { width: 20mm; }
+.cover-head .eyebrow { color: var(--light); margin-top: 20mm; }
+.cover-head .logo + h1 { margin-top: 20mm; }
+.cover-head h1 { font-size: 34pt; line-height: 1.05; font-weight: 500; letter-spacing: -.02em; margin-top: 3mm; max-width: 140mm; }
+.cover-head p { font-size: 12pt; line-height: 17pt; color: #DCE6F5; margin-top: 4mm; max-width: 125mm; }
+.cover-head .hexfield { position: absolute; right: 0; top: 0; width: 80mm; height: 100%; opacity: .6; background: url(assets/hex-printed-cover.svg) right top / 80mm 98mm no-repeat; pointer-events: none; }
+.hero { flex: 1 1 auto; min-height: 70mm; position: relative; overflow: hidden; background: var(--pale); }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: var(--fit, cover); object-position: var(--fx, 50%) var(--fy, 50%); }
+.cover-bottom { flex: none; padding: 8mm var(--m) 20mm; }
+
+/* Facts: an icon without a frame and one line (no hexagon on the cover, no second line). No rules. --n columns (default 3). */
+.facts { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: 5mm; }
+.fact { display: grid; grid-template-columns: 5mm 1fr; column-gap: 3mm; align-items: start; }
+.fact > svg { width: 5mm; height: 5mm; color: var(--brand); margin: .2mm 0 0; }
+.fact p { font-size: 10.5pt; line-height: 14pt; font-weight: 500; color: var(--ink); }
+
+/* The single hexagon (guide, Imagery: holds an icon or a number): flat-topped outline, 10 mm wide on A4, icon in brand blue.
+   One job per page: step numbers or option icons, never both, never beside cover facts. */
+.hx { width: 10mm; height: 8.66mm; position: relative; display: grid; place-items: center; color: var(--brand); }
+.hx::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 86.6'%3E%3Cpath d='M25.9 1.5h48.2L98.3 43.3 74.1 85.1H25.9L1.7 43.3z' fill='none' stroke='%233664B3' stroke-width='3'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.hx svg { width: 4.4mm; height: 4.4mm; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; }
+.hx { font-variant-numeric: tabular-nums; box-sizing: border-box; }
+/* The optical correction belongs to digits, never to the SVG icon viewport. */
+.hx:not(:has(svg)) { padding-top: .42mm; }
+.on-dark .hx, .band .hx { color: #fff; }
+
+/* ---------- inner pages ---------- */
+.inner { padding: 17mm var(--m) 20mm; }
+.running { flex: none; display: flex; justify-content: space-between; font-size: 8.5pt; line-height: 12pt; color: var(--muted); }
+.running strong { font-weight: 600; color: var(--brand); }
+.page-content { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.page-content > h2:first-child { margin-top: 0; }
+.page-content > .grow { flex: 1 1 auto; min-height: 30mm; }
+/* Footer: the page number alone, at the outer corner. */
+.foot { position: absolute; left: var(--m); right: var(--m); bottom: 8mm; display: flex; justify-content: flex-end; font-size: 8.5pt; line-height: 12pt; color: var(--muted); font-variant-numeric: tabular-nums; }
+.block { margin-top: 10mm; }
+
+/* ---------- pictures ---------- */
+/* A photo fills its box (cover crop, subject kept whole with --fx/--fy). --h fixes the height; .grow takes what is left.
+   .cutout: a product or machine on a light ground, shown whole (contain) on the pale panel. */
+.photo { position: relative; }
+.photo .frame { position: relative; overflow: hidden; height: var(--h, 70mm); background: var(--pale); }
+.photo.grow { display: flex; flex-direction: column; }
+.photo.grow .frame { flex: 1 1 auto; height: auto; min-height: 40mm; }
+/* A picture beside words that takes the page's free height (.split.grow with a .photo.grow), so the page ends on content, not
+   on dead white; the words stay centred. */
+.split.grow { align-items: stretch; }
+.split.grow > .text { align-self: center; }
+.photo .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+.photo.cutout .frame img { object-fit: contain; padding: var(--pad, 4mm); }
+
+/* Detection tiles: one square picture per check and its name; --n per row. Missing picture: icon tile on the pale ground. */
+.tiles { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); column-gap: var(--gap); row-gap: 6mm; }
+.tile .frame { aspect-ratio: var(--ar, 1); overflow: hidden; background: var(--pale); position: relative; }
+.tile .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+.tile .frame.icon { display: grid; place-items: center; }
+.tile .frame.icon .hx { transform: scale(1.6); }
+.tile h3 { margin-top: 2.5mm; }
+.tile p { font-size: 9pt; line-height: 13pt; color: var(--muted); margin-top: .5mm; }
+
+/* Picture beside words: picture on columns 1-6 (or 7-12 with .rev), words vertically centred. */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; align-items: center; }
+.split.wide { grid-template-columns: 7fr 5fr; }
+.split.rev > :first-child { order: 2; }
+.split .text h3 + p { margin-top: 2mm; }
+.split .text p + p { margin-top: 3mm; }
+
+/* Plain lists (never for one product's properties: those go in the specification block, .table without a header row). */
+.specs { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 8mm; align-content: start; }
+.specs li { font-size: 9.5pt; line-height: 13.5pt; padding-left: 4mm; position: relative; color: var(--ink); }
+.specs li::before { content: ''; position: absolute; left: 0; top: 1.9mm; width: 1.4mm; height: 1.4mm; background: var(--action); }
+
+/* Options: icon in the hexagon and a label, --n per row, no rules. */
+.options { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); column-gap: var(--gap); row-gap: 5mm; }
+.option { display: grid; grid-template-columns: 10mm 1fr; column-gap: 3mm; align-items: center; }
+.option p { font-size: 9.5pt; line-height: 13pt; color: var(--ink); }
+
+/* Note: one qualifier under the block it qualifies, in small secondary text. No label, fill, border, icon or warning colour;
+   at most one per page. A condition for a whole table is its caption instead, a figure's its condition line. */
+.note { margin-top: 4mm; font-size: 8.5pt; line-height: 12pt; color: var(--muted); }
+
+/* ---------- contact band (last page) ---------- */
+.band { flex: none; background: var(--brand); color: #fff; padding: 9mm var(--m) 11mm; position: relative; margin: var(--band-gap) calc(-1 * var(--m)) -20mm; }
+/* The last page's content ends exactly --band-gap above the band. The free height goes to the page's growing picture (.photo.grow);
+   a page without one puts it above its last block, never under the last line: the last block doesn't grow and a table's last row
+   drops its bottom padding. A page that then shows a wide gap is rebalanced (a picture's height), never with stretched text. */
+.page.last .page-content > .block:last-child { margin-top: auto; padding-top: 10mm; } /* the block's 10 mm, kept as padding under the auto margin */
+.page.last .page-content > .grow:last-child:not(.photo, .split) { flex-grow: 0; min-height: 0; }
+.page.last .page-content > :last-child .table tbody tr:last-child > * { padding-bottom: 0; }
+/* The gap is measured to the letters, so the last lines drop the leading under them. */
+.page.last .page-content > :last-child :is(tr:last-child > *, p:last-child, figcaption) { text-box: trim-end text text; }
+.band h2 { color: #fff; font-size: 18pt; margin: 0; }
+.band .contacts { display: flex; gap: 10mm; margin-top: 4mm; font-size: 10.5pt; line-height: 15pt; color: #DCE6F5; }
+/* Closing ground: the same field as the cover head (cell, stroke and tone), from the bottom right corner, flush to the band's top,
+   right and bottom edges, flat: each line fades with its distance from the corner, no light band and no mask. Never behind the band's text. */
+.band .hexfield { position: absolute; right: 0; bottom: 0; top: 0; width: 100mm; opacity: .6; pointer-events: none;
+  background: url(assets/hex-printed-close.svg) right bottom / 100mm 60mm no-repeat; }
+.page.last .foot { display: none; }
+
+/* Product zones: the product on the left, numbered keys on its right edge at the height of what they name (--y), a hairline into
+   the product (--len; --c:#fff on dark grounds), each zone title level with its key across the gap. */
+.application { display: grid; grid-template-columns: 96mm 1fr; gap: var(--gap); align-items: stretch; }
+.zones-figure { position: relative; background: var(--pale); }
+.zones-figure img { display: block; width: 100%; height: auto; }
+.zones-figure .key { position: absolute; right: 0; top: var(--y); transform: translateY(-50%); width: 7mm; height: 7mm; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 9.5pt; line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums; padding-top: .42mm; box-sizing: border-box; box-shadow: 0 0 0 .3mm #fff; }
+.zones-figure .key::after { content: ''; position: absolute; right: 100%; top: 50%; width: var(--len, 8mm); border-top: .3mm solid var(--c, var(--brand)); }
+.application > div { position: relative; }
+.zone { position: absolute; left: 3mm; right: 0; top: var(--y); transform: translateY(-3.5mm); }
+.zone h3 { line-height: 7mm; position: relative; }
+.zone h3::before { content: ''; position: absolute; right: calc(100% + 1.5mm); top: 50%; width: calc(var(--gap) + 1.5mm); border-top: .3mm solid var(--brand); }
+.zone h3 .num { color: var(--action); font-weight: 500; margin-right: 3mm; }
+.zone p { font-size: 9.5pt; line-height: 13.5pt; color: var(--ink); }
+.zone .system { font-size: 8.5pt; line-height: 12pt; color: var(--action); font-weight: 500; margin-top: 1mm; }
+/* Logo width per brand: AIS 20 mm (guide, Logos: about 20 mm on A4), Rosepetal 24 mm (its minimum). */
+.cover-head .logo.rosepetal { width: 24mm; }
+
+/* ---------- tables, highlights and patterns (guide, Communications) ---------- */
+/* Table: one style for every table. Header in small Semibold secondary text over a neutral-300 rule; rows split by hairlines;
+   no fills, stripes, frames or vertical rules. Numbers right-aligned (.num) in tabular figures, units in the header.
+   Tabular figures go on number cells only: on the whole table they widen Inter's hyphen (RS-232 read "RS - 232").
+   Without a header row it is the specification block: one product's properties, the label in secondary text, the value in ink.
+   --label sets the label column so the values start on a grid column (default: column 5 of a full-width block). */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { font-size: 9.5pt; line-height: 13.5pt; font-weight: 400; color: var(--ink); text-align: left; vertical-align: top; padding: 2mm 5mm 2mm 0; border-bottom: .25mm solid var(--line); }
+.table :is(th, td):last-child { padding-right: 0; }
+.table thead th { font-size: 8.5pt; line-height: 12pt; font-weight: 600; color: var(--muted); vertical-align: bottom; padding-top: 0; border-bottom-color: var(--strong); }
+.table tbody tr:last-child > * { border-bottom: 0; }
+.table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.table:not(:has(thead)) tbody th { width: var(--label, 61.67mm); color: var(--muted); }
+/* Specification block in a half-page column: labels on a narrower column, every value still on one column. */
+.split .table:not(:has(thead)) tbody th { width: var(--label, 27mm); }
+/* Under a group label the specification block's first row starts at the label; a table with column titles keeps its padding. */
+.sub + .table:not(:has(thead)) tbody tr:first-child > * { padding-top: 0; }
+.table + figcaption { margin-top: 3mm; }
+
+/* Key figure: the number alone (or with %, ° or x), what it counts, the condition it needs. At most three in a row; no box, no icon. */
+.keyfigs { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: var(--gap); }
+.keyfig .value { font-size: 34pt; line-height: 38pt; font-weight: 500; letter-spacing: -.03em; color: var(--brand); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.keyfig h3 { margin-top: 2mm; }
+.keyfig p { font-size: 8.5pt; line-height: 12pt; color: var(--muted); margin-top: .5mm; }
+/* On a blue band: the figure and what it counts in white, the condition in light blue. */
+:is(.on-dark, .band) .keyfig :is(.value, h3) { color: #fff; }
+:is(.on-dark, .band) .keyfig p { color: var(--light); }
+
+/* Process steps: three to five in one row, each number in the single hexagon, joined by a hairline at the hexagons' middle. */
+.steps { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: var(--gap); }
+.step { position: relative; }
+.step .hx { font-size: 10.5pt; font-weight: 500; }
+.step:not(:last-child)::after { content: ''; position: absolute; left: 12mm; right: calc(2mm - var(--gap)); top: 4.33mm; border-top: .3mm solid var(--strong); }
+.step h3 { margin-top: 3mm; }
+.step p { font-size: 9.5pt; line-height: 13.5pt; color: var(--muted); margin-top: 1mm; }
+
+/* Status beside a word (comparisons of OK and NOK states): the Lucide circle-check or circle-x in the status colour. */
+.ok, .nok { display: inline-flex; align-items: center; gap: 1.5mm; }
+.ok svg, .nok svg { width: 4.2mm; height: 4.2mm; flex: none; margin: 0; }
+.ok svg { color: var(--success); }
+.nok svg { color: var(--danger); }
+strong { font-weight: 600; }
+
+/* ---------- sales documents: proposal and case study (skills/sales-documents) ---------- */
+/* Price table: the .table with a header, quantities and amounts in .num, units in the header. The foot holds the tax base, the
+   tax and the total (Semibold) under the amounts; edit_piece recomputes it, validate refuses one that doesn't add up. */
+.table tfoot > tr > * { font-size: 9.5pt; line-height: 13.5pt; padding: 1.5mm 0 0; border: 0; color: var(--ink); }
+.table tfoot td { font-variant-numeric: tabular-nums; }
+.table tfoot th { font-weight: 400; color: var(--muted); text-align: right; padding-right: 5mm; }
+.table tfoot tr:first-child > * { border-top: .25mm solid var(--strong); padding-top: 2.5mm; }
+.table tfoot tr:last-child > * { font-weight: 600; color: var(--ink); }
+/* Signature: one column per party, the space to sign over a hairline, then name, role and date in small type. */
+.sign { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.sign .space { height: 15mm; border-bottom: .25mm solid var(--strong); }
+.sign p { font-size: 8.5pt; line-height: 12pt; color: var(--muted); margin-top: 2mm; }
+/* Quote: the exact words in « » (“ ” in English), never cut without the speaker's approval; under them the name in Semibold ink and the role in
+   secondary text. No quote glyph, rule, fill or italics; one per page. */
+.quote blockquote { margin: 0; }
+.quote p { font-size: 13pt; line-height: 19pt; font-weight: 500; letter-spacing: -.01em; color: var(--ink); max-width: 165mm; }
+.quote figcaption { font-size: 9.5pt; line-height: 13.5pt; margin-top: 3mm; color: var(--muted); }
+.quote figcaption strong { color: var(--ink); }
+
+/* Body heading spacing; the closing-band system and its geometry remain in system.css. */
+.editorial-heading + .table:not(:has(thead)) tbody tr:first-child > * { padding-top: 0; }

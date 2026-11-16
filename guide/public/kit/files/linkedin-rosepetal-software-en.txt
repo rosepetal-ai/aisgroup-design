@@ -1,0 +1,1 @@
+Rosepetal inspects baguettes in real time: it measures the length and width of the pieces, flags the ones out of tolerance and counts the errors by type. The image shows preparation of a bread image dataset in Rosepetal. Book a demo

@@ -1,0 +1,31 @@
+---
+import { contrast } from '../palette';
+import { ui, type Lang } from '../i18n';
+interface Props { lang: Lang; pairs: [string, string, string][] }
+const { lang, pairs } = Astro.props;
+const t = ui[lang];
+const grade = (r: number) => (r >= 4.5 ? t.pass : r >= 3 ? t.large : t.decorative);
+---
+<div class="table-wrap"><table class="contrast">
+  <tbody>
+    {pairs.map(([fg, bg, use]) => { const r = contrast(fg, bg); return (
+      <tr>
+        <td><span class="sample" style={`color:${fg};background:${bg}`}>Aa</span></td>
+        <td><code>{fg}</code> {t.on} <code>{bg}</code></td>
+        <td class="ratio">{r.toFixed(2)}:1</td>
+        <td><span class="grade"><svg viewBox="0 0 24 24" aria-hidden="true" class:list={[{ ok: r >= 4.5, mid: r >= 3 && r < 4.5 }]}><path d={r >= 4.5 ? 'M20 6 9 17l-5-5' : r >= 3 ? 'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0ZM12 8v4m0 4h.01' : 'M18 6 6 18M6 6l12 12'} /></svg>{grade(r)}</span></td>
+        <td class="use">{use}</td>
+      </tr>); })}
+  </tbody>
+</table></div>
+<style>
+  .contrast td { vertical-align: middle; }
+  .sample { display: inline-grid; place-items: center; width: 44px; height: 32px; border-radius: 0; font-weight: 600; box-shadow: inset 0 0 0 1px var(--line); }
+  .ratio { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  /* Status colour only on the icon; the label stays in ink so it is always readable. */
+  .grade { display: inline-flex; align-items: center; gap: 8px; font-size: var(--ais-text-small); white-space: nowrap; color: var(--ink); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .grade svg { width: 16px; height: 16px; fill: none; stroke: var(--ais-danger); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .grade svg.ok { stroke: var(--ais-success); }
+  .grade svg.mid { stroke: var(--ais-warning); }
+  .use { color: var(--muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+</style>

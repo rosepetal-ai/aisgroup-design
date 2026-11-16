@@ -1,0 +1,277 @@
+{
+  "background": {
+    "en": "Page background",
+    "es": "Fondo de página",
+    "ca": "Fons de pàgina"
+  },
+  "page": {
+    "en": "Page behind cards and login footer",
+    "es": "Página tras las tarjetas y pie del acceso",
+    "ca": "Pàgina darrere de les targetes i peu de l’accés"
+  },
+  "card": {
+    "en": "Cards, popovers and menus",
+    "es": "Tarjetas, paneles emergentes y menús",
+    "ca": "Targetes, panells emergents i menús"
+  },
+  "stripe": {
+    "en": "Soft action surface",
+    "es": "Fondo de acciones suaves",
+    "ca": "Fons d’accions suaus"
+  },
+  "inset": {
+    "en": "Recessed blocks within a card",
+    "es": "Bloques interiores de una tarjeta",
+    "ca": "Blocs interiors d’una targeta"
+  },
+  "muted": {
+    "en": "Dialog header and sidebar background",
+    "es": "Fondo de cabecera de diálogo y barra lateral",
+    "ca": "Fons de capçalera de diàleg i barra lateral"
+  },
+  "foreground": {
+    "en": "Headings and body text",
+    "es": "Títulos y texto principal",
+    "ca": "Títols i text principal"
+  },
+  "muted-foreground": {
+    "en": "Secondary text",
+    "es": "Texto secundario",
+    "ca": "Text secundari"
+  },
+  "border": {
+    "en": "Dividers and borders",
+    "es": "Separadores y bordes",
+    "ca": "Separadors i vores"
+  },
+  "input": {
+    "en": "Field border and off switch; at least 3:1 against the page",
+    "es": "Borde de campo e interruptor desactivado; al menos 3:1 sobre la página",
+    "ca": "Vora de camp i interruptor desactivat; almenys 3:1 sobre la pàgina"
+  },
+  "code-block": {
+    "en": "Code block background",
+    "es": "Fondo de bloque de código",
+    "ca": "Fons de bloc de codi"
+  },
+  "code-block-foreground": {
+    "en": "Code block text",
+    "es": "Texto de bloque de código",
+    "ca": "Text de bloc de codi"
+  },
+  "primary": {
+    "en": "Primary button background",
+    "es": "Fondo del botón principal",
+    "ca": "Fons del botó principal"
+  },
+  "primary-hover": {
+    "en": "Primary button on hover",
+    "es": "Botón principal al pasar el cursor",
+    "ca": "Botó principal en passar-hi el cursor"
+  },
+  "primary-foreground": {
+    "en": "Text on the primary button",
+    "es": "Texto del botón principal",
+    "ca": "Text del botó principal"
+  },
+  "secondary": {
+    "en": "Secondary button and hovered menu items",
+    "es": "Botón secundario y opciones de menú al pasar el cursor",
+    "ca": "Botó secundari i opcions de menú en passar-hi el cursor"
+  },
+  "secondary-hover": {
+    "en": "Secondary button on hover",
+    "es": "Botón secundario al pasar el cursor",
+    "ca": "Botó secundari en passar-hi el cursor"
+  },
+  "secondary-foreground": {
+    "en": "Text on the secondary button",
+    "es": "Texto del botón secundario",
+    "ca": "Text del botó secundari"
+  },
+  "action-soft-border": {
+    "en": "Soft action border",
+    "es": "Borde de acción suave",
+    "ca": "Vora d’acció suau"
+  },
+  "action-soft-foreground": {
+    "en": "Soft action text",
+    "es": "Texto de acción suave",
+    "ca": "Text d’acció suau"
+  },
+  "info": {
+    "en": "Links, text actions and focus rings",
+    "es": "Enlaces, acciones de texto y anillos de foco",
+    "ca": "Enllaços, accions de text i anells de focus"
+  },
+  "brand": {
+    "en": "Rosepetal brand: top bar and login hero",
+    "es": "Marca Rosepetal: barra superior y bloque principal del acceso",
+    "ca": "Marca Rosepetal: barra superior i bloc principal de l’accés"
+  },
+  "brand-muted": {
+    "en": "Highlights and inactive items on brand blue",
+    "es": "Resaltes y elementos inactivos sobre azul de marca",
+    "ca": "Ressalts i elements inactius sobre blau de marca"
+  },
+  "fixed-light": {
+    "en": "Fixed white: text on brand fills, artwork and switch thumb",
+    "es": "Blanco fijo: texto sobre fondos de marca, imágenes y mando del interruptor",
+    "ca": "Blanc fix: text sobre fons de marca, imatges i comandament de l’interruptor"
+  },
+  "fixed-dark": {
+    "en": "Fixed dark: scrims, image backdrops and text on amber",
+    "es": "Oscuro fijo: velos, fondos de imagen y texto sobre ámbar",
+    "ca": "Fosc fix: vels, fons d’imatge i text sobre ambre"
+  },
+  "destructive": {
+    "en": "Error text, icons and destructive button background",
+    "es": "Texto e iconos de error y fondo del botón destructivo",
+    "ca": "Text i icones d’error i fons del botó destructiu"
+  },
+  "success": {
+    "en": "Success text and icons",
+    "es": "Texto e iconos de éxito",
+    "ca": "Text i icones d’èxit"
+  },
+  "warning": {
+    "en": "Warning icons",
+    "es": "Iconos de aviso",
+    "ca": "Icones d’avís"
+  },
+  "split-train": {
+    "en": "Training split",
+    "es": "Partición de entrenamiento",
+    "ca": "Partició d’entrenament"
+  },
+  "split-validation": {
+    "en": "Validation split",
+    "es": "Partición de validación",
+    "ca": "Partició de validació"
+  },
+  "split-test": {
+    "en": "Test split",
+    "es": "Partición de prueba",
+    "ca": "Partició de prova"
+  },
+  "split-predetermined": {
+    "en": "Images not yet assigned to a split",
+    "es": "Imágenes aún sin partición asignada",
+    "ca": "Imatges encara sense partició assignada"
+  },
+  "chart-1": {
+    "en": "First chart series",
+    "es": "Primera serie de gráfico",
+    "ca": "Primera sèrie de gràfic"
+  },
+  "chart-2": {
+    "en": "Second chart series",
+    "es": "Segunda serie de gráfico",
+    "ca": "Segona sèrie de gràfic"
+  },
+  "chart-3": {
+    "en": "Third chart series",
+    "es": "Tercera serie de gráfico",
+    "ca": "Tercera sèrie de gràfic"
+  },
+  "tag-unclassified": {
+    "en": "Unclassified and «No group» tags",
+    "es": "Etiquetas sin clasificar y «Sin grupo»",
+    "ca": "Etiquetes sense classificar i «Sense grup»"
+  },
+  "tag-normal": {
+    "en": "Normal (OK) tag",
+    "es": "Etiqueta normal (OK)",
+    "ca": "Etiqueta normal (OK)"
+  },
+  "tag-anomaly": {
+    "en": "Anomaly (NOK) tag",
+    "es": "Etiqueta de anomalía (NOK)",
+    "ca": "Etiqueta d’anomalia (NOK)"
+  },
+  "tag-default": {
+    "en": "Default tag colour, including OCR text",
+    "es": "Color de etiqueta por defecto, incluido el texto OCR",
+    "ca": "Color d’etiqueta per defecte, inclòs el text OCR"
+  },
+  "matrix-full": {
+    "en": "Full confusion-matrix cell background",
+    "es": "Fondo de celda llena de la matriz de confusión",
+    "ca": "Fons de cel·la plena de la matriu de confusió"
+  },
+  "matrix-full-foreground": {
+    "en": "Text in a full confusion-matrix cell",
+    "es": "Texto de celda llena de la matriz de confusión",
+    "ca": "Text de cel·la plena de la matriu de confusió"
+  },
+  "matrix-high": {
+    "en": "High-value confusion-matrix cell background",
+    "es": "Fondo de celda de valor alto de la matriz de confusión",
+    "ca": "Fons de cel·la de valor alt de la matriu de confusió"
+  },
+  "matrix-high-foreground": {
+    "en": "Text in a high-value confusion-matrix cell",
+    "es": "Texto de celda de valor alto de la matriz de confusión",
+    "ca": "Text de cel·la de valor alt de la matriu de confusió"
+  },
+  "matrix-cell": {
+    "en": "Base confusion-matrix cell background",
+    "es": "Fondo base de celda de la matriz de confusión",
+    "ca": "Fons base de cel·la de la matriu de confusió"
+  },
+  "editor-surface": {
+    "en": "Editor image backdrop",
+    "es": "Fondo de imagen del editor",
+    "ca": "Fons d’imatge de l’editor"
+  },
+  "editor-watermark": {
+    "en": "Editor watermark lines",
+    "es": "Líneas de la marca de agua del editor",
+    "ca": "Línies de la marca d’aigua de l’editor"
+  },
+  "canvas-grid": {
+    "en": "Canvas grid background",
+    "es": "Fondo de la cuadrícula del lienzo",
+    "ca": "Fons de la quadrícula del llenç"
+  },
+  "canvas-grid-line": {
+    "en": "Canvas grid lines",
+    "es": "Líneas de la cuadrícula del lienzo",
+    "ca": "Línies de la quadrícula del llenç"
+  },
+  "topbar": {
+    "en": "Top bar background",
+    "es": "Fondo de la barra superior",
+    "ca": "Fons de la barra superior"
+  },
+  "topbar-foreground": {
+    "en": "Top bar text",
+    "es": "Texto de la barra superior",
+    "ca": "Text de la barra superior"
+  },
+  "topbar-muted": {
+    "en": "Secondary top bar text",
+    "es": "Texto secundario de la barra superior",
+    "ca": "Text secundari de la barra superior"
+  },
+  "topbar-border": {
+    "en": "Top bar dividers",
+    "es": "Separadores de la barra superior",
+    "ca": "Separadors de la barra superior"
+  },
+  "topbar-hover": {
+    "en": "Top bar item on hover",
+    "es": "Elemento de la barra superior al pasar el cursor",
+    "ca": "Element de la barra superior en passar-hi el cursor"
+  },
+  "heading": {
+    "en": "Heading text",
+    "es": "Texto de títulos",
+    "ca": "Text de títols"
+  },
+  "destructive-foreground": {
+    "en": "Text on the destructive button",
+    "es": "Texto del botón destructivo",
+    "ca": "Text del botó destructiu"
+  }
+}

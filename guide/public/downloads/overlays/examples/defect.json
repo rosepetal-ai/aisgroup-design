@@ -1,0 +1,39 @@
+{
+  "image": "/imagery/label-reject.svg",
+  "width": 600,
+  "height": 400,
+  "tone": "light",
+  "displayWidth": 430,
+  "verdict": {
+    "result": "reject",
+    "text": "NOK",
+    "detail": "lot mismatch"
+  },
+  "items": [
+    {
+      "type": "read",
+      "x": 90,
+      "y": 178,
+      "w": 118,
+      "h": 27,
+      "text": "LOT A2391",
+      "state": "defect"
+    },
+    {
+      "type": "read",
+      "x": 90,
+      "y": 210,
+      "w": 130,
+      "h": 27,
+      "text": "EXP 08/2027"
+    },
+    {
+      "type": "read",
+      "x": 90,
+      "y": 264,
+      "w": 196,
+      "h": 86,
+      "text": "8437012345678"
+    }
+  ]
+}

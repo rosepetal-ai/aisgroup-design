@@ -1,0 +1,27 @@
+---
+// Browser tabs at real size, in a light and a dark browser: each site and app with the favicon it ships.
+// The website favicons switch with the theme; the app tiles stay the same.
+interface Props { tabs: [string, string, string, string] }   // titles: AIS site, Rosepetal site, AIS app, Rosepetal app
+const { tabs } = Astro.props;
+const items = [['favicons/ais/favicon-32', true], ['favicons/rosepetal/favicon-32', true], ['app/ais/favicon-32', false], ['app/rosepetal/favicon-32', false]] as const;
+---
+<div class="strips">
+  {(['light', 'dark'] as const).map((mode) => (
+    <div class:list={['strip', mode]}>
+      {items.map(([f, adaptive], i) => (
+        <div class:list={['t', { on: i === 0 }]}><img src={`/logos/${f}${adaptive ? `-${mode}` : ''}.png`} alt="" width="16" height="16" /><span>{tabs[i]}</span></div>
+      ))}
+    </div>
+  ))}
+</div>
+<style>
+  .strips { display: grid; gap: 16px; margin: 24px 0 32px; }
+  .strip { display: flex; gap: 2px; padding: 8px 8px 0; overflow: hidden; }
+  .light { background: #dee1e6; color: #1f1f1f; }
+  .dark { background: #202124; color: #e8eaed; }
+  .t { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 0 1 220px; height: 34px; padding: 0 12px; border-radius: 8px 8px 0 0; font: 12px/1 system-ui, sans-serif; white-space: nowrap; }
+  .t span { overflow: hidden; text-overflow: ellipsis; }
+  .light .on { background: #fff; }
+  .dark .on { background: #35363a; }
+  img { flex: none; }
+</style>

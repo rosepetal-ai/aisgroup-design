@@ -1,0 +1,81 @@
+---
+title: Temas claro y oscuro
+rules:
+  - 'Solo la aplicación Rosepetal tiene tema oscuro. Las webs, la impresión, las presentaciones, las redes sociales y el correo son claros; lo oscuro aparece en ellos como secciones en azul profundo, fondos en azul de marca y piezas oscuras hechas con la misma paleta, nunca como un cambio de tema.'
+  - 'En la aplicación, `.dark` en `<html>` cambia el tema: primero la elección del usuario, después el ajuste del sistema. Los componentes toman todos sus colores de los tokens de `@rosepetal/design`, así que no necesitan colores propios para el modo oscuro.'
+  - 'Modo oscuro: página `#0B1220`, tarjetas `#111A2E`, bordes `#1E293B`, texto `#F1F5F9`, texto secundario `#94A3B8`, acciones y enlaces `#7C9FD7` con tinta `#0F1729` en los botones rellenos; éxito `#4ADE80`, aviso `#F59E0B`, error `#F87171`.'
+  - 'Logotipos: azul sobre fondos claros, blanco sobre oscuros. Los iconos de aplicación mantienen la marca blanca sobre el cuadrado azul de marca en los dos temas; los favicons de las webs son azules en modo claro y blancos en modo oscuro.'
+  - 'El azul de marca, los rellenos de estado, las capas superpuestas, los colores de etiqueta y los colores de datos naranja y cian tienen un solo valor en los dos temas. Las fotografías nunca se recolorean para un tema.'
+  - 'Las pantallas de producto en marketing muestran la aplicación en modo claro; una pantalla oscura solo aparece en una pieza oscura en su conjunto, y nunca junto a una clara.'
+---
+import ThemeTokens from '../../../components/ThemeTokens.astro';
+import ThemeContrast from '../../../components/ThemeContrast.astro';
+import ThemePreviews from '../../../components/ThemePreviews.astro';
+import FaviconTabs from '../../../components/FaviconTabs.astro';
+import ThemeCharts from '../../../components/ThemeCharts.astro';
+
+La aplicación de Rosepetal usa temas claro y oscuro construidos con los mismos tokens.
+
+## Dónde se aplica cada tema
+
+| Soporte | Claro | Oscuro |
+| --- | --- | --- |
+| **Aplicación Rosepetal** | Por defecto | La elección del usuario, o el ajuste del sistema hasta que elija. `.dark` en `<html>`. |
+| **Webs** | Siempre | Sin tema oscuro ni selector. AIS usa secciones en azul profundo `#10254C` y una banda final en azul de marca; los temas oscuros de Rosepetal son solo vistas previas (`?theme=`). Ver [Componentes de los sitios web](/es/web-components/#sobre-oscuro). |
+| **Impresión** | Siempre | Portadas y bandas en azul de marca o marino, con el logotipo blanco. |
+| **Presentaciones** | Diapositivas blancas | Apertura y cierre en azul de marca. Sin presentaciones oscuras. |
+| **Redes sociales** | Publicaciones blancas | Publicaciones y banners en azul de marca. Ver [Redes sociales](/es/social/). |
+| **Correo** | Siempre | Ninguno. |
+| **Gráficos** | Fondo blanco | Fondo noche `#0B1220`, en el modo oscuro de la aplicación. Ver [Gráficos](#gráficos). |
+| **Esta guía** | Siempre | Ninguno: la guía es clara y muestra el tema oscuro en sus vistas previas. |
+
+## Tokens
+
+Todos los valores se leen de `packages/design/styles.css` al generar la guía. Bajo cada token, la nota del propio paquete sobre su uso.
+
+### Lo que cambia
+
+<ThemeTokens set="changing" labels={{ token: 'Token', light: 'Claro', dark: 'Oscuro', value: 'Valor', follows: 'Sigue a' }} />
+
+<details>
+<summary>Lo que no cambia</summary>
+
+<ThemeTokens set="fixed" labels={{ token: 'Token', light: 'Claro', dark: 'Oscuro', value: 'Los dos temas', follows: 'Sigue a' }} />
+
+Las escalas de la paleta (azul 50–950, neutro 0–900 y los tonos de estado y de datos) tienen un solo valor cada una; el modo oscuro solo apunta los tokens a otros pasos. Ver [Color](/es/colour/).
+
+</details>
+
+## Contraste
+
+WCAG 2.2 AA: 4,5:1 para el texto, 3:1 para iconos y bordes de campo. Calculado a partir de los tokens anteriores.
+
+<ThemeContrast lang="es" labels={{ use: 'Par', light: 'Claro', dark: 'Oscuro' }} />
+
+## Componentes
+
+Los mismos componentes en los dos temas. Cada página de componente tiene un selector claro y oscuro sobre sus vistas previas.
+
+<ThemePreviews lang="es" examples={['button/01-variants', 'badge/01-variants', 'alert/01-variants', 'field/01-form', 'card/01-summary']} />
+
+## Logotipos y favicons
+
+- **Logotipos:** azul sobre fondos claros, blanco sobre azul de marca, marino y el tema oscuro. La barra superior de la aplicación lleva el logotipo blanco en los dos temas: azul de marca en claro, la tarjeta oscura en oscuro.
+- **Iconos y favicons de aplicación:** la marca blanca sobre el cuadrado azul de marca, igual en los dos temas.
+- **Favicons de las webs:** la marca sola, azul en modo claro y blanca en modo oscuro.
+
+<FaviconTabs tabs={['AIS Group', 'Plataforma | Rosepetal', 'Inspección | App de AIS', 'Proyectos | App de Rosepetal']} />
+
+Los archivos y tamaños están en [Logotipos](/es/logos/#favicons).
+
+## Gráficos
+
+El kit de gráficos tiene una configuración de Vega-Lite clara y otra oscura, y un tema de ECharts claro y otro oscuro. Los oscuros fijan el fondo noche, el texto claro y los pasos oscuros de los datos: la primera serie `#517FC9` y el violeta `#A855F7`; naranja, cian, rosa y verde azulado no cambian. Ver [Visualización de datos](/es/data/).
+
+<ThemeCharts lang="es" alt={['Gráfico de líneas con la configuración clara', 'El mismo gráfico con la configuración oscura']} />
+
+## Imágenes y capturas
+
+- **Las fotografías y los renders** son iguales en los dos temas; nunca se oscurecen, tiñen ni invierten.
+- **Las pantallas de producto** en marketing muestran la aplicación en modo claro, como las webs. Una pantalla oscura va solo en una pieza oscura en su conjunto, y una pieza nunca mezcla las dos.
+- **Las capas de detección** mantienen los colores del kit y pasan a los tonos claros solo sobre imágenes oscuras (ver [Imagen](/es/imagery/)), sea cual sea el tema de la página que las rodea.

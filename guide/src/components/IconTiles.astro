@@ -1,0 +1,46 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const svg = (name: string) => fs.readFileSync(path.join(process.cwd(), 'public/downloads/icons/svg', `${name}.svg`), 'utf8')
+  .replace(/<!--.*?-->\s*/s, '').replace(/\s*class="[^"]*"/, '').replace(/\s*width="24"\s*height="24"/, '');
+const copy = {
+  en: { stats: [['gauge', '30 000', 'units per hour, maximum'], ['ruler', '130 mm', 'product spacing'], ['camera', '2', 'colour cameras']], light: 'On white', dark: 'On brand blue', note: 'AIS KARIKÓ, published specifications. Maximum speed depends on the inspections and format. Minimum spacing is 130 mm.' },
+  es: { stats: [['gauge', '30 000', 'unidades por hora, máximo'], ['ruler', '130 mm', 'separación del producto'], ['camera', '2', 'cámaras en color']], light: 'Sobre blanco', dark: 'Sobre azul de marca', note: 'AIS KARIKÓ, especificaciones publicadas. La cadencia máxima depende de las inspecciones y el formato. La separación mínima es de 130 mm.' },
+  ca: { stats: [['gauge', '30 000', 'unitats per hora, màxim'], ['ruler', '130 mm', 'separació del producte'], ['camera', '2', 'càmeres en color']], light: 'Sobre blanc', dark: 'Sobre blau de marca', note: 'AIS KARIKÓ, especificacions publicades. La cadència màxima depèn de les inspeccions i el format. La separació mínima és de 130 mm.' },
+}[lang];
+---
+<div class="tiles">
+  {[['light', copy.light], ['dark', copy.dark]].map(([tone, name]) => (
+    <figure class={tone}>
+      <ul>
+        {copy.stats.map(([icon, figure, label]) => (
+          <li><span class="tile" set:html={svg(icon)} /><strong>{figure}</strong><span>{label}</span></li>
+        ))}
+      </ul>
+      <figcaption>{name}</figcaption>
+    </figure>
+  ))}
+</div>
+<p class="note">{copy.note} <a href="/kit/files/datasheet-kariko.pdf" target="_blank" rel="noopener" aria-label={lang==='en'?'AIS KARIKÓ specifications, opens in a new tab':lang==='es'?'Especificaciones de AIS KARIKÓ, se abre en una pestaña nueva':'Especificacions d’AIS KARIKÓ, s’obre en una pestanya nova'}>AIS KARIKÓ</a></p>
+<style>
+  .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
+  figure { margin: 0; }
+  ul { list-style: none; margin: 0; padding: 32px 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  li { margin: 0 !important; display: flex; flex-direction: column; gap: 4px; }
+  .light ul { background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+  .dark ul { background: var(--ais-blue-700); }
+  .tile { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 12px; }
+  .light .tile { background: var(--ais-blue-50); color: var(--ais-blue-700); }
+  .dark .tile { background: var(--ais-blue-800); color: #fff; }
+  .tile :global(svg) { width: 24px; height: 24px; }
+  strong { font-size: var(--ais-text-subheading); font-weight: 500; letter-spacing: var(--ais-text-subheading-tracking); line-height: 1.2; font-variant-numeric: tabular-nums; line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); }
+  li > span:last-child { font-size: var(--ais-text-small); line-height: 1.4; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .light strong { color: var(--ink); } .light li > span:last-child { color: var(--muted); }
+  .dark strong { color: #fff; } .dark li > span:last-child { color: var(--ais-blue-200); }
+  figcaption { margin-top: 8px; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .note { margin: 8px 0 0 !important; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  @media (max-width: 900px) { .tiles { grid-template-columns: 1fr; } }
+</style>

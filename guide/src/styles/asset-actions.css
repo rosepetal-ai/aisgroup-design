@@ -1,0 +1,7 @@
+.asset-actions{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 16px;max-width:100%;font-size:var(--ais-text-small);line-height:var(--ais-text-small-leading)}
+.asset-actions a{color:var(--ais-blue-500);text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.asset-actions a:focus-visible{outline:2px solid var(--ais-blue-500);outline-offset:3px}
+.asset-format{color:var(--muted);overflow-wrap:anywhere}
+.kf .asset-actions,.dl>.asset-actions{display:flex;gap:4px 12px}
+.kf .asset-format{font-size:var(--ais-text-caption)}
+.asset-thumbnail{display:block;color:inherit;text-decoration:none}

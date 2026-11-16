@@ -1,0 +1,103 @@
+---
+title: Composición y forma
+rules:
+  - 'Usa solo los tokens de espacio (de --ais-space-050 a --ais-space-1600, base de 4 px y ritmo de 8 px). Nunca uses valores intermedios, como 6, 10, 14, 18 o 22 px.'
+  - 'En webs y documentos, el contenido se detiene en 1440 px con márgenes laterales fluidos de 24 a 64 px, sobre una retícula de 12 columnas (8 por debajo de 900 px y 4 por debajo de 600 px), y las secciones se separan de 64 a 128 px. Las interfaces de producto ocupan todo el ancho.'
+  - 'Las webs y los documentos usan los puntos de ruptura 600, 900, 1200 y 1440 px, escritos de móvil a escritorio con min-width. Nunca añadas otro. Las interfaces de producto usan los puntos de ruptura de Tailwind del sistema de diseño; los paneles de Node-RED mantienen la cuadrícula y los puntos de ruptura de FlowFuse.'
+  - 'Las webs son rectas en todo: botones, tarjetas, menús, desplegables, diálogos y avisos. La única excepción es una pantalla de producto mostrada como ventana, que toma la esquina de 4 px de la ventana. Las interfaces de producto toman sus esquinas de `@rosepetal/design` y nunca las cambian. Redondo solo en avatares, puntos e interruptores.'
+  - 'Los bordes separan el contenido; las sombras, solo para lo que flota (menús, diálogos, avisos). Las tarjetas nunca proyectan sombra, tampoco en hover.'
+  - 'Las líneas separan, nunca enmarcan: van entre las filas de una lista o una tabla, nunca después de la última fila ni encima o debajo de un bloque que ya tiene una. Dos líneas sin nada entre ellas son un error. El texto queda centrado entre sus líneas, con el mismo espacio arriba y abajo.'
+---
+import LayoutSpecimens from '../../../components/LayoutSpecimens.astro';
+
+**Alcance.** La retícula, los puntos de ruptura y el espacio entre secciones se aplican a webs y documentos. Las interfaces de producto (la aplicación Rosepetal, el Profiler y los paneles de Node-RED) ocupan todo el ancho y siguen la página [Uso de los componentes](/es/using-components/): puntos de ruptura de Tailwind, botones de barra de herramientas de 36 px y la escala tipográfica de producto; los paneles de Node-RED mantienen la cuadrícula y los puntos de ruptura de FlowFuse. Los tokens de espacio, las esquinas, las sombras, los bordes y el anillo de foco se aplican a ambos.
+
+## Espacio
+
+Base de 4 px con ritmo de 8 px. El nombre del token es el múltiplo de 8 px: `--ais-space-100` son 8 px y `--ais-space-300`, 24 px.
+
+<LayoutSpecimens lang="es" show="space" />
+
+| Nivel | Tokens | Uso |
+| --- | --- | --- |
+| **Dentro de un componente** | De 050 a 300 (4–24 px) | Icono y etiqueta, relleno de botones y tarjetas, filas de listas |
+| **Entre bloques** | `--ais-space-block`, 40–64 px | Entre un grupo de título y su contenido, entre filas de tarjetas |
+| **Entre secciones** | `--ais-space-section`, 64–128 px | Entre secciones de página; fluido de 375 a 1440 px |
+
+**El espacio entre dos secciones es `--ais-space-section` en total.** Dáselo a un solo lado de cada sección o úsalo como separación entre ellas; si cada sección lleva relleno arriba y abajo, se duplica en franjas vacías.
+
+Lo relacionado va más cerca que lo que no lo está. El espacio sobre un título siempre es mayor que el de debajo, para que el título pertenezca a lo que sigue.
+
+## Retícula
+
+El contenido mide como máximo 1440 px, con márgenes laterales fluidos (`--ais-gutter`, 24–64 px) y una retícula de 12 columnas con separaciones de 16 a 24 px (`--ais-grid-gap`). El texto corrido mide 68 caracteres por defecto (`--ais-measure`) y nunca más de 75, aunque la columna sea ancha.
+
+<LayoutSpecimens lang="es" show="grid" />
+
+| Composición | Columnas a partir de 1200 px |
+| --- | --- |
+| **Texto con figura** | 7 + 5, el texto primero |
+| **Tarjetas** | 4 + 4 + 4, o 3 + 3 + 3 + 3 para tarjetas compactas |
+| **Dos mitades iguales** | 6 + 6 |
+| **Texto largo** | 8, desde la columna 1 o la 3 |
+
+**Aperturas a sangre.** Una foto o un vídeo que abre una página ocupa todo el ancho de la ventana hasta 1920 px; a partir de ahí deja de crecer y queda centrado sobre un margen neutro. Nunca recorta el tema.
+
+## Puntos de ruptura
+
+| Nombre | Desde | Columnas | Pantallas habituales |
+| --- | --- | --- | --- |
+| **Base** | 0 | 4 | Móviles |
+| **sm** | 600 px | 8 | Móviles grandes en horizontal, tabletas pequeñas |
+| **md** | 900 px | 12 | Tabletas, portátiles pequeños |
+| **lg** | 1200 px | 12 | Portátiles y ordenadores de sobremesa |
+| **xl** | 1440 px | 12 | Pantallas anchas: el contenido deja de crecer y crecen los márgenes |
+
+Escribe los estilos de móvil a escritorio con `min-width`. Los componentes que viven en columnas de anchos distintos se adaptan con consultas de contenedor, no con puntos de ruptura de página. La tipografía es fluida, así que ningún punto de ruptura existe solo para cambiar un tamaño de letra.
+
+## Documentos impresos
+
+Las páginas A4 usan su propia retícula: márgenes de 15 mm, 12 columnas de 10,4 mm con huecos de 5 mm, y un sangrado de 3 mm en el PDF con el texto al menos 5 mm dentro del corte.
+
+La tipografía es Inter 400, 500 y 600, con el cuerpo a 10,5 pt y nada por debajo de 8,5 pt.
+
+Las páginas serenas usan espacio en blanco en lugar de líneas: un filete solo donde una lista lo necesita, un solo color de acento y ningún marco dentro de otro marco.
+
+El logotipo firma la pieza a 20 mm (AIS Vision Systems) o 38 mm (Rosepetal); en una tarjeta de visita, a 18 mm.
+
+Una pieza termina con un solo bloque de cierre.
+
+Las partes de un folleto están en el [Kit de marketing](/es/kit/#sistema-de-impresión).
+
+## Forma
+
+Lo recto es la forma por defecto de la marca: coincide con los logotipos, los botones y el kit de capas. Las webs, los documentos y el marketing solo redondean lo que es redondo en la realidad; las interfaces de producto toman sus esquinas de `@rosepetal/design`.
+
+<LayoutSpecimens lang="es" show="shape" />
+
+- **Las webs son rectas en todo**, también tarjetas, desplegables, menús, diálogos, avisos y barras de cookies, para que cada borde se alinee con los botones rectos y la retícula.
+- **Una pantalla de producto mostrada como ventana** es la única excepción: una captura o un vídeo de pantalla en su marco de 1 px toma la esquina de 4 px de la ventana (`--ais-radius-md`), porque una ventana es redonda en la realidad, y puede flotar con la sombra elevada. La imagen nunca se redondea por sí sola; las fotografías y las grabaciones siguen rectas.
+- **Las interfaces de producto** toman sus esquinas de `@rosepetal/design`: el paquete es la referencia de sus componentes. Define `--radius` (8 px) y `--radius-modal` (12 px, diálogos), y la esquina de cada componente sale de ellos. Usa sus componentes y clases tal cual; nunca escribas un radio ni lo cambies.
+- Un radio por componente, y nunca dos sistemas en una pantalla: una web nunca toma las esquinas redondeadas del producto, y una pantalla de producto nunca pone recto un componente del paquete.
+- Las esquinas anidadas siguen a la exterior: en producto, la escala del paquete da a los elementos interiores el paso menor; en las composiciones rectas, todo lo de dentro sigue recto.
+- Nunca uses formas de píldora en botones o etiquetas, ni redondees una fotografía.
+
+## Elevación
+
+Tres niveles. En la página, los bordes hacen el trabajo; la sombra solo indica que algo flota sobre ella.
+
+<LayoutSpecimens lang="es" show="elevation" />
+
+- Tarjetas, secciones y tablas son planas, con un borde de 1 px (`--ais-border`, `#E2E8F0`). Nunca ganan sombra ni se elevan en hover.
+- Menús, desplegables y popovers están elevados (`--ais-shadow-raised`); diálogos y avisos están en el nivel superpuesto (`--ais-shadow-overlay`), sobre la página atenuada.
+- En las interfaces oscuras, la elevación sale de los pasos de superficie (`#0B1220`, `#111A2E`) y de un borde de 1 px `#1E293B`, no de las sombras.
+
+## Bordes y foco
+
+| Token | Valor | Uso |
+| --- | --- | --- |
+| `--ais-border` | 1 px `#E2E8F0` | Separadores, tarjetas, tablas |
+| `--ais-border-strong` | 1 px `#64748B` | Campos de formulario y otros contornos de control, que necesitan 3:1 con su fondo |
+| `--ais-focus-ring` | 2 px `#3664B3` con una separación blanca de 2 px | Todo elemento interactivo con foco de teclado (`:focus-visible`) |
+
+El anillo de foco nunca se quita ni se cambia de color, y aparece al instante.

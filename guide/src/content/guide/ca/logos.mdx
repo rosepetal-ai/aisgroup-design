@@ -1,0 +1,152 @@
+---
+title: Logotips
+rules:
+  - 'Fes servir només els fitxers de logotip subministrats: blau sobre blanc i fons clars, blanc sobre el blau de marca, el blau marí o fotos fosques, i negre només en producció en negre i a les capçaleres dels webs d’AIS sobre blanc.'
+  - 'L’àrea de protecció és una quarta part de l’alçada total del logotip per cada costat, descriptor inclòs.'
+  - 'Amplades mínimes: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.'
+  - 'El programari fa servir la marca d’app (la Λ d’AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, icones d’app a `logos/app/`, favicons de web a `logos/favicons/`), a 24 px en una barra lateral o una capçalera i mai per sota de 16 px. La resta fa servir el logotip complet.'
+---
+import Logos from '../../../components/Logos.astro';
+import DoDont from '../../../components/DoDont.astro';
+import AppMark from '../../../components/AppMark.astro';
+import LogoRules from '../../../components/LogoRules.astro';
+import FaviconTabs from '../../../components/FaviconTabs.astro';
+
+Fes servir aquests logotips aprovats i respecta el seu espai de protecció a cada suport.
+
+## Variants
+
+<Logos names={{ 'ais-group': 'AIS Group', 'ais-vision-systems': 'AIS Vision Systems', 'ais-vision-automation': 'AIS Vision Automation', 'ais-scanology': 'AIS Scanology', 'rosepetal': 'Rosepetal' }} />
+
+| Variant | Fes-la servir sobre |
+| --- | --- |
+| **Blava** `#17356E` | Fons blancs i molt clars. És la versió per defecte, en pantalla i impresa, també en feines a una tinta que admetin un blau directe. |
+| **Blanca** (negatiu) | El blau de marca, el blau marí fosc o una fotografia prou fosca per mantenir el contrast. |
+| **Negra** `#000000` | En capçaleres dels webs d’AIS sobre blanc i quan la producció només reprodueix negre: impressió en blanc i negre, anuncis de premsa, formularis, gravat làser, segells i pàgines de socis que demanen tots els logotips en negre. |
+
+El negre és una limitació de producció, amb una excepció en pantalla: les capçaleres dels webs d’AIS sobre blanc fan servir el logotip negre, al costat de la tinta de la navegació. El web de Rosepetal és clar i fa servir el logotip blau. A la resta de la pantalla i a les peces en color, el logotip és blau o blanc. El fitxer negre és negre pur (100 % K) i no el color de text `#0F1729`, perquè una impressora o una rotativa que només imprimeix negre converteix qualsevol altre to fosc en una trama grisa. Els logotips són plans: sense degradats, ombres, lluïssors ni efectes 3D. Quina versió porta cada tema és a [Temes clar i fosc](/ca/themes/#logotips-i-favicons).
+
+## Àrea de protecció
+
+<LogoRules lang="ca" part="space" />
+
+Deixa un marge lliure de **x pels quatre costats**, on **x és una quarta part de l’alçada total del logotip**, descriptor inclòs. En aquest espai no hi entra res: ni text, ni imatges, ni vores, ni altres logotips. Mesura des dels extrems visibles de la marca, no des de la caixa del fitxer.
+
+## Mida mínima
+
+<LogoRules lang="ca" part="size" />
+
+| Logotip | En pantalla | Imprès |
+| --- | ---: | ---: |
+| AIS Group | 72 px | 15 mm |
+| AIS Vision Systems | 100 px | 18 mm |
+| AIS Vision Automation | 110 px | 20 mm |
+| AIS Scanology | 95 px | 17 mm |
+| Rosepetal | 130 px | 24 mm |
+
+Són mínims, no mides de treball. El logotip signa la peça, no l’encapçala: en un A4 el logotip d’AIS Vision Systems fa 20 mm d’amplada i el de Rosepetal 38 mm (tots els logotips amb la mateixa àrea, perquè una paraula llarga pesi el mateix que una marca alta), en una targeta el d’AIS 18 mm, en una signatura de correu 100 px i en una diapositiva de 1920 px, 140 px.
+
+La prova és si el descriptor es llegeix a la mida final. Si no es llegeix, guanya espai o demana una variant compacta; no eliminis mai paraules ni redueixis el descriptor per separat. Les peces de màrqueting no tenen variant compacta; el programari fa servir la [marca d’app](#marques-dapp).
+
+## Ús correcte
+
+<LogoRules lang="ca" part="donts" />
+
+<DoDont doLabel="Fes-ho" dontLabel="Evita-ho"
+  dos={['Escalar el logotip sencer mantenint-ne les proporcions', 'Triar la variant subministrada que correspon al fons', 'Situar-lo sobre un fons net i amb prou contrast', 'Mantenir el descriptor tal com està dibuixat', 'Fer servir el fitxer vectorial de Baixades']}
+  donts={['Estirar, inclinar o retocar lletres, incloses la «I» d’AIS i la «o» de Rosepetal', 'Fer servir un blau aproximat o recolorir-ne parts', 'Col·locar-lo sobre textures o fotografies carregades', 'Separar, traduir o substituir el descriptor', 'Fer-ne una captura de pantalla o regenerar-lo amb IA']} />
+
+Els logotips de clients i partners mantenen els seus colors i se situen separats de la marca que signa.
+
+## Als webs
+
+- **Només els fitxers oficials** de Baixades. No els reexportis, retallis ni calquis mai: una exportació des d’una app de disseny va tallar l’anell de Rosepetal i el traç descendent de la «p».
+- **Mides a la capçalera:** els logotips d’AIS Group i AIS Vision Systems fan 44 px d’alt; el de Rosepetal, 27 px (140 px d’ample), i 25 px al mòbil (130 px d’ample, el seu mínim en pantalla).
+- **Favicons:** el símbol sol del joc de web, blau en mode clar i blanc en mode fosc, ajustat al píxel a cada mida (consulta [Favicons](#favicons)). AIS Group i AIS Vision Systems fan servir la Λ; Rosepetal, la «o».
+- **Títols de pestanya:** «Títol de la pàgina | Marca», per exemple «AIS REV 360 | AIS Vision Systems» o «Plataforma | Rosepetal». Sense guions, punts volats ni la marca al davant.
+
+## Marques d’app
+
+Cada marca de programari té un símbol, retallat del seu propi logotip: la **Λ** d’AIS i la **«o»** de Rosepetal. El símbol signa el nostre programari i les pestanyes del navegador, on el logotip complet no hi cap o es repetiria a cada pantalla: icones d’app, favicons i la barra lateral o la capçalera d’un producte al costat del seu nom. Tots dos surten dels fitxers oficials del logotip i no es redibuixen mai.
+
+### Λ d’AIS
+
+Per a AIS Group, AIS Vision Systems, AIS Vision Automation, AIS Scanology i el programari d’AIS. AIS Vision Automation (aisautomation.ie) i AIS Scanology (scanology.nl) tenen web pròpia però no un símbol propi, així que també fan servir la Λ.
+
+<AppMark brand="ais" labels={['Blava, sobre clar', 'Blanca, sobre blau', 'Icona d’app', 'Favicon d’app, pestanya clara i fosca', 'Favicon de web, mode clar', 'Favicon de web, mode fosc']} />
+
+### «o» de Rosepetal
+
+Per a rosepetal.ai i l’app de Rosepetal. La «o» conserva el seu petit cercle interior; a 16 px es tanca, i és el que s’espera.
+
+<AppMark brand="rosepetal" labels={['Blava, sobre clar', 'Blanca, sobre blau', 'Icona d’app', 'Favicon d’app, pestanya clara i fosca', 'Favicon de web, mode clar', 'Favicon de web, mode fosc']} />
+
+- **Només en programari i pestanyes del navegador.** Fullets, documents, presentacions, papereria, publicacions a les xarxes i capçaleres dels webs fan servir el logotip complet. Les pantalles d’inici de sessió i de càrrega també tenen lloc per al logotip complet, així que el fan servir. Un web mostra el seu símbol només com a favicon.
+- **Colors:** blau sobre blanc i fons clars, blanc sobre el blau de marca i el blau marí fosc, negre només quan la producció és únicament en negre. Les icones d’app són sempre el símbol blanc sobre la peça blava `#17356E`. Mai amb degradats, ombres ni lluentors.
+- **Àrea de protecció:** x pels quatre costats, on x és una quarta part de l’alçada del símbol. Al costat del nom del producte, la separació és la meitat de l’alçada del símbol.
+- **Mides:** 16 px d’alt com a mínim. En una barra lateral o la capçalera d’una app fa 24 px d’alt, amb el nom del producte en la font de la interfície a 14–16 px, seminegreta.
+
+| Peça | Símbol | Cantonades | Ús |
+| --- | --- | --- | --- |
+| Icona d’app | Λ al 56 % de l’alçada, elevada un 2 %; «o» al 50 %, centrada | Rectes | Botigues d’iOS, Android i escriptori; la plataforma arrodoneix les cantonades |
+| Icona arrodonida | Λ al 56 %, elevada un 2 %; «o» al 50 % | 22,5 % del costat | Instal·lació com a PWA, directoris d’apps, presentacions i documents que mostren l’app |
+| Icona emmascarable | Λ al 50 %, «o» al 44 % (dins la zona segura del 80 %) | Rectes | Icones adaptatives d’Android des del manifest web |
+| Favicon de 16, 32 i 48 px | Λ d’11, 22 i 31 px d’alt; «o» de 10, 20 i 30 px d’ample, en píxels sencers | 3 px a 16 | Pestanyes del navegador de les nostres apps. Dibuixat per a cada mida; no redueixis mai la icona de 512 px |
+
+<DoDont doLabel="Fes-ho" dontLabel="Evita-ho"
+  dos={['Fer servir els fitxers subministrats de Baixades', 'Escriure el nom del producte com a text real al costat del símbol', 'Triar blau sobre clar i blanc sobre fosc', 'Donar a les apps la peça i als webs el símbol sol', 'Fer servir el favicon dibuixat per a cada mida']}
+  donts={['Fer servir un símbol en lloc del logotip complet fora del programari i les pestanyes', 'Escriure una Λ grega o una «o» amb una font en lloc del símbol', 'Afegir la resta del logotip, el descriptor o un marc', 'Posar-lo sobre una peça d’un altre color o forma', 'Deixar un favicon blau en pestanyes fosques o un de blanc en pestanyes clares', 'Contornejar-lo, girar-lo, estirar-lo o afegir-hi efectes']} />
+
+## Favicons
+
+Cada símbol té dos tipus de favicon. Tots dos es llegeixen en pestanyes clares i fosques.
+
+- **Favicon d’app** (`logos/app/ais/`, `logos/app/rosepetal/`): el símbol blanc sobre la peça blava. Per al programari que s’instal·la o es deixa obert: l’app d’AIS, l’app de Rosepetal, els panells de Node-RED. La peça porta el seu propi fons, així que un sol fitxer serveix en tots dos modes.
+- **Favicon de web** (`logos/favicons/ais/`, `logos/favicons/rosepetal/`): el símbol sol, sobre fons transparent, blau `#17356E` en mode clar i blanc en mode fosc. Per als webs i aquesta guia. `favicon.svg` canvia sol; els PNG clar i fosc cobreixen els navegadors que no llegeixen favicons SVG; `favicon.ico` és la versió clara, per a navegadors antics.
+
+Les icones de pantalla d’inici i d’instal·lació (icona tàctil d’Apple, 192, 512 i emmascarable) són la peça en tots dos tipus: queden sobre qualsevol fons de pantalla, i iOS omple de negre una icona transparent. Les pestanyes fixades de Safari ja fan servir el favicon, així que no hi ha fitxer `mask-icon`.
+
+<FaviconTabs tabs={['AIS Group', 'Plataforma | Rosepetal', 'Inspecció | App d’AIS', 'Projectes | App de Rosepetal']} />
+
+| Web o app | Carpeta | Mode clar | Mode fosc |
+| --- | --- | --- | --- |
+| aisgroup.ai | `web/ais-group/` | Λ blava | Λ blanca |
+| aisvision.com | `web/ais-vision/` | Λ blava | Λ blanca |
+| rosepetal.ai | `web/rosepetal/` | «o» blava | «o» blanca |
+| aisautomation.ie, scanology.nl, aquesta guia | `logos/favicons/ais/` | Λ blava | Λ blanca |
+| App d’AIS i panells Node-RED d’AIS | `logos/app/ais/` | Peça amb Λ | Peça amb Λ |
+| App de Rosepetal i els seus panells Node-RED | `logos/app/rosepetal/` | Peça amb «o» | Peça amb «o» |
+
+Les carpetes `web/<web>/` contenen el joc de web amb el nom del web ja posat a `site.webmanifest`; en els altres casos, canvia `name` i `short_name` pel nom del web o l’app.
+
+| Fitxer | Què és |
+| --- | --- |
+| `favicon.svg` | Web: el símbol sol, blau o blanc segons el tema del sistema. App: la peça |
+| `favicon-16-light.png` … `favicon-48-dark.png` | Només web: el símbol a 16, 32 i 48 px, blau (clar) i blanc (fosc) |
+| `favicon-16.png`, `favicon-32.png`, `favicon-48.png` | Només app: la peça a 16, 32 i 48 px |
+| `favicon.ico` | 16, 32 i 48 px en un sol fitxer (web: la versió clara) |
+| `apple-touch-icon.png` | Peça de 180 px per a la pantalla d’inici de l’iPhone i l’iPad |
+| `icon-192.png`, `icon-512.png`, `maskable-512.png` | Icones d’instal·lació i la icona adaptativa d’Android, llistades al manifest |
+| `site.webmanifest` | El manifest web amb les icones anteriors |
+
+**Web:** copia la carpeta a l’arrel del web (`public/`) i enganxa això al `<head>`. Respecta l’ordre: els navegadors que llegeixen SVG agafen l’última icona.
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon-32-light.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/favicon-32-dark.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+**App:** el mateix, sense les línies de clar i fosc.
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+A Node-RED, apunta `editorTheme.page.favicon` de `settings.js` al `favicon.ico` del joc d’app.

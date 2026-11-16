@@ -1,0 +1,152 @@
+---
+title: "Components dels llocs web"
+wide: true
+rules:
+  - 'Els webs són llocs Astro amb els seus propis components, amb estils sobre brand.css (els tokens `--ais-*`) a través d’una capa curta de papers del web: acció, enllaç, tinta, secundari, línia. Un tema canvia els papers, mai un component. No escriguis mai a mà un color o una mida, i no canviïs mai l’estil d’una peça en una pàgina concreta.'
+  - 'Els webs no fan servir theme.css, el registre de l’app ni Vue: els components de l’app porten les seves cantonades arrodonides i la densitat d’una pantalla.'
+  - 'Els webs són rectes, llevat d’una pantalla de producte mostrada com a finestra (4 px). Els camps fan 48 px i porten la vora de camp de 3:1.'
+  - 'Les crides a l’acció són botons partits: 52 px, rectes, amb el text i un segment a part amb la fletxa; 44 px en la versió compacta de capçaleres i targetes; Rosepetal fa servir 44 px en totes les crides a l’acció. Sobre una banda blau de marca i sobre superfícies fosques el botó és blanc.'
+  - 'Les accions de text són enllaços en blau d’acció amb una fletxa de 20 px que avança 3 px en passar-hi el cursor; els enllaços de tornada apunten a l’esquerra; els enllaços dins del text van subratllats i sense fletxa.'
+  - 'Les targetes són enllaços sense caixa, ombra ni elevació, en quatre composicions: apilada, en fila, de text i destacada. En passar-hi el cursor el títol passa a blau d’acció, la fletxa avança i la fotografia creix al 103 %.'
+  - 'L’H1 d’una pàgina va en mida Title; Display és només per a la pàgina d’inici i les obertures de campanya.'
+---
+import WebExamples from '../../../components/WebExamples.astro';
+import ComponentIndex from '../../../components/ComponentIndex.astro';
+
+Components web en funcionament, el seu codi i les regles per fer-los servir.
+
+## Preparació
+
+Com estan fets els tres webs. Cadascun és un lloc Astro que pren els tokens i els components comuns de `@aisgroup/web` (`packages/web` en aquest repositori), l’equivalent web del `@rosepetal/design` dels productes, i conserva les seves pròpies pàgines, capçalera i contingut.
+
+1. Primer `@aisgroup/web/styles.css`: els tokens de la marca ([ais-tokens.css](/downloads/ais-tokens.css), `--ais-*`), els papers del web de sota (`--web-*`) i els ajustos de cada marca, que es trien amb `data-brand` a `<html>` (`ais-group`, `ais-vision` o `rosepetal`): alçada del logotip, mida de les crides a l’acció i els detalls que canvien.
+2. Tailwind v4 per a la composició, amb les seves mides de text apuntant als estils de la marca (`--text-base: var(--ais-text-body)` i així amb la resta). Els components no necessiten Tailwind.
+3. Una secció o un tema fosc torna a fixar els papers; els components no canvien mai. El CSS propi de Rosepetal els llegeix amb els seus noms `--rp-*`.
+4. Inter, allotjada al mateix web (vegeu [Tipografia](/ca/typography/)), i icones de Lucide (vegeu [Icones](/ca/icons/)): la fletxa fa 24 px als botons partits i 20 px als compactes i als enllaços de text.
+
+| Paper | Clar | Token | Ús |
+| --- | --- | --- | --- |
+| Pàgina (`--web-page`) | `#FFFFFF` | `--ais-neutral-0` | Pàgina, capçalera, menús |
+| Superfície (`--web-surface`) | `#F8FAFC` | `--ais-neutral-50` | Darrere d’imatges i vídeos |
+| Secció (`--web-section`) | `#F1F5F9` | `--ais-neutral-100` | Gris de secció |
+| Tinta (`--web-ink`) | `#0F1729` | `--ais-neutral-900` | Text i títols |
+| Secundari (`--web-muted`) | `#4B5563` | `--ais-neutral-600` | Text secundari, dades de targeta |
+| Línia (`--web-line`) | `#E2E8F0` | `--ais-neutral-200` | Línies, línies de targeta, la línia de la capçalera |
+| Línia forta (`--web-line-strong`) | `#64748B` | `--ais-neutral-500` | Camps i botons de contorn (3:1) |
+| Acció (`--web-action`) | `#17356E` | `--ais-blue-700` | Botó principal, banda de tancament |
+| Acció en passar-hi (`--web-action-hover`) | `#10254C` | `--ais-blue-800` | Botó principal en passar-hi el cursor |
+| Enllaç (`--web-link`) | `#3664B3` | `--ais-blue-500` | Enllaços, accions de text, anell de focus |
+| Enllaç en passar-hi (`--web-link-hover`) | `#1E4591` | `--ais-blue-600` | Enllaços en passar-hi el cursor |
+| Farciment en passar-hi (`--web-hover-fill`) | `#F1F5F9` | `--ais-neutral-100` | Botons de contorn i elements de menú en passar-hi el cursor |
+
+Les imatges de cada web són a [Recursos web](/ca/assets/).
+
+## Components
+
+Els components de `@aisgroup/web`, en viu i amb el seu codi Astro. Cada web els importa tal qual: `import SplitButton from '@aisgroup/web/components/split-button'`.
+
+<ComponentIndex lang="ca" group="web" />
+
+## Accions
+
+Una sola crida a l’acció plena per vista: el botó partit. El compacte va a capçaleres i targetes. Les accions de text són enllaços amb fletxa. Sobre una banda blau de marca el botó és blanc.
+
+| Part | Botó partit | Compacte |
+| --- | --- | --- |
+| **Alçada** | 52 px | 44 px |
+| **Text** | Estil Label, a 24 px de la vora esquerra i a 24 px del segment de la fletxa | 16 px i 16 px |
+| **Segment de la fletxa** | Quadrat de 52 px, fletxa de 24 px, una línia divisòria d’1 px del color del text al 20 % | Quadrat de 44 px, fletxa de 20 px |
+
+- **Principal:** blau de marca amb text blanc; blau profund `#10254C` en passar-hi el cursor i amb focus, blue-950 `#0B1220` en prémer-lo. El segment no es mou i la fletxa hi avança 3 px (180 ms).
+- **Secundari:** un contorn per a una segona acció al costat de la principal: sense farciment, text en tinta, vora d’1 px `#64748B`; en passar-hi el cursor, el farciment en passar-hi i una vora en tinta.
+- **Blanc:** sobre una banda blau de marca i sobre superfícies fosques, amb text en blau de marca; blue-50 `#EDF2FA` en passar-hi el cursor.
+- **Sense fletxa:** el text centrat, 16 px a cada costat, per a una acció que no porta enlloc, com Restableix en un formulari.
+- **Desactivat:** 55 % d’opacitat, sense estat en passar-hi el cursor. **Focus:** l’anell de focus de 2 px amb 2 px de separació.
+
+<WebExamples lang="ca" id="split-button" />
+
+## Enllaços de text
+
+Blau d’acció en estil Label, amb una fletxa de 20 px a 8 px del text; en passar-hi el cursor i amb focus, blue-600 `#1E4591`, un subratllat d’1 px a 4 px per sota i la fletxa 3 px endavant, sense moure la composició. Un enllaç de tornada porta la fletxa a l’esquerra i la mou enrere. Dins del text (`p`, `li`, `dd`) un enllaç pren la mida del text, no porta fletxa i va sempre subratllat, al 40 % del seu color, sencer en passar-hi el cursor. Cada enllaç solt té una zona de pulsació de 44 px.
+
+<WebExamples lang="ca" id="text-link" />
+
+## Selector d’idioma
+
+Un menú recte: el codi de l’idioma actual amb un chevron obre una llista de 224 px amb cada idioma en el seu propi nom, l’actual en blau d’acció amb una marca. Cada enllaç porta a la mateixa pàgina en l’altre idioma i porta `hreflang`. Només el mostren els webs amb més d’un idioma.
+
+<WebExamples lang="ca" id="language-picker" />
+
+## Molla de pa
+
+Primer va el nom del web; la pàgina actual és text sense enllaç.
+
+<WebExamples lang="ca" id="breadcrumb" />
+
+## Obertura de pàgina
+
+L’H1 en mida Title, mai Display (Display és per a la pàgina d’inici i les obertures de campanya). El títol a l’esquerra i la introducció a la dreta; per sota de 900 px s’apilen. Sense avanttítol sobre l’H1.
+
+<WebExamples lang="ca" id="page-opener" />
+
+## Targetes enllaç
+
+Una targeta és un sol enllaç: sense caixa, ombra ni elevació. Quatre composicions cobreixen articles, recursos, sectors i llistes.
+
+| Composició | Ús | Parts |
+| --- | --- | --- |
+| **Apilada** | Graelles d’articles, recursos i sectors | Fotografia en 8:5 i, 24 px per sota: dades (data, categoria) en Small i en secundari, el títol en Subheading amb la fletxa i la descripció en Body i en secundari |
+| **En fila** | Llistes llargues | Una miniatura de 128 px al costat del títol en Body, medium; línies d’1 px entre files; dues columnes, una per sota de 900 px |
+| **De text** | Enllaços sense imatge | Una línia d’1 px a dalt, el títol, la descripció i una acció de text opcional |
+| **Destacada** | Un element principal | Fotografia en 4:3 en 7 de 12 columnes, el text en 5, el títol en Heading; apilades per sota de 900 px |
+
+En passar-hi el cursor i amb focus, el títol passa a blau d’acció, la fletxa avança 3 px i la fotografia creix al 103 % (700 ms, corba d’entrada). Una pantalla de producte en una targeta es mostra sencera, al seu marc de finestra, i no creix. La graella té 2, 3 o 4 columnes amb espais de 48 px (32 px entre columnes per sota de 1200 px); 4 i 3 columnes passen a 2 per sota de 1200 i 900 px, i tota graella té una sola columna per sota de 600 px.
+
+<WebExamples lang="ca" id="card" />
+
+## Formulari de contacte
+
+Etiqueta tots els camps i fes servir els controls compartits de 48 px. Demana les dades de contacte, el sector, el càrrec, la ubicació i el missatge. El consentiment de privacitat és obligatori; el comercial, opcional. Conserva la destinació del formulari, les claus d’integració i la protecció contra correu brossa a la configuració privada del lloc. L’exemple no envia dades.
+
+<WebExamples lang="ca" id="lead-form" />
+
+## Vídeo
+
+Els vídeos de YouTube només es carreguen quan es demanen. El marc és 16:9, amb un fotograma propi desat al web, perquè res no es carregui de YouTube abans del clic, i un quadrat de reproducció de 64 px en blau de marca; en passar-hi el cursor el quadrat passa a blau profund i la imatge creix al 103 %. Un clic, Retorn o Espai el substitueix pel reproductor de youtube-nocookie en reproducció automàtica. Posa l’ID del vídeo a `data-video-id` i el seu títol a `aria-label` i `alt`. El `VideoEmbed` del paquet ho fa.
+
+<WebExamples lang="ca" id="video-embed" />
+
+## Vídeo de producte
+
+Els nostres propis vídeos són mp4 allotjats al web, mai YouTube: sense so, amb imatge de portada, `playsinline` i carregats amb `preload="metadata"`.
+
+- **Vídeo de producte:** un enregistrament de pantalla mostrat com a finestra: vora d’1 px neutral-200 `#E2E8F0`, cantonada de 4 px i l’ombra elevada. Es repeteix en bucle.
+- **Vídeo de sector:** enregistrament real, recte, en 16:9 sobre neutral-50 `#F8FAFC`, amb les deteccions dibuixades a sobre en l’[estil de les capes](/ca/imagery/#capes-de-detecció).
+
+Un vídeo només es reprodueix mentre almenys el 15 % és a la pantalla i la pestanya és visible, i mai sol amb moviment reduït. A sota, a 16 px: el capítol actual a l’esquerra en Subheading, acabat en punt, i un botó quadrat de reproduir i pausar de 44 px a la dreta, amb una icona de 18 px en blau de marca, el play o pausa de Lucide ple, i blue-50 `#EDF2FA` en passar-hi el cursor.
+
+<WebExamples lang="ca" id="product-film" />
+
+## Banda de tancament
+
+Blau de marca, la invitació en mida Heading i un botó partit blanc a la pàgina de contacte. Totes les pàgines d’inici acaben amb ella, i totes les pàgines dels webs d’AIS.
+
+Les altres pàgines de Rosepetal acaben sobre la mateixa pàgina: una línia d’1 px, la invitació en mida Heading amb una línia opcional de text secundari i el botó partit en blau de marca a la dreta; al mòbil s’apilen. Ja tanquen amb pantalles del producte, i una banda blava hi competiria.
+
+<WebExamples lang="ca" id="closing-band" />
+
+## Avís de galetes i targeta d’esdeveniment
+
+L’avís de galetes és una sola barra de tinta fixa a baix, igual en tots els temes: Configurar com a acció de text discreta i després Rebutjar-les totes i Acceptar-les totes, totes dues blanques i amb el mateix pes, perquè rebutjar no costi més que acceptar. Configurar obre Necessàries (sempre actives), Analítiques i Màrqueting. Res que necessiti consentiment no es carrega abans de l’elecció: l’analítica espera Analítiques, la publicitat i el seguiment de visites esperen Màrqueting, i els vídeos, els mapes i els serveis del formulari només es carreguen quan el visitant els fa servir. L’elecció es desa amb la versió de la política i es torna a demanar al cap d’un any. Un web que no fa servir aquestes galetes no mostra l’avís.
+
+La targeta d’esdeveniment espera que el visitant hagi triat i apareix a baix a la dreta: blau de marca a les pàgines clares, una targeta blanca a les fosques, mai del color del peu.
+
+<WebExamples lang="ca" id="cookie-consent" />
+
+## Sobre fosc
+
+Un tema fosc posa els mateixos papers a la paleta nocturna; les peces no canvien i els botons principals passen a blanc. Els webs són clars: AIS ho fa servir a les seccions en blau profund i a la banda de tancament, i Rosepetal manté els seus temes foscos només com a previsualitzacions (`?theme=`). Quins suports tenen tema fosc és a [Temes clar i fosc](/ca/themes/).
+
+Cada pàgina d’inici, als tres webs, té una secció blau profund a mitja pàgina: blue-800 `#10254C`, títols en blanc, text i enllaços en blau clar `#A7BFE4`, i gris de secció i blanc alternant-se al seu voltant. A Rosepetal és la secció del flux de treball. Les pantalles del producte sobre una franja blava van al [marc de navegador](/ca/web-components/browser-frame/); sobre blanc i gris mantenen la finestra simple.
+
+<WebExamples lang="ca" id="split-button" />

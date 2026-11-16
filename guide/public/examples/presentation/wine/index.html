@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIS Vision Systems, inspección de vino</title>
+<style>
+/* AIS HTML decks: the fixed 1920 × 1080 stage.
+   Adapted from viewport-base.css of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang, see LICENSE-frontend-slides.txt):
+   the stage is authored at 1920 × 1080 and scaled as a whole; slides switch with visibility and opacity, never display;
+   print lays out one slide per 1920 × 1080 page. Changes for AIS: Inter from local files, AIS grounds, motion tokens,
+   an export mode (?export) that shows every slide statically for the PNG, PDF and PPTX measurements. */
+@font-face{font-family:Inter;src:url('media/Inter.ttf');font-weight:400}
+@font-face{font-family:Inter;src:url('media/InterMedium.ttf');font-weight:500}
+@font-face{font-family:Inter;src:url('media/InterSemiBold.ttf');font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#0B1220}
+body{font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+@page{size:1920px 1080px;margin:0}
+.deck-viewport{position:fixed;inset:0;overflow:hidden}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;isolation:isolate;visibility:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+/* Chrome outside the slide: page count, fades out when idle. */
+.deck-count{position:fixed;right:24px;bottom:20px;z-index:10;font:500 13px/1 Inter,sans-serif;color:#A7BFE4;font-variant-numeric:tabular-nums;opacity:0;transition:opacity 240ms cubic-bezier(.2,0,0,1)}
+.deck-count.show{opacity:.9}
+.deck-notes{position:fixed;left:0;right:0;bottom:0;z-index:11;max-height:30vh;overflow:auto;padding:16px 24px;background:#0B1220;color:#F1F5F9;font:400 16px/1.6 Inter,sans-serif;border-top:1px solid #1E293B;display:none}
+.deck-notes.show{display:block}
+/* Export and print: every slide visible, stacked, static. */
+.is-export,.is-export body{overflow:visible;height:auto;background:#fff}
+.is-export .deck-viewport{position:static;overflow:visible}
+.is-export .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+.is-export .slide{position:relative;visibility:visible;opacity:1}
+.is-export .deck-count,.is-export .deck-notes{display:none}
+.is-export *,.is-export *::before,.is-export *::after{animation:none!important;transition:none!important}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible}
+  .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+  .slide{position:relative;visibility:visible!important;opacity:1!important;break-after:page}
+  .slide:last-child{break-after:auto}
+  .deck-count,.deck-notes{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* Beats: an element with data-beat="k" arrives on the k-th click of its slide (ease-enter, 500 ms), and is simply
+   there in export, print and ?send. */
+.slide [data-beat]{opacity:0;transform:translateY(16px);transition:opacity 500ms cubic-bezier(.16,1,.3,1),transform 500ms cubic-bezier(.16,1,.3,1)}
+.slide [data-beat].on{opacity:1;transform:none}
+@media print{.slide [data-beat]{opacity:1!important;transform:none!important}}
+.is-still *,.is-still *::before,.is-still *::after{transition:none!important;animation:none!important}
+.is-still .deck-count{display:none}
+/* Overview (O) and blackout (B): operator tools, never part of the story. */
+.is-overview .deck-viewport{overflow:auto}
+.is-overview .deck-stage{position:static;width:auto;height:auto;overflow:visible}
+.is-overview .slide{visibility:visible;opacity:1;pointer-events:auto;transform-origin:0 0;cursor:pointer;outline:6px solid transparent}
+.is-overview .slide.active{outline-color:#7C9FD7}
+.is-black .deck-viewport::after{content:'';position:fixed;inset:0;background:#000;z-index:20}
+/* Presenter window: current position large, next position, timer and notes. */
+.is-presenter .deck-viewport,.is-presenter .deck-count,.is-presenter .deck-notes{display:none}
+.is-presenter body{background:#0B1220;overflow:hidden}
+.pv{position:fixed;inset:0;display:grid;grid-template-columns:62% 1fr;gap:24px;padding:24px;color:#F1F5F9;font-family:Inter,sans-serif}
+.pv iframe{width:100%;aspect-ratio:16/9;border:0;background:#000;display:block}
+.pv-side{display:flex;flex-direction:column;gap:16px;min-height:0}
+.pv-pos{font:500 16px/1.4 Inter,sans-serif;color:#A7BFE4}
+.pv-time{font:500 40px/1 Inter,sans-serif;font-variant-numeric:tabular-nums}
+.pv-notes{font:400 20px/1.6 Inter,sans-serif;overflow:auto;flex:1}
+
+/* AIS HTML decks: tokens, type and motion of the deck.
+   Colours, durations and curves are the brand tokens (public/downloads/brand.css). Screen type at 1920 px:
+   cover 120, divider 136, headline 76, lead 44, item 46, body 38 (never under 36), labels 28, slide number 22.
+   Inter 400/500/600, sentence case. Motion: transform and opacity only, enter curve, 700 ms reveals with a 60 ms
+   stagger, the masked headline in 1100 ms, the blue wipe on the opening picture. */
+:root{
+  --brand:#17356E;--deep:#10254C;--night:#0B1220;--action:#3664B3;--light:#A7BFE4;--sky:#7C9FD7;
+  --ink:#0F1729;--muted:#4B5563;--grey:#F1F5F9;--line:#CBD5E1;--soft:#E2E8F0;
+  --ease-enter:cubic-bezier(.16,1,.3,1);--ease-standard:cubic-bezier(.2,0,0,1);
+  --slow2:700ms;--expressive:1100ms;--stagger:60ms;
+}
+.slide{color:var(--ink)}
+.slide.g-brand{background:var(--brand);color:#fff}
+.slide.g-deep{background:var(--deep);color:#fff}
+.slide.g-night{background:var(--night);color:#fff}
+.slide.g-white{background:#fff}
+.abs{position:absolute}
+.stack{position:absolute;display:flex;flex-direction:column}
+.stack>*{flex:none}
+
+/* Type */
+.t-display{font-size:120px;line-height:124px;font-weight:500;letter-spacing:-.035em}
+.t-divider{font-size:136px;line-height:140px;font-weight:500;letter-spacing:-.035em}
+.t-num{font-size:240px;line-height:240px;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.t-h{font-size:76px;line-height:84px;font-weight:500;letter-spacing:-.02em}
+.t-lead{font-size:44px;line-height:60px;font-weight:400}
+.t-item{font-size:46px;line-height:56px;font-weight:500;letter-spacing:-.01em}
+.t-body{font-size:38px;line-height:52px;font-weight:400}
+.t-label{font-size:28px;line-height:38px;font-weight:500}
+.t-meta{font-size:22px;line-height:32px;font-weight:400;font-variant-numeric:tabular-nums}
+.t-h,.t-lead,.t-item,.t-body,.t-display,.t-divider{text-wrap:balance}
+b{font-weight:600}
+.c-white{color:#fff}.c-light{color:var(--light)}.c-sky{color:var(--sky)}.c-ink{color:var(--ink)}.c-muted{color:var(--muted)}.c-brand{color:var(--brand)}.c-action{color:var(--action)}
+
+/* Rules separate, never frame */
+.rl{height:2px;background:var(--line);flex:none}
+.g-brand .rl,.g-deep .rl,.g-night .rl,.on-blue .rl{background:rgba(167,191,228,.35)}
+
+/* Pictures: an absolutely placed frame, the image cover-fitted inside it */
+.pic{position:absolute;overflow:hidden}
+.pic img{width:100%;height:100%;display:block;object-fit:cover}
+.pic.contain img{object-fit:contain}
+.logo{position:absolute;display:block}
+.hex{position:absolute;width:520px;height:520px;pointer-events:none;display:block}
+.scrim{position:absolute;pointer-events:none}
+.num{position:absolute;right:128px;bottom:40px;font-size:22px;line-height:32px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.g-brand .num,.g-deep .num,.g-night .num{color:var(--light)}
+
+/* Motion: reveals run when the slide arrives (.shown). Export and print show the end state. */
+.rv{opacity:0;transform:translateY(16px);transition:opacity var(--slow2) var(--ease-enter),transform var(--slow2) var(--ease-enter);transition-delay:calc(200ms + var(--i,0) * var(--stagger))}
+.shown .rv{opacity:1;transform:none}
+.mask{overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.mask>.mi{display:block;transform:translateY(105%);transition:transform var(--expressive) var(--ease-enter);transition-delay:calc(100ms + var(--i,0) * 100ms)}
+.shown .mask>.mi{transform:none}
+.pic img{transform:scale(1.03);transition:transform var(--expressive) var(--ease-enter)}
+.shown .pic img{transform:none}
+.wipe{position:absolute;background:var(--brand);transform-origin:100% 50%;transition:transform var(--slow2) var(--ease-enter) 150ms}
+.shown .wipe{transform:scaleX(0)}
+
+/* AIS decks, "Hoy + azul": the layout components. Facts and points are spec rows split by rules (never framed). */
+.facts,.points{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.contacts{display:flex;flex-direction:column}
+.contacts>.rl.gap{margin:20px 0}
+.crow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;column-gap:40px}
+.cline{display:flex;gap:64px}
+
+/* Grid, scale and rhythm (layouts.mjs).
+   Rhythm: label to value 8, caption 16, item 24, block 40, headline to content 64. Columns: 12 of 102 px, gutters 40. */
+.hbody{display:flex;flex-direction:column;margin-top:64px}
+.hbody.centre{flex:1 1 auto;min-height:0;justify-content:center;padding-bottom:64px}
+.stack>.hbody.centre{flex:1 1 auto}
+.gridc{display:grid;column-gap:40px}
+.gridc.rows{row-gap:64px}
+.gridc.c2{grid-template-columns:repeat(2,812px)}.gridc.c3{grid-template-columns:repeat(3,528px)}.gridc.c4{grid-template-columns:repeat(4,386px)}
+.phcell,.col,.fig{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.rows4{display:flex;flex-direction:column;width:1664px}
+.rows4 .rl.gap{margin:24px 0}
+.rows4.tight .rl.gap{margin:16px 0}
+.arow-in{display:grid;grid-template-columns:102px 954px 528px;column-gap:40px;align-items:baseline}
+/* The marker sits on the name's first line (84 px, the .t-h line), never centred on a row the description makes taller. */
+.arow-in>.mk{align-self:start;height:84px;display:flex;align-items:center}
+.mrow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:baseline}
+.hexwrap{position:relative;width:112px;height:97px;flex:none}
+.hexwrap>.abs{position:absolute}
+.hexnum{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-weight:500;font-variant-numeric:tabular-nums}
+.steprow{display:flex}
+.pic-box{position:relative;flex:none}
+.pic-fill{position:relative;flex:1 1 auto!important}
+.tiles2{display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;row-gap:40px}
+.ico{width:64px;height:64px;color:var(--action)}
+.logorow{display:flex;align-items:center;gap:40px;height:96px}
+.bars{display:flex;flex-direction:column;row-gap:64px}
+.brow{display:grid;grid-template-columns:528px 1096px;column-gap:40px;align-items:center}
+.bwrap{display:flex;align-items:center;gap:24px}
+.bar{height:60px;flex:none}
+.gantt{display:flex;flex-direction:column}
+.gantt .rl.gap{margin:24px 0}
+.grow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:center}
+.gm{display:flex}
+.gbar{display:flex;align-items:center}
+.slide{--panel:#F1F5F9}.slide.g-brand{--panel:var(--brand)}.slide.g-deep{--panel:var(--deep)}
+.g-white .rl{background:var(--line)}
+.g-brand .rl,.g-deep .rl{background:rgba(167,191,228,.35)}
+.strips{display:flex;flex-direction:column;row-gap:40px}
+.srow{display:grid;grid-template-columns:812px 812px;column-gap:40px;align-items:center}
+/* One step up or down the closed scale for a whole block (deck.js snap): body 38 / lead 44 / headline 76. */
+.up1 .t-body:not(.hexnum){font-size:44px;line-height:60px}
+.up1 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-body:not(.hexnum),.up2 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-label{font-size:38px;line-height:52px}
+.up2 .t-h:not(.mi){font-size:120px;line-height:124px;letter-spacing:-.035em}
+.dn1 .t-lead{font-size:38px;line-height:52px}
+.dn1 .t-h:not(.mi){font-size:44px;line-height:60px;letter-spacing:0}
+.gantt .bar{height:40px}
+
+/* Table (layout table): one grid row per table row, every cell a text box on its grid columns. Column titles bottom-aligned
+   over the stronger rule; rows split by the hairline. Numbers right-aligned in tabular figures. */
+.tbl{display:flex;flex-direction:column;width:1664px}
+.tbl .rl.gap{margin:24px 0}
+.tbl .rl{background:var(--soft)}
+.tbl .rl.head{background:var(--line)}
+.trow{display:grid;column-gap:40px;align-items:start}
+.trow.thead{align-items:end}
+.trow .th{font-weight:500}
+.tbl.tight .rl.gap{margin:16px 0}
+.trow .tn{text-align:right;font-variant-numeric:tabular-nums}
+.L-statement.g-brand b{color:#fff}
+.trow .tn .hy{font-variant-numeric:normal}
+
+/* Match the title's first line when the existing stage selects another type-scale step. */
+.dn1 .arow-in>.mk{height:60px}
+.up2 .arow-in>.mk{height:124px}
+
+/* Corporate content has a stable scale; whitespace never promotes a row name to a headline. */
+.L-features .arow-in>.t-h,.L-phases .arow-in>.t-h,.L-steps .arow-in>.t-h{font-size:44px;line-height:60px;letter-spacing:0}
+.L-features .arow-in>.mk,.L-phases .arow-in>.mk,.L-steps .arow-in>.mk{height:60px}
+.L-features .arow-in>.t-body,.L-phases .arow-in>.t-body,.L-steps .arow-in>.t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body[style*="font-weight:500"]{font-size:44px;line-height:60px;letter-spacing:0}
+.L-photo.panorama .hbody.centre{padding-bottom:0}
+
+.L-photo.panorama .hbody.centre>.pic{margin-top:96px}
+
+</style></head>
+<body>
+<div class="deck-viewport"><main class="deck-stage">
+<section class="slide g-brand L-cover " data-band-exempt data-notes="Presentación para bodegas."><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="left:480px;top:0px"><div class="pic" style="left:1000px;top:0px;width:920px;height:1080px"><img data-k="img" src="media/wine-filling-station.webp" alt="" style="object-position:45% 50%"></div><div class="wipe" style="left:1000px;top:0px;width:920px;height:1080px"></div><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="left:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:0px;bottom:168px;width:820px;justify-content:flex-end"><div class="mask" style=""><div class="mi t-display c-white" data-k="text" style="--i:0">Inspección de vino</div></div><div class="t-body c-white rv" data-k="text" style=";--i:3;margin-top:40px">Mejora tu control de calidad en líneas de producción de vino.</div></div><div class="t-meta c-light rv abs" data-k="text" style="left:128px;bottom:40px;--i:4">Engineering peace of mind</div></section>
+<section class="slide g-white L-statement " data-notes="Lo que ofrecemos a los productores de bebidas. Foto de la presentación original: botellas de vino en el transportador."><div class="stack" style="left:0;top:96px;width:1920px;bottom:0"><div style="padding:0 128px"><div class="mask" style=""><div class="mi t-display c-ink" data-k="text" style="--i:0">¿Qué ofrecemos?</div></div><div class="t-lead c-muted rv" data-k="text" style=";--i:2;margin-top:40px">En AIS Vision Systems ayudamos a productores de bebidas a garantizar envases impecables y etiquetado perfecto.</div></div><div class="pic-fill" style="margin-top:64px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/wine-bottles-conveyor.webp" alt="Botellas de vino en un transportador" style="object-position:50% 60%"></div></div></div></section>
+<section class="slide g-white L-photo " data-notes="Inspección en tiempo real de botellas de vidrio y de plástico. En las fotos: una línea de embotellado, botellas de plástico en línea, un tapón levantado y una doble etiqueta."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Nuestras soluciones de visión artificial inspeccionan en tiempo real botellas de vidrio y plástico</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1">Detectan defectos que afectan a la calidad, la seguridad y la imagen de marca.</div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:1080px"><img data-k="img" src="media/still-bottling-line.webp" alt="" style="object-position:45% 40%"></div></div><div class="num" data-k="text" style="right:980px">3</div></section>
+<section class="slide g-white L-stage " data-notes="Los problemas: tapón y boca, nivel de líquido y etiqueta. Las soluciones: inspección de tapón a 360° e inspección del nivel de líquido con el AIS Hopper, verificación envolvente con el AIS REV 360 y lectura OCR con OPTICAIS. En la imagen, detecciones de Rosepetal sobre cápsulas de cava (marcas de cliente difuminadas)."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Problema y solución</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Problema</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Tapón y boca, nivel de líquido, etiqueta</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">AIS Hopper</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Inspección de tapón a 360° e inspección del nivel de líquido</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:4">AIS REV 360 y OPTICAIS</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:4">Verificación envolvente y lectura OCR</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:369px;width:844px;height:342px"><img data-k="img" src="media/cava-capsule-detections-blurred.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">4</div></section>
+<section class="slide g-white L-stage " data-notes="El AIS Hopper revisa el cierre y el nivel. En la imagen, su vista en directo del tapón. Las cámaras y la cadencia (hasta 30 000 unidades/hora) vienen del folleto publicado del AIS Hopper, no de la presentación original de vino. Arriba, el AIS Hopper en una línea; debajo, la vista en directo sobre tapones."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">AIS Hopper: inspección de tapón a 360° y nivel de líquido</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Cámaras</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Tres cámaras en color y cuarta opcional</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Cadencia</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Hasta 30 000 unidades/hora</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:640px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:61px;width:844px;height:519px"><img data-k="img" src="media/hopper-water-line-orig.webp" alt="" style="object-fit:fill"></div><div class="abs panel" data-k="rect" style="left:980px;top:664px;width:940px;height:416px;background:#FFFFFF"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1157px;top:712px;width:587px;height:320px"><img data-k="img" src="media/hopper-cap-live-view.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">5</div></section>
+<section class="slide g-white L-stage " data-notes="El AIS Hopper en la línea (foto de la presentación original), su pantalla, sobre un transportador y con su expulsor. En la imagen, botellas en el cabezal del AIS Hopper."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Sirve para envases de vidrio, PET y derivados</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Cámaras de alta resolución con IA</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Rechazo automático de unidades defectuosas</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:4">Diseño versátil</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:302px;width:844px;height:476px"><img data-k="img" src="media/hopper_bottles-in-head.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">6</div></section>
+<section class="slide g-white L-stage " data-notes="El AIS REV 360 en estudio y su imagen de cámara."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">AIS REV 360</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Verifica</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Etiquetas y códigos</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Identifica</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Defectos visuales</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:4">Controla</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:4">El posicionamiento de etiquetas a 360°</div></div><div class="fact" data-beat="4" style="--i:5"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:5">Imagen de cámara del equipo</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:5">Cuatro vistas de una botella</div></div></div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:640px"><img data-k="img" src="media/rev360-standard-studio.webp" alt="" style="object-position:50% 50%"></div></div><div class="abs panel" data-k="rect" style="left:980px;top:664px;width:940px;height:416px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1274px;top:712px;width:352px;height:320px"><img data-k="img" src="media/still-rev360-wine-four-views_blurred.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">7</div></section>
+<section class="slide g-white L-statement " data-notes="El AIS REV 360 trabaja con el software de Rosepetal, que etiqueta y revisa las imágenes del equipo. En la imagen, la herramienta de etiquetado de Rosepetal sobre botellas de cava (marcas difuminadas)."><div class="stack" style="left:0;top:96px;width:1920px;bottom:0"><div style="padding:0 128px"><div class="mask" style=""><div class="mi t-display c-ink" data-k="text" style="--i:0">Integrado con el software de Rosepetal con IA</div></div></div><div class="pic-fill" style="margin-top:64px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/labelling-tool-cava-blurred.webp" alt="" style="object-position:50% 45%"></div></div></div></section>
+<section class="slide g-white L-stage " data-notes="OPTICAIS lee y verifica el marcaje; en las imágenes, su pantalla (de la presentación original) y una fecha incompleta."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">OPTICAIS</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Inspección automatizada de alta precisión</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Procesamiento en tiempo real</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:4">Adaptabilidad a distintos entornos industriales</div></div><div class="fact" data-beat="4" style="--i:5"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:5">Interfaz intuitiva y fácil integración</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:272px;width:844px;height:537px"><img data-k="img" src="media/opticais-variable-print-screen-blurred.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">9</div></section>
+<section class="slide g-white L-stage " data-notes="Las cuatro características del C8, como en la presentación original."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Escáner GlobalVision C8</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:2">Inspección precisa de objetos cilíndricos</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:3">Amplia compatibilidad de tamaños</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:4">Alta resolución de escaneo</div></div><div class="fact" data-beat="4" style="--i:5"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-ink rv" data-k="text" style="margin-top:0px;--i:5">Estabilidad operativa optimizada</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1151px;top:295px;width:599px;height:490px"><img data-k="img" src="media/c8-source.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">10</div></section>
+<section class="slide g-white L-steps " data-notes="Las fases de una línea de vino (llenado, taponado, etiquetado y embalaje) y las cuatro soluciones. La presentación original no indica qué solución corresponde a cada fase."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Soluciones: AIS Hopper, AIS REV 360, OPTICAIS y C8</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:2;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">1</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Llenado</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:3;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">2</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Taponado</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:4;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">3</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Etiquetado</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="hexwrap rv" style="--i:5;width:102px;height:88px"><div class="abs rv" data-k="vec" style="left:0px;top:0px;width:102px;height:88px"><svg viewBox="-2.5 -2.5 107 93" width="100%" height="100%"><polygon points="0.0,44.0 25.5,0.0 76.5,0.0 102.0,44.0 76.5,88.0 25.5,88.0" fill="none" stroke="#17356E" stroke-width="2.5"/></svg></div><div class="hexnum t-body c-brand" data-k="text">4</div></div></div><div class="t-h c-ink rv" data-k="text" style=";--i:5">Embalaje</div></div></div></div></div></div><div class="num" data-k="text">11</div></section>
+<section class="slide g-brand L-split " data-notes="Beneficios de la inspección en línea."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Beneficios</div></div><div class="hbody centre"><div class="t-lead c-light rv" data-k="text" style=";--i:1;margin-bottom:40px">Inspección automática en tiempo real.</div><div class="points"><div data-beat="1"><div class="t-lead c-white rv" data-k="text" style="--i:3"><b>Adaptable</b> a múltiples formatos de botella</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:4"><b>Mejora del rendimiento</b> y reducción de errores</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:5"><b>Integración sencilla</b> en líneas existentes</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:248px;width:940px;height:832px"><img data-k="img" src="media/rev360-trade-fair.webp" alt="" style="object-position:50% 55%"></div></div><div class="num" data-k="text" style="right:980px">12</div></section>
+<section class="slide g-brand L-split " data-facility="true" data-notes="Dirección y correo de AIS Vision Systems; el teléfono y la web están en la última diapositiva. En la imagen, una fotografía aérea de las instalaciones de Sabadell."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Contáctanos</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-lead c-white rv" data-k="text" style="--i:3">Carrer de Can Camps, 10</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:4">Pol. Ind. Can Roqueta</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:5">08202 Sabadell (Barcelona)</div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:6">info@aisvision.com</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:174px;width:940px;height:906px"><img data-k="img" src="media/sabadell-aerial-photo.webp" alt="Vista aérea de las instalaciones de AIS Vision Systems en Sabadell" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">13</div></section>
+<section class="slide g-brand L-closing " data-notes="Gracias. Teléfono (+34) 931 003 035, como en la página Contáctanos del original; la web, como en las piezas aprobadas."><img class="hex" data-k="vec" src="media/hex-deck-br.svg" alt="" style="right:0px;bottom:0px"><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="right:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:96px;bottom:96px;width:1096px"><div class="mask" style=""><div class="mi t-display c-white" data-k="text" style="--i:0">Gracias</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-label c-light rv" data-k="text" style=";--i:2">Web</div><div class="t-h c-white rv" data-k="text" style=";--i:2;margin-top:8px;font-variant-numeric:tabular-nums">www.aisvision.com</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:3">Teléfono</div><div class="t-h c-white rv" data-k="text" style=";--i:3;margin-top:8px;font-variant-numeric:tabular-nums">+34 931 003 035</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:4">LinkedIn</div><div class="t-h c-white rv" data-k="text" style=";--i:4;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:5">YouTube</div><div class="t-h c-white rv" data-k="text" style=";--i:5;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div></div></div></div></section>
+</main></div>
+<div class="deck-count" aria-hidden="true"></div><div class="deck-notes" aria-live="polite"></div>
+<script>
+/* AIS HTML decks: the presenter.
+   Adapted from the SlidePresentation controller and deck-stage.js of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang,
+   see LICENSE-frontend-slides.txt): uniform scale of the 1920 × 1080 stage, keyboard, wheel and swipe navigation, the
+   count outside the slide, print. The beat model follows beatdeck (MIT, Borja Pérez): one click shows one beat, every
+   position is #slide.beat and renders the same whether reached forwards, backwards or straight from the URL; P opens a
+   presenter window (notes, next, timer) kept in step over BroadcastChannel; O overview; B blackout.
+   Modes: ?export (every slide, every beat, static: PNG, PDF, PPTX measurement), ?still (one position, no motion: the
+   presenter's previews), ?view=presenter, ?send (no beats: each slide arrives whole). */
+(() => {
+  const html = document.documentElement, q = location.search;
+  const slides = [...document.querySelectorAll('.slide')];
+  // A content block centred under its headline sits on the 8 px baseline: its offset is snapped once the fonts are in
+  // (layout only, transforms ignored). html[data-snapped] tells the builder and verify the layout is final.
+  // Scale the composition, not the decoration: a block with a lot of room left steps its body text up one size of the
+  // closed scale (38 to 44, 44 to 76: class up1), or two if there is still room (up2: words at 76, names at 120); a block
+  // that does not fit steps down one (dn1). Then the block is
+  // centred and its offset snapped to the 8 px baseline.
+  const snap = () => { document.querySelectorAll('.hbody.centre').forEach((h) => {
+    h.style.justifyContent = 'flex-start'; h.style.paddingTop = '0px';
+    const kids = () => [...h.children];
+    const room = h.offsetParent.clientHeight - h.offsetTop;
+    const wide = () => [...h.querySelectorAll('[data-k="text"]')].some((e) => e.scrollWidth > e.clientWidth + 2);
+    const free = () => { const k = kids(); if (!k.length) return 0; const top = Math.min(...k.map((x) => x.offsetTop)), bot = Math.max(...k.map((x) => x.offsetTop + x.offsetHeight)); return wide() ? -1 : room - (h.querySelector('.rows4') && !h.closest('.L-agenda') ? 48 : 64) - (bot - top); };
+    const rows = h.querySelector('.rows4');
+    if (rows && !h.closest('.L-agenda')) {
+      const titles = [...rows.querySelectorAll('.arow-in')];
+      const used = titles.reduce((sum, row) => sum + row.offsetHeight, 0);
+      const budget = (room - 128 - used - (titles.length-1)*2) / Math.max(1, 2*(titles.length-1));
+      const gap = [24, 40, 64, 96].filter(v => v <= budget).pop() || 24;
+      rows.querySelectorAll('.rl.gap').forEach(rule => rule.style.margin = `${gap}px 0`);
+    }
+    let f = free();
+    // A sentence of more than 12 words never reaches headline size: it may step 38 to 44, no further.
+    const long = Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) > 12;
+    if (!h.closest('.L-features,.L-phases,.L-steps,.panorama') && f > 200 && !(long && h.querySelector('.t-lead, .t-h'))) {
+      h.classList.add('up1'); if (free() < 0) h.classList.remove('up1');
+      // A sentence of more than 12 words stays at lead size: running text never goes to headline size.
+      else if (free() > 200 && Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) <= 12) { h.classList.replace('up1', 'up2'); if (free() < 0) h.classList.replace('up2', 'up1'); }
+    }
+    else if (f < 0) h.classList.add('dn1');
+    f = free();
+    h.style.paddingTop = Math.max(0, Math.floor(f / 2 / 8) * 8) + 'px';
+  }); html.dataset.snapped = '1'; };
+  document.fonts.ready.then(snap);
+  if (/[?&]export\b/.test(q)) { html.classList.add('is-export'); slides.forEach((s) => { s.classList.add('active', 'shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); }); return; }
+  const still = /[?&]still\b/.test(q), send = /[?&]send\b/.test(q), presenter = /[?&]view=presenter\b/.test(q);
+  if (still) html.classList.add('is-still');
+  const stage = document.querySelector('.deck-stage');
+  const count = document.querySelector('.deck-count');
+  const notes = document.querySelector('.deck-notes');
+  const beats = slides.map((s) => send ? 0 : Math.max(0, ...[...s.querySelectorAll('[data-beat]')].map((e) => +e.dataset.beat)));
+  let i = 0, b = 0, idle, over = false;
+  const chan = 'BroadcastChannel' in window ? new BroadcastChannel('ais-deck:' + location.pathname) : null;
+
+  const fit = () => {
+    if (over) return;
+    const f = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = `translate(${(innerWidth - 1920 * f) / 2}px,${(innerHeight - 1080 * f) / 2}px) scale(${f})`;
+  };
+  // Show slide n at beat k. Beats up to k are on; the entrance replays only when the slide changes.
+  const go = (n, k, from = 'nav') => {
+    n = Math.max(0, Math.min(n, slides.length - 1)); k = Math.max(0, Math.min(k, beats[n]));
+    const changed = n !== i || from === 'load';
+    i = n; b = k;
+    slides.forEach((s, x) => s.classList.toggle('active', x === i));
+    slides[i].querySelectorAll('[data-beat]').forEach((e) => e.classList.toggle('on', send || +e.dataset.beat <= b));
+    if (changed) {
+      slides.forEach((s) => s.classList.remove('shown'));
+      if (still) slides[i].classList.add('shown');
+      else requestAnimationFrame(() => requestAnimationFrame(() => slides[i].classList.add('shown')));
+    }
+    history.replaceState(null, '', '#' + (i + 1) + (beats[i] ? '.' + b : ''));
+    count.textContent = `${i + 1} / ${slides.length}`;
+    if (!still) { count.classList.add('show'); clearTimeout(idle); idle = setTimeout(() => count.classList.remove('show'), 1800); }
+    notes.textContent = slides[i].dataset.notes || '';
+    if (chan && from !== 'remote') chan.postMessage({i, b});
+    if (presenter) paintPresenter();
+  };
+  const next = () => (b < beats[i] ? go(i, b + 1) : i < slides.length - 1 && go(i + 1, 0));
+  const prev = () => (b > 0 ? go(i, b - 1) : i > 0 && go(i - 1, beats[i - 1]));
+  const parse = () => { const m = location.hash.match(/^#(\d+)(?:\.(\d+))?/); return m ? [m[1] - 1, +(m[2] || 0)] : [0, 0]; };
+
+  // Overview (O): every slide as a thumbnail; click one to go there.
+  const overview = (on) => {
+    over = on; html.classList.toggle('is-overview', on);
+    if (!on) { slides.forEach((s) => (s.style.transform = '')); fit(); return; }
+    const cols = 4, gap = 24, w = (innerWidth - gap * (cols + 1)) / cols, f = w / 1920;
+    stage.style.transform = 'none';
+    slides.forEach((s, x) => { s.style.transform = `translate(${gap + (x % cols) * (w + gap)}px,${gap + Math.floor(x / cols) * (w * 9 / 16 + gap)}px) scale(${f})`; s.classList.add('shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); });
+  };
+  // Presenter window: current position, next position, notes, timer. Both previews are this file in ?still mode.
+  let t0 = null, pres;
+  function paintPresenter() {
+    if (!pres) return;
+    const n = b < beats[i] ? [i, b + 1] : [i + 1, 0];
+    const src = (p) => location.pathname + '?still#' + (p[0] + 1) + '.' + p[1];
+    if (pres.cur.dataset.at !== src([i, b])) { pres.cur.src = src([i, b]); pres.cur.dataset.at = src([i, b]); }
+    if (n[0] < slides.length) { if (pres.nxt.dataset.at !== src(n)) { pres.nxt.src = src(n); pres.nxt.dataset.at = src(n); } } else pres.nxt.removeAttribute('src');
+    pres.pos.textContent = `Diapositiva ${i + 1} de ${slides.length}` + (beats[i] ? `, paso ${b} de ${beats[i]}` : '');
+    pres.notes.textContent = slides[i].dataset.notes || '';
+  }
+  if (presenter) {
+    html.classList.add('is-presenter');
+    document.body.insertAdjacentHTML('beforeend', `<div class="pv"><iframe class="pv-cur" title="Actual"></iframe><div class="pv-side"><iframe class="pv-next" title="Siguiente"></iframe><div class="pv-pos"></div><div class="pv-time">00:00</div><div class="pv-notes"></div></div></div>`);
+    pres = {cur: document.querySelector('.pv-cur'), nxt: document.querySelector('.pv-next'), pos: document.querySelector('.pv-pos'), notes: document.querySelector('.pv-notes'), time: document.querySelector('.pv-time')};
+    setInterval(() => { if (t0 === null) return; const s = Math.floor((Date.now() - t0) / 1000); pres.time.textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; }, 500);
+  }
+
+  if (chan) chan.onmessage = (e) => { if (still) return; if (e.data.cmd === 'next') next(); else if (e.data.cmd === 'prev') prev(); else if (typeof e.data.i === 'number' && (e.data.i !== i || e.data.b !== b)) go(e.data.i, e.data.b, 'remote'); };
+  const send2 = (cmd) => (presenter && chan ? (chan.postMessage({cmd}), cmd === 'next' ? next() : prev()) : cmd === 'next' ? next() : prev());
+  if (!still) {
+    addEventListener('resize', () => (over ? overview(true) : fit()));
+    addEventListener('keydown', (e) => {
+      if (t0 === null) t0 = Date.now();
+      if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); send2('next'); }
+      else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); send2('prev'); }
+      else if (e.key === 'Home') go(0, 0);
+      else if (e.key === 'End') go(slides.length - 1, beats[slides.length - 1]);
+      else if (/^[nN]$/.test(e.key)) notes.classList.toggle('show');
+      else if (/^[fF]$/.test(e.key)) document.fullscreenElement ? document.exitFullscreen() : html.requestFullscreen();
+      else if (/^[oO]$/.test(e.key)) overview(!over);
+      else if (e.key === 'Escape' && over) overview(false);
+      else if (/^[bB.]$/.test(e.key)) html.classList.toggle('is-black');
+      else if (/^[pP]$/.test(e.key) && !presenter) open(location.pathname + '?view=presenter' + location.hash, 'ais-presenter', 'width=1400,height=820');
+    });
+    let wheelLock = 0;
+    addEventListener('wheel', (e) => { const t = Date.now(); if (over || presenter || t - wheelLock < 600 || Math.abs(e.deltaY) < 20) return; wheelLock = t; e.deltaY > 0 ? next() : prev(); }, {passive: true});
+    let x0 = null;
+    addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, {passive: true});
+    addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) dx < 0 ? next() : prev(); x0 = null; });
+    addEventListener('click', (e) => {
+      if (presenter || e.target.closest('a,iframe')) return;
+      if (over) { const s = e.target.closest('.slide'); if (s) { overview(false); go(slides.indexOf(s), 0); } return; }
+      e.clientX > innerWidth / 3 ? next() : prev();
+    });
+  }
+  addEventListener('hashchange', () => { const [n, k] = parse(); if (n !== i || k !== b) go(n, k); });
+  fit();
+  const [n, k] = parse();
+  go(n, k, 'load');
+})();
+
+</script>
+</body></html>

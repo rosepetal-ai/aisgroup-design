@@ -1,0 +1,125 @@
+/* AIS Group Design 1.0: the colour, type and motion tokens every brand shares. Every value comes from the Rosepetal design system. */
+:root {
+  --ais-color-primary: var(--ais-blue-700);
+  --ais-blue-50: #EDF2FA; /* Soft surface, soft actions (--action-soft) */
+  --ais-blue-100: #B8CDE6; /* Information backgrounds */
+  --ais-blue-200: #A7BFE4; /* Highlights and links on blue backgrounds */
+  --ais-blue-300: #7C9FD7; /* Primary action and signals in dark mode (dark --primary) */
+  --ais-blue-400: #517FC9; /* Charts in dark mode */
+  --ais-blue-500: #3664B3; /* Action blue: links and text actions, focus ring, charts (--chart-1) */
+  --ais-blue-600: #1E4591; /* Link and action hover (--action-soft-foreground) */
+  --ais-blue-700: #17356E; /* Brand blue: logo, primary buttons, call-to-action bands (--brand) */
+  --ais-blue-800: #10254C; /* Deep sections, footers, button hover (--primary-hover) */
+  --ais-blue-900: #111A2E; /* Cards and panels in dark mode (dark --card) */
+  --ais-blue-950: #0B1220; /* Dark mode background (dark --background) */
+  --ais-neutral-0: #FFFFFF; /* White: background and reversed logo */
+  --ais-neutral-50: #F8FAFC; /* Navigation backgrounds */
+  --ais-neutral-100: #F1F5F9; /* Section surface */
+  --ais-neutral-200: #E2E8F0; /* Dividers and borders */
+  --ais-neutral-300: #CBD5E1; /* Strong dividers; not a field border (1.5:1) */
+  --ais-neutral-400: #94A3B8; /* Secondary text in dark mode */
+  --ais-neutral-500: #64748B; /* Field borders (3:1 or more), metadata and placeholders */
+  --ais-neutral-600: #4B5563; /* Secondary text (--muted-foreground) */
+  --ais-neutral-700: #334155; /* Field borders in dark mode */
+  --ais-neutral-800: #1E293B; /* Secondary surfaces in dark mode */
+  --ais-neutral-900: #0F1729; /* Primary text */
+  --ais-success: #15803D; /* Success: text and icons, 5.02:1 on white (--success) */
+  --ais-warning: #D97706; /* Warning (--warning) */
+  --ais-danger: #DC2626; /* Error (--destructive) */
+  --ais-success-dark: #4ADE80; /* Success in dark mode */
+  --ais-warning-dark: #F59E0B; /* Warning in dark mode */
+  --ais-danger-dark: #F87171; /* Error in dark mode */
+  /* Status fills with text: always with the stated text colour, to reach 4.5:1. */
+  --ais-success-solid: #15803D; /* White text, 5.02:1 */
+  --ais-warning-solid: #D97706; /* Ink text #0F1729, 5.61:1 */
+  --ais-danger-solid: #DC2626; /* White text, 4.83:1 */
+  --ais-font-primary: "Inter", Arial, sans-serif;
+  --ais-font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  /* Communication type scale. Fluid sizes run from 375 px to 1440 px of screen width. */
+  --ais-text-display: clamp(44px, 34.14px + 2.629vw, 72px); /* Hero headline, one per page */
+  --ais-text-display-leading: 1.04; --ais-text-display-tracking: -0.04em; --ais-text-display-weight: 500;
+  --ais-text-title: clamp(34px, 26.25px + 2.066vw, 56px); /* Page headline */
+  --ais-text-title-leading: 1.07; --ais-text-title-tracking: -0.035em; --ais-text-title-weight: 500;
+  --ais-text-heading: clamp(28px, 23.77px + 1.127vw, 40px); /* Section titles */
+  --ais-text-heading-leading: 1.12; --ais-text-heading-tracking: -0.025em; --ais-text-heading-weight: 500;
+  --ais-text-subheading: clamp(20px, 18.59px + .376vw, 24px); /* Cards and subsections */
+  --ais-text-subheading-leading: 1.25; --ais-text-subheading-tracking: -0.015em; --ais-text-subheading-weight: 500;
+  --ais-text-lead: clamp(18px, 17.3px + .188vw, 20px); /* Leads */
+  --ais-text-lead-leading: 1.5; --ais-text-lead-tracking: -0.005em; --ais-text-lead-weight: 400;
+  --ais-text-body: 16px; /* Running text */
+  --ais-text-body-leading: 1.6; --ais-text-body-tracking: 0em; --ais-text-body-weight: 400;
+  --ais-text-label: 15px; /* Buttons, action links and navigation */
+  --ais-text-label-leading: 1.35; --ais-text-label-tracking: 0em; --ais-text-label-weight: 500;
+  --ais-text-small: 14px; /* Secondary text, tables and metadata */
+  --ais-text-small-leading: 1.5; --ais-text-small-tracking: 0em; --ais-text-small-weight: 400;
+  --ais-text-eyebrow: 13px; /* Eyebrows above a headline */
+  --ais-text-eyebrow-leading: 1.4; --ais-text-eyebrow-tracking: 0.045em; --ais-text-eyebrow-weight: 500;
+  --ais-text-caption: 12px; /* Captions, notes and legal text */
+  --ais-text-caption-leading: 1.45; --ais-text-caption-tracking: 0.005em; --ais-text-caption-weight: 400;
+  /* Product scale (dense interfaces): size / line height. */
+  --ais-ui-xs: 12px; --ais-ui-xs-leading: 16px;
+  --ais-ui-base: 14px; --ais-ui-base-leading: 20px;
+  --ais-ui-md: 16px; --ais-ui-md-leading: 24px;
+  --ais-ui-lg: 20px; --ais-ui-lg-leading: 28px;
+  --ais-ui-xl: 24px; --ais-ui-xl-leading: 32px;
+  /* Motion: durations, curves and distances. Animations move only transform and opacity. */
+  --ais-duration-fast-1: 80ms; /* Press and active states */
+  --ais-duration-fast-2: 120ms; /* Tooltips, switches, checkboxes */
+  --ais-duration-moderate-1: 180ms; /* Hover: colour, underline, arrow */
+  --ais-duration-moderate-2: 240ms; /* Menus, dropdowns, accordions, dialogs */
+  --ais-duration-slow-1: 500ms; /* Page arrival, large panels */
+  --ais-duration-slow-2: 700ms; /* Reveal on scroll, image zoom */
+  --ais-duration-expressive: 1100ms; /* Headlines line by line, counting figures */
+  --ais-ease-standard: cubic-bezier(.2, 0, 0, 1); /* State changes and movement within the view */
+  --ais-ease-enter: cubic-bezier(.16, 1, .3, 1); /* Everything that arrives or settles */
+  --ais-ease-exit: cubic-bezier(.4, 0, 1, 1); /* Everything that leaves */
+  --ais-distance-nudge: 3px; /* Arrow on hover */
+  --ais-distance-menu: 8px; /* Menus and dropdowns as they enter */
+  --ais-distance-reveal: 16px; /* Blocks that enter on scroll */
+  --ais-stagger: 60ms; /* Between items of a list, 6 at most */
+  --ais-stagger-lines: 100ms; /* Between the lines of a headline */
+  /* Space: 4 px base, 8 px rhythm. The index is the multiple of 8 px (100 = 8 px). */
+  --ais-space-050: 4px;
+  --ais-space-100: 8px;
+  --ais-space-150: 12px;
+  --ais-space-200: 16px;
+  --ais-space-300: 24px;
+  --ais-space-400: 32px;
+  --ais-space-500: 40px;
+  --ais-space-600: 48px;
+  --ais-space-800: 64px;
+  --ais-space-1000: 80px;
+  --ais-space-1200: 96px;
+  --ais-space-1600: 128px;
+  --ais-space-section: clamp(64px, 40px + 6.4vw, 128px); /* Between page sections, from 375 to 1440 px */
+  --ais-space-block: clamp(40px, 32px + 2.13vw, 64px); /* Between blocks within a section */
+  /* Grid: 12 columns, content up to 1440 px. */
+  --ais-content-max: 1440px;
+  --ais-gutter: clamp(24px, 4vw, 64px); /* Side margin */
+  --ais-grid-gap: clamp(16px, 1.6vw, 24px); /* Gap between columns */
+  --ais-measure: 68ch; /* Maximum width of running text */
+  /* Shape: square by default; 4 px only for floating containers; round only for what is round. */
+  --ais-radius-none: 0; /* Buttons, fields, tags, images, icon tiles, detection overlays */
+  --ais-radius-sm: 2px; /* Inline code, selection marks */
+  --ais-radius-md: 4px; /* Window of a product screen shown on a website; the rest of the website is square */
+  --ais-radius-full: 9999px; /* Avatars, status dots, switches */
+  /* Elevation: borders separate; shadow only for what floats. */
+  --ais-border: 1px solid #E2E8F0; /* Dividers and cards */
+  --ais-border-strong: 1px solid #64748B; /* Form fields: 3:1 or more as a control outline (WCAG 1.4.11) */
+  --ais-shadow-raised: 0 2px 6px rgb(15 23 41 / 4%), 0 12px 24px rgb(15 23 41 / 6%); /* Menus, dropdowns, popovers */
+  --ais-shadow-overlay: 0 4px 12px rgb(15 23 41 / 6%), 0 24px 48px rgb(15 23 41 / 12%); /* Dialogs and alerts */
+  --ais-focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #3664B3; /* Keyboard focus: 2 px of action blue, 2 px away */
+  /* Data: chart colours validated for colour blindness and contrast, in a fixed order. The status colours are never reused. */
+  --ais-data-1: #3664B3; --ais-data-1-dark: #517FC9; /* blue */
+  --ais-data-2: #EA580C; --ais-data-2-dark: #EA580C; /* orange */
+  --ais-data-3: #0891B2; --ais-data-3-dark: #0891B2; /* cyan */
+  --ais-data-4: #DB2777; --ais-data-4-dark: #DB2777; /* pink */
+  --ais-data-5: #8B5CF6; --ais-data-5-dark: #A855F7; /* violet */
+  --ais-data-6: #0D9488; --ais-data-6-dark: #0D9488; /* teal */
+  /* One-ink scale (magnitude), light to dark; in dark mode, dark to light. */
+  --ais-seq-1: #7C9FD7; --ais-seq-2: #517FC9; --ais-seq-3: #3664B3; --ais-seq-4: #1E4591; --ais-seq-5: #17356E; --ais-seq-6: #10254C;
+  --ais-seq-1-dark: #1E4591; --ais-seq-2-dark: #3664B3; --ais-seq-3-dark: #517FC9; --ais-seq-4-dark: #7C9FD7; --ais-seq-5-dark: #A7BFE4;
+  /* Two-pole scale: orange (negative), neutral grey in the middle, blue (positive). */
+  --ais-div-1: #92400E; --ais-div-2: #EA580C; --ais-div-3: #CBD5E1; --ais-div-4: #3664B3; --ais-div-5: #1E4591;
+  --ais-div-1-dark: #FDD9A8; --ais-div-2-dark: #EA580C; --ais-div-3-dark: #334155; --ais-div-4-dark: #517FC9; --ais-div-5-dark: #A7BFE4;
+}

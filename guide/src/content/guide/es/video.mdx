@@ -1,0 +1,189 @@
+---
+title: Vídeo
+rules:
+  - 'Graba líneas reales, piezas reales y personas reales. Mantén cada plano al menos 2 s (1,5 s en los resúmenes de feria) y corta. La cortinilla azul es la transición principal; entre planos de una misma escena se admite un fundido encadenado de 13 fotogramas.'
+  - 'Usa las siete plantillas de vídeo de abajo o el flujo de demostración de la interfaz. Todos los vídeos terminan con el cierre. Solo las piezas de más de 60 s empiezan con el logotipo; las más cortas empiezan con el plano más revelador.'
+  - 'Los grafismos se mueven con los tokens de movimiento, pasados a fotogramas. Nada rebota, gira, hace glitch ni entra volando.'
+  - 'El texto va en Inter, con mayúscula solo inicial, dentro de la zona segura de títulos y nunca por debajo de 32 px en 1080p.'
+  - 'Todos los vídeos llevan subtítulos. El vídeo para redes los lleva incrustados; el de la web lleva además un archivo de subtítulos.'
+  - 'Entrega a 25 fps, Rec. 709 y sonoridad de −14 LUFS para web y redes, −23 LUFS para eventos y emisión.'
+---
+
+import VideoSpecimens from '../../../components/VideoSpecimens.astro';
+import VideoDownloads from '../../../components/VideoDownloads.astro';
+
+<VideoDownloads lang="es" single />
+
+## Principios
+
+- **Pruebas, no promesas.** Enseña la inspección en marcha: la pieza, la cámara, el resultado. Un rechazo saliendo de la línea dice más que cualquier frase.
+- **Calma.** Cámara estable, planos largos, cortes secos. El producto es preciso; el vídeo también.
+- **Grafismo discreto.** El texto y las capas solo aparecen para nombrar, explicar o medir. Entran como en la web y salen más rápido.
+- **Se entiende sin sonido.** Casi todo el vídeo se ve en silencio. Los subtítulos y el texto en pantalla llevan el mensaje por sí solos.
+
+## Tipos de vídeo
+
+Marketing usa siete plantillas de vídeo y el flujo de demostración de la interfaz que se explica abajo. Cada estructura sigue lo que publican las mejores marcas industriales: sin logotipo al principio en las piezas de hasta 60 s, el tema en pantalla antes de dos segundos, una sola línea de texto cada vez y un cierre con un sitio adonde ir. Todo lo demás necesita un briefing y una aprobación previa.
+
+| Tipo | Duración y formatos | Estructura  |
+| --- | --- | ---  |
+| **Defecto detectado** | De 10 a 20 s; 9:16, 1:1, 4:5 | La pregunta (4 palabras como máximo) antes de 0,5 s; el encuadre de inspección se fija y llega el veredicto; el nombre del producto; el cierre. Solo música.  |
+| **Anuncio de feria** | De 8 a 15 s; 9:16, 4:5, 16:9 | Un plano llamativo y una pregunta; la tarjeta de estand con fechas, pabellón y estand; el cierre  |
+| **Resumen de feria** | De 30 a 60 s; 16:9, 9:16 | Caras y demostraciones con cortes de 1,5 a 2 s; una tarjeta de agradecimiento; el cierre. Se publica en menos de una semana.  |
+| **Anuncio** | De 15 a 20 s; 16:9, 4:5 | El producto o los socios en pantalla antes de 2 s; tres frases de una o dos palabras; una línea de fecha o mercado; el cierre  |
+| **Vídeo sectorial** | De 60 a 90 s; 16:9, más una versión corta de 20 s | El mundo del sector durante los primeros 10 s; la línea; la inspección antes de los 30 s; frases de 2 a 4 palabras cada 6 s o más; un resultado verificado; el cierre  |
+| **Caso de éxito** | De 60 a 90 s; 16:9, 9:16 | La línea del cliente; sus propias palabras con rótulo antes de 10 s y subtítulos; una cifra verificada en su propia tarjeta; el cierre  |
+| **Entrevista** | Versión completa: cualquier duración, 16:9, con capítulos. Versión para redes: de 45 a 60 s, sin logotipo de apertura; 16:9, 1:1, 4:5 | El logotipo de apertura en la versión completa; la primera pregunta como título (antes de 2 s en la versión para redes); la persona con su rótulo justo después; planos de recurso de la feria o del producto bajo la voz, uno cada 6 a 10 s; una tarjeta de cita; subtítulos de principio a fin; el cierre  |
+
+Cada vídeo largo tiene además una versión vertical de 20 s que enlaza con él.
+
+## Demostraciones de la interfaz del producto
+
+Graba Rosepetal tal como aparece en la aplicación: navegación, estructura de página, pestañas, editor a pantalla completa, lienzo y paneles. Usa una única versión del producto y conserva la distribución, tipografía, densidad y posición de los controles. Reordenar controles reales en una composición gráfica no equivale a grabar la aplicación.
+
+Empieza con una vista completa y legible; después sigue una tarea útil con el cursor vinculado a los controles, zoom selectivo y tiempo para leer el resultado. Conserva los colores de estado. Los títulos y las transiciones de marca pueden acompañar la grabación, sin sustituir la pantalla. Usa el logotipo suministrado en el cierre.
+
+Los datos de ejemplo pueden llegar mediante servicios locales, sin tocar las páginas reales. Graba solo lo que la aplicación hace de verdad: nunca imites con respuestas genéricas de éxito funciones de servidor, dibujo o entrenamiento que falten. Comprueba la fidelidad de las pantallas antes de crear variantes de idioma y formato.
+
+## Formatos
+
+Graba y termina en 16:9 a 1920 × 1080 o más, con la acción en el centro del encuadre para que el mismo material se pueda recortar a los otros formatos.
+
+- **La zona segura de títulos** está a un 5 % de cada borde: 96 px en el lado largo de un fotograma de 1920 × 1080 y 54 px en el corto.
+- **El vídeo vertical** deja sin texto los 270 px de arriba, los 670 px de abajo y 120 px a cada lado, donde Reels, TikTok y Shorts dibujan sus botones y textos. Queda una caja de 840 × 980 px que funciona en todas las plataformas.
+- Un vídeo 16:9 que se proyecta en un estand o en un webinar usa la misma zona segura; los proyectores recortan de forma imprevisible.
+
+## Grafismo en movimiento
+
+El grafismo de vídeo usa los [tokens de movimiento](/es/motion/), pasados a fotogramas enteros. En vídeo se usan las duraciones moderada, lentas y expresiva, la moderada solo para lo que sale; lo más rápido se ve como un parpadeo.
+
+| Token | Milisegundos | 25 fps | 30 fps | 50 fps | Uso en vídeo |
+| --- | --- | --- | --- | --- | --- |
+| `--ais-duration-moderate-1` | 180 ms | 5 | 5 | 9 | Todo lo que sale |
+| `--ais-duration-slow-1` | 500 ms | 13 | 15 | 25 | Rótulos, cierre y capas al entrar |
+| `--ais-duration-slow-2` | 700 ms | 18 | 21 | 35 | Entrada del logotipo |
+| `--ais-duration-expressive` | 1100 ms | 28 | 33 | 55 | Títulos, línea a línea, con 3 fotogramas entre líneas |
+
+Las curvas son las mismas que en la web. Introdúcelas como curva personalizada en After Effects, Premiere o DaVinci Resolve:
+
+| Curva | Valor | Uso |
+| --- | --- | --- |
+| Entrada | `cubic-bezier(.16, 1, .3, 1)` | Todo lo que llega |
+| Salida | `cubic-bezier(.4, 0, 1, 1)` | Todo lo que se va |
+| Estándar | `cubic-bezier(.2, 0, 0, 1)` | Lo que se mueve dentro del encuadre, como un zoom en una grabación de pantalla |
+
+El grafismo se desplaza 16 px en 1080p, aparece a la vez que se mueve y nunca escala, gira ni se desenfoca.
+
+### Recursos de marca
+
+Cuatro recursos hacen reconocibles nuestros vídeos. Vienen incluidos en las plantillas; nunca los dibujes a mano.
+
+- **El encuadre de inspección.** Unas esquinas viajan desde las esquinas de la zona segura hasta el objeto en 18 fotogramas, una línea de escaneo lo recorre, la lectura aparece encima en JetBrains Mono y el veredicto debajo. Un defecto vuelve rojas las esquinas cuando llega el veredicto. Es lo que hacen nuestros sistemas, enseñado como lo enseñan ellos.
+- **La cortinilla azul.** Un panel a pantalla completa en azul de marca `#17356E` sube sobre el corte con la curva de salida y se va con la de entrada. Es la transición principal y separa bloques: hacia una frase, un resultado, la tarjeta de estand o el cierre.
+- **Texto con máscara.** Titulares y frases suben línea a línea desde detrás de una máscara, con 3 fotogramas entre líneas, tras una entradilla en JetBrains Mono y una línea fina que se dibuja. Nunca letra a letra, nunca con desenfoque ni rebote.
+- **Resultados que cuentan.** Una cifra verificada cuenta hacia arriba en 1,1 s, la duración expresiva, con números tabulares, con su unidad y una línea de contexto.
+
+El hexágono también es un recurso de marca, en las dos formas y con los límites de [Imagen](/es/imagery/#fondos).
+
+<VideoSpecimens lang="es" part="frames" only={['inspection']} />
+
+## Apertura, rótulos y cierre
+
+| Elemento | Cuándo | Especificación |
+| --- | --- | --- |
+| **Logotipo de apertura** | Piezas de más de 60 s: vídeos de producto, casos de éxito, webinars, tutoriales | Azul de marca `#17356E`, logotipo blanco de 560 px de ancho. 8 fotogramas de azul, el logotipo entra en 18 fotogramas, se mantiene hasta los 2 s y corte. Sin efecto de sonido. |
+| **Intro de marca** | En lugar del logotipo de apertura, una vez por pieza: pantallas de feria, vídeo social, la web, presentaciones | El paisaje de hexágonos, blanco sobre azul de marca, ondula despacio mientras una pasada de inspección avanza de cerca a lejos e ilumina sus líneas. El logotipo blanco, cada marca con la misma área que AIS Vision Systems a 560 px de ancho (ver Logotipo), aparece y sube 16 px sobre el azul limpio de arriba, y la pieza termina con un fundido. 5 s, o 10 s sin logotipo como fondo. Sin brillos, partículas ni viñeta. |
+| **Título** | Capítulos y título de la pieza | Inter Semibold 96 px, mayúscula solo inicial, sobre azul o blanco, 20 caracteres por línea y dos líneas como máximo, las líneas entran en 28 fotogramas, con 3 fotogramas entre ellas |
+| **Rótulo** | La primera vez que habla una persona | Placa en tinta `#0F1729`, con 24 px por 32 px de margen interior, en la esquina de la zona segura. Primero crece una barra de 6 px en blue-300 `#7C9FD7` en su borde izquierdo y después la placa se abre desde ella. Nombre en Inter Semibold 44 px blanco; cargo y empresa en Inter Regular 32 px neutro 400. Al menos 4 s en pantalla. |
+| **Lugar** | Primer plano de una instalación | La misma placa, una línea, 32 px: «Línea de embotellado, La Rioja» |
+| **Cierre** | Todos los vídeos | Blanco, logotipo azul de la marca de 560 px de ancho, centrado; debajo, una línea en Inter Medium 40 px: la dirección web o una sola acción. Se mantiene 1,5 s en vídeos para redes de hasta 30 s, 3 s en piezas estándar y 5 s en piezas de marca. Entra con un corte seco o con la cortinilla azul. Las marcas que no son AIS Group añaden «Part of AIS Group» en 32 px. |
+
+La apertura y el cierre llevan el logotipo de la marca que hace el vídeo; una pieza del grupo lleva el logotipo de AIS Group. El logotipo aparece una vez en cada extremo y nunca como marca de agua entre medias.
+
+<VideoSpecimens lang="es" part="frames" only={['lower-third', 'end']} />
+
+## Subtítulos
+
+| Regla | Valor |
+| --- | --- |
+| Tipografía | Inter Medium 40 px en 1080p, blanco sobre placa en tinta `#0F1729`, mayúscula solo inicial |
+| Posición | Centrados en la parte inferior de la zona segura; suben por encima del rótulo o del texto en pantalla mientras se ve |
+| Longitud | Dos líneas como máximo, 42 caracteres por línea, cortadas por frases naturales |
+| Tiempo | Entre 1 s y 7 s cada uno, a no más de 20 caracteres por segundo |
+| Archivos | WebVTT (`.vtt`) para la web, SRT (`.srt`) para YouTube y LinkedIn, un archivo por idioma |
+| Idiomas | Inglés, español y catalán redactados de forma nativa, como indica [Localización](/es/localisation/); nunca traducción automática sin revisión nativa |
+
+El vídeo para redes lleva siempre los subtítulos incrustados. El de la web y YouTube usa un archivo de subtítulos para que se puedan desactivar y elegir el idioma.
+
+## Entrevistas y ponencias
+
+Una entrevista o una ponencia en una feria enseña a la persona real en el evento real. Estas reglas la mantienen en el mismo estilo que cualquier otro vídeo.
+
+- **Tarjetas de pregunta.** Cada pregunta va en su propio título, sobre azul de marca `#17356E`, nunca en la misma tarjeta que el logotipo. La entradilla en mono nombra el evento y el lugar, con mayúscula solo inicial: «VISION 2026, Stuttgart». La pregunta es el título. En las versiones largas, la entradilla también numera la pregunta: «Pregunta 2, VISION 2026, Stuttgart».
+- **Rótulo.** La primera vez que aparece la persona, al menos 4 s en pantalla.
+- **Planos de recurso.** El estand, el escenario y las demostraciones van bajo la voz, así la respuesta nunca se corta por la imagen. El logotipo de otra empresa nunca es el protagonista de un plano.
+- **Una tarjeta de cita.** Blanca, con las palabras tal como se dijeron, entre comillas «», y el nombre de quien habla en la entradilla: «José Racionero, Rosepetal». Una por vídeo.
+- **Subtítulos** sacados de la transcripción y corregidos por una persona: las transcripciones automáticas se equivocan con los nombres. Usan el único estilo de subtítulos de arriba, nunca recuadros, sombras ni colores palabra a palabra.
+- **Sonido.** La voz, nivelada a −14 LUFS; la música, por debajo, o sin música.
+- **La versión larga** se publica con su archivo de subtítulos y sus capítulos.
+- **La versión para redes** lleva los subtítulos incrustados y termina con el cierre.
+
+Todo lo demás sigue el resto de esta página: azul de marca, nunca un azul de campaña ni una viñeta; el logotipo solo en los extremos, nunca como marca de agua ni en una franja con el evento; placas de esquinas rectas, nunca en forma de píldora; cortes o la cortinilla azul, nunca fundidos a negro. Las pantallas se enseñan tal como se grabaron, sin tarjetas ni cifras superpuestas. Una cifra solo sale de una ejecución real y conserva sus condiciones.
+
+## Imagen grabada
+
+- **Real.** Instalaciones, piezas y operarios reales, grabados con permiso. El material generado sigue las reglas de [Imagen](/es/imagery/) y nunca sustituye la instalación de un cliente.
+- **Estable.** Trípode, slider o estabilizador. Solo acercamientos lentos y desplazamientos laterales; sin barridos, vuelos de dron ni cámara en mano temblorosa.
+- **De cerca.** Acércate a la inspección: cabezal de cámara, iluminación, pieza y resultado en pantalla. Los planos macro de la pieza son la firma de la marca.
+- **Con tiempo.** Cada plano dura de 2 a 6 s; los resúmenes de feria cortan cada 1,5 a 2 s. Cortes por defecto; la cortinilla azul, la transición principal, entre bloques; un fundido encadenado de 13 fotogramas solo entre planos de una misma escena.
+- **Un solo estilo.** Un esquema de color por pieza: los títulos y las frases van sobre azul o sobre blanco, no los dos; los recursos fijos (logotipo de apertura sobre azul, cortinilla azul, cierre blanco, tarjetas de pregunta, tarjeta de cita) mantienen el suyo.
+- **Luz.** Equilibrio neutro y frío de luz de día, sin estilos de etalonaje, destellos de lente ni fugas de luz.
+- **Pantallas.** Graba las interfaces a su resolución nativa, con el cursor visible y movimientos deliberados. Acerca la imagen con la curva estándar en 13 fotogramas, nunca más de 2×.
+- **Capas de detección.** Se generan con el [kit de capas](/es/imagery/#capas-de-detección): los recuadros aparecen en 3 fotogramas, después la etiqueta del veredicto, y cada resultado se mantiene al menos 1,5 s.
+
+## Sonido
+
+- Primero la voz, grabada con micrófono externo; la calidad del sonido importa más que la de la imagen. La música va por debajo y nunca compite con ella; cuando nadie habla, el sonido de la propia máquina suele funcionar mejor que la música.
+- La música tiene licencia para el uso, es instrumental, constante y discreta: sin subidas, golpes ni efectos en los cortes.
+- Sonoridad: −14 LUFS integrados para web y redes, −23 LUFS (EBU R128) para eventos y emisión, pico real −1 dBTP.
+- El vídeo de la web nunca reproduce sonido por sí solo.
+
+## Entrega
+
+| Uso | Formato | Ajustes |
+| --- | --- | --- |
+| **Máster** | ProRes 422 HQ, `.mov` | Resolución completa, 25 fps, Rec. 709, audio a 48 kHz, sin subtítulos incrustados |
+| **Web y redes** | H.264, `.mp4` | 1080p a 10–16 Mbit/s, 25 fps, Rec. 709, AAC 48 kHz a 320 kbit/s |
+| **Bucle para la web** | H.264 `.mp4`, sin pista de audio | 1080p como máximo, menos de 6 MB, de 6 a 15 s, sin salto visible, con imagen de portada |
+| **Imagen de portada** | `.webp` | Mismo tamaño que el vídeo, un fotograma que se entienda sin reproducirlo |
+
+En Europa se graba a 25 o 50 fps; usa 30 fps solo si el material original está a 30 fps. Nombra los archivos por marca, tema, idioma, versión y formato:
+
+```
+ais-vision-systems_wine-inspection_es_v03_16x9.mp4
+```
+
+## Nunca
+
+- Un logotipo animado fuera de la apertura y el cierre, ni un logotipo que se construye, se dibuja o se monta en pantalla.
+- Plantillas de movimiento de stock, transiciones con glitch, zoom o giro, tipografía cinética, emojis ni pegatinas.
+- Texto sobre imagen cargada sin la placa en tinta o el degradado de los titulares.
+- Sonido que empieza solo en la web, o destellos más de tres veces por segundo.
+- Imágenes de la instalación, las piezas o la marca de un cliente sin permiso por escrito.
+
+
+## Archivos de apertura y cierre
+
+| Marca | Apertura ES | Apertura EN | Cierre ES | Cierre EN |
+| --- | --- | --- | --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: apertura ES (MP4)](/kit/files/ais-vision-systems_opening_es_v01_16x9.mp4) | [AIS Vision Systems: apertura EN (MP4)](/kit/files/ais-vision-systems_opening_en_v01_16x9.mp4) | [AIS Vision Systems: cierre ES (MP4)](/kit/files/ais-vision-systems_end-card_es_v01_16x9.mp4) | [AIS Vision Systems: cierre EN (MP4)](/kit/files/ais-vision-systems_end-card_en_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: apertura ES (MP4)](/kit/files/rosepetal_opening_es_v01_16x9.mp4) | [Rosepetal: apertura EN (MP4)](/kit/files/rosepetal_opening_en_v01_16x9.mp4) | [Rosepetal: cierre ES (MP4)](/kit/files/rosepetal_end-card_es_v01_16x9.mp4) | [Rosepetal: cierre EN (MP4)](/kit/files/rosepetal_end-card_en_v01_16x9.mp4) |
+
+## Archivos de intro de marca
+
+| Marca | Intro de marca, 5 s |
+| --- | --- |
+| AIS Vision Systems | [AIS Vision Systems: intro de marca (MP4)](/kit/files/ais-vision-systems_brand-intro_v01_16x9.mp4) |
+| AIS Group | [AIS Group: intro de marca (MP4)](/kit/files/ais-group_brand-intro_v01_16x9.mp4) |
+| Rosepetal | [Rosepetal: intro de marca (MP4)](/kit/files/rosepetal_brand-intro_v01_16x9.mp4) |
+| Fondo de paisaje hexagonal, 10 s, sin logotipo | [Fondo de paisaje hexagonal, 10 s (MP4)](/kit/files/hexagon-landscape_background_v01_16x9.mp4) |

@@ -1,0 +1,9 @@
+---
+import {postAnatomy} from '../data/post-anatomy';
+import type {Lang} from '../i18n';
+interface Props {lang:Lang} const {lang}=Astro.props;
+const notes=postAnatomy[lang];
+const file=`/kit/files/linkedin-hopper-${lang==='ca'?'es':lang}.png`;
+---
+<figure class="post-anatomy"><div class="post"><img src={file} alt={lang==='en'?'AIS Hopper post: Cap and fill, checked on the line':lang==='es'?'Publicación de AIS Hopper: inspección de tapón y nivel en línea':'Publicació d’AIS Hopper: inspecció de tap i nivell en línia'} loading="lazy" />{[1,2,3].map(n=><span class={`pin pin-${n}`} aria-hidden="true">{n}</span>)}</div><figcaption><ol>{notes.map(n=><li>{n}</li>)}</ol><a href={file} target="_blank" rel="noopener">{lang==='en'?'View the kit post, opens in a new tab':lang==='es'?'Ver la publicación del kit, se abre en una pestaña nueva':'Veure la publicació del kit, s’obre en una pestanya nova'}</a></figcaption></figure>
+<style>.post-anatomy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin:24px 0}.post{position:relative}img{display:block;width:100%;height:auto}.pin{position:absolute;left:8px;width:32px;height:32px;display:grid;place-items:center;background:white;color:var(--primary);border:2px solid var(--primary);border-radius:50%;font-weight:600}.pin-1{top:8px}.pin-2{top:67%;left:auto;right:8px}.pin-3{bottom:8px;left:auto;right:8px}figcaption{font-size:var(--ais-text-body);line-height:1.5}ol{margin-top:0}li{padding-left:4px;margin-bottom:24px!important}@media(max-width:600px){.post-anatomy{grid-template-columns:1fr}}</style>

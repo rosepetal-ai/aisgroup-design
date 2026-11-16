@@ -1,0 +1,31 @@
+---
+// One app mark as it is used: bare on light and on blue, as the app icon, and both favicon kinds at real size
+// on a light and a dark tab colour. Files from scripts/build-app-mark.mjs.
+// labels: blue on light, white on blue, app icon, app favicon, website favicon (light mode), website favicon (dark mode)
+interface Props { brand?: 'ais' | 'rosepetal'; labels: [string, string, string, string, string, string] }
+const { brand = 'ais', labels } = Astro.props;
+const w = brand === 'ais' ? 55 : 72;
+const sizes = [16, 32, 48];
+---
+<div class="marks">
+  <figure><div class="tile light"><img src={`/logos/${brand}-mark-blue.svg`} alt="" width={w} height="72" /></div><figcaption>{labels[0]}</figcaption></figure>
+  <figure><div class="tile blue"><img src={`/logos/${brand}-mark-white.svg`} alt="" width={w} height="72" /></div><figcaption>{labels[1]}</figcaption></figure>
+  <figure><div class="tile light"><img src={`/logos/app/${brand}/app-icon-rounded.svg`} alt="" width="112" height="112" /></div><figcaption>{labels[2]}</figcaption></figure>
+  <figure><div class="tile split"><span class="half">{sizes.map((n) => <img class="px" src={`/logos/app/${brand}/favicon-${n}.png`} alt="" width={n} height={n} />)}</span><span class="half dark">{sizes.map((n) => <img class="px" src={`/logos/app/${brand}/favicon-${n}.png`} alt="" width={n} height={n} />)}</span></div><figcaption>{labels[3]}</figcaption></figure>
+  <figure><div class="tile light"><span>{sizes.map((n) => <img class="px" src={`/logos/favicons/${brand}/favicon-${n}-light.png`} alt="" width={n} height={n} />)}</span></div><figcaption>{labels[4]}</figcaption></figure>
+  <figure><div class="tile tab"><span>{sizes.map((n) => <img class="px" src={`/logos/favicons/${brand}/favicon-${n}-dark.png`} alt="" width={n} height={n} />)}</span></div><figcaption>{labels[5]}</figcaption></figure>
+</div>
+<style>
+  .marks { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px; margin: 32px 0; }
+  figure { margin: 0; }
+  .tile { display: grid; place-items: center; height: 160px; }
+  .light { background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+  .blue { background: var(--primary); }
+  .tab { background: #202124; }
+  .split { grid-template-rows: 1fr 1fr; place-items: stretch; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+  .half { justify-content: center; align-items: center; }
+  .half.dark { background: #202124; }
+  span { display: flex; align-items: flex-end; gap: 12px; }
+  .px { image-rendering: pixelated; }
+  figcaption { margin-top: 12px; font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+</style>

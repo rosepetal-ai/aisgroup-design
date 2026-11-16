@@ -1,0 +1,104 @@
+---
+import type { Lang } from '../i18n';
+import { imageCopy } from '../imagery';
+// The guide renders its examples with the same file teams and agents download.
+import { renderOverlay } from '../../public/downloads/overlays/overlay.mjs';
+import detection from '../../public/downloads/overlays/examples/detection.json';
+import segmentation from '../../public/downloads/overlays/examples/segmentation.json';
+import measurement from '../../public/downloads/overlays/examples/measurement.json';
+import reading from '../../public/downloads/overlays/examples/reading.json';
+import defect from '../../public/downloads/overlays/examples/defect.json';
+interface Props { lang: Lang }
+const c = imageCopy[Astro.props.lang].labels;
+const expectedLot = { en: 'Expected: LOT A2319.', es: 'Esperado: LOT A2319.', ca: 'Esperat: LOT A2319.' }[Astro.props.lang];
+const examples = [
+  ['detection', detection, c.exDetection],
+  ['segmentation', segmentation, c.exSegmentation],
+  ['measurement', measurement, c.exMeasurement],
+  ['reading', reading, c.exReading],
+  ['defect', defect, c.exDefect],
+] as const;
+// The reading spec, set by hand to fit its panel; the values match examples/reading.json.
+const sample = `{
+  "image": "label-pass.svg",
+  "width": 600, "height": 400,
+  "tone": "light", "displayWidth": 430,
+  "verdict": { "result": "pass",
+               "text": "OK", "detail": "3/3" },
+  "items": [
+    { "type": "read", "text": "LOT A2319",
+      "x": 90, "y": 178, "w": 118, "h": 27 },
+    { "type": "read", "text": "EXP 08/2027",
+      "x": 90, "y": 210, "w": 130, "h": 27 }
+  ]
+}`;
+// Lucide check and x.
+const check = '<path d="M20 6 9 17l-5-5"/>';
+const cross = '<path d="M18 6 6 18M6 6l12 12"/>';
+---
+<div class="kit">
+  <ul class="examples">
+    {examples.map(([id, spec, caption]) => (
+      <li>
+        <figure>
+          <div class="frame" data-brand-check="skip" set:html={renderOverlay(spec)} />
+          <figcaption><strong>{caption[0]}</strong> {caption[1]} {id === 'defect' && expectedLot} <a href={`/downloads/overlays/examples/${id}.json`}>{id}.json</a></figcaption>
+        </figure>
+      </li>
+    ))}
+    <li>
+      <figure>
+        <pre class="spec" tabindex="0" aria-label={c.specTitle}><code>{sample}</code></pre>
+        <figcaption><strong>{c.specTitle}</strong> {c.specText}</figcaption>
+      </figure>
+    </li>
+  </ul>
+
+  <p class="ais-eyebrow">{c.kit}</p>
+  <ul class="key" data-brand-check="skip">
+    <li><svg class="swatch" viewBox="0 0 48 32" aria-hidden="true"><rect x="4" y="4" width="40" height="24" class="det" /><path d="M4 9V4h5M39 4h5v5M4 23v5h5M39 28h5v-5" class="corner" /></svg><span>{c.detection}<small>1 px, 2 px brackets. #3664B3, {c.onDarkShort} #A7BFE4</small></span></li>
+    <li><svg class="swatch" viewBox="0 0 48 32" aria-hidden="true"><rect x="4" y="7" width="40" height="18" rx="9" class="mask" /></svg><span>{c.mask}<small>{c.fillEdge}</small></span></li>
+    <li><svg class="swatch" viewBox="0 0 48 32" aria-hidden="true"><path d="M12 16h24M4 10v12M44 10v12" class="measure" /><path d="M4 16l8-3v6zM44 16l-8-3v6z" class="arrow" /></svg><span>{c.measure}<small>{c.ticks}</small></span></li>
+    <li><svg class="swatch" viewBox="0 0 48 32" aria-hidden="true"><rect x="4" y="4" width="40" height="24" class="bad" /></svg><span>{c.defect}<small>2 px, 8%. #DC2626, {c.onDarkShort} #F87171</small></span></li>
+    <li><span class="chip pass"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={check} />OK</span><span>{c.pass}<small>#15803D, 28 px</small></span></li>
+    <li><span class="chip fail"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={cross} />NOK</span><span>{c.reject}<small>#DC2626, 28 px</small></span></li>
+    <li><span class="chip tag"><b>tablet</b> 0.98</span><span>{c.label}<small>Inter 600 and 500, 12 px, 20 px</small></span></li>
+    <li><span class="chip tag mono">LOT A2319</span><span>{c.readValue}<small>JetBrains Mono 500, 12 px</small></span></li>
+  </ul>
+</div>
+<style>
+  .kit { margin: 24px 0 0 48px; }
+  .examples { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+  .examples > li { margin: 0 !important; min-width: 0; }
+  figure { margin: 0; }
+  .frame { overflow-x: auto; }
+  .frame :global(svg) { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 0; background: var(--ais-neutral-100); }
+  .spec { aspect-ratio: 3 / 2; margin: 0; padding: 16px 16px; overflow: auto; background: var(--ais-neutral-100); border-radius: 0; font: 400 12px/1.55 var(--mono); color: var(--ink); white-space: pre; }
+  figcaption { margin-top: 12px; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  figcaption strong { color: var(--ink); font-weight: 600; }
+  figcaption a { font-family: var(--mono); }
+  .kit > .ais-eyebrow { margin: 0 0 4px; }
+  .key { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; }
+  .key li { display: flex; flex-direction: column; gap: 12px; margin: 0 !important; padding: 16px 0; border-top: 1px solid var(--line); }
+  .key li > span:last-child { display: flex; flex-direction: column; gap: 2px; font-size: var(--ais-text-small); font-weight: 600; line-height: 1.35; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .key small { color: var(--muted); font-size: var(--ais-text-caption); font-weight: 400; font-variant-numeric: tabular-nums; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .swatch { width: 48px; height: 32px; }
+  .det, .bad, .mask, .measure { fill: none; stroke: var(--ais-blue-500); stroke-width: 1; }
+  .measure { stroke-width: 2; }
+  .arrow { fill: var(--ais-blue-500); }
+  .mask { stroke-width: 2; fill: color-mix(in srgb, var(--ais-blue-500) 20%, transparent); }
+  .bad { stroke: var(--ais-danger); stroke-width: 2; fill: color-mix(in srgb, var(--ais-danger) 8%, transparent); }
+  .corner { fill: none; stroke: var(--ais-blue-500); stroke-width: 2; }
+  .corner.red { stroke: var(--ais-danger); }
+  /* Optical centring: trim the text box to cap height and baseline, then pad equally (brand rule, Typography). */
+  .chip { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 7px; color: #fff; font: 500 12px/1 var(--ais-font-primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-box: trim-both cap alphabetic; }
+  .chip svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .chip.pass, .chip.fail { height: 28px; padding: 0 12px; font-size: 13px; font-weight: 600; }
+  .pass { background: var(--ais-success-solid); }
+  .fail { background: var(--ais-danger); }
+  .tag { background: var(--ais-blue-500); }
+  .tag b { font-weight: 600; }
+  .mono { font-family: var(--mono); }
+  @media (max-width: 900px) { .key { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .kit { margin-left: 0; } .examples { grid-template-columns: 1fr; } }
+</style>

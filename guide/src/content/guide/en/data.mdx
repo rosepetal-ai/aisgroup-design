@@ -1,0 +1,66 @@
+---
+title: Data visualisation
+rules:
+  - 'Choose the chart by its job: bars to compare, lines for change over time, a single figure for one number, a table for exact values. Never pies with more than three parts, 3D, or two y-axes.'
+  - 'Series colours come from the six data colours in fixed order (--ais-data-1 to -6), never cycled or reordered. A seventh series becomes «Other» or small multiples.'
+  - 'Magnitude uses one hue, light to dark (--ais-seq-*). Values above and below a reference use orange and blue around a neutral grey (--ais-div-*).'
+  - 'Status colours (success, warning, error) mean status only, with an icon or word, and are never a series colour.'
+  - 'Text never takes a series colour; a legend appears from two series, direct labels on up to four, and every chart has a table view.'
+---
+import DataSpecimens from '../../../components/DataSpecimens.astro';
+import ChartGallery from '../../../components/ChartGallery.astro';
+
+Use these chart patterns to present quantities and comparisons clearly.
+
+## Choose the form
+
+| The data’s job | Form |
+| --- | --- |
+| Compare categories | Bars, sorted by value, horizontal when labels are long |
+| Show change over time | Line; columns for few, discrete periods |
+| Part of a whole | A single stacked bar; a pie only for two or three parts |
+| Show a distribution | Histogram or dot strip |
+| One number that matters | A figure: value, label and the comparison it needs |
+| Exact values to look up | A table with tabular figures |
+
+If one number carries the message, use a figure, not a chart. Never use 3D, two y-axes on one chart, or decorative charts without real data.
+
+## Colour
+
+Six data colours, validated for colour-blind readers and for contrast on white and on the dark surface. Every one comes from the Rosepetal design system; the dark column is the same hue family stepped for dark backgrounds.
+
+<DataSpecimens lang="en" show="palettes" />
+
+- **Categorical:** assign in order, starting with blue. The colour follows the entity: when a filter removes a series, the others keep their colour.
+- **Sequential:** one hue, light to dark for more. On dark backgrounds the scale runs dark to light.
+- **Diverging:** orange below and blue above a reference, with a neutral grey at the centre.
+- **Status:** green, amber and red are reserved for status, always with a word or an icon, and never used as series colours.
+
+## Marks
+
+| Mark | Specification |
+| --- | --- |
+| **Bars and columns** | At most 24 px thick, square ends, growing from one baseline at zero; 2 px of white between touching bars and stacked segments |
+| **Lines** | 2 px, rounded joins; an 8 px dot with a 2 px white ring marks the last point |
+| **Areas** | The series colour at 10% opacity |
+| **Gridlines** | 1 px, `#E2E8F0`, solid, behind the data; the zero baseline in `#94A3B8` |
+| **Axis text** | Caption style (12 px), secondary text colour, tabular figures, rounded ticks (0, 10, 20 or 1K, 2K) |
+
+## Labels and legends
+
+- One series needs no legend: the title names it. From two series, show a legend above the chart; with up to four, also label the lines or bars directly.
+- Label selectively: the last value, the maximum or the one series the story is about. Never a number on every point.
+- Values, labels and legends are set in text colours (ink and secondary text), never in a series colour. The coloured mark beside the text carries the identity.
+- Titles use Body Semibold and state what is plotted; a subtitle gives the unit, the period and, for illustrative data, says so.
+
+## Chart toolkit
+
+Marketing pieces, landing pages, documents and slides use one toolkit, so a chart made by anyone, or by an AI agent, comes out on brand. The look lives in a [Vega-Lite](https://vega.github.io/vega-lite/) config; a chart is a short spec that only describes the data. Every chart below is rendered from its spec by the same command.
+
+<ChartGallery lang="en" />
+
+**Live charts on websites** use the same spec and config with Vega-Embed, so they gain tooltips without changing the look. **The Rosepetal app** keeps its own JavaScript chart library, where `--chart-1`, `--chart-2` and `--chart-3` are the blue, orange and violet data colours (1, 2 and 5); [the ECharts theme](/downloads/charts/ais-echarts-theme.json) (with a dark version) and the data tokens give it the same colours, type and marks.
+
+## On screen
+
+Web charts are interactive: hovering a bar or a point shows its exact value, line charts show a crosshair across all series, and every chart offers a table view with the same data. Filters sit in one row above the chart they control.

@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIS Vision Systems, sector bebidas</title>
+<style>
+/* AIS HTML decks: the fixed 1920 × 1080 stage.
+   Adapted from viewport-base.css of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang, see LICENSE-frontend-slides.txt):
+   the stage is authored at 1920 × 1080 and scaled as a whole; slides switch with visibility and opacity, never display;
+   print lays out one slide per 1920 × 1080 page. Changes for AIS: Inter from local files, AIS grounds, motion tokens,
+   an export mode (?export) that shows every slide statically for the PNG, PDF and PPTX measurements. */
+@font-face{font-family:Inter;src:url('media/Inter.ttf');font-weight:400}
+@font-face{font-family:Inter;src:url('media/InterMedium.ttf');font-weight:500}
+@font-face{font-family:Inter;src:url('media/InterSemiBold.ttf');font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#0B1220}
+body{font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+@page{size:1920px 1080px;margin:0}
+.deck-viewport{position:fixed;inset:0;overflow:hidden}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;isolation:isolate;visibility:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+/* Chrome outside the slide: page count, fades out when idle. */
+.deck-count{position:fixed;right:24px;bottom:20px;z-index:10;font:500 13px/1 Inter,sans-serif;color:#A7BFE4;font-variant-numeric:tabular-nums;opacity:0;transition:opacity 240ms cubic-bezier(.2,0,0,1)}
+.deck-count.show{opacity:.9}
+.deck-notes{position:fixed;left:0;right:0;bottom:0;z-index:11;max-height:30vh;overflow:auto;padding:16px 24px;background:#0B1220;color:#F1F5F9;font:400 16px/1.6 Inter,sans-serif;border-top:1px solid #1E293B;display:none}
+.deck-notes.show{display:block}
+/* Export and print: every slide visible, stacked, static. */
+.is-export,.is-export body{overflow:visible;height:auto;background:#fff}
+.is-export .deck-viewport{position:static;overflow:visible}
+.is-export .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+.is-export .slide{position:relative;visibility:visible;opacity:1}
+.is-export .deck-count,.is-export .deck-notes{display:none}
+.is-export *,.is-export *::before,.is-export *::after{animation:none!important;transition:none!important}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible}
+  .deck-stage{position:static;transform:none!important;height:auto;overflow:visible}
+  .slide{position:relative;visibility:visible!important;opacity:1!important;break-after:page}
+  .slide:last-child{break-after:auto}
+  .deck-count,.deck-notes{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* Beats: an element with data-beat="k" arrives on the k-th click of its slide (ease-enter, 500 ms), and is simply
+   there in export, print and ?send. */
+.slide [data-beat]{opacity:0;transform:translateY(16px);transition:opacity 500ms cubic-bezier(.16,1,.3,1),transform 500ms cubic-bezier(.16,1,.3,1)}
+.slide [data-beat].on{opacity:1;transform:none}
+@media print{.slide [data-beat]{opacity:1!important;transform:none!important}}
+.is-still *,.is-still *::before,.is-still *::after{transition:none!important;animation:none!important}
+.is-still .deck-count{display:none}
+/* Overview (O) and blackout (B): operator tools, never part of the story. */
+.is-overview .deck-viewport{overflow:auto}
+.is-overview .deck-stage{position:static;width:auto;height:auto;overflow:visible}
+.is-overview .slide{visibility:visible;opacity:1;pointer-events:auto;transform-origin:0 0;cursor:pointer;outline:6px solid transparent}
+.is-overview .slide.active{outline-color:#7C9FD7}
+.is-black .deck-viewport::after{content:'';position:fixed;inset:0;background:#000;z-index:20}
+/* Presenter window: current position large, next position, timer and notes. */
+.is-presenter .deck-viewport,.is-presenter .deck-count,.is-presenter .deck-notes{display:none}
+.is-presenter body{background:#0B1220;overflow:hidden}
+.pv{position:fixed;inset:0;display:grid;grid-template-columns:62% 1fr;gap:24px;padding:24px;color:#F1F5F9;font-family:Inter,sans-serif}
+.pv iframe{width:100%;aspect-ratio:16/9;border:0;background:#000;display:block}
+.pv-side{display:flex;flex-direction:column;gap:16px;min-height:0}
+.pv-pos{font:500 16px/1.4 Inter,sans-serif;color:#A7BFE4}
+.pv-time{font:500 40px/1 Inter,sans-serif;font-variant-numeric:tabular-nums}
+.pv-notes{font:400 20px/1.6 Inter,sans-serif;overflow:auto;flex:1}
+
+/* AIS HTML decks: tokens, type and motion of the deck.
+   Colours, durations and curves are the brand tokens (public/downloads/brand.css). Screen type at 1920 px:
+   cover 120, divider 136, headline 76, lead 44, item 46, body 38 (never under 36), labels 28, slide number 22.
+   Inter 400/500/600, sentence case. Motion: transform and opacity only, enter curve, 700 ms reveals with a 60 ms
+   stagger, the masked headline in 1100 ms, the blue wipe on the opening picture. */
+:root{
+  --brand:#17356E;--deep:#10254C;--night:#0B1220;--action:#3664B3;--light:#A7BFE4;--sky:#7C9FD7;
+  --ink:#0F1729;--muted:#4B5563;--grey:#F1F5F9;--line:#CBD5E1;--soft:#E2E8F0;
+  --ease-enter:cubic-bezier(.16,1,.3,1);--ease-standard:cubic-bezier(.2,0,0,1);
+  --slow2:700ms;--expressive:1100ms;--stagger:60ms;
+}
+.slide{color:var(--ink)}
+.slide.g-brand{background:var(--brand);color:#fff}
+.slide.g-deep{background:var(--deep);color:#fff}
+.slide.g-night{background:var(--night);color:#fff}
+.slide.g-white{background:#fff}
+.abs{position:absolute}
+.stack{position:absolute;display:flex;flex-direction:column}
+.stack>*{flex:none}
+
+/* Type */
+.t-display{font-size:120px;line-height:124px;font-weight:500;letter-spacing:-.035em}
+.t-divider{font-size:136px;line-height:140px;font-weight:500;letter-spacing:-.035em}
+.t-num{font-size:240px;line-height:240px;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.t-h{font-size:76px;line-height:84px;font-weight:500;letter-spacing:-.02em}
+.t-lead{font-size:44px;line-height:60px;font-weight:400}
+.t-item{font-size:46px;line-height:56px;font-weight:500;letter-spacing:-.01em}
+.t-body{font-size:38px;line-height:52px;font-weight:400}
+.t-label{font-size:28px;line-height:38px;font-weight:500}
+.t-meta{font-size:22px;line-height:32px;font-weight:400;font-variant-numeric:tabular-nums}
+.t-h,.t-lead,.t-item,.t-body,.t-display,.t-divider{text-wrap:balance}
+b{font-weight:600}
+.c-white{color:#fff}.c-light{color:var(--light)}.c-sky{color:var(--sky)}.c-ink{color:var(--ink)}.c-muted{color:var(--muted)}.c-brand{color:var(--brand)}.c-action{color:var(--action)}
+
+/* Rules separate, never frame */
+.rl{height:2px;background:var(--line);flex:none}
+.g-brand .rl,.g-deep .rl,.g-night .rl,.on-blue .rl{background:rgba(167,191,228,.35)}
+
+/* Pictures: an absolutely placed frame, the image cover-fitted inside it */
+.pic{position:absolute;overflow:hidden}
+.pic img{width:100%;height:100%;display:block;object-fit:cover}
+.pic.contain img{object-fit:contain}
+.logo{position:absolute;display:block}
+.hex{position:absolute;width:520px;height:520px;pointer-events:none;display:block}
+.scrim{position:absolute;pointer-events:none}
+.num{position:absolute;right:128px;bottom:40px;font-size:22px;line-height:32px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.g-brand .num,.g-deep .num,.g-night .num{color:var(--light)}
+
+/* Motion: reveals run when the slide arrives (.shown). Export and print show the end state. */
+.rv{opacity:0;transform:translateY(16px);transition:opacity var(--slow2) var(--ease-enter),transform var(--slow2) var(--ease-enter);transition-delay:calc(200ms + var(--i,0) * var(--stagger))}
+.shown .rv{opacity:1;transform:none}
+.mask{overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.mask>.mi{display:block;transform:translateY(105%);transition:transform var(--expressive) var(--ease-enter);transition-delay:calc(100ms + var(--i,0) * 100ms)}
+.shown .mask>.mi{transform:none}
+.pic img{transform:scale(1.03);transition:transform var(--expressive) var(--ease-enter)}
+.shown .pic img{transform:none}
+.wipe{position:absolute;background:var(--brand);transform-origin:100% 50%;transition:transform var(--slow2) var(--ease-enter) 150ms}
+.shown .wipe{transform:scaleX(0)}
+
+/* AIS decks, "Hoy + azul": the layout components. Facts and points are spec rows split by rules (never framed). */
+.facts,.points{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.contacts{display:flex;flex-direction:column}
+.contacts>.rl.gap{margin:20px 0}
+.crow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;column-gap:40px}
+.cline{display:flex;gap:64px}
+
+/* Grid, scale and rhythm (layouts.mjs).
+   Rhythm: label to value 8, caption 16, item 24, block 40, headline to content 64. Columns: 12 of 102 px, gutters 40. */
+.hbody{display:flex;flex-direction:column;margin-top:64px}
+.hbody.centre{flex:1 1 auto;min-height:0;justify-content:center;padding-bottom:64px}
+.stack>.hbody.centre{flex:1 1 auto}
+.gridc{display:grid;column-gap:40px}
+.gridc.rows{row-gap:64px}
+.gridc.c2{grid-template-columns:repeat(2,812px)}.gridc.c3{grid-template-columns:repeat(3,528px)}.gridc.c4{grid-template-columns:repeat(4,386px)}
+.phcell,.col,.fig{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.rows4{display:flex;flex-direction:column;width:1664px}
+.rows4 .rl.gap{margin:24px 0}
+.rows4.tight .rl.gap{margin:16px 0}
+.arow-in{display:grid;grid-template-columns:102px 954px 528px;column-gap:40px;align-items:baseline}
+/* The marker sits on the name's first line (84 px, the .t-h line), never centred on a row the description makes taller. */
+.arow-in>.mk{align-self:start;height:84px;display:flex;align-items:center}
+.mrow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:baseline}
+.hexwrap{position:relative;width:112px;height:97px;flex:none}
+.hexwrap>.abs{position:absolute}
+.hexnum{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-weight:500;font-variant-numeric:tabular-nums}
+.steprow{display:flex}
+.pic-box{position:relative;flex:none}
+.pic-fill{position:relative;flex:1 1 auto!important}
+.tiles2{display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;row-gap:40px}
+.ico{width:64px;height:64px;color:var(--action)}
+.logorow{display:flex;align-items:center;gap:40px;height:96px}
+.bars{display:flex;flex-direction:column;row-gap:64px}
+.brow{display:grid;grid-template-columns:528px 1096px;column-gap:40px;align-items:center}
+.bwrap{display:flex;align-items:center;gap:24px}
+.bar{height:60px;flex:none}
+.gantt{display:flex;flex-direction:column}
+.gantt .rl.gap{margin:24px 0}
+.grow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:center}
+.gm{display:flex}
+.gbar{display:flex;align-items:center}
+.slide{--panel:#F1F5F9}.slide.g-brand{--panel:var(--brand)}.slide.g-deep{--panel:var(--deep)}
+.g-white .rl{background:var(--line)}
+.g-brand .rl,.g-deep .rl{background:rgba(167,191,228,.35)}
+.strips{display:flex;flex-direction:column;row-gap:40px}
+.srow{display:grid;grid-template-columns:812px 812px;column-gap:40px;align-items:center}
+/* One step up or down the closed scale for a whole block (deck.js snap): body 38 / lead 44 / headline 76. */
+.up1 .t-body:not(.hexnum){font-size:44px;line-height:60px}
+.up1 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-body:not(.hexnum),.up2 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-label{font-size:38px;line-height:52px}
+.up2 .t-h:not(.mi){font-size:120px;line-height:124px;letter-spacing:-.035em}
+.dn1 .t-lead{font-size:38px;line-height:52px}
+.dn1 .t-h:not(.mi){font-size:44px;line-height:60px;letter-spacing:0}
+.gantt .bar{height:40px}
+
+/* Table (layout table): one grid row per table row, every cell a text box on its grid columns. Column titles bottom-aligned
+   over the stronger rule; rows split by the hairline. Numbers right-aligned in tabular figures. */
+.tbl{display:flex;flex-direction:column;width:1664px}
+.tbl .rl.gap{margin:24px 0}
+.tbl .rl{background:var(--soft)}
+.tbl .rl.head{background:var(--line)}
+.trow{display:grid;column-gap:40px;align-items:start}
+.trow.thead{align-items:end}
+.trow .th{font-weight:500}
+.tbl.tight .rl.gap{margin:16px 0}
+.trow .tn{text-align:right;font-variant-numeric:tabular-nums}
+.L-statement.g-brand b{color:#fff}
+.trow .tn .hy{font-variant-numeric:normal}
+
+/* Match the title's first line when the existing stage selects another type-scale step. */
+.dn1 .arow-in>.mk{height:60px}
+.up2 .arow-in>.mk{height:124px}
+
+/* Corporate content has a stable scale; whitespace never promotes a row name to a headline. */
+.L-features .arow-in>.t-h,.L-phases .arow-in>.t-h,.L-steps .arow-in>.t-h{font-size:44px;line-height:60px;letter-spacing:0}
+.L-features .arow-in>.mk,.L-phases .arow-in>.mk,.L-steps .arow-in>.mk{height:60px}
+.L-features .arow-in>.t-body,.L-phases .arow-in>.t-body,.L-steps .arow-in>.t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body[style*="font-weight:500"]{font-size:44px;line-height:60px;letter-spacing:0}
+.L-photo.panorama .hbody.centre{padding-bottom:0}
+
+.L-photo.panorama .hbody.centre>.pic{margin-top:96px}
+
+</style></head>
+<body>
+<div class="deck-viewport"><main class="deck-stage">
+<section class="slide g-brand L-cover " data-band-exempt data-notes="Presentación de AIS Vision Systems para el sector de bebidas."><div class="pic" style="left:1000px;top:0px;width:920px;height:1080px"><img data-k="img" src="media/wine-bottle-conveyor.webp" alt="" style="object-position:30% 50%"></div><div class="wipe" style="left:1000px;top:0px;width:920px;height:1080px"></div><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="left:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:0px;bottom:168px;width:820px;justify-content:flex-end"><div class="mask" style=""><div class="mi t-display c-white" data-k="text" style="--i:0">Control de calidad en líneas de bebidas</div></div><div class="t-body c-white rv" data-k="text" style=";--i:3;margin-top:40px">Visión artificial para revisar envases, cierres, etiquetas y marcajes.</div></div><div class="t-meta c-light rv abs" data-k="text" style="left:128px;bottom:40px;--i:4">Engineering peace of mind</div></section>
+<section class="slide g-white L-milestones " data-notes="La historia de AIS Group, 1 de 2: de la fundación de AIS Ltd en Irlanda, el 24 de septiembre de 1998, a la ampliación de Park West en 2013."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Desde 1998, de Dublín a Sabadell</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:2;font-weight:500">24 de septiembre de 1998</div><div class="t-body c-ink rv" data-k="text" style=";--i:2">Simon Smyth (director general) y Mick Heavey (actual director ejecutivo) fundan AIS Ltd en Irlanda</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:3;font-weight:500">Junio de 2003</div><div class="t-body c-ink rv" data-k="text" style=";--i:3">Traslado a Park West</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:4;font-weight:500">Noviembre de 2012</div><div class="t-body c-ink rv" data-k="text" style=";--i:4">AIS Vision Spain</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:5;font-weight:500">Abril de 2013</div><div class="t-body c-ink rv" data-k="text" style=";--i:5">AIS Scanology, Países Bajos</div></div></div><div data-beat="5"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:6;font-weight:500">Diciembre de 2013</div><div class="t-body c-ink rv" data-k="text" style=";--i:6">Ampliación del edificio de Park West</div></div></div></div></div></div><div class="num" data-k="text">2</div></section>
+<section class="slide g-white L-milestones " data-notes="La historia de AIS Group, 2 de 2: de Rosepetal a la compra del segundo edificio de Sabadell."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">De 2020 a 2024</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:2;font-weight:500">Noviembre de 2020</div><div class="t-body c-ink rv" data-k="text" style=";--i:2">Rosepetal; compra de dos edificios en Park West</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:3;font-weight:500">Febrero de 2021</div><div class="t-body c-ink rv" data-k="text" style=";--i:3">Edificio de AIS Vision Spain en Sabadell</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:4;font-weight:500">Julio de 2022</div><div class="t-body c-ink rv" data-k="text" style=";--i:4">AIS Vision Automation, Irlanda</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:5;font-weight:500">Agosto de 2023</div><div class="t-body c-ink rv" data-k="text" style=";--i:5">25.º aniversario</div></div></div><div data-beat="5"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:6;font-weight:500">Julio de 2024</div><div class="t-body c-ink rv" data-k="text" style=";--i:6">Compra del segundo edificio en Sabadell</div></div></div></div></div></div><div class="num" data-k="text">3</div></section>
+<section class="slide g-white L-mosaic " data-facility="true" data-notes="Las empresas de AIS Group y sus sedes: Sabadell (AIS Vision Systems y Rosepetal), Dublín (AIS Ltd), Dundalk (AIS Vision Automation) y Beugen (AIS Scanology). En la imagen grande, el edificio de AIS Vision Systems en Sabadell; en Beugen, la bandera de AIS Scanology (scanology.nl) delante del edificio; en Dublín, el edificio de AIS Ltd con su rótulo."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">AIS Group</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">AIS Vision Systems y Rosepetal en Sabadell, AIS Ltd en Dublín, AIS Vision Automation en Dundalk y AIS Scanology en Beugen.</div><div class="tiles2"><div data-beat="1"><div class="pic-box" style="height:160px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/ais-group_sabadell-aerial.webp" alt="Sabadell, España" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:3;margin-top:16px">Sabadell, España</div></div><div data-beat="2"><div class="pic-box" style="height:160px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/ais-group_dublin-building.webp" alt="Dublín, Irlanda" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:4;margin-top:16px">Dublín, Irlanda</div></div><div data-beat="3"><div class="pic-box" style="height:160px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/ais-group_dundalk-workshop.webp" alt="Dundalk, Irlanda" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:5;margin-top:16px">Dundalk, Irlanda</div></div><div data-beat="4"><div class="pic-box" style="height:160px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/ais-group_beugen-building.webp" alt="Beugen, Países Bajos" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:6;margin-top:16px">Beugen, Países Bajos</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:174px;width:940px;height:906px"><img data-k="img" src="media/sabadell-aerial-photo.jpg" alt="Vista aérea de las instalaciones de AIS Vision Systems en Sabadell" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">4</div></section>
+<section class="slide g-white L-grid " data-notes="Las seis soluciones de las empresas del grupo."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Nuestras soluciones</div></div><div class="hbody centre"><div class="gridc c3 rows"><div class="phcell" data-beat="1"><div class="pic-box" style="height:248px;max-width:795px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/cobot-labelling-cell.webp" alt="Etiquetado automático" style="object-position:50% 0%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:2;margin-top:16px">Etiquetado automático</div></div><div class="phcell" data-beat="2"><div class="pic-box" style="height:248px;max-width:2075px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/still-rev360-operator-screen.webp" alt="Sistemas de visión" style="object-position:50% 40%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:3;margin-top:16px">Sistemas de visión</div></div><div class="phcell" data-beat="3"><div class="pic-box" style="height:248px;max-width:1662px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/oval-tin-date-code.webp" alt="Impresión por chorro de tinta y láser" style="object-position:30% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:4;margin-top:16px">Impresión por chorro de tinta y láser</div></div><div class="phcell" data-beat="4"><div class="pic-box" style="height:248px;max-width:3840px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/img-001-000.webp" alt="Impresoras de etiquetas" style="object-position:45% 48%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:5;margin-top:16px">Impresoras de etiquetas</div></div><div class="phcell" data-beat="5"><div class="pic-box" style="height:248px;max-width:3840px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/img-002-001.webp" alt="Verificadores de códigos de barras" style="object-position:40% 35%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:6;margin-top:16px">Verificadores de códigos de barras</div></div><div class="phcell" data-beat="6"><div class="pic-box" style="height:248px;max-width:712px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/trays_barcode-read.webp" alt="Lectores de códigos de barras" style="object-position:50% 82%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:7;margin-top:16px">Lectores de códigos de barras</div></div></div></div></div><div class="num" data-k="text">5</div></section>
+<section class="slide g-deep L-divider " data-band-exempt data-notes=""><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:0px;bottom:168px;width:1300px;justify-content:flex-end"><div class="t-num c-light rv" data-k="text" style=";--i:0;margin-left:-10px">01</div><div class="mask" style=";margin-top:40px"><div class="mi t-display c-white" data-k="text" style="--i:1">Control de calidad con visión artificial y plataforma de IA</div></div></div></section>
+<section class="slide g-brand L-columns " data-notes="Nuestros servicios: equipos y soluciones llave en mano de AIS Vision Systems, e inspección de producto. La IA de Rosepetal, en la diapositiva siguiente."><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:96px;width:1238px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Nuestros servicios</div></div><div class="hbody centre"><div class="gridc c2"><div class="col" data-band data-beat="1"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:2;margin-top:24px;font-weight:500">AIS Vision Systems</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:24px">Equipos y soluciones llave en mano</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:8px">Diseño mecánico y eléctrico</div></div><div class="col" data-band data-beat="2"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:3;margin-top:24px;font-weight:500">Inspección de producto</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:24px">Por fuera o dentro del envase</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:8px">Cuerpos extraños, falta de producto, defectos</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:8px">Exceso de grasa, etiqueta, tapón, OCR, etc.</div></div></div></div></div><div class="num" data-k="text">7</div></section>
+<section class="slide g-brand L-split " data-notes="Software con inteligencia artificial basado en aprendizaje profundo, para productos sin un patrón único, que requieren crear una red neuronal. El sistema aprende a partir de imágenes, con un operario que decide si hay un error e indica de qué tipo es; según el entrenamiento, la red reconoce los errores con un grado de precisión variable. En la imagen, la herramienta de etiquetado de Rosepetal."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">IA con Rosepetal</div></div><div class="hbody centre"><div class="t-body c-light rv" data-k="text" style=";--i:1;margin-bottom:40px">Software de aprendizaje profundo para productos sin un patrón único, que requieren crear una red neuronal.</div><div class="points"><div data-beat="1"><div class="t-body c-white rv" data-k="text" style="--i:3">Aprende a partir de imágenes</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-body c-white rv" data-k="text" style="--i:4">Un operario decide si hay un error y de qué tipo</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-body c-white rv" data-k="text" style="--i:5">Precisión variable según el entrenamiento</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:243px;width:844px;height:594px"><img data-k="img" src="media/rosepetal_labelling-tool-demo.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">8</div></section>
+<section class="slide g-white L-milestones " data-notes="Dónde se aplica la inspección con IA: productos orgánicos sin un patrón único, con defectos visibles (semillas, atún y sardinas, galletas, tortillas) y otras aplicaciones: inspección de latas a 360°, cualquier producto sin un patrón único y lectura OCR de marcajes complejos."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">¿Dónde se aplica? En productos orgánicos con defectos visibles</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:2;font-weight:500">Semillas</div><div class="t-body c-ink rv" data-k="text" style=";--i:2">Clasificación por tamaño y color</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:3;font-weight:500">Atún y sardinas</div><div class="t-body c-ink rv" data-k="text" style=";--i:3">Homogeneidad del producto, recuento de unidades, cuerpos extraños</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:4;font-weight:500">Galletas</div><div class="t-body c-ink rv" data-k="text" style=";--i:4">Roturas, grietas, color</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:5;font-weight:500">Tortillas</div><div class="t-body c-ink rv" data-k="text" style=";--i:5">Termosellado, producto, roturas, lote, huevo crudo</div></div></div><div data-beat="5"><div class="rl gap" data-k="rect" style=""></div><div class="mrow"><div class="t-body c-action rv" data-k="text" style=";--i:6;font-weight:500">Otras aplicaciones</div><div class="t-body c-ink rv" data-k="text" style=";--i:6">Latas a 360°, cualquier producto sin un patrón único, lectura OCR de marcajes complejos</div></div></div></div></div></div><div class="num" data-k="text">9</div></section>
+<section class="slide g-white L-features " data-notes="Tapón, boca y nivel de líquido: AIS Hopper. Marcaje: OPTICAIS. Etiqueta: AIS REV 360. Las muestras y la configuración determinan el alcance de la inspección."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Qué revisamos en el envase</div></div><div class="hbody centre"><div class="rows4" data-band><div data-beat="1"><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide (@lucide/vue) - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-circle-dot"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="1" />
+  <circle cx="12" cy="12" r="10" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:2">Tapón y boca</div><div class="t-body c-muted rv" data-k="text" style=";--i:2">Presencia, posición e integridad del cierre y del precinto</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M7 8h8" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:3">Marcaje</div><div class="t-body c-muted rv" data-k="text" style=";--i:3">Lectura OCR de textos y datos impresos</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="arow-in"><div class="mk"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-tag"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+</svg>
+</div></div><div class="t-h c-ink rv" data-k="text" style=";--i:4">Etiqueta</div><div class="t-body c-muted rv" data-k="text" style=";--i:4">Posición, estado e información, a 360°</div></div></div></div></div></div><div class="num" data-k="text">10</div></section>
+<section class="slide g-white L-stage " data-notes="Las opciones dependen de la variante y del proyecto. Enlaces del original: vídeo de configuración de etiquetas, vídeo del AIS REV 360 y catálogo del AIS REV 360."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">AIS REV 360: inspección de etiquetas</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Etiqueta, a 360°</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Ausencia, doble etiqueta, inversión, inclinación, roturas, arrugas, pliegues, manchas y levantamientos</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Códigos y marcajes</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Verificación y relación entre etiquetas, con IA de Rosepetal</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:4">Cápsula y medallón</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:4"></div></div></div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:640px"><img data-k="img" src="media/rev360-product.webp" alt="" style="object-position:50% 55%"></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:664px;width:940px;height:416px"><img data-k="img" src="media/cava-capsule-detections-blurred.webp" alt="" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">11</div></section>
+<section class="slide g-white L-grid " data-notes="Los controles de etiqueta del AIS REV 360: arrugas, doble etiqueta, sin etiqueta y etiqueta invertida (la lista completa, en la diapositiva anterior). A la izquierda, las cuatro vistas de cámara de una botella en una línea de cliente; a la derecha, el etiquetado de defectos en Rosepetal sobre botellas de cava. Marcas de cliente difuminadas."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Sistemas de control de calidad con IA</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Sistema de inspección de etiquetas a 360° con IA, para botellas de vino, cava y bebidas.</div><div class="gridc c2 rows"><div class="phcell" data-beat="1"><div class="pic-box" style="height:472px;max-width:1485px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/still-rev360-wine-four-views_blurred.webp" alt="Las cuatro vistas de una botella en el AIS REV 360" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:2;margin-top:16px">Las cuatro vistas de una botella en el AIS REV 360</div></div><div class="phcell" data-beat="2"><div class="pic-box" style="height:472px;max-width:2396px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/labelling-tool-cava-blurred.webp" alt="Defectos de etiqueta marcados en Rosepetal" style="object-position:35% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:3;margin-top:16px">Defectos de etiqueta marcados en Rosepetal</div></div></div></div></div><div class="num" data-k="text">12</div></section>
+<section class="slide g-white L-stage " data-notes="Cadencia según formato e inspecciones (folleto del AIS Hopper: hasta 30 000 unidades/hora). En la foto, el AIS Hopper en una línea de agua embotellada. El ajuste con ejemplos, sin programación, en la diapositiva de software. Enlaces del original: vídeo de la pantalla con botellas, vídeo de la pantalla con garrafas y vídeo del AIS Hopper."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">AIS Hopper: inspección de tapones a 360°</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">El 100 % de la producción, hasta 30 000 unidades/hora.</div><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Tapón</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Presencia, integridad y posición, a 360° sin orientar el envase</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Producción</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Estadísticas de cada producción</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1028px;top:280px;width:844px;height:520px"><img data-k="img" src="media/hopper-water-line.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">13</div></section>
+<section class="slide g-white L-features " data-notes="Los controles se definen con las muestras de cada línea. También controla el tapón solidario. Tapón en 360°, sin orientar el envase, sobre el 100 % de la producción."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Del cierre al nivel de llenado</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Tapón, boca y cuello del envase, y nivel de llenado.</div><div class="gridc c3 rows"><div class="phcell" data-beat="1"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:2;font-weight:500;margin-top:24px">Defectos del tapón</div></div><div class="phcell" data-beat="2"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide (@lucide/vue) - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-rotate-ccw"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+  <path d="M3 3v5h5" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:3;font-weight:500;margin-top:24px">Tapón inclinado</div></div><div class="phcell" data-beat="3"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide (@lucide/vue) - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-circle-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m2 2 20 20" />
+  <path d="M8.35 2.69A10 10 0 0 1 21.3 15.65" />
+  <path d="M19.08 19.08A10 10 0 1 1 4.92 4.92" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:4;font-weight:500;margin-top:24px">Cápsula ausente</div></div><div class="phcell" data-beat="4"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide (@lucide/vue) - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-hand"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" />
+  <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" />
+  <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" />
+  <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:5;font-weight:500;margin-top:24px">Presencia y orientación del asa</div></div><div class="phcell" data-beat="5"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide (@lucide/vue) - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-beaker"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4.5 3h15" />
+  <path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3" />
+  <path d="M6 14h12" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:6;font-weight:500;margin-top:24px">Nivel de llenado</div></div><div class="phcell" data-beat="6"><div style="margin-bottom:24px"><div class="ico rv" data-k="vec"><!-- @license lucide-static v1.48.0 - ISC -->
+<svg width="100%" height="100%"
+  class="lucide lucide-scan-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M7 8h8" />
+  <path d="M7 12h10" />
+  <path d="M7 16h6" />
+</svg>
+</div></div><div class="rl" data-k="rect" style=""></div><div class="t-body c-ink rv" data-k="text" style=";--i:7;font-weight:500;margin-top:24px">Lectura y presencia de lote</div></div></div></div></div><div class="num" data-k="text">14</div></section>
+<section class="slide g-white L-stage " data-notes="El AIS Hopper con su pantalla de operario, sobre una línea."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Sobre la cinta, junto al recorrido del producto</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Cabezal</div><div class="t-body c-ink rv" data-k="text" style="margin-top:8px;--i:2">Tres cámaras en color para el control lateral del tapón; cámara cenital opcional para la boca</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Iluminación</div><div class="t-body c-ink rv" data-k="text" style="margin-top:8px;--i:3">Cúpula que aísla de la luz exterior</div></div><div class="fact" data-beat="3" style="--i:4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:4">Botellas atravesando el cabezal</div><div class="t-body c-ink rv" data-k="text" style="margin-top:8px;--i:4">Inspección en línea</div></div></div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:640px"><img data-k="img" src="media/still-machine-hmi.webp" alt="" style="object-position:50% 50%"></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:664px;width:940px;height:416px"><img data-k="img" src="media/hopper_bottles-in-head.webp" alt="" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">15</div></section>
+<section class="slide g-white L-stage " data-notes="El AIS Hopper visto desde fuera: acero inoxidable, compacto, con regulación automática de altura según la referencia. En el detalle, la detección de boca dañada (pantalla del original, sistema de inspección de boca)."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Equipo compacto, de acero inoxidable</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Altura</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Regulación automática según la referencia</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Sistema de inspección de boca</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">Detección de boca dañada</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:640px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1233px;top:48px;width:435px;height:544px"><img data-k="img" src="media/hopper_01_3q-left_light.webp" alt="" style="object-fit:fill"></div><div data-side-photo="full"><div class="pic" style="left:980px;top:664px;width:940px;height:416px"><img data-k="img" src="media/bottle-mouth_damaged-detection.webp" alt="" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">16</div></section>
+<section class="slide g-white L-stage " data-notes="Vista en directo y detecciones del tapón. Opciones: rechazo progresivo o por impacto, zona de acumulación del producto rechazado, cintas de transporte, centrador de producto, control de etiquetas y marcaje láser o de tinta, y TrazAIS para trazabilidad y serialización."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Ajustes basados en ejemplos, sin programación</div></div><div class="hbody centre"><div class="facts"><div class="fact" data-beat="1" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Software</div><div class="t-body c-ink rv" data-k="text" style="margin-top:8px;--i:2">Motor de aprendizaje profundo de Rosepetal; copia en la nube de recetas, imágenes y estadísticas</div></div><div class="fact" data-beat="2" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Opciones</div><div class="t-body c-ink rv" data-k="text" style="margin-top:8px;--i:3">Rechazo progresivo o por impacto, acumulación, cintas, centrador, etiquetas y marcaje, TrazAIS</div></div></div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:1080px"><img data-k="img" src="media/hopper_software-screen.webp" alt="" style="object-position:0% 50%"></div></div><div class="num" data-k="text" style="right:980px">17</div></section>
+<section class="slide g-brand L-split " data-notes="El mismo proceso de preventa que en todos nuestros proyectos."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Probamos tus muestras antes de la oferta</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-lead c-white rv" data-k="text" style="--i:3"><b>Muestras:</b> envases reales de tu producción, con sus formatos y defectos</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:4"><b>Pruebas de laboratorio:</b> un informe técnico fija el hardware del proyecto</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:5"><b>Oferta técnica y económica</b> detallada</div></div></div></div></div><div data-side-photo="full"><div class="pic" style="left:980px;top:0px;width:940px;height:1080px"><img data-k="img" src="media/laboratory-test-bench.webp" alt="" style="object-position:40% 50%"></div></div><div class="num" data-k="text" style="right:980px">18</div></section>
+<section class="slide g-brand L-columns " data-notes="Del original: sistema de inspección de tapón a 360° y de nivel, y sistema de inspección de boca. Etiqueta: bandera, lote, código de barras, inclinación. Tapón: rotura, presencia, inclinación, puente roto, color, control del tapón solidario en los 360°. Nivel de líquido y asa. La boca se revisa con la cámara cenital."><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:96px;width:1238px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Inspección de tapón a 360°, de nivel y de boca</div></div><div class="hbody centre"><div class="gridc c4"><div class="col" data-band data-beat="1"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:2;margin-top:24px;font-weight:500">Etiqueta</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:24px">Bandera y lote</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:8px">Código de barras</div><div class="t-body c-light rv" data-k="text" style=";--i:2;margin-top:8px">Inclinación</div></div><div class="col" data-band data-beat="2"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:3;margin-top:24px;font-weight:500">Tapón</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:24px">Presencia y rotura</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:8px">Inclinación y puente roto</div><div class="t-body c-light rv" data-k="text" style=";--i:3;margin-top:8px">Color del tapón</div></div><div class="col" data-band data-beat="3"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:4;margin-top:24px;font-weight:500">Tapón solidario</div><div class="t-body c-light rv" data-k="text" style=";--i:4;margin-top:24px">Control a 360°</div></div><div class="col" data-band data-beat="4"><div class="rl" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style=";--i:5;margin-top:24px;font-weight:500">Nivel y boca</div><div class="t-body c-light rv" data-k="text" style=";--i:5;margin-top:24px">Nivel de líquido</div><div class="t-body c-light rv" data-k="text" style=";--i:5;margin-top:8px">Asa</div><div class="t-body c-light rv" data-k="text" style=";--i:5;margin-top:8px">Boca</div></div></div></div></div><div class="num" data-k="text">19</div></section>
+<section class="slide g-white L-grid " data-notes="OPTICAIS: sistema de reconocimiento de textos, códigos 1D y 2D (sistemas de control de textos, OCR). Lotes y otros datos; textos impresos contrastados con los campos de cada referencia; campos y recetas desde la interfaz (folleto de OPTICAIS). Enlaces del original: OCR en cupones, OCR en envases de cerveza, OCR en fondos de envases y vídeo de inspección de cúpulas."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">OPTICAIS</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Sistemas de control de textos (OCR): reconocimiento de textos, códigos 1D y 2D.</div><div class="gridc c3 rows"><div class="phcell" data-beat="1"><div class="pic-box" style="height:317px;max-width:650px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/opticais-reading-statistics.webp" alt="En la pantalla del equipo" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:2;margin-top:16px">En la pantalla del equipo</div></div><div class="phcell" data-beat="2"><div class="pic-box" style="height:317px;max-width:740px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/camera-over-can-line.webp" alt="La cámara, sobre el paso de los envases" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:3;margin-top:16px">La cámara, sobre el paso de los envases</div></div><div class="phcell" data-beat="3"><div class="pic-box" style="height:317px;max-width:536px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/opticais-can-line-context.webp" alt="Sobre una línea de latas" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:4;margin-top:16px">Sobre una línea de latas</div></div></div></div></div><div class="num" data-k="text">20</div></section>
+<section class="slide g-white L-grid " data-notes="Control de objetos flotantes en botellas de vino, espumoso o bebida espirituosa: imágenes de cámara a contraluz del original (botella OK, botella NOK con partículas en suspensión y una partícula flotante)."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Otras soluciones</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Objetos flotantes dentro de una botella de vino, espumoso o bebida espirituosa.</div><div class="gridc c3 rows"><div class="phcell" data-beat="1"><div class="pic-box" style="height:287px;max-width:633px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/bottle_backlit-ok.webp" alt="Botella OK" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:2;margin-top:16px">Botella OK</div></div><div class="phcell" data-beat="2"><div class="pic-box" style="height:287px;max-width:643px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/bottle_backlit-floating-particles.webp" alt="Botella NOK con partículas" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:3;margin-top:16px">Botella NOK con partículas</div></div><div class="phcell" data-beat="3"><div class="pic-box" style="height:287px;max-width:636px"><div class="pic" style="left:0px;top:0px;width:100%;height:100%"><img data-k="img" src="media/bottle_backlit-particle.webp" alt="Partícula flotante" style="object-position:50% 50%"></div></div><div class="t-label c-ink rv" data-k="text" style=";--i:4;margin-top:16px">Partícula flotante</div></div></div></div></div><div class="num" data-k="text">21</div></section>
+<section class="slide g-deep L-divider " data-band-exempt data-notes=""><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:0px;bottom:168px;width:1300px;justify-content:flex-end"><div class="t-num c-light rv" data-k="text" style=";--i:0;margin-left:-10px">02</div><div class="mask" style=";margin-top:40px"><div class="mi t-display c-white" data-k="text" style="--i:1">AIS Conwell: muelles de carga inteligentes</div></div></div></section>
+<section class="slide g-white L-product " data-notes="Esquema del original: el muelle, el escáner lateral en diagonal a 45° y la cota de 700 mm. Las dos fotos de muelles son las de la diapositiva 27 del original («Muelles de carga y descarga»)."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Pórticos de identificación automática para muelles de carga y descarga</div></div><div class="hbody centre"><div class="t-body c-muted rv" data-k="text" style=";--i:1;margin-bottom:40px">Muelles de carga automáticos sin necesidad de escaneo manual.</div><div class="facts"><div class="fact" style="--i:2"><div class="t-label c-action rv" data-k="text" style="--i:2">Escáner</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:2">Lateral, en diagonal a 45°</div></div><div class="fact" style="--i:3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-action rv" data-k="text" style="--i:3">Cota del esquema</div><div class="t-lead c-ink rv" data-k="text" style="margin-top:8px;--i:3">700 mm</div></div></div></div></div><div class="pic" style="left:1034px;top:0px;width:886px;height:488px"><img data-k="img" src="media/loading-dock_scanner-diagram.png" alt="" style="width:886px;height:488px;max-width:none;object-fit:fill"></div><div data-beat="1"><div class="pic contain" style="left:1034px;top:512px;width:431px;height:305px"><img data-k="img" src="media/loading-dock_scanners-large.webp" alt="" style="object-position:50% 50%"></div><div class="t-label c-ink rv abs" data-k="text" style="left:1034px;top:833px;width:431px;--i:5">Muelles de carga y descarga</div></div><div data-beat="2"><div class="pic contain" style="left:1489px;top:512px;width:431px;height:305px"><img data-k="img" src="media/loading-dock_label-applicator-portal-large.webp" alt="" style="object-position:50% 50%"></div><div class="t-label c-ink rv abs" data-k="text" style="left:1489px;top:833px;width:431px;--i:6">Pórtico en un muelle de carga</div></div><div class="num" data-k="text" style="right:980px">23</div></section>
+<section class="slide g-white L-milestones " data-notes="Qué hace: lee códigos 1D en las etiquetas; se comunica con el WMS (software de gestión de almacenes); distingue entre carga y descarga para registrar la entrada o la salida de mercancía; avisa cuando hay un error de carga, de descarga o de lectura. Dónde se aplica: en los muelles de carga y descarga, en las entradas y salidas del almacén y al final del proceso de producción."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Identificación automática en muelles de carga</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:2;font-weight:500">Lectura</div><div class="t-body c-ink rv" data-k="text" style=";--i:2">Lee códigos 1D en las etiquetas</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:3;font-weight:500">WMS</div><div class="t-body c-ink rv" data-k="text" style=";--i:3">Se comunica con el software de gestión de almacenes</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:4;font-weight:500">Carga y descarga</div><div class="t-body c-ink rv" data-k="text" style=";--i:4">Registra la entrada o la salida de mercancía</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:5;font-weight:500">Avisos</div><div class="t-body c-ink rv" data-k="text" style=";--i:5">Error de carga, de descarga o de lectura</div></div></div><div data-beat="5"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:6;font-weight:500">Dónde se aplica</div><div class="t-body c-ink rv" data-k="text" style=";--i:6">Muelles de carga y descarga, entradas y salidas del almacén, final del proceso de producción</div></div></div></div></div></div><div class="num" data-k="text">24</div></section>
+<section class="slide g-white L-milestones " data-notes="Ventajas: elimina los errores humanos y evita el desperdicio innecesario de recursos; usa los datos de salida para mejorar tus procesos; sigue cada unidad y cada paso hasta la entrega final; mejora la calidad de tu producto o servicio con la tecnología de códigos de barras; ofrecemos plataformas con interfaz fácil de usar para todos nuestros equipos industriales fijos."><div class="stack " style="left:128px;top:96px;width:1664px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-ink" data-k="text" style="--i:0">Ventajas</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:2;font-weight:500">Errores</div><div class="t-body c-ink rv" data-k="text" style=";--i:2">Elimina los errores humanos y evita el desperdicio innecesario de recursos</div></div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:3;font-weight:500">Datos</div><div class="t-body c-ink rv" data-k="text" style=";--i:3">Usa los datos de salida para mejorar tus procesos</div></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:4;font-weight:500">Trazabilidad</div><div class="t-body c-ink rv" data-k="text" style=";--i:4">Sigue cada unidad y cada paso hasta la entrega final</div></div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:5;font-weight:500">Calidad</div><div class="t-body c-ink rv" data-k="text" style=";--i:5">Mejora la calidad de tu producto o servicio con la tecnología de códigos de barras</div></div></div><div data-beat="5"><div class="rl gap" data-k="rect" style=""></div><div class="mrow" style="grid-template-columns:528px 1096px"><div class="t-body c-action rv" data-k="text" style=";--i:6;font-weight:500">Facilidad de uso</div><div class="t-body c-ink rv" data-k="text" style=";--i:6">Ofrecemos plataformas con interfaz fácil de usar para todos nuestros equipos industriales fijos</div></div></div></div></div></div><div class="num" data-k="text">25</div></section>
+<section class="slide g-deep L-divider " data-band-exempt data-notes=""><img class="hex" data-k="vec" src="media/hex-deck-tr.svg" alt="" style="right:0px;top:0px"><div class="stack " style="left:128px;top:0px;bottom:168px;width:1300px;justify-content:flex-end"><div class="t-num c-light rv" data-k="text" style=";--i:0;margin-left:-10px">03</div><div class="mask" style=";margin-top:40px"><div class="mi t-display c-white" data-k="text" style="--i:1">Compromiso con los más altos estándares de calidad</div></div></div></section>
+<section class="slide g-brand L-split " data-notes="Control de calidad de artes gráficas con GlobalVision: Arts Platform, el C8 (en la imagen) y la inspección de todos los envases a su llegada al almacén."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Control de calidad de artes gráficas</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-lead c-white rv" data-k="text" style="--i:3"><b>Arts Platform:</b> la forma más rápida de encontrar y eliminar errores en los envases</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:4"><b>GlobalVision C8</b></div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:5"><b>¿Qué te ofrecemos?</b> Inspección de todos los envases a su llegada al almacén</div></div></div></div></div><div class="abs panel" data-k="rect" style="left:980px;top:0px;width:940px;height:1080px;background:var(--panel)"></div><div data-side-photo="complete" class="pic" data-band-skip style="left:1151px;top:295px;width:599px;height:490px"><img data-k="img" src="media/c8-source.webp" alt="" style="object-fit:fill"></div><div class="num" data-k="text" style="right:980px">27</div></section>
+<section class="slide g-white L-logos " data-notes="Clientes del sector de bebidas."><div class="mask" style="position:absolute;left:128px;top:96px;width:1664px"><div class="mi t-h c-ink" data-k="text" style="--i:0">Nuestros clientes y referencias</div></div><img data-band-skip class="abs rv" data-k="img" src="media/coca-cola.png" alt="coca-cola" style="left:214px;top:311px;width:357px;height:112px;--i:2"><img data-band-skip class="abs rv" data-k="img" src="media/juver.png" alt="juver" style="left:834px;top:288px;width:252px;height:159px;--i:3"><img data-band-skip class="abs rv" data-k="img" src="media/font-agudes.png" alt="font-agudes" style="left:1441px;top:287px;width:175px;height:160px;--i:4"><img data-band-skip class="abs rv" data-k="img" src="media/juve-camps.png" alt="juve-camps" style="left:193px;top:579px;width:399px;height:71px;--i:5"><img data-band-skip class="abs rv" data-k="img" src="media/marie-brizard.png" alt="marie-brizard" style="left:832px;top:536px;width:256px;height:156px;--i:6"><img data-band-skip class="abs rv" data-k="img" src="media/mg-destilerias.png" alt="mg-destilerias" style="left:1392px;top:541px;width:273px;height:146px;--i:7"><img data-band-skip class="abs rv" data-k="img" src="media/boix.png" alt="boix" style="left:305px;top:781px;width:174px;height:160px;--i:8"><img data-band-skip class="abs rv" data-k="img" src="media/delafruit.png" alt="delafruit" style="left:778px;top:806px;width:364px;height:110px;--i:9"><img data-band-skip class="abs rv" data-k="img" src="media/sanmy.png" alt="sanmy" style="left:1359px;top:802px;width:338px;height:118px;--i:10"><div class="abs" data-band style="left:128px;top:287px;width:528px;height:160px"></div><div class="abs" data-band style="left:696px;top:287px;width:528px;height:160px"></div><div class="abs" data-band style="left:1264px;top:287px;width:528px;height:160px"></div><div class="abs" data-band style="left:128px;top:534px;width:528px;height:160px"></div><div class="abs" data-band style="left:696px;top:534px;width:528px;height:160px"></div><div class="abs" data-band style="left:1264px;top:534px;width:528px;height:160px"></div><div class="abs" data-band style="left:128px;top:781px;width:528px;height:160px"></div><div class="abs" data-band style="left:696px;top:781px;width:528px;height:160px"></div><div class="abs" data-band style="left:1264px;top:781px;width:528px;height:160px"></div><div class="rl" data-k="rect" style="position:absolute;left:128px;width:1664px;top:490px"></div><div class="rl" data-k="rect" style="position:absolute;left:128px;width:1664px;top:736px"></div><div class="num" data-k="text">28</div></section>
+<section class="slide g-brand L-split " data-facility="true" data-notes="Contacto de AIS Vision Systems; el teléfono y la web, en la diapositiva final."><div class="stack " style="left:128px;top:96px;width:812px;bottom:96px"><div class="mask" style=""><div class="mi t-h c-white" data-k="text" style="--i:0">Nuestra oficina en España</div></div><div class="hbody centre"><div class="t-lead c-light rv" data-k="text" style=";--i:1;margin-bottom:40px">AIS Vision Systems</div><div class="points"><div data-beat="1"><div class="t-lead c-white rv" data-k="text" style="--i:3">Dirección<br>Carrer de Can Camps, 10, Pol. Ind. Can Roqueta; 08202 Sabadell (Barcelona)</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-lead c-white rv" data-k="text" style="--i:4">Correo electrónico<br>info@aisvision.com</div></div></div></div></div><div data-side-photo="limited"><div class="pic" style="left:980px;top:174px;width:940px;height:906px"><img data-k="img" src="media/sabadell-aerial-photo.jpg" alt="Vista aérea de las instalaciones de AIS Vision Systems en Sabadell" style="object-position:50% 50%"></div></div><div class="num" data-k="text" style="right:980px">29</div></section>
+<section class="slide g-brand L-closing " data-notes="Cierre del original (diapositiva 37): «¡Gracias! Podéis encontrarnos en: LinkedIn, YouTube, www.aisvision.com». Enlaces: https://www.linkedin.com/company/ais-vision-systems-s-l-/ y http://www.youtube.com/@Aisvision. El teléfono, como en las piezas aprobadas."><img class="hex" data-k="vec" src="media/hex-deck-br.svg" alt="" style="right:0px;bottom:0px"><img class="logo rv" data-k="vec" src="media/ais-vision-systems-white.svg" alt="AIS Vision Systems" style="right:128px;top:96px;width:140px;--i:0"><div class="stack " style="left:128px;top:96px;bottom:96px;width:1096px"><div class="mask" style=""><div class="mi t-display c-white" data-k="text" style="--i:0">Gracias</div></div><div class="hbody centre"><div class="points"><div data-beat="1"><div class="t-label c-light rv" data-k="text" style=";--i:2">Web</div><div class="t-h c-white rv" data-k="text" style=";--i:2;margin-top:8px;font-variant-numeric:tabular-nums">www.aisvision.com</div></div><div data-beat="2"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:3">Teléfono</div><div class="t-h c-white rv" data-k="text" style=";--i:3;margin-top:8px;font-variant-numeric:tabular-nums">+34 931 003 035</div></div><div data-beat="3"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:4">LinkedIn</div><div class="t-h c-white rv" data-k="text" style=";--i:4;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div><div data-beat="4"><div class="rl gap" data-k="rect" style=""></div><div class="t-label c-light rv" data-k="text" style=";--i:5">YouTube</div><div class="t-h c-white rv" data-k="text" style=";--i:5;margin-top:8px;font-variant-numeric:tabular-nums">AIS Vision Systems</div></div></div></div></div></section>
+</main></div>
+<div class="deck-count" aria-hidden="true"></div><div class="deck-notes" aria-live="polite"></div>
+<script>
+/* AIS HTML decks: the presenter.
+   Adapted from the SlidePresentation controller and deck-stage.js of frontend-slides (MIT, Copyright (c) 2025 Zara Zhang,
+   see LICENSE-frontend-slides.txt): uniform scale of the 1920 × 1080 stage, keyboard, wheel and swipe navigation, the
+   count outside the slide, print. The beat model follows beatdeck (MIT, Borja Pérez): one click shows one beat, every
+   position is #slide.beat and renders the same whether reached forwards, backwards or straight from the URL; P opens a
+   presenter window (notes, next, timer) kept in step over BroadcastChannel; O overview; B blackout.
+   Modes: ?export (every slide, every beat, static: PNG, PDF, PPTX measurement), ?still (one position, no motion: the
+   presenter's previews), ?view=presenter, ?send (no beats: each slide arrives whole). */
+(() => {
+  const html = document.documentElement, q = location.search;
+  const slides = [...document.querySelectorAll('.slide')];
+  // A content block centred under its headline sits on the 8 px baseline: its offset is snapped once the fonts are in
+  // (layout only, transforms ignored). html[data-snapped] tells the builder and verify the layout is final.
+  // Scale the composition, not the decoration: a block with a lot of room left steps its body text up one size of the
+  // closed scale (38 to 44, 44 to 76: class up1), or two if there is still room (up2: words at 76, names at 120); a block
+  // that does not fit steps down one (dn1). Then the block is
+  // centred and its offset snapped to the 8 px baseline.
+  const snap = () => { document.querySelectorAll('.hbody.centre').forEach((h) => {
+    h.style.justifyContent = 'flex-start'; h.style.paddingTop = '0px';
+    const kids = () => [...h.children];
+    const room = h.offsetParent.clientHeight - h.offsetTop;
+    const wide = () => [...h.querySelectorAll('[data-k="text"]')].some((e) => e.scrollWidth > e.clientWidth + 2);
+    const free = () => { const k = kids(); if (!k.length) return 0; const top = Math.min(...k.map((x) => x.offsetTop)), bot = Math.max(...k.map((x) => x.offsetTop + x.offsetHeight)); return wide() ? -1 : room - (h.querySelector('.rows4') && !h.closest('.L-agenda') ? 48 : 64) - (bot - top); };
+    const rows = h.querySelector('.rows4');
+    if (rows && !h.closest('.L-agenda')) {
+      const titles = [...rows.querySelectorAll('.arow-in')];
+      const used = titles.reduce((sum, row) => sum + row.offsetHeight, 0);
+      const budget = (room - 128 - used - (titles.length-1)*2) / Math.max(1, 2*(titles.length-1));
+      const gap = [24, 40, 64, 96].filter(v => v <= budget).pop() || 24;
+      rows.querySelectorAll('.rl.gap').forEach(rule => rule.style.margin = `${gap}px 0`);
+    }
+    let f = free();
+    // A sentence of more than 12 words never reaches headline size: it may step 38 to 44, no further.
+    const long = Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) > 12;
+    if (!h.closest('.L-features,.L-phases,.L-steps,.panorama') && f > 200 && !(long && h.querySelector('.t-lead, .t-h'))) {
+      h.classList.add('up1'); if (free() < 0) h.classList.remove('up1');
+      // A sentence of more than 12 words stays at lead size: running text never goes to headline size.
+      else if (free() > 200 && Math.max(0, ...[...h.querySelectorAll('[data-k="text"]')].map((e) => e.textContent.trim().split(/\s+/).length)) <= 12) { h.classList.replace('up1', 'up2'); if (free() < 0) h.classList.replace('up2', 'up1'); }
+    }
+    else if (f < 0) h.classList.add('dn1');
+    f = free();
+    h.style.paddingTop = Math.max(0, Math.floor(f / 2 / 8) * 8) + 'px';
+  }); html.dataset.snapped = '1'; };
+  document.fonts.ready.then(snap);
+  if (/[?&]export\b/.test(q)) { html.classList.add('is-export'); slides.forEach((s) => { s.classList.add('active', 'shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); }); return; }
+  const still = /[?&]still\b/.test(q), send = /[?&]send\b/.test(q), presenter = /[?&]view=presenter\b/.test(q);
+  if (still) html.classList.add('is-still');
+  const stage = document.querySelector('.deck-stage');
+  const count = document.querySelector('.deck-count');
+  const notes = document.querySelector('.deck-notes');
+  const beats = slides.map((s) => send ? 0 : Math.max(0, ...[...s.querySelectorAll('[data-beat]')].map((e) => +e.dataset.beat)));
+  let i = 0, b = 0, idle, over = false;
+  const chan = 'BroadcastChannel' in window ? new BroadcastChannel('ais-deck:' + location.pathname) : null;
+
+  const fit = () => {
+    if (over) return;
+    const f = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = `translate(${(innerWidth - 1920 * f) / 2}px,${(innerHeight - 1080 * f) / 2}px) scale(${f})`;
+  };
+  // Show slide n at beat k. Beats up to k are on; the entrance replays only when the slide changes.
+  const go = (n, k, from = 'nav') => {
+    n = Math.max(0, Math.min(n, slides.length - 1)); k = Math.max(0, Math.min(k, beats[n]));
+    const changed = n !== i || from === 'load';
+    i = n; b = k;
+    slides.forEach((s, x) => s.classList.toggle('active', x === i));
+    slides[i].querySelectorAll('[data-beat]').forEach((e) => e.classList.toggle('on', send || +e.dataset.beat <= b));
+    if (changed) {
+      slides.forEach((s) => s.classList.remove('shown'));
+      if (still) slides[i].classList.add('shown');
+      else requestAnimationFrame(() => requestAnimationFrame(() => slides[i].classList.add('shown')));
+    }
+    history.replaceState(null, '', '#' + (i + 1) + (beats[i] ? '.' + b : ''));
+    count.textContent = `${i + 1} / ${slides.length}`;
+    if (!still) { count.classList.add('show'); clearTimeout(idle); idle = setTimeout(() => count.classList.remove('show'), 1800); }
+    notes.textContent = slides[i].dataset.notes || '';
+    if (chan && from !== 'remote') chan.postMessage({i, b});
+    if (presenter) paintPresenter();
+  };
+  const next = () => (b < beats[i] ? go(i, b + 1) : i < slides.length - 1 && go(i + 1, 0));
+  const prev = () => (b > 0 ? go(i, b - 1) : i > 0 && go(i - 1, beats[i - 1]));
+  const parse = () => { const m = location.hash.match(/^#(\d+)(?:\.(\d+))?/); return m ? [m[1] - 1, +(m[2] || 0)] : [0, 0]; };
+
+  // Overview (O): every slide as a thumbnail; click one to go there.
+  const overview = (on) => {
+    over = on; html.classList.toggle('is-overview', on);
+    if (!on) { slides.forEach((s) => (s.style.transform = '')); fit(); return; }
+    const cols = 4, gap = 24, w = (innerWidth - gap * (cols + 1)) / cols, f = w / 1920;
+    stage.style.transform = 'none';
+    slides.forEach((s, x) => { s.style.transform = `translate(${gap + (x % cols) * (w + gap)}px,${gap + Math.floor(x / cols) * (w * 9 / 16 + gap)}px) scale(${f})`; s.classList.add('shown'); s.querySelectorAll('[data-beat]').forEach((e) => e.classList.add('on')); });
+  };
+  // Presenter window: current position, next position, notes, timer. Both previews are this file in ?still mode.
+  let t0 = null, pres;
+  function paintPresenter() {
+    if (!pres) return;
+    const n = b < beats[i] ? [i, b + 1] : [i + 1, 0];
+    const src = (p) => location.pathname + '?still#' + (p[0] + 1) + '.' + p[1];
+    if (pres.cur.dataset.at !== src([i, b])) { pres.cur.src = src([i, b]); pres.cur.dataset.at = src([i, b]); }
+    if (n[0] < slides.length) { if (pres.nxt.dataset.at !== src(n)) { pres.nxt.src = src(n); pres.nxt.dataset.at = src(n); } } else pres.nxt.removeAttribute('src');
+    pres.pos.textContent = `Diapositiva ${i + 1} de ${slides.length}` + (beats[i] ? `, paso ${b} de ${beats[i]}` : '');
+    pres.notes.textContent = slides[i].dataset.notes || '';
+  }
+  if (presenter) {
+    html.classList.add('is-presenter');
+    document.body.insertAdjacentHTML('beforeend', `<div class="pv"><iframe class="pv-cur" title="Actual"></iframe><div class="pv-side"><iframe class="pv-next" title="Siguiente"></iframe><div class="pv-pos"></div><div class="pv-time">00:00</div><div class="pv-notes"></div></div></div>`);
+    pres = {cur: document.querySelector('.pv-cur'), nxt: document.querySelector('.pv-next'), pos: document.querySelector('.pv-pos'), notes: document.querySelector('.pv-notes'), time: document.querySelector('.pv-time')};
+    setInterval(() => { if (t0 === null) return; const s = Math.floor((Date.now() - t0) / 1000); pres.time.textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; }, 500);
+  }
+
+  if (chan) chan.onmessage = (e) => { if (still) return; if (e.data.cmd === 'next') next(); else if (e.data.cmd === 'prev') prev(); else if (typeof e.data.i === 'number' && (e.data.i !== i || e.data.b !== b)) go(e.data.i, e.data.b, 'remote'); };
+  const send2 = (cmd) => (presenter && chan ? (chan.postMessage({cmd}), cmd === 'next' ? next() : prev()) : cmd === 'next' ? next() : prev());
+  if (!still) {
+    addEventListener('resize', () => (over ? overview(true) : fit()));
+    addEventListener('keydown', (e) => {
+      if (t0 === null) t0 = Date.now();
+      if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); send2('next'); }
+      else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); send2('prev'); }
+      else if (e.key === 'Home') go(0, 0);
+      else if (e.key === 'End') go(slides.length - 1, beats[slides.length - 1]);
+      else if (/^[nN]$/.test(e.key)) notes.classList.toggle('show');
+      else if (/^[fF]$/.test(e.key)) document.fullscreenElement ? document.exitFullscreen() : html.requestFullscreen();
+      else if (/^[oO]$/.test(e.key)) overview(!over);
+      else if (e.key === 'Escape' && over) overview(false);
+      else if (/^[bB.]$/.test(e.key)) html.classList.toggle('is-black');
+      else if (/^[pP]$/.test(e.key) && !presenter) open(location.pathname + '?view=presenter' + location.hash, 'ais-presenter', 'width=1400,height=820');
+    });
+    let wheelLock = 0;
+    addEventListener('wheel', (e) => { const t = Date.now(); if (over || presenter || t - wheelLock < 600 || Math.abs(e.deltaY) < 20) return; wheelLock = t; e.deltaY > 0 ? next() : prev(); }, {passive: true});
+    let x0 = null;
+    addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, {passive: true});
+    addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) dx < 0 ? next() : prev(); x0 = null; });
+    addEventListener('click', (e) => {
+      if (presenter || e.target.closest('a,iframe')) return;
+      if (over) { const s = e.target.closest('.slide'); if (s) { overview(false); go(slides.indexOf(s), 0); } return; }
+      e.clientX > innerWidth / 3 ? next() : prev();
+    });
+  }
+  addEventListener('hashchange', () => { const [n, k] = parse(); if (n !== i || k !== b) go(n, k); });
+  fit();
+  const [n, k] = parse();
+  go(n, k, 'load');
+})();
+
+</script>
+</body></html>

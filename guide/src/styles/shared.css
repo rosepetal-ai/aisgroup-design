@@ -1,0 +1,17 @@
+/* Shared website components, copied from aisvision-web-aisvision src/styles/global.css and
+ * homepage.css (ais-split-button, ais-text-link, ais-arrow, ais-eyebrow). The guide must look
+ * like the sites it documents, so these stay identical to the source; colours use the v0.2 tokens. */
+.ais-eyebrow { color: var(--ais-blue-500); font-size: var(--ais-text-eyebrow); font-weight: var(--ais-text-eyebrow-weight); line-height: var(--ais-text-eyebrow-leading); letter-spacing: var(--ais-text-eyebrow-tracking); margin: 0 0 24px; }
+.ais-body { color: var(--ais-neutral-600); font-size: var(--ais-text-lead); line-height: var(--ais-text-lead-leading); }
+.ais-text-link { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--ais-blue-500); font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); font-weight: var(--ais-text-label-weight); text-decoration: none; }
+.ais-text-link:hover { color: var(--ais-blue-600); text-decoration: underline; text-underline-offset: 5px; }
+.ais-text-link svg { width: 22px; height: 22px; flex-shrink: 0; }
+.ais-arrow { display: block; flex-shrink: 0; align-self: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .ais-arrow { transition: translate var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  a:not(.ais-split-button):is(:hover, :focus-visible) .ais-arrow { translate: 3px 0; }
+  a.back:is(:hover, :focus-visible) .ais-arrow { translate: -3px 0; }
+}
+.ais-split-button { --ais-button-size: 52px; --ais-button-icon: 22px; --ais-button-divider: color-mix(in srgb, currentColor 20%, transparent); display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--ais-button-size); padding: 0 0 0 24px; border-radius: 0; line-height: 1.35; letter-spacing: 0; background: var(--ais-blue-700); color: #fff; font-size: var(--ais-text-label); font-weight: var(--ais-text-label-weight); text-decoration: none; transition: background var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+.ais-split-button:is(:hover, :focus-visible) { background: var(--ais-blue-800); }
+.ais-split-button > svg.ais-arrow { flex: none; box-sizing: border-box; width: var(--ais-button-size); height: var(--ais-button-size); padding: calc((var(--ais-button-size) - var(--ais-button-icon)) / 2); background: linear-gradient(var(--ais-button-divider), var(--ais-button-divider)) left / 1px 100% no-repeat; }

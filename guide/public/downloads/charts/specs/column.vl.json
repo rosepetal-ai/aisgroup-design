@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 240,
+  "data": {
+    "values": [
+      {
+        "month": "2026-04",
+        "parts": 182000
+      },
+      {
+        "month": "2026-05",
+        "parts": 196500
+      },
+      {
+        "month": "2026-06",
+        "parts": 205300
+      },
+      {
+        "month": "2026-07",
+        "parts": 198800
+      },
+      {
+        "month": "2026-08",
+        "parts": 221400
+      },
+      {
+        "month": "2026-09",
+        "parts": 236900
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "width": 24
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "timeUnit": "yearmonth",
+      "title": null,
+      "axis": {
+        "format": "%b",
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "parts",
+      "type": "quantitative",
+      "title": "Parts inspected",
+      "axis": {
+        "format": "~s",
+        "labelExpr": "datum.value === 0 ? '0' : datum.label"
+      }
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Parts inspected each month",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

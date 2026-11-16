@@ -1,0 +1,32 @@
+/* AIS websites on Tailwind v4: load after ais-theme.css (@rosepetal/design's styles.css, the products' tokens) and ais-tokens.css.
+   Tailwind's text sizes become the brand type styles, as on the sites; the rest are the few tokens the websites add. */
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --text-xs: var(--ais-text-caption); --text-xs--line-height: var(--ais-text-caption-leading); --text-xs--letter-spacing: var(--ais-text-caption-tracking); --text-xs--font-weight: var(--ais-text-caption-weight);
+  --text-sm: var(--ais-text-small); --text-sm--line-height: var(--ais-text-small-leading); --text-sm--letter-spacing: var(--ais-text-small-tracking); --text-sm--font-weight: var(--ais-text-small-weight);
+  --text-base: var(--ais-text-body); --text-base--line-height: var(--ais-text-body-leading); --text-base--letter-spacing: var(--ais-text-body-tracking); --text-base--font-weight: var(--ais-text-body-weight);
+  --text-label: var(--ais-text-label); --text-label--line-height: var(--ais-text-label-leading); --text-label--letter-spacing: var(--ais-text-label-tracking); --text-label--font-weight: var(--ais-text-label-weight);
+  --text-eyebrow: var(--ais-text-eyebrow); --text-eyebrow--line-height: var(--ais-text-eyebrow-leading); --text-eyebrow--letter-spacing: var(--ais-text-eyebrow-tracking); --text-eyebrow--font-weight: var(--ais-text-eyebrow-weight);
+  --text-lg: var(--ais-text-lead); --text-lg--line-height: var(--ais-text-lead-leading); --text-lg--letter-spacing: var(--ais-text-lead-tracking); --text-lg--font-weight: var(--ais-text-lead-weight);
+  --text-xl: var(--ais-text-subheading); --text-xl--line-height: var(--ais-text-subheading-leading); --text-xl--letter-spacing: var(--ais-text-subheading-tracking); --text-xl--font-weight: var(--ais-text-subheading-weight);
+  --text-3xl: var(--ais-text-heading); --text-3xl--line-height: var(--ais-text-heading-leading); --text-3xl--letter-spacing: var(--ais-text-heading-tracking); --text-3xl--font-weight: var(--ais-text-heading-weight);
+  --text-5xl: var(--ais-text-title); --text-5xl--line-height: var(--ais-text-title-leading); --text-5xl--letter-spacing: var(--ais-text-title-tracking); --text-5xl--font-weight: var(--ais-text-title-weight);
+  --text-6xl: var(--ais-text-display); --text-6xl--line-height: var(--ais-text-display-leading); --text-6xl--letter-spacing: var(--ais-text-display-tracking); --text-6xl--font-weight: var(--ais-text-display-weight);
+  --spacing-section: var(--ais-space-section);
+  --spacing-block: var(--ais-space-block);
+  --spacing-gutter: var(--ais-gutter);
+  --container-site: var(--ais-content-max);
+  --color-field: var(--neutral-500);
+  --ease-standard: var(--ais-ease-standard);
+}
+
+/* Website colours the products' theme does not name: the deep blue band, the light text on photos and film,
+   the dark stage behind a film, and the soft surface and blue highlight as utilities. */
+@theme inline {
+  --color-brand-deep: var(--blue-800);
+  --color-brand-muted: var(--brand-muted);
+  --color-media-foreground: var(--neutral-300);
+  --color-stage: var(--neutral-900);
+  --color-stripe: var(--stripe);
+}

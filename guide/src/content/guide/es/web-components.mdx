@@ -1,0 +1,152 @@
+---
+title: "Componentes de los sitios web"
+wide: true
+rules:
+  - 'Las webs son sitios Astro con sus propios componentes, con estilos sobre brand.css (los tokens `--ais-*`) a través de una capa corta de papeles de la web: acción, enlace, tinta, secundario, línea. Un tema cambia los papeles, nunca un componente. Nunca escribas a mano un color o un tamaño, y nunca cambies el estilo de una pieza en una página concreta.'
+  - 'Las webs no usan theme.css, el registro de la app ni Vue: los componentes de la app llevan sus esquinas redondeadas y la densidad de una pantalla.'
+  - 'Las webs son rectas, salvo una pantalla de producto mostrada como ventana (4 px). Los campos miden 48 px y llevan el borde de campo de 3:1.'
+  - 'Las llamadas a la acción son botones partidos: 52 px, rectos, con el texto y un segmento aparte con la flecha; 44 px en la versión compacta de cabeceras y tarjetas; Rosepetal usa 44 px en todas sus llamadas a la acción. Sobre una banda azul de marca y sobre superficies oscuras el botón es blanco.'
+  - 'Las acciones de texto son enlaces en azul de acción con una flecha de 20 px que avanza 3 px al pasar el cursor; los enlaces de vuelta apuntan a la izquierda; los enlaces dentro del texto van subrayados y sin flecha.'
+  - 'Las tarjetas son enlaces sin caja, sombra ni elevación, en cuatro composiciones: apilada, en fila, de texto y destacada. Al pasar el cursor el título pasa a azul de acción, la flecha avanza y la fotografía crece al 103 %.'
+  - 'El H1 de una página va en tamaño Title; Display es solo para la página de inicio y las aperturas de campaña.'
+---
+import WebExamples from '../../../components/WebExamples.astro';
+import ComponentIndex from '../../../components/ComponentIndex.astro';
+
+Componentes web en funcionamiento, su código y las reglas para usarlos.
+
+## Preparación
+
+Cómo están hechas las tres webs. Cada una es un sitio Astro que toma sus tokens y sus componentes comunes de `@aisgroup/web` (`packages/web` en este repositorio), el equivalente web del `@rosepetal/design` de los productos, y conserva sus propias páginas, cabecera y contenido.
+
+1. Primero `@aisgroup/web/styles.css`: los tokens de la marca ([ais-tokens.css](/downloads/ais-tokens.css), `--ais-*`), los papeles de la web de abajo (`--web-*`) y los ajustes de cada marca, que se eligen con `data-brand` en `<html>` (`ais-group`, `ais-vision` o `rosepetal`): altura del logotipo, tamaño de las llamadas a la acción y los detalles que cambian.
+2. Tailwind v4 para la composición, con sus tamaños de texto apuntando a los estilos de la marca (`--text-base: var(--ais-text-body)` y así con el resto). Los componentes no necesitan Tailwind.
+3. Una sección o un tema oscuro vuelve a fijar los papeles; los componentes no cambian nunca. El CSS propio de Rosepetal los lee con sus nombres `--rp-*`.
+4. Inter, alojada en la propia web (ver [Tipografía](/es/typography/)), e iconos de Lucide (ver [Iconos](/es/icons/)): la flecha mide 24 px en los botones partidos y 20 px en los compactos y en los enlaces de texto.
+
+| Papel | Claro | Token | Uso |
+| --- | --- | --- | --- |
+| Página (`--web-page`) | `#FFFFFF` | `--ais-neutral-0` | Página, cabecera, menús |
+| Superficie (`--web-surface`) | `#F8FAFC` | `--ais-neutral-50` | Detrás de imágenes y vídeos |
+| Sección (`--web-section`) | `#F1F5F9` | `--ais-neutral-100` | Gris de sección |
+| Tinta (`--web-ink`) | `#0F1729` | `--ais-neutral-900` | Texto y títulos |
+| Secundario (`--web-muted`) | `#4B5563` | `--ais-neutral-600` | Texto secundario, datos de tarjeta |
+| Línea (`--web-line`) | `#E2E8F0` | `--ais-neutral-200` | Líneas, líneas de tarjeta, la línea de la cabecera |
+| Línea fuerte (`--web-line-strong`) | `#64748B` | `--ais-neutral-500` | Campos y botones de contorno (3:1) |
+| Acción (`--web-action`) | `#17356E` | `--ais-blue-700` | Botón principal, banda de cierre |
+| Acción al pasar (`--web-action-hover`) | `#10254C` | `--ais-blue-800` | Botón principal al pasar el cursor |
+| Enlace (`--web-link`) | `#3664B3` | `--ais-blue-500` | Enlaces, acciones de texto, anillo de foco |
+| Enlace al pasar (`--web-link-hover`) | `#1E4591` | `--ais-blue-600` | Enlaces al pasar el cursor |
+| Relleno al pasar (`--web-hover-fill`) | `#F1F5F9` | `--ais-neutral-100` | Botones de contorno y elementos de menú al pasar el cursor |
+
+Las imágenes de cada web están en [Recursos web](/es/assets/).
+
+## Componentes
+
+Los componentes de `@aisgroup/web`, en vivo y con su código Astro. Cada web los importa tal cual: `import SplitButton from '@aisgroup/web/components/split-button'`.
+
+<ComponentIndex lang="es" group="web" />
+
+## Acciones
+
+Una sola llamada a la acción rellena por vista: el botón partido. El compacto va en cabeceras y tarjetas. Las acciones de texto son enlaces con flecha. Sobre una banda azul de marca el botón es blanco.
+
+| Parte | Botón partido | Compacto |
+| --- | --- | --- |
+| **Alto** | 52 px | 44 px |
+| **Texto** | Estilo Label, a 24 px del borde izquierdo y a 24 px del segmento de la flecha | 16 px y 16 px |
+| **Segmento de la flecha** | Cuadrado de 52 px, flecha de 24 px, una línea divisoria de 1 px del color del texto al 20 % | Cuadrado de 44 px, flecha de 20 px |
+
+- **Principal:** azul de marca con texto blanco; azul profundo `#10254C` al pasar el cursor y con foco, blue-950 `#0B1220` al pulsar. El segmento no se mueve y la flecha avanza 3 px dentro de él (180 ms).
+- **Secundario:** un contorno para una segunda acción junto a la principal: sin relleno, texto en tinta, borde de 1 px `#64748B`; al pasar el cursor, el relleno al pasar y un borde en tinta.
+- **Blanco:** sobre una banda azul de marca y sobre superficies oscuras, con texto en azul de marca; blue-50 `#EDF2FA` al pasar el cursor.
+- **Sin flecha:** el texto centrado, 16 px a cada lado, para una acción que no lleva a ningún sitio, como Restablecer en un formulario.
+- **Desactivado:** 55 % de opacidad, sin estado al pasar el cursor. **Foco:** el anillo de foco de 2 px con 2 px de separación.
+
+<WebExamples lang="es" id="split-button" />
+
+## Enlaces de texto
+
+Azul de acción en estilo Label, con una flecha de 20 px a 8 px del texto; al pasar el cursor y con foco, blue-600 `#1E4591`, un subrayado de 1 px a 4 px por debajo y la flecha 3 px hacia delante, sin mover la composición. Un enlace de vuelta lleva la flecha a la izquierda y la mueve hacia atrás. Dentro del texto (`p`, `li`, `dd`) un enlace toma el tamaño del texto, no lleva flecha y va siempre subrayado, al 40 % de su color, entero al pasar el cursor. Todo enlace suelto tiene una zona pulsable de 44 px.
+
+<WebExamples lang="es" id="text-link" />
+
+## Selector de idioma
+
+Un menú recto: el código del idioma actual con un chevron abre una lista de 224 px con cada idioma en su propio nombre, el actual en azul de acción con una marca. Cada enlace lleva a la misma página en el otro idioma y lleva `hreflang`. Solo lo muestran las webs con más de un idioma.
+
+<WebExamples lang="es" id="language-picker" />
+
+## Migas de pan
+
+Primero va el nombre de la web; la página actual es texto sin enlace.
+
+<WebExamples lang="es" id="breadcrumb" />
+
+## Apertura de página
+
+El H1 en tamaño Title, nunca Display (Display es para la página de inicio y las aperturas de campaña). El título a la izquierda y la introducción a la derecha; por debajo de 900 px se apilan. Sin antetítulo sobre el H1.
+
+<WebExamples lang="es" id="page-opener" />
+
+## Tarjetas enlace
+
+Una tarjeta es un solo enlace: sin caja, sombra ni elevación. Cuatro composiciones cubren artículos, recursos, sectores y listas.
+
+| Composición | Uso | Partes |
+| --- | --- | --- |
+| **Apilada** | Rejillas de artículos, recursos y sectores | Fotografía en 8:5 y, 24 px por debajo: datos (fecha, categoría) en Small y en secundario, el título en Subheading con la flecha y la descripción en Body y en secundario |
+| **En fila** | Listas largas | Una miniatura de 128 px junto al título en Body, medium; líneas de 1 px entre filas; dos columnas, una por debajo de 900 px |
+| **De texto** | Enlaces sin imagen | Una línea de 1 px arriba, el título, la descripción y una acción de texto opcional |
+| **Destacada** | Un elemento principal | Fotografía en 4:3 en 7 de 12 columnas, el texto en 5, el título en Heading; apiladas por debajo de 900 px |
+
+Al pasar el cursor y con foco, el título pasa a azul de acción, la flecha avanza 3 px y la fotografía crece al 103 % (700 ms, curva de entrada). Una pantalla de producto en una tarjeta se muestra entera, en su marco de ventana, y no crece. La rejilla tiene 2, 3 o 4 columnas con huecos de 48 px (32 px entre columnas por debajo de 1200 px); 4 y 3 columnas pasan a 2 por debajo de 1200 y 900 px, y toda rejilla tiene una sola columna por debajo de 600 px.
+
+<WebExamples lang="es" id="card" />
+
+## Formulario de contacto
+
+Etiqueta todos los campos y usa los controles compartidos de 48 px. Pide los datos de contacto, el sector, el cargo, la ubicación y el mensaje. El consentimiento de privacidad es obligatorio; el comercial, opcional. Conserva el destino del formulario, las claves de integración y la protección contra spam en la configuración privada del sitio. El ejemplo no envía datos.
+
+<WebExamples lang="es" id="lead-form" />
+
+## Vídeo
+
+Los vídeos de YouTube solo se cargan cuando se piden. El marco es 16:9, con un fotograma propio guardado en la web, para que nada se cargue de YouTube antes del clic, y un cuadrado de reproducción de 64 px en azul de marca; al pasar el cursor el cuadrado pasa a azul profundo y la imagen crece al 103 %. Un clic, Intro o Espacio lo sustituye por el reproductor de youtube-nocookie en reproducción automática. Pon el ID del vídeo en `data-video-id` y su título en `aria-label` y `alt`. El `VideoEmbed` del paquete lo hace.
+
+<WebExamples lang="es" id="video-embed" />
+
+## Vídeo de producto
+
+Nuestros propios vídeos son mp4 alojados en la web, nunca YouTube: sin sonido, con imagen de portada, `playsinline` y cargados con `preload="metadata"`.
+
+- **Vídeo de producto:** una grabación de pantalla mostrada como ventana: borde de 1 px neutral-200 `#E2E8F0`, esquina de 4 px y la sombra elevada. Se repite en bucle.
+- **Vídeo de sector:** grabación real, recta, en 16:9 sobre neutral-50 `#F8FAFC`, con las detecciones dibujadas encima en el [estilo de las capas](/es/imagery/#capas-de-detección).
+
+Un vídeo solo se reproduce mientras al menos el 15 % está en pantalla y la pestaña está visible, y nunca solo con movimiento reducido. Debajo, a 16 px: el capítulo actual a la izquierda en Subheading, terminado en punto, y un botón cuadrado de reproducir y pausar de 44 px a la derecha, con un icono de 18 px en azul de marca, el play o pausa de Lucide relleno, y blue-50 `#EDF2FA` al pasar el cursor.
+
+<WebExamples lang="es" id="product-film" />
+
+## Banda de cierre
+
+Azul de marca, la invitación en tamaño Heading y un botón partido blanco a la página de contacto. Todas las páginas de inicio terminan con ella, y todas las páginas de las webs de AIS.
+
+Las demás páginas de Rosepetal terminan sobre la propia página: una línea de 1 px, la invitación en tamaño Heading con una línea opcional de texto secundario y el botón partido en azul de marca a la derecha; en móvil se apilan. Ya cierran con pantallas del producto, y una banda azul competiría con ellas.
+
+<WebExamples lang="es" id="closing-band" />
+
+## Aviso de cookies y tarjeta de evento
+
+El aviso de cookies es una sola barra de tinta fija abajo, igual en todos los temas: Configurar como acción de texto discreta y después Rechazar todas y Aceptar todas, las dos blancas y con el mismo peso, para que rechazar no cueste más que aceptar. Configurar abre Necesarias (siempre activas), Analíticas y Marketing. Nada que necesite consentimiento se carga antes de la elección: la analítica espera a Analíticas, la publicidad y el seguimiento de visitas a Marketing, y los vídeos, los mapas y los servicios del formulario solo se cargan cuando el visitante los usa. La elección se guarda con la versión de la política y se vuelve a pedir al cabo de un año. Una web que no usa estas cookies no muestra el aviso.
+
+La tarjeta de evento espera a que el visitante haya elegido y aparece abajo a la derecha: azul de marca en las páginas claras, una tarjeta blanca en las oscuras, nunca del color del pie.
+
+<WebExamples lang="es" id="cookie-consent" />
+
+## Sobre oscuro
+
+Un tema oscuro pone los mismos papeles en la paleta nocturna; las piezas no cambian y los botones principales pasan a blanco. Las webs son claras: AIS lo usa en sus secciones en azul profundo y en la banda de cierre, y Rosepetal mantiene sus temas oscuros solo como vistas previas (`?theme=`). Qué soportes tienen tema oscuro está en [Temas claro y oscuro](/es/themes/).
+
+Cada página de inicio, en las tres webs, tiene una sección azul profundo a media página: blue-800 `#10254C`, títulos en blanco, texto y enlaces en azul claro `#A7BFE4`, y gris de sección y blanco alternándose a su alrededor. En Rosepetal es la sección del flujo de trabajo. Las pantallas del producto sobre una franja azul van en el [marco de navegador](/es/web-components/browser-frame/); sobre blanco y gris mantienen la ventana simple.
+
+<WebExamples lang="es" id="split-button" />

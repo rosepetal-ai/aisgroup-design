@@ -1,0 +1,63 @@
+---
+title: Ilustración
+rules:
+  - 'Usa ilustraciones técnicas isométricas para explicar cómo funciona algo; usa fotografías para demostrar que funciona.'
+  - 'Dibuja objetos reales y construibles en orden de profundidad, con piezas sólidas y sin aristas transparentes. Nunca cajas con flechas.'
+  - 'Los materiales usan los neutros pizarra; el color solo tiene significado: azul para la señal de la cámara, verde para una pieza correcta, ámbar `#D97706` para una pieza retenida para revisión y rojo para un rechazo.'
+  - 'Todas las figuras usan una sola proyección: isométrica 2:1, con 45° de acimut y 30° de elevación.'
+---
+import Illustrations from '../../../components/Illustrations.astro';
+
+## Biblioteca
+
+Cada figura tiene dos versiones: la clara, para blanco y para el gris de sección, y la oscura, para el azul noche `#0B1220` y las tarjetas oscuras. Las dos comparten dibujo y encuadre, así que una puede sustituir a la otra. Acompaña la figura de un pie que diga lo que muestra.
+
+Los dibujos son archivos SVG. La línea de embotellado es un render 3D, así que se entrega en imágenes WebP, tomadas con la misma cámara isométrica que los dibujos.
+
+<Illustrations lang="es" />
+
+## Cuándo usarla
+
+| Usa una ilustración para mostrar | Usa una fotografía para mostrar |
+| --- | --- |
+| Cómo decide una inspección, con la pieza correcta y el rechazo lado a lado | Que una máquina real funciona en un cliente real |
+| Dónde se ejecuta un sistema: cámara, armario, red | Cómo es la máquina |
+| Un proceso oculto, rápido o dentro de un cerramiento | Un resultado con sus cifras |
+
+## Construcción
+
+| Regla | Detalle |
+| --- | --- |
+| **Objetos reales** | Un armario de control, una cinta transportadora, una cámara en su soporte. Cada pieza se apoya en otra y podría construirse. |
+| **Sólidas y en orden de profundidad** | Las piezas están rellenas y se dibujan de atrás hacia delante: lo cercano tapa lo lejano. Sin aristas transparentes ni piezas flotantes. |
+| **Proyección** | Isométrica 2:1 en todas las figuras: la cámara está a 45° de acimut y 30° de elevación, así que las líneas del suelo suben 1 de cada 2 (26,57°) y las verticales siguen verticales. Una sola dirección de luz: las caras superiores son las más claras, la cara izquierda está iluminada y la derecha, en sombra. |
+| **Detalle donde explica** | Muchas piezas pequeñas y precisas en lo que la figura explica; volúmenes sencillos en el resto. |
+| **Movimiento contenido** | Si se anima, las piezas se mueven como lo harían en la realidad y las señales viajan por cables reales. Un solo bucle, suavizado y sin rebotes. |
+
+## Color
+
+Los materiales se dibujan con los neutros pizarra y cuatro tonos por superficie: iluminada, lateral, sombra y arista. El color se reserva para el significado. La versión oscura usa los colores de señal y de estado del modo oscuro; la clara usa el azul de acción y los colores de estado sólidos, que mantienen el contraste sobre blanco.
+
+| Función | Versión oscura | Versión clara | Uso |
+| --- | --- | --- | --- |
+| **Materiales** | De `#0F1729` a `#334155`, líneas `#64748B` | De `#F1F5F9` a `#64748B`, líneas `#334155` | Bastidores, cerramientos, utillajes, sombreado |
+| **Pieza** | De `#94A3B8` a `#E2E8F0` | De `#CBD5E1` a `#F1F5F9` | La pieza que se inspecciona |
+| **Señal** | `#7C9FD7` | `#3664B3` | Luz de la cámara, inferencia, datos por un cable |
+| **Apto** | `#4ADE80` | `#15803D` | La pieza correcta, la luz verde |
+| **Aviso** | `#F59E0B` | `#D97706` | Una pieza retenida para revisión, la luz ámbar |
+| **Rechazo** | `#F87171` | `#DC2626` | El defecto, la luz roja, la pieza rechazada |
+
+Toda marca con significado mantiene al menos un contraste de 3:1 con lo que tiene debajo. En la versión oscura, las marcas de apto y de rechazo sobre piezas claras llevan debajo un contorno azul noche `#0B1220`. El apto y el rechazo nunca se indican solo con color: los acompaña una luz, una marca o una etiqueta.
+
+Ningún otro color: ni rellenos en azul de marca, ni degradados entre colores sin relación, ni brillos más allá de una luz.
+
+## Cómo hacer una figura nueva
+
+### Renders y vídeo
+
+- **Llena la columna con el tema**, no con suelo vacío: escala la figura hasta que la máquina o la pieza ocupe su espacio.
+- **Las versiones claras de los renders 3D** mapean los tonos con un degradado continuo de pizarra 500 `#64748B` a blanco, levantando los medios tonos. Nunca ajustes cada píxel al token más cercano: en superficies curvas convierte el sombreado en escalones. Suaviza las sombras del sol e iguala la luminosidad de las figuras isométricas claras.
+- **Un overlay en directo sobre el vídeo de una figura** (una caja de detección y su etiqueta, según el kit de overlays) se mueve con el tiempo del propio vídeo a través del mismo modelo y se sitúa con la cámara del render, para que no se separe de la pieza.
+- **Cambiar de tema sin recargar** actualiza todos los componentes de medios: pósters, bucles y sus archivos claros u oscuros.
+
+Las figuras nuevas se construyen con el mismo kit de dibujo que la biblioteca (`iso-kit` en el código de la web de Rosepetal) y toman la cámara de su función `brandProjection`, que no admite ángulos, así que una figura nueva no puede apartarse de la serie. Los agentes de IA usan la habilidad **anatomy** con las reglas de esta página. El script `export-brand-illustrations.mjs` de la web, en `astro/scripts`, escribe las dos versiones y comprueba cada color contra la paleta.

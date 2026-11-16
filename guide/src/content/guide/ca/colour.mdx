@@ -1,0 +1,89 @@
+---
+title: Color
+rules:
+  - 'Fes servir els vuit colors principals per a la seva funció: blau de marca `#17356E` per al logotip, els botons principals i les bandes de tancament; blue-800 `#10254C` per a les seccions profundes, els peus i els botons principals en passar el punter o en prémer-los; blau d’acció `#3664B3` per als enllaços i les accions de text, que passen a blue-600 `#1E4591` en passar el punter; blau clar `#A7BFE4` per als ressalts i els enllaços sobre fons blaus.'
+  - 'El text és tinta `#0F1729`; el text secundari, `#4B5563`. Sobre fons foscos, fes servir `#F1F5F9` i `#94A3B8`.'
+  - 'Èxit `#15803D`, avís `#D97706` i error `#DC2626` indiquen només estats, sempre amb una paraula o una icona. El mateix verd d’èxit serveix per al text i les icones d’èxit i per al farciment sota text blanc; `#16A34A` no es fa servir (3,3:1 sobre blanc).'
+  - 'Qualsevol altre color és un pas de l’escala blava (50–950) o neutra (0–900), o un color d’estat. No facis servir mai un color de fora de la paleta, un blau aproximat ni un degradat. El logotip negre és només per a impressió en negre i capçaleres dels webs d’AIS sobre blanc.'
+---
+import Balance from '../../../components/Balance.astro';
+import CorePalette from '../../../components/CorePalette.astro';
+import Combinations from '../../../components/Combinations.astro';
+import Swatches from '../../../components/Swatches.astro';
+import Usage from '../../../components/Usage.astro';
+import Contrast from '../../../components/Contrast.astro';
+import { blue, neutral, status, statusDark } from '../../../palette';
+
+La paleta defineix els colors de marca, estat i dades.
+
+## Colors principals
+
+Vuit colors porten la marca a tots els webs, documents, presentacions, publicacions i campanyes: quatre blaus i quatre neutres. Qualsevol altre color d’aquestes peces és un pas de les seves escales o un color d’estat. Cada blau té una sola funció, de manera que no competeixen mai: el blau de marca diu qui som, el profund dona profunditat, el d’acció diu «fes clic» i el clar ressalta sobre blau.
+
+<CorePalette lang="ca" />
+
+## Combinacions
+
+Els quatre fons aprovats i el que va sobre cadascun. Totes les combinacions de text compleixen les WCAG AA.
+
+<Combinations lang="ca" />
+
+## Estats
+
+<Swatches lang="ca" colours={status} />
+
+Sobre fons foscos, els mateixos tres estats fan servir els seus passos del mode fosc:
+
+<Swatches lang="ca" colours={statusDark} />
+
+Els colors d’estat pertanyen a les interfícies, els gràfics i els resultats d’inspecció. Sempre van amb una paraula o una icona, perquè el color no sigui mai l’únic senyal, i no decoren mai.
+
+## Equilibri
+
+<Balance />
+
+Aquestes proporcions orienten les àrees gràfiques, no els píxels individuals; les fotografies no compten.
+
+## Contrast
+
+Les ràtios segueixen les WCAG 2.2. El text corregut necessita com a mínim **4,5:1**; el text gran, 24 px o 18,7 px en negreta (14 pt), **3:1**. Els parells clau de l’aplicació, en mode clar i fosc, són a [Temes clar i fosc](/ca/themes/#contrast).
+
+<Contrast lang="ca" pairs={[
+  ['#FFFFFF', '#17356E', 'Botons principals, logotip en negatiu, text sobre blau de marca'],
+  ['#FFFFFF', '#10254C', 'Text sobre seccions profundes i peus'],
+  ['#3664B3', '#FFFFFF', 'Enllaços i accions de text sobre blanc'],
+  ['#3664B3', '#F1F5F9', 'Enllaços sobre gris de secció'],
+  ['#A7BFE4', '#17356E', 'Ressalts i enllaços sobre blau de marca'],
+  ['#0F1729', '#F1F5F9', 'Text sobre fons de secció'],
+  ['#4B5563', '#FFFFFF', 'Text secundari sobre blanc'],
+  ['#15803D', '#FFFFFF', 'Missatges d’èxit'],
+  ['#DC2626', '#FFFFFF', 'Missatges d’error'],
+]} />
+
+## Colors d’interfície
+
+Les interfícies de producte, els gràfics i el mode fosc necessiten passos més fins. Surten de les mateixes dues escales, de manera que sempre es queden dins de la família. Tria’ls primer per funció; les escales són la referència. Cada funció és un token de `@rosepetal/design`, aquí en els dos temes; tots els tokens, el seu contrast i on s’aplica cada tema són a [Temes clar i fosc](/ca/themes/).
+
+### Funcions
+
+<Usage lang="ca" labels={{ role: 'Funció', token: 'Token', light: 'Clar', dark: 'Fosc' }} />
+
+### Escala de blaus
+
+<Swatches lang="ca" colours={blue} />
+
+### Neutres
+
+Una sola família de grisos pissarra per a text, línies i superfícies. El seu to fred va amb el blau; no hi barregis mai grisos càlids ni grisos purs.
+
+<Swatches lang="ca" colours={neutral} />
+
+## Colors de dades i d’il·lustració
+
+Els gràfics i les interfícies de producte necessiten més colors que la marca: sèries de gràfics, etiquetes, classes de defecte, particions del conjunt de dades. Per a això hi ha els sis **colors de dades** (de `--ais-data-1` a `-6`), validats per a persones amb daltonisme i per contrast i presos, com tota la resta, del sistema de disseny de Rosepetal. Només apareixen en gràfics, interfícies de producte i grafisme de dades, mai en logotips, composicions ni com a decoració. Consulta [Visualització de dades](/ca/data/).
+
+Les il·lustracions fan servir els neutres per als materials i el color només per significar alguna cosa: blau per al senyal de la càmera, i els colors d’èxit i d’error del mode fosc per a apte i rebuig.
+
+## Impressió
+
+L’HEX i l’sRGB són la referència digital. Referències d’impressió: fes servir els valors RGB i hexadecimals; les equivalències Pantone i CMYK no estan definides. Especifica una tinta blava ajustada a `#17356E`. El negre només apareix com a logotip negre, quan una feina no pot imprimir res més.

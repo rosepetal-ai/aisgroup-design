@@ -1,0 +1,120 @@
+---
+import AssetActions from './AssetActions.astro';
+import type { Lang } from '../i18n';
+import kit from '../data/kit.json';
+import examples from '../../public/examples/index.json';
+import { linkedin, postTypes, KIT_DIR } from '../data/linkedin';
+// The final marketing kit, one gallery per family: a cover thumbnail, the name, one line and the files.
+// Files and thumbnails are in public/kit/files/, listed in src/data/kit.json by `npm run kit` (scripts/sync-kit.mjs);
+// each link downloads under the piece's name in the kit (e.g. "Catálogo Vino ES.pdf").
+// The editable version is the piece's HTML in public/examples/ (written by `npm run examples` in ais-group-design).
+interface Props { lang: Lang; family: 'print' | 'datasheet' | 'sales' | 'deck' | 'linkedin' | 'banner' | 'office'; ids?: string[]; rules?: Record<string, string> }
+const { lang, family, ids, rules } = Astro.props;
+const L = (en: string, es: string, ca: string) => ({ en, es, ca })[lang];
+const dir = KIT_DIR;
+const viewHref = (href: string) => href.replace(/\.(pptx|docx)(?=[?#]|$)/i, '.pdf');
+const newTab = L('opens in a new tab', 'se abre en una pestaña nueva', 's’obre en una pestanya nova');
+
+const t = {
+  page: L('A4, in Spanish', 'A4, en español', 'A4, en castellà'),
+  slides: (n: number) => L(`${n} slides, in Spanish`, `${n} diapositivas, en español`, `${n} diapositives, en castellà`),
+  editable: 'HTML',
+  text: L('Text', 'Texto', 'Text'),
+};
+const names: Record<string, string> = {
+  'catalogue-food': L('Food catalogue', 'Catálogo Alimentación', 'Catàleg Alimentació'),
+  'catalogue-beverage': L('Beverage catalogue', 'Catálogo Bebidas', 'Catàleg Begudes'),
+  'catalogue-cosmetics': L('Cosmetics catalogue', 'Catálogo Cosmética', 'Catàleg Cosmètica'),
+  'catalogue-pharma': L('Pharmaceutical catalogue', 'Catálogo Farmacéutica', 'Catàleg Farmacèutica'),
+  'catalogue-wine': L('Wine catalogue', 'Catálogo Vino', 'Catàleg Vi'),
+  'presentation-corporate-2026': L('General presentation 2026', 'Presentación general 2026', 'Presentació general 2026'),
+  'presentation-automotive': L('Automotive', 'Automoción', 'Automoció'),
+  'presentation-beverage': L('Beverages', 'Bebidas', 'Begudes'),
+  'presentation-biscuits': L('Biscuits', 'Galletas', 'Galetes'),
+  'presentation-canning': L('Canning', 'Conservas', 'Conserves'),
+  'presentation-wine': L('Wine', 'Vino', 'Vi'),
+  'sales-proposal': L('Technical and commercial proposal', 'Propuesta técnica y económica', 'Proposta tècnica i econòmica'),
+  'sales-case-study': L('Daymsa case study', 'Caso de éxito Daymsa', 'Cas d’èxit Daymsa'),
+  'stationery-letterhead': L('Letterhead', 'Papel de carta', 'Paper de carta'),
+  'office-word': L('Word letter', 'Carta en Word', 'Carta en Word'),
+};
+const products: Record<string, string> = {
+  'lvs-9510': 'Omron LVS-9510', hopper: 'AIS Hopper', kariko: 'AIS KARIKÓ', 'rev360-cables': 'AIS REV 360 Cables', 'rev360-pharma': 'AIS REV 360 PHARMA',
+  'rev360-standard': 'AIS REV 360 STANDARD', vacuum: 'AIS Vacuum', opticais: 'OPTICAIS', rosepetal: 'Rosepetal',
+  'rev360-compact': L('AIS REV 360 COMPACT, canning', 'AIS REV 360 COMPACT Conservas', 'AIS REV 360 COMPACT Conserves'),
+};
+const carousel = (n: number) => L(`${n} slides`, `${n} diapositivas`, `${n} diapositives`);
+
+type Link = { href: string; label: string; name?: string };
+type Tile = { id: string; img: string; name: string; line: string; links: Link[] };
+const editable = (id: string, label = t.editable): Link[] => {
+  const e = (examples as { id: string; html: string }[]).find((x) => x.id === id);
+  return e ? [{ href: e.html + 'index.html', label }] : []; // the file itself: astro dev doesn't serve a public folder's index
+};
+const file = (f: string | null | undefined, label: string, name?: string): Link[] => (f ? [{ href: dir + f, label, name }] : []);
+const tiles: Tile[] = family === 'linkedin'
+  ? linkedin(lang).map(({ id, family: f, subject, type, media: m }) => f === 'post'
+    ? { id, img: dir + m.thumb, name: subject, line: postTypes[type][0][lang], links: [...file(m.png, 'PNG', `${m.name}.png`), ...file(m.text, t.text, `${m.name}.txt`)] }
+    : { id, img: dir + m.slides![0], name: subject, line: `${postTypes[type][0][lang]}, ${carousel(m.slides!.length)}`, links: [...file(m.pdf, 'PDF', `${m.name}.pdf`), ...file(m.text, t.text, `${m.name}.txt`)] })
+  : (kit as any[]).filter((k) => k.family === family && (!ids || ids.includes(k.id))).map((k) => {
+    if (k.family === 'banner') return { id: k.id, img: dir + k.thumb, name: k.brand,
+      line: k.kind === 'company' ? L('Company page cover, 1512 × 256 px', 'Portada de la página de empresa, 1512 × 256 px', 'Portada de la pàgina d’empresa, 1512 × 256 px')
+        : L('Profile banner for the team, 1584 × 396 px', 'Banner de perfil para el equipo, 1584 × 396 px', 'Bàner de perfil per a l’equip, 1584 × 396 px'),
+      links: file(k.png, 'PNG', `${k.name}.png`) };
+    const base = k.id.replace(/-en$/, '');
+    const name = names[base] ?? products[base.replace(/^(brochure|datasheet)-/, '')] ?? k.name.replace(/ (ES|EN)$/, '');
+    if (k.family === 'deck') return { id: k.id, img: dir + k.thumb, name, line: t.slides(k.pages), links: [...file(k.pdf, 'PDF', `${k.name}.pdf`), ...file(k.pptx, 'PPTX', `${k.name}.pptx`)] };
+    if (k.family === 'office') {
+      const ext = k.file?.split('.').pop();
+      const links = k.id === 'stationery-letterhead' ? [...file(k.pdf, 'PDF', `${k.name}.pdf`), ...editable(k.id)]
+        : k.file ? [{ href: k.file, label: ext.toUpperCase(), name: `${k.name}.${ext}` }] : editable(k.id, 'HTML');
+      const line = t.page;
+      return { id: k.id, img: dir + k.thumb, name, line, links };
+    }
+    return { id: k.id, img: dir + k.thumb, name, line: L(`${k.pages} pages`, `${k.pages} páginas`, `${k.pages} pàgines`), links: [...file(k.pdf, `PDF, ${k.language.toUpperCase()}`, `${k.name}.pdf`), ...editable(k.id)] };
+  });
+// Pair language editions without losing the original download names.
+for (let i = tiles.length - 1; i >= 0; i--) {
+  if (!tiles[i].id.endsWith('-en')) continue;
+  const original = tiles.find((t) => t.id === tiles[i].id.slice(0, -3));
+  if (original) { original.links.push(...tiles[i].links.filter((l) => l.label.startsWith('PDF'))); tiles.splice(i, 1); }
+}
+const grouped = ['print', 'datasheet'].includes(family) ? [
+  { name: 'AIS Vision Systems', tiles: tiles.filter((t) => !/rosepetal|lvs-9510/.test(t.id)) },
+  { name: 'Rosepetal', tiles: tiles.filter((t) => /rosepetal/.test(t.id)) },
+  { name: 'Omron', tiles: tiles.filter((t) => /lvs-9510/.test(t.id)) },
+].filter((g) => g.tiles.length) : [{ name: '', tiles }];
+const ratio = { print: '210 / 297', datasheet: '210 / 297', sales: '210 / 297', deck: '16 / 9', linkedin: '4 / 5', banner: 'auto', office: '4 / 3' }[family];
+---
+{grouped.map((group) => <section>
+{group.name && !rules && <h3>{group.name}</h3>}
+<ul class="kf" data-family={family} data-rules={rules ? true : undefined} style={`--ratio:${ratio}`}>
+  {group.tiles.map((m) => (
+    <li id={`kit-${m.id}`}>
+      <a class="frame" href={viewHref(m.links[0]?.href || '')} target="_blank" rel="noopener" aria-label={`${m.name}, ${newTab}`} ><img src={m.img} alt={m.name} loading="lazy" /></a>
+      <strong>{m.name}</strong>
+      <span>{m.line}</span>
+      {rules?.[m.id] && <p>{rules[m.id]}</p>}
+      <div class="links">{m.links.map((l) => <AssetActions lang={lang} href={l.href} viewHref={viewHref(l.href)} name={`${m.name}, ${l.label}`} label={l.label} filename={l.name} />)}</div>
+    </li>
+  ))}
+</ul>
+</section>)}
+<style>
+  .kf { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
+  .kf[data-family='deck'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .kf[data-family='banner'] { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; }
+  .kf[data-rules] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kf li > p:not(.links) { margin: 8px 0; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .kf li { margin: 0 !important; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .frame { display: grid; place-items: center; aspect-ratio: var(--ratio); margin-bottom: 8px; background: var(--ais-neutral-100); border: 1px solid var(--line); overflow: hidden; }
+  .frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .kf[data-family='office'] .frame { padding: 12px; }
+  .kf[data-family='office'] .frame img { box-shadow: 0 0 0 1px var(--line); width: auto; height: auto; max-width: 100%; max-height: 100%; }
+  strong { color: var(--ink); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; }
+  li > span { color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  .links { display: flex; flex-direction: column; gap: 4px 16px; margin: auto 0 0 !important; padding-top: 4px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .links a { color: var(--ais-blue-500); font-weight: 500; text-underline-offset: 3px; }
+  .links a:hover { color: var(--ais-blue-600); }
+  @media (max-width: 760px) { .kf[data-rules], .kf[data-family='deck'][data-rules] { grid-template-columns: 1fr; } .kf[data-family='banner'] { grid-template-columns: 1fr; } .kf, .kf[data-family='deck'] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } }
+</style>

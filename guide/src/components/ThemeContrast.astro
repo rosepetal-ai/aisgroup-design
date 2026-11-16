@@ -1,0 +1,36 @@
+---
+// WCAG 2.2 contrast of the key text and background pairs of @rosepetal/design in light and dark mode,
+// computed at build time from the package's tokens. `min` is 4.5:1 for text, 3:1 for icons and field borders.
+import { pairs } from '../design/themes';
+import { ui, type Lang } from '../i18n';
+interface Props { lang: Lang; labels: { use: string; light: string; dark: string } }
+const { lang, labels } = Astro.props;
+const t = ui[lang];
+---
+<div class="table-wrap"><table class="theme-contrast">
+  <thead><tr><th>{labels.use}</th><th>{labels.light}</th><th>{labels.dark}</th></tr></thead>
+  <tbody>
+    {pairs.map((p) => (
+      <tr>
+        <td><span class="use">{p.use[lang]}</span><code>--{p.fg}</code> {t.on} <code>--{p.bg}</code></td>
+        {p.modes.map((m) => { const ok = m.ratio >= p.min; return (
+          <td><span class="cell">
+            <span class="sample" style={`color:${m.fg};background:${m.bg}`}>Aa</span>
+            <span class="ratio">{m.ratio.toFixed(2)}:1</span>
+            <svg viewBox="0 0 24 24" class:list={{ ok }} role="img" aria-label={ok ? t.pass : t.fail}><path d={ok ? 'M20 6 9 17l-5-5' : 'M18 6 6 18M6 6l12 12'} /></svg>
+          </span></td>); })}
+      </tr>
+    ))}
+  </tbody>
+</table></div>
+<style>
+  .theme-contrast td { vertical-align: middle; }
+  .use { display: block; color: var(--ink); }
+  .cell { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; }
+  .sample { display: inline-grid; place-items: center; width: 44px; height: 32px; font-weight: 600; box-shadow: inset 0 0 0 1px var(--line); }
+  .ratio { font-variant-numeric: tabular-nums; font-weight: 600; }
+  svg { width: 16px; height: 16px; fill: none; stroke: var(--ais-danger); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  svg.ok { stroke: var(--ais-success); }
+  td > code { white-space: nowrap; overflow-wrap: normal; }
+  @media (max-width: 760px) { .cell { flex-direction: column; align-items: flex-start; gap: 4px; } }
+</style>

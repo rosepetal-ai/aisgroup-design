@@ -1,0 +1,81 @@
+---
+title: Light and dark themes
+rules:
+  - 'Only the Rosepetal app has a dark theme. Websites, print, presentations, social media and email are light; dark appears there as deep-blue sections, brand-blue grounds and dark pieces built from the same palette, never as a theme switch.'
+  - 'In the app, `.dark` on `<html>` switches the theme: the user''s choice first, then the system setting. Components take every colour from the `@rosepetal/design` tokens, so they need no colours of their own for dark mode.'
+  - 'Dark mode: page `#0B1220`, cards `#111A2E`, borders `#1E293B`, text `#F1F5F9`, secondary text `#94A3B8`, actions and links `#7C9FD7` with ink `#0F1729` on filled buttons; success `#4ADE80`, warning `#F59E0B`, error `#F87171`.'
+  - 'Logos: blue on light grounds, white on dark ones. App icons keep the white mark on the brand-blue tile in both themes; website favicons are blue in light mode and white in dark mode.'
+  - 'Brand blue, the solid status fills, overlays, tag colours and the orange and cyan data colours keep one value in both themes. Photographs are never recoloured for a theme.'
+  - 'Product screens in marketing show the app in light mode; a dark screen appears only in a piece that is dark as a whole, and never next to a light one.'
+---
+import ThemeTokens from '../../../components/ThemeTokens.astro';
+import ThemeContrast from '../../../components/ThemeContrast.astro';
+import ThemePreviews from '../../../components/ThemePreviews.astro';
+import FaviconTabs from '../../../components/FaviconTabs.astro';
+import ThemeCharts from '../../../components/ThemeCharts.astro';
+
+The Rosepetal app uses light and dark themes built from the same tokens.
+
+## Where each theme applies
+
+| Surface | Light | Dark |
+| --- | --- | --- |
+| **Rosepetal app** | Default | The user’s choice, or the system setting until they choose. `.dark` on `<html>`. |
+| **Websites** | Always | No dark theme and no switch. AIS uses deep-blue `#10254C` sections and a brand-blue closing band; Rosepetal’s dark themes are previews only (`?theme=`). See [Web components](/en/web-components/#on-dark). |
+| **Print** | Always | Covers and bands in brand blue or navy, with the white logo. |
+| **Presentations** | White slides | Brand-blue openings and closings. No dark deck. |
+| **Social media** | White posts | Brand-blue posts and banners. See [Social media](/en/social/). |
+| **Email** | Always | None. |
+| **Charts** | White ground | Night `#0B1220` ground, in the app’s dark mode. See [Charts](#charts). |
+| **This guide** | Always | None: the guide is light, and shows the dark theme in its previews. |
+
+## Tokens
+
+Every value below is read from `packages/design/styles.css` when the guide is built. Under each token, the package’s own note on its use.
+
+### What changes
+
+<ThemeTokens set="changing" labels={{ token: 'Token', light: 'Light', dark: 'Dark', value: 'Value', follows: 'Follows' }} />
+
+<details>
+<summary>What stays the same</summary>
+
+<ThemeTokens set="fixed" labels={{ token: 'Token', light: 'Light', dark: 'Dark', value: 'Both themes', follows: 'Follows' }} />
+
+The palette scales (blue 50–950, neutral 0–900 and the status and data hues) have one value each; dark mode only points the tokens at other steps. See [Colour](/en/colour/).
+
+</details>
+
+## Contrast
+
+WCAG 2.2 AA: 4.5:1 for text, 3:1 for icons and field borders. Computed from the tokens above.
+
+<ThemeContrast lang="en" labels={{ use: 'Pair', light: 'Light', dark: 'Dark' }} />
+
+## Components
+
+The same components in both themes. Every component page has a light and dark switch above its previews.
+
+<ThemePreviews lang="en" examples={['button/01-variants', 'badge/01-variants', 'alert/01-variants', 'field/01-form', 'card/01-summary']} />
+
+## Logos and favicons
+
+- **Logos:** blue on light grounds, white on brand blue, navy and the dark theme. The app’s top bar carries the white logo in both themes: brand blue in light, the dark card in dark.
+- **App icons and app favicons:** the white mark on the brand-blue tile, the same in both themes.
+- **Website favicons:** the bare mark, blue in light mode and white in dark mode.
+
+<FaviconTabs tabs={['AIS Group', 'Platform | Rosepetal', 'Inspection | AIS app', 'Projects | Rosepetal app']} />
+
+Files and sizes are on [Logos](/en/logos/#favicons).
+
+## Charts
+
+The chart toolkit has a light and a dark Vega-Lite config and a light and a dark ECharts theme. The dark ones set the night ground, light text and the dark data steps: the first series `#517FC9` and violet `#A855F7`; orange, cyan, pink and teal stay the same. See [Data visualisation](/en/data/).
+
+<ThemeCharts lang="en" alt={['Line chart with the light config', 'The same chart with the dark config']} />
+
+## Images and screenshots
+
+- **Photographs and renders** are the same in both themes; never darken, tint or invert them.
+- **Product screens** in marketing show the app in light mode, as the websites do. A dark screen goes only in a piece that is dark as a whole, and one piece never mixes the two.
+- **Detection overlays** keep their kit colours and switch to the light steps only on dark pictures (see [Imagery](/en/imagery/)), whatever the theme of the page around them.

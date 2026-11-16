@@ -1,0 +1,26 @@
+{
+  "image": "/imagery/result-gears.webp",
+  "width": 810,
+  "height": 540,
+  "tone": "dark",
+  "displayWidth": 430,
+  "verdict": {
+    "result": "pass",
+    "text": "OK",
+    "detail": "in tolerance"
+  },
+  "items": [
+    {
+      "type": "measure",
+      "from": [
+        219,
+        274
+      ],
+      "to": [
+        420,
+        274
+      ],
+      "value": "\u00d8 48.02 mm"
+    }
+  ]
+}

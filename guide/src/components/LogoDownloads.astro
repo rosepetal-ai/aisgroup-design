@@ -1,0 +1,48 @@
+---
+// Downloads page: every logo file and favicon set, previewed on its ground, the preview is the download.
+import { logoBox } from '../logoSize';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; set?: 'logos' | 'favicons' }
+const { lang, set = 'logos' } = Astro.props;
+const t = {
+  en: { blue: 'Blue', white: 'White', black: 'Black', ais: 'AIS app mark (software only)', rp: 'Rosepetal app mark (software only)', app: 'app icons', web: 'website favicons' },
+  es: { blue: 'Azul', white: 'Blanco', black: 'Negro', ais: 'Marca de app AIS (solo software)', rp: 'Marca de app Rosepetal (solo software)', app: 'iconos de app', web: 'favicons web' },
+  ca: { blue: 'Blau', white: 'Blanc', black: 'Negre', ais: 'Marca d’app AIS (només programari)', rp: 'Marca d’app Rosepetal (només programari)', app: 'icones d’app', web: 'favicons web' },
+}[lang];
+const brands: [string, string, number][] = [
+  ['ais-group', 'AIS Group', 7000], ['ais-vision-systems', 'AIS Vision Systems', 7000], ['ais-vision-automation', 'AIS Vision Automation', 7000],
+  ['ais-scanology', 'AIS Scanology', 7000], ['rosepetal', 'Rosepetal', 7000], ['ais-mark', t.ais, 2600], ['rosepetal-mark', t.rp, 2600],
+];
+const colours: [string, string][] = [['blue', t.blue], ['white', t.white], ['black', t.black]];
+// Optical size (logoSize.ts) as a share of a 250 px wide preview, so every tile scales the same way down to phone width.
+const width = (file: string, area: number) => `${(logoBox(file, area).width / 2.5).toFixed(1)}%`;
+const sets = [
+  ['ais', 'AIS', `/logos/app/ais/app-icon-rounded.svg`, `/logos/ais-mark-blue.svg`],
+  ['rosepetal', 'Rosepetal', `/logos/app/rosepetal/app-icon-rounded.svg`, `/logos/rosepetal-mark-blue.svg`],
+].flatMap(([b, name, app, mark]) => [
+  { href: `/downloads/favicons/${b}-app-icons.zip`, label: `${name}, ${t.app}`, src: app, w: '26%' },
+  { href: `/downloads/favicons/${b}-favicons.zip`, label: `${name}, ${t.web}`, src: mark, w: '18%' },
+]);
+---
+{set === 'logos' ? brands.map(([b, name, area]) => (
+  <div class="dl-brand">
+    <p class="dl-name">{name}</p>
+    <div class="dl-grid">
+      {colours.map(([c, label]) => (
+        <a class="dl" href={`/logos/${b}-${c}.svg`} download aria-label={`${name}, ${label}, SVG`}>
+          <span class={`dl-tile${c === 'white' ? ' blue' : ''}`}><img src={`/logos/${b}-${c}.svg`} alt="" style={`width:${width(`${b}-${c}.svg`, area)}`} /></span>
+          <span class="dl-cap"><span>{label}</span><span class="fmt">SVG</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+)) : (
+  <div class="dl-grid four">
+    {sets.map((s) => (
+      <a class="dl" href={s.href} download aria-label={`${s.label}, ZIP`}>
+        <span class="dl-tile"><img src={s.src} alt="" style={`width:${s.w}`} /></span>
+        <span class="dl-cap"><span>{s.label}</span><span class="fmt">ZIP</span></span>
+      </a>
+    ))}
+  </div>
+)}

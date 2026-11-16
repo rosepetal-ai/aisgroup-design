@@ -1,0 +1,43 @@
+---
+// One example of @aisgroup/web (packages/web/examples), alone on its page on the AIS Group brand, for the guide's
+// website component pages to frame.
+import '@aisgroup/web/styles.css';
+import { files } from '../../../design/web';
+
+const modules = import.meta.glob('@aisgroup/web-src/examples/*/*.astro', { eager: true }) as Record<string, { default: unknown }>;
+export function getStaticPaths() {
+  return Object.keys(files).map((p) => ({ params: { example: p.replace(/^examples\//, '').replace('.astro', '') } }));
+}
+const { example } = Astro.params;
+const Example = Object.entries(modules).find(([p]) => p.endsWith(`/examples/${example}.astro`))![1].default as any;
+// The cookie notice is fixed to the bottom, so its frame keeps room for it.
+const floor = example!.startsWith('cookie-consent/') ? 200 : 0;
+---
+<!doctype html>
+<html lang="en" data-brand="ais-group">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{example}</title>
+    <style is:global>
+      *, ::before, ::after { box-sizing: border-box; }
+      body { margin: 0; font-family: var(--ais-font-primary); color: var(--web-ink); background: var(--web-page); -webkit-font-smoothing: antialiased; }
+      main { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; padding: 40px; }
+      main > [class^="web-"], main > div { max-width: 100%; }
+    </style>
+  </head>
+  <body>
+    <main style={`min-height: ${floor}px`}>
+      <Example />
+    </main>
+    <script is:inline>
+      // Tells the guide page how tall the preview is, so the frame never scrolls.
+      const post = () => parent.postMessage({ preview: location.pathname, height: Math.max(document.querySelector('main').scrollHeight, ...[...document.querySelectorAll('main [role="dialog"]')].map((e) => e.offsetHeight + 80)) }, '*');
+      new ResizeObserver(post).observe(document.body); addEventListener('load', post);
+      // The examples link to the sites' own paths (/contact/, /solutions/…), which the guide doesn't have: a click stays put.
+      addEventListener('click', (e) => { if (e.target.closest('a[href^="/"]')) e.preventDefault(); });
+    </script>
+    <script is:inline src="/preview-mini.js"></script>
+  </body>
+</html>

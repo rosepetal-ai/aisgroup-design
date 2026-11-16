@@ -1,0 +1,8 @@
+{
+  "name": "ais-charts",
+  "private": true,
+  "type": "module",
+  "description": "AIS Group brand charts: a Vega-Lite config, an ECharts theme and a renderer that turns a spec into an on-brand SVG.",
+  "scripts": { "render": "node render.mjs" },
+  "dependencies": { "vega": "6.4.0", "vega-lite": "6.4.3" }
+}

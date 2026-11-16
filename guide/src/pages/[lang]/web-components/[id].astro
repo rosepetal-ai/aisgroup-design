@@ -1,0 +1,42 @@
+---
+import previewHeights from '../../../data/preview-heights.json';
+// One component of @aisgroup/web: each of its examples live (rendered from packages/web/examples) and its code.
+// The example's first comment is the line under the title.
+import { getCollection } from 'astro:content';
+import { Code } from 'astro:components';
+import Guide from '../../../layouts/Guide.astro';
+import { languages, order, type Lang } from '../../../i18n';
+import { componentItems, localizePart, examples, type CatalogItem } from '../../../design/web';
+
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guide');
+  const slugOf = (id: string) => id.split('/').slice(1).join('/') || 'index';
+  const find = (lang: string, slug: string) => entries.find((e) => e.id.split('/')[0] === lang && slugOf(e.id) === slug);
+  return Object.keys(languages).flatMap((lang) => {
+    const titles = Object.fromEntries(order.map((slug) => [slug, (find(lang, slug) ?? find('en', slug))!.data.title]));
+    return componentItems.map((part) => ({ params: { lang, id: part.id }, props: { lang, titles, part: localizePart(part, lang as Lang) } }));
+  });
+}
+const { lang, titles, part } = Astro.props as { lang: Lang; titles: Record<string, string>; part: CatalogItem };
+const list = examples(part.id, lang).map(e => ({...e,name:e.name.toLowerCase()===part.name.toLowerCase()?{en:'Layout',es:'Composición',ca:'Composició'}[lang]:e.name}));
+---
+<Guide lang={lang} slug="web-components" title={part.name} headings={list.map((e) => ({ depth: 2, slug: e.slug, text: e.name }))} titles={titles}>
+  <p>{part.description}</p>
+  {list.map((e) => (
+    <>
+      <h2 id={e.slug}>{e.name}</h2>
+      {e.about && <p>{e.about}</p>}
+      <iframe class="preview" src={`/preview/web/${e.path}/`} title={e.name} loading="lazy" style={previewHeights[`/preview/web/${e.path}/`] ? `height:${previewHeights[`/preview/web/${e.path}/`]}px` : undefined}></iframe>
+      <Code code={e.code} lang="astro" theme="github-light" />
+    </>
+  ))}
+  <script is:inline>
+    // Runs again after every page change (client router): its own scope, and its listener leaves with the page.
+    (() => { const page = new AbortController(); document.addEventListener('astro:before-swap', () => page.abort(), { once: true });
+    // Each preview reports its height; the frame takes it, so a preview never scrolls inside the page.
+    addEventListener('message', (m) => { if (!m.data?.preview) return;
+      for (const f of document.querySelectorAll('iframe.preview')) if (new URL(f.src).pathname === m.data.preview) f.style.height = `${m.data.height}px`; }, { signal: page.signal });
+    })();
+  </script>
+</Guide>

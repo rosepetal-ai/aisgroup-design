@@ -1,0 +1,140 @@
+---
+title: "Documents i presentacions"
+rules:
+  - "Cada exemple identifica el producte o la peça d’origen i fa servir un fragment coherent. Conserva les xifres i les condicions exactes de l’original; no combinis mai dades de productes diferents."
+  - "El sistema d’impressió fa servir un cos de 10,5 pt amb interlineat de 15 pt; el mínim imprès és de 8,5 pt. En presentacions de 1920 × 1080, el cos és de 38 px amb interlineat de 52 px; les etiquetes, de 28 px amb interlineat de 38 px; la numeració, de 22 px amb interlineat de 32 px."
+  - "Les portades de les presentacions sectorials d’AIS Vision Systems fan servir «Engineering peace of mind»; la corporativa fa servir «Automated quality control», en anglès."
+  - 'Totes les taules fan servir un sol estil: títols de columna en text secundari petit en Semibold sobre una línia `--ais-neutral-300`, files separades per filets `--ais-border` i cap després de l’última; sense fons, bandes, marcs ni línies verticals. El text s’alinea a l’esquerra; els nombres, a la dreta amb xifres tabulars i la unitat una sola vegada al títol de la columna. Un valor que falta és un guió llarg (–).'
+  - 'Les taules van sobre blanc o gris de secció, mai sobre blau de marca ni blau profund. Una diapositiva porta com a màxim cinc columnes i sis files; les publicacions no porten taules.'
+  - 'Les propietats d’un producte van en un bloc d’especificacions (etiqueta en text secundari, valor en tinta), mai en una llista de pics ni en una frase.'
+  - 'Quatre maneres de destacar text, i cap més: l’èmfasi (Semibold en unes poques paraules), la xifra clau (el nombre en blau de marca, el que compta i la seva condició en text secundari), la cita (les paraules exactes d’una persona amb nom, el nom en Semibold i el càrrec en text secundari) i la nota (una línia petita en text secundari). Mai color, cursiva, subratllat, majúscules, fons, requadre, barra lateral ni un gràfic de cometes.'
+  - 'Una comparació mostra dues imatges del mateix subjecte amb el mateix enquadrament i la mateixa escala, la referència a l’esquerra i cada estat anomenat sota la seva imatge amb circle-check o circle-x en el color d’estat.'
+  - 'Els passos d’un procés són de tres a cinc en una fila, numerats a l’hexàgon únic i units per un filet, cadascun amb un títol breu i una línia.'
+---
+import KitFinal from '../../../components/KitFinal.astro';
+import CommsPattern from '../../../components/CommsPattern.astro';
+
+Com es construeixen cartes, propostes, fullets, informes i presentacions, i els cinc patrons que comparteixen.
+
+## Composició
+
+- Alinea a l’esquerra, mantén un sol ordre de lectura evident i deixa espai generós entre blocs.
+- Fes servir els mateixos marges en tota la peça i respecta l’àrea de protecció dels logotips.
+- Equilibra una peça clara amb aproximadament un 70 % de blanc i gris de secció i un 30 % de blau; inverteix-ho en obertures i tancaments foscos.
+
+## Formats
+
+<KitFinal lang="ca" family="office" ids={["stationery-letterhead", "office-word"]} rules={{"stationery-letterhead": "La marca que signa a la capçalera; el contacte i «Part d’AIS Group» al peu. Deixa lliure la zona d’escriptura.", "office-word": "Fes servir la plantilla de carta per a la correspondència editable, amb el seu cos d’11 pt. Instal·la Inter abans d’editar i conserva la capçalera i el peu."}} />
+
+<KitFinal lang="ca" family="sales" ids={["sales-proposal", "sales-case-study"]} rules={{"sales-proposal": "Primer la necessitat del client; després, la solució, les proves i el pas següent. Primer la fotografia de producte, després els esquemes.", "sales-case-study": "Identifica el client i l’aplicació, explica el problema i la solució i presenta el resultat amb les seves condicions. Fes servir material del client autoritzat."}} />
+
+<KitFinal lang="ca" family="print" ids={["brochure-kariko", "catalogue-wine"]} rules={{"brochure-kariko": "Fes servir el sistema d’impressió. En A4, el logotip fa 20 mm per a AIS Vision Systems o 38 mm per a Rosepetal. Mantén juntes les especificacions de cada producte.", "catalogue-wine": "Organitza el catàleg per aplicació i producte. Conserva els productes, les xifres i els subjectes de les imatges de l’original."}} />
+
+<KitFinal lang="ca" family="datasheet" ids={["datasheet-opticais"]} rules={{"datasheet-opticais": "Identifica el producte a la portada. Agrupa les especificacions per equip, instal·lació i programari; acompanya les xifres de les seves condicions."}} />
+
+<KitFinal lang="ca" family="deck" ids={["presentation-corporate-2026"]} rules={{"presentation-corporate-2026": "Obre en blau de marca amb el logotip en negatiu de la marca que signa i la línia de l’empresa. Un missatge per diapositiva, un titular d’unes dotze paraules i imatges reals. Tanca amb un sol pas següent i les dades de contacte. En presentacions conjuntes, obre AIS Group i les marques apareixen juntes en un sol bloc."}} />
+
+Les presentacions sectorials d’AIS Vision Systems obren amb «Engineering peace of mind»; la presentació corporativa fa servir «Automated quality control». Mantén aquestes línies en anglès.
+
+A 1920 × 1080, el cos és de 38 px amb interlineat de 52 px; els textos d’entrada, de 44 px amb interlineat de 60 px; les etiquetes, de 28 px amb interlineat de 38 px; la numeració, de 22 px amb interlineat de 32 px. Els titulars fan servir 76 px amb interlineat de 84 px; els textos de gran format, 120 px amb interlineat de 124 px. Aplica l’escala de la composició al bloc sencer.
+
+### Informe tècnic
+
+Portada en blau de marca; text corregut en Inter de 10,5 pt amb interlineat de 15 pt; seccions numerades; xifres tabulars a les taules. Cap text imprès per sota de 8,5 pt.
+
+### Signatura de correu
+
+Nom, càrrec, marca i telèfon; cap imatge fora del logotip; sense eslògans.
+
+Per als gràfics, consulta [Visualització de dades](/ca/data/).
+
+Cada xifra porta les seves condicions, com demana [Veu](/ca/voice/). Anomena els fitxers amb marca, tipus, llengua i data ISO: `rosepetal_datasheet_es_2026-10-14.pptx`.
+
+## Patrons
+
+Cinc patrons cobreixen el que una pàgina necessita a més de text i imatges. El sistema d’impressió i les composicions de les presentacions els construeixen; no els dibuixis mai a mà.
+
+### Taula
+
+Valors exactes de diversos elements, per consultar-los o comparar-los.
+
+<CommsPattern lang="ca" show="table" />
+
+- **Títols de columna** en text secundari petit en Semibold, amb majúscula només a l’inici, sobre una línia `--ais-neutral-300`. Sense fons i mai en majúscules.
+- **Files** separades per filets `--ais-border`, cap després de l’última fila. Sense fons, bandes, marcs ni línies verticals.
+- **Alineació:** el text a l’esquerra; els nombres a la dreta, amb [xifres tabulars](/ca/typography/), i el seu títol de columna alineat igual. La primera columna anomena la fila, en tinta.
+- **Unitats** una sola vegada, entre parèntesis al títol de la columna: *Camp de visió (mm)*. Si una columna barreja unitats, la unitat va al nom de la fila: *Etiquetatge (h/mes)*. Mai a les cel·les.
+- **Nombres** segons [Localització](/ca/localisation/): 7200 i 30 000 en català i castellà, 7,200 i 30,000 en anglès; els mateixos decimals a tota la columna (2,0, no 2); les dimensions amb el signe de multiplicar, 100 × 56.
+- **Sense valor** és un guió llarg (–), mai *n/d*, *0* ni una cel·la buida. Una columna de sí o no mostra el `check` de Lucide en tinta o el guió, mai colors d’estat.
+- **Peu:** una condició que afecta tota la taula va en una línia de text secundari petit a sota, mai en un asterisc. El títol de la taula és l’encapçalament que té a sobre.
+- **Mida:** una taula ocupa l’amplada de la seva columna de text. Com a màxim cinc columnes i sis files en una diapositiva i set columnes en una pàgina A4; divideix una taula més llarga en grups, mai entre pàgines. Per sota de 600 px, una taula de dades es desplaça dins del seu propi marc; el text mai no es redueix perquè hi càpiga.
+- **Fons:** blanc o gris de secció, mai blau de marca ni blau profund; sobre blau, dona el nombre que importa com a xifra clau. Les publicacions no porten taules.
+
+<div class="table-wrap comms-scale">
+
+| Mitjà | Cel·les | Títols de columna | Espai | Línies |
+| --- | --- | --- | --- | --- |
+| **Documents i fitxes tècniques (A4)** | 9,5 pt sobre 13,5 pt | 8,5 pt Semibold | 2 mm a dalt i a baix, 5 mm entre columnes | 0,25 mm |
+| **Presentacions (1920 × 1080)** | 38 px sobre 52 px | 38 px Medium | 24 px a dalt i a baix (16 px des de cinc files), 40 px entre columnes | 2 px |
+| **Webs** | Petit, 14 px | Petit Semibold | 12 px a dalt i a baix, 24 px entre columnes | 1 px |
+| **Interfície de producte** | La Table de `@rosepetal/design` tal com ve: 14 px, files amb hover i selecció | Medium, en tinta (ordenen) | Les columnes de nombres porten `text-right tabular-nums` | `--border` |
+
+</div>
+
+La construeixen el sistema d’impressió (`.table`), la composició `table` de les presentacions, `.ais-table` a `@aisgroup/web` i l’estil de taula AIS de la plantilla de Word. No dibuixis mai una taula a mà ni l’enganxis com a imatge.
+
+### Bloc d’especificacions
+
+Les propietats d’un producte, una etiqueta i el seu valor per fila.
+
+<CommsPattern lang="ca" show="specification" />
+
+- L’etiqueta en text secundari, el valor en tinta i tots els valors a la mateixa columna.
+- Agrupa una llista llarga sota subtítols petits, com Equip i Instal·lació.
+- Fes-lo servir en lloc d’una llista de pics o d’una frase que comença per l’etiqueta. Si les files comparen les mateixes mesures de diversos elements, són una taula.
+
+### Text destacat
+
+Quatre maneres de destacar text, i cap més. Cap no porta fons, requadre, barra lateral, vora, icona ni ombra.
+
+<CommsPattern lang="ca" show="highlight" />
+
+<CommsPattern lang="ca" show="quote" />
+
+<a href="/kit/files/linkedin-quote-rosepetal-es.png" target="_blank" rel="noopener" aria-label="Rosepetal a VISION 2026, s’obre en una pestanya nova">Rosepetal a VISION 2026</a>.
+
+- **Èmfasi:** Semibold en unes poques paraules, en el color del mateix text, una vegada per paràgraf com a màxim. Mai color, cursiva, subratllat, majúscules ni fons. Si tota una frase ha de destacar, és l’entradeta o una diapositiva pròpia.
+- **Xifra clau:** el nombre en blau de marca (blanc sobre blau), en Medium i amb xifres tabulars; a sota, el que compta, en minúscula; després, la seva condició en text secundari (blau clar sobre blau). Cap signe davant del nombre: *fins a* i *com a mínim* van a les paraules. D’una a tres per fila, totes de la mateixa mida; una fila per pàgina, diapositiva o secció.
+- **Cita:** les paraules exactes d’una persona amb nom, entre « » en tots els idiomes, amb “ ” a dins; a sota, el nom en Semibold i després el càrrec i l’empresa en text secundari. Sense gràfic de cometes, cursiva ni línia; una per pàgina, diapositiva o publicació, 20 paraules com a màxim en diapositives i publicacions. No retallis mai les paraules d’algú sense la seva aprovació. Un elogi sense signatura o el resum d’un cas no és una cita: escriu-lo com a text, sense cometes.
+- **Nota:** una frase breu en text secundari petit, sota el bloc que matisa, una per pàgina com a màxim. Sense etiqueta (*Nota*), asterisc, fons, requadre, icona ni color d’avís. Les diapositives no porten notes: la condició va amb la seva xifra o la seva taula.
+
+<div class="table-wrap comms-scale">
+
+| Mitjà | Xifra clau: nombre / paraules / condició | Cita: paraules / persona | Nota |
+| --- | --- | --- | --- |
+| **Documents (A4)** | 34 pt Medium / 11 pt Semibold / 8,5 pt | 13 pt sobre 19 pt Medium / 9,5 pt | 8,5 pt, 4 mm sota el bloc |
+| **Presentacions** | 240 px (120 px per a xifres llargues) / 38 px Medium / 38 px | Sobre blau de marca: 120 px / 38 px | Cap |
+| **Webs** | Títol / Cos Medium / Petit | Subtítol Medium, 40 rem d’amplada / Petit | Petit, 24 px sota el bloc |
+| **Publicacions** | La publicació de resultat | La publicació de cita | Cap |
+
+</div>
+
+### Comparació
+
+Dos estats del mateix subjecte: abans i després, o correcte i defectuós.
+
+<CommsPattern lang="ca" show="comparison" />
+
+- El mateix subjecte, enquadrament, escala i llum a les dues imatges, amb la referència a l’esquerra.
+- Sota cada imatge, l’estat amb la seva icona (circle-check en el verd d’èxit, circle-x en el vermell d’error) i una línia sobre la diferència. Mai un marc de color.
+- Només dues imatges; la resta de defectes van en mosaics de detecció.
+
+### Passos d’un procés
+
+Una seqüència que el lector segueix en ordre.
+
+<CommsPattern lang="ca" show="steps" />
+
+- De tres a cinc passos en una fila, cada número a l’hexàgon únic, units per un filet.
+- Un títol breu i una línia sota cadascun.
+- Amb més de cinc passos, o amb passos que es bifurquen, divideix la seqüència o fes servir un esquema.

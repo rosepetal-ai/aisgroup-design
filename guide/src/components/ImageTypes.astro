@@ -1,0 +1,76 @@
+---
+import type { Lang } from '../i18n';
+import { imageTypes, imageCopy } from '../imagery';
+import ResultOverlay from './ResultOverlay.astro';
+interface Props { lang: Lang; never?: string[] }
+const { lang, never } = Astro.props;
+const c = imageCopy[lang];
+const references = (t: typeof imageTypes[number]) => t.id === 'interface' ? [
+  '/examples/presentation/wine/media/opticais-variable-print-screen-blurred.webp',
+  '/web/rosepetal/app/capture-flow.webp',
+] : t.refs.map((f) => f.startsWith('/') ? f : `/imagery/${f}.webp`);
+// Lucide camera, monitor and sparkles, as shipped.
+const icons: Record<string, string> = {
+  photo: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  screen: '<rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  pair: '<path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/>',
+  gen: '<path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/>',
+};
+---
+{never ? (
+  <ul class="refs never">
+    {never.map((f) => <li><img src={`/imagery/${f}.webp`} alt="" loading="lazy" /></li>)}
+  </ul>
+) : (
+  <ol class="types">
+    {imageTypes.map((t, i) => {
+      const k = c[t.id];
+      return (
+        <li id={`type-${t.id}`}>
+          <header>
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{k.name}</h3>
+            <p class="says">{k.says}</p>
+          </header>
+          {references(t).length > 0 && <ul class:list={["refs", { machines: t.id === 'machine', screens: t.id === 'interface' }]}>
+            {references(t).map((src, j) => <li><img src={src} alt={t.id === 'machine' ? ['AIS Hopper', 'AIS REV 360 Compact', 'AIS REV 360 Pharma'][j] : t.id === 'interface' ? (j === 0 ? 'OPTICAIS, Variable Print Inspection' : 'Rosepetal, Capture flow') : ''} loading="lazy" /></li>)}
+          </ul>}
+          {t.id === 'result' && <ResultOverlay lang={lang} />}
+          <dl>
+            <div><dt>{c.labels.use}</dt><dd>{k.use}</dd></div>
+            <div><dt>{c.labels.direction}</dt><dd>{k.direction}</dd></div>
+            <div><dt>{c.labels.source}</dt><dd class:list={['source', k.source]}><svg viewBox="0 0 24 24" aria-hidden="true" set:html={icons[k.source]} />{c.labels[k.source]}</dd></div>
+          </dl>
+        </li>
+      );
+    })}
+  </ol>
+)}
+<style>
+  .types { list-style: none; margin: 32px 0 0; padding: 0; }
+  .types > li { margin: 0 !important; padding: 32px 0 40px; border-top: 1px solid var(--line); }
+  header { display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; align-items: baseline; }
+  .num { color: var(--link); font-size: var(--ais-text-eyebrow); font-weight: 600; font-variant-numeric: tabular-nums; line-height: var(--ais-text-eyebrow-leading); letter-spacing: var(--ais-text-eyebrow-tracking); }
+  h3 { margin: 0 !important; font-size: var(--ais-text-subheading); font-weight: var(--ais-text-subheading-weight); letter-spacing: var(--ais-text-subheading-tracking); line-height: var(--ais-text-subheading-leading); }
+  .says { grid-column: 2; margin: 4px 0 0 !important; color: var(--muted); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+  .refs { list-style: none; margin: 24px 0 0 48px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .refs li { margin: 0 !important; }
+  .refs img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0; background: var(--ais-neutral-100); }
+  .refs.machines img { object-fit: contain; }
+  .refs.screens { grid-template-columns: 1fr; }
+  .refs.screens img { aspect-ratio: auto; object-fit: contain; }
+  .refs.never { margin: 24px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .refs.never img { aspect-ratio: 16 / 9; filter: grayscale(.2); }
+  dl { margin: 24px 0 0 48px; display: grid; gap: 12px; }
+  dl div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; }
+  dt { color: var(--muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  dd { margin: 0; color: var(--ink); max-width: 64ch; }
+  .source { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+  .source svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .source:is(.gen, .pair) { color: var(--link); }
+  @media (max-width: 760px) {
+    .refs, dl { margin-left: 0; }
+    .refs:not(.never) { grid-template-columns: 1fr; }
+    dl div { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>

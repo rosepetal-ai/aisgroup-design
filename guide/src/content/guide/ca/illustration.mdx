@@ -1,0 +1,63 @@
+---
+title: Il·lustració
+rules:
+  - 'Fes servir il·lustracions tècniques isomètriques per explicar com funciona una cosa; fes servir fotografies per demostrar que funciona.'
+  - 'Dibuixa objectes reals i construïbles en ordre de profunditat, amb peces sòlides i sense arestes transparents. Mai caixes amb fletxes.'
+  - 'Els materials fan servir els neutres pissarra; el color només té significat: blau per al senyal de la càmera, verd per a una peça correcta, ambre `#D97706` per a una peça retinguda per revisar i vermell per a un rebuig.'
+  - 'Totes les figures fan servir una sola projecció: isomètrica 2:1, amb 45° d’azimut i 30° d’elevació.'
+---
+import Illustrations from '../../../components/Illustrations.astro';
+
+## Biblioteca
+
+Cada figura té dues versions: la clara, per al blanc i el gris de secció, i la fosca, per al blau nit `#0B1220` i les targetes fosques. Totes dues comparteixen dibuix i enquadrament, així que l’una pot substituir l’altra. Acompanya la figura d’un peu que digui el que mostra.
+
+Els dibuixos són fitxers SVG. La línia d’embotellament és un render 3D, de manera que es lliura en imatges WebP, preses amb la mateixa càmera isomètrica que els dibuixos.
+
+<Illustrations lang="ca" />
+
+## Quan cal fer-la servir
+
+| Fes servir una il·lustració per mostrar | Fes servir una fotografia per mostrar |
+| --- | --- |
+| Com decideix una inspecció, amb la peça correcta i el rebuig l’una al costat de l’altra | Que una màquina real funciona en un client real |
+| On s’executa un sistema: càmera, armari, xarxa | Com és la màquina |
+| Un procés amagat, ràpid o dins d’un tancament | Un resultat amb les seves xifres |
+
+## Construcció
+
+| Regla | Detall |
+| --- | --- |
+| **Objectes reals** | Un armari de control, una cinta transportadora, una càmera al seu suport. Cada peça es recolza en una altra i es podria construir. |
+| **Sòlides i en ordre de profunditat** | Les peces són plenes i es dibuixen del fons cap endavant: el que és a prop tapa el que és lluny. Sense arestes transparents ni peces flotants. |
+| **Projecció** | Isomètrica 2:1 a totes les figures: la càmera és a 45° d’azimut i 30° d’elevació, de manera que les línies del terra pugen 1 de cada 2 (26,57°) i les verticals continuen verticals. Una sola direcció de llum: les cares de dalt són les més clares, la cara esquerra rep la llum i la dreta queda a l’ombra. |
+| **Detall on explica** | Moltes peces petites i precises en el que la figura explica; volums senzills a la resta. |
+| **Moviment contingut** | Si s’anima, les peces es mouen com ho farien a la realitat i els senyals viatgen per cables reals. Un sol bucle, suavitzat i sense rebots. |
+
+## Color
+
+Els materials es dibuixen amb els neutres pissarra i quatre tons per superfície: il·luminada, lateral, ombra i aresta. El color es reserva per al significat. La versió fosca fa servir els colors de senyal i d’estat del mode fosc; la clara fa servir el blau d’acció i els colors d’estat sòlids, que mantenen el contrast sobre blanc.
+
+| Funció | Versió fosca | Versió clara | Ús |
+| --- | --- | --- | --- |
+| **Materials** | De `#0F1729` a `#334155`, línies `#64748B` | De `#F1F5F9` a `#64748B`, línies `#334155` | Bastidors, tancaments, utillatges, ombrejat |
+| **Peça** | De `#94A3B8` a `#E2E8F0` | De `#CBD5E1` a `#F1F5F9` | La peça que s’inspecciona |
+| **Senyal** | `#7C9FD7` | `#3664B3` | Llum de la càmera, inferència, dades per un cable |
+| **Apte** | `#4ADE80` | `#15803D` | La peça correcta, el llum verd |
+| **Avís** | `#F59E0B` | `#D97706` | Una peça retinguda per revisar-la, el llum ambre |
+| **Rebuig** | `#F87171` | `#DC2626` | El defecte, el llum vermell, la peça rebutjada |
+
+Tota marca amb significat manté com a mínim un contrast de 3:1 amb el que té a sota. A la versió fosca, les marques d’apte i de rebuig sobre peces clares porten a sota un contorn blau nit `#0B1220`. L’apte i el rebuig no s’indiquen mai només amb color: els acompanya un llum, una marca o una etiqueta.
+
+Cap altre color: ni emplenaments en blau de marca, ni degradats entre colors sense relació, ni lluïssors més enllà d’un llum.
+
+## Com es fa una figura nova
+
+### Renders i vídeo
+
+- **Omple la columna amb el tema**, no amb terra buit: escala la figura fins que la màquina o la peça ocupi el seu espai.
+- **Les versions clares dels renders 3D** mapen els tons amb un degradat continu de pissarra 500 `#64748B` a blanc, aixecant els tons mitjans. No ajustis mai cada píxel al token més proper: en superfícies corbes converteix l’ombrejat en esglaons. Suavitza les ombres del sol i iguala la lluminositat de les figures isomètriques clares.
+- **Un overlay en directe sobre el vídeo d’una figura** (una caixa de detecció i la seva etiqueta, segons el kit d’overlays) es mou amb el temps del mateix vídeo a través del mateix model i se situa amb la càmera del render, perquè no se separi de la peça.
+- **Canviar de tema sense recarregar** actualitza tots els components de mitjans: pòsters, bucles i els seus fitxers clars o foscos.
+
+Les figures noves es construeixen amb el mateix kit de dibuix que la biblioteca (`iso-kit` al codi del web de Rosepetal) i agafen la càmera de la funció `brandProjection`, que no accepta angles, de manera que una figura nova no es pot apartar de la sèrie. Els agents d’IA fan servir l’habilitat **anatomy** amb les regles d’aquesta pàgina. L’script `export-brand-illustrations.mjs` del web, a `astro/scripts`, escriu totes dues versions i comprova cada color amb la paleta.

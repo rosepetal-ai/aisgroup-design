@@ -1,0 +1,96 @@
+---
+title: Iconos
+rules:
+  - 'Usa solo iconos de Lucide, tal como vienen: retícula de 24 px, trazo de 2 px, extremos y uniones redondeados, sin relleno. Nunca los redibujes, edites ni mezcles con otra biblioteca.'
+  - 'Nunca escribas flechas, marcas ni viñetas Unicode (`→`, `✓`, `•`) ni emojis como iconos.'
+  - 'Los iconos toman el color de su etiqueta (currentColor). Los colores de estado, solo para estados.'
+  - 'Los tamaños son 16, 20 o 24 px; a partir de 32 px, mantén el trazo en 2 px con absoluteStrokeWidth.'
+  - 'El icono va delante de su etiqueta, centrado en la altura de las mayúsculas y a 8 px. Los botones solo con icono necesitan un nombre accesible y una zona táctil de 44 px; las barras de herramientas de producto en escritorio pueden usar botones de 36 px con iconos de 16 px.'
+---
+import IconSet from '../../../components/IconSet.astro';
+import IconTiles from '../../../components/IconTiles.astro';
+
+Usa los iconos aprobados de Lucide con un tamaño, un trazo y un color coherentes.
+
+## El conjunto básico
+
+130 iconos para interfaces, documentos, vídeo e infografías, agrupados por tema, de Lucide 1.48.0. Haz clic en un icono para abrir su SVG. La biblioteca completa, con más de 2000 iconos, está en [lucide.dev](https://lucide.dev/icons/).
+
+[Los 130 iconos, SVG (ZIP)](/downloads/icons/ais-icons.zip)
+
+<IconSet lang="es" />
+
+## Instalación
+
+| Dónde | Cómo |
+| --- | --- |
+| **Aplicación Rosepetal (Vue)** | `npm install @lucide/vue` e importa por nombre: `import { DownloadIcon } from '@lucide/vue'`. Es lo que usa el sistema de diseño de Rosepetal. |
+| **Webs (Astro, HTML)** | `npm install lucide-static` e inserta el SVG en línea, o pégalo desde el conjunto básico. El SVG en línea hereda el color del texto. |
+| **React** | `npm install lucide-react` e `import { Download } from 'lucide-react'`. |
+| **Figma** | El complemento Lucide de la comunidad de Figma inserta los iconos como vectores editables a 24 px. |
+| **Documentos y presentaciones** | Inserta el SVG del conjunto básico; Word, PowerPoint, Keynote y Google Slides lo mantienen nítido. Cámbialo al color del texto, nunca a un color nuevo. |
+
+Mantén todos los proyectos en la misma línea de versiones de Lucide y actualízalos a la vez, para que un icono nunca cambie de forma entre la web y el producto.
+
+```vue
+<script setup>
+import { DownloadIcon } from '@lucide/vue'
+</script>
+
+<button class="rp-btn"><DownloadIcon class="size-4" aria-hidden="true" /> Descargar</button>
+```
+
+## Tamaño y trazo
+
+| Tamaño | Uso | Trazo |
+| --- | --- | --- |
+| **16 px** | Botones, filas de tabla, junto a texto de 14–16 px, la interfaz del producto | 2 px en la retícula (1,33 px en pantalla) |
+| **20 px** | Navegación, campos, menús | 2 px en la retícula (1,67 px en pantalla) |
+| **24 px** | Iconos sueltos, tarjetas, listas de prestaciones | 2 px |
+| **32–48 px** | Iconos grandes de prestaciones en webs y presentaciones | 2 px fijos: activa `absoluteStrokeWidth` |
+
+## Color
+
+Los iconos usan `currentColor`, así que siempre coinciden con su etiqueta: tinta para el texto, texto secundario para los metadatos, azul de acción para enlaces y acciones, blanco sobre azul. Los colores de éxito, aviso y error solo aparecen cuando el icono significa ese estado. Nunca rellenes un icono, nunca uses dos colores en un icono y nunca apliques degradados.
+
+## Con texto
+
+- El icono va delante de su etiqueta, a 8 px con cualquier tamaño de texto.
+- Se centra en la altura de las mayúsculas de la etiqueta, no en la caja de la línea, la misma regla que las etiquetas de las capas.
+- Un icono sin etiqueta necesita un nombre accesible (`aria-label`), una descripción emergente y una zona táctil de 44 px; en las barras de herramientas de producto en escritorio, un botón de 36 px.
+- Un icono por acción. No decores titulares ni párrafos con iconos.
+
+## En infografías
+
+En una infografía, el icono nombra el tema de una cifra; la cifra lleva el mensaje.
+
+- Coloca el icono a 24 px en una pieza cuadrada de 48 px: blue-50 `#EDF2FA` con el icono en azul de marca `#17356E` sobre blanco, y azul profundo `#10254C` con el icono en blanco sobre azul de marca. Esquinas rectas, sin borde ni sombra.
+- Sin pieza, usa 32 o 48 px con `absoluteStrokeWidth`, para que el trazo siga en 2 px.
+- Un icono por cifra; en una serie de tres, tres iconos del mismo peso visual.
+- La cifra usa el estilo Subencabezado con cifras tabulares; su etiqueta, el estilo Pequeño en texto secundario.
+- Las cifras siguen la página de Voz: valores reales con sus condiciones, nunca números inventados.
+
+<IconTiles lang="es" />
+
+## Significado
+
+| Icono | Significa |
+| --- | --- |
+| `arrow-right` | Ir a la página o acción siguiente; la flecha de los enlaces de texto y de los botones partidos |
+| `external-link` | Abre otra web |
+| `chevron-right`, `chevron-down` | Abre un nivel inferior, despliega una sección |
+| `arrow-up-right` | Abre un documento en una vista nueva, como un PDF o una ficha técnica |
+| `download` | Guarda un archivo |
+| `play`, `pause` | Inicia o pausa un vídeo; el botón muestra la acción, no el estado |
+| `x` | Cierra o elimina |
+| `check`, `circle-check` | Hecho, apto |
+| `triangle-alert` | Aviso que requiere atención |
+| `circle-x` | Error o rechazo |
+| `info` | Información adicional |
+
+## Nunca
+
+- Flechas, marcas y viñetas Unicode (`→`, `✓`, `•`) ni emojis: cambian con cada tipografía.
+- Otra biblioteca de iconos, ni iconos redibujados, recortados o editados a mano.
+- Iconos rellenos, bicolores o en 3D.
+- Iconos como adorno, ni más de un icono por acción.

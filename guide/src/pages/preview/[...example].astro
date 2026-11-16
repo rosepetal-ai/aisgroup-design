@@ -1,0 +1,45 @@
+---
+// One example of @rosepetal/design (packages/design/examples), alone on its page, for the guide's component pages to frame.
+import '../../design/preview.css';
+import ExampleHost from '../../design/ExampleHost.vue';
+import { files } from '../../design/package';
+
+export function getStaticPaths() {
+  return Object.keys(files).filter((p) => p.startsWith('examples/') && p.endsWith('.vue')).map((p) => ({ params: { example: p.replace(/^examples\//, '').replace('.vue', '') } }));
+}
+const { example } = Astro.params;
+// Menus, dialogs and toasts open outside the content, so their frames keep room for them; the rest fit their content.
+const FLOORS: [RegExp, number][] = [
+  [/^(login-page|sidebar)\//, 640],
+  [/^(combobox|select|dialog|alert-dialog|confirm-dialog|tooltip|dropdown-menu|navigation-menu|sonner|popover|sheet)\//, 320],
+];
+const floor = FLOORS.find(([test]) => test.test(example!))?.[1] ?? 0;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{example}</title>
+    <script is:inline>
+      // Light by default; ?theme=dark, or a message from the guide page, puts .dark on <html> as an app does.
+      const theme = (t) => document.documentElement.classList.toggle('dark', t === 'dark');
+      theme(new URLSearchParams(location.search).get('theme'));
+      addEventListener('message', (m) => { if (m.data?.theme) theme(m.data.theme); });
+    </script>
+  </head>
+  <body>
+    <main class="flex flex-wrap items-center justify-center gap-4 p-10" style={`min-height: ${floor}px`}>
+      <ExampleHost client:only="vue" example={example} />
+    </main>
+    <script is:inline>
+      // Tells the guide page how tall the preview is, so the frame never scrolls. Only once the example has mounted
+      // (Astro drops the island's ssr attribute then): an empty frame's height would make the page jump.
+      const post = () => { if (document.querySelector('main astro-island[ssr]')) return;
+        parent.postMessage({ preview: location.pathname, height: document.querySelector('main').scrollHeight }, '*'); };
+      new ResizeObserver(post).observe(document.body); addEventListener('load', post);
+    </script>
+    <script is:inline src="/preview-mini.js"></script>
+  </body>
+</html>

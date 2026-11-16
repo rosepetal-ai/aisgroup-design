@@ -1,0 +1,70 @@
+---
+title: "Llocs web"
+---
+
+Aplica el sistema de marca a la composició, el contingut i la navegació web.
+
+## Base comuna
+
+| Element | Especificació |
+| --- | --- |
+| **Retícula** | Contingut de fins a 1440 px d’amplada, marges fluids de 24 a 64 px, 12 columnes i quatre punts de ruptura. Consulta [Composició i forma](/ca/layout/). |
+| **Botó partit** | La crida a l’acció principal: 52 px d’alçada, cantonades rectes, text i un segment de fletxa independent de 52 px; 44 px en la versió compacta de capçaleres i targetes (webs d’AIS). Rosepetal fa servir la mida de 44 px en totes les crides a l’acció, també a les pàgines. |
+| **Controls** | Botons de capçalera i menús de 44 px d’alçada; camps de formulari de 48 px. Cada zona de pulsació fa com a mínim 44 × 44 px. |
+| **Capçalera** | 76 px d’alçada, del color de la pàgina sobre una línia d’1 px. Logotip; navegació; a la dreta, les accions: una acció secundària opcional en text i després el botó partit compacte. Sense selector de tema. |
+| **Logotip a la capçalera** | Només el fitxer oficial. Logotips d’AIS de 44 px d’alçada, en negre; Rosepetal de 27 px d’alçada (140 px d’amplada), 25 px al mòbil (130 px, el seu mínim), en blau. Consulta [Logotips](/ca/logos/#als-webs). |
+| **Enllaços i estats en passar el punter** | Un comportament per tipus, igual a tots els webs. Consulta [Moviment](/ca/motion/#enllaços-i-estats-en-passar-el-punter). |
+| **Estils de text** | El mateix paper fa servir el mateix estil a tots els webs. Consulta [Tipografia](/ca/typography/#mateix-paper-mateix-estil). |
+| **Taules i blocs de text** | `.ais-table`, `.ais-figures`, `.ais-quote` i `.ais-note` de `@aisgroup/web/styles.css`, com els defineix [Documents i presentacions](/ca/communications/#taula). Mai una taula sobre una banda blava. |
+| **Titulars** | Display (44–72 px) només a la portada i a les obertures de campanya, i Títol als mòbils per sota de 600 px; Títol (34–56 px) a la resta de pàgines. Consulta [Tipografia](/ca/typography/). |
+| **Espai entre seccions** | `--ais-space-section` en total entre dues seccions, mai a banda i banda de cadascuna. |
+| **Obertures** | Foto o vídeo a sang fins a una finestra de 1920 px, i a partir d’aquí centrat; mai no retalla el tema. |
+| **Peu** | Bloc de marca, tres columnes d’enllaços, línia legal i la línia «Part of AIS Group». Els webs clars fan servir el blau profund `#10254C`; els foscos continuen el fons de la pàgina sota una línia fina d’1 px, sense bloc de color. |
+| **Avís de galetes** | Un sol component a tots els webs: la barra de tinta (`#0F1729`) a tota l’amplada fixa a baix, amb els mateixos colors i botons a tots els temes. Vegeu [Components dels llocs web](/ca/web-components/#avís-de-galetes-i-targeta-desdeveniment). |
+| **Targetes d’esdeveniments i anuncis** | Als webs clars, blau de marca `#17356E` amb vora d’1 px blue-600 `#1E4591`, avanttítol i icones en blau clar `#A7BFE4`, títol blanc i detalls en neutral-200 `#E2E8F0`. A les seccions fosques i a les previsualitzacions fosques de Rosepetal, una targeta blanca. Rectes; mai del color del peu. Només apareixen després de triar les galetes, mai alhora que l’avís. |
+| **Títols de pestanya** | «Títol de la pàgina \| Marca», per exemple «AIS REV 360 \| AIS Vision Systems». Sense guions, punts volats ni la marca al davant. |
+| **Favicons** | La marca sola del joc per a webs: blava `#17356E` en mode clar i blanca en mode fosc, ajustada al píxel a cada mida. Consulta [Logotips](/ca/logos/#favicons). |
+| **Cantonades** | Rectes: botons, camps, targetes, menús, avisos, fotografies i vídeos. Una pantalla de producte mostrada com a finestra pren la cantonada de 4 px de la finestra. Consulta [Composició i forma](/ca/layout/#forma). |
+| **Moviment** | Titulars que apareixen, capçalera fixa durant les transicions de pàgina, fletxes que avancen 3 px en passar el punter. Consulta Moviment. |
+
+Els webs es diferencien per l’ambient, no per les peces. Quan un mateix element existeix en més d’un web, es construeix de la mateixa manera. Tots tres són clars.
+
+| Element | AIS Group | AIS Vision Systems | Rosepetal |
+| --- | --- | --- | --- |
+| **Logotip a la capçalera** | AIS Group, negre, 44 px | AIS Vision Systems, negre, 44 px | Rosepetal, blau, 27 px |
+| **Accions de la capçalera** | Contacte | Selector d’idioma, Contacte | Request access (text), Book a demo |
+| **Final de pàgina** | Banda de tancament en blau de marca | Banda de tancament en blau de marca | Banda de tancament a la pàgina d’inici; a les altres, sobre la pàgina, sota una línia d’1 px |
+| **Proves** | Les empreses | Fotografia de producte, instal·lacions | Vídeos de producte, pantalles, figures isomètriques |
+| **Llengües** | Anglès | Anglès, castellà, català i més | Anglès |
+
+## AIS Vision Systems
+
+Maquinari, presentat com un catàleg industrial precís.
+
+- **Clar:** blanc i gris de secció (`#F1F5F9`), amb blau profund (`#10254C`) per a les seccions fosques i el peu, i blau de marca (`#17356E`) per a la banda de tancament.
+- **Accions:** botons partits en blau de marca (`#17356E`) amb text blanc, que s’enfosqueixen a blue-800 `#10254C` en passar el punter; enllaços en blau d’acció (`#3664B3`), que s’enfosqueixen a blue-600 `#1E4591` en passar el punter.
+- **Proves:** fotografia de producte i d’instal·lacions; la família AIS REV 360 porta el pes visual.
+- Multilingüe: anglès, castellà, català i més llengües, cadascuna localitzada.
+
+## Rosepetal
+
+Programari, a les mateixes pàgines clares que AIS, on les pantalles del producte posen el color.
+
+- **Clar:** blanc, amb neutral-50 `#F8FAFC` darrere de les imatges i gris de secció `#F1F5F9`; text en tinta `#0F1729`, text secundari neutral-600 `#4B5563` i el peu en blau profund.
+- **Accions:** botons partits en blau de marca (`#17356E`) amb text blanc, blau profund `#10254C` en passar el punter; enllaços en blau d’acció (`#3664B3`), blue-600 `#1E4591` en passar el punter.
+- **Proves:** [vídeos de producte](/ca/web-components/#vídeo-de-producte), pantalles del producte mostrades com a finestres i figures isomètriques dels llocs on s’executa el programari (línia, armari, panell d’operari).
+- **Els temes foscos** queden com a previsualitzacions amb `?theme=`, no com a opció per al visitant: no hi ha selector de tema.
+
+## AIS Group
+
+Corporatiu i multimarca. Presenta les empreses i hi adreça els visitants, amb el blau de marca com a superfície principal i els cinc logotips tractats per igual.
+
+## Abans de publicar
+
+- Un sol H1 per pàgina, en el nivell que li correspon.
+- Totes les imatges tenen text alternatiu en la llengua de la pàgina.
+- El text corregut arriba a un contrast de 4,5:1 (consulta Color).
+- La pàgina funciona amb moviment reduït i en una pantalla de 390 px d’amplada.
+- Les pàgines se serveixen amb `Cache-Control: no-cache`; els recursos amb hash es desen a la memòria cau durant un any.
+- La [revisió de marca](/downloads/qa/brand-check.js), `type-check.mjs` i `hover-audit.mjs` se superen a cada plantilla; consulta [Accessibilitat](/ca/accessibility/#proves).
+- Es fa una captura de cada estat en passar el punter, menú obert, estat de focus, menú mòbil i overlay, a cada tema. Els scripts no veuen els estats.

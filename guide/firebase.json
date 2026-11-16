@@ -1,0 +1,156 @@
+{
+  "hosting": [
+    {
+      "target": "aisgroup-design",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true,
+      "trailingSlash": true,
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(woff|woff2)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "/_astro/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        }
+      ],
+      "redirects": [
+        {
+          "source": "/downloads/brand.css",
+          "destination": "/downloads/ais-tokens.css",
+          "type": 301
+        },
+        {
+          "source": "/downloads/brand.tokens.json",
+          "destination": "/downloads/ais-tokens.json",
+          "type": 301
+        },
+        {
+          "source": "/downloads/theme.css",
+          "destination": "/downloads/ais-theme.css",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web-theme.css",
+          "destination": "/downloads/ais-web-theme.css",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web-components.css",
+          "destination": "/downloads/ais-web-components.css",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web-components.js",
+          "destination": "/downloads/ais-web-components.js",
+          "type": 301
+        },
+        {
+          "source": "/downloads/favicons/ais-app.zip",
+          "destination": "/downloads/favicons/ais-app-icons.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/favicons/ais-website.zip",
+          "destination": "/downloads/favicons/ais-favicons.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/favicons/rosepetal-app.zip",
+          "destination": "/downloads/favicons/rosepetal-app-icons.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/favicons/rosepetal-website.zip",
+          "destination": "/downloads/favicons/rosepetal-favicons.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web/ais-group.zip",
+          "destination": "/downloads/web/ais-group-web-assets.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web/ais-vision.zip",
+          "destination": "/downloads/web/ais-vision-systems-web-assets.zip",
+          "type": 301
+        },
+        {
+          "source": "/downloads/web/rosepetal.zip",
+          "destination": "/downloads/web/rosepetal-web-assets.zip",
+          "type": 301
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/mcp",
+          "function": {
+            "functionId": "mcp",
+            "region": "europe-west1"
+          }
+        },
+        {
+          "source": "/mcp/**",
+          "function": {
+            "functionId": "mcp",
+            "region": "europe-west1"
+          }
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "source": "../hosted",
+      "codebase": "mcp",
+      "runtime": "nodejs22",
+      "predeploy": [
+        "node ../hosted/build.mjs",
+        "node ../hosted/build-downloads.mjs"
+      ],
+      "ignore": [
+        "node_modules",
+        ".git",
+        "tests",
+        "README.md",
+        "Dockerfile*",
+        "*.log",
+        "data/logos",
+        "data/fonts",
+        "data/kit",
+        "data/library",
+        "data/downloads/*/**",
+        "data/downloads/ais-tokens.css",
+        "data/downloads/media-library.json",
+        "data/downloads/ais-web-components.css",
+        "data/downloads/ais-web-theme.css",
+        "data/downloads/ais-web-components.js"
+      ]
+    }
+  ]
+}

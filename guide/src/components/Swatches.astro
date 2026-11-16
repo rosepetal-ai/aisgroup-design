@@ -1,0 +1,43 @@
+---
+import { roles } from '../palette';
+// Labels sit below the colour, never on it: every label reads at full contrast whatever the colour.
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; colours: { key: string; step: string; hex: string }[]; label?: string }
+const { lang, colours, label } = Astro.props;
+---
+<figure class="swatches" style={`--cols:${colours.length >= 8 ? colours.length : 4}`}>
+  {label && <figcaption>{label}</figcaption>}
+  <ol>
+    {colours.map((c) => (
+      <li>
+        <button type="button" class="chip" data-copy={c.hex} style={`--swatch:${c.hex}`} aria-label={`${roles[c.key]?.[lang]} ${c.hex}`}>
+          <span class="block" />
+          <span class="meta">{c.step && <span class="step">{c.step}</span>}<code>{c.hex}</code></span>
+        </button>
+        <p>{roles[c.key]?.[lang]}</p>
+      </li>
+    ))}
+  </ol>
+</figure>
+<style>
+  /* One object per strip: a single outline around the row, chips flush and still, labels in the same columns. */
+  .swatches { margin: 32px 0 40px; }
+  figcaption { margin-bottom: 12px; font-size: var(--ais-text-small); font-weight: 600; color: var(--muted); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); }
+  /* A short strip (the three states) takes the brand colours' four columns; a scale takes one column a step. */
+  li { margin: 0 !important; min-width: 0; }
+  .chip { all: unset; box-sizing: border-box; display: flex; flex-direction: column; width: 100%; cursor: copy; }
+  .block { display: block; height: 64px; background: var(--swatch); border-block: 1px solid var(--line); }
+  li:first-child .block { border-left: 1px solid var(--line); border-radius: 0; }
+  li:last-child .block { border-right: 1px solid var(--line); border-radius: 0; }
+  .chip:hover .block { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ais-neutral-900) 30%, transparent); }
+  .chip:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; position: relative; z-index: 1; }
+  .meta { display: flex; flex-direction: column; gap: 2px; padding: 8px 8px 0 0; }
+  .step { font-size: var(--ais-text-caption); font-weight: 600; color: var(--ink); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .chip code { font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); background: none; padding: 0; color: var(--ink); white-space: nowrap; }
+  p { margin: 2px 0 0; padding-right: 8px; font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); color: var(--muted); }
+  @media (max-width: 760px) {
+    ol { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 16px; }
+    .block { height: 56px; border: 1px solid var(--line) !important; border-radius: 0; }
+  }
+</style>

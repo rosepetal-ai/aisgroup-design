@@ -1,0 +1,70 @@
+---
+title: "Sitios web"
+---
+
+Aplica el sistema de marca a la composición, el contenido y la navegación web.
+
+## Base común
+
+| Elemento | Especificación |
+| --- | --- |
+| **Retícula** | Contenido de hasta 1440 px de ancho, márgenes fluidos de 24 a 64 px, 12 columnas y cuatro puntos de ruptura. Consulta [Composición y forma](/es/layout/). |
+| **Botón partido** | La llamada a la acción principal: 52 px de alto, esquinas rectas, texto y un segmento de flecha independiente de 52 px; 44 px en la versión compacta de cabeceras y tarjetas (webs de AIS). Rosepetal usa el tamaño de 44 px en todas sus llamadas a la acción, también en las páginas. |
+| **Controles** | Botones de cabecera y menús de 44 px de alto; campos de formulario de 48 px. Toda zona pulsable mide al menos 44 × 44 px. |
+| **Cabecera** | 76 px de alto, del color de la página sobre una línea de 1 px. Logotipo; navegación; a la derecha las acciones: una acción secundaria opcional en texto y después el botón partido compacto. Sin selector de tema. |
+| **Logotipo en la cabecera** | Solo el archivo oficial. Logotipos de AIS de 44 px de alto, en negro; Rosepetal de 27 px de alto (140 px de ancho), 25 px en móvil (130 px, su mínimo), en azul. Ver [Logotipos](/es/logos/#en-las-webs). |
+| **Enlaces y estados** | Un comportamiento por tipo, igual en todas las webs. Ver [Movimiento](/es/motion/#enlaces-y-estados-al-pasar-el-puntero). |
+| **Estilos de texto** | El mismo papel usa el mismo estilo en todas las webs. Ver [Tipografía](/es/typography/#mismo-papel-mismo-estilo). |
+| **Tablas y bloques de texto** | `.ais-table`, `.ais-figures`, `.ais-quote` y `.ais-note` de `@aisgroup/web/styles.css`, como los define [Documentos y presentaciones](/es/communications/#tabla). Nunca una tabla sobre una banda azul. |
+| **Titulares** | Display (44–72 px) solo en la portada y en las aperturas de campaña, y Título en móviles por debajo de 600 px; Título (34–56 px) en el resto de páginas. Consulta [Tipografía](/es/typography/). |
+| **Espacio entre secciones** | `--ais-space-section` en total entre dos secciones, nunca a ambos lados de cada una. |
+| **Aperturas** | Foto o vídeo a sangre hasta una ventana de 1920 px, después centrado; nunca recorta el tema. |
+| **Pie** | Bloque de marca, tres columnas de enlaces, línea legal y el respaldo «Part of AIS Group». Las webs claras usan el azul profundo `#10254C`; las oscuras continúan el fondo de la página bajo una línea fina de 1 px, sin bloque de color. |
+| **Aviso de cookies** | Un solo componente en todas las webs: la barra de tinta (`#0F1729`) a todo el ancho fija abajo, con los mismos colores y botones en cada tema. Ver [Componentes de los sitios web](/es/web-components/#aviso-de-cookies-y-tarjeta-de-evento). |
+| **Tarjetas de eventos y anuncios** | En las webs claras, azul de marca `#17356E` con borde de 1 px blue-600 `#1E4591`, antetítulo e iconos en azul claro `#A7BFE4`, título blanco y detalles en neutral-200 `#E2E8F0`. En las secciones oscuras y en las vistas previas oscuras de Rosepetal, una tarjeta blanca. Rectas; nunca del color del pie. Solo aparecen después de elegir las cookies, nunca a la vez. |
+| **Títulos de pestaña** | «Título de la página \| Marca», por ejemplo «AIS REV 360 \| AIS Vision Systems». Sin guiones, puntos medios ni la marca delante. |
+| **Favicons** | La marca sola del juego para webs: azul `#17356E` en modo claro y blanca en modo oscuro, ajustada al píxel en cada tamaño. Ver [Logotipos](/es/logos/#favicons). |
+| **Esquinas** | Rectas: botones, campos, tarjetas, menús, avisos, fotografías y vídeos. Una pantalla de producto mostrada como ventana toma la esquina de 4 px de la ventana. Ver [Composición y forma](/es/layout/#forma). |
+| **Movimiento** | Titulares que aparecen, cabecera fija en las transiciones, flechas que avanzan 3 px. Consulta Movimiento. |
+
+Las webs se diferencian en el ambiente, no en las piezas. Si un elemento existe en más de una, se construye igual en todas. Las tres son claras.
+
+| Elemento | AIS Group | AIS Vision Systems | Rosepetal |
+| --- | --- | --- | --- |
+| **Logotipo en la cabecera** | AIS Group, negro, 44 px | AIS Vision Systems, negro, 44 px | Rosepetal, azul, 27 px |
+| **Acciones de la cabecera** | Contacto | Selector de idioma, Contacto | Request access (texto), Book a demo |
+| **Final de página** | Banda de cierre en azul de marca | Banda de cierre en azul de marca | Banda de cierre en la página de inicio; en las demás, sobre la página, bajo una línea de 1 px |
+| **Evidencia** | Las compañías | Fotografía de producto, instalaciones | Vídeos de producto, pantallas, ilustraciones isométricas |
+| **Idiomas** | Inglés | Inglés, español, catalán y más | Inglés |
+
+## AIS Vision Systems
+
+Hardware, presentado como un catálogo industrial preciso.
+
+- **Clara:** blanco y gris de sección (`#F1F5F9`), con azul profundo (`#10254C`) para secciones oscuras y el pie, y azul de marca (`#17356E`) para la banda de cierre.
+- **Acciones:** botones partidos en azul de marca (`#17356E`) con texto blanco, que se oscurecen a blue-800 `#10254C` al pasar el puntero; enlaces en azul de acción (`#3664B3`), que se oscurecen a blue-600 `#1E4591` al pasar el puntero.
+- **Evidencia:** fotografía de producto e instalaciones; la familia AIS REV 360 lleva el peso visual.
+- Multilingüe: inglés, español, catalán y más idiomas, cada uno localizado.
+
+## Rosepetal
+
+Software, en las mismas páginas claras que AIS, donde las pantallas del producto ponen el color.
+
+- **Clara:** blanco, con neutral-50 `#F8FAFC` detrás de las imágenes y gris de sección `#F1F5F9`; texto en tinta `#0F1729`, texto secundario neutral-600 `#4B5563` y el pie en azul profundo.
+- **Acciones:** botones partidos en azul de marca (`#17356E`) con texto blanco, azul profundo `#10254C` al pasar el puntero; enlaces en azul de acción (`#3664B3`), blue-600 `#1E4591` al pasar el puntero.
+- **Evidencia:** [vídeos de producto](/es/web-components/#vídeo-de-producto), pantallas del producto mostradas como ventanas e ilustraciones isométricas de dónde se ejecuta el software (línea, armario, panel de operario).
+- **Los temas oscuros** quedan como vistas previas con `?theme=`, no como opción para el visitante: no hay selector de tema.
+
+## AIS Group
+
+Corporativa y multimarca. Presenta las compañías y lleva a los visitantes hacia ellas, con el azul de marca como superficie principal y los cinco logotipos tratados por igual.
+
+## Antes de publicar
+
+- Un solo H1 por página, en el nivel que le corresponde.
+- Todas las imágenes tienen texto alternativo en el idioma de la página.
+- El texto de lectura alcanza un contraste de 4,5:1 (consulta Color).
+- La página funciona con movimiento reducido y en una pantalla de 390 px de ancho.
+- Las páginas se sirven con `Cache-Control: no-cache`; los recursos con hash se guardan en caché un año.
+- El [brand check](/downloads/qa/brand-check.js), `type-check.mjs` y `hover-audit.mjs` pasan en cada plantilla; ver [Accesibilidad](/es/accessibility/#pruebas).
+- Cada estado al pasar el puntero, menú abierto, foco, menú móvil y overlay se captura en cada tema. Los scripts no ven estados.

@@ -1,0 +1,66 @@
+---
+title: Visualització de dades
+rules:
+  - 'Tria el gràfic per la seva tasca: barres per comparar, línies per a l’evolució en el temps, una xifra per a un sol número i una taula per a valors exactes. Mai circulars de més de tres parts, 3D ni dos eixos verticals.'
+  - 'Els colors de sèrie surten dels sis colors de dades en ordre fix (de --ais-data-1 a -6), sense repetir-los ni reordenar-los. Una setena sèrie passa a «Altres» o a gràfics petits múltiples.'
+  - 'La magnitud fa servir un sol to, de clar a fosc (--ais-seq-*). Els valors per sobre i per sota d’una referència fan servir taronja i blau al voltant d’un gris neutre (--ais-div-*).'
+  - 'Els colors d’estat (èxit, avís, error) només indiquen estat, amb una icona o una paraula, i mai no són color de sèrie.'
+  - 'El text no pren mai el color d’una sèrie; hi ha llegenda a partir de dues sèries, etiquetes directes fins a quatre, i tot gràfic té vista de taula.'
+---
+import DataSpecimens from '../../../components/DataSpecimens.astro';
+import ChartGallery from '../../../components/ChartGallery.astro';
+
+Fes servir aquests gràfics per presentar quantitats i comparacions amb claredat.
+
+## Tria la forma
+
+| La tasca de la dada | Forma |
+| --- | --- |
+| Comparar categories | Barres ordenades per valor, horitzontals si les etiquetes són llargues |
+| Mostrar l’evolució en el temps | Línia; columnes si hi ha pocs períodes discrets |
+| Part d’un tot | Una sola barra apilada; un gràfic circular només per a dues o tres parts |
+| Mostrar una distribució | Histograma o franja de punts |
+| Un número que importa | Una xifra: valor, etiqueta i la comparació que necessita |
+| Valors exactes per consultar | Una taula amb xifres tabulars |
+
+Si un número porta el missatge, fes servir una xifra, no un gràfic. No facis servir mai 3D, dos eixos verticals en un mateix gràfic ni gràfics decoratius sense dades reals.
+
+## Color
+
+Sis colors de dades, validats per a persones amb daltonisme i per al contrast sobre blanc i sobre la superfície fosca. Tots provenen del sistema de disseny de Rosepetal; la columna fosca és la mateixa família de to ajustada a fons foscos.
+
+<DataSpecimens lang="ca" show="palettes" />
+
+- **Categòrica:** assigna en ordre, començant pel blau. El color segueix l’entitat: si un filtre treu una sèrie, les altres conserven el seu color.
+- **Seqüencial:** un sol to, de clar a fosc per a més. Sobre fons foscos l’escala va de fosc a clar.
+- **Divergent:** taronja per sota i blau per sobre d’una referència, amb un gris neutre al centre.
+- **Estat:** el verd, l’ambre i el vermell es reserven per als estats, sempre amb una paraula o una icona, i mai no es fan servir com a colors de sèrie.
+
+## Marques
+
+| Marca | Especificació |
+| --- | --- |
+| **Barres i columnes** | Com a màxim 24 px de gruix, extrems rectes, des d’una sola línia de base a zero; 2 px de blanc entre barres contigües i segments apilats |
+| **Línies** | 2 px, unions arrodonides; un punt de 8 px amb un anell blanc de 2 px marca l’últim valor |
+| **Àrees** | El color de la sèrie al 10 % d’opacitat |
+| **Línies de quadrícula** | 1 px, `#E2E8F0`, contínues, darrere de les dades; la línia de base de zero en `#94A3B8` |
+| **Text dels eixos** | Estil Peu (12 px), text secundari, xifres tabulars, marques rodones (0, 10, 20 o 1K, 2K) |
+
+## Etiquetes i llegendes
+
+- Una sola sèrie no necessita llegenda: el títol l’anomena. A partir de dues sèries, posa una llegenda sobre el gràfic; amb fins a quatre, etiqueta també les línies o barres directament.
+- Etiqueta amb criteri: l’últim valor, el màxim o la sèrie de què tracta la història. Mai un número a cada punt.
+- Valors, etiquetes i llegendes van en colors de text (tinta i text secundari), mai en el color d’una sèrie. La marca de color al costat del text porta la identitat.
+- Els títols fan servir Cos Semibold i diuen què es representa; el subtítol indica la unitat, el període i, si les dades són il·lustratives, ho diu.
+
+## Eina de gràfics
+
+Les peces de màrqueting, les pàgines de campanya, els documents i les presentacions fan servir una sola eina, perquè un gràfic fet per qualsevol, o per un agent d’IA, surti amb la marca. L’estil viu en una configuració de [Vega-Lite](https://vega.github.io/vega-lite/); un gràfic és una especificació breu que només descriu les dades. Tots els gràfics de sota surten de la seva especificació amb la mateixa ordre.
+
+<ChartGallery lang="ca" />
+
+**Els gràfics interactius als webs** fan servir la mateixa especificació i configuració amb Vega-Embed, de manera que guanyen descripcions emergents sense canviar l’estil. **L’aplicació Rosepetal** manté la seva pròpia biblioteca de gràfics en JavaScript, on `--chart-1`, `--chart-2` i `--chart-3` són els colors de dades blau, taronja i violeta (1, 2 i 5); [el tema d’ECharts](/downloads/charts/ais-echarts-theme.json) (amb versió fosca) i els tokens de dades li donen els mateixos colors, tipografia i marques.
+
+## En pantalla
+
+Els gràfics web són interactius: en passar el cursor per una barra o un punt se’n veu el valor exacte, els gràfics de línies mostren una línia guia que creua totes les sèries i cada gràfic ofereix una vista de taula amb les mateixes dades. Els filtres van en una fila sobre el gràfic que controlen.
