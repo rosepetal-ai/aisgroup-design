@@ -5,6 +5,8 @@
 /* View and Download stay together; on a narrow card they move under the format as a pair. */
 .asset-links{display:inline-flex;align-items:baseline;gap:inherit;white-space:nowrap}
 .dl>.asset-actions{display:flex;gap:4px 12px}
+/* In a table the 44 px targets keep their size but don't grow the line, so the file name sits on the same line as the next cell. */
+td .asset-actions a{margin-block:calc((1lh - 44px) / 2)}
 /* Kit cards: one row per file, the format in its own column so View and Download line up from row to row;
    a card too narrow for both puts the pair under the format. */
 .kf li{container-type:inline-size}
