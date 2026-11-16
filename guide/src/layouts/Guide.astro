@@ -58,7 +58,7 @@ const toc = headings.filter((h) => h.depth === 2);
             </button>
           </div>
           {sections.map((s) => (
-            <div class="group">
+            <div class="nav-group">
               <p>{s.group[lang]}</p>
               <ul>{s.pages.map((p) => <li><a href={href(lang, p)} aria-current={p === slug ? 'page' : undefined}>{titles[p]}</a></li>)}</ul>
             </div>
@@ -99,7 +99,7 @@ const toc = headings.filter((h) => h.depth === 2);
             document.documentElement.setAttribute('data-menu-open', '');
             button.setAttribute('aria-expanded', 'true');
             document.querySelector('main')?.setAttribute('inert', '');
-            document.querySelector('.side [aria-current="page"], .side .group a')?.focus();
+            document.querySelector('.side [aria-current="page"], .side .nav-group a')?.focus();
           } else if (mobile.matches && event.target.closest('.side a')) {
             focusContent = true;
             close();
@@ -138,7 +138,7 @@ const toc = headings.filter((h) => h.depth === 2);
         const save = () => { try { sessionStorage.setItem('guide-side', document.querySelector('.side')?.scrollTop || 0); } catch {} };
         addEventListener('pagehide', save);
         document.addEventListener('astro:before-swap', (e) => { save();
-          for (const sel of ['.top .langs a', '.side .group a']) {
+          for (const sel of ['.top .langs a', '.side .nav-group a']) {
             const fresh = e.newDocument.querySelectorAll(sel);
             document.querySelectorAll(sel).forEach((a, i) => { const f = fresh[i]; if (!f) return;
               a.setAttribute('href', f.getAttribute('href'));

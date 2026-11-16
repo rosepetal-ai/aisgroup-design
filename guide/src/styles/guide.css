@@ -53,14 +53,14 @@ img { max-width: 100%; height: auto; } /* the build gives each image its size; h
 /* Links keep a 10 px hover pill, so the column starts 10 px early and every label lands on the logo's left edge. */
 .side { position: sticky; top: var(--top); align-self: start; height: calc(100dvh - var(--top)); overflow: auto; padding: var(--gutter) calc(var(--gutter) - 12px) 40px; border-right: 1px solid var(--line); }
 .side summary { display: none; }
-.group + .group { margin-top: var(--ais-space-400); }
+.nav-group + .nav-group { margin-top: var(--ais-space-400); }
 /* A group's title is the strongest line in it: ink, semibold, the links' size; the links are regular. */
-.group p { margin: 0 0 4px; padding: 0 12px; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 600; color: var(--ink); white-space: nowrap; }
-.group ul { list-style: none; margin: 0; padding: 0; }
-.group a { display: block; padding: 8px 12px; color: var(--ink); text-decoration: none; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 400; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard), background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+.nav-group p { margin: 0 0 4px; padding: 0 12px; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.nav-group ul { list-style: none; margin: 0; padding: 0; }
+.nav-group a { display: block; padding: 8px 12px; color: var(--ink); text-decoration: none; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 400; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard), background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
 /* Navigation links: ink to action blue, the same on every AIS site. */
-.group a:hover { color: var(--link); }
-.group a[aria-current] { background: var(--ais-blue-50); color: var(--primary); font-weight: 600; }
+.nav-group a:hover { color: var(--link); }
+.nav-group a[aria-current] { background: var(--ais-blue-50); color: var(--primary); font-weight: 600; }
 
 main { min-width: 0; padding: var(--start) clamp(24px, 5vw, 80px) 64px; }
 /* Every text style comes from the brand type tokens (--ais-text-*), so the guide follows its own Typography page. */
@@ -168,6 +168,8 @@ html { scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: var(--a
 .dl-cap .fmt { flex: none; }
 .dl-cap .fmt, .dl-cap .links a { display: inline-flex; align-items: center; gap: 4px; color: var(--link); }
 .dl-cap .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 12px; }
+/* A caption row that holds only links (stock photos: source and licence) starts at the left, under the title. */
+.dl-cap > .links:only-child { justify-content: flex-start; }
 .dl-cap .fmt::after, .dl-cap .links a[download]::after { content: ''; width: 14px; height: 14px; background: currentColor; -webkit-mask: url(/downloads/icons/svg/download.svg) center / contain no-repeat; mask: url(/downloads/icons/svg/download.svg) center / contain no-repeat; }
 a.dl:hover .fmt, .dl-cap .links a:hover { text-decoration: underline; }
 a.dl:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
