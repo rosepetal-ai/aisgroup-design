@@ -26,12 +26,15 @@ export default function assetLinks(){return {name:'native-asset-links',hooks:{'a
      a.setAttribute('href',view);a.setAttribute('target','_blank');a.setAttribute('rel','noopener');a.setAttribute('aria-label',aria);a.removeAttribute('download');
      // Kit/pattern thumbnails already have their two explicit actions.
      if(a.classList.contains('frame')||a.classList.contains('pattern-image')||a.classList.contains('dl-tile')||a.hasAttribute('data-asset-thumb'))replacement=a.outerHTML;
-     else if(a.classList.contains('dl')){a.classList.remove('dl');a.classList.add('asset-thumbnail');replacement=`<div class="dl">${a.outerHTML}<span class="asset-actions">${viewLink}${downLink}</span></div>`;}
-     else replacement=`${a.outerHTML}<span class="asset-actions">${viewLink}${downLink}</span>`;
+     else if(a.classList.contains('dl')){a.classList.remove('dl');a.classList.add('asset-thumbnail');
+      // The format moves from the caption into the action row, as on the Logos page: name, then «SVG View Download».
+      const fmt=a.querySelector('.fmt'),format=fmt?`<span class="asset-format">${fmt.textContent.trim()}</span>`:'';fmt?.remove();
+      replacement=`<div class="dl">${a.outerHTML}<span class="asset-actions">${format}<span class="asset-links">${viewLink}${downLink}</span></span></div>`;}
+     else replacement=`${a.outerHTML}<span class="asset-actions"><span class="asset-links">${viewLink}${downLink}</span></span>`;
     }else if((a.parentNode?.textContent||'').replace(a.textContent,'').replace(/[\s()[\],.;:«»—–-]/g,'')){
      // Inside a sentence or caption the file stays one plain link; the View and Download pair is for links on their own line.
      replacement=`<a href="${escape(plain)}" target="_blank" rel="noopener" aria-label="${escape(aria)}">${a.innerHTML}</a>`;
-    }else replacement=`<span class="asset-actions"><span class="asset-format">${a.innerHTML}</span>${viewLink}${downLink}</span>`;
+    }else replacement=`<span class="asset-actions"><span class="asset-format">${a.innerHTML}</span><span class="asset-links">${viewLink}${downLink}</span></span>`;
     changes.push({start:a.range[0],end:a.range[1],replacement});count++;
    }
    let out=html;for(const c of changes.sort((a,b)=>b.start-a.start))out=out.slice(0,c.start)+c.replacement+out.slice(c.end);

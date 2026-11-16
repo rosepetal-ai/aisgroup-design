@@ -235,7 +235,10 @@ body:has(.guide-search[open]) { overflow: hidden; }
   .prose table:has(tr > :nth-child(5)) > :is(thead, tbody) { min-width: 680px; }
   .prose table :is(th, td) { overflow-wrap: normal; word-break: normal; }
   .dl-cap { flex-wrap: wrap; }
-
+}
+/* On a phone, download cards go two to a row so name, format and actions fit. */
+@media (max-width: 600px) {
+  .dl-grid, .dl-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Code and comparative tables keep their controls inside their own frame. */
