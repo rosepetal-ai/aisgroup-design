@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "aisgroup-design",
-      "public": "dist",
+      "public": "guide/dist",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -135,12 +135,12 @@
   ],
   "functions": [
     {
-      "source": "../hosted",
+      "source": "hosted",
       "codebase": "mcp",
       "runtime": "nodejs22",
       "predeploy": [
-        "node ../hosted/build.mjs",
-        "node ../hosted/build-downloads.mjs"
+        "node hosted/build.mjs",
+        "node hosted/build-downloads.mjs"
       ],
       "ignore": [
         "node_modules",
@@ -149,16 +149,16 @@
         "README.md",
         "Dockerfile*",
         "*.log",
-        "data/logos",
-        "data/fonts",
-        "data/kit",
-        "data/library",
-        "data/downloads/*/**",
-        "data/downloads/ais-tokens.css",
-        "data/downloads/media-library.json",
-        "data/downloads/ais-web-components.css",
-        "data/downloads/ais-web-theme.css",
-        "data/downloads/ais-web-components.js"
+        "**/hosted/data/logos",
+        "**/hosted/data/fonts",
+        "**/hosted/data/kit",
+        "**/hosted/data/library",
+        "**/hosted/data/downloads/*/**",
+        "**/hosted/data/downloads/ais-tokens.css",
+        "**/hosted/data/downloads/media-library.json",
+        "**/hosted/data/downloads/ais-web-components.css",
+        "**/hosted/data/downloads/ais-web-theme.css",
+        "**/hosted/data/downloads/ais-web-components.js"
       ]
     }
   ]
