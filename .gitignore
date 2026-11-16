@@ -35,5 +35,5 @@ hosted/data/
 # the plugin's media library: a link to the local media cache (no trailing slash, so the link itself is ignored too);
 # its scratch and renders are in plugin/.gitignore
 plugin/library/media
-guide/.firebase/
+.firebase/
 /marketing-kit/
