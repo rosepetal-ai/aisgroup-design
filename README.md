@@ -11,7 +11,7 @@ Everything the AIS Group brands share in design, in one repo: the brand guide, t
 | [`plugin/`](plugin/) | The Claude Code plugin: the guide as skills, and the studio MCP that makes on-brand posts, brochures, datasheets and decks. |
 | [`hosted/`](hosted/) | The hosted, read-only MCP (`design.aisgroup.ai/mcp`): the guide, tokens, components and assets for developers and claude.ai. A Firebase function, published with the guide. |
 | [`library/`](library/) | The curated media library: the photo masters under clean names and `library.json` (every entry, with logos and icons pointing at the guide's official files). Imported with `node scripts/import-library.mjs`; served by both MCPs, not by the public guide. |
-| `.claude-plugin/marketplace.json` | The plugin marketplace: installs `./plugin`. | |
+| `.claude-plugin/marketplace.json` | The plugin marketplace: installs `./plugin`. |
 
 How the parts feed each other: [`plugin/docs/HOW-IT-WORKS.md`](plugin/docs/HOW-IT-WORKS.md). How to work here: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
@@ -24,7 +24,7 @@ git clone https://github.com/rosepetal-ai/aisgroup-design.git
 cd aisgroup-design
 npm ci
 npm run build        # the guide, the playground and the hosted MCP's snapshot of the guide
-npm test             # tokens contract, package typecheck, plugin and hosted MCP tests, components and website contracts
+npm test             # tokens contract, package typecheck, plugin and hosted MCP tests, contracts and guide search
 ```
 
 | Command | What it does |
@@ -32,7 +32,7 @@ npm test             # tokens contract, package typecheck, plugin and hosted MCP
 | `npm run dev:guide` | The guide at http://localhost:4321 |
 | `npm run dev:playground` | The playground at http://localhost:5173 (a component at `/#<id>`) |
 | `npm run build` | `guide/dist`, `playground/dist` and `hosted/data` |
-| `npm test` | `scripts/check-tokens.mjs`, the package's `vue-tsc`, `plugin` and `hosted` tests, `scripts/check-components.mjs` and `scripts/check-web.mjs` (build first: they read `hosted/data` and `guide/dist`) |
+| `npm test` | `scripts/check-tokens.mjs`, the root tests, the package's `vue-tsc`, the `plugin` and `hosted` tests, the components, website and spec contracts and the guide's search (build first: they read `hosted/data` and `guide/dist`) |
 | `npm run sync:sites` | Copies `@aisgroup/web` into the three websites next to this repo (`src/vendor/@aisgroup/web/`, with its fingerprint in their `package.json`) |
 | `npm run sync:plugin` | Copies the built guide's skills, logos, tokens and registry, and `library/`, into `plugin/` (commit the result) |
 | `npm run deploy:guide` | Builds and deploys the guide to Firebase (see Release) |
@@ -86,7 +86,14 @@ The functions predeploy step snapshots the built guide into `hosted/data` (`node
 
 ### The plugin
 
-Colleagues install it from this repo: `/plugin marketplace add rosepetal-ai/aisgroup-design`, then `/plugin install ais-group-design@ais-group-design`. A release is a merge to the default branch (bump `plugin/.claude-plugin/plugin.json`'s version when the skills or the studio change).
+Install it in Claude Code:
+
+```
+/plugin marketplace add rosepetal-ai/aisgroup-design
+/plugin install ais-group-design@ais-group-design
+```
+
+A merge to the default branch releases it. Bump the version in `plugin/.claude-plugin/plugin.json` when the skills or the studio change.
 
 ## Media and the marketing kit
 
