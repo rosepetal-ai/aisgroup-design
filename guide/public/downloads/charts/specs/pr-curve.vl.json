@@ -1,0 +1,368 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 280,
+  "data": {
+    "values": [
+      {
+        "class": "Missing cap",
+        "recall": 0.0,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.05,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.1,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.15,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.2,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.25,
+        "precision": 1.0
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.3,
+        "precision": 0.999
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.35,
+        "precision": 0.999
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.4,
+        "precision": 0.997
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.45,
+        "precision": 0.994
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.5,
+        "precision": 0.988
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.55,
+        "precision": 0.979
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.6,
+        "precision": 0.965
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.65,
+        "precision": 0.943
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.7,
+        "precision": 0.912
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.75,
+        "precision": 0.867
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.8,
+        "precision": 0.803
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.85,
+        "precision": 0.717
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.9,
+        "precision": 0.601
+      },
+      {
+        "class": "Missing cap",
+        "recall": 0.95,
+        "precision": 0.449
+      },
+      {
+        "class": "Missing cap",
+        "recall": 1.0,
+        "precision": 0.25
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.0,
+        "precision": 1.0
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.05,
+        "precision": 1.0
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.1,
+        "precision": 1.0
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.15,
+        "precision": 0.998
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.2,
+        "precision": 0.996
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.25,
+        "precision": 0.991
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.3,
+        "precision": 0.984
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.35,
+        "precision": 0.974
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.4,
+        "precision": 0.96
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.45,
+        "precision": 0.942
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.5,
+        "precision": 0.918
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.55,
+        "precision": 0.889
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.6,
+        "precision": 0.854
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.65,
+        "precision": 0.811
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.7,
+        "precision": 0.76
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.75,
+        "precision": 0.701
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.8,
+        "precision": 0.633
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.85,
+        "precision": 0.554
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.9,
+        "precision": 0.465
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 0.95,
+        "precision": 0.364
+      },
+      {
+        "class": "Tilted cap",
+        "recall": 1.0,
+        "precision": 0.25
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.0,
+        "precision": 1.0
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.05,
+        "precision": 1.0
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.1,
+        "precision": 1.0
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.15,
+        "precision": 1.0
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.2,
+        "precision": 0.999
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.25,
+        "precision": 0.999
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.3,
+        "precision": 0.997
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.35,
+        "precision": 0.993
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.4,
+        "precision": 0.988
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.45,
+        "precision": 0.979
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.5,
+        "precision": 0.967
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.55,
+        "precision": 0.949
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.6,
+        "precision": 0.925
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.65,
+        "precision": 0.892
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.7,
+        "precision": 0.849
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.75,
+        "precision": 0.794
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.8,
+        "precision": 0.725
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.85,
+        "precision": 0.639
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.9,
+        "precision": 0.533
+      },
+      {
+        "class": "Label missing",
+        "recall": 0.95,
+        "precision": 0.405
+      },
+      {
+        "class": "Label missing",
+        "recall": 1.0,
+        "precision": 0.25
+      }
+    ]
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "recall",
+      "type": "quantitative",
+      "title": "Recall",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    "y": {
+      "field": "precision",
+      "type": "quantitative",
+      "title": "Precision",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    "color": {
+      "field": "class",
+      "type": "nominal",
+      "sort": [
+        "Missing cap",
+        "Tilted cap",
+        "Label missing"
+      ],
+      "legend": {
+        "symbolType": "stroke"
+      }
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Precision and recall by defect",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

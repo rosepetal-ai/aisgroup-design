@@ -1,0 +1,39 @@
+{
+  "name": "ais-vision-systems_post-event-enomaq_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "We will be at ENOMAQ to talk about machine vision on wine and beverage lines. [Confirm the label inspection demo] Book a demo",
+  "shots": [
+    {
+      "type": "event",
+      "src": "@lib/media/advanced-factories-2026/af26_stand-hexagons.jpg",
+      "split": 0.4,
+      "focus": [
+        0,
+        78
+      ],
+      "lead": "See you at",
+      "event": "ENOMAQ 2027",
+      "rows": [
+        {
+          "icon": "calendar",
+          "text": "26 to 28 January 2027 [confirm]"
+        },
+        {
+          "icon": "map-pin",
+          "text": "Hall and stand [to be confirmed]"
+        }
+      ],
+      "formats": {
+        "1x1": {
+          "split": 0.3
+        }
+      },
+      "scale": 1.32
+    }
+  ]
+}

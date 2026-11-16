@@ -1,0 +1,15 @@
+---
+// Downloads page: the two typefaces, each with its official sources.
+const faces = [
+  { name: 'Inter', font: 'var(--ais-font-primary)', links: [['rsms.me/inter', 'https://rsms.me/inter/'], ['Google Fonts', 'https://fonts.google.com/specimen/Inter']] },
+  { name: 'JetBrains Mono', font: 'var(--mono)', links: [['jetbrains.com/lp/mono', 'https://www.jetbrains.com/lp/mono/'], ['Google Fonts', 'https://fonts.google.com/specimen/JetBrains+Mono']] },
+];
+---
+<div class="dl-grid two">
+  {faces.map((f) => (
+    <div class="dl">
+      <span class="dl-tile specimen" style={`font-family:${f.font}`} aria-hidden="true">Aa</span>
+      <span class="dl-cap"><strong>{f.name}</strong><span class="links">{f.links.map(([label, href]) => <a href={href}>{label}</a>)}</span></span>
+    </div>
+  ))}
+</div>

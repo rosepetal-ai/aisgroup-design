@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "Patrones de comunicación",
+    "footer": "AIS Vision Systems",
+    "file": "ais-vision-systems_patrones_es"
+  },
+  "slides": [
+    {
+      "layout": "table",
+      "eyebrow": "OPTICAIS",
+      "title": "Tamaño mínimo de lectura",
+      "head": [
+        "Campo de visión (mm)",
+        "Código 1D (mm)",
+        "Código 2D (mm)",
+        "Altura OCR (mm)"
+      ],
+      "num": [
+        1,
+        2,
+        3
+      ],
+      "rows": [
+        [
+          "100 × 56",
+          "0,15",
+          "0,31",
+          "2,0"
+        ],
+        [
+          "75 × 42",
+          "0,11",
+          "0,23",
+          "1,5"
+        ],
+        [
+          "50 × 28",
+          "0,08",
+          "0,16",
+          "1,0"
+        ]
+      ],
+      "caption": "Los caracteres no deben tocarse entre sí.",
+      "notes": "Tabla: valores exactos de varios elementos, unidades en la cabecera."
+    },
+    {
+      "layout": "table",
+      "eyebrow": "AIS KARIKÓ",
+      "title": "Especificaciones técnicas",
+      "widths": "1fr 2fr",
+      "rows": [
+        [
+          "Cadencia máxima",
+          "Hasta 30 000 unidades/hora, según las inspecciones y el formato"
+        ],
+        [
+          "Separación mínima",
+          "130 mm entre envases"
+        ],
+        [
+          "Cámaras",
+          "2 en color de alta resolución: superior matricial e inferior lineal"
+        ],
+        [
+          "Diseño",
+          "Acero inoxidable (INOX 304)"
+        ],
+        [
+          "Panel de control",
+          "Pantalla táctil de 21 pulgadas"
+        ]
+      ],
+      "notes": "Bloque de especificaciones: las propiedades de un producto, sin cabecera."
+    },
+    {
+      "layout": "figures",
+      "eyebrow": "AIS Hopper",
+      "title": "Analiza el 100 % de la producción",
+      "figures": [
+        {
+          "value": "30 000",
+          "label": "Unidades por hora, como máximo",
+          "text": "Según el formato y las inspecciones."
+        },
+        {
+          "value": "360°",
+          "label": "Alrededor del cierre",
+          "text": "Sin orientar el envase."
+        }
+      ],
+      "notes": "Cifras clave: tres como máximo, cada una con su condición."
+    },
+    {
+      "layout": "grid",
+      "eyebrow": "AIS REV 360 PHARMA",
+      "title": "El mismo vial, con y sin defecto",
+      "cols": 2,
+      "ratio": 1.6,
+      "tiles": [
+        {
+          "image": {
+            "src": "pieces/patterns/pharma/assets/vial_label-ok_clean.jpg",
+            "alt": "Vial con una sola etiqueta en su posición",
+            "pos": "50% 68%"
+          },
+          "status": "ok",
+          "label": "Etiqueta correcta",
+          "caption": "Una sola etiqueta, en su posición."
+        },
+        {
+          "image": {
+            "src": "pieces/patterns/pharma/assets/vial_label-double_clean.jpg",
+            "alt": "El mismo vial con una segunda etiqueta superpuesta",
+            "pos": "50% 68%"
+          },
+          "status": "nok",
+          "label": "Doble etiqueta",
+          "caption": "Una segunda etiqueta tapa parte de la primera."
+        }
+      ],
+      "notes": "Comparación: el mismo sujeto, el mismo encuadre, el estado debajo de cada imagen."
+    },
+    {
+      "layout": "steps",
+      "eyebrow": "Cómo trabajamos",
+      "title": "Probamos tus muestras antes de la oferta",
+      "steps": [
+        {
+          "title": "Muestras",
+          "text": "Envases reales de tu producción, con sus formatos y defectos."
+        },
+        {
+          "title": "Pruebas de laboratorio",
+          "text": "Un informe técnico fija el hardware del proyecto."
+        },
+        {
+          "title": "Oferta técnica y económica",
+          "text": "Con cada partida y los opcionales."
+        }
+      ],
+      "notes": "Pasos del proceso: de tres a cinco, numerados en el hexágono."
+    }
+  ]
+}

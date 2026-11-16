@@ -1,0 +1,247 @@
+{
+  "automotive": [
+    "Automotive",
+    "Automoción",
+    "Automoció"
+  ],
+  "electronics": [
+    "Electronics",
+    "Electrónica",
+    "Electrònica"
+  ],
+  "food-beverage": [
+    "Food and beverage",
+    "Alimentación y bebidas",
+    "Alimentació i begudes"
+  ],
+  "life-sciences": [
+    "Life sciences",
+    "Ciencias de la vida",
+    "Ciències de la vida"
+  ],
+  "logistics": [
+    "Logistics",
+    "Logística",
+    "Logística"
+  ],
+  "packaging": [
+    "Packaging",
+    "Envasado",
+    "Envasament"
+  ],
+  "pharma": [
+    "Pharma",
+    "Farmacia",
+    "Farmàcia"
+  ],
+  "manufacturing": [
+    "Manufacturing",
+    "Fabricación",
+    "Fabricació"
+  ],
+  "consumer-electronics": [
+    "Consumer electronics",
+    "Electrónica de consumo",
+    "Electrònica de consum"
+  ],
+  "cable-inspection": [
+    "Cable inspection",
+    "Inspección de cables",
+    "Inspecció de cables"
+  ],
+  "artificial-intelligence": [
+    "Artificial intelligence",
+    "Inteligencia artificial",
+    "Intel·ligència artificial"
+  ],
+  "industrial-automation": [
+    "Industrial automation",
+    "Automatización industrial",
+    "Automatització industrial"
+  ],
+  "machine-vision": [
+    "Machine vision",
+    "Visión artificial",
+    "Visió artificial"
+  ],
+  "robotics": [
+    "Robotics",
+    "Robótica",
+    "Robòtica"
+  ],
+  "traceability-serialization": [
+    "Traceability and serialisation",
+    "Trazabilidad y serialización",
+    "Traçabilitat i serialització"
+  ],
+  "ais-building-sabadell-from-above": [
+    "Sabadell facility, aerial view",
+    "Instalaciones de Sabadell, vista aérea",
+    "Instal·lacions de Sabadell, vista aèria"
+  ],
+  "ais-vision-automation-cell": [
+    "Automation cell",
+    "Celda de automatización",
+    "Cel·la d’automatització"
+  ],
+  "ais-vision-automation-cleanroom": [
+    "Cleanroom installation",
+    "Instalación en sala blanca",
+    "Instal·lació en sala blanca"
+  ],
+  "ais-vision-automation-design": [
+    "Machine design",
+    "Diseño de maquinaria",
+    "Disseny de maquinària"
+  ],
+  "ais-vision-automation-engineer": [
+    "Engineering at work",
+    "Trabajo de ingeniería",
+    "Treball d’enginyeria"
+  ],
+  "ais-vision-automation-facility": [
+    "Automation facility",
+    "Instalaciones de automatización",
+    "Instal·lacions d’automatització"
+  ],
+  "ais-vision-automation-machine": [
+    "Automated machine",
+    "Máquina automatizada",
+    "Màquina automatitzada"
+  ],
+  "ais-vision-systems-inspection-station": [
+    "Inspection station",
+    "Estación de inspección",
+    "Estació d’inspecció"
+  ],
+  "ais-vision-systems-labelling": [
+    "Labelling equipment",
+    "Equipo de etiquetado",
+    "Equip d’etiquetatge"
+  ],
+  "ais-scanology-range": [
+    "Scanology product range",
+    "Gama de productos Scanology",
+    "Gamma de productes Scanology"
+  ],
+  "ais-scanology-7100": [
+    "Scanology 7100",
+    "Scanology 7100",
+    "Scanology 7100"
+  ],
+  "ais-scanology-axicon": [
+    "Axicon verifier",
+    "Verificador Axicon",
+    "Verificador Axicon"
+  ],
+  "ais-scanology-lvs-9510": [
+    "LVS-9510 verifier",
+    "Verificador LVS-9510",
+    "Verificador LVS-9510"
+  ],
+  "ais-scanology-lvs-9580": [
+    "LVS-9580 verifier",
+    "Verificador LVS-9580",
+    "Verificador LVS-9580"
+  ],
+  "ais-hopper": [
+    "AIS Hopper",
+    "AIS Hopper",
+    "AIS Hopper"
+  ],
+  "ais-kariko": [
+    "AIS KARIKÓ",
+    "AIS KARIKÓ",
+    "AIS KARIKÓ"
+  ],
+  "ais-rev-360": [
+    "AIS REV 360",
+    "AIS REV 360",
+    "AIS REV 360"
+  ],
+  "ais-rev-360-cables": [
+    "AIS REV 360, cable inspection",
+    "AIS REV 360, inspección de cables",
+    "AIS REV 360, inspecció de cables"
+  ],
+  "annotation-types": [
+    "Annotation types",
+    "Tipos de anotación",
+    "Tipus d’anotació"
+  ],
+  "auto-labeling": [
+    "Automatic labelling",
+    "Etiquetado automático",
+    "Etiquetatge automàtic"
+  ],
+  "capture-flow": [
+    "Image capture workflow",
+    "Flujo de captura de imágenes",
+    "Flux de captura d’imatges"
+  ],
+  "classification-dataset": [
+    "Classification dataset",
+    "Conjunto de datos de clasificación",
+    "Conjunt de dades de classificació"
+  ],
+  "dataset-validation": [
+    "Dataset validation",
+    "Validación del conjunto de datos",
+    "Validació del conjunt de dades"
+  ],
+  "datasets-overview": [
+    "Datasets overview",
+    "Vista general de conjuntos de datos",
+    "Vista general de conjunts de dades"
+  ],
+  "detection-editor": [
+    "Detection editor",
+    "Editor de detecciones",
+    "Editor de deteccions"
+  ],
+  "label-assist": [
+    "Labelling assistance",
+    "Asistencia al etiquetado",
+    "Assistència a l’etiquetatge"
+  ],
+  "model-evaluation": [
+    "Model evaluation",
+    "Evaluación del modelo",
+    "Avaluació del model"
+  ],
+  "quality-metrics": [
+    "Dataset quality metrics",
+    "Métricas de calidad del conjunto de datos",
+    "Mètriques de qualitat del conjunt de dades"
+  ],
+  "segmentation-dataset": [
+    "Segmentation dataset",
+    "Conjunto de datos de segmentación",
+    "Conjunt de dades de segmentació"
+  ],
+  "smart-polygon": [
+    "Smart polygon tool",
+    "Herramienta de polígono inteligente",
+    "Eina de polígon intel·ligent"
+  ],
+  "training-analysis-1": [
+    "Training analysis, metrics",
+    "Análisis del entrenamiento, métricas",
+    "Anàlisi de l’entrenament, mètriques"
+  ],
+  "training-analysis-2": [
+    "Training analysis, curves",
+    "Análisis del entrenamiento, curvas",
+    "Anàlisi de l’entrenament, corbes"
+  ],
+  "training-settings-1": [
+    "Training settings, dataset",
+    "Configuración del entrenamiento, datos",
+    "Configuració de l’entrenament, dades"
+  ],
+  "training-settings-2": [
+    "Training settings, parameters",
+    "Configuración del entrenamiento, parámetros",
+    "Configuració de l’entrenament, paràmetres"
+  ]
+}

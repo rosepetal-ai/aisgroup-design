@@ -1,0 +1,123 @@
+{
+  "name": "ais-vision-systems_carousel-sector-canning_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "La visión artificial con IA permite inspeccionar el 100 % de las conservas en línea para asegurar la estanqueidad, evitar reclamaciones y proteger tu reputación. El control del doble cierre detecta defectos que pueden comprometer la estanqueidad, con decisiones en tiempo real: falso cierre, pico, lectura OCR y golpes en el envase. El AIS REV 360 COMPACT realiza un análisis completo del doble cierre a 360°, detecta defectos micrométricos y trabaja sin pérdida de velocidad de producción, con trazabilidad y reportes para la mejora continua desde el primer envase. Envíanos muestras.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_pair-ok_clean.jpg",
+      "evidence": "render",
+      "headline": "Control de calidad|en tu línea|*de conservas*",
+      "alt": "Una lata metálica completa sobre fondo gris, junto al titular de control de calidad en la línea de conservas."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "El 100 % de los cierres,|inspeccionados en línea",
+      "items": [
+        {
+          "text": "Estanqueidad",
+          "detail": "Detectar defectos que puedan comprometer el cierre.",
+          "icon": "check"
+        },
+        {
+          "text": "Reclamaciones",
+          "detail": "Evitar problemas de calidad antes de la salida al mercado.",
+          "icon": "check"
+        },
+        {
+          "text": "Reputación",
+          "detail": "Proteger la calidad de tus conservas desde el primer envase.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Cobertura de inspección del 100 % indicada en POST Conservas de AIS Vision Systems. No es una tasa de detección medida."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "El doble cierre|y el envase",
+      "items": [
+        {
+          "text": "Doble cierre",
+          "detail": "Defectos que pueden comprometer la estanqueidad.",
+          "icon": "check"
+        },
+        {
+          "text": "Falso cierre y pico",
+          "detail": "Inspecciones del cierre de la lata.",
+          "icon": "check"
+        },
+        {
+          "text": "OCR y golpes",
+          "detail": "Lectura del marcaje y golpes en el envase.",
+          "icon": "check"
+        }
+      ],
+      "alt": "El doble cierre y el envase. Doble cierre: Defectos que pueden comprometer la estanqueidad. Falso cierre y pico: Inspecciones del cierre de la lata. OCR y golpes: Lectura del marcaje y golpes en el envase."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "src": "@lib/media/real/rev360-compact_can-line.jpg",
+      "split": 0.4,
+      "headline": "AIS REV 360|COMPACT en línea",
+      "alt": "AIS REV 360 COMPACT instalado en una línea de latas.",
+      "items": [
+        {
+          "text": "Doble cierre a 360°",
+          "detail": "Análisis completo en la línea de conservas.",
+          "icon": "check"
+        },
+        {
+          "icon": "check",
+          "text": "En línea",
+          "detail": "Sin pérdida de velocidad de producción."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Inspección completa|del doble cierre",
+      "items": [
+        {
+          "text": "Inspección a 360°",
+          "detail": "Análisis completo del doble cierre y detección de defectos micrométricos.",
+          "icon": "check"
+        },
+        {
+          "text": "Sin perder velocidad",
+          "detail": "Inspección en línea, desde el primer envase.",
+          "icon": "check"
+        },
+        {
+          "text": "Trazabilidad y reportes",
+          "detail": "Datos para la mejora continua.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Inspección completa del doble cierre. Inspección a 360°: Análisis completo del doble cierre y detección de defectos micrométricos. Sin perder velocidad: Inspección en línea, desde el primer envase. Trazabilidad y reportes: Datos para la mejora continua."
+    },
+    {
+      "type": "contact",
+      "headline": "Automatiza el control|*de tus conservas*",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "alt": "Automatiza el control de tus conservas. Envíanos muestras. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

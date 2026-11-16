@@ -1,0 +1,1 @@
+The Omron V275 verifies 1D and 2D codes as labels are printed, checking that they are correct and readable and detecting errors in real time before products reach the market. It checks the presence or absence of labels and codes, print quality and the correctness of encoded data. AIS Vision Systems distributes Omron LVS verifiers. Send us samples.

@@ -1,0 +1,99 @@
+---
+title: Downloads
+rules:
+  - 'Build every product with Tailwind v4 on ais-theme.css, the Rosepetal products'' own tokens: colours, type and radius come from its classes, never typed in. Websites use ais-tokens.css with their own components.'
+---
+import LogoDownloads from '../../../components/LogoDownloads.astro';
+import PatternDownloads from '../../../components/PatternDownloads.astro';
+import TypefaceDownloads from '../../../components/TypefaceDownloads.astro';
+import IconDownloads from '../../../components/IconDownloads.astro';
+import PhotoDownloads from '../../../components/PhotoDownloads.astro';
+import VideoDownloads from '../../../components/VideoDownloads.astro';
+
+Download the approved files for documents, products and websites.
+
+## Logos
+
+SVG with a transparent background. Where each colour goes: [Logos](/en/logos/).
+
+<LogoDownloads lang="en" />
+
+### App icons and favicons
+
+Each set holds the SVG, PNG and ICO favicons, the Apple touch icon, the 192, 512 and maskable icons and the web manifest; see [Favicons](/en/logos/#favicons). Each website’s own set is in its zip on [Web assets](/en/assets/).
+
+<LogoDownloads lang="en" set="favicons" />
+
+## Patterns
+
+The hexagon pattern, one file per corner, in white for brand blue grounds. SVG; see [Backgrounds](/en/imagery/#backgrounds).
+
+<PatternDownloads lang="en" />
+
+[Decorative patterns, all variants](/en/patterns/).
+
+## Photographs
+
+Photographs, product views and current app screens, grouped by subject. Stock photographs link to the photographer’s source for download under its licence; use them as context, never as an AIS installation or customer. A video frame is never a cover, in print or on screen; see [Imagery](/en/imagery/#renders-machines-and-customer-material).
+
+<PhotoDownloads lang="en" />
+
+[Media catalogue](/downloads/media-library.json)
+
+## Videos
+
+The brand intros, and marketing’s intro films with real footage (1080p for websites and posts, 4K for editing).
+
+<VideoDownloads lang="en" />
+
+## Typefaces
+
+Both typefaces are free under the SIL Open Font License. Install the desktop versions for documents and slides.
+
+<TypefaceDownloads />
+
+| File | Contents |
+| --- | --- |
+| [inter-latin.woff2](/fonts/inter-latin.woff2), [inter-latin-ext.woff2](/fonts/inter-latin-ext.woff2) | Inter for websites, Latin and Latin Extended |
+| [jetbrains-mono-latin.woff2](/fonts/jetbrains-mono-latin.woff2), [jetbrains-mono-latin-ext.woff2](/fonts/jetbrains-mono-latin-ext.woff2) | JetBrains Mono for websites, Latin and Latin Extended |
+| [OFL-Inter.txt](/fonts/OFL-Inter.txt), [OFL-JetBrains-Mono.txt](/fonts/OFL-JetBrains-Mono.txt) | The licence of each typeface |
+
+## Icons
+
+The core set of Lucide icons as SVG, with the Lucide licence. See [Icons](/en/icons/).
+
+<IconDownloads />
+
+## Colour and type tokens
+
+| File | Contents |
+| --- | --- |
+| [ais-theme.css](/downloads/ais-theme.css) | The Tailwind v4 theme: `@rosepetal/design/styles.css`, the Rosepetal products' tokens |
+| [ais-tokens.css](/downloads/ais-tokens.css) | The same values as CSS custom properties, for print, email and anything without Tailwind |
+| [ais-tokens.json](/downloads/ais-tokens.json) | Design tokens (W3C DTCG format) |
+| [ais-web-theme.css](/downloads/ais-web-theme.css) | Tailwind’s text sizes as the brand type styles, and the field border, on ais-theme.css and ais-tokens.css. The websites use its type block on ais-tokens.css alone; see [Website components](/en/web-components/#set-up). |
+
+Every product is built with Tailwind v4 on ais-theme.css, the Rosepetal products’ tokens (`@rosepetal/design/styles.css`), so the classes are the app’s: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. It needs `tw-animate-css`. The websites load ais-tokens.css instead, under their own components; see [Website components](/en/web-components/#set-up).
+
+```css
+@import "tailwindcss";
+@import "./ais-theme.css";
+```
+
+## Tools
+
+| File | Contents |
+| --- | --- |
+| [Chart toolkit](/downloads/charts/README.md) | Vega-Lite brand config (light and dark), the chart renderer ([render.mjs](/downloads/charts/render.mjs)), ten example specs and the ECharts theme for the product. See [Data visualisation](/en/data/). |
+| [ais-vega-config.json](/downloads/charts/ais-vega-config.json), [ais-vega-config-dark.json](/downloads/charts/ais-vega-config-dark.json) | The Vega-Lite brand config, light and dark |
+| [ais-echarts-theme.json](/downloads/charts/ais-echarts-theme.json), [ais-echarts-theme-dark.json](/downloads/charts/ais-echarts-theme-dark.json) | The ECharts theme for the product, light and dark |
+| [overlay.mjs](/downloads/overlays/overlay.mjs) | The detection overlay renderer, with five example specs in [examples](/downloads/overlays/examples/detection.json). See [Imagery](/en/imagery/#detection-overlays). |
+| [brand-check.js](/downloads/qa/brand-check.js) | The brand check: load it into any page and run `aisBrandCheck()`. It reports sideways scrolling, broken words, fonts and colours outside the brand, typed symbols, small text, missing alternatives and, with axe-core, accessibility violations. See [Accessibility](/en/accessibility/#testing). |
+
+## For AI agents
+
+Name the brand and the guide version in your task, read the relevant page, and use these exact files.
+
+| File | Contents |
+| --- | --- |
+| [brand.md](/en/brand.md) | Every rule of this guide in one file, also in [Spanish](/es/brand.md) and [Catalan](/ca/brand.md). See [AI agents](/en/agents/). |

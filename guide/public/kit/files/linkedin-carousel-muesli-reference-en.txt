@@ -1,0 +1,1 @@
+OPTICAIS supports batch and date checks against the expected text. These samples show a missing mark and ink streaking across the characters. The code comparison shows the same reference marking and its smudged variant; it is not a system reading or a measured result. Send us samples of your packaging and the marking you need to check.

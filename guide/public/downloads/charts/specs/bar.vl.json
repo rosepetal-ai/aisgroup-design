@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": {
+    "step": 40
+  },
+  "data": {
+    "values": [
+      {
+        "defect": "Missing cap",
+        "count": 42
+      },
+      {
+        "defect": "Tilted cap",
+        "count": 27
+      },
+      {
+        "defect": "Label missing",
+        "count": 15
+      },
+      {
+        "defect": "Wrong lot",
+        "count": 9
+      },
+      {
+        "defect": "Damaged pack",
+        "count": 4
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": "bar"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontWeight": 500,
+        "fontSize": 13
+      },
+      "encoding": {
+        "text": {
+          "field": "count"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "defect",
+      "type": "nominal",
+      "sort": null,
+      "title": null
+    },
+    "x": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Rejects",
+      "axis": {
+        "grid": true
+      }
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Rejects by defect",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

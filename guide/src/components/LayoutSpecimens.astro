@@ -1,0 +1,86 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; show: 'space' | 'grid' | 'shape' | 'elevation' }
+const { lang, show } = Astro.props;
+// Specimens draw from the --ais-space/radius/shadow tokens, so the page shows the values it documents.
+const space = [['050', 4], ['100', 8], ['150', 12], ['200', 16], ['300', 24], ['400', 32], ['500', 40], ['600', 48], ['800', 64], ['1000', 80], ['1200', 96], ['1600', 128]];
+const t = {
+  en: { col: 'column', shape: [['none', 'Square, 0', 'Buttons, fields, tags, images, icon tiles, overlays'], ['sm', '2 px', 'Inline code, selection marks'], ['product', '8 px, dialogs 12 px', 'Product components, from @rosepetal/design'], ['full', 'Round', 'Avatars, status dots, toggles']], elev: [['flat', 'Flat', 'Page, sections, cards: a 1 px border separates'], ['raised', 'Raised', 'Menus, dropdowns, popovers'], ['overlay', 'Overlay', 'Dialogs and toasts']], btn: 'Button', card: 'Card' },
+  es: { col: 'columna', shape: [['none', 'Recto, 0', 'Botones, campos, etiquetas, imágenes, piezas de icono, capas'], ['sm', '2 px', 'Código en línea, marcas de selección'], ['product', '8 px, diálogos 12 px', 'Componentes de producto, de @rosepetal/design'], ['full', 'Redondo', 'Avatares, puntos de estado, interruptores']], elev: [['flat', 'Plano', 'Página, secciones, tarjetas: separa un borde de 1 px'], ['raised', 'Elevado', 'Menús, desplegables, popovers'], ['overlay', 'Superpuesto', 'Diálogos y avisos']], btn: 'Botón', card: 'Tarjeta' },
+  ca: { col: 'columna', shape: [['none', 'Recte, 0', 'Botons, camps, etiquetes, imatges, peces d’icona, capes'], ['sm', '2 px', 'Codi en línia, marques de selecció'], ['product', '8 px, diàlegs 12 px', 'Components de producte, de @rosepetal/design'], ['full', 'Rodó', 'Avatars, punts d’estat, interruptors']], elev: [['flat', 'Pla', 'Pàgina, seccions, targetes: separa una vora d’1 px'], ['raised', 'Elevat', 'Menús, desplegables, popovers'], ['overlay', 'Superposat', 'Diàlegs i avisos']], btn: 'Botó', card: 'Targeta' },
+}[lang];
+---
+{show === 'space' && (
+  <ul class="space">
+    {space.map(([n, v]) => (
+      <li><code data-copy={`var(--ais-space-${n})`}>--ais-space-{n}</code><span class="px">{v} px</span><span class="bar" style={`width: var(--ais-space-${n})`} /></li>
+    ))}
+  </ul>
+)}
+{show === 'grid' && (
+  <div class="grid-demo" aria-hidden="true">
+    <div class="cols">{Array.from({ length: 12 }, (_, i) => <span>{i + 1}</span>)}</div>
+    <div class="spans"><span class="s8">8</span><span class="s4">4</span><span class="s4">4</span><span class="s4">4</span><span class="s4">4</span><span class="s6">6</span><span class="s6">6</span></div>
+  </div>
+)}
+{show === 'shape' && (
+  <ul class="shape">
+    {t.shape.map(([id, name, use]) => (
+      <li>
+        <div class="sample">
+          {id === 'none' && <span class="btn">{t.btn}</span>}
+          {id === 'sm' && <code class="inline">--ais-radius-sm</code>}
+          {id === 'product' && <span class="card">{t.card}</span>}
+          {id === 'full' && <span class="toggle"><span /></span>}
+        </div>
+        <p><strong>{name}</strong><code>{id === 'product' ? '--radius' : `--ais-radius-${id}`}</code><span>{use}</span></p>
+      </li>
+    ))}
+  </ul>
+)}
+{show === 'elevation' && (
+  <ul class="elev">
+    {t.elev.map(([id, name, use]) => (
+      <li>
+        <div class={`plate ${id}`} />
+        <p><strong>{name}</strong><code>{id === 'flat' ? '--ais-border' : `--ais-shadow-${id}`}</code><span>{use}</span></p>
+      </li>
+    ))}
+  </ul>
+)}
+<style>
+  code { font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); color: var(--ink); background: none; padding: 0; }
+  .space { list-style: none; margin: 24px 0 0; padding: 0; }
+  .space { max-width: 560px; }
+  .space li { display: grid; grid-template-columns: 148px 56px minmax(0, 1fr); align-items: center; gap: var(--ais-space-200); margin: 0 !important; padding: var(--ais-space-100) 0; border-top: var(--ais-border); }
+  .space code { cursor: copy; }
+  .bar { display: block; max-width: 100%; height: 12px; background: var(--ais-blue-500); }
+  .px { color: var(--muted); font-size: var(--ais-text-caption); font-variant-numeric: tabular-nums; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+
+  .grid-demo { margin: 24px 0 0; padding: var(--ais-space-300); background: var(--ais-neutral-50); border: var(--ais-border); border-radius: var(--ais-radius-md); }
+  .cols, .spans { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--ais-grid-gap); }
+  .cols span { display: grid; place-items: center; height: 56px; background: color-mix(in srgb, var(--ais-blue-500) 10%, transparent); color: var(--ais-blue-600); font-size: var(--ais-text-caption); font-variant-numeric: tabular-nums; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .spans { margin-top: var(--ais-space-200); row-gap: var(--ais-space-200); }
+  .spans span { display: grid; place-items: center; height: 44px; background: #fff; border: var(--ais-border); color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .s8 { grid-column: span 8; } .s6 { grid-column: span 6; } .s4 { grid-column: span 4; }
+
+  .shape, .elev { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ais-space-300); }
+  .elev { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .shape li, .elev li { margin: 0 !important; }
+  .sample { display: grid; place-items: center; height: 120px; background: var(--ais-neutral-50); border: var(--ais-border); border-radius: var(--ais-radius-md); }
+  .btn { display: inline-flex; align-items: center; height: 40px; padding: 0 var(--ais-space-200); background: var(--ais-blue-700); color: #fff; font: 500 var(--ais-text-label)/var(--ais-text-label-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-label-tracking); text-box: trim-both cap alphabetic; border-radius: var(--ais-radius-none); }
+  .inline { padding: 2px 8px; background: var(--ais-neutral-200); border-radius: var(--ais-radius-sm); }
+  .card { display: grid; place-items: center; width: 120px; height: 72px; background: #fff; border: var(--ais-border); border-radius: var(--radius, 8px); font-size: var(--ais-text-small); color: var(--muted); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  /* 44 × 24 track, 18 px knob, 3 px inset on every side: the knob is placed by the flex end, not a margin. */
+  .toggle { display: flex; justify-content: flex-end; align-items: center; width: 44px; height: 24px; padding: 4px; background: var(--ais-blue-700); border-radius: var(--ais-radius-full); }
+  .toggle span { display: block; width: 18px; height: 18px; background: #fff; border-radius: var(--ais-radius-full); }
+  .shape p, .elev p { display: flex; flex-direction: column; gap: 2px; margin: var(--ais-space-150) 0 0 !important; font-size: var(--ais-text-caption); color: var(--muted); line-height: 1.4; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .shape p strong, .elev p strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .plate { height: 120px; background: #fff; border-radius: var(--ais-radius-md); }
+  .plate.flat { border: var(--ais-border); }
+  .plate.raised { box-shadow: var(--ais-shadow-raised); margin: 0 12px; }
+  .plate.overlay { box-shadow: var(--ais-shadow-overlay); margin: 0 12px; }
+  .elev li { padding-bottom: 8px; }
+  @media (max-width: 900px) { .shape { grid-template-columns: repeat(2, minmax(0, 1fr)); } .elev { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .cols span:nth-child(n+5) { display: none; } .cols { grid-template-columns: repeat(4, minmax(0, 1fr)); } .spans span { grid-column: span 12; } .space li { grid-template-columns: 132px 48px minmax(0, 1fr); } }
+</style>

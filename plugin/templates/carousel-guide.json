@@ -1,0 +1,81 @@
+{
+  "name": "ais-vision-systems_carousel-guide_en_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "copy": "Before you invest in machine vision, estimate the return with your own numbers: the cost of the problem, the defects you see today, what manual inspection costs, and the payback under three scenarios. A short guide to what to gather first. Tell us about your line",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/advanced-factories-2026/still-bottling-line.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "Estimate the return|on machine vision|*before you invest*"
+    },
+    {
+      "type": "grid",
+      "headline": "Six numbers to gather first",
+      "items": [
+        {
+          "icon": "circle-alert",
+          "text": "Cost of the problem",
+          "detail": "Scrap, rework, claims"
+        },
+        {
+          "icon": "chart-column",
+          "text": "Volume and defects",
+          "detail": "Defect rate over total output"
+        },
+        {
+          "icon": "users",
+          "text": "Manual inspection",
+          "detail": "Direct and indirect cost"
+        },
+        {
+          "icon": "wrench",
+          "text": "Integration",
+          "detail": "Installation and maintenance"
+        },
+        {
+          "icon": "timer",
+          "text": "Payback",
+          "detail": "Monthly savings, months to recover"
+        },
+        {
+          "icon": "layers",
+          "text": "Three scenarios",
+          "detail": "Conservative, base, optimistic"
+        }
+      ],
+      "hex": "none",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/kariko_defect-screen.jpg",
+      "split": 0.6,
+      "focus": [
+        75,
+        30
+      ],
+      "headline": "Start from|what the line measures",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "Do the numbers|*with an engineer*",
+      "action": "Tell us about your line",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ]
+    }
+  ]
+}

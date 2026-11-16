@@ -1,0 +1,53 @@
+{
+  "name": "ais-vision-systems_carousel-defects_es_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "¿Cuál de estas latas rechazarías? El AIS REV 360 Compact revisa las latas a 360° en la propia línea: la etiqueta, el envase y el código de lote y fecha. Así detecta etiquetas torcidas, latas abolladas y códigos ilegibles. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_lineup_clean.jpg",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "¿Cuál de estas latas|*rechazarías*?"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_lineup_es.jpg",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La del centro:|etiqueta torcida",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_dent-pair_es.jpg",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La de la derecha:|lata abollada",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/rev360-compact/cans_code-pair_es.jpg",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La de abajo:|código ilegible",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "¿Lo probamos *con tus envases*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+---
+title: Icones
+rules:
+  - 'Fes servir només icones de Lucide, tal com vénen: retícula de 24 px, traç de 2 px, extrems i unions arrodonits, sense emplenament. No les redibuixis, editis ni barregis mai amb una altra biblioteca.'
+  - 'No escriguis mai fletxes, marques ni pics Unicode (`→`, `✓`, `•`) ni emojis com a icones.'
+  - 'Les icones prenen el color de la seva etiqueta (currentColor). Els colors d’estat, només per a estats.'
+  - 'Les mides són 16, 20 o 24 px; a partir de 32 px, mantén el traç a 2 px amb absoluteStrokeWidth.'
+  - 'La icona va davant de la seva etiqueta, centrada en l’alçada de les majúscules i a 8 px. Els botons només amb icona necessiten un nom accessible i una zona tàctil de 44 px; les barres d’eines de producte a l’escriptori poden fer servir botons de 36 px amb icones de 16 px.'
+---
+import IconSet from '../../../components/IconSet.astro';
+import IconTiles from '../../../components/IconTiles.astro';
+
+Fes servir les icones aprovades de Lucide amb una mida, un traç i un color coherents.
+
+## El conjunt bàsic
+
+130 icones per a interfícies, documents, vídeo i infografies, agrupades per tema, de Lucide 1.48.0. Fes clic en una icona per obrir-ne l’SVG. La biblioteca completa, amb més de 2000 icones, és a [lucide.dev](https://lucide.dev/icons/).
+
+[Les 130 icones, SVG (ZIP)](/downloads/icons/ais-icons.zip)
+
+<IconSet lang="ca" />
+
+## Instal·lació
+
+| On | Com |
+| --- | --- |
+| **Aplicació Rosepetal (Vue)** | `npm install @lucide/vue` i importa pel nom: `import { DownloadIcon } from '@lucide/vue'`. És el que fa servir el sistema de disseny de Rosepetal. |
+| **Webs (Astro, HTML)** | `npm install lucide-static` i insereix l’SVG en línia, o enganxa’l des del conjunt bàsic. L’SVG en línia hereta el color del text. |
+| **React** | `npm install lucide-react` i `import { Download } from 'lucide-react'`. |
+| **Figma** | El connector Lucide de la comunitat de Figma insereix les icones com a vectors editables a 24 px. |
+| **Documents i presentacions** | Insereix l’SVG del conjunt bàsic; Word, PowerPoint, Keynote i Google Slides el mantenen nítid. Canvia’l al color del text, mai a un color nou. |
+
+Mantén tots els projectes en la mateixa línia de versions de Lucide i actualitza’ls alhora, perquè una icona no canviï mai de forma entre el web i el producte.
+
+```vue
+<script setup>
+import { DownloadIcon } from '@lucide/vue'
+</script>
+
+<button class="rp-btn"><DownloadIcon class="size-4" aria-hidden="true" /> Descarrega</button>
+```
+
+## Mida i traç
+
+| Mida | Ús | Traç |
+| --- | --- | --- |
+| **16 px** | Botons, files de taula, al costat de text de 14–16 px, la interfície del producte | 2 px a la retícula (1,33 px en pantalla) |
+| **20 px** | Navegació, camps, menús | 2 px a la retícula (1,67 px en pantalla) |
+| **24 px** | Icones soltes, targetes, llistes de prestacions | 2 px |
+| **32–48 px** | Icones grans de prestacions en webs i presentacions | 2 px fixos: activa `absoluteStrokeWidth` |
+
+## Color
+
+Les icones fan servir `currentColor`, de manera que sempre coincideixen amb la seva etiqueta: tinta per al text, text secundari per a les metadades, blau d’acció per a enllaços i accions, blanc sobre blau. Els colors d’èxit, avís i error només apareixen quan la icona vol dir aquest estat. No emplenis mai una icona, no facis servir mai dos colors en una icona i no apliquis mai degradats.
+
+## Amb text
+
+- La icona va davant de la seva etiqueta, a 8 px amb qualsevol cos de text.
+- Es centra en l’alçada de les majúscules de l’etiqueta, no en la caixa de la línia, la mateixa regla que les etiquetes de les capes.
+- Una icona sense etiqueta necessita un nom accessible (`aria-label`), una descripció emergent i una zona tàctil de 44 px; a les barres d’eines de producte a l’escriptori, un botó de 36 px.
+- Una icona per acció. No decoris titulars ni paràgrafs amb icones.
+
+## En infografies
+
+En una infografia, la icona anomena el tema d’una xifra; la xifra porta el missatge.
+
+- Col·loca la icona a 24 px en una peça quadrada de 48 px: blue-50 `#EDF2FA` amb la icona en blau de marca `#17356E` sobre blanc, i blau profund `#10254C` amb la icona en blanc sobre blau de marca. Cantonades rectes, sense vora ni ombra.
+- Sense peça, fes servir 32 o 48 px amb `absoluteStrokeWidth`, perquè el traç es mantingui a 2 px.
+- Una icona per xifra; en una sèrie de tres, tres icones del mateix pes visual.
+- La xifra fa servir l’estil Subencapçalament amb xifres tabulars; la seva etiqueta, l’estil Petit en text secundari.
+- Les xifres segueixen la pàgina de Veu: valors reals amb les seves condicions, mai números inventats.
+
+<IconTiles lang="ca" />
+
+## Significat
+
+| Icona | Vol dir |
+| --- | --- |
+| `arrow-right` | Anar a la pàgina o acció següent; la fletxa dels enllaços de text i dels botons partits |
+| `external-link` | Obre un altre web |
+| `chevron-right`, `chevron-down` | Obre un nivell inferior, desplega una secció |
+| `arrow-up-right` | Obre un document en una vista nova, com un PDF o una fitxa tècnica |
+| `download` | Desa un fitxer |
+| `play`, `pause` | Inicia o posa en pausa un vídeo; el botó mostra l’acció, no l’estat |
+| `x` | Tanca o elimina |
+| `check`, `circle-check` | Fet, apte |
+| `triangle-alert` | Avís que requereix atenció |
+| `circle-x` | Error o rebuig |
+| `info` | Informació addicional |
+
+## Mai
+
+- Fletxes, marques i pics Unicode (`→`, `✓`, `•`) ni emojis: canvien amb cada tipografia.
+- Una altra biblioteca d’icones, ni icones redibuixades, retallades o editades a mà.
+- Icones plenes, bicolors o en 3D.
+- Icones com a ornament, ni més d’una icona per acció.

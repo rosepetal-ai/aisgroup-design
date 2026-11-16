@@ -1,0 +1,1928 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AIS studio stage</title>
+<style>
+  /* AIS Group content stage. render.mjs loads this page, calls setup(spec) once and frame(n) for every frame.
+     Grown from the video kit's scenes.html: the same motion tokens and brand devices, plus the layouts for
+     social posts and LinkedIn carousels. A post is the same scene, held on its settled frame. */
+  @font-face { font-family: Inter; src: url(../brand/fonts/inter-latin.woff2) format('woff2'); font-weight: 100 900; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: Inter; src: url(../brand/fonts/inter-latin-ext.woff2) format('woff2'); font-weight: 100 900; unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'JetBrains Mono'; src: url(../brand/fonts/jetbrains-mono-latin.woff2) format('woff2'); font-weight: 100 800; }
+  @font-face { font-family: 'JetBrains Mono'; src: url(../brand/fonts/jetbrains-mono-latin-ext.woff2) format('woff2'); font-weight: 100 800; unicode-range: U+0100-02AF, U+1E00-1EFF; }
+  :root { --blue-200: #A7BFE4; --blue-300: #7C9FD7; --blue-500: #3664B3; --blue-700: #17356E; --blue-950: #0B1220; --ink: #0F1729;
+    --n100: #F1F5F9; --n200: #E2E8F0; --n400: #94A3B8; --n500: #64748B; --n600: #4B5563; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: transparent; overflow: hidden; }
+  body { font-family: Inter, sans-serif; font-feature-settings: 'ss01' 0; -webkit-font-smoothing: antialiased; }
+  #stage { position: relative; overflow: hidden; }
+  .fill { position: absolute; inset: 0; }
+  .center { position: absolute; inset: 0; display: grid; place-items: center; }
+  .card { display: flex; flex-direction: column; align-items: center; }
+  .card img { display: block; height: auto; }
+  .url { color: var(--ink); font-weight: 500; font-size: 40px; line-height: 1; letter-spacing: -0.005em; }
+  .endorse { position: absolute; left: 0; right: 0; text-align: center; color: var(--n600); font-weight: 400; font-size: 32px; line-height: 1; }
+  .plate { position: absolute; display: flex; flex-direction: column; gap: 8px; padding: 24px 32px; background: var(--ink); color: #fff; }
+  .plate b { font-weight: 600; font-size: 44px; line-height: 1.15; letter-spacing: -0.01em; }
+  .plate span { color: var(--n400); font-size: 32px; line-height: 1.2; }
+  /* Headlines are weight 500, sentence case, at most three lines (Typography). */
+  .title { position: absolute; display: flex; flex-direction: column; font-weight: 500; font-size: 96px; line-height: 1.08; letter-spacing: -0.02em; }
+  .title .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+  .title .line > span { display: block; position: relative; }
+  .layer { position: absolute; inset: 0; overflow: hidden; }
+  .media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .stand { position: absolute; display: flex; flex-direction: column; justify-content: center; color: #fff; }
+  .stand .lead { color: #A7BFE4; font-weight: 500; font-size: 40px; line-height: 1.2; margin-bottom: 16px; }
+  .stand .event { font-weight: 500; line-height: 1.02; letter-spacing: -0.025em; white-space: nowrap; }
+  .stand .rows { display: flex; flex-direction: column; gap: 28px; margin-top: 64px; }
+  .stand .row { display: flex; align-items: center; gap: 24px; font-weight: 500; font-size: 44px; line-height: 1.15; }
+  .stand .row svg { flex: none; width: 48px; height: 48px; color: #A7BFE4; stroke-width: 1.75; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.02em; line-height: 1.2; }
+  .slot { position: absolute; inset: 0; background: #0B1220; }
+  .slot .grid { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(90deg, #111A2E 0 2px, transparent 2px var(--col)); }
+  .slot-label { position: absolute; color: #CBD5E1; }
+  .slot-label .mono { font-size: clamp(26px, 2.7vw, 52px); }
+  .inspect { position: absolute; inset: 0; }
+  .corner { position: absolute; border: 0 solid; box-sizing: border-box; }
+  .corner.lt { border-width: 4px 0 0 4px; transform-origin: 0 0; margin: -2px 0 0 -2px; }
+  .corner.rt { border-width: 4px 4px 0 0; margin: -2px 0 0; translate: -100% 0; }
+  .corner.lb { border-width: 0 0 4px 4px; translate: 0 -100%; margin: 0 0 0 -2px; }
+  .corner.rb { border-width: 0 4px 4px 0; translate: -100% -100%; }
+  .tag { position: absolute; display: flex; align-items: center; gap: 16px; padding: 12px 18px 12px 22px; background: var(--ink); color: #fff; border-left: 6px solid #A7BFE4;
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; font-size: 34px; line-height: 1; white-space: nowrap; }
+  .tag.defect { border-left-color: #F87171; }
+  .tag .v { color: #94A3B8; }
+  .verdict { position: absolute; display: flex; align-items: center; gap: 16px; padding: 18px 28px 18px 22px; color: #fff; font-size: 40px; line-height: 1; white-space: nowrap; }
+  .verdict svg { width: 44px; height: 44px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .verdict b { font-weight: 600; } .verdict span { font-weight: 500; }
+  .verdict.stack { align-items: flex-start; } .verdict.stack .t { display: flex; flex-direction: column; gap: 10px; } .verdict.stack span { font-size: 32px; }
+  /* On posts and carousels the frame follows the guide's overlay kit (Imagery, Detection overlays), at 2× for a 1080 canvas:
+     a hairline box with corner ticks in the detection blue, chips of ink at 90% with a 3 px state bar, Inter Medium labels,
+     JetBrains Mono values, one compact verdict. */
+  .post .inspect .hair { position: absolute; border: 2px solid; box-sizing: border-box; }
+  .post .tag { font-family: 'Inter', sans-serif; font-size: 26px; padding: 10px 16px; gap: 12px; background: rgba(15,23,41,.9); border-left-width: 6px; }
+  .post .tag .v { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .post .verdict { font-size: 26px; padding: 11px 16px 11px 12px; gap: 10px; }
+  .post .verdict svg { width: 28px; height: 28px; stroke-width: 2.5; }
+  .post .verdict.stack span, .post .verdict span { font-size: 26px; }
+  .wipe { position: absolute; inset: 0; transform: translateY(100%); z-index: 5; background: #17356E; }
+  .stat { position: absolute; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+  .stat .big { font-weight: 500; line-height: 0.95; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 0.08em; }
+  .stat .unit { font-size: 0.55em; letter-spacing: -0.02em; }
+  .stat .ctx { font-weight: 500; font-size: 48px; line-height: 1.2; max-width: 18ch; }
+  .stat .note { font-size: 28px; line-height: 1.4; max-width: 34ch; }
+  .rule { display: block; transform: scaleX(0); }
+  .scrim { position: absolute; left: 0; right: 0; pointer-events: none; }
+  .scrim.top { top: 0; background: linear-gradient(to bottom, rgba(11,18,32,.92) 0%, rgba(11,18,32,.78) 55%, rgba(11,18,32,0) 100%); }
+  .scrim.bottom { bottom: 0; background: linear-gradient(to top, rgba(11,18,32,.92) 0%, rgba(11,18,32,.78) 50%, rgba(11,18,32,0) 100%); }
+  .overline { position: relative; display: block; margin-bottom: 40px; font-size: 32px; font-weight: 500; letter-spacing: 0.06em; color: #A7BFE4; }
+  .standin { position: absolute; max-width: 70%; padding: 8px 12px; background: #0B1220; color: #94A3B8; font-size: 24px; line-height: 1.3; z-index: 2; }
+  .scan { position: absolute; overflow: hidden; opacity: 0; --p: 0; }
+  .scan.light::after { background: #3664B3; box-shadow: none; }
+  .scan::after { content: ''; position: absolute; left: 0; right: 0; top: calc(var(--p) * 100%); height: 2px; background: #A7BFE4;
+    box-shadow: 0 -24px 32px -8px rgba(167,191,228,.25); }
+  .counter { position: absolute; color: #A7BFE4; }
+  .stand .row { position: relative; }
+  /* Blue is light, not paint: night with two soft brand-blue light sources that drift slowly. */
+  .field { position: absolute; inset: 0; --lx: 22%; --ly: 18%; --mx: 88%; --my: 92%;
+    background: radial-gradient(55% 65% at var(--lx) var(--ly), rgba(54,100,179,.55), rgba(54,100,179,0) 70%),
+                radial-gradient(60% 70% at var(--mx) var(--my), rgba(23,53,110,.95), rgba(23,53,110,0) 70%), #0B1220; }
+  /* Photographs and footage at their true grade: no filters, vignettes or grain (Imagery, Treatment). */
+  .media { filter: none; }
+  .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 90% at 50% 45%, rgba(11,18,32,0) 55%, rgba(11,18,32,.55) 100%); }
+  .dim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,18,32,.72), rgba(11,18,32,.82)); }
+  .grain { position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .09; mix-blend-mode: overlay; }
+  /* Detections: what the system sees, drawn the way it draws it. */
+  .det { position: absolute; border: 4px solid #7C9FD7; background: rgba(124,159,215,.1); box-shadow: 0 0 0 1px rgba(11,18,32,.5); }
+  .det b { position: absolute; left: -3px; bottom: 100%; display: flex; gap: 12px; padding: 8px 14px; background: #7C9FD7; color: #0B1220;
+    font: 600 32px/1 'JetBrains Mono', ui-monospace, monospace; white-space: nowrap; }
+  .det b span { font-weight: 500; }
+  .captions { z-index: 6; position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .captions span { padding: 6px 16px; background: var(--ink); color: #fff; font-weight: 500; font-size: 40px; line-height: 1.2; }
+
+  /* Posts and carousel slides: a 1080 px wide canvas seen at about half size in the feed, so the web type
+     scale doubles and nothing people read goes under 26 px. Square corners everywhere (Layout and shape). */
+  .post { --display: 120px; --heading: 84px; --lead: 44px; --body: 36px; --small: 30px; }
+  .block { position: absolute; display: flex; flex-direction: column; }
+  .block .title { position: relative; }
+  .block .h { font-size: var(--heading); line-height: 1.06; letter-spacing: -0.035em; }
+  .block .d { font-size: var(--display); line-height: 1.02; letter-spacing: -0.04em; }
+  .block .overline { margin-bottom: 32px; font-size: var(--small); }
+  .block p { position: relative; font-size: var(--body); line-height: 1.45; max-width: 38ch; margin-top: 40px; }
+  .block p.lead { font-size: var(--lead); line-height: 1.35; letter-spacing: -0.01em; max-width: 30ch; }
+  .light { color: var(--ink); } .light .overline { color: var(--blue-500); } .light p { color: var(--n600); }
+  .dark { color: #fff; } .dark .overline { color: #A7BFE4; } .dark p { color: var(--n100); }
+  .list { position: relative; display: flex; flex-direction: column; margin-top: 56px; }
+  /* Inner slides: the headline holds the top, the paragraph or the list holds the foot. */
+  .block.spread > p { margin-top: auto; padding-top: 56px; }
+  /* A list fills the slide under its headline: the rows share the height, each opened by its rule, like a spec sheet. */
+  .block.spread > .list { flex: 1; margin-top: 72px; } .block.spread > .list .item { flex: 1; align-content: center; max-height: 240px; }
+  .block.spread > p { font-size: var(--lead); line-height: 1.35; letter-spacing: -0.01em; max-width: 30ch; }
+  /* Social list details start at a consistent inset instead of floating in stretched rows. */
+  .post .block.spread > .list .item { align-content: start; }
+  .list .item { position: relative; display: grid; grid-template-columns: 56px 1fr; column-gap: 32px; padding: 32px 0; }
+  .list .item svg { width: 56px; height: 56px; margin-top: -2px; stroke-width: 1.75; }
+  .light .list .item svg { color: var(--blue-500); } .dark .list .item svg { color: #A7BFE4; }
+  .list .item b { font-weight: 500; font-size: var(--lead); line-height: 1.25; letter-spacing: -0.01em; }
+  .list .item span { grid-column: 2; font-size: var(--small); line-height: 1.4; margin-top: 8px; }
+  .light .list .item span { color: var(--n600); } .dark .list .item span { color: var(--n400); }
+  .photo { position: absolute; overflow: hidden; background: #0B1220; }
+  .chip { position: absolute; display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: var(--ink); color: #fff; font-size: var(--small); line-height: 1; font-weight: 500; z-index: 3; }
+  .chip svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .chip.pass svg { color: #4ADE80; } .chip.reject svg { color: #F87171; }
+  .note-cap { position: absolute; font-size: var(--small); line-height: 1.3; z-index: 4; }
+  .quote-mark { font-size: var(--display); line-height: 1; color: var(--blue-500); margin-bottom: 8px; }
+  .who { position: relative; display: flex; align-items: center; gap: 32px; margin-top: 56px; }
+  .who img { width: 160px; height: 160px; object-fit: cover; display: block; }
+  .who b { display: block; font-weight: 600; font-size: var(--body); line-height: 1.25; }
+  .who span { display: block; font-size: var(--small); line-height: 1.35; margin-top: 4px; }
+  .light .who span { color: var(--n600); } .dark .who span { color: var(--n400); }
+  .action { position: relative; align-self: flex-start; display: flex; align-items: center; gap: 24px; margin-top: 72px; padding: 42px 48px; background: #fff; color: var(--blue-700);
+    font-weight: 500; font-size: var(--lead); line-height: 1; }
+  .action svg { width: 40px; height: 40px; stroke-width: 2; flex: none; margin: 0 calc(-40px * 5 / 24); } /* the arrow's own side space (5 of 24 units) cancelled: equal padding, the gap measured to the stroke */
+  .action > span { text-box: trim-both cap alphabetic; } /* the words trimmed to their capitals, so the arrow and the box centre on them */
+  .dest { position: relative; margin-top: 24px; color: #A7BFE4; }
+  .sign { position: absolute; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+  .sign span { font-size: var(--small); line-height: 1; color: #A7BFE4; }
+  .chrome-logo { position: absolute; display: block; z-index: 4; }
+  .chrome-count { position: absolute; z-index: 4; font-size: var(--small); }
+  /* The AIS layouts. */
+  .hexes { position: absolute; inset: 0; pointer-events: none; }
+  .hexi { position: relative; flex: none; display: grid; place-items: center; }
+  .hexi > svg.hx { position: absolute; inset: 0; width: 100%; height: 100%; fill: rgba(23,53,110,.55); stroke: #7C9FD7; stroke-width: 2.5; }
+  .hexi > svg:not(.hx) { position: relative; width: 44%; height: 44%; color: #fff; stroke-width: 1.75; }
+  .hexi.light > svg.hx { fill: #fff; stroke: #3664B3; } .hexi.light > svg:not(.hx) { color: var(--blue-700); }
+  .hexi.num > svg.hx { fill: none; stroke: #3664B3; stroke-width: 3; } .hexi.num b { position: relative; color: var(--blue-700); font-weight: 500; font-size: 28px; font-variant-numeric: tabular-nums; }
+  .hexi.num.on-dark > svg.hx { stroke: #A7BFE4; } .hexi.num.on-dark b { color: #fff; }
+  .scrim.navy { bottom: 0; background: linear-gradient(to top, #0B1220 0%, #0B1220 55%, rgba(11,18,32,0) 100%); }
+  .acc { font-style: normal; color: #7C9FD7; } .light .acc { color: var(--blue-500); }
+  .block.hero .title.d { font-size: 112px; letter-spacing: -0.04em; }
+  .block .bar { display: block; width: 120px; height: 6px; background: #3664B3; margin-top: 36px; }
+  .block.hero p { margin-top: 32px; }
+  .feats { position: relative; display: flex; gap: 40px; margin-top: 48px; }
+  .feats > div { display: flex; align-items: center; gap: 16px; max-width: 280px; } .feats > div > span { font-size: var(--small); line-height: 1.25; color: var(--n100); }
+  .panel { position: absolute; z-index: 2; display: flex; flex-direction: column; padding: 48px 48px 40px; background: rgba(11,18,32,.94); border: 1px solid rgba(124,159,215,.35); color: #fff; }
+  .panel .overline { margin-bottom: 28px; font-size: var(--small); color: #A7BFE4; }
+  .panel .title, .panel .overline, .panel p { position: relative; }
+  .photo.framed.on-light { outline: 1px solid var(--n200); }
+  .caption.below { position: absolute; z-index: 3; padding: 0; background: none; color: var(--n600); font-size: 26px; line-height: 1.3; letter-spacing: 0.02em; }
+  .light .irow > div > span, .light .cell > span:not(.hexi) { color: var(--n600); }
+  .light .irow + .irow { box-shadow: inset 0 1px 0 var(--n200); }
+  .light .irow { padding: 14px 0; gap: 24px; } .light .irow > div > b { font-size: 34px; } .light .irows { margin-top: 28px; }
+  .photo.framed { outline: 1px solid rgba(124,159,215,.4); } .photo.framed .caption { padding-left: 20px; }
+  .photo .caption.above-panel { left: auto; right: 80px; bottom: 120px; padding: 10px 18px; }
+  .panel.fill-down > p:last-child { margin-top: auto; padding-top: 32px; } .panel.fill-down > .irows { flex: 1; justify-content: space-evenly; }
+  .panel .title.h { font-size: 72px; line-height: 1.06; letter-spacing: -0.03em; }
+  .panel p { margin-top: 28px; font-size: var(--body); line-height: 1.4; color: var(--n100); max-width: 34ch; }
+  .irows { position: relative; display: flex; flex-direction: column; margin-top: 36px; }
+  .irow { position: relative; display: flex; align-items: center; gap: 28px; padding: 20px 0; }
+  .irow > div > b { display: block; font-weight: 500; font-size: 38px; line-height: 1.2; letter-spacing: -0.01em; } .irow > div > span { display: block; margin-top: 6px; font-size: var(--small); line-height: 1.35; color: var(--n400); }
+  .irows.ev { margin-top: 56px; } .irows.ev .irow b { font-size: 40px; }
+  .cells { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 48px 48px; margin-top: 64px; }
+  .cell { display: flex; flex-direction: column; gap: 20px; } .cell b { font-weight: 500; font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; } .cell > span:not(.hexi) { font-size: var(--small); line-height: 1.4; color: var(--n400); margin-top: -8px; }
+  .cells.compact { gap: 40px 40px; margin-top: 56px; } .cells.compact .cell { grid-template-rows: auto 1fr; } .cells.compact .cell { display: grid; grid-template-columns: 72px 1fr; column-gap: 24px; row-gap: 6px; align-items: start; }
+  /* A cell with a picture shows the thing itself: the real image, its name underneath, a hairline frame on what it names. */
+  .cells.pics { gap: 40px 32px; } .cell.pic { gap: 14px; } .cell.pic .tile { position: relative; overflow: hidden; aspect-ratio: 4 / 3; outline: 1px solid rgba(124,159,215,.4); }
+  .light .cell.pic .tile { outline-color: var(--n200); } .cell.pic .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .cell.pic .tile i { position: absolute; border: 3px solid #A7BFE4; } .light .cell.pic .tile i { border-color: var(--blue-700); }
+  .cell.pic b { font-size: 34px; }
+  .cells.compact .hexi { width: 72px !important; height: 72px !important; grid-row: span 2; } .cells.compact .cell b { font-size: 34px; } .cells.compact .cell > span:not(.hexi) { margin-top: 0; }
+  .callouts { position: absolute; inset: 0; }
+  .co-chip { position: absolute; z-index: 2; display: flex; align-items: center; gap: 14px; padding: 10px 22px 10px 10px; background: rgba(15,23,41,.92); border: 1px solid rgba(124,159,215,.45); color: #fff; font-weight: 500; font-size: 28px; line-height: 1.15; max-width: 400px; }
+  .co-line { position: absolute; height: 2px; background: #7C9FD7; transform-origin: 0 50%; z-index: 1; }
+  .co-dot { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border: 3px solid #7C9FD7; background: rgba(11,18,32,.6); border-radius: 50%; z-index: 1; }
+  .boxes { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
+  .box { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; border: 1px solid rgba(167,191,228,.4); } .box:last-child:nth-child(odd) { grid-column: span 2; }
+  .box .mono { font-size: 26px; color: #A7BFE4; } .box b { font-weight: 500; font-size: 32px; line-height: 1.25; }
+  .photo .caption.illus { left: auto; right: 0; padding: 12px 80px 12px 20px; }
+  .photo .caption { position: absolute; left: 0; bottom: 0; z-index: 3; padding: 12px 20px 12px 80px; background: rgba(15,23,41,.9); color: #E2E8F0; font-size: 26px; line-height: 1.2; letter-spacing: 0.02em; }
+  .block.spread.tight > .list { margin-top: 40px; } .block.spread.tight > .list .item { padding: 22px 0; }
+  /* Posts and carousels use the guide's four post grounds and their pairings (Colour, Combinations): brand blue with a
+     light-blue eyebrow and accent, deep blue with white type, white and section grey with an action-blue eyebrow and a
+     brand-blue accent. The night field and the mono overline with its hairline belong to video (Video, Brand devices);
+     on a still the eyebrow is Inter Medium (Typography) and JetBrains Mono is kept for machine values. */
+  .post .field { background: #17356E; }
+  .post [data-ground="deep"] .field { background: #10254C; }
+  .post .mono { font-family: Inter, sans-serif; letter-spacing: 0; }
+  .post .overline { font-size: 30px; font-weight: 500; letter-spacing: 0.045em; line-height: 1.4; margin-bottom: 24px; }
+  .post .acc, .post .dark .acc { color: #A7BFE4; } .post .light .acc, .post .title.light .acc { color: var(--blue-700); }
+  .post [data-ground="deep"] .acc { color: inherit; } .post [data-ground="deep"] .dark p { color: #A7BFE4; }
+  .post .panel { background: #17356E; border: 0; }
+  .post .photo .caption { font-size: 26px; letter-spacing: 0; }
+  .post .layer[data-tone="dark"] .irow > div > span, .post .layer[data-tone="dark"] .cell > span:not(.hexi), .post .layer[data-tone="dark"] .list .item span, .post .layer[data-tone="dark"] .who span { color: #fff; }
+  .post .boxes { column-gap: 48px; row-gap: 32px; } .post .box { border: 0; border-top: 1px solid rgba(167,191,228,.45); padding: 20px 0 0; }
+  .post .box .mono { color: #A7BFE4; }
+  .post .quote-text { font-size: var(--heading); text-wrap: balance; }
+  .post .caption.below { letter-spacing: 0; }
+  /* Icon tiles on single posts: a square, no border, no radius; the ground's own deeper or lighter tone. */
+  .tile-i { position: relative; flex: none; display: grid; place-items: center; background: #10254C; }
+  .tile-i > svg { width: 50%; height: 50%; color: #A7BFE4; stroke-width: 1.75; }
+  .tile-i.light { background: #F1F5F9; } .tile-i.light > svg { color: var(--blue-700); }
+  .post [data-ground="deep"] .tile-i:not(.light) { background: #17356E; }
+  /* A single post is read once, at feed size (about half its width): the small text steps up so nothing reads as fine print. */
+  .post.single { --small: 32px; --body: 38px; }
+  .post.single .overline { font-size: 32px; }
+  .post.single .photo .caption, .post.single .caption.below { font-size: 30px; }
+  .post.single .stat:not(.sys) .note { font-size: 30px !important; max-width: none; white-space: nowrap; }
+  /* What the figure measures reads as the post's headline at feed size. */
+  .post.single .stat:not(.sys) .ctx { font-size: 72px; line-height: 1.1; letter-spacing: -0.01em; }
+  /* The closing slide: web and phone on one line, no labels, no rules. */
+  .reach { position: relative; display: flex; gap: 56px; margin-top: 56px; font-size: 34px; font-weight: 500; line-height: 1.2; color: #fff; white-space: nowrap; }
+  /* Name and role on one line. */
+  .who .one { font-size: var(--small); line-height: 1.35; } .who .one > * { display: inline; margin: 0; font-size: inherit; }
+  /* The post system: three looks on one grid, 64 px margins,
+     one type scale (eyebrow 28, headline 68 and up, logo 120 px at the foot). Blue: the photograph from the top edge with a
+     hard edge, then a solid brand-blue panel for the words (no fade, no gradient). Light: white, headline at the
+     top, the picture filling its band below it. Navy: a result or a quote on solid brand blue (or on white, "look": "light").
+     Every post carries the hexagon corner, one size, in the corner the words leave free. */
+  .post .block.sys .overline { font-size: 28px; line-height: 34px; letter-spacing: 0; margin-bottom: 18px; }
+  .post .block.sys .title { font-size: 68px; line-height: 1.08; letter-spacing: -0.02em; }
+  .post .stat.sys { gap: 0; }
+  .post .stat.sys .mono { font-size: 28px; line-height: 34px; margin-bottom: 18px; color: #A7BFE4; }
+  .post .stat.sys .big { line-height: .88; letter-spacing: -0.045em; }
+  .post .stat.sys .unit { font-size: .5em; margin-left: .06em; }
+  .post .stat.sys .ctx { font-size: 54px; line-height: 1.12; letter-spacing: -0.015em; max-width: 19ch; margin-top: 36px; color: #fff; }
+  .post .stat.sys .note { font-size: 28px; line-height: 1.4; margin-top: 28px; max-width: none; white-space: nowrap; color: #A7BFE4; }
+  .post .stat.sys.paper .big { color: #17356E; } .post .stat.sys.paper .ctx { color: var(--ink); } .post .stat.sys.paper .mono { color: var(--blue-500); } .post .stat.sys.paper .note { color: var(--n600); }
+  .post .block.sys .quote-text { font-weight: 500; letter-spacing: -0.025em; line-height: 1.08; text-wrap: balance; }
+  .post .block.sys .who { margin-top: 40px; } .post .block.sys .who .one { font-size: 30px; color: #A7BFE4; } .post .block.sys .who .one b { color: #fff; font-weight: 500; }
+  .post .block.sys .action { margin-top: 56px; }
+  #stage.ink-off * { color: transparent !important; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="video-patterns.js"></script>
+<script>
+  // Motion tokens, in frames at the clip's frame rate.
+  const MS = { exit: 180, slow1: 500, slow2: 700, expressive: 1100 };
+  const CURVE = { enter: [0.16, 1, 0.3, 1], exit: [0.4, 0, 1, 1], standard: [0.2, 0, 0, 1] };
+  const DISTANCE = 16; // px at 1080p
+
+  // cubic-bezier(x1, y1, x2, y2) as a function of progress 0..1 (Newton, then bisection).
+  function bezier([x1, y1, x2, y2]) {
+    const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+    const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+    const X = (t) => ((ax * t + bx) * t + cx) * t, Y = (t) => ((ay * t + by) * t + cy) * t, dX = (t) => (3 * ax * t + 2 * bx) * t + cx;
+    return (x) => {
+      if (x <= 0) return 0; if (x >= 1) return 1;
+      let t = x;
+      for (let i = 0; i < 8; i++) { const e = X(t) - x, d = dX(t); if (Math.abs(e) < 1e-6) return Y(t); if (Math.abs(d) < 1e-6) break; t -= e / d; }
+      let lo = 0, hi = 1; t = x;
+      for (let i = 0; i < 30; i++) { const v = X(t); if (Math.abs(v - x) < 1e-6) break; if (v < x) lo = t; else hi = t; t = (lo + hi) / 2; }
+      return Y(t);
+    };
+  }
+  const ease = { ...Object.fromEntries(Object.entries(CURVE).map(([k, v]) => [k, bezier(v)])), linear: (x) => Math.min(1, Math.max(0, x)) }; // linear: counters and progress only
+
+  // Optical logo widths: equal visual weight across the family (square root of each logo's proportions).
+  const LOGO_MIN = { 'ais-group': 72, 'ais-vision-systems': 100, 'ais-vision-automation': 110, 'ais-scanology': 95, 'rosepetal': 130 };
+  const LOGO_RATIO = { 'ais-group': 259.52 / 195, 'ais-vision-systems': 127.6 / 87.66, 'ais-vision-automation': 3735.581 / 2596.9283, 'ais-scanology': 91.14 / 62.62, 'rosepetal': 117.56 / 22.34 };
+  const SIZES = { '16x9': [1920, 1080], '1x1': [1080, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920], '191x1': [1200, 628] };
+  // Title safe: 5% of each side; vertical video also clears the platform interface (top 270, bottom 670, sides 120).
+  // Posts sit in the feed with nothing drawn over them: an even 80 px margin (64 px on the short link format).
+  const safe = (f, [w, h], post) => f === '9x16' ? { l: 120, r: 120, t: 270, b: 670 }
+    : post ? (f === '191x1' ? { l: 64, r: 64, t: 56, b: 56 } : { l: 64, r: 64, t: 64, b: 64 })
+    : { l: Math.round(w * 0.05), r: Math.round(w * 0.05), t: Math.round(h * 0.05), b: Math.round(h * 0.05) };
+  // Copy that a language needs from the engine itself (the recipe carries everything else).
+  const WEAK = new Set(['a', 'al', 'de', 'del', 'el', 'la', 'las', 'los', 'en', 'y', 'o', 'e', 'con', 'por', 'para', 'un', 'una', 'que', 'no', 'not', 'su', 'sus', 'tu', 'tus', 'sin', 'les', 'els', 'i', 'amb', 'per', 'the', 'of', 'to', 'and', 'in', 'on', 'for', 'with', 'an', 'or', 'your', 'our']);
+  const WORDS = { en: { illustration: 'Illustration', endorse: 'Part of AIS Group' }, es: { illustration: 'Ilustración', endorse: 'Parte de AIS Group' }, ca: { illustration: 'Il·lustració', endorse: "Part d’AIS Group" } };
+
+  let built = [], nShots = 1;
+  let isPost = false, capBase = 0, fps, stage, anim = [], shots = [], captions = [], grain, grainTiles = [], still = false, issues = [], lang = 'en';
+  const frames = (ms) => Math.round(ms / 1000 * fps);
+  // Adds a tween: element, starting frame, length in frames, curve, from and to state.
+  const tween = (el, start, len, curve, from, to) => anim.push({ el, start, len, curve, from, to });
+  // Tweens with a function drive anything that is not a transform (counting numbers).
+  const count = (start, len, curve, fn) => anim.push({ start, len, curve, fn });
+  // Ambient motion (pushes, drifting light) runs the length of a shot. A still has none, and its settled
+  // frame is reached when every entrance has finished.
+  const ambient = (start, len, curve, fn) => { if (!still) anim.push({ start, len, curve, fn, ambient: true }); };
+  const apply = (el, s) => {
+    el.style.opacity = s.o ?? 1;
+    el.style.transform = (el.dataset.base || '') + ` translate(${s.x || 0}px, ${s.y || 0}px)` + (s.s !== undefined ? ` scale(${s.s})` : '');
+    // Masked line reveals move by layout, not transform: a transformed layer leaves a stale strip at the mask edge.
+    if (s.yp !== undefined) el.style.top = (s.yp * 1.16 / 100) + 'em'; // 1.16 em = one masked line (1.08 leading + 0.08 padding)
+  };
+  const rise = (el, at, len = frames(MS.slow1)) => tween(el, at, len, 'enter', { o: 0, y: DISTANCE }, { o: 1, y: 0 });
+  // Words joined by a hyphen never break across lines (brand check: broken-word).
+  const html = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(\p{L})-(\p{L})/gu, '$1\u2011$2');
+  // Shrinks a text element until it fits its box (long event names, long titles).
+  const fit = (el, max) => { let size = parseFloat(getComputedStyle(el).fontSize); while (el.scrollWidth > max && size > 32) { size -= 2; el.style.fontSize = size + 'px'; } };
+  const issue = (shot, rule, detail) => issues.push({ shot, rule, detail });
+
+  // Each builder draws one shot into its own layer and returns its length in frames. `at` is the shot's first frame.
+  const BUILD = {
+    opening(L, s, c, at) {
+      if (s.videoPattern && !c.post) {
+        const len = Math.round((s.seconds || 5) * fps);
+        L.innerHTML = `<div class="center"><img src="${c.logo('white')}" style="width:${c.logoW}px" alt=""></div>`;
+        const logo = L.querySelector('img');
+        // 0.65–1.85 s: short tilt/scale with directional blur, then a clean hold.
+        count(at, len, 'linear', p => {
+          const t = p * len / fps, u = ease.enter(Math.max(0, Math.min(1, (t-.65)/1.2)));
+          logo.style.opacity = Math.min(1, Math.max(0, (t-.65)/.18));
+          logo.style.transform = `perspective(1200px) rotateX(${(1-u)*52}deg) rotateY(${(1-u)*-24}deg) scale(${.72+.28*u})`;
+          logo.style.filter = `blur(${t < 1.15 ? (1-u)*10 : 0}px)`;
+        });
+        return len;
+      }
+      // Video, Opening: brand blue, the white logo, 8 frames of blue, the logo in over 18 frames, held to 2 s, then a cut.
+      L.innerHTML = `<div class="fill" style="background:var(--blue-700)"></div><div class="center"><img src="${c.logo('white')}" style="width:${c.logoW}px" alt=""></div>`;
+      rise(L.querySelector('img'), at + 8, frames(MS.slow2));
+      return 2 * fps;
+    },
+    end(L, s, c, at) {
+      // A cut to white; logo and line in over 500 ms on the enter curve, held to the end. No exit.
+      const line = s.url ? `<span class="url" style="margin-top:56px">${html(s.url)}</span>` : '';
+      const endorse = c.brand !== 'ais-group' && s.endorse !== false ? `<span class="endorse" style="bottom:${c.m.b + 16}px">${WORDS[lang].endorse}</span>` : '';
+      L.innerHTML = `<div class="fill" style="background:#fff"></div><div class="center"><div class="card"><img src="${c.logo('blue')}" style="width:${c.logoW}px" alt="">${line}</div></div>${endorse}`;
+      rise(L.querySelector('.card'), at + 3);
+      if (endorse) rise(L.querySelector('.endorse'), at + 6);
+      L.dataset.tone = 'light'; L.dataset.signed = 1;
+      return Math.round((s.seconds || 3) * fps) + Math.max(6 + frames(MS.slow1), s.wipe ? frames(MS.slow2) : 0); // Hold starts after the card and endorsement have entered.
+    },
+    'lower-third'(L, s, c, at) {
+      L.innerHTML = `<div class="plate" style="left:${c.m.l}px;bottom:${c.m.b}px;max-width:${c.w - c.m.l - c.m.r}px"><b>${html(s.name)}</b>${s.role ? `<span>${html(s.role)}</span>` : ''}</div>`;
+      const el = L.querySelector('.plate'), hold = Math.round((s.seconds || 4) * fps);
+      rise(el, at);
+      tween(el, at + frames(MS.slow1) + hold, frames(MS.exit), 'exit', { o: 1 }, { o: 0 });
+      return frames(MS.slow1) + hold + frames(MS.exit);
+    },
+    title(L, s, c, at) {
+      const dark = s.bg !== 'white';
+      L.innerHTML = `${dark ? '' : '<div class="fill" style="background:#fff"></div>'}<div class="title" data-lines="3" style="left:${c.m.l}px;right:${c.m.r}px;top:50%;transform:translateY(-50%);color:${dark ? '#fff' : 'var(--ink)'}">${s.overline ? `<span class="overline mono" style="color:${dark ? '#A7BFE4' : 'var(--blue-500)'}">${html(s.overline)}</span>` : ''}${lineSpans(s.title)}</div>`;
+      if (dark && !backdrop(L, s, at)) field(L, at, Math.round((s.seconds || 3) * fps));
+      revealLines(L, at + 6 + leadIn(L, at + 4));
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return Math.round((s.seconds || 3) * fps);
+    },
+    still(L, s, c, at) {
+      if (s.videoPattern && !c.post && !s.src) return Math.round((s.seconds || 6) * fps);
+      // A photograph with a slow push on the standard curve; an optional headline sits in the clear space above or below.
+      const len = Math.round((s.seconds || 4) * fps);
+      const [fx, fy] = s.focus || [50, 50];
+      // Layers (background first) move at different rates for depth: each takes its own zoom and drift.
+      const layers = s.layers || [{ src: s.src, zoom: s.zoom || 1.06 }];
+      // "bg": "white" is the light mode: a light illustration on white, ink headline, ink brackets, no grade or vignette.
+      // "bg": "grey" is the same light mode on section grey, the studio sweep of the product and machine renders, so a
+      // render shown whole ("fit": "contain") meets its ground without a seam.
+      const light = s.bg === 'white' || s.bg === 'grey', ground = s.bg === 'grey' ? '#F1F5F9' : light ? '#fff' : '#0B1220';
+      const fit = (s.fit === 'contain' ? `object-fit:contain;background:${ground};` : '') + (light ? 'filter:none;' : '');
+      if (s.fit === 'contain' || light) L.style.background = ground;
+      L.innerHTML = (s.src ? layers.map((l) => `<img class="media" src="${l.src}" style="object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;${fit}" alt="">`).join('') : slot(s, c)) + headline(s, c);
+      if (s.src && s.slot) L.insertAdjacentHTML('beforeend', `<div class="standin mono" style="left:${c.m.l}px;${(s.headlinePos === 'bottom' && s.headline) || s.lowerThird || (c.w > c.h && !s.headline) ? `top:${Math.max(40, c.m.t - 120)}px` : `bottom:${Math.max(48, c.m.b - 160)}px`}">${html(s.slot)}</div>`);
+      detect(L, s, c, at, len);
+      inspect(L, s, c, at, light);
+      // `scale` frames the subject tighter; the push runs on top of it.
+      const base = s.scale || 1;
+      L.querySelectorAll('.media').forEach((img, i) => {
+        if (s.move === 'none' || still) { img.style.transform = `scale(${base})`; return; }
+        tween(img, at, len, 'standard', { s: base, y: 0 }, { s: base * (layers[i].zoom ?? 1.06), y: layers[i].drift ?? 0 }); anim[anim.length - 1].ambient = true;
+      });
+      if (s.headline) headIn(L, at, s, 8);
+      lowerThird(L, s, c, at, len);
+      evidence(L, s, c);
+      L.dataset.tone = light ? 'light' : 'dark';
+      return len;
+    },
+    clip(L, s, c, at) {
+      // Video footage, seeked frame by frame so the render is exact.
+      const len = Math.round((s.out - s.in) * fps);
+      // `scale` frames tighter; `zoom` adds a slow push on top, like a dolly.
+      const base = s.scale || 1, [fx, fy] = s.focus || [50, 50];
+      L.innerHTML = `<video class="media" data-in="${s.in}" src="${s.src}" muted preload="auto" style="object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%"></video>` + headline(s, c);
+      L.dataset.clipAt = at;
+      // The part of the source the frame shows (object-fit cover, then `scale` about the focus) must not reach a burnt-in mark.
+      if (s.burnedIn) {
+        const [W, H] = s.srcSize, k = Math.max(c.w / W, c.h / H), dw = W * k, dh = H * k, sc = Math.min(base, base * (s.zoom || 1)), px = (c.w * fx) / 100, py = (c.h * fy) / 100;
+        const ox = ((c.w - dw) * fx) / 100, oy = ((c.h - dh) * fy) / 100, sx = (x) => ((x - ox) / dw) * 100, sy = (y) => ((y - oy) / dh) * 100;
+        const v = [sx(px - px / sc), sy(py - py / sc), sx(px + (c.w - px) / sc), sy(py + (c.h - py) / sc)];
+        s.burnedIn.forEach(({ what, box: [x0, y0, x1, y1] }) => { if (x0 < v[2] && x1 > v[0] && y0 < v[3] && y1 > v[1]) issue(s._i, 'burned-in', `the frame shows the footage's own ${what} (it shows ${v.map(Math.round).join(', ')} % of the source): raise "scale" or move "focus"`); });
+      }
+      if (base !== 1 || s.zoom) { tween(L.querySelector('video'), at, len, 'standard', { s: base }, { s: base * (s.zoom || 1) }); anim[anim.length - 1].ambient = true; }
+      if (s.src && s.slot) L.insertAdjacentHTML('beforeend', `<div class="standin mono" style="left:${c.m.l}px;${(s.headlinePos === 'bottom' && s.headline) || s.lowerThird || (c.w > c.h && !s.headline) ? `top:${Math.max(40, c.m.t - 120)}px` : `bottom:${Math.max(48, c.m.b - 160)}px`}">${html(s.slot)}</div>`);
+      detect(L, s, c, at, len);
+      if (s.headline) { const h0 = at + (s.headlineAt ?? 8); revealLines(L, h0 + leadIn(L, h0)); }
+      lowerThird(L, s, c, at, len);
+      inspect(L, s, c, at);
+      evidence(L, s, c);
+      L.dataset.tone = 'dark';
+      return len;
+    },
+    stat(L, s, c, at) {
+      // A result that counts up: number in tabular figures, unit, one line of context, and its conditions.
+      const dark = s.bg !== 'white';
+      L.innerHTML = `${dark ? '' : '<div class="fill" style="background:#fff"></div>'}
+        <div class="stat" style="left:${c.post ? left0(c, s) : c.m.l}px;right:${c.m.r}px;top:${c.m.t}px;bottom:${c.post && s._i === 0 ? Math.round(c.m.b + c.logoH + 64) : c.m.b}px;color:${dark ? '#fff' : 'var(--ink)'};${c.post && s._i === 0 ? 'justify-content:flex-end' : ''}">
+          ${s.label ? `<span class="mono" style="color:${dark ? '#A7BFE4' : 'var(--blue-500)'}">${html(s.label)}</span>` : ''}
+          <span class="big" style="font-size:${c.post ? (c.wide ? 160 : c.h > c.w ? 300 : 240) : c.w > c.h ? 280 : 240}px"><span class="num">0</span><span class="unit">${html(s.unit || '')}</span></span>
+          <span class="ctx" style="color:${dark ? '#fff' : 'var(--ink)'}">${html(s.text || '')}</span>
+          ${s.note ? `<span class="note" style="font-size:${c.post ? 28 : 32}px;color:${dark ? (c.post ? '#fff' : 'var(--n400)') : 'var(--n600)'}">${html(s.note)}</span>` : ''}</div>`;
+      if (dark && !backdrop(L, s, at)) field(L, at, Math.round((s.seconds || 3) * fps));
+      if (c.post && s._i === 0) L.dataset.chromeAt = 'bottom';
+      // A single post fills its height with the figure: it grows (poster size) until the words below it meet the top
+      // margin, instead of sitting at the foot under a blank half of the post (excessive blank areas).
+      if (c.post && nShots === 1) {
+        const box = L.querySelector('.stat'), big = box.querySelector('.big'); big.querySelector('.num').textContent = String(s.value ?? '');
+        const used = () => [...box.children].reduce((n, e) => n + e.offsetHeight, 0) + 24 * (box.children.length - 1);
+        let px = parseFloat(big.style.fontSize);
+        while (px < 520 && used() + 40 < box.clientHeight && big.scrollWidth <= box.clientWidth) { px += 10; big.style.fontSize = px + 'px'; }
+        while (px > 200 && (used() > box.clientHeight || big.scrollWidth > box.clientWidth)) { px -= 10; big.style.fontSize = px + 'px'; }
+        const ctx = box.querySelector('.ctx'); if (ctx) ctx.style.maxWidth = '18ch';
+      }
+      const num = L.querySelector('.num'), numeric = s.value !== null && !(typeof s.value === 'string' && !s.value.trim()) && Number.isFinite(Number(s.value));
+      if (numeric) {
+        const dec = String(s.value).split('.')[1]?.length || 0;
+        const fmt = new Intl.NumberFormat(s.lang || lang, { minimumFractionDigits: dec, maximumFractionDigits: dec });
+        count(at + 6, frames(MS.expressive) + 10, 'enter', (p) => { num.textContent = fmt.format(+s.value * p); });
+      } else num.textContent = '—'; // visibly unfilled; recipe check blocks export until a real figure is supplied
+      [...L.querySelectorAll('.stat > *')].forEach((el, i) => rise(el, at + 2 + i * 3));
+      // The pattern on blue without a photograph: a corner fade at the top right that ends before the figure and its words.
+      if (dark && c.post) { L.dataset.dna = 1; if (s.hex !== 'none') { const ends = s.hex === 'br' ? [[100, 100], [100, 0]] : [[100, 0], [100, 100]]; ends.some((w) => cornerFade(L, c, at, w, 0, 62)); } }
+      if (c.post && nShots === 1) { const n = L.querySelector('.stat .note'); if (n && n.scrollWidth > n.clientWidth + 1) issue(s._i, 'note-lines', 'The source takes one line on a post: shorten the note'); }
+      const lab = isPost ? null : L.querySelector('.stat .mono'); if (lab) { lab.style.position = 'relative'; rule(lab, { position: 'absolute', left: 0, width: (c.w - (c.post ? left0(c, s) : c.m.l) - c.m.r) + 'px', bottom: '-16px', height: '2px', background: dark ? 'rgba(167,191,228,.4)' : 'var(--blue-500)' }, at + 4, frames(MS.expressive)); }
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return Math.round((s.seconds || 3) * fps);
+    },
+    claims(L, s, c, at) {
+      // Short claims, one at a time, each rising from a mask on brand blue.
+      const each = Math.round((s.each || 1.2) * fps);
+      L.innerHTML = s.words.map((w) =>
+        `<div class="title claim" style="left:${c.m.l}px;right:${c.m.r}px;top:50%;transform:translateY(-50%);color:#fff;font-size:${c.w > c.h ? 160 : 132}px">${lineSpans(w)}</div>`).join('');
+      splitAuto(L);
+      L.querySelectorAll('.claim').forEach((el, i) => {
+        el.style.display = 'none';
+        el.querySelectorAll('.line > span').forEach((sp, j) => tween(sp, at + i * each + j * 3, frames(MS.slow2), 'enter', { yp: 105 }, { yp: 0 }));
+        claimWindows.push({ el, from: at + i * each, to: i === s.words.length - 1 ? at + s.words.length * each + 1e6 : at + (i + 1) * each });
+      });
+      const total = s.words.length * each + Math.round((s.hold || 0.6) * fps);
+      if (!backdrop(L, s, at)) field(L, at, total);
+      if (s.words.length > 1) {
+        const k = document.createElement('span'); k.className = 'mono counter'; Object.assign(k.style, { left: c.m.l + 'px', top: c.m.t + 'px' }); L.appendChild(k);
+        count(at, total, 'linear', (p) => { k.textContent = `${String(Math.min(s.words.length, Math.floor((p * total) / each) + 1)).padStart(2, '0')}/${String(s.words.length).padStart(2, '0')}`; });
+        anim[anim.length - 1].ambient = true;
+        rise(k, at + 2);
+        rule(L, { position: 'absolute', left: c.m.l + 'px', right: c.m.r + 'px', bottom: c.m.b + 'px', height: '2px', background: '#A7BFE4' }, at, s.words.length * each);
+        anim[anim.length - 1].curve = 'linear';
+      }
+      L.dataset.tone = 'dark';
+      return total;
+    },
+    stand(L, s, c, at) {
+      // Trade-show card: where and when, on brand blue.
+      const rows = (s.rows || []).map((r) => `<div class="row">${r.icon || ''}<span>${html(r.text)}</span></div>`).join('');
+      L.innerHTML = `<div class="stand" style="left:${c.post ? left0(c, s) : c.m.l}px;right:${c.m.r}px;top:${c.post ? top0(c, s) : c.m.t}px;bottom:${c.m.b}px;${c.post && s._i === 0 ? 'justify-content:flex-end' : ''}">
+          ${s.lead ? `<span class="lead">${html(s.lead)}</span>` : ''}<span class="event" style="font-size:${c.w > c.h ? 144 : 112}px">${html(s.event)}</span><div class="rows">${rows}</div></div>`;
+      if (!backdrop(L, s, at)) field(L, at, Math.round((s.seconds || 3) * fps));
+      const box = L.querySelector('.stand');
+      fit(L.querySelector('.event'), c.w - (c.post ? left0(c, s) : c.m.l) - c.m.r);
+      [...box.querySelectorAll('.lead, .event, .row')].forEach((el, i) => rise(el, at + 4 + i * 2));
+      box.querySelectorAll('.row').forEach((row, i) => rule(row, { position: 'absolute', left: 0, right: 0, top: '-14px', height: '2px', background: 'rgba(167,191,228,.35)' }, at + 6 + i * 2));
+      L.dataset.tone = 'dark';
+      return Math.round((s.seconds || 3) * fps);
+    },
+
+    // Post and carousel layouts. Each one is a scene too: it enters with the same tokens, so a carousel
+    // renders as a PDF of settled slides or as a video of the same slides in motion.
+    cover(L, s, c, at) {
+      // The first slide or a single post: a photograph (or the night field), the overline and a display headline.
+      const len = Math.round((s.seconds || 4) * fps), [fx, fy] = s.focus || [50, 50], top = s.headlinePos === 'top';
+      if (s.bg === 'white' || s.bg === 'dark') {
+        // Split cover: text under the logo, the picture in its own space below it. Light on white and section
+        // grey; dark on the night field, for a piece that opens dark (Communications, Composition).
+        // "photoAt": "top" leads with the picture: it fills the top, the text sits under it and the logo signs at the foot.
+        const dark = s.bg === 'dark', pic = s.src || s.slot, share = Math.round(c.h * (s.split || 0.42)), up = pic && s.photoAt === 'top';
+        L.innerHTML = dark ? '' : `<div class="fill" style="background:#fff"></div>`;
+        if (dark) field(L, at, len);
+        if (pic) { const P = photo(L, s, c, up ? { left: 0, right: 0, top: 0, height: share } : { left: 0, right: 0, bottom: 0, height: share }, at, len); P.style.background = dark ? '#0B1220' : 'var(--n100)'; P.querySelector('img')?.style.setProperty('filter', 'none'); }
+        if (up) L.dataset.chromeAt = 'bottom';
+        block(L, c, dark ? 'dark' : 'light', up ? { top: share + 64, maxBottom: c.m.b + c.logoH + 48, floorIs: 'logo' } : pic ? { top: top0(c, s), maxBottom: share + 48 } : { top: top0(c, s) }, s, pic && !up ? 'h' : 'd');
+      } else {
+        L.innerHTML = s.src ? `<img class="media" src="${s.src}" style="object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;transform:scale(${s.scale || 1})" alt="">` : s.slot ? slot(s, c) : '';
+        if (!s.src && !s.slot) field(L, at, len);
+        if (s.src) pushMedia(L, s, at, len);
+        // A scrim from the darkest blue under the logo and under the headline: the logo never sits on a busy photo.
+        if (s.src || s.slot) L.insertAdjacentHTML('beforeend', `<div class="scrim top" style="height:${Math.round(c.m.t + c.logoH + (top ? c.h * 0.45 : 120))}px"></div>` +
+          (top ? '' : `<div class="scrim bottom" style="height:${Math.round(c.h * 0.6)}px"></div>`));
+        block(L, c, 'dark', top ? { top: top0(c, s) } : { bottom: c.m.b }, s, 'd');
+      }
+      reveal(L, at, s);
+      inspect(L, s, c, at);
+      evidence(L, s, c);
+      L.dataset.tone = s.bg === 'white' ? 'light' : 'dark'; L.dataset.signed = 1;
+      return len;
+    },
+    text(L, s, c, at) {
+      // One idea in words: overline, heading, a short paragraph; optionally a photograph filling the lower part.
+      const len = Math.round((s.seconds || 4) * fps), dark = s.bg === 'blue' || s.bg === 'dark', share = s.src || s.slot ? (s.split || 0.42) : 0;
+      L.innerHTML = dark ? '' : `<div class="fill" style="background:#fff"></div>`;
+      if (dark) field(L, at, len);
+      const up = share && s.photoAt === 'top', ph = Math.round(c.h * share);
+      if (share) photo(L, s, c, up ? { left: 0, right: 0, top: 0, height: ph } : { left: 0, right: 0, bottom: 0, height: ph }, at, len);
+      if (up) L.dataset.chromeAt = 'bottom';
+      const blk = block(L, c, dark ? 'dark' : 'light', up ? { top: ph + 64, bottom: c.m.b + 64 } : share ? { top: top0(c, s), maxBottom: ph + 56 } : { top: top0(c, s), bottom: c.m.b }, s, share ? 'h' : 'd');
+      if (!share || up) blk.classList.add('spread');
+      reveal(L, at, s);
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return len;
+    },
+    list(L, s, c, at) {
+      // What it checks, one row each: a Lucide icon, the item, an optional detail. Three to five rows.
+      const len = Math.round((s.seconds || 5) * fps), dark = s.bg === 'blue' || s.bg === 'dark';
+      L.innerHTML = dark ? '' : `<div class="fill" style="background:#fff"></div>`;
+      if (dark) field(L, at, len);
+      // With "src" a photograph opens the slide (split, default 0.34) and the rows follow under it.
+      const ph = s.src || s.slot ? Math.round(c.h * (s.split || 0.34)) : 0;
+      if (ph) { photo(L, s, c, { left: 0, right: 0, top: 0, height: ph }, at, len); L.dataset.chromeAt = 'bottom'; }
+      const blk = block(L, c, dark ? 'dark' : 'light', ph ? { top: ph + 64, bottom: c.m.b + 64 } : { top: top0(c, s), bottom: c.m.b }, s, 'h');
+      blk.classList.add('spread');
+      if (ph) blk.classList.add('tight');
+      const list = document.createElement('div'); list.className = 'list';
+      list.innerHTML = (s.items || []).map((r) => `<div class="item">${r.icon || '<i aria-hidden="true"></i>'}<b>${html(r.text)}</b>${r.detail ? `<span>${html(r.detail)}</span>` : ''}</div>`).join('');
+      blk.appendChild(list);
+      reveal(L, at, s);
+      list.querySelectorAll('.item').forEach((row, i) => {
+        rise(row, at + 14 + i * 3);
+        rule(row, { position: 'absolute', left: 0, right: 0, top: 0, height: '2px', background: dark ? 'rgba(167,191,228,.35)' : 'var(--n200)' }, at + 14 + i * 3);
+      });
+      if ((s.items || []).length > 5) issue(s._i, 'list-length', `${s.items.length} rows: a slide carries five at most; split the idea`);
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return len;
+    },
+    pair(L, s, c, at) {
+      // Detail and result: the good part and its defective twin from the same viewpoint; the inspection frame
+      // locks on the defect in the second image. Side by side on wide formats, stacked on tall ones.
+      const len = Math.round((s.seconds || 5) * fps), tall = c.h > c.w * 1.1 && !s.side; // "side": true keeps upright products side by side on tall formats
+      const lightBg = s.bg === 'white';
+      L.innerHTML = `<div class="fill" style="background:${lightBg ? '#fff' : '#0B1220'}"></div>`;
+      const head = s.headline ? block(L, c, lightBg ? 'light' : 'dark', { top: top0(c, s) }, s, 'h') : null;
+      const top = head ? head.offsetTop + head.offsetHeight + 56 : c.m.t, gap = 16;
+      const box = tall ? [{ left: c.m.l, top, width: c.w - c.m.l - c.m.r, height: (c.h - top - c.m.b - gap) / 2 }, { left: c.m.l, top: top + (c.h - top - c.m.b - gap) / 2 + gap, width: c.w - c.m.l - c.m.r, height: (c.h - top - c.m.b - gap) / 2 }]
+        : [{ left: c.m.l, top, width: (c.w - c.m.l - c.m.r - gap) / 2, height: c.h - top - c.m.b }, { left: c.m.l + (c.w - c.m.l - c.m.r + gap) / 2, top, width: (c.w - c.m.l - c.m.r - gap) / 2, height: c.h - top - c.m.b }];
+      [s.a, s.b].forEach((img, k) => {
+        const P = document.createElement('div'); P.className = 'photo'; L.appendChild(P);
+        Object.assign(P.style, Object.fromEntries(Object.entries(box[k]).map(([p, v]) => [p, v + 'px'])));
+        const [fx, fy] = img.focus || [50, 50];
+        if (lightBg) P.style.background = '#F1F5F9';
+        P.innerHTML = img.src ? `<img class="media" src="${img.src}" style="object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;transform:scale(${img.scale || 1});${lightBg ? 'filter:none' : ''}" alt="">` : slot({ slot: img.slot }, { w: box[k].width, h: box[k].height, m: { l: 24, r: 24, t: 24, b: 24 } });
+        if (img.label) {
+          const ok = k === 0;
+          P.insertAdjacentHTML('beforeend', `<div class="chip ${ok ? 'pass' : 'reject'}" style="left:16px;bottom:16px"><svg viewBox="0 0 24 24"><path d="${ok ? 'M20 6 9 17l-5-5' : 'M18 6 6 18M6 6l12 12'}"/></svg>${html(img.label)}</div>`);
+          rise(P.lastElementChild, at + 10 + k * 6);
+        }
+        if (img.inspect) inspect(P, { inspect: { tone: lightBg ? 'light' : 'dark', ...img.inspect } }, { w: box[k].width, h: box[k].height, m: { l: 0, t: 0, r: 0, b: 0 }, verdictAt: [24, 24] }, at + 8);
+        rise(P, at + 2 + k * 4);
+      });
+      reveal(L, at, s);
+      evidence(L, s, c);
+      L.dataset.tone = lightBg ? 'light' : 'dark';
+      return len;
+    },
+    figure(L, s, c, at) {
+      // An isometric illustration on white, explaining how it works, with the inspection frame drawn in light
+      // colours on the part it checks. The headline holds the top; the drawing fills the rest.
+      const len = Math.round((s.seconds || 5) * fps), dark = s.bg === 'dark';
+      L.innerHTML = `<div class="fill" style="background:${dark ? '#0B1220' : '#fff'}"></div>`;
+      const head = block(L, c, dark ? 'dark' : 'light', { top: top0(c, s) }, s, 'h');
+      const top = head.offsetTop + head.offsetHeight + 24, box = { left: 0, top, width: c.w, height: c.h - top - 80 }; // ends above the Illustration label, which never sits on the drawing
+      const P = document.createElement('div'); P.className = 'photo'; P.style.background = 'transparent'; L.appendChild(P);
+      Object.assign(P.style, { left: '0px', top: top + 'px', width: c.w + 'px', height: box.height + 'px', overflow: 'hidden' });
+      const [fx, fy] = s.focus || [50, 50];
+      P.innerHTML = `<img class="media" src="${s.src}" style="object-fit:contain;object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;transform:scale(${s.scale || 1});filter:none" alt="">`;
+      if (s.inspect) inspect(P, { ...s, fit: 'contain', inspect: { tone: dark ? 'dark' : 'light', ...s.inspect } }, { w: c.w, h: box.height, m: { l: c.m.l, t: 0, r: c.m.r, b: 64 }, verdictAt: [24, 24] }, at + 8);
+      rise(P, at + 2, frames(MS.slow2)); // the wrapper moves: the picture keeps its own scale
+      reveal(L, at, s);
+      evidence(L, s, c);
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return len;
+    },
+    quote(L, s, c, at) {
+      // A customer's own words, with their name and role. Only with written permission (the recipe records it).
+      const pic0 = c.post && s.src, len = Math.round((s.seconds || 5) * fps), dark = s.bg === 'blue' || s.bg === 'dark' || (pic0 && s.bg !== 'white');
+      L.innerHTML = dark ? '' : `<div class="fill" style="background:#fff"></div>`;
+      if (dark) field(L, at, len);
+      // The pattern only on blue without a photograph.
+      if (dark && !pic0) { hexes(L, c, at, s.hex ?? 'br', 0.3); L.dataset.dna = 1; }
+      // On a post the words sit at the foot, like a figure, under the night field, at display size when short enough to fill
+      // the canvas rather than leave it half empty; the mark follows the language's quotes.
+      const pic = pic0, band = pic ? bandOf(s, c, Math.round(c.h * (s.split || 0.6))) : 0;
+      if (pic) { const P = photo(L, s, c, { left: 0, right: 0, top: 0, height: band }, at, len); inset(P, s, c, band); L.dataset.chromeAt = 'bottom'; }
+      const blk = block(L, c, dark ? 'dark' : 'light', pic ? { top: band + 56, maxBottom: c.m.b + c.logoH + 48, floorIs: 'logo' } : c.post ? { bottom: c.m.b } : { top: top0(c, s) }, { ...s, headline: null }, 'h');
+      // A still sets the words inside the language's quotation marks (Brand style: «» in every language); the hanging mark stays in video.
+      const [qo, qc] = ['«', '»'];
+      blk.insertAdjacentHTML('beforeend', c.post ? `<div class="title h quote-text" data-lines="3">${qo}${html(s.quote || '')}${qc}</div>`
+        : `<span class="quote-mark" aria-hidden="true">«</span><div class="title h quote-text" data-lines="6">${html(s.quote || '')}</div>`);
+      rise(blk.querySelector('.quote-text'), at + 6, frames(MS.slow2));
+      blk.insertAdjacentHTML('beforeend', c.post ? `<div class="who"><div class="one"><b>${html(s.name || '')}</b>${s.role ? `<span>, ${html(s.role)}</span>` : ''}</div></div>`
+        : `<div class="who">${s.portrait && !pic ? `<img src="${s.portrait}" alt="">` : ''}<div><b>${html(s.name || '')}</b>${s.role ? `<span>${html(s.role)}</span>` : ''}</div></div>`);
+      reveal(L, at, s);
+      rise(blk.firstElementChild, at + 2);
+      rise(blk.querySelector('.who'), at + 20);
+      L.dataset.tone = dark ? 'dark' : 'light';
+      return len;
+    },
+    cta(L, s, c, at) {
+      // The closing slide: one question or claim, one action from the approved set, its destination, the
+      // issuing brand's logo and the endorsement. On brand blue, the call-to-action colour.
+      const len = Math.round((s.seconds || 4) * fps);
+      L.innerHTML = `<div class="fill" style="background:var(--blue-700)"></div>`;
+      // With "src" the product or the people it promises open the slide (split, default 0.4).
+      const ph = s.src ? Math.round(c.h * (s.split || 0.4)) : 0;
+      if (ph) { const P = photo(L, s, c, { left: 0, right: 0, top: 0, height: ph }, at, len); P.style.background = 'var(--blue-950)'; }
+      const blk = block(L, c, 'dark', ph ? { top: ph + 64, maxBottom: c.m.b + c.logoH + 48, floorIs: 'logo' } : { top: top0(c, s) }, s, ph ? 'h' : 'd');
+      blk.insertAdjacentHTML('beforeend', `<span class="action"><span>${html(s.action)}</span>${c.icon('arrow-right')}</span>${s.url ? `<span class="dest mono">${html(s.url)}</span>` : ''}`);
+      const sign = document.createElement('div'); sign.className = 'sign';
+      Object.assign(sign.style, { left: c.m.l + 'px', right: c.m.r + 'px', bottom: c.m.b + 'px' });
+      sign.innerHTML = `<img src="${c.logo('white')}" style="width:${c.logoW}px;display:block" alt="${html(c.brandName)}">${c.brand !== 'ais-group' ? `<span>${WORDS[lang].endorse}</span>` : ''}`;
+      L.appendChild(sign);
+      reveal(L, at, s);
+      rise(blk.querySelector('.action'), at + 16);
+      if (s.url) rise(blk.querySelector('.dest'), at + 18);
+      rise(sign, at + 4);
+      L.dataset.tone = 'dark'; L.dataset.signed = 1;
+      return len;
+    },
+  };
+  // Where a post's text starts: under the logo and its clear space on the first slide, under the counter inside.
+  const top0 = (c, s) => s._i === 0 && !c.wide ? Math.round(c.m.t + c.logoH * 1.25 + 72) : s._i === 0 ? c.m.t : c.m.t + 80;
+  // On the wide link format the logo takes a column on the left of the first slide instead of a row on top.
+  const left0 = (c, s) => c.wide && s._i === 0 ? Math.round(c.m.l + c.logoW + c.logoH / 4 + 64) : c.m.l;
+  // Headlines without a | are broken into lines by the browser (balanced), then each line becomes its own mask.
+  const splitAuto = (L) => L.querySelectorAll('.line.auto').forEach((line) => {
+    const holder = line.parentElement, words = [...line.querySelectorAll('i')];
+    // Measured a little narrower than the column, so a line that only just fits never wraps once it is set on its own.
+    holder.style.textWrap = 'balance'; holder.style.paddingRight = '12px';
+    const rows = [];
+    words.forEach((w) => { const y = Math.round(w.getBoundingClientRect().top); const r = rows.find((q) => Math.abs(q.y - y) < 4); r ? r.w.push(w.outerHTML) : rows.push({ y, w: [w.outerHTML] }); });
+    holder.style.textWrap = ''; holder.style.paddingRight = '';
+    line.outerHTML = rows.map((r) => `<span class="line"><span>${r.w.join(' ')}</span></span>`).join('');
+  });
+  // The text block every post layout shares: overline with its hairline, the headline in masked lines, a paragraph.
+  // `pos` places it: top or bottom edge, and an optional floor it must not cross (checked after layout).
+  const block = (L, c, tone, pos, s, size) => {
+    const b = document.createElement('div'); b.className = `block ${tone}`;
+    Object.assign(b.style, { left: left0(c, s) + 'px', right: c.m.r + 'px' });
+    if (pos.top !== undefined) b.style.top = pos.top + 'px';
+    if (pos.bottom !== undefined) b.style.bottom = pos.bottom + 'px';
+    if (pos.maxBottom !== undefined) { b.dataset.floor = c.h - pos.maxBottom; b.dataset.floorIs = pos.floorIs || 'photo'; }
+    b.innerHTML = (s.overline ? `<span class="overline mono">${html(s.overline)}</span>` : '') +
+      (s.headline ? `<div class="title ${size}" data-lines="3">${lineSpans(s.headline)}</div>` : '') +
+      (s.text ? `<p class="${size === 'd' || s.lead ? 'lead' : ''}">${html(s.text)}</p>` : '');
+    L.appendChild(b);
+    // A display headline that would need more than three lines steps down to the heading size.
+    const t = b.querySelector('.title.d');
+    if (t && t.offsetHeight > 3.3 * parseFloat(getComputedStyle(t).fontSize) * 1.04) t.classList.replace('d', 'h');
+    // …and so does one that would run past its floor (the logo or the picture under it).
+    if (t && b.dataset.floor && b.offsetTop + b.offsetHeight > +b.dataset.floor) t.classList.replace('d', 'h');
+    return b;
+  };
+  // Overline and hairline, then the headline lines, then the paragraph.
+  // The headline comes in after its overline. A video's opening question is legible by 0.5 s (Video, types):
+  // on the first shot there is no delay and the lines rise with the overline on the slow1 duration. Returns the frame it lands.
+  const headIn = (L, at, s, delay) => {
+    if (at === 0 && !isPost) { leadIn(L, 0); revealLines(L, 1, frames(MS.slow1)); return 8; }
+    const h0 = at + (s.headlineAt ?? delay);
+    revealLines(L, h0 + leadIn(L, h0));
+    return h0 + 12;
+  };
+  const reveal = (L, at, s) => {
+    const h0 = headIn(L, at, s, 6) - 12;
+    L.querySelectorAll('.block > p').forEach((p) => rise(p, h0 + 12));
+  };
+  // A photograph inside a box of the layout, square-cornered, with the slow push.
+  const photo = (L, s, c, box, at, len) => {
+    const P = document.createElement('div'); P.className = 'photo'; L.appendChild(P);
+    Object.assign(P.style, Object.fromEntries(Object.entries(box).map(([p, v]) => [p, typeof v === 'number' ? v + 'px' : v])));
+    const [fx, fy] = s.focus || [50, 50];
+    // "fit": "contain" shows the whole machine on section grey, with room around it (Imagery, Machine).
+    if (s.fit === 'contain') P.style.background = 'var(--n100)';
+    P.innerHTML = s.src ? `<img class="media" src="${s.src}" style="${s.fit === 'contain' ? 'object-fit:contain;' : ''}object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;transform:scale(${s.scale || 1})" alt="">` : slot(s, { w: c.w, h: box.height, m: c.m });
+    if (s.src) pushMedia(P, s, at, len);
+    // A caption names what the picture is: the place, the product, the year (Imagery, Captions). It sits in the
+    // picture's corner on an ink chip, so it never covers the subject's middle.
+    // Posts and carousels carry no caption inside the picture: the post text names it.
+    if (s.caption && !isPost) { const k = document.createElement('span'); k.className = 'caption mono'; k.textContent = s.caption; P.appendChild(k); }
+    // A drawing or a render inside a layout says so in the picture's other corner.
+    if (s.src && s.evidence === 'illustration') { const k = document.createElement('span'); k.className = 'caption mono illus'; k.textContent = WORDS[lang].illustration; P.appendChild(k); }
+    return P;
+  };
+  const pushMedia = (L, s, at, len) => L.querySelectorAll('.media').forEach((img) => {
+    if (still || s.move === 'none') return;
+    tween(img, at, len, 'standard', { s: s.scale || 1 }, { s: (s.scale || 1) * (s.zoom || 1.04) }); anim[anim.length - 1].ambient = true;
+  });
+  // Generated or reconstructed pictures say so, in the corner, in the reader's language.
+  const evidence = (L, s, c) => {
+    if (s.evidence !== 'illustration' || (!s.src && s.slot) || L.querySelector('.photo .illus')) return; // an empty slot is not a drawing: it says what to film
+    const t = document.createElement('span'); t.className = 'note-cap mono'; t.textContent = WORDS[lang].illustration;
+    Object.assign(t.style, c.post ? { right: c.m.r + 'px', bottom: Math.max(24, c.m.b - 48) + 'px', color: 'var(--n400)', fontSize: '26px' } : { right: c.m.r + 'px', top: c.m.t + 'px', color: 'var(--n400)', fontSize: '32px' }); // video: top right, clear of verdicts and captions
+    L.appendChild(t);
+  };
+  // Brand chrome on posts: the issuing brand's logo on the first slide (with its clear space), a page counter inside.
+  const chrome = (L, s, c, i, n) => {
+    if (L.dataset.dna && !L.dataset.signed) {
+      // The AIS layouts: the logo large at the top left of the first slide; on the others the step number in a
+      // hexagon at the top left and the logo, smaller, at the top right.
+      const img = document.createElement('img'); img.className = 'chrome-logo'; img.alt = c.brandName; img.src = c.logo(L.dataset.tone === 'light' ? 'blue' : 'white');
+      // A carousel cover signs large; a single post at the usual post size; inner slides at the guide's minimum.
+      const foot = i === 0 && L.dataset.chromeAt === 'bottom', w = i === 0 ? Math.round(c.logoW * (n > 1 && !foot ? 1.25 : 1)) : Math.round(c.logoW / 1.2);
+      Object.assign(img.style, foot ? { left: c.m.l + 'px', top: c.h - c.m.b - c.logoH + 'px', width: w + 'px' } : i === 0 ? { left: c.m.l + 'px', top: c.m.t + 'px', width: w + 'px' } : { right: c.m.r + 'px', top: c.m.t + 'px', width: w + 'px' });
+      // Inner carousel slides carry the step number only; the cover and the closing slide sign.
+      if (s.logo !== false && (i === 0 || n === 1)) L.appendChild(img);
+      // The step number: the guide's single hexagon, an outline, in the same place on every inner slide (the foot, left).
+      // It is the slide's one swipe affordance: no arrow beside it. One size per medium: 56 px on a 1080 px post.
+      if (i > 0 && n > 1) { L.insertAdjacentHTML('beforeend', `<span class="hexi num${L.dataset.tone === 'light' ? '' : ' on-dark'}" style="position:absolute;z-index:4;left:${c.m.l - HEX_INSET.l}px;top:${c.h - c.m.b - STEP + HEX_INSET.b}px;width:${STEP}px;height:${STEP}px"><svg class="hx" viewBox="0 0 100 100" aria-hidden="true"><path d="${HEX}"/></svg><b>${i + 1}</b></span>`); }
+      return;
+    }
+    if (L.dataset.signed && i > 0) return;
+    if (i === 0 && s.logo !== false && !L.querySelector('.sign')) {
+      const img = document.createElement('img'); img.className = 'chrome-logo'; img.alt = c.brandName;
+      img.src = c.logo(L.dataset.tone === 'light' ? 'blue' : 'white');
+      Object.assign(img.style, { left: c.m.l + 'px', top: (L.dataset.chromeAt === 'bottom' ? c.h - c.m.b - c.logoH : c.m.t) + 'px', width: c.logoW + 'px' });
+      L.appendChild(img);
+    }
+    if (n > 1 && i > 0 && !L.dataset.signed) {
+      const k = document.createElement('span'); k.className = 'chrome-count mono';
+      k.textContent = `${String(i + 1).padStart(2, '0')}/${String(n).padStart(2, '0')}`;
+      Object.assign(k.style, L.dataset.chromeAt === 'bottom' ? { right: c.m.r + 'px', bottom: c.m.b + 'px' } : { right: c.m.r + 'px', top: c.m.t + 'px' });
+      k.style.color = L.dataset.tone === 'light' ? 'var(--n500)' : 'var(--n400)';
+      L.appendChild(k);
+    }
+  };
+  // A lower third over a still or clip: in after half a second, out before the cut.
+  const lowerThird = (L, s, c, at, len) => {
+    if (!s.lowerThird) return;
+    const p = document.createElement('div'); p.className = 'plate';
+    Object.assign(p.style, { left: c.m.l + 'px', bottom: c.m.b + 'px', maxWidth: c.w - c.m.l - c.m.r + 'px' });
+    p.innerHTML = `<b>${html(s.lowerThird.name)}</b>${s.lowerThird.role ? `<span>${html(s.lowerThird.role)}</span>` : ''}`;
+    L.appendChild(p);
+    // A blue bar grows first, then the plate opens from it.
+    const bar = document.createElement('i'); bar.className = 'rule';
+    Object.assign(bar.style, { position: 'absolute', left: c.m.l + 'px', bottom: c.m.b + 'px', width: '6px', background: '#7C9FD7', transformOrigin: '50% 100%' });
+    L.appendChild(bar);
+    count(at + 10, frames(MS.slow1), 'enter', (k) => { bar.style.height = p.offsetHeight + 'px'; bar.style.transform = `scaleY(${k})`; });
+    p.style.marginLeft = '6px'; p.style.clipPath = 'inset(0 100% 0 0)';
+    shutter(p, at + 16, frames(MS.slow2));
+    if (still) return; // a still holds the plate
+    tween(p, at + len - frames(MS.exit) - 6, frames(MS.exit), 'exit', { o: 1 }, { o: 0 });
+    tween(bar, at + len - frames(MS.exit) - 6, frames(MS.exit), 'exit', { o: 1 }, { o: 0 }); // the bar leaves with its plate
+  };
+  // A footage slot: what to film, on a quiet grid, until the real clip is dropped in.
+  const slot = (s, c) => `<div class="slot"><div class="grid" style="--col:${(c.w - c.m.l - c.m.r) / 12}px;left:${c.m.l}px;right:${c.m.r}px"></div>
+    <div class="slot-label" style="left:${c.m.l}px;right:${c.m.r}px;${(s.headlinePos === 'bottom' && s.headline) || s.lowerThird || (c.w > c.h && !s.headline) ? `top:${Math.max(40, c.m.t - 120)}px` : `bottom:${Math.max(48, c.m.b - 160)}px`}"><span class="mono">${html(s.slot || 'Footage')}</span></div></div>`;
+  // The inspection frame: corner brackets travel from the safe area onto the subject, then the label and verdict appear.
+  const inspect = (L, s, c, at, lightGround) => {
+    if (!s.inspect) return;
+    const q = lightGround ? { tone: 'light', ...s.inspect } : s.inspect;
+    let X = q.x * c.w / 100, Y = q.y * c.h / 100, W = q.w * c.w / 100, H = q.h * c.h / 100, subject = 0, parts = [], corner = null;
+    if (q.space === 'image' && s.imageSize) {
+      // Image percentages: map through object-fit (contain or cover), the base scale and the focus point.
+      const [iw, ih] = s.imageSize, k = (s.fit === 'contain' ? Math.min : Math.max)(c.w / iw, c.h / ih), [fx, fy] = s.focus || [50, 50];
+      const dw = iw * k, dh = ih * k, ox = (c.w - dw) * fx / 100, oy = (c.h - dh) * fy / 100, b = s.scale || 1, cx = c.w * fx / 100, cy = c.h * fy / 100;
+      const map = (x, y) => [cx + (ox + x / 100 * dw - cx) * b, cy + (oy + y / 100 * dh - cy) * b];
+      const [x0, y0] = map(q.x, q.y), [x1, y1] = map(q.x + q.w, q.y + q.h);
+      X = x0; Y = y0; W = x1 - x0; H = y1 - y0;
+      corner = map(0, 0);
+      if (q.parts) parts = q.parts.map((t) => { const [a, b2] = map(t.x, t.y), [a1, b3] = map(t.x + t.w, t.y + t.h); return [a, b2, a1, b3]; });
+      if (q.subject) { const [a, b2] = map(q.subject.x, q.subject.y), [a1, b3] = map(q.subject.x + q.subject.w, q.subject.y + q.subject.h); subject = Math.min(a1 - a, b3 - b2); }
+    }
+    const arm = Math.min(56, W / 4, H / 4);
+    const start = { l: c.m.l, t: c.m.t, r: c.w - c.m.r, b: c.h - c.m.b };
+    const box = document.createElement('div'); box.className = 'inspect'; L.appendChild(box);
+    box.dataset.subject = Math.round(subject || Math.min(W, H)); box.dataset.label = q.target || q.label || 'the subject';
+    // The drawing's other named parts (the bottle's label, its body): the reading and the verdict keep off them.
+    parts.forEach(([x0, y0, x1, y1]) => { const p = document.createElement('i'); p.className = 'part'; Object.assign(p.style, { position: 'absolute', left: x0 + 'px', top: y0 + 'px', width: x1 - x0 + 'px', height: y1 - y0 + 'px' }); box.appendChild(p); });
+    const hits = (el) => parts.some(([x0, y0, x1, y1]) => el.offsetLeft < x1 && el.offsetLeft + el.offsetWidth > x0 && el.offsetTop < y1 && el.offsetTop + el.offsetHeight > y0);
+    // Brackets lock on in white; a defect turns them red when the verdict lands.
+    // On a light picture the brackets are ink and the defect red is the light-theme red.
+    const light = q.tone === 'light', lock = at + (q.at ?? 10), red = light ? '#DC2626' : '#F87171', judged = lock + frames(MS.slow2) + 4;
+    // Posts use the overlay kit's detection blue; video keeps the device's white (ink on light pictures).
+    const colour = isPost ? (light ? '#3664B3' : '#A7BFE4') : light ? '#0F1729' : '#fff';
+    [['l', 't'], ['r', 't'], ['l', 'b'], ['r', 'b']].forEach(([h, v]) => {
+      const k = document.createElement('i'); k.className = `corner ${h}${v}`;
+      const x = h === 'l' ? X : X + W, y = v === 't' ? Y : Y + H;
+      Object.assign(k.style, { left: x + 'px', top: y + 'px', width: arm + 'px', height: arm + 'px', borderColor: colour });
+      box.appendChild(k);
+      if (q.state === 'defect') count(judged, frames(MS.exit), 'standard', (p) => { k.style.borderColor = p > 0.5 ? red : colour; });
+      tween(k, lock, frames(MS.slow2), 'enter', { o: 0, x: start[h] - x, y: start[v] - y }, { o: 1, x: 0, y: 0 });
+    });
+    if (isPost) {
+      const hair = document.createElement('i'); hair.className = 'hair'; Object.assign(hair.style, { left: X + 'px', top: Y + 'px', width: W + 'px', height: H + 'px', borderColor: colour }); box.appendChild(hair);
+      if (q.state === 'defect') count(judged, frames(MS.exit), 'standard', (p) => { hair.style.borderColor = p > 0.5 ? red : colour; });
+      tween(hair, lock + frames(MS.slow2) - 6, frames(MS.slow1), 'enter', { o: 0 }, { o: 1 });
+    }
+    // A scan line sweeps the subject while the brackets travel in.
+    const scan = document.createElement('i'); scan.className = 'scan' + (light ? ' light' : '');
+    Object.assign(scan.style, { left: X + 'px', top: Y + 'px', width: W + 'px', height: H + 'px' }); box.appendChild(scan);
+    count(lock, frames(MS.slow2) + 6, 'standard', (p) => { scan.style.opacity = p > 0 && p < 1 ? 1 : 0; scan.style.setProperty('--p', p); });
+    if (q.label) {
+      const tag = document.createElement('div'); tag.className = 'tag' + (q.state === 'defect' ? ' defect' : '');
+      if (isPost) tag.style.borderLeftColor = q.state === 'defect' ? red : colour;
+      tag.innerHTML = `<span>${html(q.label)}</span>${q.value ? `<span class="v">${html(q.value)}</span>` : ''}`;
+      // The reading ticks up to its value, keeping its unit and decimals.
+      const m = String(q.value || '').match(/^([\d.]+)(.*)$/), v = tag.querySelector('.v');
+      if (m && v) { const dec = (m[1].split('.')[1] || '').length; count(lock + frames(MS.slow2) - 4, frames(MS.slow2), 'enter', (p) => { v.textContent = (+m[1] * p).toFixed(dec) + m[2]; }); }
+      // The reading sits above the subject, or below it when the subject is near the top of the frame.
+      const below = Y - 100 < c.m.t;
+      Object.assign(tag.style, { left: X + 'px', top: (below ? Y + H + 16 : Y - 16) + 'px', transform: below ? 'none' : 'translateY(-100%)' });
+      box.appendChild(tag);
+      tag.style.left = Math.max(c.m.l, Math.min(X, c.w - c.m.r - tag.offsetWidth)) + 'px';
+      tween(tag, lock + frames(MS.slow2) - 4, frames(MS.slow1), 'enter', { o: 0, y: 8 }, { o: 1, y: 0 });
+      tag.dataset.base = below ? '' : 'translateY(-100%)';
+    }
+    if (q.verdict) {
+      const pass = q.verdict.result === 'pass';
+      const v = document.createElement('div'); v.className = 'verdict'; v.style.background = pass ? '#15803D' : '#DC2626';
+      v.innerHTML = `<svg viewBox="0 0 24 24"><path d="${pass ? 'M20 6 9 17l-5-5' : 'M18 6 6 18M6 6l12 12'}"/></svg><b>${html(q.verdict.text)}</b>${q.verdict.detail ? `<span>${html(q.verdict.detail)}</span>` : ''}`;
+      Object.assign(v.style, { left: X + 'px', top: (Y + H + 20 + (q.label && Y - 100 < c.m.t ? 84 : 0)) + 'px' });
+      box.appendChild(v);
+      v.style.left = Math.max(c.m.l, Math.min(X, c.w - c.m.r - v.offsetWidth)) + 'px';
+      // On a post the one verdict sits top left of the picture (overlay kit), unless that covers the subject.
+      // 24 px (the kit's 12 px at 2×) inside the picture's own top-left corner, or the frame's when the picture runs past it.
+      if (isPost && c.verdictAt) { const [ax, ay] = corner ? [Math.max(corner[0], 0), Math.max(corner[1], 0)] : [0, 0]; v.style.left = Math.max(c.verdictAt[0], c.m.l, ax + 24) + 'px'; v.style.top = Math.max(c.verdictAt[1], ay + 24) + 'px'; }
+      const covers = () => v.offsetLeft < X + W && v.offsetLeft + v.offsetWidth > X && v.offsetTop < Y + H && v.offsetTop + v.offsetHeight > Y;
+      if (isPost && c.verdictAt && !covers() && !hits(v)) { rise(v, judged); return; }
+      if (isPost && c.verdictAt) { v.style.left = X + 'px'; v.style.top = (Y + H + 20) + 'px'; v.style.left = Math.max(c.m.l, Math.min(X, c.w - c.m.r - v.offsetWidth)) + 'px'; }
+      // Under the frame, unless that covers a named part of the drawing (or a side is asked for): then beside it,
+      // stacked on two lines to fit, on whichever side has room.
+      v.style.top = Math.min(parseFloat(v.style.top), c.h - c.m.b - v.offsetHeight) + 'px';
+      if (q.verdict.side || hits(v)) {
+        const top = v.style.top, left0 = v.style.left;
+        v.classList.add('stack'); v.innerHTML = v.innerHTML.replace(/<b>/, '<div class="t"><b>').replace(/$/, '</div>');
+        const right = X + W + 20, left = X - 20 - v.offsetWidth, fitsR = right + v.offsetWidth <= c.w - c.m.r, fitsL = left >= c.m.l;
+        const x = q.verdict.side === 'left' ? (fitsL ? left : fitsR ? right : null) : (fitsR ? right : fitsL ? left : null);
+        if (x !== null) { v.style.left = x + 'px'; v.style.top = Math.max(0, Y + H - v.offsetHeight) + 'px'; }
+        else { v.classList.remove('stack'); v.innerHTML = v.innerHTML.replace('<div class="t">', '').replace(/<\/div>$/, ''); v.style.top = top; v.style.left = left0; }
+      }
+      v.style.top = Math.min(parseFloat(v.style.top), c.h - c.m.b - v.offsetHeight) + 'px';
+      rise(v, judged);
+    }
+  };
+  const claimWindows = [];
+  // The night field; its lights drift a few percent over the shot.
+  const field = (L, at, len) => {
+    const f = document.createElement('div'); f.className = 'field'; L.prepend(f);
+    ambient(at, len, 'linear', (p) => { f.style.setProperty('--lx', 22 + p * 8 + '%'); f.style.setProperty('--ly', 18 + p * 6 + '%'); f.style.setProperty('--mx', 88 - p * 10 + '%'); });
+  };
+  // Footage behind a card: a real clip, held dark, so cards never sit on a flat colour when there is footage to use.
+  const backdrop = (L, s, at) => {
+    if (!s.bgSrc) return false;
+    L.insertAdjacentHTML('afterbegin', `<video class="media" data-in="${s.bgIn || 0}" src="${s.bgSrc}" muted preload="auto"></video><div class="dim"></div>`);
+    L.dataset.clipAt = at; return true;
+  };
+  // Detection boxes: in 60 ms apart, each with its class and confidence; `to` moves a box across the shot to follow its subject.
+  const detect = (L, s, c, at, len) => {
+    (s.detect || []).forEach((d, i) => {
+      const b = document.createElement('div'); b.className = 'det';
+      b.innerHTML = `<b>${html(d.label)}${d.conf ? `<span>${html(d.conf)}</span>` : ''}</b>`;
+      const box = (q) => ({ left: q.x * c.w / 100 + 'px', top: q.y * c.h / 100 + 'px', width: q.w * c.w / 100 + 'px', height: q.h * c.h / 100 + 'px' });
+      if (!d.track) Object.assign(b.style, box(d)); L.appendChild(b);
+      const first = d.track ? d.track.findIndex(Boolean) : 0, start = at + Math.max(d.at ?? 6, first) + i * 2;
+      tween(b, start, frames(MS.slow1), 'enter', { o: 0, s: 1.04 }, { o: 1, s: 1 });
+      if (d.to) count(at, len, 'linear', (p) => Object.assign(b.style, box(Object.fromEntries(['x', 'y', 'w', 'h'].map((k) => [k, d[k] + (d.to[k] - d[k]) * p])))));
+      // `track`: one [x, y, w, h] per footage frame from tools/track.py; the box is hidden where the object is not tracked.
+      if (d.track) count(at, len, 'linear', (p) => { const q = d.track[Math.min(d.track.length - 1, Math.round(p * (len - 1)))];
+        b.style.visibility = q ? '' : 'hidden'; if (q) Object.assign(b.style, box({ x: q[0], y: q[1], w: q[2], h: q[3] })); });
+      if (d.to || d.track) anim[anim.length - 1].ambient = true;
+    });
+  };
+  // A hairline that draws from the left (or top) over `len` frames.
+  const rule = (parent, css, at, len = frames(MS.slow2), vertical = false) => {
+    const r = document.createElement('i'); r.className = 'rule'; Object.assign(r.style, css); parent.appendChild(r);
+    r.style.transformOrigin = vertical ? '50% 0' : '0 50%';
+    count(at, len, 'enter', (p) => { r.style.transform = vertical ? `scaleY(${p})` : `scaleX(${p})`; });
+    return r;
+  };
+  // Reveals an element from its left edge, like a shutter opening.
+  const shutter = (el, at, len = frames(MS.slow1)) => count(at, len, 'enter', (p) => { el.style.clipPath = `inset(-20px ${100 - p * 100}% -20px -20px)`; });
+  // *Words between asterisks* take the accent blue (one phrase per headline at most). Punctuation touching the phrase (¿…? ¡…!)
+  // takes the same colour, so a question mark never hangs off the accent in white.
+  const accent = (h) => h.replace(/([¿¡]*)\*([^*]+)\*([?!.,:;…]*)/g, '<em class="acc">$1$2$3</em>');
+  const lineSpans = (t) => { let on = false;
+    return t.includes('|') ? t.split('|').map((l) => `<span class="line"><span>${accent(html(l.trim()))}</span></span>`).join('')
+    : `<span class="line auto"><span>${t.trim().split(/\s+/).map((w) => { const a = on || /^[¿¡]*\*/.test(w); if (/^[¿¡]*\*/.test(w)) on = true; if (/\*[?!.,:;…]*$/.test(w)) on = false; return `<i class="${a ? 'acc' : ''}" style="font-style:normal">${html(w.replace(/\*/g, ''))}</i>`; }).join(' ')}</span></span>`; };
+  const revealLines = (L, at, dur = frames(MS.expressive)) => (splitAuto(L), L.querySelectorAll('.line > span')).forEach((el, i) => tween(el, at + i * 3, dur, 'enter', { yp: 105 }, { yp: 0 }));
+  // A headline over a picture sits on a soft scrim from the brand's darkest blue, so it never fights the image.
+  const headline = (s, c) => !s.headline ? '' : s.bg === 'white' ?
+    `<div class="title light" data-lines="3" style="left:${c.m.l}px;right:${c.m.r}px;${s.headlinePos === 'bottom' ? `bottom:${c.m.b}px` : `top:${c.m.t + (c.post && s._i === 0 ? c.logoH * 1.5 + 32 : 0)}px`};color:var(--ink);font-size:${c.post ? 'var(--heading)' : (c.w > c.h ? 96 : 88) + 'px'}">${s.overline ? `<span class="overline mono">${html(s.overline)}</span>` : ''}${lineSpans(s.headline)}</div>` :
+    `<div class="scrim ${s.headlinePos === 'bottom' ? 'bottom' : 'top'}" style="height:${s.headlinePos === 'bottom' ? Math.round(c.h * 0.55) : Math.round(c.m.t + c.h * 0.3 + (c.post && s._i === 0 ? c.logoH * 1.5 : 0))}px"></div>` +
+    `<div class="title" data-lines="3" style="left:${c.m.l}px;right:${c.m.r}px;${s.headlinePos === 'bottom' ? `bottom:${c.m.b}px` : `top:${c.m.t + (c.post && s._i === 0 ? c.logoH * 1.5 + 32 : 0)}px`};color:#fff;font-size:${c.post ? 'var(--heading)' : (c.w > c.h ? 96 : 88) + 'px'}">${s.overline ? `<span class="overline mono">${html(s.overline)}</span>` : ''}${lineSpans(s.headline)}</div>`;
+  // Overline and its hairline lead the headline in, then the lines rise.
+  const leadIn = (L, at) => {
+    const o = L.querySelector('.overline'); if (!o) return 0;
+    rise(o, at, frames(MS.slow1));
+    if (isPost) return 8; // a still's eyebrow has no hairline
+    const dark = !o.closest('.light');
+    rule(o, { position: 'absolute', left: 0, right: 0, bottom: '-14px', height: '2px', background: dark ? 'rgba(167,191,228,.4)' : 'var(--n200)' }, at + 2);
+    return 8;
+  };
+
+  // After layout, every shot is measured against the rules a renderer can see: headline length, the safe
+  // area, the floor a text block must stay above, and the smallest text size for the medium.
+  const measure = (c, minText, only) => {
+    shots.forEach(({ L, s }, i) => {
+      if (only !== undefined && i !== only) return;
+      const sr = stage.getBoundingClientRect();
+      L.querySelectorAll('[data-lines]').forEach((t) => {
+        const spans = [...t.querySelectorAll('.line > span')];
+        const lh = spans[0] ? parseFloat(getComputedStyle(spans[0]).lineHeight) || parseFloat(getComputedStyle(t).fontSize) * 1.08 : 1;
+        const lines = spans.length ? spans.reduce((n, sp) => n + Math.max(1, Math.round(sp.offsetHeight / lh)), 0)
+          : Math.round(t.offsetHeight / (parseFloat(getComputedStyle(t).lineHeight) || 1));
+        if (lines > +t.dataset.lines) issue(i, 'headline-lines', `"${t.textContent.trim().slice(0, 60)}" sets on ${lines} lines (three at most): shorten it or break it with |`);
+        spans.forEach((sp) => { if (Math.round(sp.offsetHeight / lh) > 1) issue(i, 'line-break', `"${sp.textContent.trim().slice(0, 60)}" wraps inside a line: move the | so each line fits`); });
+        // Break by phrase (Typography): a line never ends on an article, a preposition or a conjunction.
+        if (isPost) spans.slice(0, -1).forEach((sp) => { const w = sp.textContent.trim().split(/\s+/).pop().toLowerCase();
+          if (WEAK.has(w)) issue(i, 'weak-break', `"${sp.textContent.trim().slice(-40)}" ends on "${w}": break the headline by phrase with |`); });
+      });
+      // What the frame points at has to be big enough to see: a defect nobody can make out proves nothing.
+      L.querySelectorAll('.inspect[data-subject]').forEach((b) => {
+        const px = +b.dataset.subject, least = c.w > 1500 ? 72 : 56;
+        if (px < least) issue(i, 'subject-small', `${b.dataset.label} is ${px} px on screen (${least} px at least): zoom in with "scale" and "focus", or draw it bigger`);
+      });
+      // Every row, cell and box of the layouts too: a list that runs off the canvas fails here, never silently.
+      L.querySelectorAll('.block, .title, .stand, .stat, .sign, .irow, .feats, .boxes, .box, .cells, .caption.below').forEach((b) => {
+        const r = b.getBoundingClientRect(), x0 = r.left - sr.left, x1 = r.right - sr.left, y0 = r.top - sr.top, y1 = r.bottom - sr.top;
+        if (b.closest('.claim') || b.closest('.inspect')) return;
+        if (x0 < c.m.l - 1 || x1 > c.w - c.m.r + 1 || y0 < c.m.t - 1 || y1 > c.h - c.m.b + 1)
+          issue(i, 'safe-area', `${b.className.split(' ')[0]} leaves the safe area (${Math.round(x0)},${Math.round(y0)} to ${Math.round(x1)},${Math.round(y1)}): shorten the copy`);
+        if (b.dataset.floor && y1 > +b.dataset.floor + 1) issue(i, 'overlap', b.dataset.floorIs === 'logo' ? 'The text runs into the logo at the foot: shorten the headline or give the photo less room (split)' : 'The text runs into the photograph: shorten the copy or give the photo less room (split)');
+      });
+      // Where each picture really is on screen: the image box, narrowed by object-fit contain and clipped by its frame.
+      const pics = [...L.querySelectorAll('img.media')].filter((img) => img.naturalWidth && getComputedStyle(img).display !== 'none').map((img) => {
+        const r = img.getBoundingClientRect(), cs = getComputedStyle(img), [px, py] = cs.objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+        let x0 = r.left, y0 = r.top, w = r.width, hh = r.height;
+        if (cs.objectFit === 'contain') { const k = Math.min(r.width / img.naturalWidth, r.height / img.naturalHeight); w = img.naturalWidth * k; hh = img.naturalHeight * k; x0 = r.left + (r.width - w) * px; y0 = r.top + (r.height - hh) * py; }
+        const clip = img.closest('.photo, .tile')?.getBoundingClientRect() || sr;
+        return { left: Math.max(x0, clip.left, sr.left), top: Math.max(y0, clip.top, sr.top), right: Math.min(x0 + w, clip.right, sr.right), bottom: Math.min(y0 + hh, clip.bottom, sr.bottom) };
+      }).filter((q) => q.right > q.left && q.bottom > q.top);
+      const over = (a, b) => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
+      // Posts: the logo never sits on a picture, and text never sits on a picture: the layout gives each its own space (Logos; Imagery, Treatment).
+      if (isPost) {
+        const lg = L.querySelector('.chrome-logo, .sign img');
+        // A logo may sit over a photograph only on the dark scrim the layout draws for it.
+        const lgr = lg?.getBoundingClientRect();
+        if (lg && !(L.dataset.logoScrim && lgr.bottom - sr.top <= +L.dataset.logoScrim) && pics.some((q) => over(lgr, q))) issue(i, 'logo-on-picture', 'The logo sits on the picture: give the picture less room or move it (focus, scale, split)');
+        L.querySelectorAll('.title .line > span, .block .line > span, .block > p').forEach((t) => {
+          if (t.closest('.inspect, .panel')) return;
+          // Over a photograph, text sits only on the solid part of the navy ground.
+          const g = t.closest('.on-scrim'); if (g) { if (t.getBoundingClientRect().top - sr.top < +g.dataset.ground - 1) issue(i, 'text-on-picture', `"${t.textContent.trim().slice(0, 40)}" reaches the photograph above its navy ground: shorten the text or raise the ground ("fade")`); return; }
+          if (pics.some((q) => over(t.getBoundingClientRect(), q))) issue(i, 'text-on-picture', `"${t.textContent.trim().slice(0, 40)}" sits on the picture: the headline needs its own space (move the picture, or use the figure or split layout)`);
+        });
+      }
+      // Single posts: no blank band, no picture stranded in the middle of the ground,
+      // and no headline broken onto two lines when it fits on one.
+      if (isPost && shots.length === 1) {
+        const seen = (e) => e.getClientRects().length > 0 && getComputedStyle(e).visibility !== 'hidden';
+        const marks = [...L.querySelectorAll('.line > span, .block > p, .overline, .stand > *, .stat > *, .cell, .irow, .who, .quote-text, .chrome-logo, .sign, .co-chip, .caption, .action, .box')].filter(seen);
+        // The hexagon corner is part of the composition: its visible field counts as filled.
+        const fields = [...L.querySelectorAll('.hexes.sys')].map((x) => +x.dataset.cy === 0 ? { top: sr.top, bottom: sr.top + +x.dataset.clear } : { top: sr.top + c.h - +x.dataset.clear, bottom: sr.top + c.h });
+        const iv = [...pics, ...fields, ...marks.map((e) => e.getBoundingClientRect())].map((r) => [r.top - sr.top, r.bottom - sr.top]).filter(([a, b]) => b > a).sort((p, q) => p[0] - q[0]);
+        let y = c.m.t, gap = 0;
+        for (const [a, b] of iv) { if (a > y) gap = Math.max(gap, a - y); y = Math.max(y, b); }
+        gap = Math.max(gap, c.h - c.m.b - y);
+        if (gap > c.h * 0.16) issue(i, 'blank-area', `A blank band of ${Math.round(gap)} px (${Math.round(gap / c.h * 100)} % of the post): give the picture or the words that room`);
+        L.querySelectorAll('.photo img.media').forEach((img) => {
+          if (img.closest('.tile')) return;
+          const q = pics.find((p) => { const r = img.getBoundingClientRect(); return Math.abs(p.top - Math.max(r.top, sr.top)) < 2 || Math.abs(p.left - Math.max(r.left, sr.left)) < 2; });
+          if (q && q.right - q.left < c.w * 0.55 && q.bottom - q.top > c.h * 0.25 && img.closest('.photo').getBoundingClientRect().width > c.w * 0.8)
+            issue(i, 'blank-area', `The picture is ${Math.round(q.right - q.left)} px wide in a ${c.w} px band: it sits stranded on the ground; use a wider original or another layout`);
+        });
+        L.querySelectorAll('[data-lines]').forEach((t) => {
+          const spans = [...t.querySelectorAll('.line > span')]; if (spans.length < 2) return;
+          const cs = getComputedStyle(spans[0]), probe = document.createElement('span');
+          Object.assign(probe.style, { position: 'absolute', left: '0px', top: '0px', visibility: 'hidden', whiteSpace: 'nowrap', fontFamily: cs.fontFamily, fontSize: cs.fontSize, fontWeight: cs.fontWeight, letterSpacing: cs.letterSpacing });
+          probe.textContent = spans.map((sp) => sp.textContent.trim()).join(' '); stage.appendChild(probe);
+          const fits = probe.offsetWidth <= t.clientWidth - 16; probe.remove();
+          if (fits) issue(i, 'needless-wrap', `"${probe.textContent.slice(0, 60)}" fits on one line but is set on ${spans.length}: drop the |`);
+        });
+      }
+      // The hexagon corner is never behind words or the logo: everything keeps out of its visible field.
+      L.querySelectorAll('.hexes.sys').forEach((x) => { const d = nearest(L, +x.dataset.cx, +x.dataset.cy);
+        if (d < +x.dataset.clear) issue(i, 'hex-text', `Words or the logo come within ${Math.round(d)} px of the hexagon corner (${x.dataset.clear} px clear): shorten the line nearest the corner`); });
+      // The logo keeps a clear space of a quarter of its height on every side.
+      const logo = L.querySelector('.chrome-logo');
+      if (logo) {
+        const lr = logo.getBoundingClientRect(), x = lr.height / 4;
+        L.querySelectorAll('.block, .title, .stand > *, .stat > *').forEach((b) => { const r = b.getBoundingClientRect(); if (r.width && r.top < lr.bottom + x && r.bottom > lr.top - x && r.left < lr.right + x) issue(i, 'logo-clear-space', 'Text enters the logo’s clear space'); });
+      }
+      const walker = document.createTreeWalker(L, NodeFilter.SHOW_TEXT);
+      for (let n; (n = walker.nextNode());) {
+        if (!n.textContent.trim() || n.parentElement.closest('.standin, .slot-label')) continue;
+        const px = parseFloat(getComputedStyle(n.parentElement).fontSize);
+        if (px < minText) { issue(i, 'text-size', `"${n.textContent.trim().slice(0, 40)}" is ${px} px; ${minText} px is the smallest for this medium`); break; }
+      }
+      // The inspection frame, its reading and its verdict never run under the headline or the logo.
+      const text = [...L.querySelectorAll('.title, .block, .chrome-logo, .note-cap')].map((e) => [e.className.split(' ')[0], e.getBoundingClientRect()]);
+      L.querySelectorAll('.inspect .corner, .inspect .tag, .inspect .verdict').forEach((e) => {
+        const r = e.getBoundingClientRect(), hit = text.find(([, t]) => r.left < t.right && r.right > t.left && r.top < t.bottom && r.bottom > t.top);
+        if (hit) issue(i, 'overlap', `The inspection ${e.className.split(' ')[0]} runs under the ${hit[0].replace('chrome-', '')}: move the headline (headlinePos) or the subject (focus, scale)`);
+        const ex0 = r.left - sr.left, ex1 = r.right - sr.left;
+        if (!e.classList.contains('corner')) e.closest('.inspect').querySelectorAll('.part').forEach((p) => { const q = p.getBoundingClientRect(); if (r.left < q.right && r.right > q.left && r.top < q.bottom && r.bottom > q.top) issue(i, 'overlap', `The inspection ${e.className.split(' ')[0]} covers part of what the drawing shows: move the subject (focus, scale)`); });
+        if (!e.classList.contains('corner') && (ex0 < c.m.l - 1 || ex1 > c.w - c.m.r + 1 || r.bottom - sr.top > c.h - Math.min(c.m.b, 48) + 1))
+          issue(i, 'safe-area', `The inspection ${e.className.split(' ')[0]} leaves the safe area: move the subject (focus, scale) or the verdict's "side"`);
+      });
+      // Pictures shown much larger than they are look soft in the feed.
+      L.querySelectorAll('img.media, .photo img, .who img').forEach((img) => {
+        if (!img.complete || !img.getBoundingClientRect().width) return;
+        const r = img.getBoundingClientRect(), fit = getComputedStyle(img).objectFit;
+        // An SVG without its own size (an overlay picture) is drawn to its box: k 1, no crop.
+        const nw = img.naturalWidth || r.width, nh = img.naturalHeight || r.height;
+        const k = (fit === 'contain' ? Math.min : Math.max)(r.width / nw, r.height / nh);
+        const name = decodeURIComponent(img.src.split('/').pop());
+        // A picture in the brand blue's own colours melts into the blue look's ground (a blue carton on
+        // the blue band read as one block). Measured on what the slot shows: the share of the picture within reach of #17356E,
+        // and the colour along its lower edge, where it meets the words. Reported, not failed: the series also sets the look.
+        if (i === 0 && isPost && ['blue', 'navy'].includes(L.dataset.look)) try {
+          const vis = { x0: Math.max(r.left, sr.left), y0: Math.max(r.top, sr.top), x1: Math.min(r.right, sr.right), y1: Math.min(r.bottom, sr.bottom) };
+          // object-fit draws the picture at k and places it by object-position inside the element's box.
+          const [px, py] = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+          const ox = r.left + (r.width - nw * k) * px, oy = r.top + (r.height - nh * k) * py;
+          const sx = (x) => (x - ox) / k, sy = (y) => (y - oy) / k;
+          const W = 96, H = Math.max(8, Math.round(W * (vis.y1 - vis.y0) / (vis.x1 - vis.x0)));
+          const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
+          if (img.naturalWidth) g.drawImage(img, sx(vis.x0), sy(vis.y0), sx(vis.x1) - sx(vis.x0), sy(vis.y1) - sy(vis.y0), 0, 0, W, H);
+          else g.drawImage(img, 0, 0, W, H); // no intrinsic size: shown whole in its box
+          const d = g.getImageData(0, 0, W, H).data, near = (p) => Math.hypot(d[p] - 23, d[p + 1] - 53, d[p + 2] - 110) < 70;
+          let all = 0, edge = 0; const e0 = Math.floor(H * 0.88);
+          for (let p = 0, n = 0; p < d.length; p += 4, n++) if (near(p)) { all++; if (Math.floor(n / W) >= e0) edge++; }
+          const share = all / (W * H), edgeShare = edge / (W * (H - e0));
+          if (share > 0.3 || edgeShare > 0.5) issue(i, 'look-blends-soft', `cover: ${Math.round(share * 100)} % of ${name} (${Math.round(edgeShare * 100)} % of its lower edge) is close to the brand blue, so it merges with the ${L.dataset.look} look's ground: use "look": "light"`);
+        } catch { /* a picture the canvas can't read is not measured */ }
+        if (!img.naturalWidth || img.src.endsWith('.svg')) return;
+        // Covers are impeccable (print/image-rules.mjs SCREEN_COVER_SCALE): a cover picture should never be shown
+        // larger than its own pixels (the screen equivalent of 240 ppi in print); use an original at least the size of its slot.
+        // Above the limit (1.25× on a carousel, 1.5× on a single post: SHARP) it fails; up to it, above 1× it is reported for a sharper original.
+        if (i === 0 && isPost && k > SHARP) issue(i, 'cover-resolution', `cover: ${name} is shown ${k.toFixed(2)}× larger than it is; covers need a picture at least their size`);
+        else if (i === 0 && isPost && k > 1.005) issue(i, 'cover-resolution-soft', `cover: ${name} is shown ${k.toFixed(2)}× larger than it is; covers should use a picture at least their size`);
+        if (k > 2 && !(i === 0 && isPost)) issue(i, 'resolution', `${name} is ${img.naturalWidth} × ${img.naturalHeight} px and shown ${k.toFixed(1)}× larger: use a bigger original`);
+        else if (k > SHARP && i !== 0) issue(i, 'resolution-soft', `${name} is shown ${k.toFixed(1)}× larger than it is; it may look soft`);
+        // A render with its overlay baked in (<name>_es.jpg, _en.jpg…) is shown whole: a crop cuts the verdict or a chip at its edge.
+        const shown = Math.min(r.width / (img.naturalWidth * k), r.height / (img.naturalHeight * k));
+        if (fit !== 'contain' && /\/3d\/renders\/.*_(es|en|ca)\.(jpe?g|png)$/.test(img.src) && shown < 0.98)
+          issue(i, 'overlay-cropped', `${name} has its overlay baked in and its slot crops ${Math.round((1 - shown) * 100)} % of it: render it at the slot's shape`);
+      });
+    });
+  };
+
+  // ---- The AIS layouts: marketing's structure (product, context, what it inspects, event, contact) built on
+  // the guide: real photographs, the hexagon pattern and the single hexagon, Inter, the overlay kit's chips. ----
+  let hexN = 0;
+  const STEP = 56; // the single hexagon on a 1080 px post (step number)
+  const HEX = 'M3 50 L26.5 9.3 H73.5 L97 50 L73.5 90.7 H26.5 Z'; // flat-top, like the pattern (one orientation everywhere)
+  // The outline sits inside its box (x from 3, y to 90.7, stroke 3 of 100): shift the box so the visible outline, not the box,
+  // lands on the foot margins, on the same left edge and baseline as the logo on every other slide.
+  const HEX_INSET = { l: Math.round(STEP * 0.015), b: Math.round(STEP * (100 - 90.7 - 1.5) / 100) };
+  // A single post sets its icons on square tiles without a border (the outlined round containers read as
+  // generic); the single outline hexagon stays for the carousel's step numbers.
+  const hexIcon = (icon, size, light) => isPost && nShots === 1 ? `<span class="tile-i${light ? ' light' : ''}" style="width:${size}px;height:${size}px">${icon || ''}</span>` : `<span class="hexi${light ? ' light' : ''}" style="width:${size}px;height:${size}px"><svg class="hx" viewBox="0 0 100 100" aria-hidden="true"><path d="${HEX}"/></svg>${icon || ''}</span>`;
+  // The hexagon pattern: a flat-topped outline grid in brand blue at low opacity, fading out from one corner or edge.
+  const hexes = (L, c, at, where = 'br', o = 0.3, reach = 62) => { // where: a corner or edge, or [x%, y%]; reach: how far it fades out (62 = the standard field)
+    if (where === false || where === 'none') return null;
+    // The one brand pattern (print/pattern.py, option A): the printed-card reference. Flat-topped cells,
+    // R = short side / 12.5, hairline 1.6/550 of the short side, white at 12 % plus one light band at 45°, smoothstep fade from the anchor.
+    const [px, py] = Array.isArray(where) ? where : { tl: [0, 0], tr: [100, 0], bl: [0, 100], br: [100, 100], t: [50, 0], b: [50, 100], l: [0, 50], r: [100, 50] }[where] || [100, 100];
+    const short = Math.min(c.w, c.h), R = short / 12.5, sw = short * 1.6 / 550, rch = 1.04 * short * reach / 62, k = o / 0.3, id = 'hx' + (++hexN);
+    const cx = px / 100 * c.w, cy = py / 100 * c.h, sx = px > 50 ? -1 : 1, sy = py > 50 ? -1 : 1, dx = 1.5 * R, dy = Math.sqrt(3) * R;
+    const fade = (d) => { const t = Math.min(1, d / rch); return Math.pow(1 - t * t * (3 - 2 * t), 1.15); };
+    const seen = new Set(); let base = '', gloss = '';
+    for (let i = -Math.ceil(c.w / dx) - 1; i <= Math.ceil(c.w / dx) + 1; i++) for (let j = -Math.ceil(c.h / dy) - 1; j <= Math.ceil(c.h / dy) + 1; j++) {
+      const x = cx + i * dx, y = cy + j * dy + (Math.abs(i) % 2) * dy / 2;
+      if (x < -R || x > c.w + R || y < -R || y > c.h + R) continue;
+      const pts = [0, 1, 2, 3, 4, 5].map((e) => [x + R * Math.cos(Math.PI * e / 3), y + R * Math.sin(Math.PI * e / 3)]);
+      for (let e = 0; e < 6; e++) {
+        const [a, b] = [pts[e], pts[(e + 1) % 6]], mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, key = Math.round(mx * 2) + ',' + Math.round(my * 2);
+        if (seen.has(key)) continue; seen.add(key);
+        const f = fade(Math.hypot(mx - cx, my - cy)); if (f < .03) continue;
+        const d = `M${a[0].toFixed(1)},${a[1].toFixed(1)}L${b[0].toFixed(1)},${b[1].toFixed(1)}`;
+        base += `<path d="${d}" stroke="#fff" stroke-opacity="${(.108 * f * k).toFixed(3)}"/>`; gloss += `<path d="${d}" stroke="url(#${id}l)" stroke-opacity="${(f * k).toFixed(3)}"/>`;
+      }
+    }
+    const u = short / 550;
+    L.insertAdjacentHTML('beforeend', `<svg class="hexes" width="${c.w}" height="${c.h}" viewBox="0 0 ${c.w} ${c.h}" aria-hidden="true"><defs>
+      <linearGradient id="${id}l" gradientUnits="userSpaceOnUse" x1="${cx + sx * 430 * u}" y1="${cy - sy * 60 * u}" x2="${cx - sx * 50 * u}" y2="${cy + sy * 420 * u}"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".42" stop-color="#fff" stop-opacity=".05"/><stop offset=".55" stop-color="#fff" stop-opacity=".55"/><stop offset=".68" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+      <g fill="none" stroke-width="${sw.toFixed(2)}">${base}${gloss}</g></svg>`);
+    const el = L.lastElementChild; tween(el, at, frames(MS.slow2), 'enter', { o: 0 }, { o: 1 });
+    return el;
+  };
+  // The corner fade: the pattern only at one corner of a blue ground, never under a photograph
+  // (clipped at the band's edge) and never behind words: its reach ends before the nearest text, the logo included.
+  const TEXT = '.line > span, .overline, .action, .reach > span, .sign img, .chrome-logo, .stat .mono, .stat .big, .stat .ctx, .stat .note, .who, .quote-text, .block > p, .co-chip';
+  // The ink's own box: a box element (the action, a chip, the logo) by its edges, words by the text they set (a Range),
+  // not by the full-width block that holds them.
+  const inkBox = (el) => { if (el.matches('.action, .co-chip, img')) return el.getBoundingClientRect(); const rg = document.createRange(); rg.selectNodeContents(el); const r = rg.getBoundingClientRect(); return r.width ? r : el.getBoundingClientRect(); };
+  const MIN_FADE = 16;
+  const cornerFade = (L, c, at, where, clipTop = 0, max = 40) => {
+    const lr = L.getBoundingClientRect(), ax = where[0] / 100 * c.w, ay = where[1] / 100 * c.h; let d = Infinity;
+    L.querySelectorAll(TEXT).forEach((el) => {
+      const r = inkBox(el); if (!r.width || !r.height) return;
+      const v = el.parentElement?.classList.contains('line') ? el.parentElement.getBoundingClientRect() : r; // masked lines: the line's own height
+      const x0 = r.left - lr.left, x1 = r.right - lr.left, y0 = v.top - lr.top, y1 = v.bottom - lr.top;
+      d = Math.min(d, Math.hypot(Math.max(x0 - ax, 0, ax - x1), Math.max(y0 - ay, 0, ay - y1)));
+    });
+    const reach = Math.min(max, Math.max(0, d - 40) / (1.04 * Math.min(c.w, c.h)) * 62);
+    // No room for a fade that reads as one: none at all. A short reach leaves one or two cut outlines at the corner, which read as
+    // a stray mark; the standard field is 62; below MIN_FADE (about two cells of radius) it is a fragment, so none.
+    if (reach < MIN_FADE) return null;
+    const hx = hexes(L, c, at, where, 0.3, reach); hx.dataset.reach = reach.toFixed(1);
+    if (clipTop) hx.style.clipPath = `inset(${clipTop}px 0 0 0)`;
+    L.insertBefore(hx, L.querySelector('.block, .stat, .sign') || null); hx.style.zIndex = 0;
+    return hx;
+  };
+  // Inner slides start under the top row (step number and logo).
+  const topRow = (c, s) => Math.round(c.m.t + (s && s._i === 0 ? c.logoH * (nShots > 1 ? 1.25 : 1) + 64 : isPost && nShots > 1 ? 0 : Math.max(72, c.logoH / 1.2) + 56));
+  // Inner carousel slides keep the foot for the step number.
+  const footOf = (c, s) => c.m.b + (isPost && nShots > 1 && s._i > 0 ? STEP + 40 : 0);
+  // Posts take one of the guide's four grounds; brand blue unless the recipe says deep, white or grey.
+  const bg = (L, s) => L.insertAdjacentHTML('beforeend', `<div class="fill" style="background:${s.bg === 'white' ? '#fff' : s.bg === 'grey' ? '#F1F5F9' : s.bg === 'deep' ? '#10254C' : s.bg === 'blue' || isPost ? 'var(--blue-700)' : 'var(--blue-950)'}"></div>`);
+  // The hexagon pattern never touches a photograph: on a slide with one it only sits behind the text panel, on a blue band
+  // under the picture (the caller clips it there), fading from the bottom right, away from the logo (Imagery, hexagon).
+  // Under a photo band (hero, contact) there is no pattern unless the recipe asks for one: clipped at the photo's edge it read
+  // as a cut-off patch behind the headline. Without a band it keeps the layout's corner, one clean fade.
+  const bandHexes = (L, s, c, at, ph, dflt) => {
+    if (ph && !s.hex) return null;
+    const where = hexAt(s, dflt, ph > 0), hx = hexes(L, c, at, where, ph ? 0.2 : 0.3, ph ? 34 : 62);
+    if (hx && ph) hx.style.clipPath = `inset(${ph}px 0 0 0)`; // never over the photograph
+    return hx;
+  };
+  const hexAt = (s, dflt, banded) => s.hex ?? (isPost && (s.src || s.slot) ? (banded && s.bg !== 'white' && s.bg !== 'grey' ? 'br' : 'none') : dflt);
+  // On white, a framed picture keeps its caption underneath, like a figure in a report, never over the picture.
+  const captionBelow = (L, P, box) => { const k = P.querySelector('.caption:not(.illus)'); if (!k) return 0; L.appendChild(k); k.classList.add('below'); Object.assign(k.style, { left: box.left + 'px', right: box.right + 'px', whiteSpace: 'normal', top: box.top + box.height + 16 + 'px' }); return k.offsetHeight + 16; };
+  // A picture too small to fill its band sharply (over 1.25x its own size, the soft limit of the resolution check)
+  // sits whole inside the band at 1.25x at most, centred on section grey, like a figure, rather than stretched soft.
+  const inset = (P, s, c, bandH) => {
+    const n = NATIVE[s.src], img = P.querySelector('img.media'); if (!n || !img) return false;
+    const sc = s.scale || 1; if (Math.max(c.w / n[0], bandH / n[1]) * sc <= SHARP) return false;
+    let w = Math.min(c.w - c.m.l - c.m.r, n[0] * SHARP / sc), h = w * n[1] / n[0];
+    if (h > bandH - 128) { h = bandH - 128; w = h * n[0] / n[1]; }
+    const box = document.createElement('div'); Object.assign(box.style, { position: 'absolute', overflow: 'hidden', left: Math.round((c.w - w) / 2) + 'px', top: Math.round((bandH - h) / 2) + 'px', width: Math.floor(w) + 'px', height: Math.floor(h) + 'px' });
+    P.insertBefore(box, img); box.appendChild(img); P.style.background = 'var(--n100)'; P.classList.add('inset');
+    return true;
+  };
+  // Full-bleed when the picture is big enough; with "split" it fills a band across the top (most real frames
+  // are 720p and would go soft across a whole tall slide).
+  const fullPhoto = (L, s, c, at, len) => {
+    if (s.split) { const hh = isPost ? bandOf(s, c, Math.round(c.h * s.split)) : Math.round(c.h * s.split); const P = photo(L, s, c, { left: 0, right: 0, top: 0, height: hh }, at, len); P.style.zIndex = 0; return hh; }
+    const [fx, fy] = s.focus || [50, 50];
+    L.insertAdjacentHTML('beforeend', `<img class="media" src="${s.src}" style="object-position:${fx}% ${fy}%;transform-origin:${fx}% ${fy}%;transform:scale(${s.scale || 1})" alt="">`);
+    pushMedia(L, s, at, len);
+    return c.h;
+  };
+  const rowsOf = (items, size, light) => (items || []).map((r) => `<div class="irow">${hexIcon(r.icon, size, light)}<div><b>${html(r.text)}</b>${r.detail ? `<span>${html(r.detail)}</span>` : ''}</div></div>`).join('');
+  const riseAll = (els, at0, step = 3) => [...els].forEach((el, i) => rise(el, at0 + i * step));
+
+  Object.assign(BUILD, {
+    hero(L, s, c, at) {
+      // Cover or single post: the product (or the moment) full-bleed, its name large over a navy ground at the foot,
+      // a blue rule, one line on what it does, and up to three icons.
+      const len = Math.round((s.seconds || 4) * fps);
+      bg(L, s);
+      const ph = (s.src || s.slot) ? fullPhoto(L, s, c, at, len) : (field(L, at, len), c.h);
+      // Over a band the photograph ends on a clean edge, at its true grade, and the name sits on solid navy with the
+      // logo signing at the foot. Full-bleed, the text needs the navy ground: a fade over the lower part.
+      const band = s.split && ph < c.h, fade = band ? 0 : Math.round(c.h * (s.fade || 0.62)), solid = 70;
+      if (!band) { L.insertAdjacentHTML('beforeend', `<div class="scrim top" style="height:${Math.round(c.m.t + c.logoH * 1.5 + 140)}px"></div><div class="scrim navy" style="height:${fade}px;background:linear-gradient(to top, #0B1220 0%, #0B1220 ${solid}%, rgba(11,18,32,0) 100%)"></div>`); L.dataset.logoScrim = Math.round(c.m.t + c.logoH * 1.5 + 40); }
+      else L.dataset.chromeAt = 'bottom';
+      bandHexes(L, s, c, at, band ? ph : 0, 'br');
+      // Over a band the words hang from it at a fixed distance, so covers share one grid; the logo signs at the foot.
+      if (band) inset(L.querySelector('.photo'), s, c, ph);
+      const b = block(L, c, 'dark', band ? { top: ph + 56, maxBottom: c.m.b + c.logoH + 48, floorIs: 'logo' } : { bottom: c.m.b }, s, 'd'); b.classList.add('on-scrim', 'hero');
+      // No rule under the name: the guide's pairings carry eyebrow, headline and words only (Colour, Combinations).
+      if (s.items?.length) b.insertAdjacentHTML('beforeend', `<div class="feats">${(s.items || []).map((r) => `<div>${hexIcon(r.icon, 72)}<span>${html(r.text)}</span></div>`).join('')}</div>`);
+      let ground = band ? ph : c.h - Math.round(fade * solid / 100) - 24; // the solid part of the navy ground (a line may touch its last 24 px)
+      if (band) splitAuto(b);
+      // Over a band the words fill the panel down to the logo: a short headline on one line leaves a blank band.
+      if (band && nShots > 1 && c.h - c.m.b - c.logoH - (b.offsetTop + b.offsetHeight) > 150) issue(s._i, 'gap-soft', 'The cover leaves a wide gap above the logo: the bands keep one grid, so write a fuller headline that fills two lines naturally (never pad a short one onto two)');
+      b.dataset.ground = ground;
+      reveal(L, at, s);
+      const bar = b.querySelector('.bar'); if (bar) rise(bar, at + 10);
+      riseAll(b.querySelectorAll('.feats > div'), at + 16);
+      evidence(L, s, c);
+      // A carousel cover opens on the pattern: a corner fade at the top right of the blue ground, under the band's edge.
+      // A single post has none: its ground carries a photograph (Social media, How a post is built).
+      if (band && nShots > 1 && s._i === 0 && s.hex !== 'none') cornerFade(L, c, at, [100, ph / c.h * 100], ph);
+      L.dataset.tone = 'dark'; L.dataset.dna = 1;
+      return len;
+    },
+    panel(L, s, c, at) {
+      // Context, or what it inspects: the photograph full-bleed and a navy panel over its quiet part, holding the
+      // overline, the headline, one line and up to five rows, each opened by an icon in a hexagon.
+      const len = Math.round((s.seconds || 5) * fps), where = s.panelAt || 'bottom';
+      bg(L, s);
+      if (s.bg === 'white') {
+        // On white: the picture framed under the top row at its true grade, its caption underneath, then the words.
+        // No pattern and no scrim: the page is the ground.
+        // A carousel's content slide is the photo, its OK/NOK chips and the headline: no eyebrow.
+        const top = topRow(c, s), b = block(L, c, 'light', { top }, isPost && nShots > 1 && s._i > 0 ? { ...s, overline: null } : s, 'h');
+        if (s.items?.length) b.insertAdjacentHTML('beforeend', `<div class="irows">${rowsOf(s.items, 60, true)}</div>`);
+        // The words keep their size; the picture takes the room they leave, up to "split". The headline is split
+        // into its masked lines first, so the height measured is the height set.
+        splitAuto(b);
+        // On a post the picture runs edge to edge across the top, like the cover, and the step number signs at the
+        // foot: the inner slides are the white version of the cover, so the set reads as one system.
+        if (isPost && (s.src || s.slot)) {
+          // One grid for every inner slide: the picture band always ends at the same height ("split", default 0.6)
+          // and the eyebrow always starts 64 px under it; the step number signs at the foot.
+          const step = nShots > 1 ? STEP + 40 : Math.round(c.logoH) + 48, band = bandOf(s, c, Math.round(c.h * (s.split || 0.6)));
+          if (band < c.h * 0.4) issue(s._i, 'picture-small', `The picture gets ${Math.round(band / c.h * 100)} % of the slide: 40 % or more`);
+          const P = photo(L, s, c, { left: 0, right: 0, top: 0, height: band }, at, len); P.style.background = 'var(--n100)';
+          inset(P, s, c, band);
+          b.style.top = band + 64 + 'px'; b.dataset.floor = c.h - c.m.b - step + 24; b.dataset.floorIs = 'logo';
+          // On a carousel the headline takes the display size when it fits, so the words fill their zone like the cover's.
+          const ht = b.querySelector('.title.h');
+          // Display (120 px), then 96 px, then the heading (72 px): the largest that keeps the phrase breaks and the floor,
+          // so a short headline fills the white zone instead of leaving it half empty.
+          if (ht && nShots > 1) {
+            const lines = Math.max(2, String(s.headline).split('|').length);
+            const fits = () => ht.offsetHeight <= lines * parseFloat(getComputedStyle(ht).fontSize) * 1.12 && b.offsetTop + b.offsetHeight <= +b.dataset.floor - 72; // a larger size only with clear air above the step number
+            ht.classList.replace('h', 'd');
+            if (!fits()) { ht.style.fontSize = '96px'; if (!fits()) { ht.style.fontSize = ''; ht.classList.replace('d', 'h'); } }
+            whiteHeads.push(ht);
+          }
+          reveal(L, at, s);
+          riseAll(b.querySelectorAll('.irow'), at + 14);
+          evidence(L, s, c);
+          L.dataset.tone = 'light'; L.dataset.dna = 1; L.dataset.chromeAt = 'bottom';
+          return len;
+        }
+        const capEst = s.caption ? 52 : 0, room = c.h - c.m.b - top - b.offsetHeight - 48 - capEst;
+        const ph2 = s.src ? Math.min(Math.round(c.h * (s.split || 0.6)), room) : 0;
+        if (s.src && ph2 < c.h * 0.22) issue(s._i, 'panel-tall', 'Too many words for a picture on this slide: fewer rows or a shorter line');
+        // The picture is the proof: when the words leave it under 40 % of the slide, the slide reads as text with a thumbnail.
+        else if (s.src && ph2 < c.h * 0.4) issue(s._i, 'picture-small', `The picture gets ${Math.round(ph2 / c.h * 100)} % of the slide: cut words until it has 40 % or more`);
+        if (ph2 > 0) { const box = { left: c.m.l, right: c.m.r, top, height: ph2 }, P = photo(L, s, c, box, at, len); P.classList.add('framed', 'on-light'); const capH = captionBelow(L, P, box); b.style.top = top + ph2 + capH + 48 + 'px'; }
+        reveal(L, at, s);
+        riseAll(b.querySelectorAll('.irow'), at + 14);
+        evidence(L, s, c);
+        L.dataset.tone = 'light'; L.dataset.dna = 1;
+        return len;
+      }
+      const ph = s.src ? fullPhoto(L, s, c, at, len) : (field(L, at, len), 0);
+      if (s.src) { L.insertAdjacentHTML('beforeend', `<div class="scrim top" style="height:${topRow(c, s) + 40}px"></div>`); L.dataset.logoScrim = topRow(c, s); }
+      const hxp = hexes(L, c, at, hexAt(s, s.split && !s.items?.length ? 'b' : where === 'top' ? 'bl' : 'tr', s.src && ph < c.h), s.src ? 0.3 : 0.34);
+      if (hxp && s.src) hxp.style.clipPath = `inset(${ph < c.h ? ph : c.h}px 0 0 0)`; // never over the photograph
+      const P = document.createElement('div'); P.className = 'panel'; L.appendChild(P);
+      // Over a band the panel overlaps its lower edge and runs to the foot; full-bleed it sits at the top or the foot.
+      const banded = s.split && ph < c.h;
+      // Without rows the panel keeps its own height at the foot and the photograph grows down to meet it.
+      const rows = s.items?.length > 0;
+      Object.assign(P.style, { left: c.m.l + 'px', right: c.m.r + 'px' }, banded && rows ? { top: ph - 96 + 'px', bottom: footOf(c, s) + 'px' } : banded ? { top: ph - 96 + 'px' } : where === 'top' ? { top: topRow(c, s) + 'px' } : { bottom: c.m.b + 'px' });
+      if (P.offsetTop + P.offsetHeight > c.h - footOf(c, s) + 1) issue(s._i, 'safe-area', 'The panel runs past the foot: shorter text or a smaller photo (split)');
+      if (banded) { if (rows) P.classList.add('fill-down'); L.querySelector('.photo .caption:not(.illus)')?.classList.add('above-panel'); }
+      P.innerHTML = (s.overline ? `<span class="overline mono">${html(s.overline)}</span>` : '') + (s.headline ? `<div class="title h" data-lines="3">${lineSpans(s.headline)}</div>` : '') +
+        (s.text ? `<p>${html(s.text)}</p>` : '') + (s.items?.length ? `<div class="irows">${rowsOf(s.items, 76)}</div>` : '');
+      reveal(L, at, s);
+      rise(P, at + 2, frames(MS.slow2));
+      riseAll(P.querySelectorAll('.irow'), at + 14);
+      P.querySelectorAll('.irow').forEach((row, i) => rule(row, { position: 'absolute', left: 0, right: 0, top: 0, height: '1px', background: 'rgba(167,191,228,.25)' }, at + 14 + i * 3));
+      if (P.offsetTop < topRow(c, s) - 1) issue(s._i, 'panel-tall', 'The panel reaches the logo row: fewer rows or a shorter line');
+      L.dataset.tone = 'dark'; L.dataset.dna = 1;
+      return len;
+    },
+    grid(L, s, c, at) {
+      // What it reads, what it gives: two columns of cells, each an icon in a hexagon, a title and a line.
+      // A photograph can open the slide (split); the pattern sits behind the cells.
+      const len = Math.round((s.seconds || 5) * fps), ph = s.src ? Math.round(c.h * (s.split || 0.36)) : 0;
+      bg(L, s);
+      const light = s.bg === 'white';
+      // The picture sits framed under the top row, so the logo and the step number never cover a screen or a face.
+      if (!light) { field(L, at, len); hexes(L, c, at, hexAt(s, 'bl'), 0.26); }
+      // A single post signs at the foot like every other post, so its words start at the top margin.
+      const single = c.post && nShots === 1; if (single) L.dataset.chromeAt = 'bottom';
+      const b = block(L, c, light ? 'light' : 'dark', { top: single ? c.m.t : topRow(c, s) }, s, 'h');
+      const G = document.createElement('div'); G.className = 'cells'; b.appendChild(G);
+      if ((s.items || []).length > 4 || ph) G.classList.add('compact');
+      // Cells with "src" show the real thing instead of an icon: what the camera sees, each defect as it looks.
+      const pics = (s.items || []).some((r) => r.src);
+      if (pics) G.classList.add('pics'), G.classList.remove('compact');
+      G.innerHTML = (s.items || []).map((r) => pics
+        ? `<div class="cell pic"><div class="tile" style="aspect-ratio:${s.tile || '4 / 3'}"><img class="media" src="${r.src}" style="object-position:${(r.focus || [50, 50]).join('% ')}%;transform-origin:${(r.focus || [50, 50]).join('% ')}%;transform:scale(${r.scale || 1})" alt="">${r.box ? `<i style="left:${r.box[0]}%;top:${r.box[1]}%;width:${r.box[2]}%;height:${r.box[3]}%"></i>` : ''}</div><b>${html(r.text)}</b>${r.detail ? `<span>${html(r.detail)}</span>` : ''}</div>`
+        : `<div class="cell">${hexIcon(r.icon, 88, light)}<b>${html(r.text)}</b>${r.detail ? `<span>${html(r.detail)}</span>` : ''}</div>`).join('');
+      // With a photograph, the cells keep their size and the picture takes the room they leave, up to "split".
+      if (ph) {
+        splitAuto(b);
+        const top = topRow(c, s), capEst = s.caption && light ? 52 : 0, h2 = Math.min(ph, c.h - c.m.b - top - b.offsetHeight - 56 - capEst);
+        const box = { left: c.m.l, right: c.m.r, top, height: Math.max(h2, 0) }, P = photo(L, s, c, box, at, len); P.classList.add('framed');
+        const capH = light ? (P.classList.add('on-light'), captionBelow(L, P, box)) : 0;
+        b.style.top = top + box.height + capH + 56 + 'px';
+        if (h2 < c.h * 0.22) issue(s._i, 'panel-tall', 'Too many cells for a picture on this slide: fewer cells or a shorter line');
+      }
+      // A single post fills its height: the picture tiles grow towards the logo's clear space, but only as far as every
+      // picture still fills its tile sharply (1.25x at most); what is left is split above and below, so the post stays
+      // balanced instead of padding a small picture with grey.
+      if (single && pics) {
+        const tiles = [...G.querySelectorAll('.tile')], h0 = tiles[0]?.offsetHeight || 0;
+        const free = c.h - c.m.b - c.logoH - 64 - (b.offsetTop + b.offsetHeight);
+        const sharp = Math.min(...tiles.map((t, k) => { const r = s.items[k], n = NATIVE[r.src]; return n ? Math.floor(n[1] * 1.25 / (r.scale || 1)) : Infinity; }));
+        const grow = Math.max(0, Math.min(free, sharp - h0));
+        if (grow > 0) tiles.forEach((t) => { t.style.aspectRatio = 'auto'; t.style.height = h0 + grow + 'px'; });
+        if (free - grow > 0) b.style.top = b.offsetTop + Math.round((free - grow) / 2) + 'px';
+      }
+      reveal(L, at, s);
+      riseAll(G.children, at + 14);
+      if (b.offsetTop + b.offsetHeight > c.h - footOf(c, s) + 1) issue(s._i, 'safe-area', 'The cells run past the foot: fewer cells, shorter lines or a smaller photo (split)');
+      if ((s.items || []).length > 6) issue(s._i, 'list-length', 'Six cells at most');
+      L.dataset.tone = light ? 'light' : 'dark'; L.dataset.dna = 1;
+      return len;
+    },
+    callout(L, s, c, at) {
+      // What it checks on one product: the real photograph, and a chip for each point it inspects, joined to the
+      // spot by a hairline. The chips name what is checked; they are not detections and carry no verdict.
+      const len = Math.round((s.seconds || 5) * fps);
+      bg(L, s); field(L, at, len);
+      // A single post follows the one post system: the camera views across the top edge to edge,
+      // each chip on the part it names, then the words on the blue ground and the logo at the foot. No pattern.
+      const single = c.post && nShots === 1;
+      let b, box;
+      if (single) {
+        const band = bandOf(s, c, Math.round(c.h * (s.split || 0.6)));
+        box = { left: 0, top: 0, width: c.w, height: band }; L.dataset.chromeAt = 'bottom';
+      } else {
+        hexes(L, c, at, hexAt(s, 'tr'), 0.24);
+        b = block(L, c, 'dark', { top: c.post && s._i === 0 ? c.m.t : topRow(c, s) }, s, 'h');
+        if (c.post && s._i === 0) L.dataset.chromeAt = 'bottom';
+        const floor = c.post && s._i === 0 ? c.m.b + c.logoH + 48 : c.m.b - 24;
+        const top = b.offsetTop + b.offsetHeight + 48; box = { left: 0, top, width: c.w, height: c.h - top - floor };
+      }
+      const P = photo(L, s, c, box, at, len); P.style.background = 'transparent';
+      if (single) { P.style.zIndex = 0; b = block(L, c, 'dark', { top: box.height + 56, maxBottom: c.m.b + c.logoH + 48, floorIs: 'logo' }, s, 'd'); b.classList.add('on-scrim', 'hero'); }
+      const [fx, fy] = s.focus || [50, 50];
+      const img = P.querySelector('img');
+      const pts = (s.items || []).map((r) => {
+        // The point in the picture: map image percent through object-fit cover, focus and scale.
+        let x = r.x * box.width / 100, y = r.y * box.height / 100;
+        if (s.imageSize) { const [iw, ih] = s.imageSize, k = (s.fit === 'contain' ? Math.min : Math.max)(box.width / iw, box.height / ih), sc = s.scale || 1, dw = iw * k, dh = ih * k,
+          ox = (box.width - dw) * fx / 100, oy = (box.height - dh) * fy / 100, cx = box.width * fx / 100, cy = box.height * fy / 100;
+          x = cx + (ox + r.x / 100 * dw - cx) * sc; y = cy + (oy + r.y / 100 * dh - cy) * sc; }
+        return { r, x, y };
+      });
+      const O = document.createElement('div'); O.className = 'callouts'; P.appendChild(O);
+      pts.forEach(({ r, x, y }, i) => {
+        const right = (r.side || (x > box.width / 2 ? 'right' : 'left')) === 'right';
+        const chip = document.createElement('div'); chip.className = 'co-chip'; chip.innerHTML = `${hexIcon(r.icon, 52)}<span>${html(r.text)}</span>`; O.appendChild(chip);
+        const cy = r.labelY !== undefined ? r.labelY * box.height / 100 : y;
+        chip.style.top = Math.max(16, Math.min(box.height - chip.offsetHeight - 16, cy - chip.offsetHeight / 2)) + 'px';
+        if (right) chip.style.right = c.m.r + 'px'; else chip.style.left = c.m.l + 'px';
+        const cx0 = right ? box.width - c.m.r - chip.offsetWidth : c.m.l + chip.offsetWidth, cy0 = chip.offsetTop + chip.offsetHeight / 2;
+        const len2 = Math.hypot(x - cx0, y - cy0), ang = Math.atan2(y - cy0, x - cx0) * 180 / Math.PI;
+        O.insertAdjacentHTML('beforeend', `<i class="co-line" style="left:${cx0}px;top:${cy0}px;width:${len2}px;transform:rotate(${ang}deg)"></i><i class="co-dot" style="left:${x}px;top:${y}px"></i>`);
+        if (x < 0 || x > box.width || y < 0 || y > box.height) issue(s._i, 'callout-off', `"${r.text}" points outside the picture: check x and y`);
+        rise(chip, at + 12 + i * 4);
+      });
+      reveal(L, at, s);
+      evidence(L, s, c);
+      L.dataset.tone = 'dark'; L.dataset.dna = 1;
+      return len;
+    },
+    event(L, s, c, at) {
+      // Trade show: the stand (a real photo of ours) or the pattern, where and when in rows with icons.
+      const len = Math.round((s.seconds || 4) * fps), ph = s.src ? Math.round(c.h * (s.split || 0.42)) : 0;
+      bg(L, s);
+      field(L, at, len);
+      const hx = hexes(L, c, at, hexAt(s, 'br', ph > 0), 0.3); if (hx && ph) hx.style.clipPath = `inset(${ph}px 0 0 0)`;
+      // On a post our stand opens it edge to edge on a clean band, like a cover, and the logo signs at the foot.
+      if (ph && c.post) { photo(L, s, c, { left: 0, right: 0, top: 0, height: ph }, at, len); L.dataset.chromeAt = 'bottom'; }
+      else if (ph) photo(L, s, c, { left: c.m.l, right: c.m.r, top: topRow(c, s), height: ph }, at, len).classList.add('framed');
+      const E = document.createElement('div'); E.className = 'stand'; L.appendChild(E);
+      if (c.post && s._i === 0) L.dataset.chromeAt = 'bottom';
+      const eTop = ph && c.post ? ph + 56 : ph ? topRow(c, s) + ph + 48 : c.post && s._i === 0 ? c.m.t : topRow(c, s), eBottom = c.post && s._i === 0 ? c.m.b + c.logoH + 48 : c.m.b;
+      Object.assign(E.style, { left: c.m.l + 'px', right: c.m.r + 'px', top: eTop + 'px', bottom: eBottom + 'px', justifyContent: ph || c.post ? 'flex-start' : 'flex-end' }); // on a post the facts hang from the top, the logo signs at the foot
+      E.innerHTML = `${s.lead ? `<span class="lead">${html(s.lead)}</span>` : ''}<span class="event" style="font-size:${ph ? 104 : 120}px">${html(s.event)}</span><div class="irows ev">${rowsOf(s.rows, 64)}</div>`;
+      fit(E.querySelector('.event'), c.w - c.m.l - c.m.r);
+      riseAll(E.querySelectorAll('.lead, .event, .irow'), at + 4, 2);
+      L.dataset.tone = 'dark'; L.dataset.dna = 1;
+      return len;
+    },
+    contact(L, s, c, at) {
+      // The closing slide: the question or offer, one approved action, and how to reach us, in boxes.
+      const len = Math.round((s.seconds || 4) * fps);
+      bg(L, { bg: s.bg || 'blue' });
+      // With "src" the people or the machine it offers open the slide in a band (split, default 0.42) on a clean edge.
+      // With "src" the words sit at the foot over the logo and the picture takes all the room above them.
+      const hasMedia = s.src || s.slot;
+      const b = block(L, c, 'dark', hasMedia ? { bottom: c.m.b + c.logoH + 64 } : { top: c.m.t }, s, s.rows?.length || hasMedia ? 'h' : 'd');
+      b.insertAdjacentHTML('beforeend', `<span class="action"><span>${html(s.action)}</span>${c.icon('arrow-right')}</span>`);
+      // How to reach us in one line, web then phone, without labels or rules.
+      if (s.rows?.length) b.insertAdjacentHTML('beforeend', `<div class="reach">${s.rows.map((r) => `<span>${html(r.text)}</span>`).join('')}</div>`);
+      if (hasMedia) splitAuto(b);
+      const ph = hasMedia ? Math.max(0, b.offsetTop - 56) : 0;
+      if (hasMedia && ph < c.h * 0.28) issue(s._i, 'picture-small', 'The contact words leave the picture under 28 % of the slide: fewer boxes or a shorter headline');
+      if (ph) { const P = photo(L, s, c, { left: 0, right: 0, top: 0, height: ph }, at, len); L.insertBefore(P, L.children[1] || null); }
+      const sign = document.createElement('div'); sign.className = 'sign';
+      Object.assign(sign.style, { left: c.m.l + 'px', bottom: c.m.b + 'px' });
+      sign.innerHTML = `<img src="${c.logo('white')}" style="width:${c.logoW}px;display:block" alt="${html(c.brandName)}">`;
+      L.appendChild(sign);
+      reveal(L, at, s);
+      // The closing ground ends on the pattern: a corner fade at the bottom right, clear of the words and the logo.
+      if (s.hex !== 'none') cornerFade(L, c, at, [100, 100], ph);
+      rise(b.querySelector('.action'), at + 14);
+      const reachEl = b.querySelector('.reach'); if (reachEl) rise(reachEl, at + 18);
+      rise(sign, at + 4);
+      if (reachEl && reachEl.scrollWidth > reachEl.clientWidth + 1) issue(s._i, 'overflow', 'Web and phone do not fit on one line');
+      if (b.offsetTop + b.offsetHeight > sign.offsetTop - 48) issue(s._i, 'overlap', 'The contact words run into the logo: a shorter headline');
+      L.dataset.tone = 'dark'; L.dataset.signed = 1;
+      return len;
+    },
+    showcase(L, s, c, at) {
+      // A single post that shows one product or machine whole, on the section grey of its own studio sweep, so the
+      // picture has no edge and no band: the words at the top, the subject filling everything down to the logo.
+      // Not a carousel cover (no blue band): the post family needs compositions of its own.
+      const len = Math.round((s.seconds || 4) * fps), white = s.bg === 'white';
+      L.insertAdjacentHTML('beforeend', `<div class="fill" style="background:${white ? '#fff' : '#F1F5F9'}"></div>`);
+      L.dataset.chromeAt = 'bottom';
+      const b = block(L, c, 'light', { top: c.m.t }, s, 'd');
+      splitAuto(b);
+      // The largest headline size that keeps it on two lines at most: a short line never wraps for nothing.
+      const t = b.querySelector('.title'), lines = () => b.querySelectorAll('.line').length;
+      if (t) for (const px of [120, 104, 92, 84]) { t.style.fontSize = px + 'px'; t.innerHTML = lineSpans(s.headline); splitAuto(b); if (lines() <= 2) break; }
+      const top = b.offsetTop + b.offsetHeight + (s.gap ?? 32), bottom = c.h - c.m.b - c.logoH - 40;
+      // Real macro photographs have visible edges: inset them to the same
+      // margins as the heading/signature. Sweeps retain their edge-free default.
+      const box = { left: s.inset ? c.m.l : 0, right: s.inset ? c.m.r : 0, top, height: bottom - top };
+      const P = photo(L, { ...s, fit: s.fit || 'contain' }, c, box, at, len);
+      P.style.background = 'transparent'; P.style.zIndex = 0;
+      const least = c.h > c.w ? 0.5 : 0.42; if (box.height < c.h * least) issue(s._i, 'picture-small', `The product gets ${Math.round(box.height / c.h * 100)} % of the post: ${least * 100} % or more (a shorter headline)`);
+      reveal(L, at, s);
+      rise(P, at + 2, frames(MS.slow2));
+      evidence(L, s, c);
+      L.dataset.tone = 'light'; L.dataset.dna = 1;
+      return len;
+    },
+  });
+
+  // ---- The post system. Every single post and every carousel cover
+  // takes one of three looks on one grid (64 px margins, eyebrow 28 px, headline 68 px in a 760 px column, logo at the foot):
+  //   blue  - a machine, a screen or an event: the photograph from the top, edge to edge, with a hard bottom edge; under it a
+  //           solid brand-blue panel with the white headline and the logo; the hexagon corner at the bottom right, on the panel.
+  //           No fade and no gradient ("I didn't ask for gradients on social posts");
+  //   light - a product, a detection, a carousel cover: white, the headline at the top, the picture filling its band under it.
+  //           A render on the studio sweep is cropped to its subject (the product group reaches close to the band's edges, at
+  //           1.5x its own size at most); when the group is wide and leaves room, the headline grows into it (68 to 120 px), so
+  //           no empty strip is left above or below the picture. The hexagon corner at the
+  //           top right, beside the words, in a pale navy hairline;
+  //   navy  - a result or a quote on solid brand blue, or on white with "look": "light"; the hexagon corner at the top right.
+  // Carousel content slides are the light look without the eyebrow (the step number signs the foot); the closing slide is
+  // solid brand blue, the words above the logo and the hexagon corner at the top right. "look" in the recipe picks the look; see lookOf. ----
+  const SYS = { col: 760, head: 316, ph: 0.74, scrim: 310, gap: 54 };
+  // One hexagon field for every post: the decks' corner fade (print/pattern.py, "hairline"): cells R = short side / 12.5,
+  // fully faded 0.42 x the short side from its corner. Text keeps out of 78 % of that radius, where the lines are under 8 %.
+  const HEX_R = 0.42, HEX_CLEAR = 0.78;
+  const lookOf = (s) => {
+    if (!isPost || s._i !== 0 || !['hero', 'callout', 'showcase', 'cover', 'stat', 'quote'].includes(s.type)) return null;
+    if (s.type === 'stat' || s.type === 'quote') return 'navy';
+    if (['blue', 'light', 'navy'].includes(s.look)) return s.look;
+    return nShots > 1 || s.evidence === 'render' || s.type === 'showcase' ? 'light' : 'blue';
+  };
+  // A line never ends on an article, a preposition or a conjunction: each weak word is tied to the word after it.
+  const glue = (t) => html(t).replace(/(?<=^|\s)(\p{L}+)\s+(?=\S)/gu, (m, w) => WEAK.has(w.toLowerCase()) ? w + '\u00A0' : m);
+  const sysHex = (L, c, at, corner, tone, before, avoid) => { // avoid: [top, bottom] rows the field leaves out, edge by edge (a picture)
+    const short = Math.min(c.w, c.h), R = short / 12.5, sw = short * 1.6 / 550, rch = HEX_R * short;
+    const cx = corner[1] === 'r' ? c.w : 0, cy = corner[0] === 'b' ? c.h : 0, dx = 1.5 * R, dy = Math.sqrt(3) * R;
+    const [ink, op] = tone === 'light' ? ['#17356E', 0.12] : ['#7C9FD7', 0.25];
+    const fade = (d) => { const t = Math.min(1, d / rch); return Math.pow(1 - t * t * (3 - 2 * t), 1.15); };
+    const seen = new Set(); let out = '';
+    const ni = Math.ceil((rch + R) / dx) + 1, nj = Math.ceil((rch + R) / dy) + 1;
+    for (let i = -ni; i <= ni; i++) for (let j = -nj; j <= nj; j++) {
+      const x = cx + i * dx, y = cy + j * dy + (Math.abs(i) % 2) * dy / 2;
+      if (Math.hypot(x - cx, y - cy) > rch + R || x < -R || x > c.w + R || y < -R || y > c.h + R) continue;
+      const pts = [0, 1, 2, 3, 4, 5].map((e) => [x + R * Math.cos(Math.PI * e / 3), y + R * Math.sin(Math.PI * e / 3)]);
+      for (let e = 0; e < 6; e++) {
+        const [a, b] = [pts[e], pts[(e + 1) % 6]], mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, key = Math.round(mx * 2) + ',' + Math.round(my * 2);
+        if (seen.has(key)) continue; seen.add(key);
+        const f = fade(Math.hypot(mx - cx, my - cy)); if (f < .03) continue;
+        if (avoid && [a[1], b[1]].some((y) => y > avoid[0] - 2 && y < avoid[1])) continue;
+        out += `<path d="M${a[0].toFixed(1)},${a[1].toFixed(1)}L${b[0].toFixed(1)},${b[1].toFixed(1)}" stroke-opacity="${(op * f).toFixed(3)}"/>`;
+      }
+    }
+    L.insertAdjacentHTML('beforeend', `<svg class="hexes sys" width="${c.w}" height="${c.h}" viewBox="0 0 ${c.w} ${c.h}" aria-hidden="true"><g fill="none" stroke="${ink}" stroke-width="${sw.toFixed(2)}">${out}</g></svg>`);
+    const el = L.lastElementChild; Object.assign(el.dataset, { cx, cy, clear: Math.round(HEX_CLEAR * rch) });
+    if (before) L.insertBefore(el, before);
+    tween(el, at, frames(MS.slow2), 'enter', { o: 0 }, { o: 1 });
+    return el;
+  };
+  // How close the nearest word (or the logo) comes to a point: the hexagon corner keeps its field clear of them.
+  const nearest = (L, cx, cy) => { const lr = L.getBoundingClientRect(); let d = Infinity;
+    L.querySelectorAll(TEXT).forEach((el) => { const r = inkBox(el); if (!r.width || !r.height) return;
+      d = Math.min(d, Math.hypot(Math.max(r.left - lr.left - cx, 0, cx - (r.right - lr.left)), Math.max(r.top - lr.top - cy, 0, cy - (r.bottom - lr.top)))); });
+    return d; };
+  const sysWords = (L, c, s, tone, pos) => {
+    const b = block(L, c, tone, pos, s, 'h'); b.classList.add('sys');
+    Object.assign(b.style, { right: 'auto', width: Math.min(SYS.col, c.w - c.m.l - c.m.r) + 'px' });
+    splitAuto(b);
+    return b;
+  };
+  const ground = (L, colour) => L.insertAdjacentHTML('beforeend', `<div class="fill" style="background:${colour}"></div>`);
+  // A render on the studio sweep, cropped to its product group ("subject"): the group reaches PADX from the sides and PADY from the
+  // top and foot of its band, at 1.5x its own size at most. "bleed" (1 to 2) lets a long row run off both sides, as a line does past
+  // the frame: 1.5 shows two thirds of a row that is too wide to fill the band's height.
+  const PADX = 36, PADY = 32;
+  // "subject": [x0, y0, x1, y1] (fractions of the picture) names the group by hand when the sweep hides it (white cartons).
+  const subjectFit = (s) => { const n = NATIVE[s.src], sub = s.subject ? [...s.subject, SUBJ[s.src]?.[4] || [241, 245, 249]] : SUBJ[s.src];
+    return !/\.svg$/.test(s.src || '') && s.evidence === 'render' && s.fit !== 'contain' && s.crop !== 'none' && n && sub ? { n, sub } : null; };
+  const subjectK = (s, f, w, room) => Math.min((w - 2 * PADX) / ((f.sub[2] - f.sub[0]) * f.n[0]) * Math.min(2, Math.max(1, s.bleed || 1)), (room - 2 * PADY) / ((f.sub[3] - f.sub[1]) * f.n[1]), SHARP_POST / (s.scale || 1));
+  const placeSubject = (P, s, f, w, h, k) => {
+    const img = P.querySelector('img.media'), cx = (f.sub[0] + f.sub[2]) / 2 * f.n[0], cy = (f.sub[1] + f.sub[3]) / 2 * f.n[1];
+    // The group centred, but the picture never pulled inside the band where it is big enough to cover it: no seam at its edge.
+    const iw = f.n[0] * k, ih = f.n[1] * k, at = (c0, size, band) => size >= band ? Math.min(0, Math.max(band - size, c0)) : (band - size) / 2;
+    Object.assign(img.style, { inset: 'auto', width: iw + 'px', height: ih + 'px', left: Math.round(at(w / 2 - cx * k, iw, w)) + 'px', top: Math.round(at(h / 2 - cy * k, ih, h)) + 'px', objectFit: 'fill', transform: 'none' });
+    // the band's own ground under the picture: the studio sweep (#F1F5F9) or white, the palette's two light grounds
+    const g = f.sub[4]; P.style.background = Math.max(Math.abs(g[0] - 241), Math.abs(g[1] - 245), Math.abs(g[2] - 249)) <= 14 ? 'var(--n100)' : '#fff';
+  };
+  // A picture shown whole: its band is as tall as the picture at the post's width, so baked-in marks are never cropped.
+  const wholeH = (s, c, fallback) => { const n = NATIVE[s.src]; return n ? Math.round(c.w * n[1] / n[0]) : fallback; };
+  // The callout chips (what is checked, joined to the spot by a hairline), on the picture's box.
+  const chipsOn = (P, s, c, box, at) => {
+    const [fx, fy] = s.focus || [50, 50], O = document.createElement('div'); O.className = 'callouts'; P.appendChild(O);
+    (s.items || []).forEach((r, i) => {
+      let x = r.x * box.width / 100, y = r.y * box.height / 100;
+      if (s.imageSize) { const [iw, ih] = s.imageSize, k = (s.fit === 'contain' ? Math.min : Math.max)(box.width / iw, box.height / ih), sc = s.scale || 1, dw = iw * k, dh = ih * k,
+        ox = (box.width - dw) * fx / 100, oy = (box.height - dh) * fy / 100, cx = box.width * fx / 100, cy = box.height * fy / 100;
+        x = cx + (ox + r.x / 100 * dw - cx) * sc; y = cy + (oy + r.y / 100 * dh - cy) * sc; }
+      const right = (r.side || (x > box.width / 2 ? 'right' : 'left')) === 'right';
+      const chip = document.createElement('div'); chip.className = 'co-chip'; chip.innerHTML = `${hexIcon(r.icon, 52)}<span>${html(r.text)}</span>`; O.appendChild(chip);
+      const ly = r.labelY !== undefined ? r.labelY * box.height / 100 : y;
+      chip.style.top = Math.max(16, Math.min(box.height - chip.offsetHeight - 16, ly - chip.offsetHeight / 2)) + 'px';
+      if (right) chip.style.right = c.m.r + 'px'; else chip.style.left = c.m.l + 'px';
+      const cx0 = right ? box.width - c.m.r - chip.offsetWidth : c.m.l + chip.offsetWidth, cy0 = chip.offsetTop + chip.offsetHeight / 2;
+      O.insertAdjacentHTML('beforeend', `<i class="co-line" style="left:${cx0}px;top:${cy0}px;width:${Math.hypot(x - cx0, y - cy0)}px;transform:rotate(${Math.atan2(y - cy0, x - cx0) * 180 / Math.PI}deg)"></i><i class="co-dot" style="left:${x}px;top:${y}px"></i>`);
+      if (x < 0 || x > box.width || y < 0 || y > box.height) issue(s._i, 'callout-off', `"${r.text}" points outside the picture: check x and y`);
+      rise(chip, at + 12 + i * 4);
+    });
+  };
+  const sign = (L, c, at) => {
+    const g = document.createElement('div'); g.className = 'sign'; Object.assign(g.style, { left: c.m.l + 'px', bottom: c.m.b + 'px' });
+    g.innerHTML = `<img src="${c.logo('white')}" style="width:${c.logoW}px;display:block" alt="${html(c.brandName)}">`; L.appendChild(g); rise(g, at + 4);
+  };
+  const SYSTEM = {
+    blue(L, s, c, at) {
+      const len = Math.round((s.seconds || 4) * fps);
+      ground(L, '#17356E');
+      // The words first, on the solid panel above the logo; the picture takes everything above them, with a hard edge.
+      const b = sysWords(L, c, s, 'dark', { bottom: c.m.b + c.logoH + 72 });
+      const room = b.offsetTop - SYS.gap;
+      // A picture with its marks baked in (an overlay SVG) stays whole: its band is its own height, the panel takes the rest.
+      const whole = /\.svg$/.test(s.src || ''), ph = whole ? Math.min(room, wholeH(s, c, room)) : room;
+      const P = photo(L, s, c, { left: 0, right: 0, top: whole ? Math.round((room - ph) / 2) : 0, height: ph }, at, len); P.style.background = '#17356E'; P.style.zIndex = 0;
+      const fit = subjectFit(s); if (fit) placeSubject(P, s, fit, c.w, ph, subjectK(s, fit, c.w, ph));
+      if (s.type === 'callout') chipsOn(P, s, c, { width: c.w, height: ph }, at);
+      if (whole && wholeH(s, c, room) - ph > ph * 0.02) issue(s._i, 'overlay-cropped', `The picture needs ${wholeH(s, c, room)} px of height and gets ${ph}: a shorter headline, or render the picture at ${c.w} x ${ph}`);
+      sysHex(L, c, at, 'br', 'navy', b, [0, P.offsetTop + ph]);
+      reveal(L, at, s); evidence(L, s, c);
+      Object.assign(L.dataset, { tone: 'dark', dna: 1, chromeAt: 'bottom', look: 'blue' });
+      return len;
+    },
+    light(L, s, c, at, inner = false) {
+      const len = Math.round((s.seconds || 4) * fps);
+      ground(L, '#fff');
+      const b = sysWords(L, c, inner ? { ...s, overline: null } : s, 'light', { top: c.m.t });
+      const floor = c.h - c.m.b - (inner ? STEP : c.logoH) - 48;
+      const topOf = () => Math.max(SYS.head, b.offsetTop + b.offsetHeight + SYS.gap);
+      // What height the picture needs in a room: a render cropped to its subject (the group reaches 36 px from the sides and
+      // 32 px from the top and foot of its band, at 1.5x its size at most); an overlay (SVG) or a "contain" picture whole at its
+      // own aspect; a photograph fills the room (cropped by its focus).
+      const svg = /\.svg$/.test(s.src || ''), fitSubject = subjectFit(s);
+      const kOf = (room) => fitSubject ? subjectK(s, fitSubject, c.w, room) : 0;
+      const need = (room) => fitSubject ? Math.round((fitSubject.sub[3] - fitSubject.sub[1]) * fitSubject.n[1] * kOf(room) + 2 * PADY)
+        : (svg || s.fit === 'contain' || s.evidence === 'render') ? wholeH(s, c, room) : room;
+      // A wide picture leaves room under it: the headline grows into it (cover and single posts; inner slides keep one size).
+      const t = b.querySelector('.title');
+      if (!inner && t && (s.src || s.slot)) {
+        const fits = () => [...t.querySelectorAll('.line > span')].every((sp) => sp.offsetHeight < parseFloat(getComputedStyle(t).fontSize) * 1.5) && b.scrollWidth <= b.clientWidth + 1;
+        let px = 68; const col = b.style.width;
+        if (floor - topOf() - need(floor - topOf()) > c.h * 0.05) b.style.width = c.w - c.m.l - c.m.r + 'px'; // the full measure for a grown headline
+        while (px < 120 && floor - topOf() - need(floor - topOf()) > c.h * 0.05) { t.style.fontSize = (px + 4) + 'px'; if (!fits()) { t.style.fontSize = px + 'px'; break; } px += 4; }
+        if (px === 68) b.style.width = col;
+      }
+      const top = topOf(), room = floor - top, want = need(room);
+      // The band fills the room; a picture that needs less is centred in it (on its own ground), so no strip is left under it.
+      const h = fitSubject ? room : Math.min(want, room);
+      if (s.src || s.slot) {
+        const P = photo(L, s, c, { left: 0, right: 0, top, height: h }, at, len); P.style.background = s.fit === 'contain' ? 'var(--n100)' : '#fff';
+        if (fitSubject) placeSubject(P, s, fitSubject, c.w, h, kOf(room));
+        if (s.type === 'callout') chipsOn(P, s, c, { width: c.w, height: h }, at);
+        // A picture with its marks baked in (the overlay SVGs) is shown whole: a crop would cut a chip or the verdict.
+        if (svg && want - h > want * 0.02) issue(s._i, 'overlay-cropped', `The picture needs ${want} px of height and gets ${h}: a shorter headline, or render the picture at ${c.w} x ${h}`);
+        if (h < c.h * 0.4) issue(s._i, 'picture-small', `The picture gets ${Math.round(h / c.h * 100)} % of the slide: 40 % or more`);
+        // What the band leaves under it is split between the gap above the band and the gap below it.
+        if (!fitSubject && !inner && room - h > 0) P.style.top = Math.round(top + (room - h) / 2) + 'px'; // inner slides keep the band under the headline, as the grid does
+      }
+      // The corner sits beside the words at the top right; it ends on whole cell edges before the picture, never on a cut.
+      if (!inner) { // top right, beside the headline; a headline that runs into it sends the corner to the bottom right, beside the logo
+        const hx = sysHex(L, c, at, 'tr', 'light', L.children[1], [top, c.h]);
+        if (nearest(L, c.w, 0) < +hx.dataset.clear) { hx.remove(); sysHex(L, c, at, 'br', 'light', L.children[1], [0, top + h]); }
+      }
+      reveal(L, at, s); evidence(L, s, c);
+      Object.assign(L.dataset, { tone: 'light', dna: 1, chromeAt: 'bottom', look: inner ? 'inner' : 'light' });
+      return len;
+    },
+    navy(L, s, c, at) {
+      const len = Math.round((s.seconds || 4) * fps), paper = s.look === 'light';
+      ground(L, paper ? '#fff' : '#17356E');
+      const bottom = c.m.b + c.logoH + 72, room = c.h - bottom - c.m.t;
+      const clear = Math.round(HEX_CLEAR * HEX_R * Math.min(c.w, c.h));
+      let box;
+      if (s.type === 'stat') {
+        box = document.createElement('div'); box.className = 'stat sys' + (paper ? ' paper' : ''); L.appendChild(box);
+        Object.assign(box.style, { left: c.m.l + 'px', right: c.m.r + 'px', top: c.m.t + 'px', bottom: bottom + 'px', justifyContent: 'flex-end', color: paper ? '#17356E' : '#fff' });
+        box.innerHTML = `${s.label ? `<span class="mono">${html(s.label)}</span>` : ''}<span class="big" style="font-size:300px"><span class="num">${html(s.value ?? '')}</span><span class="unit">${html((s.unit || '').trim())}</span></span>
+          <span class="ctx">${glue(s.text || '')}</span>${s.note ? `<span class="note">${html(s.note)}</span>` : ''}`;
+        // The figure grows (poster size) until the words fill the post, short of the hexagon corner at the top right.
+        const big = box.querySelector('.big'), used = () => [...box.children].reduce((n, e) => n + e.offsetHeight + parseFloat(getComputedStyle(e).marginTop) + parseFloat(getComputedStyle(e).marginBottom), 0);
+        const ok = () => used() <= room && big.scrollWidth <= box.clientWidth && nearest(L, c.w, 0) >= clear;
+        let px = 300; while (px < 520 && ok()) { px += 10; big.style.fontSize = px + 'px'; } while (px > 160 && !ok()) { px -= 10; big.style.fontSize = px + 'px'; }
+        const num = box.querySelector('.num'), dec = String(s.value).split('.')[1]?.length || 0;
+        if (s.value !== null && Number.isFinite(Number(s.value))) { const fmt = new Intl.NumberFormat(s.lang || lang, { minimumFractionDigits: dec, maximumFractionDigits: dec }); count(at + 6, frames(MS.expressive) + 10, 'enter', (p) => { num.textContent = fmt.format(+s.value * p); }); }
+        else num.textContent = '—';
+        [...box.children].forEach((el, i) => rise(el, at + 2 + i * 3));
+        const note = box.querySelector('.note'); if (note && note.scrollWidth > note.clientWidth + 1) issue(s._i, 'note-lines', 'The source takes one line on a post: shorten the note');
+      } else {
+        // A quote: the words as large as the post holds (up to five lines), the name and role on one line under them.
+        const [qo, qc] = ['«', '»'];
+        box = block(L, c, paper ? 'light' : 'dark', { bottom }, { ...s, headline: null, overline: null }, 'h'); box.classList.add('sys');
+        box.innerHTML = `<div class="title quote-text" data-lines="5">${qo}${glue(s.quote || '')}${qc}</div><div class="who"><div class="one"><b>${html(s.name || '')}</b>${s.role ? `<span>, ${html(s.role)}</span>` : ''}</div></div>`;
+        const q = box.querySelector('.quote-text'), lines = () => Math.round(q.offsetHeight / (parseFloat(getComputedStyle(q).fontSize) * 1.08));
+        const ok = () => lines() <= 5 && q.scrollWidth <= q.clientWidth + 1 && box.offsetTop >= c.m.t + 40 && nearest(L, c.w, 0) >= clear;
+        let px = 68; q.style.fontSize = px + 'px'; while (px < 144 && ok()) { px += 4; q.style.fontSize = px + 'px'; } while (px > 56 && !ok()) { px -= 4; q.style.fontSize = px + 'px'; }
+        rise(q, at + 6, frames(MS.slow2)); rise(box.querySelector('.who'), at + 20);
+      }
+      sysHex(L, c, at, 'tr', paper ? 'light' : 'navy', box);
+      Object.assign(L.dataset, { tone: paper ? 'light' : 'dark', dna: 1, chromeAt: 'bottom', look: paper ? 'paper' : 'navy' });
+      return len;
+    },
+    // The closing slide of a carousel: solid brand blue, the question, one action, web and phone, the logo at the foot and
+    // the hexagon corner at the top right. No picture: the cover and the content slides carry them.
+    close(L, s, c, at) {
+      const len = Math.round((s.seconds || 4) * fps);
+      ground(L, '#17356E');
+      // The navy look's composition: the words above the logo, the corner at the top right, away from them.
+      const b = sysWords(L, c, { ...s, overline: null }, 'dark', { bottom: c.m.b + c.logoH + 72 });
+      b.style.width = c.w - c.m.l - c.m.r + 'px';
+      b.insertAdjacentHTML('beforeend', `<span class="action"><span>${html(s.action)}</span>${c.icon('arrow-right')}</span>${s.rows?.length ? `<div class="reach">${s.rows.map((r) => `<span>${html(r.text)}</span>`).join('')}</div>` : ''}`);
+      sign(L, c, at);
+      // The question as large as its lines stay whole (68 to 104 px), clear of the corner.
+      const t = b.querySelector('.title'), clear = Math.round(HEX_CLEAR * HEX_R * Math.min(c.w, c.h));
+      const whole = () => [...t.querySelectorAll('.line > span')].every((sp) => sp.offsetHeight < parseFloat(getComputedStyle(t).fontSize) * 1.5) && nearest(L, c.w, 0) >= clear;
+      let px = 68; while (px < 104 && whole()) { px += 4; t.style.fontSize = px + 'px'; } while (px > 68 && !whole()) { px -= 4; t.style.fontSize = px + 'px'; }
+      sysHex(L, c, at, 'tr', 'navy', b);
+      reveal(L, at, s);
+      rise(b.querySelector('.action'), at + 14); const reach = b.querySelector('.reach'); if (reach) rise(reach, at + 18);
+      if (reach && reach.scrollWidth > reach.clientWidth + 1) issue(s._i, 'overflow', 'Web and phone do not fit on one line');
+      Object.assign(L.dataset, { tone: 'dark', signed: 1, look: 'close' });
+      return len;
+    },
+  };
+  const sysFor = (s) => {
+    if (!isPost) return null;
+    const lk = lookOf(s); if (lk) return SYSTEM[lk];
+    if (nShots > 1 && s._i > 0 && s.type === 'panel' && s.bg === 'white') return (L, s2, c, at) => SYSTEM.light(L, s2, c, at, true);
+    if (nShots > 1 && s._i === nShots - 1 && s.type === 'contact') return SYSTEM.close;
+    return null;
+  };
+  for (const k of ['hero', 'callout', 'showcase', 'cover', 'stat', 'quote', 'panel', 'contact']) {
+    const old = BUILD[k]; BUILD[k] = (L, s, c, at) => { const f = sysFor(s); return f ? f(L, s, c, at) : old(L, s, c, at); };
+  }
+
+  // Each picture's own size, read before setup, so a photo band never asks for more height than the picture has.
+  const NATIVE = {}, SUBJ = {};
+  // …and, for a raster picture, its subject's box on its own ground ([x0, y0, x1, y1] as fractions, then the ground's rgb):
+  // the light look crops a render on the studio sweep to its product group. Read at 480 px, enough for a crop.
+  const subjectOf = (i) => {
+    const W = 480, H = Math.round(480 * i.naturalHeight / i.naturalWidth), cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const g = cv.getContext('2d'); g.drawImage(i, 0, 0, W, H);
+    const r = subjectIn({ W, d: g.getImageData(0, 0, W, H).data }, [0, 0, W, H], 6);
+    return r.box ? [r.box[0] / W, r.box[1] / H, r.box[2] / W, r.box[3] / H, r.ground] : null;
+  };
+  window.preload = (spec) => Promise.all((spec.shots || [spec]).flatMap((s) => [s.src, s.patternSources?.[spec.format], ...(s.items || []).map((r) => r.src)]).filter((u) => u && !/\.(mp4|webm|mov)$/i.test(u) && !NATIVE[u])
+    .map((u) => new Promise((ok) => { const i = new Image(); i.onload = () => { NATIVE[u] = [i.naturalWidth, i.naturalHeight]; if (!/\.svg$/i.test(u)) try { SUBJ[u] = subjectOf(i); } catch (e) { /* no pixel access: no crop */ } ok(); }; i.onerror = ok; i.src = u; })));
+  // The tallest band (px) a picture fills at no more than 1.25× its own size, the softness limit of the resolution check.
+  // One band for a whole piece: the tallest every one of its photographs fills sharply (40 to 60 % of the slide),
+  // so the cover and the inner slides share one grid and no picture is stretched soft.
+  // The softness limit of a picture in its band: 1.25x on a carousel; 1.5x on a single post, whose band is always the same
+  // 60 %: a 720p frame fills the band edge to edge, a little soft, rather than shrinking the band or
+  // sitting inset with margins. The cover check warns from 1x and fails above this.
+  const SHARP_POST = 1.5; let SHARP = 1.25;
+  let pieceBand = Infinity, whiteHeads = []; // white inner-slide headlines, set to one size per carousel
+  const bandOf = (s, c, want) => Math.min(want, Math.max(Math.round(c.h * 0.4), pieceBand));
+  const sharpH = (s, want) => { const n = NATIVE[s.src]; return n ? Math.min(want, Math.floor(n[1] * SHARP / (s.scale || 1))) : want; };
+  window.setup = function (spec) {
+    fps = spec.fps || 25; anim = []; shots = []; issues = []; whiteHeads = []; captions = spec.captions || []; still = !!spec.still; lang = WORDS[spec.lang] ? spec.lang : 'en';
+    const post = spec.kind === 'post' || spec.kind === 'carousel'; isPost = post;
+    const [w, h] = SIZES[spec.format]; const m = safe(spec.format, [w, h], post);
+    stage = document.getElementById('stage'); stage.innerHTML = ''; stage.style.width = w + 'px'; stage.style.height = h + 'px';
+    stage.className = post ? 'post' + ((spec.shots || [spec]).length === 1 ? ' single' : '') : '';
+    const brand = spec.brand || 'ais-group';
+    // Video centres the logo large; posts set it at the top left at 1.2× the guide's on-screen minimum (Logos, Minimum size),
+    // so it signs without leading. The wide link format uses the minimum itself.
+    const logoW = post ? Math.round(LOGO_MIN[brand] * (w > 1100 ? 1 : 1.2))
+      : 560; // Video guide: 560 px for every brand and format at 1080p.
+    const c = { w, h, m, brand, post, wide: w > h * 1.5, brandName: spec.brandName || brand, logo: (colour) => `../brand/logos/${brand}-${colour}.svg`, logoW, logoH: logoW / LOGO_RATIO[brand],
+      icon: (name) => spec.icons?.[name] || '' };
+    // A single scene is a sequence of one shot.
+    const list = spec.shots || [spec]; nShots = list.length;
+    SHARP = post && nShots === 1 ? SHARP_POST : 1.25;
+    pieceBand = !post ? Infinity : Math.min(Math.round(h * 0.6), ...list.filter((s) => s.src && (s.type === 'hero' || s.type === 'callout' || s.type === 'quote' || (s.type === 'panel' && s.bg === 'white'))).map((s) => {
+      const n = NATIVE[s.src], k = (s.scale || 1); return !n || w / n[0] * k > SHARP ? Infinity : Math.floor(n[1] * SHARP / k); }));
+    claimWindows.length = 0;
+    let at = 0;
+    const wipes = [];
+    list.forEach((s, i) => {
+      s._i = i;
+      const L = document.createElement('div'); L.className = 'layer'; L.dataset.ground = s.bg || ''; stage.appendChild(L);
+      const first = anim.length;
+      const len = BUILD[s.type || s.scene](L, s, c, at);
+      if (!post && s.videoPattern) {
+        L.querySelectorAll(':scope > .fill').forEach(el => el.remove());
+        const draw = window.videoPattern(L, c, s.videoPattern);
+        // Capture this shot's start; the timeline cursor continues after setup.
+        const start = at; L._patternFrame = n => draw((n - start) / fps);
+      }
+      if (post) chrome(L, s, c, i, list.length);
+      if (s.patternSources?.[spec.format]) {
+        L.querySelectorAll('.hexes').forEach(el => el.remove());
+        const img = document.createElement('img');
+        img.className = 'linkedin-pattern'; img.src = s.patternSources[spec.format];
+        Object.assign(img.style, {position:'absolute', inset:'0', width:'100%', height:'100%', pointerEvents:'none', zIndex:'0'});
+        // Cut out the ink and every photo, using settled layout boxes and 32 px clearance.
+        const lr = L.getBoundingClientRect();
+        const holes = [...L.querySelectorAll(TEXT + ', .photo, .pic, .picture, .media')].map(el => {
+          const b = inkBox(el);
+          return `<rect x="${b.left-lr.left-32}" y="${b.top-lr.top-32}" width="${b.width+64}" height="${b.height+64}" fill="black"/>`;
+        }).join('');
+        const mask = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><mask id="m"><rect width="100%" height="100%" fill="white"/>${holes}</mask><rect width="100%" height="100%" fill="white" mask="url(#m)"/></svg>`;
+        img.style.maskImage = `url("data:image/svg+xml;base64,${btoa(mask)}")`;
+        img.style.maskSize = '100% 100%';
+        L.insertBefore(img, L.querySelector('.block, .stat, .sign') || null);
+      }
+      if (s.wipe && at > 0 && !still) wipes.push(at);
+      // The guide's cross-dissolve, for shots of the same scene only: 13 frames, the shot before stays under it until it is in.
+      if (s.dissolve && i > 0 && !still) { shots[i - 1].tail = 13; tween(L, at, 13, 'standard', { o: 0 }, { o: 1 }); }
+      // The settled frame: every entrance in this shot has finished. Ambient motion and exits do not count.
+      const settle = anim.slice(first).filter((a) => !a.ambient && a.curve !== 'exit').reduce((mx, a) => Math.max(mx, a.start + a.len), at + 1);
+      shots.push({ L, at, len, s, poster: Math.min(at + len - 1, settle) }); at += len;
+    });
+    // One headline size across a carousel's white slides: the largest every one of them fits, so the grid holds.
+    if (whiteHeads.length > 1) { const px = Math.min(...whiteHeads.map((t) => parseFloat(getComputedStyle(t).fontSize))); whiteHeads.forEach((t) => { t.style.fontSize = px + 'px'; }); }
+    // Blue wipe: the panel covers the cut on the exit curve (accelerating in) and uncovers on the enter curve.
+    for (const b of wipes) {
+      const p = document.createElement('div'); p.className = 'wipe'; stage.appendChild(p);
+      tween(p, b - frames(MS.slow1) + 2, frames(MS.slow1) - 2, 'exit', { y: h + 160 }, { y: 0 }); // parked clear of the frame, glow included
+      tween(p, b, frames(MS.slow2), 'enter', { y: 0 }, { y: -h - 160 });
+    }
+    // No film grain: the guide asks for a true-to-life image.
+    grain = null;
+    if (false) {
+      grainTiles = [0, 1, 2, 3].map((k) => { const cv = document.createElement('canvas'); cv.width = cv.height = 256; const g = cv.getContext('2d'), d = g.createImageData(256, 256);
+        let seed = 1234 + k * 999; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+        for (let i = 0; i < d.data.length; i += 4) { const v = rnd() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+        g.putImageData(d, 0, 0); return cv.toDataURL(); });
+      grain = document.createElement('div'); grain.className = 'grain'; grain.dataset.brandCheck = 'skip'; stage.appendChild(grain);
+    }
+    // Captions sit above everything, centred at the bottom of the safe area.
+    capBase = m.b; const cap = document.createElement('div'); cap.className = 'captions'; cap.style.bottom = m.b + 'px'; stage.appendChild(cap);
+    anim.forEach((a) => a.el && apply(a.el, a.from));
+    built = issues.slice(); // what the layouts found while building; audit() reports them with the measurements
+    return { width: w, height: h, frames: at, posters: shots.map((s) => s.poster), types: list.map((s) => s.type || s.scene), starts: shots.map((s) => s.at), lens: shots.map((s) => s.len) };
+  };
+  // Contrast (render.mjs): every word against what is really behind it. inkList() names each text and its box; render.mjs
+  // shoots the same frame with the words hidden (#stage.ink-off) and contrastOf() reads the pixels under each box: the
+  // 2nd percentile of the ratio must reach 4.5:1 (the mock-ups' contrast.py).
+  const INK = '.line > span, .acc, .overline, .stat .mono, .stat .big, .stat .ctx, .stat .note, .quote-text, .who .one, .reach > span, .action > span, .co-chip > span, .block > p, .stand .event, .stand .lead, .irow b, .cell b, .list .item b';
+  window.inkList = () => {
+    const sr = stage.getBoundingClientRect(), L = shots.find((x) => x.L.style.display === '')?.L || stage;
+    return [...L.querySelectorAll(INK)].filter((e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && e.textContent.trim()).map((e) => {
+      const rg = document.createRange(); rg.selectNodeContents(e); const r = rg.getBoundingClientRect();
+      return { what: e.textContent.trim().slice(0, 40), color: getComputedStyle(e).color, box: [r.left - sr.left, r.top - sr.top, r.right - sr.left, r.bottom - sr.top].map(Math.round) };
+    }).filter((t) => t.box[2] > t.box[0] && t.box[3] > t.box[1]);
+  };
+  window.inkOff = (on) => stage.classList.toggle('ink-off', on);
+  window.contrastOf = async (url, list) => {
+    const img = new Image(); img.src = url; await img.decode();
+    const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height; const g = cv.getContext('2d'); g.drawImage(img, 0, 0);
+    const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }, lum = (r, gg, b) => 0.2126 * lin(r) + 0.7152 * lin(gg) + 0.0722 * lin(b);
+    return list.map((t) => {
+      const [x0, y0, x1, y1] = [Math.max(0, t.box[0]), Math.max(0, t.box[1]), Math.min(img.width, t.box[2]), Math.min(img.height, t.box[3])];
+      if (x1 <= x0 || y1 <= y0) return { ...t, ratio: 21 };
+      const d = g.getImageData(x0, y0, x1 - x0, y1 - y0).data, [r, gg, b] = t.color.match(/[\d.]+/g).map(Number), lt = lum(r, gg, b), rs = [];
+      for (let k = 0; k < d.length; k += 8) { const lb = lum(d[k], d[k + 1], d[k + 2]); rs.push((Math.max(lt, lb) + 0.05) / (Math.min(lt, lb) + 0.05)); }
+      rs.sort((a, b2) => a - b2);
+      return { ...t, ratio: rs[Math.floor(rs.length * 0.02)] };
+    });
+  };
+  // Space (render.mjs): no large empty areas. bandList() names the visible
+  // slide's picture bands; spaceOf() reads the settled frame: in each band, how much of it the subject's box covers (cells of 16 px
+  // that differ from the band's own ground, small islands such as a verdict chip left out), and the tallest strip of empty rows
+  // (98.5 % of the row within 32 levels of its commonest colour: faint hexagon hairlines count as empty; rows across a subject's
+  // box count as filled) between two elements.
+  // gradientList() finds any gradient on the slide: posts and carousels have none; the hexagon corner is lines.
+  const visibleLayer = () => shots.find((x) => x.L.style.display === '')?.L || stage;
+  window.bandList = () => {
+    const sr = stage.getBoundingClientRect();
+    return [...visibleLayer().querySelectorAll('.photo')].filter((p) => p.querySelector('img')).map((p) => { const r = p.getBoundingClientRect();
+      return [r.left - sr.left, r.top - sr.top, Math.min(r.right, sr.right) - sr.left, Math.min(r.bottom, sr.bottom) - sr.top].map(Math.round); })
+      .filter((b) => b[2] - b[0] > 64 && b[3] - b[1] > 64);
+  };
+  window.gradientList = () => {
+    const out = [];
+    visibleLayer().querySelectorAll('*').forEach((e) => {
+      if (/^(linearGradient|radialGradient)$/i.test(e.tagName)) { out.push('an SVG gradient'); return; }
+      const bg = getComputedStyle(e).backgroundImage;
+      if (/gradient\(/.test(bg) && getComputedStyle(e).display !== 'none' && e.getClientRects().length) out.push(`.${[...e.classList].join('.') || e.tagName.toLowerCase()}`);
+    });
+    return [...new Set(out)];
+  };
+  const pixelsOf = async (url) => {
+    const img = new Image(); img.src = url; await img.decode();
+    const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height; const g = cv.getContext('2d'); g.drawImage(img, 0, 0);
+    return { W: img.width, H: img.height, d: g.getImageData(0, 0, img.width, img.height).data };
+  };
+  // The subject's box inside a box of an image, in that box's pixels: cells that differ from the ground, biggest islands only.
+  const subjectIn = ({ W, d }, [x0, y0, x1, y1], cell = 16) => {
+    const counts = new Map(), q = (k) => ((d[k] >> 3) << 10) | ((d[k + 1] >> 3) << 5) | (d[k + 2] >> 3);
+    const add = (x, y) => { const k = q((y * W + x) * 4); counts.set(k, (counts.get(k) || 0) + 1); };
+    for (let x = x0 + 2; x < x1 - 2; x += 2) { add(x, y0 + 2); add(x, y1 - 3); }
+    for (let y = y0 + 2; y < y1 - 2; y += 2) { add(x0 + 2, y); add(x1 - 3, y); }
+    const top = [...counts].sort((a, b) => b[1] - a[1])[0][0], ground = [(top >> 10) * 8 + 4, ((top >> 5) & 31) * 8 + 4, (top & 31) * 8 + 4];
+    const nx = Math.ceil((x1 - x0) / cell), ny = Math.ceil((y1 - y0) / cell), on = new Uint8Array(nx * ny);
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+      let n = 0, hit = 0;
+      for (let y = y0 + j * cell; y < Math.min(y1, y0 + (j + 1) * cell); y += 2) for (let x = x0 + i * cell; x < Math.min(x1, x0 + (i + 1) * cell); x += 2) {
+        const k = (y * W + x) * 4; n++;
+        if (Math.max(Math.abs(d[k] - ground[0]), Math.abs(d[k + 1] - ground[1]), Math.abs(d[k + 2] - ground[2])) > 22) hit++;
+      }
+      on[j * nx + i] = hit >= n * 0.2 ? 1 : 0;
+    }
+    // islands of cells (4-connected); those under 3 % of the band are marks or specks, not the subject
+    const seen = new Int32Array(nx * ny).fill(-1), boxes = [];
+    for (let s = 0; s < on.length; s++) {
+      if (!on[s] || seen[s] >= 0) continue;
+      const st = [s]; seen[s] = boxes.length; const b = { n: 0, i0: nx, j0: ny, i1: 0, j1: 0 };
+      while (st.length) { const c = st.pop(), i = c % nx, j = (c / nx) | 0; b.n++; b.i0 = Math.min(b.i0, i); b.j0 = Math.min(b.j0, j); b.i1 = Math.max(b.i1, i + 1); b.j1 = Math.max(b.j1, j + 1);
+        for (const [a, bb] of [[i - 1, j], [i + 1, j], [i, j - 1], [i, j + 1]]) { if (a < 0 || bb < 0 || a >= nx || bb >= ny) continue; const t = bb * nx + a; if (on[t] && seen[t] < 0) { seen[t] = boxes.length; st.push(t); } } }
+      boxes.push(b);
+    }
+    const keep = boxes.filter((b) => b.n >= on.length * 0.03);
+    if (!keep.length) return { box: null, cover: 0 };
+    const i0 = Math.min(...keep.map((b) => b.i0)), j0 = Math.min(...keep.map((b) => b.j0)), i1 = Math.max(...keep.map((b) => b.i1)), j1 = Math.max(...keep.map((b) => b.j1));
+    const box = [x0 + i0 * cell, y0 + j0 * cell, Math.min(x1, x0 + i1 * cell), Math.min(y1, y0 + j1 * cell)];
+    return { box, cover: ((box[2] - box[0]) * (box[3] - box[1])) / ((x1 - x0) * (y1 - y0)), ground };
+  };
+  window.spaceOf = async (url, bands) => {
+    const px = await pixelsOf(url), { W, H, d } = px;
+    const cover = bands.map((b) => ({ band: b, ...subjectIn(px, b) }));
+    const empty = [];
+    for (let y = 0; y < H; y++) {
+      const counts = new Map(); let n = 0;
+      for (let x = 0; x < W; x += 2) { const k = (y * W + x) * 4, key = ((d[k] >> 3) << 10) | ((d[k + 1] >> 3) << 5) | (d[k + 2] >> 3); counts.set(key, (counts.get(key) || 0) + 1); n++; }
+      const top = [...counts].sort((a, b) => b[1] - a[1])[0][0], c = [(top >> 10) * 8 + 4, ((top >> 5) & 31) * 8 + 4, (top & 31) * 8 + 4];
+      let near = 0;
+      for (let x = 0; x < W; x += 2) { const k = (y * W + x) * 4; if (Math.max(Math.abs(d[k] - c[0]), Math.abs(d[k + 1] - c[1]), Math.abs(d[k + 2] - c[2])) <= 32) near++; }
+      empty.push(near >= n * 0.985);
+    }
+    // Rows across a picture's subject are the picture, even where they are plain (a blank label, a sky): the cover rule judges them.
+    cover.forEach((c) => { if (c.box) for (let y = c.box[1]; y < c.box[3]; y++) empty[y] = false; });
+    const runs = []; let a = -1;
+    for (let y = 0; y <= H; y++) { if (y < H && empty[y]) { if (a < 0) a = y; } else if (a >= 0) { runs.push([a, y]); a = -1; } }
+    const inner = runs.filter(([y0, y1]) => y0 > 0 && y1 < H), edge = runs.filter(([y0, y1]) => y0 === 0 || y1 === H);
+    const tall = (rs) => rs.reduce((m, r) => (r[1] - r[0] > m[1] - m[0] ? r : m), [0, 0]);
+    return { cover, strip: tall(inner), edge: tall(edge), h: H };
+  };
+  // Layout checks run once fonts and images are in; render.mjs calls this after loading.
+  window.audit = function (spec, shot) {
+    const post = spec.kind === 'post' || spec.kind === 'carousel';
+    const [w, h] = SIZES[spec.format];
+    issues = built.filter((x) => shot === undefined || x.shot === shot);
+    measure({ w, h, m: safe(spec.format, [w, h], post) }, post ? 26 : 32, shot);
+    return issues;
+  };
+
+  window.frame = async function (n) {
+    for (const s of shots) s.L.style.display = n >= s.at && n < s.at + s.len + (s.tail || 0) ? '' : 'none';
+    for (const s of shots) if (s.L.style.display === '') s.L._patternFrame?.(n);
+    for (const w of claimWindows) w.el.style.display = n >= w.from && n < w.to ? '' : 'none';
+    // Later tweens on the same element win once they start.
+    for (const a of anim) {
+      if (a.fn) { a.fn(ease[a.curve](Math.min(1, Math.max(0, (n - a.start) / a.len)))); continue; }
+      if (n < a.start && anim.some((b) => b.el === a.el && b !== a && b.start < a.start)) continue;
+      const p = ease[a.curve](Math.min(1, Math.max(0, (n - a.start) / a.len)));
+      const mix = (k) => a.from[k] === undefined ? undefined : a.from[k] + (a.to[k] - a.from[k]) * p;
+      apply(a.el, { o: mix('o'), y: mix('y'), x: mix('x'), yp: mix('yp'), s: mix('s') });
+    }
+    const t = n / fps, cue = captions.find((q) => t >= q.from && t < q.to);
+    const cap = document.querySelector('.captions');
+    cap.innerHTML = cue ? cue.text.split('|').map((l) => `<span>${html(l)}</span>`).join('') : '';
+    // While a lower third is on screen the captions sit above it, never over the name.
+    const plate = shots.find((s) => s.L.style.display === '')?.L.querySelector('.plate');
+    cap.style.bottom = plate && cue ? capBase + plate.offsetHeight + 24 + 'px' : capBase + 'px';
+    if (grain) { grain.style.backgroundImage = `url(${grainTiles[n % 4]})`; grain.style.backgroundPosition = `${(n * 83) % 256}px ${(n * 137) % 256}px`; }
+    // Every video in the visible shot is seeked to its exact frame.
+    for (const s of shots) {
+      if (s.L.style.display !== '') continue;
+      for (const v of s.L.querySelectorAll('video[data-in]')) {
+        const target = +v.dataset.in + (n - s.at) / fps;
+        if (Math.abs(v.currentTime - target) > 1e-4) { v.currentTime = target; await new Promise((r) => v.addEventListener('seeked', r, { once: true })); }
+      }
+    }
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 220,
+  "data": {
+    "values": [
+      {
+        "week": 1,
+        "images": 820
+      },
+      {
+        "week": 2,
+        "images": 2160
+      },
+      {
+        "week": 3,
+        "images": 4060
+      },
+      {
+        "week": 4,
+        "images": 6470
+      },
+      {
+        "week": 5,
+        "images": 9120
+      },
+      {
+        "week": 6,
+        "images": 12240
+      },
+      {
+        "week": 7,
+        "images": 15640
+      },
+      {
+        "week": 8,
+        "images": 19620
+      }
+    ]
+  },
+  "mark": {
+    "type": "area",
+    "line": true
+  },
+  "encoding": {
+    "x": {
+      "field": "week",
+      "type": "quantitative",
+      "title": "Week",
+      "axis": {
+        "tickMinStep": 1
+      }
+    },
+    "y": {
+      "field": "images",
+      "type": "quantitative",
+      "title": "Images labelled",
+      "axis": {
+        "format": "~s",
+        "labelExpr": "datum.value === 0 ? '0' : datum.label"
+      }
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Images labelled over time",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

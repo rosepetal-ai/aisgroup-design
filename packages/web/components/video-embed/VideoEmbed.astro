@@ -1,0 +1,78 @@
+---
+// A film that loads only when asked. A YouTube film shows our own still (the poster, or public/media/youtube/<id>.webp
+// on the site) and a brand-blue play square; a click, Enter or Space puts the youtube-nocookie player in its place, so
+// nothing reaches Google before that. A local mp4 or webm gets the same play square and then the native controls.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import Icon from '../../lib/Icon.astro';
+interface Props {
+  /** A local mp4 or webm path, a YouTube URL or a YouTube ID. */
+  video: string;
+  title: string;
+  poster?: string;
+}
+const { video, title, poster } = Astro.props;
+const isLocalVideo = /^\/(?!\/).*\.(mp4|webm)(?:[?#].*)?$/i.test(video);
+const videoId = video.match(/(?:embed\/|v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/)?.[1] ?? video;
+const still = `/media/youtube/${videoId}.webp`;
+const thumb = poster ?? (existsSync(join(process.cwd(), 'public', still)) ? still : undefined);
+---
+{isLocalVideo ? (
+  <div class="web-video web-video--local">
+    <video playsinline preload="none" poster={poster} aria-label={title}>
+      <source src={video} />
+    </video>
+    <button type="button" class="web-video__play web-video__play--button" aria-label={title}><Icon name="play" size={24} /></button>
+  </div>
+) : (
+  <div class="web-video web-video--youtube" data-video-id={videoId} role="button" tabindex="0" aria-label={title}>
+    {thumb && <img src={thumb} alt={title} loading="lazy" decoding="async" class="web-video__still" />}
+    <span class="web-video__play" aria-hidden="true"><Icon name="play" size={24} /></span>
+  </div>
+)}
+<script>
+  function bind() {
+    document.querySelectorAll<HTMLElement>('.web-video--local:not([data-bound])').forEach((box) => {
+      box.dataset.bound = 'true';
+      const video = box.querySelector('video')!, play = box.querySelector<HTMLButtonElement>('.web-video__play')!;
+      play.addEventListener('click', () => { play.hidden = true; video.controls = true; void video.play(); }, { once: true });
+    });
+    document.querySelectorAll<HTMLElement>('.web-video--youtube:not([data-bound])').forEach((box) => {
+      box.dataset.bound = 'true';
+      const load = () => {
+        if (box.dataset.loaded) return;
+        box.dataset.loaded = 'true';
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${box.dataset.videoId}?autoplay=1`;
+        iframe.title = box.getAttribute('aria-label') ?? 'Video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        box.appendChild(iframe);
+      };
+      box.addEventListener('click', load);
+      box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+    });
+  }
+  bind();
+  document.addEventListener('astro:page-load', bind);
+</script>
+<style>
+  .web-video { position: relative; aspect-ratio: 16 / 9; width: 100%; overflow: hidden; background: var(--ais-blue-800); }
+  .web-video--youtube { cursor: pointer; }
+  .web-video video, .web-video__still { display: block; width: 100%; height: 100%; }
+  .web-video__still { object-fit: cover; transition: transform var(--ais-duration-slow-2) var(--ais-ease-enter); }
+  .web-video :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  /* Lucide's play icon is filled; its box already sits 1 px right, which centres the triangle optically. */
+  .web-video__play {
+    position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 64px; height: 64px; transform: translate(-50%, -50%);
+    background: var(--web-action); color: var(--web-action-ink); transition: background-color var(--ais-duration-moderate-1) var(--ais-ease-standard);
+  }
+  .web-video__play :global(svg) { display: block; fill: currentColor; }
+  .web-video--youtube:is(:hover, :focus-visible) .web-video__play { background: var(--web-action-hover); }
+  .web-video--youtube:is(:hover, :focus-visible) .web-video__still { transform: scale(1.03); }
+  .web-video--youtube:focus-visible { outline: 2px solid var(--web-focus); outline-offset: 2px; }
+  .web-video__play--button { border: 0; padding: 0; cursor: pointer; }
+  .web-video__play--button[hidden] { display: none; }
+  .web-video__play--button:is(:hover, :focus-visible) { background: var(--web-action-hover); }
+  .web-video__play--button:focus-visible { outline: 2px solid var(--ais-neutral-0); outline-offset: 2px; }
+</style>

@@ -1,0 +1,306 @@
+{
+  "catalog": {
+    "arrow": {
+      "name": {
+        "es": "Flecha",
+        "ca": "Fletxa"
+      },
+      "description": {
+        "es": "La flecha de los botones divididos, las acciones de texto y las tarjetas: 24 px en botones divididos y 20 px en el resto.",
+        "ca": "La fletxa dels botons dividits, les accions de text i les targetes: 24 px en botons dividits i 20 px a la resta."
+      }
+    },
+    "breadcrumb": {
+      "name": {
+        "es": "Ruta de navegación",
+        "ca": "Ruta de navegació"
+      },
+      "description": {
+        "es": "La ubicación de una página, en una franja bajo la cabecera. La página actual aparece como texto sin enlace.",
+        "ca": "La ubicació d’una pàgina, en una franja sota la capçalera. La pàgina actual apareix com a text sense enllaç."
+      }
+    },
+    "card": {
+      "name": {
+        "es": "Tarjeta",
+        "ca": "Targeta"
+      },
+      "description": {
+        "es": "Un enlace sin recuadro, en cuatro disposiciones: apilada, en fila, de texto y destacada.",
+        "ca": "Un enllaç sense requadre, en quatre disposicions: apilada, en fila, de text i destacada."
+      }
+    },
+    "card-grid": {
+      "name": {
+        "es": "Cuadrícula de tarjetas",
+        "ca": "Quadrícula de targetes"
+      },
+      "description": {
+        "es": "Tarjetas en 2, 3 o 4 columnas, o en una lista de filas.",
+        "ca": "Targetes en 2, 3 o 4 columnes, o en una llista de files."
+      }
+    },
+    "closing-band": {
+      "name": {
+        "es": "Franja de cierre",
+        "ca": "Franja de tancament"
+      },
+      "description": {
+        "es": "El cierre de la página de inicio y de cada página de AIS: azul de marca, la invitación y un botón dividido blanco.",
+        "ca": "El tancament de la pàgina d’inici i de cada pàgina d’AIS: blau de marca, la invitació i un botó dividit blanc."
+      }
+    },
+    "cookie-consent": {
+      "name": {
+        "es": "Aviso de cookies",
+        "ca": "Avís de galetes"
+      },
+      "description": {
+        "es": "Una barra oscura; Rechazar todas y Aceptar todas tienen el mismo peso.",
+        "ca": "Una barra fosca; Rebutja-les totes i Accepta-les totes tenen el mateix pes."
+      }
+    },
+    "footer": {
+      "name": {
+        "es": "Pie de página",
+        "ca": "Peu de pàgina"
+      },
+      "description": {
+        "es": "Azul profundo: el bloque de marca, hasta tres columnas de enlaces y la fila legal. Cada sitio aporta su contenido.",
+        "ca": "Blau profund: el bloc de marca, fins a tres columnes d’enllaços i la fila legal. Cada lloc aporta el seu contingut."
+      }
+    },
+    "link-card": {
+      "name": {
+        "es": "Tarjeta de enlace",
+        "ca": "Targeta d’enllaç"
+      },
+      "description": {
+        "es": "Un enlace a una página bajo una línea: título, texto y Leer más, con una imagen opcional.",
+        "ca": "Un enllaç a una pàgina sota una línia: títol, text i Llegeix-ne més, amb una imatge opcional."
+      }
+    },
+    "logo": {
+      "name": {
+        "es": "Logotipo",
+        "ca": "Logotip"
+      },
+      "description": {
+        "es": "El logotipo de una marca a la altura de su cabecera.",
+        "ca": "El logotip d’una marca a l’alçada de la seva capçalera."
+      }
+    },
+    "split-button": {
+      "name": {
+        "es": "Botón dividido",
+        "ca": "Botó dividit"
+      },
+      "description": {
+        "es": "La llamada a la acción: etiqueta y segmento de flecha, al tamaño de la marca o compacto.",
+        "ca": "La crida a l’acció: etiqueta i segment de fletxa, a la mida de la marca o compacte."
+      }
+    },
+    "text-link": {
+      "name": {
+        "es": "Enlace de texto",
+        "ca": "Enllaç de text"
+      },
+      "description": {
+        "es": "Una acción de texto con flecha; un enlace de retorno apunta a la izquierda; dentro de un párrafo aparece subrayado.",
+        "ca": "Una acció de text amb fletxa; un enllaç de retorn apunta a l’esquerra; dins d’un paràgraf apareix subratllat."
+      }
+    },
+    "video-embed": {
+      "name": {
+        "es": "Vídeo",
+        "ca": "Vídeo"
+      },
+      "description": {
+        "es": "Una película que solo se carga al solicitarla, sobre un fotograma propio.",
+        "ca": "Una pel·lícula que només es carrega quan es demana, sobre un fotograma propi."
+      }
+    },
+    "browser-frame": {
+      "name": {
+        "es": "Marco de navegador",
+        "ca": "Marc de navegador"
+      },
+      "description": {
+        "es": "Una pantalla del producto sobre una franja azul: una barra de navegador clara sobre la pantalla. Las secciones claras usan la ventana simple.",
+        "ca": "Una pantalla del producte sobre una franja blava: una barra de navegador clara sobre la pantalla. Les seccions clares fan servir la finestra simple."
+      }
+    }
+  },
+  "examples": {
+    "arrow/01-directions": {
+      "name": {
+        "es": "Direcciones",
+        "ca": "Direccions"
+      },
+      "about": {
+        "es": "Derecha para avanzar, izquierda para volver. 24 px dentro de botones divididos y 20 px en acciones de texto y tarjetas.",
+        "ca": "Dreta per avançar, esquerra per tornar. 24 px dins de botons dividits i 20 px en accions de text i targetes."
+      }
+    },
+    "breadcrumb/01-trail": {
+      "name": {
+        "es": "Ruta",
+        "ca": "Ruta"
+      },
+      "about": {
+        "es": "Primero el nombre del sitio y al final la página actual, como texto sin enlace.",
+        "ca": "Primer el nom del lloc i al final la pàgina actual, com a text sense enllaç."
+      }
+    },
+    "card/01-stack": {
+      "name": {
+        "es": "Apilada",
+        "ca": "Apilada"
+      },
+      "about": {
+        "es": "La imagen en proporción 8:5; después los metadatos, el título con flecha y la descripción.",
+        "ca": "La imatge en proporció 8:5; després les metadades, el títol amb fletxa i la descripció."
+      }
+    },
+    "card/02-layouts": {
+      "name": {
+        "es": "Disposiciones",
+        "ca": "Disposicions"
+      },
+      "about": {
+        "es": "La variante de texto coloca una línea superior en lugar de imagen y una acción de texto; la fila sirve para listas largas, con una miniatura junto al título.",
+        "ca": "La variant de text col·loca una línia superior en lloc d’imatge i una acció de text; la fila serveix per a llistes llargues, amb una miniatura al costat del títol."
+      }
+    },
+    "card-grid/01-columns": {
+      "name": {
+        "es": "Columnas",
+        "ca": "Columnes"
+      },
+      "about": {
+        "es": "Dos, tres o cuatro columnas con separaciones de 48 px; cuatro y tres pasan a dos en tabletas y todas pasan a una en móviles.",
+        "ca": "Dues, tres o quatre columnes amb separacions de 48 px; quatre i tres passen a dues en tauletes i totes passen a una en mòbils."
+      }
+    },
+    "closing-band/01-band": {
+      "name": {
+        "es": "Franja",
+        "ca": "Franja"
+      },
+      "about": {
+        "es": "La invitación y un botón dividido blanco hacia la página de contacto, con una línea de texto opcional.",
+        "ca": "La invitació i un botó dividit blanc cap a la pàgina de contacte, amb una línia de text opcional."
+      }
+    },
+    "cookie-consent/01-notice": {
+      "name": {
+        "es": "Aviso",
+        "ca": "Avís"
+      },
+      "about": {
+        "es": "El aviso se genera oculto y el script de consentimiento del sitio lo muestra. Aquí aparece visible.",
+        "ca": "L’avís es genera ocult i l’script de consentiment del lloc el mostra. Aquí apareix visible."
+      }
+    },
+    "footer/01-footer": {
+      "name": {
+        "es": "Pie de página",
+        "ca": "Peu de pàgina"
+      },
+      "about": {
+        "es": "Cada sitio aporta su logotipo, nombre y dirección, columnas y enlaces legales.",
+        "ca": "Cada lloc aporta el seu logotip, nom i adreça, columnes i enllaços legals."
+      }
+    },
+    "link-card/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "La variante compacta aparece sola bajo su línea; la fila coloca Leer más a la derecha, después de la imagen si la hay.",
+        "ca": "La variant compacta apareix sola sota la seva línia; la fila col·loca Llegeix-ne més a la dreta, després de la imatge si n’hi ha."
+      }
+    },
+    "logo/01-sizes": {
+      "name": {
+        "es": "Tamaños",
+        "ca": "Mides"
+      },
+      "about": {
+        "es": "La altura depende de la marca: 44 px en los sitios de AIS y 27 px en Rosepetal.",
+        "ca": "L’alçada depèn de la marca: 44 px als llocs d’AIS i 27 px a Rosepetal."
+      }
+    },
+    "split-button/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "Principal para la única llamada a la acción de una vista; secundaria con contorno para otra acción al lado; blanca sobre una franja azul de marca.",
+        "ca": "Principal per a l’única crida a l’acció d’una vista; secundària amb contorn per a una altra acció al costat; blanca sobre una franja blava de marca."
+      }
+    },
+    "split-button/02-sizes": {
+      "name": {
+        "es": "Tamaños",
+        "ca": "Mides"
+      },
+      "about": {
+        "es": "El tamaño predeterminado depende de la marca: 52 px en AIS y 44 px en Rosepetal. El compacto mide 44 px, para cabeceras y tarjetas.",
+        "ca": "La mida predeterminada depèn de la marca: 52 px a AIS i 44 px a Rosepetal. El compacte fa 44 px, per a capçaleres i targetes."
+      }
+    },
+    "split-button/03-states": {
+      "name": {
+        "es": "Estados",
+        "ca": "Estats"
+      },
+      "about": {
+        "es": "Sin flecha para una acción que no navega, como Restablecer en un formulario. Un botón que todavía no puede actuar está desactivado.",
+        "ca": "Sense fletxa per a una acció que no navega, com Restableix en un formulari. Un botó que encara no pot actuar està desactivat."
+      }
+    },
+    "text-link/01-directions": {
+      "name": {
+        "es": "Direcciones",
+        "ca": "Direccions"
+      },
+      "about": {
+        "es": "Una acción de texto apunta hacia delante; un enlace de retorno apunta a la izquierda y retrocede al pasar el cursor.",
+        "ca": "Una acció de text apunta endavant; un enllaç de retorn apunta a l’esquerra i retrocedeix en passar-hi el cursor."
+      }
+    },
+    "text-link/02-in-text": {
+      "name": {
+        "es": "Dentro del texto",
+        "ca": "Dins del text"
+      },
+      "about": {
+        "es": "Dentro de un párrafo adopta el tamaño del texto, pierde la flecha y permanece subrayado.",
+        "ca": "Dins d’un paràgraf adopta la mida del text, perd la fletxa i es manté subratllat."
+      }
+    },
+    "video-embed/01-youtube": {
+      "name": {
+        "es": "YouTube",
+        "ca": "YouTube"
+      },
+      "about": {
+        "es": "Fotograma propio y botón cuadrado de reproducción; YouTube solo se carga al pulsar, con Intro o con la barra espaciadora.",
+        "ca": "Fotograma propi i botó quadrat de reproducció; YouTube només es carrega en prémer, amb Retorn o amb la barra espaiadora."
+      }
+    },
+    "browser-frame/01-on-blue": {
+      "name": {
+        "es": "Sobre azul",
+        "ca": "Sobre blau"
+      },
+      "about": {
+        "es": "Una pantalla real de Rosepetal en una franja azul profundo: la barra clara la separa del fondo.",
+        "ca": "Una pantalla real de Rosepetal en una franja blava profunda: la barra clara la separa del fons."
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+# Brand architecture
+
+The brand architecture defines the relationship between the group and its companies.
+
+## The family
+
+These are communication names, not the companies' legal names. «Rosepetal AI» may be used as a commercial descriptor in running text; it is not a second logo.
+
+## Who signs what
+
+- **The brand that delivers the work leads the piece.** An AIS REV 360 brochure is signed by AIS Vision Systems; a page about the Rosepetal app by Rosepetal.
+- **AIS Group leads joint communication:** group presentations, recruitment, investor and press material, and anything involving several brands.
+- **Endorse with words, not a lock-up.** Add «Part of AIS Group» as a separate line in the footer, closing slide or contact block. Do not attach it to the logo file.
+- In a joint piece, use one leading signature and a separate, evenly weighted block of participating brands. Hierarchy comes from who is speaking, never from giving each brand its own colour.
+
+## Writing the names
+
+| Correct | Incorrect |
+| --- | --- |
+| **AIS Group** | Ais Group, AiS Group, AIS GROUP, AIS group, A.I.S. |
+| **AIS Vision Systems**; *AIS Vision* after the first mention on its own site | Ais Vision Systems, AIS vision systems, AIS VISION SYSTEMS, AIS VISION, Ais Vision, AIS vision Systems |
+| **AIS Vision Automation** | Ais Vision Automation, AIS vision automation, AIS Automation |
+| **AIS Scanology** | Ais Scanology, AIS scanology, AIS SCANOLOGY; *Scanology* alone on another brand’s page |
+| **Rosepetal** | RosePetal, Rose Petal, rosepetal, ROSEPETAL; *Rosepetal AI* as a name or label |
+| **AIS REV 360**, **AIS REV 360 COMPACT**, **AIS REV 360 Cables** | Rev 360, REV360 |
+| **AIS REV 360 2C**, **AIS REV 360 8C**, **AIS REV CAN** (canning variants) | AIS REV360 2C, AIS REV 360-8C, AIS Rev Can, AIS REVCAN |
+| **AIS KARIKÓ**, **AIS Hopper**, **OPTICAIS** | Kariko, Karikó alone |
+| **AIS Vision Systems, S.L.** in legal text | AIS VISION SYSTEMS S.L. |
+
+- **AIS** is an acronym: always three capitals. On its own it is ambiguous between the group and AIS Vision Systems, so never use it alone.
+- These names go in the spelling dictionary of every language.
+- **Rosepetal** is one word with a capital R only, in every language and every context, including headlines set in capitals.
+- Brand and product names are never translated. Use the full name on first mention.
+- Logos keep their own drawing (Rosepetal’s lowercase wordmark, the capitalised descriptors). That drawing does not change how the name is written in text.
+- **AIS Group Design** is the name of this project; the signature remains **AIS Group**.

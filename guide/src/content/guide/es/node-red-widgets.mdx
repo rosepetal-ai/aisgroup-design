@@ -1,0 +1,30 @@
+---
+title: Cómo funcionan los widgets
+rules:
+  - 'Construye los paneles con los nodos de serie del dashboard de FlowFuse y los widgets de Rosepetal; nunca dupliques un widget para cambiarle el estilo.'
+  - 'Da a cada grupo la clase `rp-section`, para que se vea como una sección plana con el título alineado con el contenido.'
+  - 'Los interruptores y los widgets de texto usan la disposición con la etiqueta a la izquierda (`row-spread`). Etiquetas con mayúscula solo inicial.'
+  - 'El estado es un icono y una palabra, nunca solo color.'
+---
+
+## Qué se mantiene y qué cambia
+
+| Parte | Se mantiene como en FlowFuse | Rosepetal añade |
+| --- | --- | --- |
+| Nodos | Cada nodo, sus ajustes y su ayuda en el editor | Los widgets de Rosepetal: vista en vivo, estado de la sesión, cola de imágenes, último error y más |
+| Mensajes | `msg.payload`, `msg.ui_update`, `msg.enabled` y cualquier otra propiedad, sin cambios | Nada: un flujo hecho para FlowFuse funciona tal cual |
+| Páginas y grupos | ui-base, ui-page y ui-group, la cuadrícula, los puntos de corte y los tamaños | La clase de grupo `rp-section`: una sección plana en lugar de una tarjeta |
+| Aspecto | | Los tokens de la aplicación (color, tipografía, radio, espaciado), para que el panel encaje con la aplicación que lo rodea |
+
+## Construir un panel
+
+1. Construye el flujo como cualquier dashboard de FlowFuse: un ui-base, sus páginas, grupos y los widgets dentro.
+2. En cada grupo, pon `rp-section` en **Class**.
+3. Usa los widgets de serie para los controles y los de Rosepetal para la inspección: la vista en vivo, los resultados, las colas de imágenes y las sesiones.
+4. Revisa la página en claro y en oscuro: el tema sigue el modo de la aplicación.
+
+Las páginas de galería de esta sección son flujos así, en un Node-RED local: cada página de widget son unas pocas secciones como las tendría un panel.
+
+## Cómo se instala
+
+El dashboard de Rosepetal es una compilación de `@flowfuse/node-red-dashboard` (1.33.0) de FlowFuse con la capa del tema añadida. Mantiene el nombre del paquete y los tipos de nodo, así que un controlador lo instala en lugar del paquete de serie y sus flujos se importan sin cambios. Los widgets de Rosepetal vienen de `@rosepetal/node-red-dashboard-2-rosepetal`.

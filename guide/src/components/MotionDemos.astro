@@ -1,0 +1,125 @@
+---
+import type { Lang } from '../i18n';
+import Arrow from './Arrow.astro';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Live specimens of the motion patterns, built only from the --ais-duration/ease/distance tokens.
+const t = {
+  en: { link: 'Text link and arrow', linkSpec: 'Hover: underline and colour 180 ms standard; arrow 3 px 180 ms standard', linkText: 'Book a demo', button: 'Button', buttonSpec: 'Hover: colour 180 ms standard. Press: 80 ms, no scale', buttonText: 'Book a demo', menu: 'Menu and dropdown', menuSpec: 'Open: fade and 8 px 240 ms enter. Close: 180 ms exit', menuText: 'Industries', items: ['Automotive', 'Food and beverage', 'Pharma'], acc: 'Accordion', accSpec: 'Height and chevron 240 ms standard', accQ: 'What does the system inspect?', accA: 'Presence, position, codes and surface defects, at line speed.', reveal: 'Scroll reveal', revealSpec: 'Fade and 16 px, 700 ms enter, 60 ms apart, once', title: 'Headline reveal', titleSpec: 'Lines rise from a mask, 1100 ms enter, 100 ms apart', titleText: ['Inspect every part', 'at line speed'], card: 'Card image', cardSpec: 'Hover: image scales to 1.03 over 700 ms enter; the card stays still', replay: 'Replay' },
+  es: { link: 'Enlace de texto y flecha', linkSpec: 'Hover: subrayado y color, 180 ms estándar; flecha 3 px, 180 ms estándar', linkText: 'Solicita una demo', button: 'Botón', buttonSpec: 'Hover: color, 180 ms estándar. Pulsación: 80 ms, sin escalar', buttonText: 'Solicita una demo', menu: 'Menú y desplegable', menuSpec: 'Abrir: fundido y 8 px, 240 ms entrada. Cerrar: 180 ms salida', menuText: 'Sectores', items: ['Automoción', 'Alimentación y bebidas', 'Farmacia'], acc: 'Acordeón', accSpec: 'Altura y chevron, 240 ms estándar', accQ: '¿Qué inspecciona el sistema?', accA: 'Presencia, posición, códigos y defectos de superficie, a velocidad de línea.', reveal: 'Revelado al hacer scroll', revealSpec: 'Fundido y 16 px, 700 ms entrada, 60 ms entre elementos, una vez', title: 'Titular por líneas', titleSpec: 'Las líneas suben desde una máscara, 1100 ms entrada, 100 ms entre líneas', titleText: ['Inspecciona cada pieza', 'a velocidad de línea'], card: 'Imagen de tarjeta', cardSpec: 'Hover: la imagen escala a 1,03 en 700 ms entrada; la tarjeta no se mueve', replay: 'Repetir' },
+  ca: { link: 'Enllaç de text i fletxa', linkSpec: 'Hover: subratllat i color, 180 ms estàndard; fletxa 3 px, 180 ms estàndard', linkText: 'Demana una demostració', button: 'Botó', buttonSpec: 'Hover: color, 180 ms estàndard. Pulsació: 80 ms, sense escalar', buttonText: 'Demana una demostració', menu: 'Menú i desplegable', menuSpec: 'Obrir: fos i 8 px, 240 ms entrada. Tancar: 180 ms sortida', menuText: 'Sectors', items: ['Automoció', 'Alimentació i begudes', 'Farmàcia'], acc: 'Acordió', accSpec: 'Alçada i xebró, 240 ms estàndard', accQ: 'Què inspecciona el sistema?', accA: 'Presència, posició, codis i defectes de superfície, a velocitat de línia.', reveal: 'Revelat en fer scroll', revealSpec: 'Fos i 16 px, 700 ms entrada, 60 ms entre elements, un cop', title: 'Titular per línies', titleSpec: 'Les línies pugen des d’una màscara, 1100 ms entrada, 100 ms entre línies', titleText: ['Inspecciona cada peça', 'a velocitat de línia'], card: 'Imatge de targeta', cardSpec: 'Hover: la imatge escala a 1,03 en 700 ms entrada; la targeta no es mou', replay: 'Repeteix' },
+}[lang];
+// Lucide chevron-down and rotate-ccw.
+const chevron = '<path d="m6 9 6 6 6-6"/>';
+const replay = '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>';
+---
+<div class="demos">
+  <section>
+    <div class="stage"><a class="ais-text-link" href="#motion-demos" onclick="return false">{t.linkText}<Arrow /></a></div>
+    <p><strong>{t.link}</strong>{t.linkSpec}</p>
+  </section>
+  <section>
+    <div class="stage"><button type="button" class="btn">{t.buttonText}</button></div>
+    <p><strong>{t.button}</strong>{t.buttonSpec}</p>
+  </section>
+  <section>
+    <div class="stage menu-stage">
+      <button type="button" class="menu-toggle" aria-expanded="false">{t.menuText}<svg viewBox="0 0 24 24" aria-hidden="true" set:html={chevron} /></button>
+      <ul class="menu" role="list">{t.items.map((i) => <li>{i}</li>)}</ul>
+    </div>
+    <p><strong>{t.menu}</strong>{t.menuSpec}</p>
+  </section>
+  <section>
+    <div class="stage">
+      <div class="acc">
+        <button type="button" class="acc-q" aria-expanded="false">{t.accQ}<svg viewBox="0 0 24 24" aria-hidden="true" set:html={chevron} /></button>
+        <div class="acc-a"><div><p>{t.accA}</p></div></div>
+      </div>
+    </div>
+    <p><strong>{t.acc}</strong>{t.accSpec}</p>
+  </section>
+  <section>
+    <div class="stage reveal-stage is-in">{['hopper_exterior.jpg', 'rev360-compact_exterior.jpg', 'rev360-pharma_vials-three-quarter.jpg'].map(f => <span><img src={`/library/photos/${f}`} alt="" loading="lazy" /></span>)}</div>
+    <p><strong>{t.reveal}</strong>{t.revealSpec}</p>
+    <button type="button" class="replay" data-target="reveal-stage"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={replay} />{t.replay}</button>
+  </section>
+  <section>
+    <div class="stage title-stage is-in"><span class="line"><span>{t.titleText[0]}</span></span><span class="line"><span>{t.titleText[1]}</span></span></div>
+    <p><strong>{t.title}</strong>{t.titleSpec}</p>
+    <button type="button" class="replay" data-target="title-stage"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={replay} />{t.replay}</button>
+  </section>
+  <section class="wide">
+    <div class="stage"><div class="card"><div class="card-img"><img src="/library/photos/rev360-compact_exterior.jpg" alt="" loading="lazy" /></div></div></div>
+    <p><strong>{t.card}</strong>{t.cardSpec}</p>
+  </section>
+</div>
+<script>
+  // Runs on every page load, including page changes through the client router.
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('.demos').forEach((root) => {
+      // Disclosure demos toggle aria-expanded; CSS animates from the attribute.
+      root.querySelectorAll<HTMLButtonElement>('.menu-toggle, .acc-q').forEach((b) =>
+        b.addEventListener('click', () => b.setAttribute('aria-expanded', String(b.getAttribute('aria-expanded') !== 'true'))));
+      // Replay: drop the state, force a reflow, add it back.
+      root.querySelectorAll<HTMLButtonElement>('.replay').forEach((b) => b.addEventListener('click', () => {
+        const stage = root.querySelector<HTMLElement>(`.${b.dataset.target}`);
+        if (!stage) return;
+        stage.classList.remove('is-in'); void stage.offsetWidth; stage.classList.add('is-in');
+      }));
+    });
+  });
+</script>
+<style>
+  .demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
+  section { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 0; }
+  section.wide { grid-column: 1 / -1; }
+  .stage { position: relative; display: grid; place-items: center; height: 260px; min-height: 260px; box-sizing: border-box; padding: 24px; background: var(--ais-neutral-50); border: 1px solid var(--line); border-radius: 0; overflow: hidden; }
+  section > p { display: flex; flex-direction: column; gap: 2px; margin: 0 !important; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  section > p strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .btn { height: 44px; padding: 0 24px; border: 0; background: var(--ais-blue-700); color: #fff; font: 500 var(--ais-text-label)/var(--ais-text-label-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-label-tracking); cursor: pointer; text-box: trim-both cap alphabetic; transition: background var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .btn:hover { background: var(--ais-blue-800); }
+  .btn:active { background: var(--ais-blue-900); transition-duration: var(--ais-duration-fast-1); }
+
+  .menu-stage { place-items: start center; }
+  .menu-toggle, .acc-q { display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; color: var(--ink); font: 500 var(--ais-text-label)/var(--ais-text-label-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-label-tracking); cursor: pointer; padding: 8px 0; }
+  .menu-toggle svg, .acc-q svg { transition: transform var(--ais-duration-moderate-2) var(--ais-ease-standard); }
+  [aria-expanded='true'] svg { transform: rotate(180deg); }
+  .menu { list-style: none; margin: 0; padding: 8px 0; width: 220px; background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 24px rgb(15 23 41 / .06); opacity: 0; transform: translateY(var(--ais-distance-menu)); visibility: hidden;
+    transition: opacity var(--ais-duration-moderate-1) var(--ais-ease-exit), transform var(--ais-duration-moderate-1) var(--ais-ease-exit), visibility 0s linear var(--ais-duration-moderate-1); }
+  .menu li { margin: 0 !important; padding: 8px 16px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .menu-toggle[aria-expanded='true'] + .menu { opacity: 1; transform: none; visibility: visible;
+    transition: opacity var(--ais-duration-moderate-2) var(--ais-ease-enter), transform var(--ais-duration-moderate-2) var(--ais-ease-enter), visibility 0s; }
+
+  .acc { width: 100%; max-width: 360px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .acc-q { width: 100%; justify-content: space-between; padding: 16px 0; text-align: left; }
+  .acc-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--ais-duration-moderate-2) var(--ais-ease-standard); }
+  .acc-a > div { overflow: hidden; }
+  .acc-a p { margin: 0 0 16px !important; color: var(--muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .acc-q[aria-expanded='true'] + .acc-a { grid-template-rows: 1fr; }
+
+  .reveal-stage img { width: 100%; height: 100%; object-fit: contain; }
+  .reveal-stage { grid-template-columns: repeat(3, 1fr); place-items: stretch; align-content: center; gap: 12px; }
+  .reveal-stage span { height: 88px; background: #fff; border: 1px solid var(--line); opacity: 0; transform: translateY(var(--ais-distance-reveal)); }
+  .reveal-stage.is-in span { opacity: 1; transform: none; transition: opacity var(--ais-duration-slow-2) var(--ais-ease-enter), transform var(--ais-duration-slow-2) var(--ais-ease-enter); }
+  .reveal-stage.is-in span:nth-child(2) { transition-delay: var(--ais-stagger); }
+  .reveal-stage.is-in span:nth-child(3) { transition-delay: calc(var(--ais-stagger) * 2); }
+
+  .title-stage { place-items: center start; align-content: center; gap: 0; font-size: var(--ais-text-subheading); font-weight: 500; letter-spacing: var(--ais-text-subheading-tracking); line-height: 1.15; line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); }
+  .title-stage .line { display: block; overflow: hidden; padding-bottom: .1em; }
+  .title-stage .line > span { display: block; transform: translateY(110%); }
+  .title-stage.is-in .line > span { transform: none; transition: transform var(--ais-duration-expressive) var(--ais-ease-enter); }
+  .title-stage.is-in .line + .line > span { transition-delay: var(--ais-stagger-lines); }
+
+  .card { width: min(100%, 320px); background: #fff; border: 1px solid var(--line); }
+  .card-img { overflow: hidden; aspect-ratio: 16 / 9; }
+  .card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform var(--ais-duration-slow-2) var(--ais-ease-enter); }
+  .card:hover .card-img img { transform: scale(1.03); }
+
+  .replay { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 600 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-caption-tracking); cursor: pointer; text-box: trim-both cap alphabetic; }
+  .replay svg { width: 14px; height: 14px; }
+
+  @media (max-width: 760px) { .demos { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .demos *, .demos *::before { transition-duration: 0s !important; transition-delay: 0s !important; } }
+</style>

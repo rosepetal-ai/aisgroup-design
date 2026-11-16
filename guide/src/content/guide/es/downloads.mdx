@@ -1,0 +1,99 @@
+---
+title: Descargas
+rules:
+  - 'Construye cada producto con Tailwind v4 sobre ais-theme.css, los propios tokens de los productos de Rosepetal: colores, tipografía y radios salen de sus clases, nunca escritos a mano. Las webs usan ais-tokens.css con sus propios componentes.'
+---
+import LogoDownloads from '../../../components/LogoDownloads.astro';
+import PatternDownloads from '../../../components/PatternDownloads.astro';
+import TypefaceDownloads from '../../../components/TypefaceDownloads.astro';
+import IconDownloads from '../../../components/IconDownloads.astro';
+import PhotoDownloads from '../../../components/PhotoDownloads.astro';
+import VideoDownloads from '../../../components/VideoDownloads.astro';
+
+Descarga los archivos aprobados para documentos, productos y sitios web.
+
+## Logotipos
+
+SVG con fondo transparente. Dónde va cada color: [Logotipos](/es/logos/).
+
+<LogoDownloads lang="es" />
+
+### Iconos de app y favicons
+
+Cada juego contiene los favicons en SVG, PNG e ICO, el icono táctil de Apple, los iconos de 192, 512 y enmascarable y el manifiesto web; consulta [Favicons](/es/logos/#favicons). El juego propio de cada web está en su zip, en [Recursos web](/es/assets/).
+
+<LogoDownloads lang="es" set="favicons" />
+
+## Tramas
+
+La trama de hexágonos, un archivo por esquina, en blanco para fondos azul de marca. SVG; consulta [Fondos](/es/imagery/#fondos).
+
+<PatternDownloads lang="es" />
+
+[Tramas decorativas, todas las variantes](/es/patterns/).
+
+## Fotografías
+
+Fotografías, vistas de producto y pantallas actuales de la app, por tema. Las fotografías de stock enlazan al origen del fotógrafo para descargarlas con su licencia; úsalas como contexto, nunca como una instalación o un cliente de AIS. Un fotograma de vídeo nunca es portada, ni impresa ni en pantalla; consulta [Imagen](/es/imagery/#renders-máquinas-y-material-de-clientes).
+
+<PhotoDownloads lang="es" />
+
+[Catálogo de imágenes y vídeos](/downloads/media-library.json)
+
+## Vídeos
+
+Los vídeos de introducción de cada marca: el archivo 1080p para webs y publicaciones, el original 4K para editar.
+
+<VideoDownloads lang="es" />
+
+## Tipografías
+
+Las dos tipografías son gratuitas con licencia SIL Open Font License. Instala las versiones de escritorio para documentos y presentaciones.
+
+<TypefaceDownloads />
+
+| Archivo | Contenido |
+| --- | --- |
+| [inter-latin.woff2](/fonts/inter-latin.woff2), [inter-latin-ext.woff2](/fonts/inter-latin-ext.woff2) | Inter para webs, latín y latín extendido |
+| [jetbrains-mono-latin.woff2](/fonts/jetbrains-mono-latin.woff2), [jetbrains-mono-latin-ext.woff2](/fonts/jetbrains-mono-latin-ext.woff2) | JetBrains Mono para webs, latín y latín extendido |
+| [OFL-Inter.txt](/fonts/OFL-Inter.txt), [OFL-JetBrains-Mono.txt](/fonts/OFL-JetBrains-Mono.txt) | La licencia de cada tipografía |
+
+## Iconos
+
+El conjunto básico de iconos de Lucide en SVG, con la licencia de Lucide. Consulta [Iconos](/es/icons/).
+
+<IconDownloads />
+
+## Tokens de color y tipografía
+
+| Archivo | Contenido |
+| --- | --- |
+| [ais-theme.css](/downloads/ais-theme.css) | El tema de Tailwind v4: `@rosepetal/design/styles.css`, los tokens de los productos de Rosepetal |
+| [ais-tokens.css](/downloads/ais-tokens.css) | Los mismos valores como variables CSS, para impresión, email y todo lo que no use Tailwind |
+| [ais-tokens.json](/downloads/ais-tokens.json) | Tokens de diseño (formato W3C DTCG) |
+| [ais-web-theme.css](/downloads/ais-web-theme.css) | Los tamaños de texto de Tailwind como estilos tipográficos de la marca, y el borde de campo, sobre ais-theme.css y ais-tokens.css. Las webs usan su bloque tipográfico solo sobre ais-tokens.css; ver [Componentes de los sitios web](/es/web-components/). |
+
+Cada producto se construye con Tailwind v4 sobre ais-theme.css, los tokens de los productos de Rosepetal (`@rosepetal/design/styles.css`), así que las clases son las de la app: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. Necesita `tw-animate-css`. Las webs cargan ais-tokens.css en su lugar, bajo sus propios componentes; ver [Componentes de los sitios web](/es/web-components/).
+
+```css
+@import "tailwindcss";
+@import "./ais-theme.css";
+```
+
+## Herramientas
+
+| Archivo | Contenido |
+| --- | --- |
+| [Herramienta de gráficos](/downloads/charts/README.md) | Configuración de marca para Vega-Lite (clara y oscura), el programa que genera los gráficos ([render.mjs](/downloads/charts/render.mjs)), diez especificaciones de ejemplo y el tema de ECharts para el producto. Consulta [Visualización de datos](/es/data/). |
+| [ais-vega-config.json](/downloads/charts/ais-vega-config.json), [ais-vega-config-dark.json](/downloads/charts/ais-vega-config-dark.json) | La configuración de marca de Vega-Lite, clara y oscura |
+| [ais-echarts-theme.json](/downloads/charts/ais-echarts-theme.json), [ais-echarts-theme-dark.json](/downloads/charts/ais-echarts-theme-dark.json) | El tema de ECharts para el producto, claro y oscuro |
+| [overlay.mjs](/downloads/overlays/overlay.mjs) | El programa que dibuja las capas de detección, con cinco especificaciones de ejemplo en [examples](/downloads/overlays/examples/detection.json). Consulta [Imagen](/es/imagery/#capas-de-detección). |
+| [brand-check.js](/downloads/qa/brand-check.js) | La revisión de marca: cárgala en cualquier página y ejecuta `aisBrandCheck()`. Señala scroll horizontal, palabras partidas, tipografías y colores fuera de la marca, símbolos tecleados, texto pequeño, imágenes sin alternativa y, con axe-core, incumplimientos de accesibilidad. Consulta [Accesibilidad](/es/accessibility/#pruebas). |
+
+## Para agentes de IA
+
+Indica la marca y la versión de la guía en la tarea, lee la página correspondiente y usa estos archivos exactos.
+
+| Archivo | Contenido |
+| --- | --- |
+| [brand.md](/es/brand.md) | Todas las reglas de esta guía en un solo archivo, también en [inglés](/en/brand.md) y en [catalán](/ca/brand.md). Consulta [Agentes de IA](/es/agents/). |

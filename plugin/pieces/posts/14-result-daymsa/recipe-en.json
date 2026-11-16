@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-result-daymsa_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Daymsa estimates it cut the time and people it spent on quality inspection by 95%, after installing AIS Vision Systems label and cap inspection on its packaging line. Three cameras check the containers on the line: the cap thread, the label, the barcode and the variable data. Download the case study",
+  "shots": [
+    {
+      "type": "stat",
+      "look": "light",
+      "evidence": "case",
+      "basis": "estimated",
+      "value": "95",
+      "source": "Daymsa case study, aisvision.com, 20 October 2020",
+      "unit": "%",
+      "text": "less time and fewer people on quality inspection",
+      "note": "Daymsa’s estimate. Case study on aisvision.com, 2020."
+    }
+  ]
+}

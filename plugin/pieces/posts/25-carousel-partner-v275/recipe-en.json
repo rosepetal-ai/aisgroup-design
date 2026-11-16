@@ -1,0 +1,63 @@
+{
+  "name": "ais-vision-systems_carousel-partner-v275_en_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "The Omron V275 verifies 1D and 2D codes as labels are printed, checking that they are correct and readable and detecting errors in real time before products reach the market. It checks the presence or absence of labels and codes, print quality and the correctness of encoded data. AIS Vision Systems distributes Omron LVS verifiers. Send us samples.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/v275-printer-whole.jpg",
+      "focus": [
+        50,
+        55
+      ],
+      "headline": "Codes verified|by the *Omron V275*",
+      "alt": "A Zebra label printer fitted with the Omron V275 verifier, printing an AIS test label.",
+      "scale": 1,
+      "fit": "contain"
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/v275-operator-screen.jpg",
+      "focus": [
+        0,
+        45
+      ],
+      "split": 0.6,
+      "headline": "Errors caught|before they reach|the market",
+      "alt": "An operator at the V275 software screen, which flags a defective test label in red."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/v275-verifier-head.jpg",
+      "focus": [
+        45,
+        45
+      ],
+      "split": 0.6,
+      "headline": "1D and 2D codes,|presence, print|quality and data",
+      "alt": "The Omron V275 head over a test label with a barcode, a DataMatrix code and the CE mark."
+    },
+    {
+      "type": "contact",
+      "headline": "Shall we verify|*your labels*?",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "alt": "Shall we verify your labels? Send us samples. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

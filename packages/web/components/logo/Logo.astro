@@ -1,0 +1,9 @@
+---
+// A brand's logo at its header height (--web-logo-height, per brand). The file and its ink come from the site.
+interface Props { src: string; alt: string; width: number; height: number; class?: string; loading?: 'eager' | 'lazy' }
+const { src, alt, width, height, class: className, loading = 'eager' } = Astro.props;
+---
+<img class:list={['web-logo', className]} src={src} alt={alt} width={width} height={height} loading={loading} decoding="async" />
+<style>
+  .web-logo { display: block; width: auto; height: var(--web-logo-height); }
+</style>

@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+dist-artifact/
+artifact/
+.astro/
+*.tsbuildinfo
+
+# local environment and secrets
+.env
+.env.*
+!.env.example
+gha-creds-*.json
+
+# logs and scratch
+*.log
+npm-debug.log*
+*.bak*
+__pycache__/
+
+# editors / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# the playground's local copies of rosepetal-ui's images (client material, kept out of git: see playground/README.md)
+playground/rp-assets/
+
+# the hosted server's snapshot of the built guide (npm run build -w hosted)
+hosted/data/
+
+# the plugin's media library: a link to the local media cache (no trailing slash, so the link itself is ignored too);
+# its scratch and renders are in plugin/.gitignore
+plugin/library/media
+guide/.firebase/
+/marketing-kit/

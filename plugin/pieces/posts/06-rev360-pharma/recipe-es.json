@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-rev360-pharma_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS REV 360 PHARMA revisa las etiquetas de viales y envases pequeños a 360°, a velocidades de hasta 18 000 envases/h. En este vial de muestra, una segunda etiqueta se ha pegado sobre la primera. Es un ejemplo ilustrativo, no el resultado de una validación de máquina. Pruébalo con tus productos",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/social-composites/06-rev360-pharma-vial_label-double_es.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "La doble etiqueta,|a la vista"
+    }
+  ]
+}

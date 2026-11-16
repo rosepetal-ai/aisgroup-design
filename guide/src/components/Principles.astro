@@ -1,0 +1,19 @@
+---
+import { principles } from '../essentials';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<ol class="principles">
+  {principles[lang].map((p) => (
+    <li><h3>{p.title}</h3><p>{p.text}</p></li>
+  ))}
+</ol>
+<style>
+  /* Same pattern as the task grid: light rule above each item, the section divider closes the block. */
+  .principles { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 48px; }
+  li { margin: 0 !important; padding: 16px 0 24px; border-top: 1px solid var(--line); }
+  h3 { margin: 0 0 8px; font-size: var(--ais-text-subheading); font-weight: var(--ais-text-subheading-weight); letter-spacing: var(--ais-text-subheading-tracking); line-height: var(--ais-text-subheading-leading); }
+  p { margin: 0; color: var(--ink); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); }
+  @media (max-width: 760px) { .principles { grid-template-columns: 1fr; row-gap: 32px; } }
+</style>

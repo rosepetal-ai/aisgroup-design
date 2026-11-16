@@ -1,0 +1,140 @@
+---
+title: "Documentos y presentaciones"
+rules:
+  - "Cada ejemplo identifica su producto o pieza de origen y usa un fragmento coherente. Conserva las cifras y condiciones exactas del original; nunca combines datos de productos distintos."
+  - "El sistema de impresión usa un cuerpo de 10,5 pt con interlineado de 15 pt; el mínimo impreso es de 8,5 pt. En presentaciones de 1920 × 1080, el cuerpo es de 38 px con interlineado de 52 px; las etiquetas, de 28 px con interlineado de 38 px; la numeración, de 22 px con interlineado de 32 px."
+  - "Las portadas de las presentaciones sectoriales de AIS Vision Systems usan «Engineering peace of mind»; la corporativa usa «Automated quality control», en inglés."
+  - 'Todas las tablas usan un solo estilo: títulos de columna en texto secundario pequeño en Semibold sobre una línea `--ais-neutral-300`, filas separadas por filetes `--ais-border` y ninguno tras la última; sin fondos, bandas, marcos ni líneas verticales. El texto se alinea a la izquierda; los números, a la derecha con cifras tabulares y la unidad una sola vez en el título de la columna. Un valor que falta es una raya (–).'
+  - 'Las tablas van sobre blanco o gris de sección, nunca sobre azul de marca ni azul profundo. Una diapositiva lleva como máximo cinco columnas y seis filas; las publicaciones no llevan tablas.'
+  - 'Las propiedades de un producto van en un bloque de especificaciones (etiqueta en texto secundario, valor en tinta), nunca en una lista de viñetas ni en una frase.'
+  - 'Cuatro formas de destacar texto, y ninguna más: el énfasis (Semibold en unas pocas palabras), la cifra clave (el número en azul de marca, lo que cuenta y su condición en texto secundario), la cita (las palabras exactas de una persona con nombre, el nombre en Semibold y el cargo en texto secundario) y la nota (una línea pequeña en texto secundario). Nunca color, cursiva, subrayado, mayúsculas, fondo, recuadro, barra lateral ni un gráfico de comillas.'
+  - 'Una comparación muestra dos imágenes del mismo sujeto con el mismo encuadre y la misma escala, la referencia a la izquierda y cada estado nombrado bajo su imagen con circle-check o circle-x en el color de estado.'
+  - 'Los pasos de un proceso son de tres a cinco en una fila, numerados en el hexágono único y unidos por un filete, cada uno con un título breve y una línea.'
+---
+import KitFinal from '../../../components/KitFinal.astro';
+import CommsPattern from '../../../components/CommsPattern.astro';
+
+Cómo se construyen cartas, propuestas, folletos, informes y presentaciones, y los cinco patrones que comparten.
+
+## Composición
+
+- Alinea a la izquierda, mantén un orden de lectura evidente y deja aire entre bloques.
+- Usa los mismos márgenes en toda la pieza y respeta el área de protección de los logotipos.
+- Equilibra una pieza clara con un 70 % de blanco y gris de sección y un 30 % de azul; invierte la proporción en aperturas y cierres oscuros.
+
+## Formatos
+
+<KitFinal lang="es" family="office" ids={["stationery-letterhead", "office-word"]} rules={{"stationery-letterhead": "Marca emisora en la cabecera; contacto y «Parte de AIS Group» en el pie. Mantén despejada la zona de escritura.", "office-word": "Usa la plantilla de carta para la correspondencia editable, con su cuerpo de 11 pt. Instala Inter antes de editar y conserva la cabecera y el pie."}} />
+
+<KitFinal lang="es" family="sales" ids={["sales-proposal", "sales-case-study"]} rules={{"sales-proposal": "Primero la necesidad del cliente; después, la solución, la evidencia y el siguiente paso. Primero la fotografía de producto, después los esquemas.", "sales-case-study": "Nombra al cliente y la aplicación, explica el problema y la solución y presenta el resultado con sus condiciones. Usa material del cliente autorizado."}} />
+
+<KitFinal lang="es" family="print" ids={["brochure-kariko", "catalogue-wine"]} rules={{"brochure-kariko": "Usa el sistema de impresión. En A4, el logotipo mide 20 mm para AIS Vision Systems o 38 mm para Rosepetal. Mantén juntas las especificaciones de cada producto.", "catalogue-wine": "Organiza el catálogo por aplicación y producto. Conserva los productos, las cifras y los sujetos de las imágenes del original."}} />
+
+<KitFinal lang="es" family="datasheet" ids={["datasheet-opticais"]} rules={{"datasheet-opticais": "Nombra el producto en la portada. Agrupa las especificaciones por equipo, instalación y software; acompaña las cifras de sus condiciones."}} />
+
+<KitFinal lang="es" family="deck" ids={["presentation-corporate-2026"]} rules={{"presentation-corporate-2026": "Abre en azul de marca con el logotipo en negativo de la marca emisora y la línea de la empresa. Un mensaje por diapositiva, un titular de unas doce palabras e imágenes reales. Cierra con un único siguiente paso y los datos de contacto. En presentaciones conjuntas, abre AIS Group y las marcas aparecen juntas en un mismo bloque."}} />
+
+Las presentaciones sectoriales de AIS Vision Systems abren con «Engineering peace of mind»; la presentación corporativa usa «Automated quality control». Mantén estas líneas en inglés.
+
+A 1920 × 1080, el cuerpo es de 38 px con interlineado de 52 px; los textos de entrada, de 44 px con interlineado de 60 px; las etiquetas, de 28 px con interlineado de 38 px; la numeración, de 22 px con interlineado de 32 px. Los titulares usan 76 px con interlineado de 84 px; los textos de gran formato, 120 px con interlineado de 124 px. Aplica la escala de la composición al bloque entero.
+
+### Informe técnico
+
+Portada en azul de marca; texto en Inter de 10,5 pt con interlineado de 15 pt; apartados numerados; cifras tabulares en las tablas. Ningún texto impreso por debajo de 8,5 pt.
+
+### Firma de correo
+
+Nombre, cargo, marca y teléfono; ninguna imagen salvo el logotipo; sin eslóganes.
+
+Para los gráficos, consulta [Visualización de datos](/es/data/).
+
+Cada dato lleva sus condiciones, como exige [Voz](/es/voice/). Nombra los archivos con marca, tipo, idioma y fecha ISO: `rosepetal_datasheet_es_2026-10-14.pptx`.
+
+## Patrones
+
+Cinco patrones cubren lo que una página necesita además de texto e imágenes. El sistema de impresión y las composiciones de las presentaciones los construyen; nunca los dibujes a mano.
+
+### Tabla
+
+Valores exactos de varios elementos, para consultarlos o compararlos.
+
+<CommsPattern lang="es" show="table" />
+
+- **Títulos de columna** en texto secundario pequeño en Semibold, con mayúscula solo al inicio, sobre una línea `--ais-neutral-300`. Sin fondo y nunca en mayúsculas.
+- **Filas** separadas por filetes `--ais-border`, ninguno tras la última fila. Sin fondos, bandas, marcos ni líneas verticales.
+- **Alineación:** el texto a la izquierda; los números a la derecha, con [cifras tabulares](/es/typography/), y su título de columna alineado igual. La primera columna nombra la fila, en tinta.
+- **Unidades** una sola vez, entre paréntesis en el título de la columna: *Campo de visión (mm)*. Si una columna mezcla unidades, la unidad va en el nombre de la fila: *Etiquetado (h/mes)*. Nunca en las celdas.
+- **Números** según [Localización](/es/localisation/): 7200 y 30 000 en español y catalán, 7,200 y 30,000 en inglés; los mismos decimales en toda la columna (2,0, no 2); las dimensiones con el signo de multiplicar, 100 × 56.
+- **Sin valor** es una raya (–), nunca *n/d*, *0* ni una celda vacía. Una columna de sí o no muestra el `check` de Lucide en tinta o la raya, nunca colores de estado.
+- **Pie:** una condición que afecta a toda la tabla va en una línea de texto secundario pequeño debajo, nunca en un asterisco. El título de la tabla es el encabezado que tiene encima.
+- **Tamaño:** una tabla ocupa el ancho de su columna de texto. Como máximo cinco columnas y seis filas en una diapositiva y siete columnas en una página A4; divide una tabla más larga en grupos, nunca entre páginas. Por debajo de 600 px, una tabla de datos se desplaza dentro de su propio marco; el texto nunca se reduce para que quepa.
+- **Fondo:** blanco o gris de sección, nunca azul de marca ni azul profundo; sobre azul, da el número que importa como cifra clave. Las publicaciones no llevan tablas.
+
+<div class="table-wrap comms-scale">
+
+| Medio | Celdas | Títulos de columna | Espacio | Líneas |
+| --- | --- | --- | --- | --- |
+| **Documentos y fichas técnicas (A4)** | 9,5 pt sobre 13,5 pt | 8,5 pt Semibold | 2 mm arriba y abajo, 5 mm entre columnas | 0,25 mm |
+| **Presentaciones (1920 × 1080)** | 38 px sobre 52 px | 38 px Medium | 24 px arriba y abajo (16 px desde cinco filas), 40 px entre columnas | 2 px |
+| **Webs** | Pequeño, 14 px | Pequeño Semibold | 12 px arriba y abajo, 24 px entre columnas | 1 px |
+| **Interfaz de producto** | La Table de `@rosepetal/design` tal como viene: 14 px, filas con hover y selección | Medium, en tinta (ordenan) | Las columnas de números llevan `text-right tabular-nums` | `--border` |
+
+</div>
+
+Lo construyen el sistema de impresión (`.table`), la composición `table` de las presentaciones, `.ais-table` en `@aisgroup/web` y el estilo de tabla AIS de la plantilla de Word. Nunca dibujes una tabla a mano ni la pegues como imagen.
+
+### Bloque de especificaciones
+
+Las propiedades de un producto, una etiqueta y su valor por fila.
+
+<CommsPattern lang="es" show="specification" />
+
+- La etiqueta en texto secundario, el valor en tinta y todos los valores en la misma columna.
+- Agrupa una lista larga bajo subtítulos pequeños, como Equipo e Instalación.
+- Úsalo en lugar de una lista de viñetas o de una frase que empieza por la etiqueta. Si las filas comparan las mismas medidas de varios elementos, son una tabla.
+
+### Texto destacado
+
+Cuatro formas de destacar texto, y ninguna más. Ninguna lleva fondo, recuadro, barra lateral, borde, icono ni sombra.
+
+<CommsPattern lang="es" show="highlight" />
+
+<CommsPattern lang="es" show="quote" />
+
+<a href="/kit/files/linkedin-quote-rosepetal-es.png" target="_blank" rel="noopener" aria-label="Rosepetal en VISION 2026, se abre en una pestaña nueva">Rosepetal en VISION 2026</a>.
+
+- **Énfasis:** Semibold en unas pocas palabras, en el color del propio texto, una vez por párrafo como máximo. Nunca color, cursiva, subrayado, mayúsculas ni fondo. Si toda una frase debe destacar, es la entradilla o una diapositiva propia.
+- **Cifra clave:** el número en azul de marca (blanco sobre azul), en Medium y con cifras tabulares; debajo, lo que cuenta, en minúscula; después, su condición en texto secundario (azul claro sobre azul). Ningún signo delante del número: *hasta* y *como mínimo* van en las palabras. De una a tres por fila, todas del mismo tamaño; una fila por página, diapositiva o sección.
+- **Cita:** las palabras exactas de una persona con nombre, entre « » en todos los idiomas, con “ ” dentro; debajo, el nombre en Semibold y después el cargo y la empresa en texto secundario. Sin gráfico de comillas, cursiva ni línea; una por página, diapositiva o publicación, 20 palabras como máximo en diapositivas y publicaciones. Nunca recortes las palabras de alguien sin su aprobación. Un elogio sin firma o el resumen de un caso no es una cita: escríbelo como texto, sin comillas.
+- **Nota:** una frase breve en texto secundario pequeño, debajo del bloque que matiza, una por página como máximo. Sin etiqueta (*Nota*), asterisco, fondo, recuadro, icono ni color de aviso. Las diapositivas no llevan notas: la condición va con su cifra o su tabla.
+
+<div class="table-wrap comms-scale">
+
+| Medio | Cifra clave: número / palabras / condición | Cita: palabras / persona | Nota |
+| --- | --- | --- | --- |
+| **Documentos (A4)** | 34 pt Medium / 11 pt Semibold / 8,5 pt | 13 pt sobre 19 pt Medium / 9,5 pt | 8,5 pt, 4 mm bajo el bloque |
+| **Presentaciones** | 240 px (120 px para cifras largas) / 38 px Medium / 38 px | Sobre azul de marca: 120 px / 38 px | Ninguna |
+| **Webs** | Título / Cuerpo Medium / Pequeño | Subtítulo Medium, 40 rem de ancho / Pequeño | Pequeño, 24 px bajo el bloque |
+| **Publicaciones** | La publicación de resultado | La publicación de cita | Ninguna |
+
+</div>
+
+### Comparación
+
+Dos estados del mismo sujeto: antes y después, o correcto y defectuoso.
+
+<CommsPattern lang="es" show="comparison" />
+
+- El mismo sujeto, encuadre, escala y luz en las dos imágenes, con la referencia a la izquierda.
+- Bajo cada imagen, el estado con su icono (circle-check en el verde de éxito, circle-x en el rojo de error) y una línea sobre la diferencia. Nunca un marco de color.
+- Solo dos imágenes; los demás defectos van en mosaicos de detección.
+
+### Pasos de un proceso
+
+Una secuencia que el lector sigue en orden.
+
+<CommsPattern lang="es" show="steps" />
+
+- De tres a cinco pasos en una fila, cada número en el hexágono único, unidos por un filete.
+- Un título breve y una línea debajo de cada uno.
+- Con más de cinco pasos, o con pasos que se bifurcan, divide la secuencia o usa un esquema.

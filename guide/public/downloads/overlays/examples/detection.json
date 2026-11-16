@@ -1,0 +1,46 @@
+{
+  "image": "/imagery/result-pcb.webp",
+  "width": 810,
+  "height": 540,
+  "tone": "dark",
+  "displayWidth": 430,
+  "verdict": {
+    "result": "pass",
+    "text": "OK",
+    "detail": "4/4"
+  },
+  "items": [
+    {
+      "type": "box",
+      "x": 496,
+      "y": 168,
+      "w": 268,
+      "h": 192,
+      "label": "MCU",
+      "value": "0.99"
+    },
+    {
+      "type": "box",
+      "x": 302,
+      "y": 84,
+      "w": 158,
+      "h": 152,
+      "label": "connector",
+      "value": "0.97"
+    },
+    {
+      "type": "box",
+      "x": 492,
+      "y": 104,
+      "w": 74,
+      "h": 56
+    },
+    {
+      "type": "box",
+      "x": 284,
+      "y": 268,
+      "w": 86,
+      "h": 74
+    }
+  ]
+}

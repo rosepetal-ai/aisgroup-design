@@ -1,0 +1,20 @@
+{
+  "name": "rosepetal_post-quote-rosepetal_en_2026-10-29",
+  "kind": "post",
+  "brand": "rosepetal",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "At VISION 2026, José Racionero talked about how to judge the risks of AI: with measured failure rates and engineering, not personal estimates. The full interview is on our YouTube channel. Send us samples.",
+  "shots": [
+    {
+      "type": "quote",
+      "look": "navy",
+      "name": "José Racionero",
+      "quote": "A personal estimate is not a measured failure rate.",
+      "role": "CEO and co-founder of Rosepetal",
+      "permission": "His words in the interview Rosepetal published on YouTube (dVtk_PbZgHU, 13:04, October 2026; said in Spanish, translated)"
+    }
+  ]
+}

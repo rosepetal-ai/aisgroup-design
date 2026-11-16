@@ -1,0 +1,59 @@
+{
+  "name": "ais-vision-systems_carousel-defects-juice-hopper_en_2026-10-29",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "copy": "AIS Hopper checks the cap, batch marking and fill level on the line. These illustrative examples show a missing batch code, a tilted cap and low fill. They do not represent results from a machine validation. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/hopper/juice_lineup-conveyor_cover.jpg",
+      "focus": [
+        50,
+        55
+      ],
+      "evidence": "render",
+      "headline": "Three checks|*on your bottles*"
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/social-composites/20-carousel-juice-hopper-juice_lot-pair_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|missing batch code"
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/social-composites/20-carousel-juice-hopper-juice_tilt-pair_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|tilted cap"
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/social-composites/20-carousel-juice-hopper-juice_fill-pair_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|low fill"
+    },
+    {
+      "type": "contact",
+      "headline": "Shall we try it|*on your bottles*?",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "Shall we try it on your bottles?. Send us samples. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

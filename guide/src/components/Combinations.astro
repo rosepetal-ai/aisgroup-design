@@ -1,0 +1,48 @@
+---
+import type { Lang } from '../i18n';
+import Arrow from './Arrow.astro';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Approved pairings, shown as 4:5 post tiles. Every text/background pair passes WCAG AA (see Contrast).
+const copy = {
+  en: { eyebrow: 'Quality control', title: ['Inspect every bottle', 'at line speed'], body: 'Camera, model and line control in one system.', link: 'Book a demo', button: 'Book a demo', names: ['White page', 'Brand blue', 'Deep blue', 'Section grey'] },
+  es: { eyebrow: 'Control de calidad', title: ['Inspecciona cada botella', 'a velocidad de línea'], body: 'Cámara, modelo y control de línea en un solo sistema.', link: 'Solicita una demo', button: 'Solicita una demo', names: ['Página blanca', 'Azul de marca', 'Azul profundo', 'Gris de sección'] },
+  ca: { eyebrow: 'Control de qualitat', title: ['Inspecciona cada ampolla', 'a velocitat de línia'], body: 'Càmera, model i control de línia en un sol sistema.', link: 'Demana una demostració', button: 'Demana una demostració', names: ['Pàgina blanca', 'Blau de marca', 'Blau profund', 'Gris de secció'] },
+}[lang];
+const tiles = [
+  { bg: '#FFFFFF', eyebrow: '#3664B3', title: '#0F1729', accent: '#17356E', body: '#4B5563', action: 'link', actionColour: '#3664B3' },
+  { bg: '#17356E', eyebrow: '#A7BFE4', title: '#FFFFFF', accent: '#A7BFE4', body: '#FFFFFF', action: 'button', actionColour: '#FFFFFF' },
+  { bg: '#10254C', eyebrow: '#A7BFE4', title: '#FFFFFF', accent: '#FFFFFF', body: '#A7BFE4', action: 'link', actionColour: '#A7BFE4' },
+  { bg: '#F1F5F9', eyebrow: '#3664B3', title: '#0F1729', accent: '#17356E', body: '#4B5563', action: 'button-brand', actionColour: '#17356E' },
+];
+---
+<ul class="combos">
+  {tiles.map((t, i) => (
+    <li>
+      <div class="tile" data-brand-check="skip" style={`background:${t.bg}`}>
+
+        <p class="title" style={`color:${t.title}`}>{copy.title[0]} <span style={`color:${t.accent}`}>{copy.title[1]}</span></p>
+        <p class="body" style={`color:${t.body}`}>{copy.body}</p>
+        {t.action === 'link' && <span class="link" style={`color:${t.actionColour}`}>{copy.link}<Arrow /></span>}
+        {t.action === 'button' && <span class="button" style={`background:#FFFFFF;color:#17356E`}>{copy.button}</span>}
+        {t.action === 'button-brand' && <span class="button" style={`background:${t.actionColour};color:#FFFFFF`}>{copy.button}</span>}
+      </div>
+      <p class="name">{copy.names[i]}</p>
+    </li>
+  ))}
+</ul>
+<style>
+  .combos { list-style: none; margin: 32px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  li { margin: 0 !important; min-width: 0; }
+  .tile { aspect-ratio: 4 / 5; display: flex; flex-direction: column; padding: 16px; border: 1px solid var(--line); border-radius: 0; }
+  .tile p { margin: 0; }
+  .eyebrow { font-size: var(--ais-text-caption); font-weight: 600; letter-spacing: var(--ais-text-eyebrow-tracking); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .title { margin-top: 12px !important; font-size: 20px; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
+  .title span { display: block; }
+  .body { margin-top: auto !important; font-size: 12px; line-height: 1.4; }
+  .link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 8px 0; font-size: var(--ais-text-caption); line-height: 1.4; font-weight: 600; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .link :global(.ais-arrow) { width: 14px; height: 14px; }
+  .button { align-self: flex-start; margin-top: 12px; padding: 8px 12px; font-size: var(--ais-text-caption); line-height: 1.4; font-weight: 600; line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .name { margin: 12px 0 0 !important; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: 600; color: var(--ink); }
+  @media (max-width: 760px) { .combos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

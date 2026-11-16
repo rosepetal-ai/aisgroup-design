@@ -1,0 +1,19 @@
+{
+  "name": "ais-vision-systems_post-opticais_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "OPTICAIS lee por OCR el lote, la fecha y la hora impresos en el envase, y los códigos 1D y 2D, mientras el producto pasa por la línea. En la imagen, su pantalla compara el texto y el código que deben ir impresos en la etiqueta con lo que lee. Pruébalo con tus productos",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/opticais-variable-print-screen.png",
+      "headline": "La fecha y el lote,|leídos en la etiqueta",
+      "fit": "contain"
+    }
+  ]
+}

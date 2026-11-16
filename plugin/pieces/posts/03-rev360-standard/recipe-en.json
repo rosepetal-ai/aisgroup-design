@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-rev360-standard_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "With four colour cameras around the container, the AIS REV 360 STANDARD sees the whole bottle at once: front label, back label and capsule, with no need to orient it first. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/social-composites/03-rev360-standard-cava_callout_en.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "Front label, back label|and capsule, *at once*"
+    }
+  ]
+}

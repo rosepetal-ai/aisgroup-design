@@ -1,0 +1,59 @@
+---
+title: Redes sociales
+rules:
+  - 'Un mensaje por post, una idea por diapositiva. Si necesita un segundo titular, es un segundo post.'
+  - 'Ninguna línea encima ni al lado del titular: ni nombre de producto, ni antetítulo, ni eslogan, ni subtítulo. La única segunda línea es el autor de una cita o la fuente de una cifra.'
+  - 'Primero lo real: nuestras máquinas (fotografías o vistas exteriores de los modelos de ingeniería), líneas, pantallas, estands y personas. Una imagen generada o compuesta solo si es creíble al tamaño del feed, como dice Imagen. Fotos de banco de imágenes solo como contexto (una línea, un producto, una planta), con licencia sin atribución (Unsplash, Pexels, CC0), nunca presentadas como nuestra máquina, nuestro software o un cliente.'
+  - 'La imagen demuestra las palabras. Si el titular nombra un defecto, la imagen muestra al sistema encontrándolo.'
+  - 'Empieza desde una plantilla del plugin AIS Group Design y compruébala antes de publicar. Nunca edites un post antiguo ni una captura.'
+  - 'Una sola llamada a la acción aprobada por pieza, de la lista de Voz.'
+  - 'Los banners de LinkedIn salen del Kit de marketing: azul de marca, el paisaje de hexágonos y una línea aprobada, sin nada encima. El texto no pisa el logotipo de la página ni la foto de perfil, y el paisaje nunca pasa por detrás del texto.'
+  - '**Azul, para máquinas, pantallas y eventos:** la foto arriba con un borde limpio y recto, y debajo un panel liso en azul de marca con el titular en blanco. Sin fundido ni degradado.'
+  - '**Blanco, para productos y detecciones:** el titular arriba, y debajo la imagen llenando su banda: el grupo de productos recortado de cerca, nunca un bodegón pequeño en un campo blanco. Si un grupo ancho deja sitio, el titular crece para ocuparlo. Encima de la imagen solo van las marcas de detección. Las diapositivas de contenido de un carrusel van en blanco; la portada, en blanco o en azul, para que el feed alterne.'
+  - '**Azul de marca, para resultados y citas:** azul de marca liso (o blanco, para que el feed alterne) y sin foto; la cifra o las palabras exactas lo llenan, y la fuente de la cifra o el autor de la cita es la única segunda línea. El cierre de un carrusel también va en azul de marca, con la única llamada a la acción.'
+  - '**Nada encima ni al lado del titular:** un solo propósito, la composición más sencilla. Fuera eslóganes, textos de ayuda, subtítulos, antetítulos y etiquetas secundarias; si algo solo se entiende con ellos, arregla la composición. Un post o una diapositiva lleva el titular, las etiquetas propias de las marcas de detección (OK o NOK y el nombre del defecto), el autor de una cita o la fuente de una cifra, el número de paso del carrusel y el logotipo, nada más; el nombre del producto va en el texto del post. La comprobación del plugin falla con cualquier otra línea.'
+  - '**El logotipo firma al pie**, pequeño: 120 px de ancho para AIS Vision Systems en un post de 1080 px. Las diapositivas interiores de un carrusel no llevan logotipo, solo el número del paso en un hexágono de contorno con los lados planos arriba y abajo.'
+  - '**El patrón de hexágonos por defecto** en los posts, de un solo tamaño, como líneas finas que se desvanecen desde una esquina, a ras de los bordes: el color de línea fina sobre azul, una línea azul de marca muy suave sobre blanco. Siempre en la esquina que dejan libre las palabras, nunca sobre la foto ni detrás del texto (ver [Imagen](/es/imagery/)).'
+  - '**Sin grandes espacios vacíos:** el motivo de la imagen cubre al menos el 55 % de su banda, y entre dos elementos no queda ninguna franja vacía de más del 12 % de la altura del post. La comprobación del plugin mide las dos cosas.'
+  - '**Cada palabra a 4,5:1 como mínimo** contra lo que tiene realmente detrás, y el titular en minúscula de frase, cortado por frases.'
+  - '**El color de acento** solo en la frase final de un titular, en una o dos diapositivas por pieza.'
+  - '**Una campaña, un sistema:** el mismo titular, la misma imagen y la misma llamada a la acción en todos los formatos, y nunca otro azul.'
+  - 'Cada post y cada portada de carrusel toma uno de tres aspectos sobre la misma retícula, y una serie los mezcla para que el feed alterne: entre un tercio y la mitad de los posts, en azul.'
+---
+import PostAnatomy from '../../../components/PostAnatomy.astro';
+import SocialGallery from '../../../components/SocialGallery.astro';
+import DoDont from '../../../components/DoDont.astro';
+
+Construye publicaciones y carruseles a partir del kit aprobado y un mensaje claro.
+
+
+## Cómo se construye un post
+
+<PostAnatomy lang="es" />
+
+## Formatos
+
+| Pieza | Tamaño | Notas |
+| --- | --- | --- |
+| Post | 1080 × 1350 px (4:5) | El formato por defecto: llena el feed en el móvil |
+| Post cuadrado | 1080 × 1080 px (1:1) | Cuando una red o un partner lo pide; la banda de foto es menor |
+| Post con enlace | 1200 × 628 px (1,91:1) | Solo cuando el post enlaza fuera; manda la imagen, el titular es más corto |
+| Carrusel | 1080 × 1350 px, de 3 a 10 diapositivas, en PDF | Portada en blanco o en azul, contenido en blanco, cierre en azul de marca |
+| Vídeo | 9:16, 4:5, 1:1 y 16:9 | Los siete tipos de [Vídeo](/es/video/) |
+
+## Tipos de post y carrusel
+
+Cada post y carrusel del [Kit de marketing](/es/kit/#posts-y-carruseles-de-linkedin) es de uno de estos tipos. Cualquier otro necesita antes un brief.
+
+<SocialGallery lang="es" mode="types" />
+
+
+## Sí y no
+
+<DoDont doLabel="Sí" dontLabel="No"
+  dos={['Abre con la foto real', 'Escribe el titular como lo único que el lector debe recordar', 'Muestra una cifra solo con su base, sus condiciones y su fuente', 'Pide el consentimiento de cada persona identificable y la aprobación de cada planta de cliente', 'Anuncia la feria una vez y publica el resumen en menos de una semana']}
+  donts={['Una imagen generada que no resiste su tamaño final: texto inventado, geometría imposible, una máquina que no es la nombrada', 'Ondas de partículas, brillos, hologramas o degradados', 'Titulares en mayúsculas, flechas escritas, emojis o varios colores de acento', 'Diez promesas en una imagen, o promesas que la imagen no muestra', 'El logotipo como lo más grande del post']} />
+
+## Cómo se hace
+
+Pídelo a Claude con el plugin AIS Group Design ([Agentes de IA](/es/agents/)), con la foto y el mensaje. Parte de la plantilla más cercana al mensaje y pasa la comprobación. Rechaza imágenes descartadas, nombres incorrectos, promesas prohibidas y llamadas a la acción fuera de la lista aprobada. Antes de publicar, mira el post a tamaño de feed, unos 550 px de ancho: el titular y la prueba se tienen que leer ahí.

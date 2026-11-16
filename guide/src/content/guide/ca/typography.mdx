@@ -1,0 +1,117 @@
+---
+title: Tipografia
+rules:
+  - 'Compon tot el text en Inter (pesos 400, 500 i 600) i el codi o els valors de màquina en JetBrains Mono. Fes servir Arial només on no es pugui instal·lar Inter, i aleshores en tota la peça.'
+  - 'Els webs i els documents fan servir només els deu estils de text (de `--ais-text-display` a `--ais-text-caption`), als documents amb els cossos en punts de més avall. Les interfícies de producte fan servir l’escala de producte, i el vídeo, els seus propis cossos de títol. No inventis mai un cos, un espaiat o un pes intermedis.'
+  - 'Els titulars van en pes 500, amb majúscula només inicial, en tres línies com a màxim i mai en majúscules. El Semibold 600 s’admet només en títols de vídeo, encapçalaments de documents i títols de gràfics; el Bold 700 no es fa servir mai en titulars, tret d’Arial Bold al correu, que no té Medium.'
+  - 'El text corregut va a 16 px amb interlineat d’1,6, amb 68 caràcters per línia per defecte i 75 com a màxim, alineat a l’esquerra i mai justificat.'
+  - 'Fes servir xifres tabulars (`font-variant-numeric: tabular-nums`) on els nombres s’alineen en columna: cel·les numèriques de taules, comptadors i preus. No en el text seguit ni en els valors d’especificacions.'
+  - 'El text d’etiquetes, distintius i botons es centra en l’alçada de les majúscules, mai en la caixa de la font.'
+---
+import TypeScale from '../../../components/TypeScale.astro';
+
+El sistema tipogràfic defineix les fonts, les mides i l’espaiat per a cada suport.
+
+## Tipografies
+
+**Inter** compon tot el que es llegeix: titulars, text, interfícies, documents i presentacions. Està dissenyada per a pantalla, es llegeix bé en cossos petits en interfícies denses, inclou tots els accents del català i del castellà, també el punt volat (l·l), i és gratuïta amb llicència SIL Open Font License, de manera que tothom la pot instal·lar.
+
+**JetBrains Mono** compon el que es copia o es compara caràcter a caràcter: codi, valors de color, números de sèrie, adreces IP i línies de registre. No es fa servir mai en titulars ni com a ornament.
+
+| Tipografia | Pesos | Token |
+| --- | --- | --- |
+| **Inter** | 400, 500, 600 | `--ais-font-primary` |
+| **JetBrains Mono** | 400, 500 | `--ais-font-mono` |
+
+Fes servir les formes per defecte d’Inter, sense activar jocs estilístics ni alternatives. On no es pugui instal·lar Inter, com al correu electrònic, fes servir **Arial** en tota la peça. No barregis mai les dues.
+
+## Pesos
+
+| Pes | Ús |
+| --- | --- |
+| **Regular 400** | Text, entradetes, peus d’imatge, cel·les de taula. |
+| **Medium 500** | Els titulars per defecte, etiquetes, botons i avanttítols. |
+| **Semibold 600** | Èmfasi dins d’una frase; capçaleres de taula i etiquetes de dades de 14 px o menys; títols de vídeo, encapçalaments de documents i títols de gràfics. |
+
+La jerarquia la marquen el cos i l’espai, no el pes: els titulars van en Medium 500, i només els títols de vídeo, els encapçalaments de documents i els títols de gràfics porten Semibold 600. No facis servir mai Light, Bold ni Black, ni componguis un paràgraf en majúscules o en negreta. L’única excepció és el correu: Arial no té Medium, de manera que els encapçalaments hi van en Arial Bold.
+
+## Escala de comunicació
+
+Deu estils cobreixen webs, pàgines de campanya, publicacions i anuncis. Els quatre estils de titular i l’entradeta són fluids: creixen amb la pantalla entre 375 i 1440 px d’amplada, de manera que les pàgines no necessiten punts de ruptura addicionals. Cada estil és un grup de tokens de `brand.css`: el cos i les variants `-leading`, `-tracking` i `-weight`.
+
+<TypeScale lang="ca" />
+
+## Com s’ha de fer servir l’escala
+
+- **Un sol Display per pàgina**, i només en una portada o en l’obertura d’una campanya. La resta de pàgines comença amb un Títol.
+- **No et saltis nivells.** Després d’un Títol va un Encapçalament, i després d’un Encapçalament, un Subencapçalament.
+- **L’avanttítol és una etiqueta de secció impresa**, sobre el titular d’una secció en fullets, catàlegs i fitxes, mai sol; les publicacions, els carrusels i les presentacions no en porten (Fes-ho simple). Anomena el tema en dues a quatre paraules, amb majúscula només inicial, en blau d’acció o en blau clar sobre fons blaus.
+- **Centra el text en les majúscules a etiquetes, distintius i botons.** Retalla la caixa de text a l’alçada de les majúscules i la línia de base (`text-box: trim-both cap alphabetic`) i aplica el mateix farciment a dalt i a baix, perquè l’etiqueta quedi òpticament centrada. Centrar la caixa de la font deixa el text visiblement baix.
+- **Un estil és el conjunt complet.** Mida, interlineat, tracking i pes van junts; no fixis mai només la mida. Un títol de 40 px amb tracking normal es llegeix espaiat.
+- **Els titulars ocupen tres línies com a màxim**, equilibrades (`text-wrap: balance`) perquè cap paraula no quedi sola a l’última línia.
+- **Talla els titulars display per frases.** Des de 600 px, cada frase va en una línia pròpia; al mòbil, tres línies com a màxim. No partis mai una frase per la meitat («Visió / artificial.»).
+- **L’espaiat entre lletres forma part del token.** El negatiu és només per als titulars; no afegeixis mai espaiat al text corregut.
+- **L’espai agrupa el text.** Deixa més espai damunt d’un títol que a sota, perquè pertanyi al text que presenta.
+
+### Mateix paper, mateix estil
+
+Un paper fa servir el mateix estil a tots els webs, perquè es llegeixin com una família.
+
+| Paper | Estil |
+| --- | --- |
+| **Enllaços de navegació, botó de capçalera, elements de menú** | Label, 15 px, pes 500 |
+| **Títols de secció** | Heading |
+| **Títols de targeta** | Subheading |
+| **Descripcions de targetes, avantatges i xifres** | Body, 16 px; mai Small |
+| **Dates, metadades, notes** | Small o Caption |
+| **Avanttítols, etiquetes de la tira de logotips** | Eyebrow, en una línia |
+
+## Escala de producte
+
+Les interfícies, com l’aplicació Rosepetal, són més denses i es llegeixen durant hores a un braç de distància. Fan servir una escala fixa basada en 14 px, amb els mateixos pesos. No s’hi aplica l’espaiat dels titulars; a partir de 20 px es fa servir −0,01 em.
+
+| Token | Cos / interlineat | Ús |
+| --- | --- | --- |
+| `--ais-ui-xs` | 12 / 16 px | Només eixos de gràfics i tecles |
+| `--ais-ui-base` | 14 / 20 px | Text general de la interfície, botons, camps |
+| `--ais-ui-md` | 16 / 24 px | Text de diàlegs, estats buits |
+| `--ais-ui-lg` | 20 / 28 px | Títols de tauler i de diàleg |
+| `--ais-ui-xl` | 24 / 32 px | Títols de pàgina dins de l’aplicació |
+
+## Text i mida de línia
+
+- El text corregut ocupa **de 45 a 75 caràcters per línia**; 68 per defecte. Les entradetes, uns 60.
+- **Text més petit.** En webs, res no fa menys de 12 px, l’estil Caption. En documents impresos i PDF, res no fa menys de 8,5 pt (notes de fitxes tècniques); les targetes de visita segueixen la seva pròpia especificació, amb els contactes a 8 pt i l’adreça a 7 pt. A les interfícies de producte, tot el que es llegeix fa almenys 14 px; 12 px només per a eixos de gràfics i tecles.
+- Alinea el text a l’esquerra. No el justifiquis mai ni centris més de dues línies.
+- Separa els paràgrafs amb espai, no amb sagnats.
+- Els enllaços dins del text van en blau d’acció i subratllats. Els enllaços d’acció independents fan servir l’estil Etiqueta amb una icona de fletxa, mai una fletxa escrita.
+
+## Xifres i unitats
+
+- Fes servir **xifres tabulars** sempre que els números s’alineïn en columna o canviïn al seu lloc: cel·les numèriques de taules, comptadors, preus, marques de temps. Aplica-les només a les cel·les amb nombres: amb xifres tabulars Inter dibuixa el guionet tan ample com una xifra, i RS-232 es llegeix RS - 232.
+- Separa el número de la unitat amb un espai (12 mm, 30 fps, 24 V). Els percentatges segueixen la llengua: 99.8% en anglès, 99,8 % en català i castellà.
+- A les taules, els intervals numèrics porten un signe: guió en anglès (15–30%) i guionet en català i castellà (15-30 %). En el text, s’escriuen amb paraules: del 15 al 30 %, del 6 al 8 d’octubre. Fes servir el signe de multiplicar en les dimensions (1920 × 1080).
+
+## Català i castellà
+
+El català i el castellà ocupen entre un 15 i un 30 % més que l’anglès. Dissenya titulars, botons i navegació per a la llengua més llarga, no per a la més curta.
+
+- No partis mai els titulars amb guionets. En columnes de text estretes es permet el partiment automàtic si la pàgina declara la llengua (`lang="ca"`, `lang="es"`).
+- Respecta l’interlineat de cada token: les majúscules accentuades (À, É, Ó) el necessiten. No retallis mai el text a la seva caixa.
+- Escriu el punt volat com a punt volat (l·l), mai com a punt ni com a pic.
+- En castellà, les preguntes i les exclamacions s’obren amb ¿ i ¡.
+
+## Documents, presentacions i correu
+
+| Suport | Títol | Encapçalaments | Text | Petit |
+| --- | --- | --- | --- | --- |
+| **Documents** | 28 pt Medium | 18 pt Medium; 13 pt Semibold | 10,5 pt sobre 15 pt | 8,5 pt sobre 12 pt |
+| **Fitxes tècniques** | 24 pt Medium | 13 pt Semibold | 10,5 pt sobre 15 pt | 8,5 pt sobre 11 pt |
+| **Presentacions, 16:9 (1920 × 1080 px)** | 120 px Medium | 76 px Medium | 38 px sobre 52 px | 28 px sobre 38 px; 22 px per a la numeració |
+| **Correu i signatures** | Arial a tot arreu | 18 px Arial Bold | 14 px sobre 21 px | 12 px |
+
+Arial no té Medium, de manera que els encapçalaments del correu fan servir la Bold, l’únic titular en negreta de la marca. Les xifres grans de les presentacions porten l’espaiat del Display, −0,04 em.
+
+## Logotips i tipografia
+
+Els logotips són fitxers gràfics. No reconstrueixis un logotip escrivint-ne el nom amb cap font, tampoc amb Inter.

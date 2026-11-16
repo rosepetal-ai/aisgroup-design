@@ -1,0 +1,1 @@
+AIS Hopper checks the cap, batch marking and fill level on the line. These illustrative examples show a missing batch code, a tilted cap and low fill. They do not represent results from a machine validation. Send us samples

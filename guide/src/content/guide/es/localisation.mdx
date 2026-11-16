@@ -1,0 +1,172 @@
+---
+title: Localización
+rules:
+  - 'Localiza, nunca traduzcas palabra por palabra. Un redactor nativo del idioma de destino reescribe la pieza y otro revisor nativo la comprueba antes de publicarla.'
+  - 'Sigue la autoridad de cada idioma: el IEC para la ortografía catalana y el TERMCAT para la terminología catalana, la RAE para el español y la ortografía británica con -ise para el inglés.'
+  - 'Los números, las fechas y las horas siguen la tabla de esta página, con un espacio de no separación entre la cifra y su unidad o el signo % en todos los idiomas que los separan.'
+  - 'Todo texto pasa por LanguageTool, el diccionario ortográfico y las comprobaciones de marca de su idioma antes de publicarse. Cada aviso que quede se corrige o se registra como falso positivo.'
+  - 'La traducción automática solo sirve de borrador. Nunca se publica sin una revisión nativa.'
+---
+
+Adapta el idioma, las fechas y los números sin cambiar el sistema de marca.
+
+## Principios
+
+- **Localiza, no traduzcas.** Conserva el mensaje, las pruebas y la llamada a la acción; reescribe las frases como lo haría un redactor nativo.
+- **Un idioma por pieza.** Las maquetas bilingües se reservan para necesidades concretas, con bloques separados y del mismo peso.
+- **Los nombres no cambian.** Los nombres de marcas y productos, los de modelos y las etiquetas citadas de nuestro software se mantienen exactamente igual.
+- **Prevé textos más largos.** El texto corrido en español y en catalán ocupa entre un 15 y un 30 % más que en inglés. Las cadenas cortas crecen mucho más: la etiqueta de un botón o de una pestaña puede duplicar o triplicar su longitud. Diseña botones, pestañas y etiquetas de figuras con ese margen, o reescribe la etiqueta.
+- **Marca el idioma.** Cada página y cada pasaje en otro idioma lleva su atributo `lang` (`en`, `es`, `ca`), para que los lectores de pantalla lo pronuncien bien y los navegadores dividan las palabras correctamente.
+
+## Idiomas y alcance
+
+| Sitio web | Idiomas |
+| --- | --- |
+| **AIS Vision Systems** | Español (predeterminado), catalán, inglés, francés, portugués |
+| **Rosepetal** | Inglés |
+| **AIS Group** | Inglés |
+
+- **Una página que no se ha localizado no existe en ese idioma.** Nunca publiques una página de reserva, un aviso de «solo disponible en español», un título en el idioma original ni un enlace `hreflang` a una página que no existe. Muestra a los lectores las páginas que sí existen.
+- **Los textos legales y de sistema también son textos.** Los avisos de privacidad y de consentimiento, las tablas de cookies, los mensajes de formulario, las páginas de error y los correos se localizan como cualquier otra página, en el idioma de la página. Los avisos legales usan el registro formal (*usted*, *vós*) de forma coherente; la empresa se escribe *AIS Vision Systems, S.L.*
+- **Citas en otro idioma.** Un testimonio puede quedarse en su idioma original solo si va marcado con `lang` y seguido de una traducción.
+- **El francés y el portugués** siguen los mismos principios, con un redactor y un revisor nativos designados para cada idioma. El francés lleva un espacio de no separación antes de `: ; ! ? %` y dentro de «  »; el portugués (de Portugal) sigue el Acuerdo Ortográfico de 1990. Los dos usan la coma decimal y un espacio para los millares.
+
+## Autoridades
+
+Cuando esta página no resuelve una duda, deciden estas fuentes, por este orden.
+
+| Idioma | Ortografía y gramática | Terminología | Estilo |
+| --- | --- | --- | --- |
+| **Catalán** | [IEC](https://www.iec.cat/) (*Ortografia catalana*, GIEC) y [Optimot](https://optimot.gencat.cat) | [TERMCAT](https://www.termcat.cat/ca/cercaterm) (Cercaterm, diccionario de IA) | [Guía de estilo de Softcatalà](https://www.softcatala.org/guia-estil-de-softcatala/tota-la-guia/) para software e interfaces; [esAdir](https://esadir.cat) (3Cat) para vídeo y textos hablados |
+| **Español** | [RAE](https://www.rae.es/) (*Ortografía*, *Diccionario panhispánico de dudas*) | [FundéuRAE](https://www.fundeu.es/), equivalentes en español del TERMCAT | Guía de estilo de Microsoft para el español de España, para interfaces |
+| **Inglés** | Ortografía británica, terminaciones en *-ise* | Nuestro glosario, más abajo | [Guía de estilo de GOV.UK](https://www.gov.uk/guidance/style-guide/a-to-z), salvo donde esta página decida otra cosa |
+
+## Convenciones por idioma
+
+<div class="table-wrap">
+
+| Convención | Inglés | Español | Catalán |
+| --- | --- | --- | --- |
+| **Trato al lector** | *you* | **tú** en marketing, la web y el producto; **usted** solo en contratos y avisos legales; *vosotros* solo para un plural real | **tu** en marketing, la web y el producto; **vós** en documentos formales y avisos legales, como recomienda el IEC, porque no marca el género; *vosaltres* solo para un plural real |
+| **Titulares** | Mayúscula solo inicial | Mayúscula solo inicial | Mayúscula solo inicial |
+| **Comillas** | «angulares» y, dentro, “dobles” | «angulares» y, dentro, “dobles” | «angulares» y, dentro, “dobles” |
+| **Interrogación y exclamación** | ? ! | ¿…? ¡…! (apertura obligatoria) | ? ! |
+| **Decimales** | 1.5 | 1,5 | 1,5 |
+| **Millares** | 1,285 y 12,850 | 1285 y 12 850 (sin separador hasta cuatro cifras; con espacio a partir de cinco) | 1285 y 12 850 (como en español) |
+| **Porcentaje** | 95% | 95 % (con espacio) | 95 % (con espacio) |
+| **Unidades** | 50 ms y 12 GB (con espacio, como en el SI) | 50 ms y 12 GB | 50 ms y 12 GB |
+| **Moneda** | €250 | 250 € | 250 € |
+| **Fechas** | 14 October 2026 | 14 de octubre de 2026 | 14 d’octubre de 2026 |
+| **Meses y días de la semana** | Con mayúscula inicial | En minúscula | En minúscula |
+| **Hora** | 14:30 (formato de 24 horas) | 14:30 h | 14.30 h |
+| **Intervalos en el texto** | 6 to 8 October | del 6 al 8 de octubre | del 6 al 8 d’octubre |
+| **Intervalos en cifras** | 2024–2026 (semirraya, solo en tablas) | 2024-2026 (guion, solo en tablas) | 2024-2026 (guion, solo en tablas) |
+| **Plural de las siglas** | PLCs | los PLC | els PLC |
+
+</div>
+
+Usa un espacio de no separación entre la cifra y su unidad o el signo %, para que nunca queden en líneas distintas. Escribe el signo de grado `°`, nunca el ordinal `º`, y no dejes espacio antes de `, . : ;` en ninguno de los tres idiomas. En archivos y en código, las fechas van siempre en formato ISO: `2026-10-14`.
+
+Dos de nuestras decisiones para el inglés se apartan a propósito de GOV.UK. Usamos el formato de 24 horas y dejamos un espacio antes de las unidades, como hace el SI, porque nos leen ingenieros de muchos países y nuestros productos muestran así las horas y las medidas.
+
+## Textos de marketing y de producto
+
+| Texto | Inglés | Español | Catalán |
+| --- | --- | --- | --- |
+| **Llamadas a la acción** (web, campañas) | Imperativo: *Book a demo* | Imperativo, tú: *Solicita una demo* | Imperativo, tu: *Demana una demostració* |
+| **Órdenes** (botones y menús del producto) | Imperativo: *Save*, *Export* | Infinitivo: *Guardar*, *Exportar* | Imperativo, tu: *Desa*, *Exporta* |
+| **Mensajes de error** | Qué ha pasado y, después, qué hacer: *The file could not be saved. Check the disk space.* | *No se puede guardar el archivo. Comprueba el espacio en disco.* | *S’ha produït un error en desar el fitxer. Comprova l’espai al disc.* |
+
+Nunca traduzcas *Sorry* ni *Please* en un mensaje de error, y elimina los signos de exclamación salvo que haya datos en riesgo. Mantén los atajos de teclado tal como aparecen en el software: `Ctrl+S`.
+
+## Español
+
+- En marketing, trata de **tú** con verbos directos en imperativo: *Solicita una demo*, *Consulta la ficha*. Una empresa que lee la página es *tú*, nunca *vosotros*: escribe *tu empresa… orientarte… tu línea*, no *tu empresa… orientaros… vuestra línea*.
+- Escribe en **español de España**: *costes*, *ordenador*, *supervisión*, no *costos*, *computadora*, *monitoreo*.
+- Escribe **IA**, nunca *AI*. Usa *aprendizaje profundo* en el texto corrido; la primera vez puede seguirle *deep learning* en cursiva y entre paréntesis, pensando en los ingenieros.
+- El masculino genérico es correcto. Cuando suene natural, prefiere sustantivos colectivos o impersonales: *el equipo de calidad*, *la plantilla*. Nunca uses barras, `@`, `-x` ni `-e` como marcas de género.
+- Evita los anglicismos cuando exista un término preciso en español: *conjunto de datos* mejor que *dataset* en el texto corrido, *entrenamiento* para *training*. Un término inglés que se mantiene en el texto corrido va en cursiva; una etiqueta de pantalla se deja tal cual.
+- Escribe las siglas sin plural ni puntos: *los PLC*, *las API*.
+
+## Catalán
+
+- Trata de **tu**: *Demana una demostració*, *Consulta la fitxa*. Una empresa que lee la página es *tu*: escribe *la teva empresa… orientar-te… la teva línia*, no *orientar-vos… la vostra línia*. En documentos formales, usa **vós** (*us podem enviar*), nunca una mezcla de formas.
+- Escribe **IA**, nunca *AI*, y *aprenentatge profund* en el texto corrido.
+- Evita los calcos habituales del castellano: *en base a* (escribe *a partir de*, *segons*), *degut a* (*a causa de*), *a nivell de* (*pel que fa a*), *llevar a terme* (*dur a terme*), y *realitzar* cuando basta con *fer*.
+- Mantén el **punt volat**: *col·laboració*, *instal·lació*, *intel·ligència*. Nunca lo sustituyas por un punto ni por un guion. A final de línea, separa las dos eles con un guion: *col-* / *laboració*.
+- Usa el apóstrofo tipográfico (’) y apostrofa según la pronunciación: *l’Excel*, *l’HTML*, *la GPL*.
+- Prefiere *tothom*, los sustantivos colectivos (*la plantilla*, *el professorat*) y las construcciones con *persones* a los dobletes. Las barras (*director/a*), solo en formularios y tablas.
+- Sigue el IEC para la ortografía y el TERMCAT para la terminología: *sol·licitud*, *conjunt de dades*, *entrenament del model*, *visió artificial*, *informàtica al núvol*.
+
+## Inglés
+
+- Usa la **ortografía británica** con *-ise*: *colour*, *optimise*, *centre*, *modelling*. LanguageTool también acepta *-ize*, así que son las comprobaciones de marca las que lo señalan.
+- Frases cortas y verbos en activa: *Book a demo*, *Train in the cloud*. Escribe *cannot*, no *can’t*.
+- Desarrolla una sigla en su primera aparición, salvo que el público la use a diario (PLC, GPU, API). Las siglas no llevan puntos.
+- Escribe **machine vision**, nunca *artificial vision*. Rosepetal puede decir *computer vision* cuando se dirige a desarrolladores.
+- Las fechas en el texto se escriben *6 to 8 October 2026*, nunca *October 6th–8th, 2026*. Las páginas llevan `lang="en"`.
+
+## Glosario
+
+Los términos catalanes siguen el TERMCAT; los españoles, los equivalentes en español del TERMCAT y FundéuRAE. Los términos marcados con † no figuran en el diccionario de IA del TERMCAT; su referencia es Cercaterm.
+
+**Anotación, no etiquetado.** En nuestros mercados, *etiquetado* y *etiquetatge* se refieren a la etiqueta de una botella o de una lata, y la inspección de etiquetas es una de las aplicaciones principales de AIS Vision Systems. Por eso, en Rosepetal, el marcado de datos (*data labelling*) se llama *anotación* y *anotació*, para que los dos sentidos nunca coincidan en una misma página.
+
+| Inglés | Español | Catalán |
+| --- | --- | --- |
+| Machine vision | Visión artificial | Visió artificial |
+| Inspection | Inspección | Inspecció |
+| Defect | Defecto | Defecte |
+| Reject | Rechazo | Rebuig |
+| False reject | Falso rechazo | Fals rebuig |
+| Reject system | Sistema de rechazo | Sistema de rebuig |
+| Changeover | Cambio de formato | Canvi de format |
+| Inline / offline | En línea / fuera de línea | En línia / fora de línia |
+| Production line | Línea de producción | Línia de producció |
+| Dataset | Conjunto de datos | Conjunt de dades |
+| Data labelling (annotation) | Anotación † | Anotació † |
+| Label (on a product) | Etiqueta | Etiqueta |
+| Label inspection | Inspección de etiquetas | Inspecció d’etiquetes |
+| Model training | Entrenamiento del modelo | Entrenament del model |
+| Pretrained model | Modelo preentrenado | Model preentrenat |
+| Fine-tuning | Ajuste fino | Afinament |
+| Inference | Inferencia † | Inferència † |
+| Machine learning | Aprendizaje automático | Aprenentatge automàtic |
+| Deep learning | Aprendizaje profundo | Aprenentatge profund |
+| Object detection | Detección de objetos | Detecció d’objectes |
+| Image segmentation | Segmentación de imágenes | Segmentació d’imatges |
+| Cloud computing | Computación en la nube | Informàtica al núvol |
+| Dashboard | Panel de control | Tauler de control |
+| Software | Software | Programari |
+| Datasheet | Ficha técnica | Fitxa tècnica |
+| Case study | Caso de éxito | Cas d’èxit |
+| Turnkey | Llave en mano | Clau en mà |
+| Upload / download | Subir / descargar | Pujar / baixar |
+| Book a demo | Solicita una demo | Demana una demostració |
+| Request access | Solicita acceso | Sol·licita accés |
+| Tell us about your line | Cuéntanos cómo es tu línea | Explica’ns com és la teva línia |
+
+## Comprobaciones antes de publicar
+
+Todo texto pasa todas estas comprobaciones en su idioma. Un aviso que quede se corrige o se registra como falso positivo, con su motivo.
+
+| Comprobación | Qué detecta | Herramienta |
+| --- | --- | --- |
+| **Gramática y estilo** | Concordancia, erratas, ¿ ¡ que faltan, apóstrofos incorrectos, anglicismos frecuentes | [LanguageTool](https://languagetool.org) (`en-GB`, `es`, `ca-ES`); para el catalán, el [corrector de Softcatalà](https://www.softcatala.org/corrector/) usa el mismo motor |
+| **Ortografía** | Faltas de ortografía, con una lista compartida de nombres de marcas y productos | Diccionarios Hunspell: `en_GB`, `es_ES`, `ca` (Softcatalà) |
+| **Convenciones de marca** | `%` sin espacio en español y en catalán, un punto en los millares, *l.l* en lugar de *l·l*, apóstrofos rectos, *vostè*, *-ize*, negaciones contraídas, anglicismos de la lista | La comprobación lingüística de marca (`language-check.mjs` en los recursos de marca) |
+| **Compilación** | Espacios de no separación antes de las unidades y del %, «» en el Markdown en todos los idiomas (las comillas tipográficas por defecto son “ ”) | Un paso en la compilación de cada sitio web, para que los redactores no tengan que escribirlos |
+| **Idioma equivocado** | Un pasaje en otro idioma, una cadena de plantilla que se ha quedado en el idioma original | Un detector de idioma en cada página, y la revisión |
+| **Terminología** | Un término que no coincide con el glosario | El glosario anterior; TERMCAT y Optimot para los términos nuevos |
+| **Maquetación** | Titulares, botones y etiquetas que se cortan mal o se desbordan | Todos los idiomas en escritorio y en móvil |
+
+### Revisión
+
+1. **Primero, aprueba el original.** Nunca localices un texto que todavía está cambiando.
+2. **Primero, el glosario.** Cada término nuevo se consulta (TERMCAT para el catalán; FundéuRAE y la RAE para el español) y se añade al glosario con su fuente y su fecha.
+3. **Redacción nativa.** Un redactor nativo localiza la pieza. La traducción automática solo puede producir un primer borrador, marcado como tal.
+4. **Revisión nativa.** Otro revisor nativo comprueba el sentido frente al original, el glosario, el tono y las convenciones de esta página.
+5. **Comprobaciones automáticas.** Las de la tabla anterior, hasta que no quede nada sin explicar.
+6. **Revisión de la maqueta.** Todos los idiomas en escritorio y en móvil.
+
+Las correcciones que se repiten pasan a ser entradas del glosario o nuevas comprobaciones de marca, para que el mismo error se detecte automáticamente la próxima vez.

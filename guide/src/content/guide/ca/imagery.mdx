@@ -1,0 +1,115 @@
+---
+title: Imatge
+rules:
+  - 'Tria cada imatge entre els sis tipus segons el que ha de dir: Màquina, En producció, Detall i resultat, Interfície, Producte del sector, Persones.'
+  - 'Parteix de fotografies i captures reals, de productes renderitzats a les seves mides reals i de vistes exteriors de les nostres màquines a partir dels models d’enginyeria, amb totes les proteccions tancades.'
+  - 'Una imatge generada o composta només es fa servir si el resultat és creïble a la seva mida final: sense textos deformats o inventats, sense geometria ni llum impossibles, mai una màquina diferent de la que s’anomena i amb les marques de clients difuminades.'
+  - 'No deixis mai que un model d’imatge dibuixi requadres, màscares, etiquetes, veredictes ni textos. Dibuixa les deteccions amb overlay.mjs a partir d’una especificació JSON, només amb els colors del kit de capes.'
+  - 'Les etiquetes de les capes no tapen mai el que s’ha inspeccionat i el text es centra en l’alçada de les majúscules.'
+  - 'No mostris mai hologrames flotants, llum blava de ciència-ficció, robots amb cara, marques inventades ni textos incrustats en una imatge.'
+  - 'No mostris mai una imatge per sobre del límit del seu mitjà: 1,25 vegades la seva mida nativa en impressió i a les diapositives d’un carrusel, 1,3 vegades al panell de foto d’una presentació (les portades de presentació sempre omplen el seu panell) i 1,5 vegades en un post individual.'
+  - 'Els renders de producte van sobre el fons gris de secció, sense transportadors ni guies. Si hi apareix un transportador, la banda o la cadena és marró, gris o blava, mai verda, i les guies laterals són metàl·liques.'
+  - 'Les captures de màrqueting no mostren dades de prova ni d’administració i es retallen pels límits dels panells.'
+---
+import ImageTypes from '../../../components/ImageTypes.astro';
+import DoDont from '../../../components/DoDont.astro';
+
+Tria les imatges pel que mostren i les proves que aporten.
+
+## Tria per intenció
+
+Comença pel missatge, no pel banc d’imatges. Cada missatge té un tipus d’imatge que el demostra.
+
+| Quan has de dir | Fes servir |
+| --- | --- |
+| Això és el que construïm | [Màquina](#type-machine) |
+| Funciona en una fàbrica real | [En producció](#type-line) |
+| Detecta el que importa | [Detall i resultat](#type-result) |
+| El programari és real i fàcil de fer servir | [Interfície](#type-interface) |
+| Coneixem el teu sector | [Producte del sector](#type-subject) |
+| Parlaràs amb experts | [Persones](#type-people) |
+| Així és com funciona | Il·lustració |
+
+## Tipus d’imatge
+
+Cada tipus té una funció, referències aprovades i una direcció per a qui fotografia, selecciona o encarrega la imatge. Les referències són l’estàndard: una imatge nova ha d’encaixar al seu costat.
+
+<ImageTypes lang="ca" />
+
+## Mai
+
+La imatge genèrica d’«IA» promet màgia. Els nostres clients compren proves, així que aquestes imatges no es fan servir mai, les hagi fet qui les hagi fet: hologrames i cubs de dades flotants, llum blava de ciència-ficció, robots amb cara, marques inventades i textos incrustats en una fotografia.
+
+<ImageTypes lang="ca" never={['never-1', 'never-2']} />
+
+## Imatges generades i compostes
+
+Primer, les fotografies reals, els nostres productes renderitzats i les vistes exteriors de les nostres màquines. Una imatge generada o composta es pot fer servir si el resultat és creïble a la mida en què es publica: es jutja el resultat, no l’eina. Els resultats reals amb xifres surten sempre del sistema.
+
+<DoDont doLabel="Fes-la servir si s’aguanta" dontLabel="Rebutja-la"
+  dos={['Fotografies, vídeos i captures reals primer', 'Bodegons de producte i parelles de Detall i resultat renderitzats a les seves mides reals', 'Una imatge generada o composta creïble a la seva mida final, amb les marques de clients difuminades']}
+  donts={['Textos deformats, fosos o inventats en pantalles, etiquetes o envasos', 'Geometria, llum o reflexos impossibles; peces que suren, es fonen o es repeteixen', 'Una màquina que no és la màquina d’AIS que s’anomena, o un logotip enganxat a la màquina d’un altre fabricant', 'Marques inventades, o marques de clients llegibles', 'Requadres, màscares, etiquetes o veredictes dins la imatge']} />
+
+**Abans de fer-la servir**
+
+- Mira-la al 100 % i a la seva mida final: cada lletra de pantalles, etiquetes i envasos es llegeix com a text real, o no hi és.
+- És físicament possible: geometria real, peces que encaixen i se sostenen, res fos ni duplicat.
+- En una parella, el defecte és l’única diferència, passa en producció i es veu sense la seva capa.
+- Encaixa amb la resta de la peça en llum, superfície i color.
+- No suggereix un client, una instal·lació ni un resultat mesurat que no té.
+
+## Renders, màquines i material de clients
+
+- **Els renders de producte** (una natura morta, una peça bona al costat de la seva bessona defectuosa, una imatge de detecció) es construeixen amb les dimensions reals del producte i un únic aspecte d’estudi: un fons, una llum des de dalt a l’esquerra i un enquadrament per sèrie, de manera que només canvia el defecte. Es col·loquen com a imatges normals, sense peu «Il·lustració», i el seu text alternatiu descriu el producte com si fos una fotografia. Allà on es registra un render (la biblioteca de recursos, les notes de treball) hi consta com a render; a la pàgina, en un peu o en un nom de fitxer no es diu mai render, CAD ni 3D.
+- **Les nostres màquines** es poden mostrar com a vistes exteriors dels models d’enginyeria mentre no hi hagi fotografies reals: amb les proteccions tancades i sense talls, interiors, òptiques ni vistes acotades. Una màquina en una portada o un banner està treballant, amb el seu producte, i és sempre la màquina que s’anomena.
+- **Les imatges de detecció** són quadrades, mostren un sol defecte sobre el nostre producte de demostració, sense capa de detecció, i comparteixen producte, objectiu i enquadrament a cada màquina; cadascuna es retalla sobre el seu propi defecte i mai s’imprimeix per sobre de la seva mida nativa.
+- **El material de clients** (fotogrames de càmera, pantalles i fotos de línies de clients) es pot reutilitzar amb els logotips de clients, les marques i els codis identificatius esfumats: un esfumat suau, sense caixes negres i sense inventar res. El retall sense esfumar queda a intern. Una línia de client necessita la seva aprovació abans de publicar-se.
+- **Primer, el real.** Cerca a la biblioteca de recursos una fotografia, un vídeo o una pantalla reals abans de fer o generar res. Només entren en una peça els recursos amb estat aprovat; un fotograma de vídeo mai no és portada.
+
+## Capes de detecció
+
+Els requadres, màscares, lectures, mesures i veredictes es dibuixen damunt la imatge amb un sol programa, [`overlay.mjs`](/downloads/overlays/overlay.mjs), a partir d’una especificació JSON breu. Els exemples de dalt surten d’aquest mateix fitxer; en pots descarregar l’especificació des de cada peu.
+
+| Regla | Detall |
+| --- | --- |
+| **Només els colors del kit** | Deteccions en `#3664B3`, o `#A7BFE4` sobre imatges fosques. Defectes en `#DC2626`, o `#F87171` sobre imatges fosques. Les etiquetes de veredicte van plenes amb text blanc: apte sobre èxit sòlid `#15803D`, rebuig sobre `#DC2626`; un apte no s’indica mai només amb color. Cap altre color, degradat, lluïssor, ombra ni cantonada arrodonida. |
+| **Gruixos** | A la mida de visualització: un objecte trobat porta marques de cantonada de 2 px sobre un requadre fi d’1 px; un defecte, un marc complet de 2 px sobre un tint del 8 %, perquè es distingeixi per la forma i no només pel color. Les màscares s’omplen al 20 % (les de defecte, al 28 %) dins d’una vora suau de 2 px. Les lectures porten un tint de subratllador i una línia de 2 px sota el text. Les mesures es dibuixen com en un plànol: línia de cota de 2 px, línies de referència, fletxes tancades i el valor en un tall de la línia. Cada línia va sobre un contorn d’1 px (blanc sota els colors foscos, tinta sota els clars), per mantenir 3:1 sobre qualsevol imatge; sense desenfocaments ni lluïssors. |
+| **Un veredicte** | Un veredicte per imatge, a dalt a l’esquerra: una etiqueta de 28 px amb un check o una x, OK o NOK, i un recompte o un motiu breu després d’un separador. |
+| **Pestanyes** | 20 px d’alt, plenes del color de l’estat i enganxades a la cantonada del requadre, perquè mai no hi hagi dubte de a què pertanyen. Inter Semibold de 12 px per a la classe i Medium per al valor, amb xifres tabulars; en blanc sobre els colors foscos i en tinta sobre els clars (4,5:1 o més). La pestanya d’un defecte comença amb una x. Els valors llegits, en JetBrains Mono. El text es centra en l’alçada de les majúscules, mai en la caixa de la font. |
+| **No tapis mai la prova** | La pestanya va a la cantonada d’un requadre, sobre el punt més alt d’una màscara, al costat d’una lectura i a la línia d’una mesura; el programa la porta al primer lloc lliure i mai damunt d’un altre requadre, màscara, pestanya o del veredicte. Amb `"chip"` es prova abans un costat. |
+| **Màscares d’una eina** | Els punts d’una màscara surten del sistema o d’un model de segmentació, mai es calquen a ull; el programa dibuixa un contorn suau entre ells, o arestes rectes amb `"smooth": false` per a peces rectes. Sense eina, fes servir un requadre. |
+| **Etiqueta el just** | Una etiqueta per tipus d’objecte; la resta, només requadres. L’etiqueta d’un defecte diu què s’esperava. |
+
+**Per a campanyes i llançaments**
+
+Els exemples d’aquesta pàgina mostren l’estil. Una peça de màrqueting necessita, a més:
+
+1. Una imatge base d’almenys 2400 px al costat llarg, una fotografia, un producte renderitzat o una parella generada que passi les comprovacions de dalt.
+2. Màscares exportades amb l’eina de polígon intel·ligent de l’aplicació Rosepetal, o del sistema d’inspecció mateix, perquè cada contorn segueixi la vora real.
+3. Una revisió final al 100 %: cada contorn sobre la vora de la peça i cada etiqueta fora de la prova.
+
+## Tractament
+
+| Format | Proporció | Ús |
+| --- | --- | --- |
+| Obertura web | 16:9 | Obertures de portada, sector i campanya |
+| Targeta | 4:3 | Targetes de sector i de solució |
+| Publicació social | 4:5 | LinkedIn i Instagram |
+| Retrat quadrat | 1:1 | Equip, ponents, autors |
+| Document | 3:2 | Fitxes tècniques, casos d’èxit, presentacions |
+
+- Mantén un color neutre i fidel a la realitat en tota una sèrie. Sense filtres, duotons ni vinyetatges marcats.
+- Retalla al motiu; deixa espai per al titular a la composició, mai damunt del detall.
+- El text va a la composició, no a la imatge. Els peus indiquen el lloc, l’any i, en els resultats, les condicions.
+- Cada instal·lació necessita l’aprovació del client i cada persona, el seu consentiment. Desa’ls tots dos amb el fitxer.
+
+## Fons
+
+Fes servir color pla i el fons blau de marca. Sense degradats ni lluïssors.
+
+L’hexàgon és un recurs de marca d’AIS. Fes-lo servir de dues maneres:
+
+- **La trama d’hexàgons.** Una retícula d’hexàgons només de contorn, amb la part superior plana. El traç és una línia fina amb una opacitat d’entre el 15 i el 30 %, aproximadament: blanca o `#7C9FD7` sobre blau de marca `#17356E` i blau profund `#10254C`, `#3664B3` sobre blanc. S’esvaeix des d’una cantonada o una vora, sobre aquests fons o darrere d’un panell de text.
+- **L’hexàgon solt.** Un hexàgon de contorn que conté una icona, un número de pas o una marca petita.
+
+Consulta les [trames decoratives](/ca/patterns/) per a tots els mitjans i les seves variants clares i transparents. Sense resplendor ni farciments degradats. Es permet esvair l’opacitat de les línies. Conserva la geometria original; no tallis mai una aresta de cel·la en una forma estranya.

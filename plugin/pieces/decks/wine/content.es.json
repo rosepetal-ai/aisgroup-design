@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, inspección de vino",
+    "footer": "AIS Vision Systems, inspección de vino",
+    "file": "ais-vision-systems_presentation-wine_es"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "image": {
+        "src": "tpl:ext/wine-filling-station.jpg",
+        "pos": "45% 50%"
+      },
+      "title": "Inspección de vino",
+      "lead": "Mejora tu control de calidad en líneas de producción de vino.",
+      "meta": "Engineering peace of mind",
+      "notes": "Presentación para bodegas."
+    },
+    {
+      "layout": "statement",
+      "title": "¿Qué ofrecemos?",
+      "lead": "En AIS Vision Systems ayudamos a productores de bebidas a garantizar envases impecables y etiquetado perfecto.",
+      "image": {
+        "src": "tpl:ext/wine-bottles-conveyor.jpg",
+        "pos": "50% 60%",
+        "alt": "Botellas de vino en un transportador"
+      },
+      "notes": "Lo que ofrecemos a los productores de bebidas. Foto de la presentación original: botellas de vino en el transportador."
+    },
+    {
+      "layout": "photo",
+      "title": "Nuestras soluciones de visión artificial inspeccionan en tiempo real botellas de vidrio y plástico",
+      "lead": "Detectan defectos que afectan a la calidad, la seguridad y la imagen de marca.",
+      "image": {
+        "src": "library/media/advanced-factories-2026/still-bottling-line.jpg",
+        "pos": "45% 40%"
+      },
+      "notes": "Inspección en tiempo real de botellas de vidrio y de plástico. En las fotos: una línea de embotellado, botellas de plástico en línea, un tapón levantado y una doble etiqueta."
+    },
+    {
+      "layout": "stage",
+      "title": "Problema y solución",
+      "facts": [
+        {
+          "k": "Problema",
+          "v": "Tapón y boca, nivel de líquido, etiqueta"
+        },
+        {
+          "k": "AIS Hopper",
+          "v": "Inspección de tapón a 360° e inspección del nivel de líquido"
+        },
+        {
+          "k": "AIS REV 360 y OPTICAIS",
+          "v": "Verificación envolvente y lectura OCR"
+        }
+      ],
+      "image": {
+        "src": "pieces/brochures/catalogue-wine/assets/cava-capsule-detections-blurred.jpg",
+        "pos": "12% 50%",
+        "fit": "contain"
+      },
+      "notes": "Los problemas: tapón y boca, nivel de líquido y etiqueta. Las soluciones: inspección de tapón a 360° e inspección del nivel de líquido con el AIS Hopper, verificación envolvente con el AIS REV 360 y lectura OCR con OPTICAIS. En la imagen, detecciones de Rosepetal sobre cápsulas de cava (marcas de cliente difuminadas)."
+    },
+    {
+      "layout": "stage",
+      "title": "AIS Hopper: inspección de tapón a 360° y nivel de líquido",
+      "facts": [
+        {
+          "k": "Cámaras",
+          "v": "Tres cámaras en color y cuarta opcional"
+        },
+        {
+          "k": "Cadencia",
+          "v": "Hasta 30 000 unidades/hora"
+        }
+      ],
+      "image": {
+        "src": "pieces/decks/wine/source-media/hopper-water-line-orig.png",
+        "pos": "50% 50%",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      },
+      "detail": {
+        "image": "pieces/brochures/catalogue-wine/assets/hopper-cap-live-view.jpg",
+        "pos": "50% 40%",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      },
+      "notes": "El AIS Hopper revisa el cierre y el nivel. En la imagen, su vista en directo del tapón. Las cámaras y la cadencia (hasta 30 000 unidades/hora) vienen del folleto publicado del AIS Hopper, no de la presentación original de vino. Arriba, el AIS Hopper en una línea; debajo, la vista en directo sobre tapones."
+    },
+    {
+      "layout": "stage",
+      "title": "Sirve para envases de vidrio, PET y derivados",
+      "facts": [
+        {
+          "v": "Cámaras de alta resolución con IA"
+        },
+        {
+          "v": "Rechazo automático de unidades defectuosas"
+        },
+        {
+          "v": "Diseño versátil"
+        }
+      ],
+      "image": {
+        "src": "tpl:img/hopper_bottles-in-head.jpg",
+        "pos": "50% 50%",
+        "fit": "contain",
+        "maxScale": 1.0
+      },
+      "notes": "El AIS Hopper en la línea (foto de la presentación original), su pantalla, sobre un transportador y con su expulsor. En la imagen, botellas en el cabezal del AIS Hopper."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "tpl:ext/rev360-standard-studio.jpg",
+        "pos": "50% 50%"
+      },
+      "title": "AIS REV 360",
+      "facts": [
+        {
+          "k": "Verifica",
+          "v": "Etiquetas y códigos"
+        },
+        {
+          "k": "Identifica",
+          "v": "Defectos visuales"
+        },
+        {
+          "k": "Controla",
+          "v": "El posicionamiento de etiquetas a 360°"
+        }
+      ],
+      "detail": {
+        "image": "tpl:ext/still-rev360-wine-four-views_blurred.png",
+        "title": "Imagen de cámara del equipo",
+        "text": "Cuatro vistas de una botella",
+        "pos": "50% 75%",
+        "fit": "contain"
+      },
+      "notes": "El AIS REV 360 en estudio y su imagen de cámara."
+    },
+    {
+      "layout": "statement",
+      "title": "Integrado con el software de Rosepetal con IA",
+      "image": {
+        "src": "tpl:ext/labelling-tool-cava-blurred.jpg",
+        "pos": "50% 45%"
+      },
+      "notes": "El AIS REV 360 trabaja con el software de Rosepetal, que etiqueta y revisa las imágenes del equipo. En la imagen, la herramienta de etiquetado de Rosepetal sobre botellas de cava (marcas difuminadas)."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "pieces/decks/wine/source-media/opticais-variable-print-screen-blurred.png",
+        "fit": "contain"
+      },
+      "title": "OPTICAIS",
+      "facts": [
+        {
+          "v": "Inspección automatizada de alta precisión"
+        },
+        {
+          "v": "Procesamiento en tiempo real"
+        },
+        {
+          "v": "Adaptabilidad a distintos entornos industriales"
+        },
+        {
+          "v": "Interfaz intuitiva y fácil integración"
+        }
+      ],
+      "notes": "OPTICAIS lee y verifica el marcaje; en las imágenes, su pantalla (de la presentación original) y una fecha incompleta."
+    },
+    {
+      "layout": "stage",
+      "title": "Escáner GlobalVision C8",
+      "facts": [
+        {
+          "v": "Inspección precisa de objetos cilíndricos"
+        },
+        {
+          "v": "Amplia compatibilidad de tamaños"
+        },
+        {
+          "v": "Alta resolución de escaneo"
+        },
+        {
+          "v": "Estabilidad operativa optimizada"
+        }
+      ],
+      "image": {
+        "src": "tpl:ext/c8-source.png",
+        "fit": "contain",
+        "pad": 150,
+        "maxScale": 0.65
+      },
+      "notes": "Las cuatro características del C8, como en la presentación original."
+    },
+    {
+      "layout": "steps",
+      "title": "Soluciones: AIS Hopper, AIS REV 360, OPTICAIS y C8",
+      "steps": [
+        {
+          "title": "Llenado"
+        },
+        {
+          "title": "Taponado"
+        },
+        {
+          "title": "Etiquetado"
+        },
+        {
+          "title": "Embalaje"
+        }
+      ],
+      "notes": "Las fases de una línea de vino (llenado, taponado, etiquetado y embalaje) y las cuatro soluciones. La presentación original no indica qué solución corresponde a cada fase."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/brochures/catalogue-wine/assets/rev360-trade-fair.jpg",
+        "pos": "50% 55%"
+      },
+      "title": "Beneficios",
+      "points": [
+        {
+          "icon": "wine",
+          "text": "**Adaptable** a múltiples formatos de botella"
+        },
+        {
+          "icon": "chart-column",
+          "text": "**Mejora del rendimiento** y reducción de errores"
+        },
+        {
+          "icon": "factory",
+          "text": "**Integración sencilla** en líneas existentes"
+        }
+      ],
+      "notes": "Beneficios de la inspección en línea.",
+      "lead": "Inspección automática en tiempo real."
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      },
+      "title": "Contáctanos",
+      "points": [
+        {
+          "text": "Carrer de Can Camps, 10"
+        },
+        {
+          "text": "Pol. Ind. Can Roqueta"
+        },
+        {
+          "text": "08202 Sabadell (Barcelona)"
+        },
+        {
+          "text": "info@aisvision.com"
+        }
+      ],
+      "notes": "Dirección y correo de AIS Vision Systems; el teléfono y la web están en la última diapositiva. En la imagen, una fotografía aérea de las instalaciones de Sabadell."
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Gracias. Teléfono (+34) 931 003 035, como en la página Contáctanos del original; la web, como en las piezas aprobadas."
+    }
+  ]
+}

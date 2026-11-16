@@ -1,0 +1,63 @@
+---
+title: Illustration
+rules:
+  - 'Use isometric technical illustrations to explain how something works; use photographs to prove that it works.'
+  - 'Draw real, buildable objects in depth order, with solid parts and no see-through edges. Never boxes with arrows.'
+  - 'Materials use the slate neutrals; colour carries meaning only: blue for the camera signal, green for a pass, amber `#D97706` for a part held for review, red for a reject.'
+  - 'Every figure uses one projection: 2:1 isometric, 45° azimuth and 30° elevation.'
+---
+import Illustrations from '../../../components/Illustrations.astro';
+
+## Library
+
+Every figure comes in two versions: light for white and section grey, dark for the night blue `#0B1220` and dark cards. Both share the same drawing and frame, so either one can replace the other. Caption the figure with what it shows.
+
+The drawings are SVG files. The bottling line is a 3D render, so it ships as WebP stills, taken through the same isometric camera as the drawings.
+
+<Illustrations lang="en" />
+
+## When to use one
+
+| Use an illustration to show | Use a photograph to show |
+| --- | --- |
+| How an inspection decides, with the good part and the reject side by side | That a real machine runs at a real customer |
+| Where a system runs: camera, cabinet, network | What the machine looks like |
+| A process that is hidden, fast or inside an enclosure | A result with its figures |
+
+## Construction
+
+| Rule | Detail |
+| --- | --- |
+| **Real objects** | A control cabinet, a conveyor, a camera on its bracket. Every part sits on another part and could be built. |
+| **Solid, in depth order** | Parts are filled and drawn back to front, so near parts hide far parts. No see-through edges, no floating parts. |
+| **Projection** | 2:1 isometric for every figure: the camera sits at 45° azimuth and 30° elevation, so lines along the floor rise 1 in 2 (26.57°) and verticals stay vertical. One light direction: tops are lightest, the left face is lit and the right face is in shade. |
+| **Detail where it explains** | Many small, precise parts on what the figure is about; plain volumes elsewhere. |
+| **Restrained motion** | When animated, parts move as they would in reality and signals travel along real cables. One loop, eased, no bounce. |
+
+## Colour
+
+Materials are drawn in the slate neutrals with four tones per surface: lit, side, shadow and edge. Colour is reserved for meaning. The dark version uses the dark-mode signal and status colours; the light version uses action blue and the solid status colours, which hold their contrast on white.
+
+| Role | Dark version | Light version | Use |
+| --- | --- | --- | --- |
+| **Materials** | `#0F1729` to `#334155`, lines `#64748B` | `#F1F5F9` to `#64748B`, lines `#334155` | Frames, enclosures, fixtures, shading |
+| **Subject** | `#94A3B8` to `#E2E8F0` | `#CBD5E1` to `#F1F5F9` | The part being inspected |
+| **Signal** | `#7C9FD7` | `#3664B3` | Camera light, inference, data on a cable |
+| **Pass** | `#4ADE80` | `#15803D` | The good part, the green lamp |
+| **Warning** | `#F59E0B` | `#D97706` | A part held for review, the amber lamp |
+| **Reject** | `#F87171` | `#DC2626` | The defect, the red lamp, the rejected part |
+
+Every mark that carries meaning keeps at least 3:1 contrast against what it sits on. In the dark version, pass and reject marks on light parts get a night blue `#0B1220` keyline underneath. Pass and reject are never shown by colour alone: a lamp, a tick or a label goes with them.
+
+No other colours: no brand blue fills, no gradients between unrelated colours, no glow beyond a lamp.
+
+## Making a new figure
+
+### Rendered figures and video
+
+- **Fill the column with the subject**, not with empty floor: scale a figure until the machine or part fills its space.
+- **Light versions of 3D renders** map tones with a continuous gradient from slate 500 `#64748B` to white, lifting the midtones. Never snap each pixel to the nearest token: on curved surfaces that turns shading into steps. Soften sun shadows, and match the lightness of the light isometric figures.
+- **A live overlay on a figure’s video** (a detection box and its chip, drawn to the overlay kit’s rules) is driven by the video’s own time through the same model, and positioned through the render camera, so it stays on the part.
+- **Switching theme without a reload** updates every media component: posters, loops and their light or dark files.
+
+New figures are built with the same drawing kit as the library (`iso-kit` in the Rosepetal website code) and take their camera from its `brandProjection` function, which has no angle settings, so a new figure cannot drift from the set. AI agents use the **anatomy** skill with the rules on this page. The website’s `export-brand-illustrations.mjs` script, in `astro/scripts`, writes both versions and checks every colour against the palette.

@@ -1,0 +1,81 @@
+---
+title: Temes clar i fosc
+rules:
+  - 'Només l’aplicació Rosepetal té tema fosc. Els webs, la impressió, les presentacions, les xarxes socials i el correu són clars; el fosc hi apareix com a seccions en blau profund, fons en blau de marca i peces fosques fetes amb la mateixa paleta, mai com un canvi de tema.'
+  - 'A l’aplicació, `.dark` a `<html>` canvia el tema: primer l’elecció de l’usuari, després l’ajust del sistema. Els components prenen tots els colors dels tokens de `@rosepetal/design`, de manera que no necessiten colors propis per al mode fosc.'
+  - 'Mode fosc: pàgina `#0B1220`, targetes `#111A2E`, vores `#1E293B`, text `#F1F5F9`, text secundari `#94A3B8`, accions i enllaços `#7C9FD7` amb tinta `#0F1729` als botons plens; èxit `#4ADE80`, avís `#F59E0B`, error `#F87171`.'
+  - 'Logotips: blau sobre fons clars, blanc sobre foscos. Les icones d’aplicació mantenen la marca blanca sobre el quadrat blau de marca en els dos temes; els favicons dels webs són blaus en mode clar i blancs en mode fosc.'
+  - 'El blau de marca, els farciments d’estat, les capes superposades, els colors d’etiqueta i els colors de dades taronja i cian tenen un sol valor en els dos temes. Les fotografies no es recoloren mai per a un tema.'
+  - 'Les pantalles de producte en màrqueting mostren l’aplicació en mode clar; una pantalla fosca només apareix en una peça fosca en conjunt, i mai al costat d’una de clara.'
+---
+import ThemeTokens from '../../../components/ThemeTokens.astro';
+import ThemeContrast from '../../../components/ThemeContrast.astro';
+import ThemePreviews from '../../../components/ThemePreviews.astro';
+import FaviconTabs from '../../../components/FaviconTabs.astro';
+import ThemeCharts from '../../../components/ThemeCharts.astro';
+
+L’aplicació de Rosepetal fa servir temes clar i fosc construïts amb els mateixos tokens.
+
+## On s’aplica cada tema
+
+| Suport | Clar | Fosc |
+| --- | --- | --- |
+| **Aplicació Rosepetal** | Per defecte | L’elecció de l’usuari, o l’ajust del sistema fins que triï. `.dark` a `<html>`. |
+| **Webs** | Sempre | Sense tema fosc ni selector. AIS fa servir seccions en blau profund `#10254C` i una banda final en blau de marca; els temes foscos de Rosepetal són només previsualitzacions (`?theme=`). Vegeu [Components dels llocs web](/ca/web-components/#sobre-fosc). |
+| **Impressió** | Sempre | Portades i bandes en blau de marca o marí, amb el logotip blanc. |
+| **Presentacions** | Diapositives blanques | Obertura i tancament en blau de marca. Sense presentacions fosques. |
+| **Xarxes socials** | Publicacions blanques | Publicacions i bàners en blau de marca. Vegeu [Xarxes socials](/ca/social/). |
+| **Correu** | Sempre | Cap. |
+| **Gràfics** | Fons blanc | Fons nit `#0B1220`, en el mode fosc de l’aplicació. Vegeu [Gràfics](#gràfics). |
+| **Aquesta guia** | Sempre | Cap: la guia és clara i mostra el tema fosc a les previsualitzacions. |
+
+## Tokens
+
+Tots els valors es llegeixen de `packages/design/styles.css` en generar la guia. Sota cada token, la nota del mateix paquet sobre el seu ús.
+
+### El que canvia
+
+<ThemeTokens set="changing" labels={{ token: 'Token', light: 'Clar', dark: 'Fosc', value: 'Valor', follows: 'Segueix' }} />
+
+<details>
+<summary>El que no canvia</summary>
+
+<ThemeTokens set="fixed" labels={{ token: 'Token', light: 'Clar', dark: 'Fosc', value: 'Els dos temes', follows: 'Segueix' }} />
+
+Les escales de la paleta (blau 50–950, neutre 0–900 i els tons d’estat i de dades) tenen un sol valor cadascuna; el mode fosc només apunta els tokens a altres passos. Vegeu [Color](/ca/colour/).
+
+</details>
+
+## Contrast
+
+WCAG 2.2 AA: 4,5:1 per al text, 3:1 per a icones i vores de camp. Calculat a partir dels tokens anteriors.
+
+<ThemeContrast lang="ca" labels={{ use: 'Parell', light: 'Clar', dark: 'Fosc' }} />
+
+## Components
+
+Els mateixos components en els dos temes. Cada pàgina de component té un selector clar i fosc sobre les previsualitzacions.
+
+<ThemePreviews lang="ca" examples={['button/01-variants', 'badge/01-variants', 'alert/01-variants', 'field/01-form', 'card/01-summary']} />
+
+## Logotips i favicons
+
+- **Logotips:** blau sobre fons clars, blanc sobre blau de marca, marí i el tema fosc. La barra superior de l’aplicació porta el logotip blanc en els dos temes: blau de marca en clar, la targeta fosca en fosc.
+- **Icones i favicons d’aplicació:** la marca blanca sobre el quadrat blau de marca, igual en els dos temes.
+- **Favicons dels webs:** la marca sola, blava en mode clar i blanca en mode fosc.
+
+<FaviconTabs tabs={['AIS Group', 'Plataforma | Rosepetal', 'Inspecció | App d’AIS', 'Projectes | App de Rosepetal']} />
+
+Els fitxers i les mides són a [Logotips](/ca/logos/#favicons).
+
+## Gràfics
+
+El kit de gràfics té una configuració de Vega-Lite clara i una de fosca, i un tema d’ECharts clar i un de fosc. Els foscos fixen el fons nit, el text clar i els passos foscos de les dades: la primera sèrie `#517FC9` i el violeta `#A855F7`; taronja, cian, rosa i verd blavós no canvien. Vegeu [Visualització de dades](/ca/data/).
+
+<ThemeCharts lang="ca" alt={['Gràfic de línies amb la configuració clara', 'El mateix gràfic amb la configuració fosca']} />
+
+## Imatges i captures
+
+- **Les fotografies i els renders** són iguals en els dos temes; no s’enfosqueixen, tenyeixen ni inverteixen mai.
+- **Les pantalles de producte** en màrqueting mostren l’aplicació en mode clar, com els webs. Una pantalla fosca va només en una peça fosca en conjunt, i una peça no barreja mai les dues.
+- **Les capes de detecció** mantenen els colors del kit i passen als tons clars només sobre imatges fosques (vegeu [Imatge](/ca/imagery/)), sigui quin sigui el tema de la pàgina que les envolta.

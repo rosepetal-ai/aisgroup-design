@@ -1,0 +1,139 @@
+{
+  "slides": [
+    {
+      "layout": "milestones",
+      "title": "Desde 1998, de Dublín a Sabadell",
+      "items": [
+        {
+          "date": "24 de septiembre de 1998",
+          "text": "Simon Smyth (director general) y Mick Heavey (actual director ejecutivo) fundan AIS Ltd en Irlanda"
+        },
+        {
+          "date": "Junio de 2003",
+          "text": "Traslado a Park West"
+        },
+        {
+          "date": "Noviembre de 2012",
+          "text": "AIS Vision Spain"
+        },
+        {
+          "date": "Abril de 2013",
+          "text": "AIS Scanology, Países Bajos"
+        },
+        {
+          "date": "Diciembre de 2013",
+          "text": "Ampliación del edificio de Park West"
+        }
+      ],
+      "notes": "La historia de AIS Group, 1 de 2: de la fundación de AIS Ltd en Irlanda, el 24 de septiembre de 1998, a la ampliación de Park West en 2013."
+    },
+    {
+      "layout": "milestones",
+      "title": "De 2020 a 2024",
+      "items": [
+        {
+          "date": "Noviembre de 2020",
+          "text": "Rosepetal; compra de dos edificios en Park West"
+        },
+        {
+          "date": "Febrero de 2021",
+          "text": "Edificio de AIS Vision Spain en Sabadell"
+        },
+        {
+          "date": "Julio de 2022",
+          "text": "AIS Vision Automation, Irlanda"
+        },
+        {
+          "date": "Agosto de 2023",
+          "text": "25.º aniversario"
+        },
+        {
+          "date": "Julio de 2024",
+          "text": "Compra del segundo edificio en Sabadell"
+        }
+      ],
+      "notes": "La historia de AIS Group, 2 de 2: de Rosepetal a la compra del segundo edificio de Sabadell.",
+      "dateWidth": 528
+    },
+    {
+      "layout": "mosaic",
+      "title": "AIS Group",
+      "lead": "AIS Vision Systems y Rosepetal en Sabadell, AIS Ltd en Dublín, AIS Vision Automation en Dundalk y AIS Scanology en Beugen.",
+      "image": {
+        "src": "pieces/decks/corporate-2026/source-media/sabadell-aerial-photo.jpg",
+        "alt": "Vista aérea de las instalaciones de AIS Vision Systems en Sabadell",
+        "role": "facility"
+      },
+      "tiles": [
+        {
+          "image": "library/media/deck-media/ais-group_sabadell-aerial.jpg",
+          "label": "Sabadell, España"
+        },
+        {
+          "image": "library/media/deck-media/ais-group_dublin-building.jpg",
+          "label": "Dublín, Irlanda"
+        },
+        {
+          "image": "library/media/deck-media/ais-group_dundalk-workshop.jpg",
+          "label": "Dundalk, Irlanda"
+        },
+        {
+          "image": "library/media/deck-media/ais-group_beugen-building.jpg",
+          "label": "Beugen, Países Bajos"
+        }
+      ],
+      "notes": "Las empresas de AIS Group y sus sedes: Sabadell (AIS Vision Systems y Rosepetal), Dublín (AIS Ltd), Dundalk (AIS Vision Automation) y Beugen (AIS Scanology). En la imagen grande, el edificio de AIS Vision Systems en Sabadell; en Beugen, la bandera de AIS Scanology (scanology.nl) delante del edificio; en Dublín, el edificio de AIS Ltd con su rótulo."
+    },
+    {
+      "layout": "grid",
+      "title": "Nuestras soluciones",
+      "cols": 3,
+      "ratio": 2.8,
+      "tiles": [
+        {
+          "image": {
+            "src": "tpl:img/cobot-labelling-cell.jpg",
+            "pos": "50% 0%"
+          },
+          "label": "Etiquetado automático"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/still-rev360-operator-screen.png",
+            "pos": "50% 40%"
+          },
+          "label": "Sistemas de visión"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/oval-tin-date-code.jpg",
+            "pos": "30% 50%"
+          },
+          "label": "Impresión por chorro de tinta y láser"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-001-000.png",
+            "pos": "45% 48%"
+          },
+          "label": "Impresoras de etiquetas"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/img-002-001.png",
+            "pos": "40% 35%"
+          },
+          "label": "Verificadores de códigos de barras"
+        },
+        {
+          "image": {
+            "src": "tpl:ext/trays_barcode-read.jpg",
+            "pos": "50% 82%"
+          },
+          "label": "Lectores de códigos de barras"
+        }
+      ],
+      "notes": "Las seis soluciones de las empresas del grupo."
+    }
+  ]
+}

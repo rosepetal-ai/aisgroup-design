@@ -1,0 +1,112 @@
+---
+title: Accessibilitat
+rules:
+  - 'Compleix les WCAG 2.2 de nivell AA en tots els webs, interfícies de producte, documents i vídeos.'
+  - 'El text arriba a 4,5:1 amb el fons, o 3:1 a partir de 24 px o de 18,7 px en negreta (14 pt); les vores de controls, els anells de focus i els gràfics amb significat arriben a 3:1. Fes servir només les combinacions aprovades.'
+  - 'No transmetis mai un significat només amb color: els estats, les sèries de gràfics i les deteccions porten també una paraula, una icona, una etiqueta o una trama.'
+  - 'Tot funciona amb teclat, mostra l’anell de focus de la marca i ofereix zones d’almenys 24 × 24 px. En webs i pantalles d’operari, les zones tàctils, les que es fan servir amb guants i els botons només amb icona fan 44 × 44 px; les barres d’eines de producte a l’escriptori poden fer servir botons de 36 px.'
+  - 'Tota imatge, gràfic i il·lustració informatius tenen alternativa textual; els decoratius s’amaguen a les tecnologies de suport. Els vídeos porten subtítols.'
+  - 'Les pàgines declaren la llengua, ordenen els títols i mantenen el text com a text real, mai com a imatge.'
+---
+import A11yPairs from '../../../components/A11yPairs.astro';
+
+Aplica aquests requisits perquè tothom pugui fer servir el contingut i els controls.
+
+## L’estàndard
+
+Les **WCAG 2.2 de nivell AA** s’apliquen a tot el que publiquem: webs, pàgines de campanya, l’aplicació Rosepetal, PDF, presentacions, correus i vídeos. És també el nivell que la legislació europea d’accessibilitat espera a través de la norma EN 301 549. Les regles següents el traslladen a la nostra marca; en cas de dubte, mana el criteri de les WCAG.
+
+| Principi | Què vol dir per a nosaltres |
+| --- | --- |
+| **Perceptible** | Contrast de les combinacions aprovades, alternatives textuals, subtítols, res transmès només amb color |
+| **Operable** | Accés amb teclat a tot arreu, anell de focus visible, zones de pulsació àmplies, moviment que respecta l’ajust del sistema |
+| **Comprensible** | Llenguatge clar en català, castellà i anglès, navegació previsible, errors de formulari clars |
+| **Robust** | HTML semàntic primer, ARIA només per cobrir buits, proves amb tecnologies de suport reals |
+
+## Contrast
+
+Cada combinació es mesura a partir dels valors dels tokens quan es genera la guia; si una no arriba al mínim, la generació s’atura.
+
+<A11yPairs lang="ca" />
+
+- **El text** necessita 4,5:1, o 3:1 si fa almenys 24 px, o 18,7 px en negreta (14 pt).
+- **Els controls i els gràfics amb significat** necessiten 3:1: vores de camp, interruptors, anells de focus, línies de gràfics, requadres de detecció i icones d’estat.
+- **Mai només amb color.** Un estat combina el color amb una icona i una paraula; les sèries d’un gràfic tenen llegenda o etiquetes directes; les deteccions tenen etiqueta i veredicte.
+- El blau clar `#A7BFE4` és només per a text sobre fons blaus; sobre blanc és decoració, no text.
+- Les vores dels camps de formulari són `#64748B` (`--ais-border-strong`), que arriba a 3:1, en tots els productes i webs.
+- El text i les icones d’èxit fan servir el verd d’èxit `#15803D` (5:1 sobre blanc), que també és el farciment sota text blanc. El verd més clar `#16A34A` només arriba a 3,3:1 sobre blanc i no es fa servir mai per a text ni sota.
+
+## Tipografia i lectura
+
+- En webs, el text corregut fa 16 px i res no fa menys de 12 px; en documents impresos i PDF, res no fa menys de 8,5 pt. A les interfícies de producte, tot el que es llegeix fa almenys 14 px; 12 px només per a eixos de gràfics i tecles.
+- Les pàgines es recomponen a 320 px CSS d’amplada i al 200 % de zoom sense scroll horitzontal ni pèrdua de contingut.
+- Les composicions toleren l’espaiat de text de l’usuari: interlineat d’1,5, el doble d’espai entre paràgrafs, 0,12 em entre lletres i 0,16 em entre paraules.
+- Els intervals numèrics, els noms de fitxer o de producte i les paraules amb guionet no es parteixen mai entre línies.
+- El text continua sent text: mai una imatge de text ni un text incrustat en una fotografia.
+
+## Teclat i focus
+
+- Totes les accions funcionen amb teclat, en un ordre que segueix la composició visual. Res no atrapa el focus.
+- L’anell de focus (`--ais-focus-ring`, 2 px de blau d’acció amb una separació blanca de 2 px) apareix en tot element interactiu i no s’elimina mai.
+- Les capçaleres fixes no tapen mai l’element amb focus: les pàgines fixen `scroll-padding-top` a l’alçada de la capçalera.
+- Cada pàgina comença amb un enllaç per saltar al contingut principal.
+
+## Zones de pulsació
+
+Les zones interactives fan almenys **24 × 24 px**. En webs i pantalles d’operari, les accions principals, la navegació, les zones tàctils, els controls que es fan servir amb guants i els botons només amb icona fan **44 × 44 px**. Les barres d’eines de producte a l’escriptori poden fer servir botons de 36 px amb icones de 16 px. Els enllaços dins del text en queden exempts, però conserven el subratllat.
+
+## Moviment i multimèdia
+
+- Tot el moviment segueix [Moviment](/ca/motion/) i s’atura quan el sistema demana moviment reduït.
+- Res no parpelleja més de tres vegades per segon.
+- Tot el que es mou o s’actualitza sol durant més de cinc segons té un control de pausa, excepte els efectes purament decoratius de la capçalera i la banda de logotips, que s’atura en hover i fora de la pantalla.
+- Un vídeo no reprodueix mai so tot sol. Tots els vídeos porten subtítols; el que només transmet la imatge porta audiodescripció o transcripció.
+
+## Imatges, il·lustracions i gràfics
+
+| Contingut | Alternativa textual |
+| --- | --- |
+| **Fotografia que informa** | El que demostra la imatge, en una frase: «AIS REV 360 inspeccionant ampolles de vi en una línia d’embotellament». |
+| **Detecció o resultat** | El veredicte i la troballa: «Rebuig: el lot diu A2391 i s’esperava A2319». |
+| **Il·lustració** | El que explica, com als peus de la biblioteca |
+| **Gràfic** | Títol i una frase amb la conclusió com a alternativa, més una vista de taula amb les dades |
+| **Logotip** | Només el nom de la marca; mai «logotip de» |
+| **Imatge decorativa o icona al costat de la seva etiqueta** | Alternativa buida (`alt=""`) o `aria-hidden="true"` |
+
+## Formularis
+
+- Cada camp té una etiqueta visible a sobre; els marcadors de posició són exemples, mai etiquetes.
+- L’ajuda va sota l’etiqueta i està vinculada al camp.
+- Els errors apareixen al costat del camp, en text i amb icona d’error, s’anuncien als lectors de pantalla i expliquen com resoldre el problema.
+- Els camps obligatoris s’indiquen amb paraules, no només amb un asterisc.
+
+## Llengua i contingut
+
+- Cada pàgina declara la llengua (`lang="ca"`, `lang="es"`, `lang="en"`), i els fragments en una altra llengua declaren la seva.
+- Els títols van en ordre sense saltar nivells, i cada pàgina té un sol H1.
+- El text d’un enllaç diu on porta: «Descarrega la fitxa tècnica d’AIS REV 360 (PDF, 2 MB)», mai «fes clic aquí».
+- Escriu amb llenguatge clar, segons [Veu](/ca/voice/).
+
+## Documents i presentacions
+
+- Els PDF van etiquetats (PDF/UA), amb títol, llengua, títols de secció, ordre de lectura i alternatives per a cada imatge informativa.
+- Cada diapositiva té un títol únic, fa servir les mides de Tipografia i manté l’ordre de lectura des de dalt a l’esquerra.
+- No lliuris mai com a única versió un document escanejat o aplanat.
+
+## Proves
+
+Cada versió d’un web, una pàgina de campanya o una pantalla de producte supera aquestes proves abans de publicar-se.
+
+| Prova | Com | Se supera si |
+| --- | --- | --- |
+| **Automàtica** | axe-core en cada plantilla de pàgina, en escriptori i en mòbil | No hi ha incompliments |
+| **Revisió de marca** | L’[script de revisió de marca](/downloads/qa/brand-check.js) en cada plantilla | No hi ha troballes |
+| **Tipografia i estats** | `type-check.mjs` i `hover-audit.mjs` a cada plantilla | Cap text fora dels deu estils; un comportament per tipus d’enllaç |
+| **Estats** | Captura cada estat en passar el punter, menú obert, focus, menú mòbil i overlay, a cada tema | Cada estat segueix la guia; els scripts no veuen estats |
+| **Teclat** | Recórrer cada pàgina amb el tabulador i completar cada tasca | Tot és accessible i el focus sempre es veu |
+| **Lector de pantalla** | NVDA amb Firefox o Chrome; VoiceOver amb Safari | Les tasques es completen i el contingut segueix l’ordre |
+| **Zoom i recomposició** | Zoom al 200 % i finestra de 320 px d’amplada | Res no es perd ni es talla, sense scroll horitzontal |
+| **Moviment reduït** | Activar l’ajust del sistema | Res no es mou i no falta res |
+| **Color** | Simulació de daltonisme en gràfics i estats | Tots els significats continuen llegibles |
+
+Aquesta guia compleix el mateix llistó: les seves pàgines superen axe-core amb les regles de les WCAG 2.2 AA en escriptori i en mòbil, i la revisió de marca.

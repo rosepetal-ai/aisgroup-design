@@ -1,0 +1,241 @@
+{
+  "color": [
+    "#3664B3",
+    "#EA580C",
+    "#0891B2",
+    "#DB2777",
+    "#8B5CF6",
+    "#0D9488"
+  ],
+  "backgroundColor": "#FFFFFF",
+  "textStyle": {
+    "fontFamily": "Inter, Arial, sans-serif",
+    "color": "#0F1729"
+  },
+  "title": {
+    "left": 0,
+    "textStyle": {
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "color": "#0F1729"
+    },
+    "subtextStyle": {
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12,
+      "color": "#4B5563"
+    },
+    "top": 0,
+    "itemGap": 6
+  },
+  "legend": {
+    "top": 56,
+    "left": 0,
+    "icon": "rect",
+    "itemWidth": 12,
+    "itemHeight": 12,
+    "itemGap": 24,
+    "textStyle": {
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 13,
+      "color": "#0F1729"
+    }
+  },
+  "grid": {
+    "left": 48,
+    "right": 24,
+    "top": 104,
+    "bottom": 40,
+    "containLabel": true
+  },
+  "categoryAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#94A3B8",
+        "width": 1
+      }
+    },
+    "axisTick": {
+      "show": false
+    },
+    "axisLabel": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12
+    },
+    "splitLine": {
+      "show": false,
+      "lineStyle": {
+        "color": "#E2E8F0",
+        "width": 1,
+        "type": "solid"
+      }
+    },
+    "nameTextStyle": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  },
+  "valueAxis": {
+    "axisLine": {
+      "show": false
+    },
+    "axisTick": {
+      "show": false
+    },
+    "axisLabel": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#E2E8F0",
+        "width": 1,
+        "type": "solid"
+      }
+    },
+    "nameTextStyle": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  },
+  "timeAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#94A3B8",
+        "width": 1
+      }
+    },
+    "axisTick": {
+      "show": false
+    },
+    "axisLabel": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12
+    },
+    "splitLine": {
+      "show": false,
+      "lineStyle": {
+        "color": "#E2E8F0",
+        "width": 1,
+        "type": "solid"
+      }
+    },
+    "nameTextStyle": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  },
+  "logAxis": {
+    "axisLine": {
+      "show": false
+    },
+    "axisTick": {
+      "show": false
+    },
+    "axisLabel": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#E2E8F0",
+        "width": 1,
+        "type": "solid"
+      }
+    },
+    "nameTextStyle": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  },
+  "line": {
+    "lineStyle": {
+      "width": 2
+    },
+    "symbol": "circle",
+    "symbolSize": 8,
+    "showSymbol": false,
+    "smooth": false,
+    "emphasis": {
+      "focus": "series"
+    }
+  },
+  "bar": {
+    "barMaxWidth": 24,
+    "barCategoryGap": "40%",
+    "itemStyle": {
+      "borderRadius": 0
+    }
+  },
+  "scatter": {
+    "symbolSize": 8,
+    "itemStyle": {
+      "borderColor": "#FFFFFF",
+      "borderWidth": 2
+    }
+  },
+  "boxplot": {
+    "itemStyle": {
+      "color": "#3664B329",
+      "borderColor": "#3664B3",
+      "borderWidth": 1
+    },
+    "boxWidth": [
+      12,
+      24
+    ]
+  },
+  "heatmap": {
+    "itemStyle": {
+      "borderColor": "#FFFFFF",
+      "borderWidth": 2
+    }
+  },
+  "visualMap": {
+    "inRange": {
+      "color": [
+        "#7C9FD7",
+        "#517FC9",
+        "#3664B3",
+        "#1E4591",
+        "#17356E",
+        "#10254C"
+      ]
+    },
+    "textStyle": {
+      "color": "#4B5563",
+      "fontFamily": "Inter, Arial, sans-serif"
+    }
+  },
+  "tooltip": {
+    "backgroundColor": "#0F1729",
+    "borderWidth": 0,
+    "textStyle": {
+      "color": "#FFFFFF",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "fontSize": 12
+    },
+    "axisPointer": {
+      "lineStyle": {
+        "color": "#94A3B8",
+        "width": 1
+      }
+    }
+  }
+}

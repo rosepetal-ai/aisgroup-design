@@ -1,0 +1,202 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "background": "#0B1220",
+  "padding": 16,
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "title": {
+    "anchor": "start",
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 16,
+    "fontWeight": 600,
+    "color": "#F1F5F9",
+    "subtitleFont": "Inter, Arial, sans-serif",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#94A3B8",
+    "subtitlePadding": 4,
+    "offset": 16
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 12,
+    "labelColor": "#94A3B8",
+    "titleFont": "Inter, Arial, sans-serif",
+    "titleFontSize": 12,
+    "titleFontWeight": 500,
+    "titleColor": "#94A3B8",
+    "titlePadding": 12,
+    "labelPadding": 6,
+    "gridColor": "#1E293B",
+    "gridWidth": 1,
+    "domainColor": "#64748B",
+    "domainWidth": 1,
+    "tickColor": "#64748B",
+    "tickSize": 4,
+    "tickCount": 5,
+    "labelFlush": false
+  },
+  "axisY": {
+    "domain": false,
+    "ticks": false,
+    "titleAngle": -90,
+    "grid": true
+  },
+  "axisBand": {
+    "grid": false,
+    "ticks": false,
+    "labelPadding": 8
+  },
+  "axisDiscrete": {
+    "grid": false,
+    "ticks": false,
+    "labelPadding": 8
+  },
+  "legend": {
+    "orient": "top",
+    "direction": "horizontal",
+    "title": null,
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 13,
+    "labelColor": "#F1F5F9",
+    "symbolSize": 120,
+    "symbolStrokeWidth": 2,
+    "columnPadding": 24,
+    "padding": 0,
+    "offset": 16,
+    "gradientLength": 240,
+    "gradientThickness": 12,
+    "symbolType": "square"
+  },
+  "header": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 13,
+    "labelColor": "#F1F5F9",
+    "titleFont": "Inter, Arial, sans-serif",
+    "titleFontSize": 13,
+    "titleColor": "#94A3B8"
+  },
+  "range": {
+    "category": [
+      "#517FC9",
+      "#EA580C",
+      "#0891B2",
+      "#DB2777",
+      "#A855F7",
+      "#0D9488"
+    ],
+    "ordinal": [
+      "#1E4591",
+      "#3664B3",
+      "#517FC9",
+      "#7C9FD7",
+      "#A7BFE4"
+    ],
+    "ramp": [
+      "#1E4591",
+      "#3664B3",
+      "#517FC9",
+      "#7C9FD7",
+      "#A7BFE4"
+    ],
+    "heatmap": [
+      "#1E4591",
+      "#3664B3",
+      "#517FC9",
+      "#7C9FD7",
+      "#A7BFE4"
+    ],
+    "diverging": [
+      "#FDD9A8",
+      "#EA580C",
+      "#334155",
+      "#517FC9",
+      "#A7BFE4"
+    ]
+  },
+  "bar": {
+    "fill": "#517FC9",
+    "discreteBandSize": 24,
+    "continuousBandSize": 24,
+    "binSpacing": 2,
+    "cornerRadius": 0
+  },
+  "rect": {
+    "fill": "#517FC9",
+    "binSpacing": 2,
+    "stroke": "#0B1220",
+    "strokeWidth": 2
+  },
+  "line": {
+    "stroke": "#517FC9",
+    "strokeWidth": 2,
+    "strokeJoin": "round",
+    "strokeCap": "round"
+  },
+  "point": {
+    "filled": true,
+    "size": 64,
+    "stroke": "#0B1220",
+    "strokeWidth": 2
+  },
+  "circle": {
+    "size": 64,
+    "stroke": "#0B1220",
+    "strokeWidth": 2
+  },
+  "area": {
+    "fillOpacity": 0.1,
+    "line": {
+      "strokeWidth": 2
+    }
+  },
+  "rule": {
+    "stroke": "#64748B",
+    "strokeWidth": 1
+  },
+  "tick": {
+    "thickness": 2
+  },
+  "boxplot": {
+    "size": 24,
+    "box": {
+      "fill": "#517FC9",
+      "fillOpacity": 0.16,
+      "stroke": "#517FC9",
+      "strokeWidth": 1
+    },
+    "median": {
+      "stroke": "#F1F5F9",
+      "strokeWidth": 2
+    },
+    "rule": {
+      "stroke": "#64748B"
+    },
+    "ticks": false,
+    "outliers": {
+      "size": 24,
+      "stroke": "#64748B",
+      "fill": "#64748B"
+    }
+  },
+  "text": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 12,
+    "fill": "#F1F5F9"
+  },
+  "style": {
+    "guide-label": {
+      "font": "Inter, Arial, sans-serif"
+    },
+    "guide-title": {
+      "font": "Inter, Arial, sans-serif"
+    },
+    "group-title": {
+      "font": "Inter, Arial, sans-serif"
+    }
+  },
+  "axisX": {
+    "grid": false
+  }
+}

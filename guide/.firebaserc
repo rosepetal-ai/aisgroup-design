@@ -1,0 +1,4 @@
+{
+  "projects": { "default": "aisgroup-design" },
+  "targets": { "aisgroup-design": { "hosting": { "aisgroup-design": ["aisgroup-design"] } } }
+}

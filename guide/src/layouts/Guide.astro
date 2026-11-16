@@ -1,0 +1,200 @@
+---
+import '../styles/guide.css';
+import '../styles/shared.css';
+import '../styles/asset-actions.css';
+import Arrow from '../components/Arrow.astro';
+import GuideSearch from '../components/GuideSearch.astro';
+import { ClientRouter } from 'astro:transitions';
+// Inline, so the header logo never re-fetches or flashes between pages.
+import logo from '../../public/logos/ais-group-blue.svg?raw';
+import { languages, sections, ui, href, type Lang } from '../i18n';
+interface Props { lang: Lang; slug: string; title: string; headings: { depth: number; slug: string; text: string }[]; titles: Record<string, string>; wide?: boolean }
+const { lang, slug, title, headings, titles, wide } = Astro.props;
+const t = ui[lang];
+const sectionOrder=sections.find(section=>section.pages.includes(slug))?.pages ?? [];
+const at = sectionOrder.indexOf(slug);
+const prev = sectionOrder[at - 1], next = sectionOrder[at + 1];
+const toc = headings.filter((h) => h.depth === 2);
+---
+<!doctype html>
+<html lang={lang} transition:animate="none">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{slug === 'index' ? '' : `${title} | `}AIS Group {t.guide.toLowerCase()}</title>
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/logos/favicons/ais/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/logos/favicons/ais/favicon-32-light.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="/logos/favicons/ais/favicon-32-dark.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/logos/favicons/ais/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/logos/favicons/ais/apple-touch-icon.png" />
+    <ClientRouter />
+    {Object.keys(languages).map((l) => <link rel="alternate" hreflang={l} href={href(l as Lang, slug)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#content">{t.skip}</a>
+    <header class="top" transition:persist={`top-${lang}`}>
+      <a class="brand" href={href(lang, 'index')} aria-label="AIS Group"><Fragment set:html={logo.replace(/<\?xml[^>]*>\s*/, '').replace('role="img"', 'aria-hidden="true" focusable="false"')} /></a>
+      <div class="header-controls">
+      <button class="guide-search-trigger guide-search-icon" type="button" aria-haspopup="dialog" aria-controls="guide-search" aria-label={t.search}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+      <button class="menu-toggle" type="button" aria-controls="guide-navigation" aria-expanded="false" aria-label={t.menu}>
+        <svg class="menu-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+        <svg class="close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg>
+      </button>
+      <nav class="langs" aria-label={t.language}>
+        {Object.entries(languages).map(([l, name]) => <a href={href(l as Lang, slug)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{l.toUpperCase()}<span class="sr">{name}</span></a>)}
+      </nav>
+      </div>
+    </header>
+    <div class="shell" data-wide={wide || undefined}>
+      <aside class="side" id="guide-navigation">
+        <nav aria-label={t.sections}>
+          <div class="guide-search-bar">
+            <button class="guide-search-trigger" type="button" aria-haspopup="dialog" aria-controls="guide-search" aria-keyshortcuts="Control+k Meta+k">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+              <span>{t.search}</span><kbd aria-hidden="true">Ctrl K</kbd>
+            </button>
+          </div>
+          {sections.map((s) => (
+            <div class="group">
+              <p>{s.group[lang]}</p>
+              <ul>{s.pages.map((p) => <li><a href={href(lang, p)} aria-current={p === slug ? 'page' : undefined}>{titles[p]}</a></li>)}</ul>
+            </div>
+          ))}
+        </nav>
+      </aside>
+      <main id="content" data-pagefind-body>
+        <h1 data-pagefind-meta="title">{title}</h1>
+        <article class="prose"><slot /></article>
+        <nav data-pagefind-ignore class="pager" aria-label={t.pages}>
+          {prev ? <a class="ais-text-link back" href={href(lang, prev)}><svg class="ais-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>{titles[prev]}</a> : <span />}
+          {next && <a class="ais-text-link" href={href(lang, next)}>{titles[next]}<Arrow /></a>}
+        </nav>
+      </main>
+      {!wide && toc.length > 1 && (
+        <aside class="toc" aria-label={t.onThisPage}><p>{t.onThisPage}</p><ul>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></aside>
+      )}
+    </div>
+    <script is:inline>
+      (() => {
+        if (window.guideMenu) return;
+        window.guideMenu = true;
+        const mobile = matchMedia('(max-width: 900px)');
+        let focusContent = false;
+        const close = (returnFocus = false) => {
+          document.querySelector('.side')?.removeAttribute('data-open');
+          document.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+          document.documentElement.removeAttribute('data-menu-open');
+          document.querySelector('main')?.removeAttribute('inert');
+          if (returnFocus) document.querySelector('.menu-toggle')?.focus();
+        };
+        document.addEventListener('click', event => {
+          if (event.target.closest('.top .menu-toggle')) {
+            if (!mobile.matches) return;
+            const button = document.querySelector('.menu-toggle');
+            if (button.getAttribute('aria-expanded') === 'true') return close(true);
+            document.querySelector('.side')?.setAttribute('data-open', '');
+            document.documentElement.setAttribute('data-menu-open', '');
+            button.setAttribute('aria-expanded', 'true');
+            document.querySelector('main')?.setAttribute('inert', '');
+            document.querySelector('.side [aria-current="page"], .side .group a')?.focus();
+          } else if (mobile.matches && event.target.closest('.side a')) {
+            focusContent = true;
+            close();
+          }
+        });
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape' && document.documentElement.hasAttribute('data-menu-open')) {
+            event.preventDefault(); close(true);
+          }
+        });
+        const navigating = () => {
+          if (mobile.matches && document.documentElement.hasAttribute('data-menu-open')) focusContent = true;
+          close();
+        };
+        document.addEventListener('astro:before-preparation', navigating);
+        document.addEventListener('astro:before-swap', navigating);
+        addEventListener('popstate', navigating);
+        mobile.addEventListener('change', () => close());
+        document.addEventListener('astro:page-load', () => {
+          if (focusContent) close();
+          if (focusContent && mobile.matches) {
+            focusContent = false;
+            const heading = document.querySelector('main h1');
+            heading?.setAttribute('tabindex', '-1');
+            heading?.focus({preventScroll: true});
+          }
+        });
+      })();
+    </script>
+    <GuideSearch lang={lang} />
+    <script>import '../guide-interactions';</script>
+    <script is:inline>
+      // The header and the menu stay on screen from page to page (client router); only the content changes. Before each
+      // change, the kept language links and menu links take the new page's addresses and current-page marks.
+      (() => { if (window.guideNav) return; window.guideNav = true;
+        const save = () => { try { sessionStorage.setItem('guide-side', document.querySelector('.side')?.scrollTop || 0); } catch {} };
+        addEventListener('pagehide', save);
+        document.addEventListener('astro:before-swap', (e) => { save();
+          for (const sel of ['.top .langs a', '.side .group a']) {
+            const fresh = e.newDocument.querySelectorAll(sel);
+            document.querySelectorAll(sel).forEach((a, i) => { const f = fresh[i]; if (!f) return;
+              a.setAttribute('href', f.getAttribute('href'));
+              if (f.hasAttribute('aria-current')) a.setAttribute('aria-current', f.getAttribute('aria-current')); else a.removeAttribute('aria-current'); });
+          }
+        }); })();
+      // The menu keeps its scroll position (also across a language change) and scrolls itself, never the page, to show the current page.
+      (() => { const s = document.querySelector('.side'); if (!s) return;
+        if (!s.dataset.ready) { s.dataset.ready = '1'; try { s.scrollTop = +sessionStorage.getItem('guide-side') || 0; } catch {} }
+        const here = s.querySelector('[aria-current="page"]'); const r = here?.getBoundingClientRect(), box = s.getBoundingClientRect();
+        if (r && (r.top < box.top || r.bottom > box.bottom)) s.scrollTop += r.top - box.top - (box.height - r.height) / 2; })();
+    </script>
+    <script define:vars={{ copied: t.copied }}>
+      // Ranges, file names and hyphenated words never break across lines (Typography): wrap each in a no-break span.
+      const joined = /[^\s]*[-–‑][^\s]*/g;
+      const walk = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT);
+      const nodes = []; for (let n = walk.nextNode(); n; n = walk.nextNode()) if (/[-–‑]/.test(n.textContent) && !n.parentElement.closest('pre, code, .nobr, svg')) nodes.push(n);
+      nodes.forEach((n) => {
+        const frag = document.createDocumentFragment(); let last = 0; const text = n.textContent;
+        text.replace(joined, (m, i) => { if (m.length > 32) return m; frag.append(text.slice(last, i)); const s = document.createElement('span'); s.className = 'nobr'; s.textContent = m; frag.append(s); last = i + m.length; return m; });
+        frag.append(text.slice(last)); n.replaceWith(frag);
+      });
+      // Tables that scroll inside their box (phones) become keyboard-reachable regions named after their section.
+      const regions = () => document.querySelectorAll('.prose table, .table-wrap').forEach((el) => {
+        if (el.matches('.table-wrap table')) return;
+        const scrolls = el.scrollWidth > el.clientWidth + 1;
+        if (!scrolls) { el.removeAttribute('tabindex'); el.removeAttribute('role'); return; }
+        let h = el.previousElementSibling; while (h && !/^H[23]$/.test(h.tagName)) h = h.previousElementSibling;
+        el.tabIndex = 0; el.setAttribute('role', 'region'); el.setAttribute('aria-label', h ? h.textContent : 'Table');
+      });
+      // Re-check when a table's size changes, e.g. once the web font has loaded.
+      const watch = new ResizeObserver(regions);
+      document.querySelectorAll('.prose table, .table-wrap').forEach((el) => watch.observe(el));
+      // Every colour code copies on click: swatch chips and any `#RRGGBB` written in the text.
+      const hex = /^#[0-9A-F]{6}$/i;
+      document.querySelectorAll('.prose code').forEach((code) => {
+        if (!hex.test(code.textContent.trim()) || code.closest('[data-copy]')) return;
+        code.dataset.copy = code.textContent.trim().toUpperCase();
+        code.classList.add('copyable');
+        code.tabIndex = 0;
+        code.setAttribute('role', 'button');
+      });
+      const copy = async (el) => {
+        try { await navigator.clipboard.writeText(el.dataset.copy); } catch { return; }
+        const label = el.matches('code') ? el : el.querySelector('code');
+        if (!label || label.dataset.busy) return;
+        label.dataset.busy = '1';
+        const was = label.textContent;
+        label.textContent = copied;
+        setTimeout(() => { label.textContent = was; delete label.dataset.busy; }, 1100);
+      };
+      // Registered once: this script runs again after every page change.
+      if (!window.guideCopy) { window.guideCopy = true;
+      document.addEventListener('click', (event) => { const el = event.target.closest('[data-copy]'); if (el) copy(el); });
+      document.addEventListener('keydown', (event) => { const el = event.target.closest('code[data-copy]'); if (el && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); copy(el); } }); }
+
+    </script>
+  </body>
+</html>

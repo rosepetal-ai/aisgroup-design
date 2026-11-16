@@ -1,0 +1,19 @@
+---
+import { ui, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const t = ui[lang];
+---
+<dialog id="guide-search" class="guide-search" aria-label={t.search} data-prompt={t.searchPrompt} data-loading={t.searchLoading} data-empty={t.searchEmpty} data-error={t.searchError} data-results={t.searchResults}>
+  <div class="guide-search-field">
+    <label class="sr" for="guide-search-input">{t.search}</label>
+    <input id="guide-search-input" type="search" placeholder={t.searchPlaceholder} autocomplete="off" spellcheck="false" aria-controls="guide-search-results" aria-describedby="guide-search-status" />
+    <button type="button" class="guide-search-close" aria-label={t.searchClose}>×</button>
+  </div>
+  <p id="guide-search-status" role="status" aria-live="polite">{t.searchPrompt}</p>
+  <ol id="guide-search-results" aria-label={t.searchResults}></ol>
+</dialog>
+<script>
+  import { setupGuideSearch } from '../search';
+  // The client router keeps the header and menu (and their triggers) and brings a new dialog with each page.
+  document.addEventListener('astro:page-load', setupGuideSearch);
+</script>

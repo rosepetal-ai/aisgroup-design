@@ -1,0 +1,216 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; part: 'formats' | 'frames' | 'templates'; only?: string[] }
+const { lang, part, only } = Astro.props;
+// Lower-third media source: ais-group-design/pieces/videos/guide-specimens/ (published José identity).
+// Video specimens drawn to scale: 1 video pixel = 100cqw / frame width, so every size below is the 1080p value.
+const t = {
+  en: {
+    formats: [
+      ['16:9', '1920 × 1080', 'Website, YouTube, screens and events'],
+      ['1:1', '1080 × 1080', 'LinkedIn and Instagram feed'],
+      ['4:5', '1080 × 1350', 'Instagram feed'],
+      ['9:16', '1080 × 1920', 'Reels, Shorts, TikTok, LinkedIn vertical'],
+    ],
+    safe: 'Title safe', ui: 'Platform interface',
+    clips: [
+      ['opening', 'Opening logo', 'Films over 60 s only. 8 frames of blue, the logo rises over 18 frames, a cut at 2 s.'],
+      ['title', 'Title', 'Inter Semibold 96 px; lines rise from a mask over 28 frames, 3 frames apart.'],
+      ['lower-third', 'Lower third', 'Enters over 13 frames, stays on screen for at least 4 s, and leaves over 5 frames. The name is 44 px and the role is 32 px.'],
+      ['captions', 'Captions', 'Inter Medium 40 px, white on ink, two lines at most.'],
+      ['inspection', 'Inspection frame', 'Brackets travel onto the subject, a scan sweeps it, the reading ticks up, the verdict lands. A defect turns the frame red.'],
+      ['stat', 'Result card', 'A verified figure counts up over 1.1 s in tabular numerals, with its unit and one line of context.'],
+      ['stand', 'Stand card', 'Where and when, on brand blue: lead line, event, dates, hall and stand, venue.'],
+      ['end', 'End card', 'The logo and address enter over 13 frames. The end card stays on screen for 1.5 to 5 s, depending on the film’s length.'],
+    ],
+    templates: [
+      ['defect-showcase', '9x16', 'Defect showcase', '12 s, vertical or square. One question, the lock-on and verdict, the product, the end card. Music only.'],
+      ['announcement', '16x9', 'Announcement', '15 to 20 s. The product or partners by 2 s, three short claims, one date or market line.'],
+      ['event-teaser', '9x16', 'Event teaser', '8 to 15 s. One striking shot and one question, then the stand card.'],
+      ['event-recap', '16x9', 'Event recap', '30 to 60 s. Faces and demos cut every 1.5 to 2 s, a thank-you card, the end card. Post within a week.'],
+      ['sector-film', '16x9', 'Sector film', '60 to 90 s. The sector first, the inspection by 30 s, one verified result, the end card.'],
+      ['case-study', '16x9', 'Case study', '60 to 90 s. The customer line, their words with a lower third and captions, one verified figure.'],
+    ],
+    play: 'Play', pause: 'Pause', example: 'This is an example overlay.',
+  },
+  es: {
+    formats: [
+      ['16:9', '1920 × 1080', 'Web, YouTube, pantallas y eventos'],
+      ['1:1', '1080 × 1080', 'Feed de LinkedIn e Instagram'],
+      ['4:5', '1080 × 1350', 'Feed de Instagram'],
+      ['9:16', '1080 × 1920', 'Reels, Shorts, TikTok, LinkedIn vertical'],
+    ],
+    safe: 'Zona segura de títulos', ui: 'Interfaz de la plataforma',
+    clips: [
+      ['opening', 'Logotipo de apertura', 'Solo en piezas de más de 60 s. 8 fotogramas de azul, el logotipo sube en 18 fotogramas, corte a los 2 s.'],
+      ['title', 'Título', 'Inter Semibold 96 px; las líneas suben desde una máscara en 28 fotogramas, con 3 fotogramas entre ellas.'],
+      ['lower-third', 'Rótulo', 'Entra en 13 fotogramas, permanece en pantalla al menos 4 s y sale en 5 fotogramas. El nombre se muestra a 44 px y el cargo a 32 px.'],
+      ['captions', 'Subtítulos', 'Inter Medium 40 px, blanco sobre tinta, dos líneas como máximo.'],
+      ['inspection', 'Encuadre de inspección', 'Las esquinas viajan hasta el objeto, una línea de escaneo lo recorre, la lectura sube y llega el veredicto. Un defecto vuelve rojo el encuadre.'],
+      ['stat', 'Tarjeta de resultado', 'Una cifra verificada cuenta hacia arriba en 1,1 s con números tabulares, su unidad y una línea de contexto.'],
+      ['stand', 'Tarjeta de estand', 'Dónde y cuándo, sobre azul de marca: entradilla, evento, fechas, pabellón y estand, recinto.'],
+      ['end', 'Cierre', 'El logotipo y la dirección entran en 13 fotogramas. El cierre permanece en pantalla entre 1,5 y 5 s, según la duración del vídeo.'],
+    ],
+    templates: [
+      ['defect-showcase', '9x16', 'Defecto detectado', '12 s, vertical o cuadrado. Una pregunta, el encuadre y el veredicto, el producto, el cierre. Solo música.'],
+      ['announcement', '16x9', 'Anuncio', 'De 15 a 20 s. El producto o los socios antes de los 2 s, tres frases cortas, una línea de fecha o mercado.'],
+      ['event-teaser', '9x16', 'Anuncio de feria', 'De 8 a 15 s. Un plano llamativo y una pregunta, después la tarjeta de estand.'],
+      ['event-recap', '16x9', 'Resumen de feria', 'De 30 a 60 s. Caras y demostraciones con cortes de 1,5 a 2 s, una tarjeta de agradecimiento, el cierre. Publícalo en menos de una semana.'],
+      ['sector-film', '16x9', 'Vídeo sectorial', 'De 60 a 90 s. Primero el sector, la inspección antes de los 30 s, un resultado verificado, el cierre.'],
+      ['case-study', '16x9', 'Caso de éxito', 'De 60 a 90 s. La línea del cliente, sus palabras con rótulo y subtítulos, una cifra verificada.'],
+    ],
+    play: 'Reproducir', pause: 'Pausa', example: 'Esta superposición ilustra la composición.',
+  },
+  ca: {
+    formats: [
+      ['16:9', '1920 × 1080', 'Web, YouTube, pantalles i esdeveniments'],
+      ['1:1', '1080 × 1080', 'Feed de LinkedIn i Instagram'],
+      ['4:5', '1080 × 1350', 'Feed d’Instagram'],
+      ['9:16', '1080 × 1920', 'Reels, Shorts, TikTok, LinkedIn vertical'],
+    ],
+    safe: 'Zona segura de títols', ui: 'Interfície de la plataforma',
+    clips: [
+      ['opening', 'Logotip d’obertura', 'Només en peces de més de 60 s. 8 fotogrames de blau, el logotip puja en 18 fotogrames, tall als 2 s.'],
+      ['title', 'Títol', 'Inter Semibold 96 px; les línies pugen des d’una màscara en 28 fotogrames, amb 3 fotogrames entre elles.'],
+      ['lower-third', 'Rètol', 'Entra en 13 fotogrames, es manté en pantalla almenys 4 s i surt en 5 fotogrames. El nom es mostra a 44 px i el càrrec a 32 px.'],
+      ['captions', 'Subtítols', 'Inter Medium 40 px, blanc sobre tinta, dues línies com a màxim.'],
+      ['inspection', 'Enquadrament d’inspecció', 'Les cantonades viatgen fins a l’objecte, una línia d’escaneig el recorre, la lectura puja i arriba el veredicte. Un defecte torna vermell l’enquadrament.'],
+      ['stat', 'Targeta de resultat', 'Una xifra verificada compta cap amunt en 1,1 s amb números tabulars, la seva unitat i una línia de context.'],
+      ['stand', 'Targeta d’estand', 'On i quan, sobre blau de marca: entradeta, esdeveniment, dates, pavelló i estand, recinte.'],
+      ['end', 'Tancament', 'El logotip i l’adreça entren en 13 fotogrames. El tancament es manté en pantalla entre 1,5 i 5 s, segons la durada del vídeo.'],
+    ],
+    templates: [
+      ['defect-showcase', '9x16', 'Defecte detectat', '12 s, vertical o quadrat. Una pregunta, l’enquadrament i el veredicte, el producte, el tancament. Només música.'],
+      ['announcement', '16x9', 'Anunci', 'De 15 a 20 s. El producte o els socis abans dels 2 s, tres frases curtes, una línia de data o mercat.'],
+      ['event-teaser', '9x16', 'Anunci de fira', 'De 8 a 15 s. Un pla cridaner i una pregunta, després la targeta d’estand.'],
+      ['event-recap', '16x9', 'Resum de fira', 'De 30 a 60 s. Cares i demostracions amb talls d’1,5 a 2 s, una targeta d’agraïment, el tancament. Publica’l en menys d’una setmana.'],
+      ['sector-film', '16x9', 'Vídeo sectorial', 'De 60 a 90 s. Primer el sector, la inspecció abans dels 30 s, un resultat verificat, el tancament.'],
+      ['case-study', '16x9', 'Cas d’èxit', 'De 60 a 90 s. La línia del client, les seves paraules amb rètol i subtítols, una xifra verificada.'],
+    ],
+    play: 'Reprodueix', pause: 'Pausa', example: 'Aquesta superposició il·lustra la composició.',
+  },
+}[lang];
+const shownClips = only ? t.clips.filter(([key]) => only.includes(key)) : t.clips;
+const ratio: Record<string, [number, number]> = { '16:9': [1920, 1080], '1:1': [1080, 1080], '4:5': [1080, 1350], '9:16': [1080, 1920] };
+---
+{part === 'formats' && (
+  <ul class="formats" role="list">
+    {t.formats.map(([r, size, use]) => (
+      <li>
+        <div class={`frame f-${r.replace(':', 'x')}`} style={`aspect-ratio:${ratio[r][0]}/${ratio[r][1]}`} aria-hidden="true">
+          {r === '9:16' ? <><span class="ui top" /><span class="ui bottom" /><span class="ui edge l" /><span class="ui edge r" /><span class="safe tall" /></> : <span class="safe" />}
+        </div>
+        <p><strong>{r}</strong><span class="nobr">{size}</span><span>{use}</span></p>
+      </li>
+    ))}
+    <li class="key" aria-hidden="true"><span><i class="k-safe" />{t.safe}</span><span><i class="k-ui" />{t.ui}</span></li>
+  </ul>
+)}
+{part === 'frames' && (
+  <div class:list={['clips', { selected: only }]}>
+    {shownClips.map(([key, title, spec]) => (
+      <figure data-specimen={key}>
+        <video src={`/video/${lang}/${key}.mp4`} poster={`/video/${lang}/${key}.webp`} width="1280" height="720" muted playsinline preload="none" aria-label={title} />
+        <button type="button" class="play" data-play={t.play} data-pause={t.pause} aria-label={`${t.play}: ${title}`} aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M6 3l14 9-14 9V3z"/><path class="i-pause" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span class="i-play">{t.play}</span><span class="i-pause">{t.pause}</span></button>
+        <figcaption><strong>{title}</strong><span>{key === 'inspection' ? t.example + ' ' : ''}{spec}</span><a href={`/video/${lang}/${key}.mp4`} download>{title}, MP4</a></figcaption>
+      </figure>
+    ))}
+  </div>
+)}
+{part === 'templates' && (
+  <div class="templates">
+    {[0, 2, 4].map((i) => (<div class="row">{t.templates.slice(i, i + 2).map(([key, format, title, spec]) => (
+      <figure class={`f-${format}`} style={`flex-grow:${format === '9x16' ? 0.5625 : 1.7778}`}>
+        <video src={`/video/templates/${key}.mp4`} poster={`/video/templates/${key}.webp`} muted playsinline preload="none" aria-label={title} />
+        <button type="button" class="play" data-play={t.play} data-pause={t.pause} aria-pressed="false" aria-label={`${t.play}: ${title}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M6 3l14 9-14 9V3z"/><path class="i-pause" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span class="i-play">{t.play}</span><span class="i-pause">{t.pause}</span></button>
+        <figcaption><strong>{title}</strong><span>{spec}</span></figcaption>
+      </figure>
+    ))}</div>))}
+  </div>
+)}
+<script>
+  function initSpecimens() {
+    // A new page, a client-router visit and a restored page all share the same initializer.
+    document.querySelectorAll<HTMLVideoElement>('video').forEach((video) => {
+      if (video.dataset.specimenPlaybackBound) return;
+      video.dataset.specimenPlaybackBound = 'true';
+      video.addEventListener('play', () => {
+        document.querySelectorAll('video').forEach((other) => { if (other !== video) other.pause(); });
+      });
+    });
+    document.querySelectorAll<HTMLElement>('.clips figure, .templates figure').forEach((figure) => {
+      if (figure.dataset.specimenControlsBound) return;
+      figure.dataset.specimenControlsBound = 'true';
+      const video = figure.querySelector('video')!;
+      const button = figure.querySelector<HTMLButtonElement>('.play')!;
+      const sync = () => {
+        const playing = !video.paused;
+        figure.classList.toggle('is-playing', playing);
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', `${playing ? button.dataset.pause : button.dataset.play}: ${video.getAttribute('aria-label')}`);
+      };
+      const toggle = () => {
+        if (video.paused) void video.play().catch(sync); else video.pause();
+        sync();
+      };
+      button.addEventListener('click', toggle);
+      video.addEventListener('click', toggle);
+      video.addEventListener('play', sync);
+      video.addEventListener('pause', sync);
+      // Return to the informative poster, rather than a blank first frame.
+      video.addEventListener('ended', () => { video.load(); sync(); });
+      sync();
+    });
+  }
+  initSpecimens();
+  document.addEventListener('astro:page-load', initSpecimens);
+</script>
+<style>
+  /* Formats */
+  .formats { display: grid; grid-template-columns: 1.6fr 1fr 1fr 0.7fr; align-items: end; gap: var(--ais-space-300); margin: var(--ais-space-300) 0 0 !important; padding: 0; list-style: none; }
+  .formats li { margin: 0 !important; padding: 0; }
+  .frame { position: relative; container-type: inline-size; background: var(--ais-neutral-100); border: var(--ais-border); overflow: hidden; }
+  /* Title safe: 5% in from every edge (96 px on 1920). */
+  .safe { position: absolute; inset: 5%; border: 1px dashed var(--ais-neutral-500); }
+  /* 9:16: platform interface covers the top 270 px, bottom 670 px and 120 px each side (strictest of Reels, TikTok, Shorts). */
+  .ui { position: absolute; background: var(--ais-neutral-300); }
+  .ui.top { inset: 0 0 auto 0; height: calc(270 / 1920 * 100%); }
+  .ui.bottom { inset: auto 0 0 0; height: calc(670 / 1920 * 100%); }
+  .ui.edge { width: calc(120 / 1080 * 100%); top: calc(270 / 1920 * 100%); bottom: calc(670 / 1920 * 100%); }
+  .ui.edge.l { left: 0; } .ui.edge.r { right: 0; }
+  .safe.tall { inset: calc(270 / 1920 * 100%) calc(120 / 1080 * 100%) calc(670 / 1920 * 100%); }
+  .formats p { display: flex; flex-direction: column; gap: 2px; margin: var(--ais-space-150) 0 0 !important; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  .formats p strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .key { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--ais-space-300); color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .key span { display: inline-flex; align-items: center; gap: var(--ais-space-100); }
+  .key i { width: 16px; height: 12px; }
+  .k-safe { border: 1px dashed var(--ais-neutral-500); }
+  .k-ui { background: var(--ais-neutral-300); }
+
+  /* Clips and templates: real renders, played on request, never on their own. */
+  .clips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ais-space-400) var(--ais-space-300); margin: var(--ais-space-300) 0 var(--ais-space-500); }
+  .clips.selected { grid-template-columns: minmax(0, 1fr); }
+  /* Template rows: each film grows by its aspect ratio, so the two players in a row share one height. */
+  .templates { display: flex; flex-direction: column; gap: var(--ais-space-400); margin: var(--ais-space-300) 0 var(--ais-space-500); }
+  .row { display: flex; align-items: flex-start; gap: var(--ais-space-300); }
+  .row figure { flex-basis: 0; }
+  figure { display: flex; flex-direction: column; gap: var(--ais-space-150); margin: 0; min-width: 0; }
+  video { display: block; width: 100%; height: auto; background: var(--ais-neutral-900); }
+  .f-9x16 video { aspect-ratio: 9 / 16; }
+  .f-16x9 video, .clips video { aspect-ratio: 16 / 9; }
+  video { cursor: pointer; }
+  .play { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--ais-space-100); min-height: 44px; padding: 0 var(--ais-space-150); border: var(--ais-border); background: var(--surface); color: var(--ink); font-family: var(--ais-font-primary); font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: var(--ais-text-label-weight); cursor: pointer; transition: background-color var(--ais-duration-moderate-1, 180ms) var(--ais-ease-standard, ease); }
+  .play:hover { background: var(--line); }
+  .play:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  .play svg { width: 14px; height: 14px; fill: currentColor; }
+  .play .i-pause, .is-playing .play .i-play { display: none; }
+  .is-playing .play .i-pause { display: inline; }
+  figcaption { display: flex; flex-direction: column; gap: 2px; color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
+  figcaption strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  @media (max-width: 600px) {
+    .formats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .clips { grid-template-columns: minmax(0, 1fr); }
+    .row { flex-wrap: wrap; }
+    .row .f-16x9 { flex-basis: 100%; }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Mirrors --ais-text-* in brand.css; every sample renders from the live token, so the specimen cannot drift.
+const styles = [
+  { id: 'display', size: '44–72', weight: 500, tracking: '−0.04', leading: '1.04' },
+  { id: 'title', size: '34–56', weight: 500, tracking: '−0.035', leading: '1.07' },
+  { id: 'heading', size: '28–40', weight: 500, tracking: '−0.025', leading: '1.12' },
+  { id: 'subheading', size: '20–24', weight: 500, tracking: '−0.015', leading: '1.25' },
+  { id: 'lead', size: '18–20', weight: 400, tracking: '−0.005', leading: '1.5' },
+  { id: 'body', size: '16', weight: 400, tracking: '0', leading: '1.6' },
+  { id: 'label', size: '15', weight: 500, tracking: '0', leading: '1.35' },
+  { id: 'small', size: '14', weight: 400, tracking: '0', leading: '1.5' },
+  { id: 'eyebrow', size: '13', weight: 500, tracking: '0.045', leading: '1.4' },
+  { id: 'caption', size: '12', weight: 400, tracking: '0.005', leading: '1.45' },
+];
+const copy = {
+  en: {
+    names: ['Display', 'Title', 'Heading', 'Subheading', 'Lead', 'Body', 'Label', 'Small', 'Eyebrow', 'Caption'],
+    uses: ['Home and campaign openers, one per page', 'Every other page headline', 'Section headings', 'Cards and subsections', 'Intro paragraph under a headline', 'Running text', 'Buttons, action links, navigation', 'Secondary text, tables, metadata', 'The line above a headline', 'Image captions, footnotes, legal'],
+    samples: ['Computer vision for industry', 'Plan your deployment', 'Connect the inspection', 'Assembly verification', 'Inspect parts, surfaces and assemblies throughout vehicle production.', 'Capture parts at the inspection point, run the model and send the result to the line control.', 'Book a demo', '6–8 October 2026, Hall 8, stand 8E55', 'Quality control', 'Installation at a bottling line, 2025.'],
+    tracking: 'tracking', leading: 'leading',
+  },
+  es: {
+    names: ['Display', 'Título', 'Encabezado', 'Subencabezado', 'Entradilla', 'Cuerpo', 'Etiqueta', 'Pequeño', 'Antetítulo', 'Pie'],
+    uses: ['Aperturas de portada y campaña, uno por página', 'Titular del resto de páginas', 'Títulos de sección', 'Tarjetas y subsecciones', 'Párrafo de entrada bajo un titular', 'Texto corrido', 'Botones, enlaces de acción y navegación', 'Texto secundario, tablas y metadatos', 'La línea sobre un titular', 'Pies de imagen, notas y textos legales'],
+    samples: ['Visión artificial para la industria', 'Planifica tu implantación', 'Conecta la inspección', 'Verificación de montaje', 'Inspecciona piezas, superficies y montajes en toda la producción del vehículo.', 'Captura las piezas en el punto de inspección, ejecuta el modelo y envía el resultado al control de línea.', 'Solicita una demo', 'Del 6 al 8 de octubre de 2026, pabellón 8, estand 8E55', 'Control de calidad', 'Instalación en una línea de embotellado, 2025.'],
+    tracking: 'espaciado', leading: 'interlineado',
+  },
+  ca: {
+    names: ['Display', 'Títol', 'Encapçalament', 'Subencapçalament', 'Entradeta', 'Cos', 'Etiqueta', 'Petit', 'Avanttítol', 'Peu'],
+    uses: ['Obertures de portada i campanya, un per pàgina', 'Titular de la resta de pàgines', 'Títols de secció', 'Targetes i subseccions', 'Paràgraf d’entrada sota un titular', 'Text corregut', 'Botons, enllaços d’acció i navegació', 'Text secundari, taules i metadades', 'La línia sobre un titular', 'Peus d’imatge, notes i textos legals'],
+    samples: ['Visió artificial per a la indústria', 'Planifica la implantació', 'Connecta la inspecció', 'Verificació de muntatge', 'Inspecciona peces, superfícies i muntatges en tota la producció del vehicle.', 'Captura les peces al punt d’inspecció, executa el model i envia el resultat al control de línia.', 'Demana una demostració', 'Del 6 al 8 d’octubre de 2026, pavelló 8, estand 8E55', 'Control de qualitat', 'Instal·lació en una línia d’embotellament, 2025.'],
+    tracking: 'espaiat', leading: 'interlineat',
+  },
+}[lang];
+// Spanish and Catalan write decimals with a comma.
+const num = (v: string) => (lang === 'en' ? v : v.replace('.', ','));
+---
+<div class="scale">
+  {styles.map((s, i) => (
+    <div class="row">
+      <div class="meta">
+        <strong>{copy.names[i]}</strong>
+        <code data-copy={`--ais-text-${s.id}`}>--ais-text-{s.id}</code>
+        <span>{s.size} px, {s.weight}</span>
+        <span>{num(s.tracking)} em {copy.tracking}, {num(s.leading)} {copy.leading}</span>
+        <span>{copy.uses[i]}</span>
+      </div>
+      <p class:list={[s.id === 'eyebrow' && 'eyebrow']} style={`font-size:var(--ais-text-${s.id});font-weight:var(--ais-text-${s.id}-weight);letter-spacing:var(--ais-text-${s.id}-tracking);line-height:var(--ais-text-${s.id}-leading)`}>{copy.samples[i]}</p>
+    </div>
+  ))}
+</div>
+<style>
+  .scale { margin: 32px 0; }
+  .row { display: grid; grid-template-columns: 210px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .row:first-child { border-top: 0; }
+  .meta { display: flex; flex-direction: column; gap: 4px; font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .meta strong { color: var(--ink); font-size: var(--ais-text-small); font-weight: 600; line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .meta code { align-self: flex-start; font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); color: var(--ink); cursor: copy; }
+  p { margin: 0; color: var(--ink); overflow-wrap: anywhere; text-wrap: balance; }
+  p.eyebrow { color: var(--link); }
+  @media (max-width: 760px) { .row { grid-template-columns: 1fr; gap: 12px; } }
+</style>

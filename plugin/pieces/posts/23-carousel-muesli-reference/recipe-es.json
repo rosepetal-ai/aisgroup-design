@@ -1,0 +1,57 @@
+{
+  "name": "ais-vision-systems_carousel-defects-cartons-opticais_es_2026-10-29",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "OPTICAIS permite plantear el control del lote y la fecha frente al texto esperado. En estas muestras, una caja no lleva marcado y otra presenta tinta extendida sobre los caracteres. La comparación del código muestra el mismo marcado de referencia y su variante emborronada; no representa una lectura ni un resultado medido del sistema. Envíanos muestras de tu envase y del marcado que necesitas comprobar.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/opticais/carton_lineup_clean.jpg",
+      "evidence": "render",
+      "headline": "¿Está bien impreso|*el lote*?",
+      "alt": "Seis cajas de muesli y sus ventanas de marcado.",
+      "bleed": 1.3,
+      "subject": [
+        0.08,
+        0.18,
+        0.86,
+        0.74
+      ]
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/23-carousel-muesli-reference-slide-2_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La quinta:|sin código",
+      "bg": "white",
+      "alt": "La quinta de seis cajas carece de código en la ventana de impresión."
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/23-carousel-muesli-reference-slide-3_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La de abajo:|código emborronado",
+      "bg": "white",
+      "alt": "Dos ventanas del mismo código: arriba, caracteres separados; abajo, trazos horizontales que los cruzan."
+    },
+    {
+      "type": "contact",
+      "headline": "¿Qué se escapa|*en tu línea*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "¿Qué se escapa en tu línea?. Envíanos muestras. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+---
+interface Props { doLabel: string; dontLabel: string; dos: string[]; donts: string[] }
+const { doLabel, dontLabel, dos, donts } = Astro.props;
+// Lucide check and x, as shipped: 2 px stroke on the 24 px grid.
+const check = 'M20 6 9 17l-5-5';
+const cross = 'M18 6 6 18M6 6l12 12';
+---
+<div class="dodont">
+  {[[doLabel, dos, check], [dontLabel, donts, cross]].map(([label, items, icon]) => (
+    <section>
+      <p class="ais-eyebrow">{label}</p>
+      <ul>
+        {(items as string[]).map((item) => (
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d={icon as string} /></svg><span set:html={item} /></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>
+<style>
+  .dodont { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin: 32px 0; }
+  .ais-eyebrow { margin-bottom: 4px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: 600; color: var(--ink); }
+  li + li { border-top: 1px solid var(--line); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; margin: 0 !important; padding: 12px 0; font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); }
+  svg { width: 18px; height: 18px; margin-top: 2px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  @media (max-width: 700px) { .dodont { grid-template-columns: 1fr; row-gap: 32px; } }
+</style>

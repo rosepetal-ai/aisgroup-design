@@ -1,0 +1,33 @@
+---
+// The websites' final images and favicons (public/web/<site>, copied by scripts/sync-web-assets.mjs), grouped by folder.
+import fs from 'node:fs';
+import path from 'node:path';
+import AssetActions from './AssetActions.astro';
+import labels from '../data/web-asset-labels.json';
+import stockList from '../data/web-stock.json';
+
+interface Props { site: 'ais-vision' | 'rosepetal' | 'ais-group'; zipLabel: string }
+const { site, zipLabel } = Astro.props;
+const dir = path.join(process.cwd(), 'public/web', site);
+const all = fs.existsSync(dir) ? fs.readdirSync(dir, { recursive: true, withFileTypes: true }).filter(d => d.isFile()) : [];
+// The zip holds every file; the grid previews the pictures in their folders. The favicons at the top level are the
+// sets on Downloads (logos/favicons), so they are in the zip but not repeated here.
+const files = all.map(d => path.relative(dir, path.join(d.parentPath, d.name)).split(path.sep).join('/'))
+  .filter(f => f.includes('/') && /\.(webp|png|jpe?g)$/i.test(f)).sort();
+const groups = new Map<string, string[]>();
+for (const f of files) {
+  const folder = /scanology|simscan|trackscan|nimble|k\d\d|ireal|kscan/i.test(f) ? 'products' : f.slice(0, f.lastIndexOf('/'));
+  groups.set(folder, [...(groups.get(folder) ?? []), f]);
+}
+// Stock pictures are shown, captioned, but stay out of the zip (scripts/stock.mjs): the count is what the zip holds.
+const stock = new Set<string>((stockList as Record<string, string[]>)[site] ?? []);
+const stockLabel = { es: 'Foto de stock', ca: 'Foto d’estoc' }[Astro.url.pathname.split('/')[1]] ?? 'Stock photograph';
+const lang = (Astro.params.lang ?? 'en') as 'en'|'es'|'ca';
+const words: Record<string,string[]>={company:['Company','Empresa','Empresa'],products:['Products','Productos','Productes'],industries:['Industries','Sectores','Sectors'],app:['Application','Aplicación','Aplicació'],solutions:['Solutions','Soluciones','Solucions'],team:['Team','Equipo','Equip'],hero:['Overview','Vista general','Vista general']};
+const language=['en','es','ca'].indexOf(lang);
+const caption=(file:string)=>{const stem=file.split('/').pop()!.replace(/\.\w+$/,'');return labels[stem]?.[language] ?? words[stem]?.[language] ?? stem;};
+---
+<div class="web-assets">
+ <p><a class="ais-text-link" href={`/downloads/web/${site === 'ais-vision' ? 'ais-vision-systems' : site}-web-assets.zip`} download>{zipLabel} ({all.length-stock.size})</a></p>
+ {[...groups].map(([folder,list])=><section class="dl-brand"><h3>{words[folder]?.[language]??caption(folder)}</h3><div class="dl-grid four">{list.map(f=><figure class="dl"><a class="dl-tile photo" href={`/web/${site}/${f}`} target="_blank" rel="noopener" aria-label={`${caption(f)}, ${{en:'opens in a new tab',es:'se abre en una pestaña nueva',ca:'s’obre en una pestanya nova'}[lang]}`}><img src={`/web/${site}/${f}`} alt="" loading="lazy" decoding="async" /></a><figcaption class="dl-cap"><span>{caption(f)}{stock.has(f)&&<><br/>{stockLabel}</>}</span></figcaption><AssetActions lang={lang} href={`/web/${site}/${f}`} name={caption(f)} /></figure>)}</div></section>)}
+</div>

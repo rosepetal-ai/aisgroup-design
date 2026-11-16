@@ -1,0 +1,99 @@
+---
+title: Baixades
+rules:
+  - 'Construeix cada producte amb Tailwind v4 sobre ais-theme.css, els mateixos tokens dels productes de Rosepetal: colors, tipografia i radis surten de les seves classes, mai escrits a mà. Els webs fan servir ais-tokens.css amb els seus propis components.'
+---
+import LogoDownloads from '../../../components/LogoDownloads.astro';
+import PatternDownloads from '../../../components/PatternDownloads.astro';
+import TypefaceDownloads from '../../../components/TypefaceDownloads.astro';
+import IconDownloads from '../../../components/IconDownloads.astro';
+import PhotoDownloads from '../../../components/PhotoDownloads.astro';
+import VideoDownloads from '../../../components/VideoDownloads.astro';
+
+Baixa els fitxers aprovats per a documents, productes i llocs web.
+
+## Logotips
+
+SVG amb fons transparent. On va cada color: [Logotips](/ca/logos/).
+
+<LogoDownloads lang="ca" />
+
+### Icones d’app i favicons
+
+Cada joc conté els favicons en SVG, PNG i ICO, la icona tàctil d’Apple, les icones de 192, 512 i emmascarable i el manifest web; consulta [Favicons](/ca/logos/#favicons). El joc propi de cada web és al seu zip, a [Recursos web](/ca/assets/).
+
+<LogoDownloads lang="ca" set="favicons" />
+
+## Trames
+
+La trama d’hexàgons, un fitxer per cantonada, en blanc per a fons blau de marca. SVG; consulta [Fons](/ca/imagery/#fons).
+
+<PatternDownloads lang="ca" />
+
+[Trames decoratives, totes les variants](/ca/patterns/).
+
+## Fotografies
+
+Fotografies, vistes de producte i pantalles actuals de l’app, per tema. Les fotografies d’estoc enllacen a l’origen del fotògraf per baixar-les amb la seva llicència; fes-les servir com a context, mai com una instal·lació o un client d’AIS. Un fotograma de vídeo mai no és portada, ni impresa ni en pantalla; consulta [Imatge](/ca/imagery/#renders-màquines-i-material-de-clients).
+
+<PhotoDownloads lang="ca" />
+
+[Catàleg d’imatges i vídeos](/downloads/media-library.json)
+
+## Vídeos
+
+Els vídeos d’introducció de cada marca: el fitxer 1080p per a webs i publicacions, l’original 4K per editar.
+
+<VideoDownloads lang="ca" />
+
+## Tipografies
+
+Totes dues tipografies són gratuïtes amb llicència SIL Open Font License. Instal·la’n les versions d’escriptori per als documents i les presentacions.
+
+<TypefaceDownloads />
+
+| Fitxer | Contingut |
+| --- | --- |
+| [inter-latin.woff2](/fonts/inter-latin.woff2), [inter-latin-ext.woff2](/fonts/inter-latin-ext.woff2) | Inter per a webs, llatí i llatí estès |
+| [jetbrains-mono-latin.woff2](/fonts/jetbrains-mono-latin.woff2), [jetbrains-mono-latin-ext.woff2](/fonts/jetbrains-mono-latin-ext.woff2) | JetBrains Mono per a webs, llatí i llatí estès |
+| [OFL-Inter.txt](/fonts/OFL-Inter.txt), [OFL-JetBrains-Mono.txt](/fonts/OFL-JetBrains-Mono.txt) | La llicència de cada tipografia |
+
+## Icones
+
+El conjunt bàsic d’icones de Lucide en SVG, amb la llicència de Lucide. Consulta [Icones](/ca/icons/).
+
+<IconDownloads />
+
+## Tokens de color i tipografia
+
+| Fitxer | Contingut |
+| --- | --- |
+| [ais-theme.css](/downloads/ais-theme.css) | El tema de Tailwind v4: `@rosepetal/design/styles.css`, els tokens dels productes de Rosepetal |
+| [ais-tokens.css](/downloads/ais-tokens.css) | Els mateixos valors com a variables CSS, per a impressió, email i tot el que no faci servir Tailwind |
+| [ais-tokens.json](/downloads/ais-tokens.json) | Tokens de disseny (format W3C DTCG) |
+| [ais-web-theme.css](/downloads/ais-web-theme.css) | Les mides de text de Tailwind com a estils tipogràfics de la marca, i la vora de camp, sobre ais-theme.css i ais-tokens.css. Els webs fan servir el seu bloc tipogràfic només sobre ais-tokens.css; vegeu [Components dels llocs web](/ca/web-components/). |
+
+Cada producte es construeix amb Tailwind v4 sobre ais-theme.css, els tokens dels productes de Rosepetal (`@rosepetal/design/styles.css`), així que les classes són les de l’app: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. Necessita `tw-animate-css`. Els webs carreguen ais-tokens.css en el seu lloc, sota els seus propis components; vegeu [Components dels llocs web](/ca/web-components/).
+
+```css
+@import "tailwindcss";
+@import "./ais-theme.css";
+```
+
+## Eines
+
+| Fitxer | Contingut |
+| --- | --- |
+| [Eina de gràfics](/downloads/charts/README.md) | La configuració de marca per a Vega-Lite (clara i fosca), el programa que genera els gràfics ([render.mjs](/downloads/charts/render.mjs)), deu especificacions d’exemple i el tema d’ECharts per al producte. Consulta [Visualització de dades](/ca/data/). |
+| [ais-vega-config.json](/downloads/charts/ais-vega-config.json), [ais-vega-config-dark.json](/downloads/charts/ais-vega-config-dark.json) | La configuració de marca de Vega-Lite, clara i fosca |
+| [ais-echarts-theme.json](/downloads/charts/ais-echarts-theme.json), [ais-echarts-theme-dark.json](/downloads/charts/ais-echarts-theme-dark.json) | El tema d’ECharts per al producte, clar i fosc |
+| [overlay.mjs](/downloads/overlays/overlay.mjs) | El programa que dibuixa les capes de detecció, amb cinc especificacions d’exemple a [examples](/downloads/overlays/examples/detection.json). Consulta [Imatge](/ca/imagery/#capes-de-detecció). |
+| [brand-check.js](/downloads/qa/brand-check.js) | La revisió de marca: carrega-la en qualsevol pàgina i executa `aisBrandCheck()`. Assenyala scroll horitzontal, paraules partides, tipografies i colors fora de la marca, símbols teclejats, text petit, imatges sense alternativa i, amb axe-core, incompliments d’accessibilitat. Consulta [Accessibilitat](/ca/accessibility/#proves). |
+
+## Per als agents d’IA
+
+Indica la marca i la versió de la guia a l’encàrrec, llegeix la pàgina corresponent i fes servir aquests fitxers exactes.
+
+| Fitxer | Contingut |
+| --- | --- |
+| [brand.md](/ca/brand.md) | Totes les regles d’aquesta guia en un sol fitxer, també en [anglès](/en/brand.md) i en [castellà](/es/brand.md). Consulta [Agents d’IA](/ca/agents/). |

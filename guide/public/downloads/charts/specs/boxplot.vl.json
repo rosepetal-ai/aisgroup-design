@@ -1,0 +1,999 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": {
+    "step": 56
+  },
+  "data": {
+    "values": [
+      {
+        "model": "Compact A",
+        "ms": 8.24
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.62
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.61
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.4
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.4
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.58
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.38
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.64
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.48
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.94
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.82
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.26
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.19
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.56
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.42
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.64
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.41
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.56
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.79
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.19
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.28
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.37
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.8
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.44
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.64
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.1
+      },
+      {
+        "model": "Compact A",
+        "ms": 13.43
+      },
+      {
+        "model": "Compact A",
+        "ms": 5.93
+      },
+      {
+        "model": "Compact A",
+        "ms": 6.38
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.35
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.74
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.37
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.73
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.35
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.14
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.09
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.97
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.74
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.99
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.97
+      },
+      {
+        "model": "Compact A",
+        "ms": 14.35
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.12
+      },
+      {
+        "model": "Compact A",
+        "ms": 13.99
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.28
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.41
+      },
+      {
+        "model": "Compact A",
+        "ms": 10.0
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.11
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.15
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.8
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.21
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.52
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.33
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.43
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.07
+      },
+      {
+        "model": "Compact A",
+        "ms": 10.46
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.78
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.51
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.94
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.15
+      },
+      {
+        "model": "Compact A",
+        "ms": 6.14
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.52
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.89
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.64
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.78
+      },
+      {
+        "model": "Compact A",
+        "ms": 11.29
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.4
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.01
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.27
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.91
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.31
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.38
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.44
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.14
+      },
+      {
+        "model": "Compact A",
+        "ms": 9.03
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.26
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.87
+      },
+      {
+        "model": "Compact A",
+        "ms": 6.78
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.95
+      },
+      {
+        "model": "Compact A",
+        "ms": 7.38
+      },
+      {
+        "model": "Compact A",
+        "ms": 8.23
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.83
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.13
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.58
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.21
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.65
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.78
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.54
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.14
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.68
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.18
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.82
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.68
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.05
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.07
+      },
+      {
+        "model": "Compact C",
+        "ms": 15.05
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.55
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.3
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.09
+      },
+      {
+        "model": "Compact C",
+        "ms": 8.55
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.02
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.45
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.43
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.93
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.55
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.59
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.24
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.97
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.46
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.83
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.69
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.94
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.06
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.41
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.09
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.11
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.33
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.76
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.9
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.79
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.7
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.79
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.35
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.11
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.96
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.69
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.49
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.26
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.74
+      },
+      {
+        "model": "Compact C",
+        "ms": 18.77
+      },
+      {
+        "model": "Compact C",
+        "ms": 21.26
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.97
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.17
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.29
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.83
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.4
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.94
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.02
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.71
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.19
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.27
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.45
+      },
+      {
+        "model": "Compact C",
+        "ms": 14.28
+      },
+      {
+        "model": "Compact C",
+        "ms": 13.77
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.7
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.8
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.4
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.63
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.89
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.27
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.84
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.59
+      },
+      {
+        "model": "Compact C",
+        "ms": 9.87
+      },
+      {
+        "model": "Compact C",
+        "ms": 10.72
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.61
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.09
+      },
+      {
+        "model": "Compact C",
+        "ms": 12.83
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.57
+      },
+      {
+        "model": "Compact C",
+        "ms": 8.71
+      },
+      {
+        "model": "Compact C",
+        "ms": 19.13
+      },
+      {
+        "model": "Compact C",
+        "ms": 11.83
+      },
+      {
+        "model": "Large D",
+        "ms": 24.12
+      },
+      {
+        "model": "Large D",
+        "ms": 20.83
+      },
+      {
+        "model": "Large D",
+        "ms": 29.18
+      },
+      {
+        "model": "Large D",
+        "ms": 27.71
+      },
+      {
+        "model": "Large D",
+        "ms": 27.52
+      },
+      {
+        "model": "Large D",
+        "ms": 27.86
+      },
+      {
+        "model": "Large D",
+        "ms": 25.72
+      },
+      {
+        "model": "Large D",
+        "ms": 31.0
+      },
+      {
+        "model": "Large D",
+        "ms": 22.16
+      },
+      {
+        "model": "Large D",
+        "ms": 26.88
+      },
+      {
+        "model": "Large D",
+        "ms": 30.23
+      },
+      {
+        "model": "Large D",
+        "ms": 29.43
+      },
+      {
+        "model": "Large D",
+        "ms": 29.34
+      },
+      {
+        "model": "Large D",
+        "ms": 34.58
+      },
+      {
+        "model": "Large D",
+        "ms": 30.51
+      },
+      {
+        "model": "Large D",
+        "ms": 25.91
+      },
+      {
+        "model": "Large D",
+        "ms": 21.69
+      },
+      {
+        "model": "Large D",
+        "ms": 22.17
+      },
+      {
+        "model": "Large D",
+        "ms": 28.49
+      },
+      {
+        "model": "Large D",
+        "ms": 22.59
+      },
+      {
+        "model": "Large D",
+        "ms": 21.06
+      },
+      {
+        "model": "Large D",
+        "ms": 18.81
+      },
+      {
+        "model": "Large D",
+        "ms": 20.29
+      },
+      {
+        "model": "Large D",
+        "ms": 22.89
+      },
+      {
+        "model": "Large D",
+        "ms": 25.74
+      },
+      {
+        "model": "Large D",
+        "ms": 24.42
+      },
+      {
+        "model": "Large D",
+        "ms": 21.98
+      },
+      {
+        "model": "Large D",
+        "ms": 21.99
+      },
+      {
+        "model": "Large D",
+        "ms": 18.93
+      },
+      {
+        "model": "Large D",
+        "ms": 31.14
+      },
+      {
+        "model": "Large D",
+        "ms": 23.14
+      },
+      {
+        "model": "Large D",
+        "ms": 16.73
+      },
+      {
+        "model": "Large D",
+        "ms": 22.67
+      },
+      {
+        "model": "Large D",
+        "ms": 25.06
+      },
+      {
+        "model": "Large D",
+        "ms": 24.5
+      },
+      {
+        "model": "Large D",
+        "ms": 24.58
+      },
+      {
+        "model": "Large D",
+        "ms": 22.88
+      },
+      {
+        "model": "Large D",
+        "ms": 27.8
+      },
+      {
+        "model": "Large D",
+        "ms": 25.8
+      },
+      {
+        "model": "Large D",
+        "ms": 27.89
+      },
+      {
+        "model": "Large D",
+        "ms": 18.87
+      },
+      {
+        "model": "Large D",
+        "ms": 26.15
+      },
+      {
+        "model": "Large D",
+        "ms": 21.53
+      },
+      {
+        "model": "Large D",
+        "ms": 25.07
+      },
+      {
+        "model": "Large D",
+        "ms": 16.48
+      },
+      {
+        "model": "Large D",
+        "ms": 21.85
+      },
+      {
+        "model": "Large D",
+        "ms": 21.15
+      },
+      {
+        "model": "Large D",
+        "ms": 23.19
+      },
+      {
+        "model": "Large D",
+        "ms": 27.1
+      },
+      {
+        "model": "Large D",
+        "ms": 21.2
+      },
+      {
+        "model": "Large D",
+        "ms": 29.44
+      },
+      {
+        "model": "Large D",
+        "ms": 25.82
+      },
+      {
+        "model": "Large D",
+        "ms": 20.92
+      },
+      {
+        "model": "Large D",
+        "ms": 21.63
+      },
+      {
+        "model": "Large D",
+        "ms": 24.89
+      },
+      {
+        "model": "Large D",
+        "ms": 27.39
+      },
+      {
+        "model": "Large D",
+        "ms": 29.89
+      },
+      {
+        "model": "Large D",
+        "ms": 27.13
+      },
+      {
+        "model": "Large D",
+        "ms": 26.97
+      },
+      {
+        "model": "Large D",
+        "ms": 25.45
+      },
+      {
+        "model": "Large D",
+        "ms": 28.37
+      },
+      {
+        "model": "Large D",
+        "ms": 17.63
+      },
+      {
+        "model": "Large D",
+        "ms": 29.91
+      },
+      {
+        "model": "Large D",
+        "ms": 24.0
+      },
+      {
+        "model": "Large D",
+        "ms": 27.71
+      },
+      {
+        "model": "Large D",
+        "ms": 26.43
+      },
+      {
+        "model": "Large D",
+        "ms": 23.58
+      },
+      {
+        "model": "Large D",
+        "ms": 22.95
+      },
+      {
+        "model": "Large D",
+        "ms": 22.73
+      },
+      {
+        "model": "Large D",
+        "ms": 26.52
+      },
+      {
+        "model": "Large D",
+        "ms": 30.98
+      },
+      {
+        "model": "Large D",
+        "ms": 27.31
+      },
+      {
+        "model": "Large D",
+        "ms": 23.02
+      },
+      {
+        "model": "Large D",
+        "ms": 26.76
+      },
+      {
+        "model": "Large D",
+        "ms": 22.66
+      },
+      {
+        "model": "Large D",
+        "ms": 22.66
+      },
+      {
+        "model": "Large D",
+        "ms": 22.16
+      },
+      {
+        "model": "Large D",
+        "ms": 23.13
+      },
+      {
+        "model": "Large D",
+        "ms": 21.34
+      },
+      {
+        "model": "Large D",
+        "ms": 24.83
+      }
+    ]
+  },
+  "mark": {
+    "type": "boxplot",
+    "extent": 1.5
+  },
+  "encoding": {
+    "y": {
+      "field": "model",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Compact A",
+        "Compact C",
+        "Large D"
+      ]
+    },
+    "x": {
+      "field": "ms",
+      "type": "quantitative",
+      "title": "Inference time per image (ms)"
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Inference-time distribution",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

@@ -1,0 +1,103 @@
+---
+title: Composició i forma
+rules:
+  - 'Fes servir només els tokens d’espai (de --ais-space-050 a --ais-space-1600, base de 4 px i ritme de 8 px). No facis servir mai valors intermedis, com 6, 10, 14, 18 o 22 px.'
+  - 'En webs i documents, el contingut s’atura a 1440 px amb marges laterals fluids de 24 a 64 px, sobre una retícula de 12 columnes (8 per sota de 900 px i 4 per sota de 600 px), i les seccions se separen de 64 a 128 px. Les interfícies de producte ocupen tota l’amplada.'
+  - 'Els webs i els documents fan servir els punts de ruptura 600, 900, 1200 i 1440 px, escrits de mòbil a escriptori amb min-width. No n’afegeixis mai cap altre. Les interfícies de producte fan servir els punts de ruptura de Tailwind del sistema de disseny; els panells de Node-RED mantenen la quadrícula i els punts de ruptura de FlowFuse.'
+  - 'Els webs són rectes en tot: botons, targetes, menús, desplegables, diàlegs i avisos. L’única excepció és una pantalla de producte mostrada com a finestra, que pren la cantonada de 4 px de la finestra. Les interfícies de producte prenen les cantonades de `@rosepetal/design` i no les canvien mai. Rodó només en avatars, punts i interruptors.'
+  - 'Les vores separen el contingut; les ombres, només per al que sura (menús, diàlegs, avisos). Les targetes no projecten mai ombra, tampoc en hover.'
+  - 'Les línies separen, mai emmarquen: van entre les files d’una llista o una taula, mai després de l’última fila ni a sobre o a sota d’un bloc que ja en té una. Dues línies sense res entre elles són un error. El text queda centrat entre les seves línies, amb el mateix espai a dalt i a baix.'
+---
+import LayoutSpecimens from '../../../components/LayoutSpecimens.astro';
+
+**Abast.** La retícula, els punts de ruptura i l’espai entre seccions s’apliquen als webs i als documents. Les interfícies de producte (l’aplicació Rosepetal, el Profiler i els panells de Node-RED) ocupen tota l’amplada i segueixen la pàgina [Ús dels components](/ca/using-components/): punts de ruptura de Tailwind, botons de barra d’eines de 36 px i l’escala tipogràfica de producte; els panells de Node-RED mantenen la quadrícula i els punts de ruptura de FlowFuse. Els tokens d’espai, les cantonades, les ombres, les vores i l’anell de focus s’apliquen a tots dos.
+
+## Espai
+
+Base de 4 px amb ritme de 8 px. El nom del token és el múltiple de 8 px: `--ais-space-100` són 8 px i `--ais-space-300`, 24 px.
+
+<LayoutSpecimens lang="ca" show="space" />
+
+| Nivell | Tokens | Ús |
+| --- | --- | --- |
+| **Dins d’un component** | De 050 a 300 (4–24 px) | Icona i etiqueta, farciment de botons i targetes, files de llistes |
+| **Entre blocs** | `--ais-space-block`, 40–64 px | Entre un grup de títol i el seu contingut, entre files de targetes |
+| **Entre seccions** | `--ais-space-section`, 64–128 px | Entre seccions de pàgina; fluid de 375 a 1440 px |
+
+**L’espai entre dues seccions és `--ais-space-section` en total.** Dona’l a un sol costat de cada secció o fes-lo servir com a separació entre elles; si cada secció porta farciment a dalt i a baix, es duplica en franges buides.
+
+El que està relacionat va més a prop que el que no ho està. L’espai damunt d’un títol sempre és més gran que el de sota, perquè el títol pertanyi al que segueix.
+
+## Retícula
+
+El contingut fa com a màxim 1440 px, amb marges laterals fluids (`--ais-gutter`, 24–64 px) i una retícula de 12 columnes amb separacions de 16 a 24 px (`--ais-grid-gap`). El text corregut fa 68 caràcters per defecte (`--ais-measure`) i mai més de 75, encara que la columna sigui ampla.
+
+<LayoutSpecimens lang="ca" show="grid" />
+
+| Composició | Columnes a partir de 1200 px |
+| --- | --- |
+| **Text amb figura** | 7 + 5, el text primer |
+| **Targetes** | 4 + 4 + 4, o 3 + 3 + 3 + 3 per a targetes compactes |
+| **Dues meitats iguals** | 6 + 6 |
+| **Text llarg** | 8, des de la columna 1 o la 3 |
+
+**Obertures a sang.** Una foto o un vídeo que obre una pàgina ocupa tota l’amplada de la finestra fins a 1920 px; a partir d’aquí deixa de créixer i queda centrat sobre un marge neutre. No retalla mai el tema.
+
+## Punts de ruptura
+
+| Nom | Des de | Columnes | Pantalles habituals |
+| --- | --- | --- | --- |
+| **Base** | 0 | 4 | Mòbils |
+| **sm** | 600 px | 8 | Mòbils grans en horitzontal, tauletes petites |
+| **md** | 900 px | 12 | Tauletes, portàtils petits |
+| **lg** | 1200 px | 12 | Portàtils i ordinadors de sobretaula |
+| **xl** | 1440 px | 12 | Pantalles amples: el contingut deixa de créixer i creixen els marges |
+
+Escriu els estils de mòbil a escriptori amb `min-width`. Els components que viuen en columnes d’amplades diferents s’adapten amb consultes de contenidor, no amb punts de ruptura de pàgina. La tipografia és fluida, de manera que cap punt de ruptura no existeix només per canviar una mida de lletra.
+
+## Documents impresos
+
+Les pàgines A4 fan servir la seva pròpia retícula: marges de 15 mm, 12 columnes de 10,4 mm amb buits de 5 mm, i un sagnat de 3 mm al PDF amb el text almenys 5 mm dins del tall.
+
+La tipografia és Inter 400, 500 i 600, amb el cos a 10,5 pt i res per sota de 8,5 pt.
+
+Les pàgines serenes fan servir espai en blanc en lloc de línies: un filet només on una llista el necessita, un sol color d’accent i cap marc dins d’un altre marc.
+
+El logotip signa la peça a 20 mm (AIS Vision Systems) o 38 mm (Rosepetal); en una targeta de visita, a 18 mm.
+
+Una peça acaba amb un sol bloc de tancament.
+
+Les parts d’un tríptic són al [Kit de màrqueting](/ca/kit/#sistema-dimpressió).
+
+## Forma
+
+El que és recte és la forma per defecte de la marca: coincideix amb els logotips, els botons i el kit de capes. Els webs, els documents i el màrqueting només arrodoneixen el que és rodó a la realitat; les interfícies de producte prenen les cantonades de `@rosepetal/design`.
+
+<LayoutSpecimens lang="ca" show="shape" />
+
+- **Els webs són rectes en tot**, també targetes, desplegables, menús, diàlegs, avisos i barres de galetes, perquè cada vora s’alineï amb els botons rectes i la retícula.
+- **Una pantalla de producte mostrada com a finestra** és l’única excepció: una captura o un vídeo de pantalla al seu marc d’1 px pren la cantonada de 4 px de la finestra (`--ais-radius-md`), perquè una finestra és rodona en la realitat, i pot flotar amb l’ombra elevada. La imatge no s’arrodoneix mai per si sola; les fotografies i els enregistraments continuen rectes.
+- **Les interfícies de producte** prenen les cantonades de `@rosepetal/design`: el paquet és la referència dels seus components. Defineix `--radius` (8 px) i `--radius-modal` (12 px, diàlegs), i la cantonada de cada component en surt. Fes servir els seus components i classes tal com són; no escriguis mai un radi ni el canviïs.
+- Un radi per component, i mai dos sistemes en una pantalla: un web no pren mai les cantonades arrodonides del producte, i una pantalla de producte no posa mai recte un component del paquet.
+- Les cantonades niades segueixen l’exterior: en producte, l’escala del paquet dona als elements interiors el pas menor; en les composicions rectes, tot el que hi ha dins continua recte.
+- No facis servir mai formes de píndola en botons o etiquetes, ni arrodoneixis una fotografia.
+
+## Elevació
+
+Tres nivells. A la pàgina, les vores fan la feina; l’ombra només indica que una cosa sura damunt d’ella.
+
+<LayoutSpecimens lang="ca" show="elevation" />
+
+- Targetes, seccions i taules són planes, amb una vora d’1 px (`--ais-border`, `#E2E8F0`). No guanyen mai ombra ni s’eleven en hover.
+- Menús, desplegables i popovers estan elevats (`--ais-shadow-raised`); diàlegs i avisos són al nivell superposat (`--ais-shadow-overlay`), damunt la pàgina enfosquida.
+- En les interfícies fosques, l’elevació surt dels passos de superfície (`#0B1220`, `#111A2E`) i d’una vora d’1 px `#1E293B`, no de les ombres.
+
+## Vores i focus
+
+| Token | Valor | Ús |
+| --- | --- | --- |
+| `--ais-border` | 1 px `#E2E8F0` | Separadors, targetes, taules |
+| `--ais-border-strong` | 1 px `#64748B` | Camps de formulari i altres contorns de control, que necessiten 3:1 amb el fons |
+| `--ais-focus-ring` | 2 px `#3664B3` amb una separació blanca de 2 px | Tot element interactiu amb focus de teclat (`:focus-visible`) |
+
+L’anell de focus no es treu ni es canvia mai de color, i apareix a l’instant.

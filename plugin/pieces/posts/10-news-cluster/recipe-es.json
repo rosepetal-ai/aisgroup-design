@@ -1,0 +1,22 @@
+{
+  "name": "ais-vision-systems_post-news-cluster_es_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "El Packaging Cluster visitó nuestra sede de Sabadell: vimos juntos cómo llevamos la inspección por visión del laboratorio a la línea. Gracias por venir. Cuéntanos cómo es tu línea",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/real/ais_packaging-cluster-visit.jpg",
+      "focus": [
+        50,
+        55
+      ],
+      "headline": "Una visita|a nuestra sede"
+    }
+  ]
+}

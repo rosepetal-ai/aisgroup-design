@@ -1,0 +1,80 @@
+---
+title: Uso de los componentes
+rules:
+  - 'Instala `@rosepetal/design`, sin copiar sus ficheros. Un arreglo en un componente se hace en el paquete (`packages/design`) y se publica como versión nueva.'
+  - 'Nunca añadas una variante de Button o Badge, nunca cambies el radio de un componente y nunca uses selectores `[&_…]` para cambiar el estilo de una pieza.'
+  - 'Los botones solo con icono llevan `aria-label` y un Tooltip.'
+  - 'Cada sección asíncrona tiene estado de carga (Skeleton o Spinner), estado vacío y estado de error con Reintentar.'
+  - 'Usa los componentes de shadcn-vue de serie de `@rosepetal/design` con sus propias variantes y tamaños. Las clases son solo para la maquetación de la página: grid, flex, gap, ancho y posición.'
+  - 'Cada color es un token de `@rosepetal/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.'
+  - 'El estado es un icono con su tono y una palabra (Terminado, Pendiente, Error). Nunca solo color y nunca etiquetas tintadas.'
+  - 'Mayúscula solo inicial en títulos, etiquetas y botones. Sin puntos medios ni flechas Unicode. Todo lo que se lee mide al menos 14 px; 12 px solo para ejes de gráficos y teclas.'
+---
+
+Instala el paquete de producto y usa sus componentes y tokens juntos.
+
+## Preparar una aplicación
+
+1. Configura el registro privado e instala `@rosepetal/design`, como explica el README del paquete.
+2. Importa `@rosepetal/design/styles.css` después del tema y las utilidades de Tailwind.
+3. Importa los componentes por carpeta y los bloques por fichero: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+4. Mantén Inter y la página a todo el ancho, y abre cada página bajo el bloque TopBar.
+5. Añade un test que falle con puntos medios o flechas Unicode en las plantillas, como `tests/uiTextRules.spec.js` de rosepetal-ui.
+
+## Componer, no reestilizar
+
+Las clases de un componente solo lo colocan en la página. Su aspecto viene de su variante y su tamaño.
+
+```vue
+<div class="flex items-center justify-between gap-6">
+  <div class="flex flex-col gap-1">
+    <h2 class="font-heading text-lg font-medium">Modelos</h2>
+    <p class="text-muted-foreground">3 modelos</p>
+  </div>
+  <Button><PlusIcon data-icon="inline-start" />Nuevo modelo</Button>
+</div>
+```
+
+## Botones
+
+| Variante | Para |
+| --- | --- |
+| `default` | La acción principal de una página, sección o diálogo |
+| `outline` | Acciones secundarias y barras de herramientas |
+| `ghost` | Acciones de icono y de fila |
+| `secondary` | Cancelar, en el pie de un diálogo |
+| `destructive` | Borrados, tras una confirmación que nombra lo que se borra |
+| `link` | Acciones de texto dentro de una frase |
+
+Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos, de 16 px. En pantallas táctiles y paneles de operario, las zonas interactivas miden 44 px. `topbar` y `topbar-tab` son solo para la barra superior y `modal` solo para el pie de los diálogos.
+
+## Qué componente para cada caso
+
+| Contenido | Usa |
+| --- | --- |
+| Listas de filas | Filas separadas por líneas (`divide-y border-y`), la fila elegida `bg-muted font-medium` |
+| Tablas | Table con cabeceras ordenables y Pagination numerada; las columnas de números llevan `text-right tabular-nums` en TableHead y TableCell |
+| Datasets, modelos, imágenes | Item `variant="outline"`; las fichas de imagen `size="sm"` con la imagen como ItemHeader |
+| Datos | Una cuadrícula de etiqueta sobre valor (`dt` atenuado, `dd`) |
+| Formularios | Field, FieldGroup y FieldDescription, etiqueta sobre el control, `max-w-sm` |
+| Uno de pocos modos | RadioGroup de tarjetas de opción; elegir herramienta es un ToggleGroup |
+| Elegir de una lista larga | Combobox con búsqueda; una lista corta es un Select |
+| Acciones de fila | Un botón ghost `icon-sm` con Ellipsis que abre un DropdownMenu |
+| Estado | Un icono con su tono y la palabra, en texto atenuado |
+| Carga | Skeleton con la forma del contenido; Spinner dentro del botón que trabaja |
+
+## Diálogos
+
+DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con botones a todo el ancho: Cancelar `variant="secondary" size="modal"` primero y la acción `size="modal"` después. En los diálogos con formulario, el formulario lleva un `id` y su botón de envío va en el pie.
+
+## Colores de datos
+
+Etiquetas, series de gráficos y particiones de dataset tienen colores propios en `@rosepetal/design/styles.css`: las etiquetas (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), las particiones (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) y las series de gráficos (de `--chart-1` a `--chart-3`):
+
+- Los colores de etiqueta son iguales en modo claro y oscuro, así que una clase de defecto nunca cambia de color; la primera y la tercera serie y la partición de entrenamiento pasan a un tono más claro en modo oscuro. Todos los tokens en los dos modos están en [Temas claro y oscuro](/es/themes/#tokens).
+- Nunca aparecen en la navegación, los botones ni los gráficos de marketing.
+- Cada uno va con su etiqueta; el color solo nunca identifica una clase.
+
+## Maquetación y zonas interactivas
+
+Las pantallas de producto ocupan todo el ancho. Usan los puntos de ruptura de Tailwind, no la retícula de las webs. En escritorio, los botones de barra de herramientas y de cabecera miden 36 px (`h-9`), con iconos de 16 px; en pantallas táctiles y paneles de operario, cada zona interactiva mide 44 px. El texto sigue la escala de producto de [Tipografía](/es/typography/).

@@ -1,0 +1,49 @@
+name: CI
+
+# Build and test everything on every push and pull request. No secrets and no deploys here:
+# the guide and the MCP are deployed by hand (see README.md); the package publishes from a tag (publish-design.yml).
+# The runner gets what `npm run setup -w plugin` gives a computer: Chromium, the Python packages and Poppler.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: plugin/requirements.txt
+
+      - name: Install
+        run: |
+          npm ci
+          pip install -r plugin/requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          npx playwright install --with-deps chromium
+
+      - name: Build (guide, playground, hosted snapshot)
+        run: npm run build
+
+      - name: Test (tokens contract, package typecheck, plugin and hosted MCP)
+        run: npm test
+
+      - name: The plugin's copies of the guide are up to date
+        run: npm run guide -w plugin -- --check

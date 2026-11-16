@@ -1,0 +1,31 @@
+---
+// A text action: link blue with a 20 px arrow that moves 3 px on hover. A back link points left. Inside running text
+// (p, li, dd) it takes the text's size, has no arrow and stays underlined.
+import type { HTMLAttributes } from 'astro/types';
+import Arrow from '../arrow/Arrow.astro';
+type Props = HTMLAttributes<'a'> & { href: string; arrow?: 'right' | 'left' | 'none' };
+const { href, arrow = 'right', class: className, ...attributes } = Astro.props;
+---
+<a href={href} {...attributes} class:list={['web-text-link', `web-text-link--${arrow}`, className]}>
+  {arrow === 'left' && <Arrow direction="left" />}
+  <slot />
+  {arrow === 'right' && <Arrow />}
+</a>
+<style>
+  .web-text-link {
+    display: inline-flex; align-items: center; gap: var(--ais-space-100); min-height: 44px;
+    color: var(--web-link); font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading);
+    letter-spacing: var(--ais-text-label-tracking); font-weight: var(--ais-text-label-weight); text-decoration: none;
+  }
+  .web-text-link > :global(svg) { display: block; flex: none; width: 20px; height: 20px; margin: 0; }
+  .web-text-link:is(:hover, :focus-visible) { color: var(--web-link-hover); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: var(--web-link-offset); }
+  .web-text-link:focus-visible { outline: 2px solid var(--web-focus); outline-offset: 4px; }
+  :global(:is(p, li, dd)) > .web-text-link { display: inline; min-height: 0; font-size: inherit; font-weight: inherit; letter-spacing: inherit; line-height: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: var(--web-link-offset); text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
+  :global(:is(p, li, dd)) > .web-text-link:is(:hover, :focus-visible) { text-decoration-color: currentColor; }
+  @media (prefers-reduced-motion: no-preference) {
+    .web-text-link { transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+    .web-text-link > :global(svg) { transition: transform var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+    .web-text-link--right:is(:hover, :focus-visible) > :global(svg) { transform: translateX(var(--ais-distance-nudge)); }
+    .web-text-link--left:is(:hover, :focus-visible) > :global(svg) { transform: translateX(calc(-1 * var(--ais-distance-nudge))); }
+  }
+</style>

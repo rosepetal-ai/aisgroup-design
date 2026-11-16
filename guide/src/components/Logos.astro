@@ -1,0 +1,15 @@
+---
+import { logoBox } from '../logoSize';
+import AssetActions from './AssetActions.astro';
+interface Props { names: Record<string, string> }
+const { names } = Astro.props;
+const lang = (Astro.params.lang ?? 'en') as 'en'|'es'|'ca';
+const brands = ['ais-group', 'ais-vision-systems', 'ais-vision-automation', 'ais-scanology', 'rosepetal'];
+const colours = {en: ['Blue', 'White', 'Black'], es: ['Azul', 'Blanco', 'Negro'], ca: ['Blau', 'Blanc', 'Negre']}[lang];
+---
+<div class="logos">
+ {brands.map(b => <section><h3>{names[b]}</h3><div class="variants">{['blue','white','black'].map((tone,i) => <figure><div class:list={['tile', {dark: tone === 'white'}]}><img src={`/logos/${b}-${tone}.svg`} alt={`${names[b]}, ${colours[i]}`} {...logoBox(`${b}-${tone}.svg`,10500)} /></div><figcaption>{colours[i]} <AssetActions lang={lang} href={`/logos/${b}-${tone}.svg`} name={`${names[b]}, ${colours[i]}`} label="SVG" /></figcaption></figure>)}</div></section>)}
+</div>
+<style>
+.logos{margin:32px 0;display:grid;gap:32px}.variants{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}h3{margin:0 0 16px!important}figure{margin:0;min-width:0}.tile{display:grid;place-items:center;height:180px;padding:24px;background:#fff;border:1px solid var(--line)}.dark{background:var(--primary)}img{max-width:100%;height:auto}figcaption{margin-top:12px;display:flex;flex-direction:column;align-items:flex-start;font-size:var(--ais-text-body)}@media(max-width:600px){.variants{grid-template-columns:1fr}}
+</style>

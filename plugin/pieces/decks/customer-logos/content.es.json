@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, clientes",
+    "footer": "AIS Vision Systems, clientes",
+    "file": "ais-vision-systems_clientes_es",
+    "source": "Paredes de logotipos de la presentación general (source-2026.pptx); aprobadas tal cual"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "eyebrow": "Nuestras referencias",
+      "title": "Clientes de AIS Vision Systems",
+      "lead": "Por sector: farmacia, alimentación, bebidas e industria.",
+      "notes": "Empresas que confían en AIS Vision Systems, por sector.",
+      "image": {
+        "src": "library/media/advanced-factories-2026/af26_stand-hexagons.jpg",
+        "pos": "50% 50%",
+        "alt": "Estand de AIS Vision Systems en Advanced Factories 2026",
+        "maxScale": 0.4
+      }
+    },
+    {
+      "layout": "bars",
+      "eyebrow": "Presencia por sector",
+      "title": "Presencia por sector",
+      "bars": [
+        {
+          "label": "Farma y dispositivos médicos",
+          "value": 45
+        },
+        {
+          "label": "Alimentación y bebidas",
+          "value": 25
+        },
+        {
+          "label": "Fabricación en general",
+          "value": 20
+        },
+        {
+          "label": "Artes gráficas",
+          "value": 10
+        }
+      ],
+      "caption": "Distribución recogida en la presentación corporativa de 2026.",
+      "notes": "Distribución por sector de la presentación general 2026."
+    },
+    {
+      "layout": "logos",
+      "eyebrow": "Alimentación",
+      "title": "Referencias en alimentación",
+      "cols": 5,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/danone.png",
+          "name": "danone"
+        },
+        {
+          "src": "tpl:logos-ref/nestle.png",
+          "name": "nestle"
+        },
+        {
+          "src": "tpl:logos-ref/campofrio.png",
+          "name": "campofrio"
+        },
+        {
+          "src": "tpl:logos-ref/calvo.png",
+          "name": "calvo"
+        },
+        {
+          "src": "tpl:logos-ref/heinz.png",
+          "name": "heinz"
+        },
+        {
+          "src": "tpl:logos-ref/elpozo.png",
+          "name": "elpozo"
+        },
+        {
+          "src": "tpl:logos-ref/cerealto-siro.png",
+          "name": "cerealto-siro"
+        },
+        {
+          "src": "tpl:logos-ref/belcan.png",
+          "name": "belcan"
+        },
+        {
+          "src": "tpl:logos-ref/panabad.png",
+          "name": "panabad"
+        },
+        {
+          "src": "tpl:logos-ref/palacios.png",
+          "name": "palacios"
+        },
+        {
+          "src": "tpl:logos-ref/elaborados-naturales.png",
+          "name": "elaborados-naturales"
+        },
+        {
+          "src": "tpl:logos-ref/naming.png",
+          "name": "naming"
+        },
+        {
+          "src": "tpl:logos-ref/rensika.png",
+          "name": "rensika"
+        }
+      ],
+      "notes": "Clientes del sector de alimentación.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "eyebrow": "Bebidas",
+      "title": "Referencias en bebidas",
+      "cols": 5,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/coca-cola.png",
+          "name": "coca-cola"
+        },
+        {
+          "src": "tpl:logos-ref/juver.png",
+          "name": "juver"
+        },
+        {
+          "src": "tpl:logos-ref/font-agudes.png",
+          "name": "font-agudes"
+        },
+        {
+          "src": "tpl:logos-ref/juve-camps.png",
+          "name": "juve-camps"
+        },
+        {
+          "src": "tpl:logos-ref/marie-brizard.png",
+          "name": "marie-brizard"
+        },
+        {
+          "src": "tpl:logos-ref/mg-destilerias.png",
+          "name": "mg-destilerias"
+        },
+        {
+          "src": "tpl:logos-ref/boix.png",
+          "name": "boix"
+        },
+        {
+          "src": "tpl:logos-ref/delafruit.png",
+          "name": "delafruit"
+        },
+        {
+          "src": "tpl:logos-ref/sanmy.png",
+          "name": "sanmy"
+        }
+      ],
+      "notes": "Clientes del sector de bebidas.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "eyebrow": "Industria",
+      "title": "Referencias en industria",
+      "cols": 6,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/toyota.png",
+          "name": "toyota"
+        },
+        {
+          "src": "tpl:logos-ref/seat.png",
+          "name": "seat"
+        },
+        {
+          "src": "tpl:logos-ref/ktm.png",
+          "name": "ktm"
+        },
+        {
+          "src": "tpl:logos-ref/saica.png",
+          "name": "saica"
+        },
+        {
+          "src": "tpl:logos-ref/prysmian.png",
+          "name": "prysmian"
+        },
+        {
+          "src": "tpl:logos-ref/la-farga.png",
+          "name": "la-farga"
+        },
+        {
+          "src": "tpl:logos-ref/endurance.png",
+          "name": "endurance"
+        },
+        {
+          "src": "tpl:logos-ref/brasilata.png",
+          "name": "brasilata"
+        },
+        {
+          "src": "tpl:logos-ref/grupo-copo.png",
+          "name": "grupo-copo"
+        },
+        {
+          "src": "tpl:logos-ref/colep.png",
+          "name": "colep"
+        },
+        {
+          "src": "tpl:logos-ref/rodenas-rivera.png",
+          "name": "rodenas-rivera"
+        },
+        {
+          "src": "tpl:logos-ref/fiberpachs.png",
+          "name": "fiberpachs"
+        },
+        {
+          "src": "tpl:logos-ref/montana-colors.png",
+          "name": "montana-colors"
+        },
+        {
+          "src": "tpl:logos-ref/kartogroup.png",
+          "name": "kartogroup"
+        },
+        {
+          "src": "tpl:logos-ref/kh7.png",
+          "name": "kh7"
+        },
+        {
+          "src": "tpl:logos-ref/once.png",
+          "name": "once"
+        },
+        {
+          "src": "tpl:logos-ref/barinsa.png",
+          "name": "barinsa"
+        }
+      ],
+      "notes": "Clientes industriales.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "logos",
+      "eyebrow": "Farmacia",
+      "title": "Referencias en farmacia",
+      "cols": 6,
+      "logos": [
+        {
+          "src": "tpl:logos-ref/grifols.png",
+          "name": "grifols"
+        },
+        {
+          "src": "tpl:logos-ref/baxter.png",
+          "name": "baxter"
+        },
+        {
+          "src": "tpl:logos-ref/b-braun.png",
+          "name": "b-braun"
+        },
+        {
+          "src": "tpl:logos-ref/abbott.png",
+          "name": "abbott"
+        },
+        {
+          "src": "tpl:logos-ref/astrazeneca.png",
+          "name": "astrazeneca"
+        },
+        {
+          "src": "tpl:logos-ref/stryker.png",
+          "name": "stryker"
+        },
+        {
+          "src": "tpl:logos-ref/werfen.png",
+          "name": "werfen"
+        },
+        {
+          "src": "tpl:logos-ref/cinfa.png",
+          "name": "cinfa"
+        },
+        {
+          "src": "tpl:logos-ref/macopharma.png",
+          "name": "macopharma"
+        },
+        {
+          "src": "tpl:logos-ref/insud-pharma.png",
+          "name": "insud-pharma"
+        },
+        {
+          "src": "tpl:logos-ref/labiana.png",
+          "name": "labiana"
+        },
+        {
+          "src": "tpl:logos-ref/rnb.png",
+          "name": "rnb"
+        }
+      ],
+      "notes": "Clientes del sector farmacéutico y de dispositivos médicos.",
+      "logoH": 96,
+      "logoW": 230
+    },
+    {
+      "layout": "closing",
+      "eyebrow": "Próximo paso",
+      "title": "Envíanos muestras",
+      "lead": "Estudiamos tu producto, tu línea y los controles que necesitas, con pruebas sobre muestras reales.",
+      "contacts": [
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "Correo",
+          "v": "info@aisvision.com"
+        },
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Dirección",
+          "v": "Can Camps, 10, 08202 Sabadell (Barcelona)"
+        }
+      ],
+      "endorse": "Parte de AIS Group",
+      "notes": "Cierre con un solo paso: enviarnos muestras."
+    }
+  ]
+}

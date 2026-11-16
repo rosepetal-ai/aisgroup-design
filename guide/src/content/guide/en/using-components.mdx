@@ -1,0 +1,80 @@
+---
+title: Using the components
+rules:
+  - 'Install `@rosepetal/design` instead of copying its files. A fix to a component is made in the package (`packages/design`) and published as a new version.'
+  - 'Never add a Button or Badge variant, never override a component''s radius, and never use `[&_…]` selectors to restyle a part.'
+  - 'Icon-only buttons have an `aria-label` and a Tooltip.'
+  - 'Every async section has a loading state (Skeleton or Spinner), an empty state and a failure state with Retry.'
+  - 'Use the stock shadcn-vue components from `@rosepetal/design` with their own variants and sizes. Classes are for page layout only: grid, flex, gap, width, position.'
+  - 'Every colour is a token from `@rosepetal/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.'
+  - 'Status is a toned icon and a word (Finished, Pending, Failed). Never colour alone and never tinted pills.'
+  - 'Sentence case for every title, label and button. No middle dots or Unicode arrows. Anything people read is at least 14 px; 12 px only for chart axes and keyboard keys.'
+---
+
+Install the product package and use its components and tokens together.
+
+## Set up an app
+
+1. Set up the private registry and install `@rosepetal/design`, as the package’s README explains.
+2. Import `@rosepetal/design/styles.css` after Tailwind’s theme and utilities.
+3. Import components by folder and blocks by file: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+4. Keep Inter and the full-width page, and open every page under the TopBar block.
+5. Add a test that fails on middle dots or Unicode arrows in templates, like rosepetal-ui’s `tests/uiTextRules.spec.js`.
+
+## Compose, do not restyle
+
+Classes on a component only place it on the page. Its look comes from its variant and size.
+
+```vue
+<div class="flex items-center justify-between gap-6">
+  <div class="flex flex-col gap-1">
+    <h2 class="font-heading text-lg font-medium">Models</h2>
+    <p class="text-muted-foreground">3 models</p>
+  </div>
+  <Button><PlusIcon data-icon="inline-start" />New model</Button>
+</div>
+```
+
+## Buttons
+
+| Variant | For |
+| --- | --- |
+| `default` | The primary action of a page, section or dialog |
+| `outline` | Secondary actions and toolbars |
+| `ghost` | Icon and row actions |
+| `secondary` | Cancel, in a dialog footer |
+| `destructive` | Deletes, after a confirmation that names the target |
+| `link` | Text actions inside a sentence |
+
+Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens and operator panels, targets are 44 px. `topbar` and `topbar-tab` are only for the top bar, `modal` only for dialog footers.
+
+## Which component for which job
+
+| Content | Use |
+| --- | --- |
+| Lists of rows | Rows divided by lines (`divide-y border-y`), the selected row `bg-muted font-medium` |
+| Tables | Table with sortable headers and numbered Pagination; number columns take `text-right tabular-nums` on TableHead and TableCell |
+| Datasets, models, images | Item `variant="outline"`; image tiles `size="sm"` with the image as ItemHeader |
+| Facts | A label-over-value grid (`dt` muted, `dd`) |
+| Forms | Field, FieldGroup and FieldDescription, label above the control, `max-w-sm` |
+| One of a few modes | RadioGroup of choice cards; a tool choice is a ToggleGroup |
+| A long list to choose from | Combobox with search; a short list is a Select |
+| Row actions | A ghost `icon-sm` button with an Ellipsis that opens a DropdownMenu |
+| Status | A toned icon and the word, in muted text |
+| Loading | Skeleton in the shape of the content; Spinner inside the working button |
+
+## Dialogs
+
+DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full-width buttons: Cancel `variant="secondary" size="modal"` first, the action `size="modal"` second. Form dialogs give the form an `id` and put its submit button in the footer.
+
+## Data colours
+
+Tags, chart series and dataset splits have colours of their own in `@rosepetal/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
+
+- Tag colours are the same in light and dark mode, so a defect class never changes colour; the first and third chart series and the training split take a lighter step in dark mode. Every token in both modes is on [Light and dark themes](/en/themes/#tokens).
+- They never appear in navigation, buttons or marketing graphics.
+- Each one is paired with a label; colour alone never identifies a class.
+
+## Layout and targets
+
+Product screens are full width. They use the Tailwind breakpoints, not the website grid. On desktop, toolbar and header buttons are 36 px (`h-9`) with 16 px icons; on touch screens and operator panels, every target is 44 px. Text follows the product scale on [Typography](/en/typography/).

@@ -1,0 +1,13 @@
+1. Before you invest, calculate with your line’s data. Problem costs, investment and scenarios. A guide to preparing your inputs.
+
+2. Why estimate it before investing. Prioritise and justify: Identify real impact and present objective data to management and purchasing. Compare scenarios: Evaluate options on technical criteria, without commercial pressure. Reduce decision risk: Less uncertainty about the expected return before committing.
+
+3. What does the current problem cost? Scrap, rework and claims: Actual costs for the period. Count each loss only once. Volume and defects: Total output and measured defect rate for the same period. Manual inspection: Direct and indirect costs of the current process.
+
+4. Estimate investment and savings. Integration and maintenance: Separate initial investment from recurring costs. Net monthly savings: Estimated avoidable costs less added monthly costs. Three scenarios: Conservative, base and optimistic. Vary assumptions, not measured data.
+
+5. Compare three scenarios. Conservative: A cautious estimate of monthly savings and the payback period. Baseline: A reference scenario using the assumptions expected for your line. Optimistic: A favourable estimate checked against your line conditions.
+
+6. Initial investment ÷ monthly savings = months. Use positive net monthly savings and a consistent scope. This estimates simple payback; it excludes the time value of money. Check each scenario against product trials and line conditions.
+
+7. Put numbers on your project. Tell us about your line. aisvision.com. +34 931 003 035.

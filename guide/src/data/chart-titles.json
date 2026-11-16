@@ -1,0 +1,52 @@
+{
+  "bar": [
+    "Rejects by defect",
+    "Rechazos por defecto",
+    "Rebuigs per defecte"
+  ],
+  "column": [
+    "Parts inspected each month",
+    "Piezas inspeccionadas por mes",
+    "Peces inspeccionades per mes"
+  ],
+  "line": [
+    "Pass rate by inspection",
+    "Tasa de aptos por inspección",
+    "Taxa d’aptes per inspecció"
+  ],
+  "stacked": [
+    "Inspection outcomes",
+    "Resultados de inspección",
+    "Resultats d’inspecció"
+  ],
+  "area": [
+    "Images labelled over time",
+    "Imágenes etiquetadas a lo largo del tiempo",
+    "Imatges etiquetades al llarg del temps"
+  ],
+  "pr-curve": [
+    "Precision and recall by defect",
+    "Precisión y exhaustividad por defecto",
+    "Precisió i exhaustivitat per defecte"
+  ],
+  "confusion": [
+    "Actual and predicted classes",
+    "Clases reales y previstas",
+    "Classes reals i previstes"
+  ],
+  "boxplot": [
+    "Inference-time distribution",
+    "Distribución del tiempo de inferencia",
+    "Distribució del temps d’inferència"
+  ],
+  "histogram": [
+    "Detection confidence distribution",
+    "Distribución de la confianza de las detecciones",
+    "Distribució de la confiança de les deteccions"
+  ],
+  "scatter": [
+    "Model size and example accuracy",
+    "Tamaño del modelo y precisión de ejemplo",
+    "Mida del model i precisió d’exemple"
+  ]
+}

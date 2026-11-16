@@ -1,0 +1,15 @@
+---
+// Downloads page: a sample of the core icon set over its zip.
+import fs from 'node:fs';
+import path from 'node:path';
+const count = fs.readdirSync(path.join(process.cwd(), 'public/downloads/icons/svg')).filter((f) => f.endsWith('.svg')).length;
+const sample = ['scan-eye', 'camera', 'aperture', 'crosshair', 'cpu', 'database', 'cog', 'chart-line', 'badge-check', 'boxes', 'brain-circuit', 'barcode', 'factory', 'gauge', 'layers', 'package', 'ruler', 'shield-check', 'target', 'wrench', 'zap', 'clock', 'cloud', 'award'];
+const svg = (name: string) => fs.readFileSync(path.join(process.cwd(), 'public/downloads/icons/svg', `${name}.svg`), 'utf8')
+  .replace(/<!--.*?-->\s*/s, '').replace(/\s*class="[^"]*"/, '').replace(/\s*width="24"\s*height="24"/, '');
+---
+<div class="dl-grid one">
+  <a class="dl" href="/downloads/icons/ais-icons.zip" download aria-label={`ais-icons.zip, ${count} SVG, ZIP`}>
+    <span class="dl-tile icons" aria-hidden="true">{sample.map((n) => <span set:html={svg(n)} />)}</span>
+    <span class="dl-cap"><span>ais-icons.zip ({count})</span><span class="fmt">ZIP</span></span>
+  </a>
+</div>

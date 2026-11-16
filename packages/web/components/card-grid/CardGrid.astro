@@ -1,0 +1,20 @@
+---
+// Cards in 2, 3 or 4 columns with 48 px gaps; 4 and 3 drop to 2 on tablets, every grid is one column on phones.
+// The row layout is a list: rules between the rows, in two columns.
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<'div'> { columns?: 2 | 3 | 4; layout?: 'stack' | 'row' }
+const { columns = 3, layout = 'stack', class: className, ...attributes } = Astro.props;
+---
+<div {...attributes} class:list={['web-card-grid', `web-card-grid--${columns}`, `web-card-grid--${layout}`, className]}><slot /></div>
+<style>
+  .web-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ais-space-600); min-width: 0; }
+  .web-card-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .web-card-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .web-card-grid--row { row-gap: 0; }
+  .web-card-grid--row > :global(*) { border-bottom: 1px solid var(--web-line); }
+  .web-card-grid--row > :global(:nth-child(-n+2)) { border-top: 1px solid var(--web-line); }
+  @media (max-width: 1100px) { .web-card-grid { column-gap: var(--ais-space-400); } .web-card-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 960px) { .web-card-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .web-card-grid--row { grid-template-columns: 1fr; } .web-card-grid--row > :global(:nth-child(2)) { border-top: 0; } }
+  @media (max-width: 599px) { .web-card-grid { grid-template-columns: 1fr; row-gap: var(--ais-space-500); } .web-card-grid--row { row-gap: 0; } }
+</style>

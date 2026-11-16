@@ -1,0 +1,75 @@
+{
+  "name": "ais-vision-systems_carousel-product-hopper_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "El AIS Hopper es un sistema de control de tapón y llenado a 360°: comprueba que cada tapón esté presente, bien colocado y sin defectos. La inspección completa del tapón, adaptada a diversos tipos de envases, detecta defectos en tiempo real para asegurar la calidad y seguridad del producto. Envíanos muestras.",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/hopper/hopper_juice_3q_cover.jpg",
+      "headline": "AIS Hopper,|tapón y llenado|*a 360°*",
+      "alt": "El AIS Hopper entero, con la cinta y las botellas de zumo que inspecciona.",
+      "split": 0.6,
+      "evidence": "render",
+      "focus": [
+        48,
+        50
+      ]
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/social-composites/29-carousel-product-hopper-cap-and-fill.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        27
+      ],
+      "headline": "El tapón, presente,|bien colocado|y sin defectos",
+      "alt": "Detalle del tapón, el cuello y el nivel de llenado de una botella de zumo.",
+      "evidence": "render"
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Qué inspecciona|en tu línea",
+      "items": [
+        {
+          "text": "Tapón a 360°",
+          "detail": "Inspección completa del tapón y detección de presencia.",
+          "icon": "check"
+        },
+        {
+          "text": "Diversos envases",
+          "detail": "Adaptado a distintos tipos de envases.",
+          "icon": "check"
+        },
+        {
+          "text": "Defectos en tiempo real",
+          "detail": "Control de tapón y llenado para la calidad y seguridad del producto.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Qué inspecciona en tu línea. Tapón a 360°: Inspección completa del tapón y detección de presencia. Diversos envases: Adaptado a distintos tipos de envases. Defectos en tiempo real: Control de tapón y llenado para la calidad y seguridad del producto."
+    },
+    {
+      "type": "contact",
+      "headline": "¿Probamos|*tus envases*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "alt": "¿Probamos tus envases? Envíanos muestras. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

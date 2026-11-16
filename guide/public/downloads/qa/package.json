@@ -1,0 +1,7 @@
+{
+  "name": "ais-brand-qa",
+  "private": true,
+  "type": "module",
+  "description": "AIS Group page checks: brand-check.js in the page, type-check.mjs and hover-audit.mjs from the command line.",
+  "dependencies": { "playwright-core": "1.63.0", "axe-core": "4.13.0" }
+}

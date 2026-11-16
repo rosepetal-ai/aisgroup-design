@@ -1,0 +1,12 @@
+<!-- A setting on or off. Rows with a description use a switch row (see Field). -->
+<script setup>
+import { ref } from 'vue';
+import { Field, FieldLabel } from '@rosepetal/design/ui/field';
+import { Switch } from '@rosepetal/design/ui/switch';
+const on = ref(true);
+</script>
+
+<template>
+  <Field orientation="horizontal" class="w-auto"><Switch id="sw-1" v-model="on" /><FieldLabel for="sw-1">Legend</FieldLabel></Field>
+  <Field orientation="horizontal" class="w-auto"><Switch id="sw-2" disabled /><FieldLabel for="sw-2">Stats</FieldLabel></Field>
+</template>

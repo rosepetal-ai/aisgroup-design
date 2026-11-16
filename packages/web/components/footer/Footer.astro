@@ -1,0 +1,107 @@
+---
+// The site footer, deep blue on a 12-column grid: the brand block on columns 1 to 4 (logo, name, address, social marks,
+// an optional link to the group), up to three link columns from column 6, and the legal row under a rule.
+// Each site gives its content; a column of logos lays them out two by two. A row the site must show under the legal
+// line, such as funding logos, goes in the "after" slot.
+import Icon from '../../lib/Icon.astro';
+interface Link { label: string; href: string; note?: string; external?: boolean; logo?: { src: string; width: number; height: number } }
+interface Props {
+  logo: { src: string; alt: string; width: number; height: number };
+  name: string;
+  social?: { label: string; href: string; path: string }[];
+  group?: { label: string; href: string };
+  columns: { heading: string; links: Link[] }[];
+  legal: { label: string; href: string }[];
+  /** The label of the button that opens the cookie settings again, on sites that ask for consent. */
+  cookies?: string;
+  copyright: string;
+  [key: string]: unknown;
+}
+const { logo, name, social = [], group, columns, legal, cookies, copyright, ...attributes } = Astro.props;
+const id = (heading: string) => `footer-${heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+const external = (link: Link) => (link.external ? { rel: 'noopener', target: '_blank' } : {});
+---
+<footer class="web-footer" {...attributes}>
+  <div class="web-footer__inner">
+    <div class="web-footer__brand">
+      <img src={logo.src} alt={logo.alt} class="web-footer__logo" loading="lazy" width={logo.width} height={logo.height} />
+      <address>
+        <p class="web-footer__name">{name}</p>
+        <slot />
+      </address>
+      {social.length > 0 && <div class="web-footer__social">
+        {social.map((item) => (
+          <a href={item.href} rel="noopener" target="_blank" aria-label={item.label}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={item.path} /></svg>
+          </a>
+        ))}
+      </div>}
+      {group && <a class="web-footer__group" href={group.href} rel="noopener" target="_blank">{group.label}<Icon name="arrow-up-right" size={16} /></a>}
+    </div>
+    <div class="web-footer__columns">
+      {columns.map((column) => (
+        <nav aria-labelledby={id(column.heading)}>
+          <h2 id={id(column.heading)}>{column.heading}</h2>
+          <ul class:list={{ 'web-footer__logos': column.links.some((link) => link.logo) }}>
+            {column.links.map((link) => (
+              <li>
+                <a href={link.href} {...external(link)}>{link.logo ? <img src={link.logo.src} alt={link.label} width={link.logo.width} height={link.logo.height} loading="lazy" /> : link.label}</a>
+                {link.note && <span>{link.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </div>
+    <div class="web-footer__legal">
+      <p><Icon name="copyright" size={16} label="Copyright" />{copyright}</p>
+      <ul>
+        {legal.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        {cookies && <li><button type="button" data-cookie-open>{cookies}</button></li>}
+      </ul>
+    </div>
+    <slot name="after" />
+  </div>
+</footer>
+<style>
+  .web-footer { background: var(--web-footer); color: var(--web-footer-ink); }
+  .web-footer__inner { display: grid; grid-template-columns: 1fr; gap: var(--ais-space-block) var(--ais-grid-gap); width: min(100%, var(--ais-content-max)); margin-inline: auto; padding: var(--ais-space-section) var(--ais-gutter) var(--ais-space-600); box-sizing: border-box; }
+  .web-footer a { color: var(--web-footer-ink); text-decoration: none; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-footer a:is(:hover, :focus-visible) { color: var(--ais-neutral-100); }
+  .web-footer :is(h2, p, ul) { margin: 0; }
+  .web-footer__logo { display: block; width: auto; height: 32px; }
+  .web-footer address { margin-top: var(--ais-space-300); font-style: normal; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .web-footer address :global(p) { margin: 0; }
+  .web-footer address > :global(p + p) { margin-top: var(--ais-space-150); }
+  .web-footer address :global(a) { color: var(--web-footer-ink); text-decoration: none; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-footer address :global(a:is(:hover, :focus-visible)) { color: var(--ais-neutral-100); }
+  .web-footer .web-footer__name { color: var(--ais-neutral-100); font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: var(--ais-text-label-weight); }
+  .web-footer__social { display: flex; gap: var(--ais-space-100); margin-top: var(--ais-space-300); }
+  .web-footer .web-footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--ais-blue-700); color: var(--ais-neutral-0); transition: background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-footer .web-footer__social a:is(:hover, :focus-visible) { background: var(--ais-blue-600); color: var(--ais-neutral-0); }
+  .web-footer .web-footer__group { display: inline-flex; align-items: center; gap: var(--ais-space-100); min-height: 24px; margin-top: var(--ais-space-300); color: var(--web-footer-ink); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .web-footer__columns { display: grid; grid-template-columns: 1fr; gap: var(--ais-space-block) var(--ais-grid-gap); }
+  .web-footer h2 { color: var(--web-footer-ink); font-size: var(--ais-text-eyebrow); line-height: var(--ais-text-eyebrow-leading); letter-spacing: var(--ais-text-eyebrow-tracking); font-weight: var(--ais-text-eyebrow-weight); }
+  .web-footer__columns ul { display: grid; gap: var(--ais-space-100); margin: var(--ais-space-200) 0 0; padding: 0; list-style: none; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .web-footer .web-footer__columns a { display: inline-flex; align-items: center; min-height: 24px; color: var(--web-footer-ink); }
+  .web-footer .web-footer__columns a:is(:hover, :focus-visible) { color: var(--ais-neutral-100); }
+  .web-footer__columns li span { display: block; }
+  .web-footer .web-footer__columns ul.web-footer__logos { grid-template-columns: repeat(2, max-content); align-items: end; justify-items: start; gap: var(--ais-space-300) var(--ais-space-400); margin-top: var(--ais-space-300); }
+  .web-footer__logos img { display: block; }
+  .web-footer .web-footer__columns .web-footer__logos a { display: block; min-height: 0; }
+  .web-footer__legal { display: flex; flex-direction: column; gap: var(--ais-space-200); padding-top: var(--ais-space-300); border-top: 1px solid var(--ais-neutral-800); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .web-footer__legal p { display: flex; align-items: center; gap: var(--ais-space-100); }
+  .web-footer__legal ul { display: flex; flex-wrap: wrap; gap: var(--ais-space-100) var(--ais-space-300); padding: 0; list-style: none; }
+  .web-footer .web-footer__legal :is(a, button) { display: inline-flex; align-items: center; min-height: 24px; padding: 0; border: 0; background: none; color: var(--web-footer-ink); font: inherit; letter-spacing: inherit; cursor: pointer; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-footer .web-footer__legal :is(a, button):is(:hover, :focus-visible) { color: var(--ais-neutral-100); }
+  @media (min-width: 600px) {
+    .web-footer__columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .web-footer__legal { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  @media (min-width: 900px) {
+    .web-footer__inner { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .web-footer__brand { grid-column: 1 / span 4; }
+    .web-footer__columns { grid-column: 6 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .web-footer__legal { grid-column: 1 / -1; }
+  }
+</style>

@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "lang": "es",
+    "title": "AIS Vision Systems, líneas de galletas",
+    "footer": "AIS Vision Systems, líneas de galletas",
+    "file": "ais-vision-systems_presentation-biscuits_es"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "image": {
+        "src": "pieces/decks/biscuits/assets/product-film-poster-workflow.webp",
+        "crop": [
+          318,
+          95,
+          914,
+          795
+        ],
+        "alt": "Fotografía real de una galleta inspeccionada con Rosepetal, con sus anotaciones de grietas"
+      },
+      "title": "Visión artificial con IA para el control de calidad de galletas",
+      "lead": "Soluciones para líneas de producción de alta cadencia.",
+      "meta": "Engineering peace of mind",
+      "notes": "Fotografía real de Rosepetal. Fuente: rosepetal-web-static/astro/public/images/landing/product-film-poster-workflow.webp. Ventana de la fotografía (318,95)–(914,795), sin la interfaz; se mantienen las anotaciones originales de grietas."
+    },
+    {
+      "layout": "photo",
+      "title": "Especialistas en visión artificial con IA",
+      "lead": "Soluciones llave en mano para la industria alimentaria: electromecánica, bandas, electrónica, expulsión y software propio Rosepetal. Diseño y fabricación propios: integramos hardware, software e IA.\nExperiencia contrastada: sistemas operando en plantas de producción de varios grupos europeos líderes del sector galletero.",
+      "notes": "Quiénes somos, para el sector galletero. Sistema de AIS Vision Systems en una planta, de la presentación original. Se conserva la fotografía panorámica original de la planta en una franja ancha bajo el texto.",
+      "image": {
+        "src": "library/media/deck-media/biscuits_system-in-plant.jpg",
+        "fit": "contain",
+        "alt": "Sistema de inspección de AIS Vision Systems en una planta de galletas"
+      },
+      "panorama": true
+    },
+    {
+      "layout": "statement",
+      "title": "Identificamos los 4 puntos críticos de control a lo largo de la línea de galleta sándwich",
+      "lead": "Los puntos de inspección de AIS Vision Systems están ubicados estratégicamente para maximizar la detección temprana y minimizar el desperdicio aguas abajo.",
+      "notes": "Conocemos el proceso de fabricación. El esquema de la línea, en la diapositiva siguiente. En la imagen, una galleta con rotura detectada.",
+      "image": {
+        "src": "tpl:img/biscuit-det-1.jpg",
+        "alt": "Galleta con rotura detectada",
+        "fit": "contain",
+        "maxScale": 1.0
+      }
+    },
+    {
+      "layout": "phases",
+      "title": "Puntos de control",
+      "items": [
+        {
+          "title": "Horno",
+          "text": "Desarrollo, forma, decoración de glasa, color y quemado"
+        },
+        {
+          "title": "Enfriado",
+          "text": "Presencia de galleta, posición y glasa correcta"
+        },
+        {
+          "title": "Baño de chocolate",
+          "text": "Roturas, grietas, falta o defecto de relleno, chips y formas"
+        },
+        {
+          "title": "Film transparente",
+          "text": "Roturas, polvo, falta de producto y galleta invertida"
+        }
+      ],
+      "notes": "Los cuatro controles de AIS Vision Systems en el esquema «Proceso de producción y puntos de control de calidad» de la presentación original: 1.er control tras el horno, 2.º control en el enfriado, 3.er control tras el baño de chocolate (grietas evidentes, checking) y 4.º control del paquete en film transparente, tras la agrupación."
+    },
+    {
+      "layout": "stage",
+      "title": "Control post-horno: reducción de mermas desde el origen",
+      "lead": "Defectos eliminados antes de dosificar.",
+      "facts": [
+        {
+          "k": "Rotura o grieta",
+          "v": "Expulsión antes de crema: cero desperdicio de relleno"
+        },
+        {
+          "k": "Descascarillado o pérdida de cobertura",
+          "v": "Se elimina antes de dosificar para proteger calidad total"
+        }
+      ],
+      "image": {
+        "src": "tpl:img/biscuit-det-2.jpg",
+        "fit": "contain",
+        "maxScale": 1.0
+      },
+      "notes": "Punto de control post-horno. En la imagen, una galleta con grieta, que se retira antes de dosificar la crema. Los otros tres defectos, en la diapositiva siguiente."
+    },
+    {
+      "layout": "features",
+      "title": "Control post-horno: manchas, dimensiones y color",
+      "cols": 3,
+      "compact": true,
+      "items": [
+        {
+          "icon": "scan-eye",
+          "title": "Manchado superficial",
+          "text": "Fuera de línea antes de crema y empaque, sin arrastre de merma"
+        },
+        {
+          "icon": "ruler",
+          "title": "Dimensiones fuera de rango",
+          "text": "Alta cadencia con rechazo temprano y flujo estable"
+        },
+        {
+          "icon": "sun",
+          "title": "Color incorrecto (cocción)",
+          "text": "Control inmediato para asegurar consistencia y estándar"
+        }
+      ],
+      "notes": "Punto de control post-horno: manchado superficial, dimensiones fuera de rango y color incorrecto de cocción."
+    },
+    {
+      "layout": "statement",
+      "title": "Rechazar las galletas defectuosas antes del dosificador de crema elimina el 100 % del desperdicio de crema en galletas KO",
+      "lead": "Y protege la eficiencia de la línea. Cada galleta KO detectada aquí evita el coste de crema, capper y envasado.",
+      "notes": "Impacto en la línea de producción de galletas. Cada galleta KO que sale aquí no recibe crema ni pasa por el capper ni por el envasado. La cobertura multicanal sobre banda ancha está en la diapositiva de experiencia («banda ancha, múltiples carriles»)."
+    },
+    {
+      "layout": "stage",
+      "title": "Control post‑capper: calidad total antes del envase",
+      "lead": "Hasta 1500 uds./min: inspección al 100 % sin reducir velocidad de línea.",
+      "facts": [
+        {
+          "k": "Arquitectura",
+          "v": "2 carriles con el sistema Rosepetal: máxima cadencia sin comprometer la calidad total del sándwich"
+        }
+      ],
+      "image": {
+        "src": "library/media/deck-media/biscuits_live-view.jpg",
+        "alt": "Vista en directo de galletas sándwich en bandeja"
+      },
+      "notes": "Punto de control post-capper, con una cámara cenital y una cámara lateral; sus defectos, en las dos diapositivas siguientes. En la imagen, la vista en directo de Rosepetal sobre una bandeja de galletas sándwich."
+    },
+    {
+      "layout": "features",
+      "title": "Cámara cenital",
+      "cols": 4,
+      "compact": true,
+      "items": [
+        {
+          "icon": "search-x",
+          "title": "Galleta rota o con grieta",
+          "text": "Evita rechazo tardío, reclamaciones y merma de producto terminado"
+        },
+        {
+          "icon": "crosshair",
+          "title": "Desplazamiento de tapa (tolerancia: ±5 % del diámetro)",
+          "text": "Evita devoluciones de cliente y pérdida de calidad total"
+        },
+        {
+          "icon": "target",
+          "title": "Crema fuera del contorno",
+          "text": "Evita desperdicio de crema y reprocesos en alta cadencia"
+        },
+        {
+          "icon": "scan-eye",
+          "title": "Manchado o picado superficial",
+          "text": "Evita incidencias de presentación y riesgo de no conformidad en envase"
+        }
+      ],
+      "notes": "Punto de control post-capper: los cuatro defectos que ve la cámara cenital y lo que evita detectar cada uno."
+    },
+    {
+      "layout": "features",
+      "title": "Cámara lateral",
+      "cols": 3,
+      "compact": true,
+      "items": [
+        {
+          "icon": "ruler",
+          "title": "Ancho y altura de crema fuera de rango",
+          "text": "Evita variabilidad de sándwich y pérdida de estándar"
+        },
+        {
+          "icon": "layers",
+          "title": "Falta de tapa inferior o superior",
+          "text": "Evita producto incompleto, merma y bloqueo en empaque"
+        },
+        {
+          "icon": "rotate-3d",
+          "title": "Inclinación diagonal de tapa (defecto típico del capper)",
+          "text": "Evita reclamaciones, retrabajos y afectación de calidad total"
+        }
+      ],
+      "notes": "Punto de control post-capper: los tres defectos que ve la cámara lateral y lo que evita detectar cada uno."
+    },
+    {
+      "layout": "figures",
+      "title": "Control de paquete: calidad total en el producto final con el sistema AIS-RP-C",
+      "figures": [
+        {
+          "value": "6",
+          "label": "cámaras en color",
+          "text": "Con cúpula de iluminación cerrada"
+        },
+        {
+          "value": "100 %",
+          "label": "inspección",
+          "text": "Sin muestreo"
+        },
+        {
+          "value": "180",
+          "label": "paquetes/minuto, como máximo",
+          "text": "Con trazabilidad completa de cada unidad"
+        }
+      ],
+      "notes": "Punto de control del paquete con el sistema AIS-RP-C: 6 cámaras en color con cúpula de iluminación cerrada, inspección al 100 % sin muestreo, cadencia de hasta 180 paquetes/minuto y trazabilidad completa de cada unidad."
+    },
+    {
+      "layout": "features",
+      "title": "Defectos detectados",
+      "cols": 4,
+      "compact": true,
+      "items": [
+        {
+          "icon": "search-x",
+          "title": "Galleta rota visible",
+          "text": "Evita reclamaciones y devoluciones de cliente final"
+        },
+        {
+          "icon": "refresh-cw",
+          "title": "Galleta invertida",
+          "text": "Garantiza presentación perfecta en lineal"
+        },
+        {
+          "icon": "filter",
+          "title": "Polvo o fragmentos",
+          "text": "Seguridad alimentaria y cumplimiento normativo"
+        },
+        {
+          "icon": "scan-text",
+          "title": "Marcaje de lote al 100 %",
+          "text": "Trazabilidad total y cumplimiento legal"
+        }
+      ],
+      "notes": "El sistema AIS-RP-C: para qué está diseñado y los cuatro defectos que detecta en el paquete, con lo que aporta detectar cada uno.",
+      "lead": "Diseñado para sostener la eficiencia en alta cadencia, reducir mermas y asegurar calidad total en el producto final."
+    },
+    {
+      "layout": "stage",
+      "title": "Inspección de glasa con IA",
+      "lead": "Lo que solo es posible con inteligencia artificial.",
+      "facts": [
+        {
+          "k": "Resuelve",
+          "v": "Diversos patrones en una misma producción, exceso de glasa, cobertura insuficiente, descascarillado (5 niveles de severidad, de OK a KO), grieta en cuerpo glaseado"
+        }
+      ],
+      "image": {
+        "src": "tpl:img/biscuit-screen.jpg",
+        "fit": "contain",
+        "maxScale": 1.0
+      },
+      "notes": "Inspección de glasa con aprendizaje profundo. En la imagen, la pantalla de Rosepetal en una línea de galletas glaseadas, con sus estadísticas de errores. Sin IA y con IA, en la diapositiva siguiente."
+    },
+    {
+      "layout": "features",
+      "title": "Con y sin inteligencia artificial",
+      "cols": 2,
+      "items": [
+        {
+          "icon": "circle-x",
+          "title": "Sin IA",
+          "text": "Cada patrón variable se detecta como defecto. Imposible en producción real."
+        },
+        {
+          "icon": "circle-check",
+          "title": "Con Rosepetal",
+          "text": "Distingue variación aceptable de defecto real. Entrenado por tipología."
+        }
+      ],
+      "notes": "Glasa: sin IA, cada patrón variable sale como defecto; con Rosepetal, el modelo distingue la variación aceptable del defecto real."
+    },
+    {
+      "layout": "stage",
+      "title": "Rosepetal: el cerebro del sistema",
+      "image": {
+        "src": "tpl:ext/BR-ROSEPETAL-SP-027.png",
+        "fit": "contain",
+        "pad": 64
+      },
+      "facts": [
+        {
+          "k": "Deep learning",
+          "v": "Modelos entrenados por tipología de defecto con cientos de imágenes reales"
+        },
+        {
+          "k": "Recetas múltiples",
+          "v": "Cambio de referencia en segundos. Formatos ilimitados almacenados."
+        }
+      ],
+      "notes": "Rosepetal, la plataforma de IA del sistema. En la imagen, su herramienta de etiquetado. Estadísticas y acceso remoto, en la diapositiva siguiente."
+    },
+    {
+      "layout": "stage",
+      "title": "Estadísticas y acceso remoto",
+      "facts": [
+        {
+          "k": "Estadísticas en tiempo real",
+          "v": "Registro de cada NOK con imagen, fecha, tipo de defecto y umbrales configurables"
+        },
+        {
+          "k": "Acceso remoto web",
+          "v": "Supervisión y soporte remoto protegido, disponible 24/7"
+        }
+      ],
+      "image": {
+        "src": "library/media/real/ais-engineer-rosepetal-screen.png",
+        "pos": "18% 50%",
+        "alt": "Ingeniero de AIS revisando las estadísticas de Rosepetal"
+      },
+      "notes": "Rosepetal registra cada NOK con su imagen y permite la supervisión y el soporte remotos. En la imagen, un ingeniero de AIS con las estadísticas de Rosepetal en pantalla (el original reservaba aquí una captura de la interfaz de Rosepetal)."
+    },
+    {
+      "layout": "statement",
+      "title": "GlobalVision: control de artes gráficas",
+      "lead": "AIS Vision Systems es partner oficial de GlobalVision en España, el software líder mundial de inspección de artes gráficas, utilizado por el 72 % de las grandes compañías farmacéuticas y los principales fabricantes de gran consumo.",
+      "notes": "GlobalVision, con AIS Vision Systems como partner oficial en España. En la imagen, el escáner GlobalVision C8.",
+      "image": {
+        "src": "tpl:ext/c8-source.png",
+        "fit": "contain",
+        "alt": "Escáner GlobalVision C8",
+        "maxScale": 0.65
+      }
+    },
+    {
+      "layout": "stage",
+      "title": "Verificación de artes de bobinas de film y estuches de cartón",
+      "lead": "Antes de aprobar la impresión y a la recepción de materiales de proveedor.",
+      "facts": [
+        {
+          "v": "Evita reprocesamientos y retiradas de mercado por errores de packaging"
+        },
+        {
+          "v": "Funciona offline, con escáner o entre archivos digitales, sobre cualquier material impreso"
+        }
+      ],
+      "image": {
+        "src": "library/media/deck-media/globalvision_large-format-scanner.jpg",
+        "fit": "contain",
+        "alt": "Escáner de gran formato de GlobalVision",
+        "bg": "#FFFFFF"
+      },
+      "notes": "Aplicación directa de GlobalVision. En la imagen, un escáner de gran formato de GlobalVision con su puesto de revisión. Las dos artes de la presentación original, en la diapositiva siguiente."
+    },
+    {
+      "layout": "features",
+      "title": "¿Qué detecta?",
+      "cols": 2,
+      "compact": true,
+      "items": [
+        {
+          "icon": "image",
+          "title": "Gráficos e ilustraciones",
+          "text": "Logos incorrectos, elementos desplazados, diferencias de registro"
+        },
+        {
+          "icon": "file-text",
+          "title": "Texto",
+          "text": "Palabras erróneas, fuentes incorrectas, texto faltante"
+        },
+        {
+          "icon": "eye",
+          "title": "Color",
+          "text": "Desviaciones delta E: Pantone, CMYK, RGB, LAB"
+        },
+        {
+          "icon": "scan-barcode",
+          "title": "Códigos y Braille",
+          "text": "Verificación ANSI/CEN/ISO y Braille en 44 idiomas"
+        }
+      ],
+      "notes": "Lo que detecta GlobalVision al comparar artes finales y muestras físicas: gráficos, texto, color, códigos y Braille. Cómo compara, en la diapositiva siguiente."
+    },
+    {
+      "layout": "stage",
+      "title": "Encuentra diferencias automáticamente",
+      "facts": [
+        {
+          "v": "Artwork vs. artwork"
+        },
+        {
+          "v": "Artwork vs. muestra física"
+        },
+        {
+          "v": "Muestra vs. muestra"
+        }
+      ],
+      "image": {
+        "src": "library/media/deck-media/globalvision_artwork-comparison-1.jpg",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      },
+      "detail": {
+        "image": "library/media/deck-media/globalvision_artwork-comparison-2.jpg",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      },
+      "notes": "GlobalVision encuentra las diferencias automáticamente entre dos artes finales, entre el arte final y la muestra impresa, o entre dos muestras. Las dos artes son las de la presentación original: dos versiones del mismo envase de ejemplo."
+    },
+    {
+      "layout": "features",
+      "title": "Solución llave en mano",
+      "cols": 4,
+      "compact": true,
+      "lead": "Un solo proveedor. Cero integraciones. Responsabilidad total del proyecto. Marcado CE, diseño higiénico sin cavidades, inox 304.",
+      "items": [
+        {
+          "icon": "cog",
+          "title": "Diseño electromecánico completo"
+        },
+        {
+          "icon": "truck",
+          "title": "Bandas de transporte"
+        },
+        {
+          "icon": "camera",
+          "title": "Cámaras, ópticas y electrónica"
+        },
+        {
+          "icon": "brain-circuit",
+          "title": "Software Rosepetal"
+        }
+      ],
+      "notes": "Todo el proyecto con un solo proveedor, sin integraciones entre terceros."
+    },
+    {
+      "layout": "features",
+      "title": "Pruebas, formación y garantía",
+      "cols": 4,
+      "compact": true,
+      "items": [
+        {
+          "icon": "badge-check",
+          "title": "FAT en nuestras instalaciones"
+        },
+        {
+          "icon": "factory",
+          "title": "SAT e instalación en planta"
+        },
+        {
+          "icon": "users",
+          "title": "Formación y soporte remoto"
+        },
+        {
+          "icon": "shield-check",
+          "title": "Garantía de 2 años"
+        }
+      ],
+      "notes": "FAT en nuestras instalaciones, SAT e instalación en planta, formación y soporte remoto, y garantía de 2 años."
+    },
+    {
+      "layout": "phases",
+      "title": "Experiencia en galletería industrial",
+      "items": [
+        {
+          "title": "Post-horno",
+          "text": "Inspección en banda ancha, múltiples carriles"
+        },
+        {
+          "title": "Post-capper",
+          "text": "Alta cadencia: hasta 1500 uds./min, doble cámara"
+        },
+        {
+          "title": "Múltiples referencias",
+          "text": "En la misma línea (circulares y rectangulares)"
+        },
+        {
+          "title": "Glasa",
+          "text": "Patrones variables mediante IA"
+        },
+        {
+          "title": "Paquete encelofanado",
+          "text": "A 6 caras"
+        },
+        {
+          "title": "FAT y SAT",
+          "text": "Documentados y firmados"
+        }
+      ],
+      "notes": "Nuestra experiencia en el sector: galletería industrial. La panadería industrial, en la diapositiva siguiente."
+    },
+    {
+      "layout": "stage",
+      "image": {
+        "src": "library/media/real/rosepetal_bread-formation-dataset.webp",
+        "fit": "contain",
+        "alt": "Conjunto de imágenes de panadería en la interfaz de Rosepetal"
+      },
+      "title": "Panadería industrial: control geométrico inline de panes",
+      "notes": "Panadería industrial, con la misma plataforma que en galletas. En la imagen, la vista en directo de Rosepetal midiendo barras de pan en línea, con sus detecciones. La imagen principal muestra el conjunto de datos de panadería en Rosepetal; debajo se conserva la vista en directo con las medidas y detecciones.",
+      "facts": [
+        {
+          "v": "Largo, ancho, deformaciones"
+        },
+        {
+          "v": "Medición en tiempo real con la misma plataforma Rosepetal"
+        }
+      ],
+      "detail": {
+        "image": "pieces/decks/biscuits/source-media/rosepetal-bread-live-view.jpg",
+        "fit": "contain",
+        "bg": "#FFFFFF"
+      }
+    },
+    {
+      "layout": "steps",
+      "title": "Próximos pasos",
+      "steps": [
+        {
+          "title": "Visita técnica a planta",
+          "text": "Toma de datos, muestras y layout de línea"
+        },
+        {
+          "title": "Propuesta técnica y económica",
+          "text": "Personalizada a tu línea y referencias"
+        },
+        {
+          "title": "FAT en Barcelona",
+          "text": "Validación completa en las instalaciones de AIS Vision Systems"
+        },
+        {
+          "title": "SAT, puesta a punto y soporte continuo",
+          "text": "De 2 a 3 semanas por referencia y ampliación de recetas"
+        }
+      ],
+      "notes": "Cuatro pasos, de la visita técnica a la planta al soporte continuo."
+    },
+    {
+      "layout": "closing",
+      "title": "Gracias",
+      "contacts": [
+        {
+          "k": "Web",
+          "v": "www.aisvision.com"
+        },
+        {
+          "k": "Teléfono",
+          "v": "+34 931 003 035"
+        },
+        {
+          "k": "LinkedIn",
+          "v": "AIS Vision Systems"
+        },
+        {
+          "k": "YouTube",
+          "v": "AIS Vision Systems"
+        }
+      ],
+      "notes": "Gracias. El pie del original decía: «AIS Vision Systems, aisvision.com, Contacte con nuestro equipo técnico para iniciar la visita». El teléfono es el de las piezas aprobadas. LinkedIn, como en las piezas aprobadas."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+---
+// A card is one link, with no box: stack (picture above), row (thumbnail beside), text (a rule on top) or featured
+// (picture on 7 of 12 columns). The title turns link blue, the arrow nudges and the picture eases to 103 %.
+import type { HTMLAttributes } from 'astro/types';
+import Arrow from '../arrow/Arrow.astro';
+import Picture from '../../lib/Picture.astro';
+interface Props extends Omit<HTMLAttributes<'a'>, 'title'> {
+  href: string;
+  title: string;
+  description?: string;
+  image?: string;
+  alt?: string;
+  category?: string | string[];
+  date?: Date;
+  locale?: string;
+  action?: string;
+  heading?: 'h2' | 'h3';
+  layout?: 'stack' | 'row' | 'text' | 'featured';
+  imageFit?: 'cover' | 'contain';
+}
+const { href, title, description, image, alt = '', category, date, action, locale = 'en-GB',
+  heading: Heading = 'h3', layout = 'stack', imageFit = 'cover', class: className, ...attributes } = Astro.props;
+const hasMedia = image || Astro.slots.has('media');
+---
+<a {...attributes} href={href} class:list={['web-card', `web-card--${layout}`, className]}>
+  {hasMedia && <div class:list={['web-card__media', `web-card__media--${imageFit}`, { 'web-card__media--custom': Astro.slots.has('media') }]}>
+    <slot name="media">{image && <Picture src={image} alt={alt} loading="lazy" decoding="async" />}</slot>
+  </div>}
+  <div class="web-card__copy">
+    {(category || date) && <div class="web-card__meta">
+      {date && <time datetime={date.toISOString()}>{date.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</time>}
+      {category && (Array.isArray(category) ? category : [category]).map((label) => <span>{label}</span>)}
+    </div>}
+    <div class="web-card__heading"><Heading class="web-card__title">{title}</Heading>{!action && <Arrow />}</div>
+    {description && <p class="web-card__description">{description}</p>}
+    {action && <span class="web-card__action">{action}<Arrow /></span>}
+  </div>
+</a>
+<style>
+  .web-card { display: flex; flex-direction: column; min-width: 0; height: 100%; color: var(--web-ink); text-decoration: none; }
+  .web-card[hidden] { display: none; }
+  .web-card__media { flex: none; aspect-ratio: 8 / 5; overflow: hidden; background: var(--web-surface); }
+  .web-card__media :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform var(--ais-duration-slow-2) var(--ais-ease-enter); }
+  .web-card__media--contain { border: 1px solid var(--web-line); border-radius: var(--ais-radius-md); background: var(--web-page); }
+  .web-card__media--contain :global(img) { object-fit: contain; }
+  .web-card__media--custom { aspect-ratio: auto; }
+  .web-card__copy { display: flex; flex: 1; flex-direction: column; min-width: 0; padding-top: var(--ais-space-300); }
+  .web-card__meta { display: flex; flex-wrap: wrap; gap: var(--ais-space-100) var(--ais-space-200); margin-bottom: var(--ais-space-150); color: var(--web-muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: var(--ais-text-small-weight); letter-spacing: var(--ais-text-small-tracking); }
+  .web-card__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ais-space-200); }
+  .web-card .web-card__title { margin: 0; min-width: 0; font-size: var(--ais-text-subheading); font-weight: var(--ais-text-subheading-weight); line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-card__heading :global(svg) { margin-top: 4px; }
+  .web-card__heading :global(svg), .web-card__action :global(svg) { flex: none; width: 20px; height: 20px; color: var(--web-link); transition: transform var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+  .web-card .web-card__description { overflow-wrap: anywhere; margin: var(--ais-space-150) 0 0; color: var(--web-muted); font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-body-weight); }
+  .web-card__action { display: flex; align-items: center; gap: var(--ais-space-100); padding-top: var(--ais-space-300); margin-top: auto; color: var(--web-link); font-size: var(--ais-text-label); font-weight: var(--ais-text-label-weight); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); }
+  .web-card:is(:hover, :focus-visible) .web-card__title { color: var(--web-link); }
+  .web-card:focus-visible { outline: 2px solid var(--web-focus); outline-offset: 6px; }
+  .web-card--text { border-top: 1px solid var(--web-line); }
+  .web-card--featured { display: grid; grid-template-columns: 7fr 5fr; align-items: center; gap: var(--ais-space-600); }
+  .web-card--featured .web-card__media:not(.web-card__media--custom) { aspect-ratio: 4 / 3; }
+  .web-card--featured .web-card__copy { padding-top: 0; }
+  .web-card--featured .web-card__title { font-size: var(--ais-text-heading); line-height: var(--ais-text-heading-leading); letter-spacing: var(--ais-text-heading-tracking); font-weight: var(--ais-text-heading-weight); }
+  .web-card--row { display: grid; grid-template-columns: 128px minmax(0, 1fr); align-items: center; gap: var(--ais-space-300); min-height: 112px; padding-block: var(--ais-space-200); }
+  .web-card--row .web-card__copy { padding-top: 0; }
+  .web-card--row .web-card__title { font-size: var(--ais-text-body); line-height: var(--ais-text-body-leading); letter-spacing: var(--ais-text-body-tracking); font-weight: var(--ais-text-label-weight); }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .web-card:is(:hover, :focus-visible) .web-card__media--cover :global(img) { transform: scale(1.03); }
+    .web-card:is(:hover, :focus-visible) :is(.web-card__heading, .web-card__action) :global(svg) { transform: translateX(var(--ais-distance-nudge)); }
+  }
+  @media (max-width: 1100px) { .web-card--row { grid-template-columns: 96px minmax(0, 1fr); gap: var(--ais-space-200); } }
+  @media (max-width: 760px) { .web-card--row { grid-template-columns: 112px minmax(0, 1fr); } .web-card--featured { grid-template-columns: 1fr; gap: var(--ais-space-300); } }
+  @media (max-width: 380px) { .web-card--row { grid-template-columns: 88px minmax(0, 1fr); gap: var(--ais-space-150); } }
+  @media (prefers-reduced-motion: reduce) { .web-card .web-card__title, .web-card__heading :global(svg), .web-card__action :global(svg), .web-card__media :global(img) { transition: none; } }
+</style>

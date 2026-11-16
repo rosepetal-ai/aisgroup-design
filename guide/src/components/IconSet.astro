@@ -1,0 +1,39 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import type { Lang } from '../i18n';
+import { iconGroups } from '../library';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+// Inline the official Lucide files exactly as downloaded, minus the licence comment and class.
+const svg = (name: string) => fs.readFileSync(path.join(process.cwd(), 'public/downloads/icons/svg', `${name}.svg`), 'utf8')
+  .replace(/<!--.*?-->\s*/s, '').replace(/\s*class="[^"]*"/, '').replace(/\s*width="24"\s*height="24"/, '');
+---
+<div class="icons">
+  {iconGroups.map((g) => (
+    <section>
+      <p class="ais-eyebrow">{g.name[lang]}</p>
+      <ul>
+        {g.icons.map((n) => (
+          <li>
+            <a data-asset-thumb href={`/downloads/icons/svg/${n}.svg`} target="_blank" rel="noopener" aria-label={n}><span class="glyph" set:html={svg(n)} /></a>
+            <code data-copy={n}>{n}</code>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>
+<style>
+  .icons section + section { margin-top: 32px; }
+  .icons .ais-eyebrow { margin: 0 0 12px; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+  li { margin: 0 !important; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px 4px 12px; border: 1px solid var(--line); border-radius: 0; }
+  li a { color: var(--ink); line-height: 0; }
+  li a:hover { color: var(--link); }
+  .glyph :global(svg) { width: 24px; height: 24px; }
+  @media (max-width: 1100px) { ul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width:600px) { ul { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  /* Names are labels people read and copy: Inter caption, one line, never broken at a hyphen. */
+  code { max-width: 100%; white-space: nowrap; font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--ais-font-primary); letter-spacing: var(--ais-text-caption-tracking); color: var(--muted); background: none; padding: 0; cursor: copy; text-align: center; }
+</style>

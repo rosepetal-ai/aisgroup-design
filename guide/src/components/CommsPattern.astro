@@ -1,0 +1,196 @@
+---
+// One communication pattern drawn live with the brand tokens, so its rules stay exact 1 px lines at any width.
+// The content comes from the marketing kit: the OPTICAIS datasheet (table), the AIS KARIKÓ datasheet (specification block),
+// the Daymsa case study (emphasis and key figure), the Rosepetal VISION 2026 post (quote),
+// the AIS Hopper carousel (comparison) and the corporate 2026 deck (process steps).
+type Lang = 'en' | 'es' | 'ca';
+interface Props { lang: Lang; show: 'table' | 'specification' | 'highlight' | 'comparison' | 'steps' | 'quote' }
+const { lang, show } = Astro.props;
+const L = (en: string, es: string, ca: string) => ({ en, es, ca })[lang];
+const n = (s: string) => (lang === 'en' ? s : s.replace('.', ','));
+
+const table = {
+  head: [L('Field of view (mm)', 'Campo de visión (mm)', 'Camp de visió (mm)'), L('1D code (mm)', 'Código 1D (mm)', 'Codi 1D (mm)'), L('2D code (mm)', 'Código 2D (mm)', 'Codi 2D (mm)'), L('OCR height (mm)', 'Altura OCR (mm)', 'Alçada OCR (mm)')],
+  rows: [
+    ['100 × 56', n('0.15'), n('0.31'), n('2.0')],
+    ['75 × 42', n('0.11'), n('0.23'), n('1.5')],
+    ['50 × 28', n('0.08'), n('0.16'), n('1.0')],
+  ],
+  caption: L('Characters must not touch each other.', 'Los caracteres no deben tocarse entre sí.', 'Els caràcters no s’han de tocar entre si.'),
+};
+const spec = [
+  { title: L('Equipment', 'Equipo', 'Equip'), rows: [
+    [L('Compatible formats', 'Formatos compatibles', 'Formats compatibles'), L('Heat-sealed trays and bowls, round or rectangular (dimensions depending on the product)', 'Bandejas y boles termosellados de geometría circular o rectangular (dimensiones según el producto)', 'Safates i bols termosegellats de geometria circular o rectangular (dimensions segons el producte)')],
+    [L('Design', 'Diseño', 'Disseny'), L('Structure in 304 stainless steel', 'Estructura de acero inoxidable (INOX 304)', 'Estructura d’acer inoxidable (INOX 304)')],
+    [L('Maximum rate', 'Cadencia máxima', 'Cadència màxima'), L('Up to 30 000 units/hour, depending on the inspections and the format', 'Hasta 30 000 unidades/hora, según las inspecciones y el formato', 'Fins a 30 000 unitats/hora, segons les inspeccions i el format')],
+    [L('Minimum spacing', 'Separación mínima', 'Separació mínima'), L('130 mm between containers', '130 mm entre envases', '130 mm entre envasos')],
+    [L('Cameras', 'Cámaras', 'Càmeres'), L('2 high-resolution colour cameras: matrix above, line scan below', '2 cámaras en color de alta resolución: superior matricial e inferior lineal', '2 càmeres en color d’alta resolució: superior matricial i inferior lineal')],
+    [L('Lighting', 'Iluminador', 'Il·luminador'), L('High-power lighting above and a line projector below (diffuse light)', 'Iluminación superior de alta potencia y proyector lineal inferior (luz difusa)', 'Il·luminació superior d’alta potència i projector lineal inferior (llum difusa)')],
+    [L('Dimensions', 'Dimensiones', 'Dimensions'), L('Conveyor in 2 or 3 sections depending on the product: 920 mm (inspection) + 920 mm (reject); 300 mm belt', 'Transporte de 2 o 3 tramos según el producto: 920 mm (inspección) + 920 mm (rechazo); banda de 300 mm', 'Transport de 2 o 3 trams segons el producte: 920 mm (inspecció) + 920 mm (rebuig); banda de 300 mm')],
+  ] },
+  { title: L('Installation and operation', 'Instalación y manejo', 'Instal·lació i maneig'), rows: [
+    [L('Control panel', 'Panel de control', 'Panell de control'), L('21-inch touch screen to view and adjust the system', 'Pantalla táctil de 21 pulgadas para visualizar y ajustar el sistema', 'Pantalla tàctil de 21 polzades per visualitzar i ajustar el sistema')],
+    [L('Signalling', 'Señalización', 'Senyalització'), L('Status beacon on the machine', 'Baliza luminosa de estado del equipo', 'Balisa lluminosa d’estat de l’equip')],
+    [L('Power', 'Instalación eléctrica', 'Instal·lació elèctrica'), L('Single-phase supply at the installation point', 'Alimentación monofásica en el punto de instalación', 'Alimentació monofàsica al punt d’instal·lació')],
+    [L('Mechanics', 'Mecánica', 'Mecànica'), L('Access for cleaning and maintenance; guides adapted to the line', 'Acceso para limpieza y mantenimiento; guiado adaptado a la línea', 'Accés per a neteja i manteniment; guiatge adaptat a la línia')],
+  ] },
+];
+const highlight = {
+  lead: [L('AIS Vision Systems installed an in-line vision system that ', 'AIS Vision Systems instaló en la línea un sistema de visión que ', 'AIS Vision Systems va instal·lar a la línia un sistema de visió que '), L('inspects the label and cap assembly', 'inspecciona el conjunto etiqueta-tapón', 'inspecciona el conjunt d’etiqueta i tap'), L(' of each container.', ' de cada envase.', ' de cada envàs.')],
+  figures: [['95 %', L('less time and personnel in quality inspection', 'menos tiempo y personal en la inspección de calidad', 'menys temps i personal en la inspecció de qualitat'), L('Daymsa’s estimate after installation. Source: case study published on aisvision.com on 20 October 2020.', 'Estimación de Daymsa tras la instalación. Fuente: caso de éxito publicado en aisvision.com el 20 de octubre de 2020.', 'Estimació de Daymsa després de la instal·lació. Font: cas d’èxit publicat a aisvision.com el 20 d’octubre de 2020.')]],
+  quote: '«Una estimación personal no es una tasa de fallos medida.»',
+  name: 'José Racionero',
+  role: L('CEO and co-founder of Rosepetal', 'CEO y cofundador de Rosepetal', 'CEO i cofundador de Rosepetal'),
+  context: L('At VISION 2026, José Racionero talked about how to judge the risks of AI: with measured failure rates and engineering, not personal estimates.', 'En VISION 2026, José Racionero habló de cómo valorar los riesgos de la IA: con tasas de fallos medidas e ingeniería, no con estimaciones personales.', 'A VISION 2026, José Racionero va parlar de com valorar els riscos de la IA: amb taxes de fallades mesurades i enginyeria, no amb estimacions personals.'),
+};
+const comparison = {
+  title: L('The same bottle, with and without the defect', 'La misma botella, con y sin defecto', 'La mateixa ampolla, amb defecte i sense'),
+  states: [
+    { ok: true, src: '/comms/fill-ok.webp', name: L('Correct fill', 'Llenado correcto', 'Ompliment correcte'), line: L('The juice reaches the neck.', 'El zumo llega al cuello.', 'El suc arriba al coll.') },
+    { ok: false, src: '/comms/fill-low.webp', name: L('Low fill', 'Nivel bajo', 'Nivell baix'), line: L('The level sits well below the neck.', 'El nivel queda muy por debajo del cuello.', 'El nivell queda molt per sota del coll.') },
+  ],
+};
+const steps = {
+  title: L('AIS Vision Systems: work process', 'AIS Vision Systems: proceso de trabajo', 'AIS Vision Systems: procés de treball'),
+  items: [
+    [L('Presales', 'Preventa', 'Prevenda'), L('Needs, questions, tests and proposal', 'Necesidades, diversas preguntas, pruebas y oferta', 'Necessitats, preguntes, proves i oferta')],
+    [L('Project delivery', 'Ejecución del proyecto', 'Execució del projecte'), L('Project manager, integration study, stages, closure', 'Jefe de proyecto, estudio de integración, etapas, cierre', 'Cap de projecte, estudi d’integració, etapes, tancament')],
+    [L('After-sales', 'Posventa', 'Postvenda'), L('Maintenance, extensions and improvements, support', 'Mantenimiento, ampliaciones y mejoras, asistencia', 'Manteniment, ampliacions i millores, assistència')],
+    [L('Account manager', 'Responsable de cuenta', 'Responsable de compte'), L('New projects for existing customers', 'Nuevos proyectos en clientes existentes', 'Nous projectes per a clients existents')],
+  ],
+};
+const titles = {
+  table: L('OPTICAIS: smallest readable code by field of view', 'OPTICAIS: tamaño mínimo de lectura por campo de visión', 'OPTICAIS: mida mínima de lectura per camp de visió'),
+  specification: L('AIS KARIKÓ: equipment and installation', 'AIS KARIKÓ: equipo e instalación', 'AIS KARIKÓ: equip i instal·lació'),
+  highlight: L('Daymsa: quality inspection after installation', 'Daymsa: inspección de calidad tras la instalación', 'Daymsa: inspecció de qualitat després de la instal·lació'),
+  quote: L('Rosepetal: assessing AI risks at VISION 2026', 'Rosepetal: valorar los riesgos de la IA en VISION 2026', 'Rosepetal: valorar els riscos de la IA a VISION 2026'),
+  comparison: L('AIS Hopper: fill-level inspection', 'AIS Hopper: control del nivel de llenado', 'AIS Hopper: control del nivell d’ompliment'),
+  steps: steps.title,
+};
+
+---
+<figure class="pattern">
+  <figcaption class="title">{titles[show]}</figcaption>
+  {show === 'table' && (
+    <>
+      <div class="table-scroll" tabindex="0" role="region" aria-label={titles.table}><table>
+        <thead><tr>{table.head.map((h, i) => <th class={i ? 'num' : undefined}>{h}</th>)}</tr></thead>
+        <tbody>{table.rows.map((r) => <tr>{r.map((c, i) => <td class={i ? 'num' : undefined}>{c}</td>)}</tr>)}</tbody>
+      </table></div>
+      <p class="caption">{table.caption}</p>
+    </>
+  )}
+  {show === 'specification' && spec.map((g) => (
+    <div class="group">
+      <p class="title">{g.title}</p>
+      <table class="spec"><tbody>{g.rows.map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody></table>
+    </div>
+  ))}
+  {show === 'highlight' && (
+    <>
+      <p class="lead">{highlight.lead[0]}<strong>{highlight.lead[1]}</strong>{highlight.lead[2]}</p>
+      <div class="figures">{highlight.figures.map(([fig, what, cond]) => <div><p class="fig">{fig}</p><p class="what">{what}</p><p class="cond">{cond}</p></div>)}</div>
+    </>
+  )}
+  {show === 'quote' && (
+    <>
+      <p>{highlight.context}</p>
+      <figure class="quote"><blockquote><p lang="es">{highlight.quote}</p></blockquote><figcaption><strong>{highlight.name}</strong>, {highlight.role}</figcaption></figure>
+    </>
+  )}
+  {show === 'comparison' && (
+    <>
+      <p>{comparison.title}</p>
+      <div class="pair">{comparison.states.map((s) => (
+        <div>
+          <img src={s.src} alt={s.name} width="900" height="900" loading="lazy" />
+          <p class={`state ${s.ok ? 'ok' : 'nok'}`}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />{s.ok ? <path d="m9 12 2 2 4-4" /> : <path d="m15 9-6 6M9 9l6 6" />}</svg>
+            {s.name}
+          </p>
+          <p class="cond">{s.line}</p>
+        </div>
+      ))}</div>
+    </>
+  )}
+  {show === 'steps' && (
+    <>
+      <ol class="steps">{steps.items.map(([t, d], i) => (
+        <li>
+          <span class="hex"><svg viewBox="0 0 46 40" width="46" height="40" aria-hidden="true"><path d="M12 1 H34 L45 20 L34 39 H12 L1 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg><span>{i + 1}</span></span>
+          <p class="what">{t}</p>
+          <p class="cond">{d}</p>
+        </li>
+      ))}</ol>
+    </>
+  )}
+</figure>
+
+<style>
+  .pattern { margin: var(--ais-space-300) 0; padding: var(--ais-space-400); border: 1px solid var(--line); background: #fff; }
+  :global(.comms-scale table) { min-width: 640px; }
+  .table-scroll { overflow-x: auto; }
+  .table-scroll table { min-width: 520px; }
+  .pattern p { margin: 0; }
+  .title { margin-bottom: var(--ais-space-200) !important; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; color: var(--ais-blue-700); }
+  .cond, .caption { font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--muted); }
+  .what { font-weight: 500; color: var(--ink); }
+  .lead { max-width: 40rem; margin-bottom: var(--ais-space-400) !important; color: var(--ink); }
+  .lead strong { font-weight: 600; color: inherit; }
+  .note { margin-top: var(--ais-space-300) !important; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--muted); }
+  /* The quote: exact words in Subheading Medium ink, the person under them; no quote glyph, rule, fill or italics. */
+  .quote { max-width: 40rem; margin: var(--ais-space-600) 0 0; }
+  .quote blockquote { margin: 0; padding: 0; border: 0; }
+  .quote blockquote p { font-size: var(--ais-text-subheading); line-height: var(--ais-text-subheading-leading); letter-spacing: var(--ais-text-subheading-tracking); font-weight: 500; font-style: normal; color: var(--ink); text-wrap: balance; }
+  .quote figcaption { margin-top: var(--ais-space-200); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); color: var(--muted); }
+  .quote figcaption strong { font-weight: 600; color: var(--ink); }
+
+  table { width: 100%; margin: 0; border-collapse: collapse; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  th, td { padding: var(--ais-space-150) var(--ais-space-300) var(--ais-space-150) 0; text-align: left; vertical-align: top; }
+  :is(th, td):last-child { padding-right: 0; }
+  thead th { padding-top: 0; vertical-align: bottom; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--ais-neutral-300); }
+  td { border-bottom: 1px solid var(--line); color: var(--ink); }
+  tr:last-child > td { border-bottom: 0; }
+  .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .caption { margin-top: var(--ais-space-200) !important; }
+
+  .group + .group { margin-top: var(--ais-space-400); }
+  /* The specification block as the datasheets draw it: a table without a header row, label in secondary text, value in ink. */
+  .spec { width: 100%; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .spec th, .spec td { padding: var(--ais-space-150) var(--ais-space-200) var(--ais-space-150) 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-weight: 400; }
+  .spec th { width: 34%; color: var(--muted); }
+  .spec td { padding-right: 0; color: var(--ink); }
+  .spec tr:first-child > * { padding-top: 0; }
+  .spec tr:last-child > * { border-bottom: 0; }
+
+  .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--ais-space-300); }
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ais-space-300); }
+  .fig { margin-bottom: var(--ais-space-100) !important; font-size: var(--ais-text-title); line-height: 1.1; letter-spacing: -0.02em; font-weight: 500; color: var(--ais-blue-700); font-variant-numeric: tabular-nums; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ais-space-300); }
+  .pair img { display: block; width: 100%; height: auto; margin-bottom: var(--ais-space-200); border: 0; }
+  .state { display: flex; align-items: flex-start; gap: var(--ais-space-100); font-weight: 600; color: var(--ink); }
+  .state svg { flex: none; margin-top: 2px; }
+  .state.ok svg { color: var(--ais-success); }
+  .state.nok svg { color: var(--ais-danger); }
+
+  .steps { margin: 0; padding: 0; list-style: none; }
+  .steps li { position: relative; margin: 0; }
+  .hex { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--ais-space-200); color: var(--ais-blue-700); }
+  .hex svg { color: var(--ais-blue-500); }
+  .hex span { position: absolute; font-weight: 500; font-size: var(--ais-text-small); font-variant-numeric: tabular-nums; }
+  /* The hairline runs from one hexagon to the next, 16 px clear of both. */
+  .steps li:not(:last-child)::after { content: ''; position: absolute; top: 20px; left: calc(46px + var(--ais-space-200)); right: calc(var(--ais-space-200) - var(--ais-space-300)); border-top: 1px solid var(--ais-neutral-300); }
+
+  @media (max-width: 640px) {
+    .pattern { padding: var(--ais-space-300); }
+    .figures, .steps { grid-template-columns: 1fr; }
+    .pattern:has(> table) { overflow-x: auto; }
+    .pattern > table { min-width: 480px; }
+    .steps li::after { display: none; }
+    .spec, .spec tbody, .spec tr, .spec th, .spec td { display: block; width: auto; }
+    .spec th { padding-bottom: 0; border-bottom: 0; }
+    .spec tr:not(:first-child) th { padding-top: var(--ais-space-150); }
+    .spec td { padding-top: 0; }
+  }
+</style>

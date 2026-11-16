@@ -1,0 +1,57 @@
+{
+  "name": "rosepetal_carousel-event-mwc_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "rosepetal",
+  "lang": "es",
+  "copy": "Rosepetal participó en 4YFN, en MWC Barcelona 2026, en el estand de Tech Barcelona. Estas fotografías, ya publicadas en nuestra crónica del evento, muestran el estand, una demostración y una charla. Solicita una demo",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/social/mwc2026_stand.jpg",
+      "headline": "Rosepetal|MWC Barcelona 2026",
+      "focus": [
+        40,
+        45
+      ],
+      "alt": "Demostración de Rosepetal en el estand de Tech Barcelona en 4YFN, MWC Barcelona 2026."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/mwc2026_demo.jpg",
+      "headline": "Cámara, brazo robótico|y software",
+      "focus": [
+        50,
+        55
+      ],
+      "alt": "Visitantes en una demostración con cámara, brazo robótico y software de Rosepetal."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/real/social/mwc2026_talk.jpg",
+      "headline": "Rosepetal|en el escenario",
+      "focus": [
+        50,
+        45
+      ],
+      "alt": "Charla en el estand de Tech Barcelona con Rosepetal en la pantalla."
+    },
+    {
+      "type": "contact",
+      "headline": "Prueba Rosepetal|*con tus imágenes*",
+      "action": "Solicita una demo",
+      "rows": [
+        {
+          "text": "rosepetal.ai"
+        }
+      ],
+      "hex": "br",
+      "alt": "Solicita una demo. rosepetal.ai"
+    }
+  ],
+  "formats": [
+    "4x5"
+  ]
+}

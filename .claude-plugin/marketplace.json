@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ais-group-design",
+  "description": "AIS Group Design for Claude Code.",
+  "owner": { "name": "AIS Group" },
+  "plugins": [
+    {
+      "name": "ais-group-design",
+      "description": "The AIS Group brand guide as skills, and a studio that makes on-brand pieces.",
+      "source": "./plugin",
+      "category": "design"
+    }
+  ]
+}

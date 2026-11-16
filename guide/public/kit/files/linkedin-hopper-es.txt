@@ -1,0 +1,1 @@
+El AIS Hopper revisa el tapón, la boca, el cuello y el nivel de llenado en la propia línea, con tres cámaras a color alrededor del tapón y una cuarta opcional desde arriba. Se ajusta con ejemplos de envases buenos y malos, sin programar. Solicita una demo

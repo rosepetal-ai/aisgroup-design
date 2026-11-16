@@ -1,0 +1,117 @@
+---
+title: Tipografía
+rules:
+  - 'Compón todo el texto en Inter (pesos 400, 500 y 600) y el código o los valores de máquina en JetBrains Mono. Usa Arial solo donde no se pueda instalar Inter, y entonces en toda la pieza.'
+  - 'Las webs y los documentos usan solo los diez estilos de texto (de `--ais-text-display` a `--ais-text-caption`), en los documentos con los tamaños en puntos de abajo. Las interfaces de producto usan la escala de producto, y el vídeo, sus propios tamaños de título. Nunca inventes un tamaño, un espaciado o un peso intermedios.'
+  - 'Los titulares van en peso 500, con mayúscula solo inicial, en tres líneas como máximo y nunca en mayúsculas. El Semibold 600 se admite solo en títulos de vídeo, encabezados de documentos y títulos de gráficos; el Bold 700 nunca se usa en titulares, salvo Arial Bold en el correo, que no tiene Medium.'
+  - 'El texto corrido va a 16 px con interlineado de 1,6, con 68 caracteres por línea por defecto y 75 como máximo, alineado a la izquierda y nunca justificado.'
+  - 'Usa cifras tabulares (`font-variant-numeric: tabular-nums`) donde los números se alinean en columna: celdas numéricas de tablas, contadores y precios. No en el texto corrido ni en los valores de especificaciones.'
+  - 'El texto de etiquetas, distintivos y botones se centra en la altura de las mayúsculas, nunca en la caja de la fuente.'
+---
+import TypeScale from '../../../components/TypeScale.astro';
+
+El sistema tipográfico define las fuentes, los tamaños y el espaciado para cada soporte.
+
+## Tipografías
+
+**Inter** compone todo lo que se lee: titulares, texto, interfaces, documentos y presentaciones. Está diseñada para pantalla, se lee bien en tamaños pequeños en interfaces densas, incluye todos los acentos del español y del catalán, también el punto volado (l·l), y es gratuita con licencia SIL Open Font License, así que cualquiera puede instalarla.
+
+**JetBrains Mono** compone lo que se copia o se compara carácter a carácter: código, valores de color, números de serie, direcciones IP y líneas de registro. Nunca se usa en titulares ni como adorno.
+
+| Tipografía | Pesos | Token |
+| --- | --- | --- |
+| **Inter** | 400, 500, 600 | `--ais-font-primary` |
+| **JetBrains Mono** | 400, 500 | `--ais-font-mono` |
+
+Usa las formas por defecto de Inter, sin activar juegos estilísticos ni alternativas. Donde no se pueda instalar Inter, como en el correo electrónico, usa **Arial** en toda la pieza. No mezcles nunca las dos.
+
+## Pesos
+
+| Peso | Uso |
+| --- | --- |
+| **Regular 400** | Texto, entradillas, pies de imagen, celdas de tabla. |
+| **Medium 500** | Los titulares por defecto, etiquetas, botones y antetítulos. |
+| **Semibold 600** | Énfasis dentro de una frase; cabeceras de tabla y etiquetas de datos de 14 px o menos; títulos de vídeo, encabezados de documentos y títulos de gráficos. |
+
+La jerarquía la marcan el tamaño y el espacio, no el peso: los titulares van en Medium 500, y solo los títulos de vídeo, los encabezados de documentos y los títulos de gráficos llevan Semibold 600. No uses nunca Light, Bold ni Black, ni compongas un párrafo en mayúsculas o en negrita. La única excepción es el correo: Arial no tiene Medium, así que sus encabezados van en Arial Bold.
+
+## Escala de comunicación
+
+Diez estilos cubren webs, páginas de campaña, publicaciones y anuncios. Los cuatro estilos de titular y la entradilla son fluidos: crecen con la pantalla entre 375 y 1440 px de ancho, así que las páginas no necesitan puntos de ruptura adicionales. Cada estilo es un grupo de tokens de `brand.css`: el tamaño y sus variantes `-leading`, `-tracking` y `-weight`.
+
+<TypeScale lang="es" />
+
+## Cómo usar la escala
+
+- **Un solo Display por página**, y solo en una portada o en la apertura de una campaña. El resto de páginas empieza con un Título.
+- **No te saltes niveles.** Tras un Título va un Encabezado, y tras un Encabezado, un Subencabezado.
+- **El antetítulo es una etiqueta de sección impresa**, sobre el titular de una sección en folletos, catálogos y fichas, nunca solo; las publicaciones, los carruseles y las presentaciones no llevan (Hazlo simple). Nombra el tema en dos a cuatro palabras, con mayúscula solo inicial, en azul de acción o en azul claro sobre fondos azules.
+- **Centra el texto en sus mayúsculas en etiquetas, distintivos y botones.** Recorta la caja de texto a la altura de las mayúsculas y la línea base (`text-box: trim-both cap alphabetic`) y aplica el mismo relleno arriba y abajo, para que la etiqueta quede ópticamente centrada. Centrar la caja de la fuente deja el texto visiblemente bajo.
+- **Un estilo es el conjunto completo.** Tamaño, interlineado, tracking y peso van juntos; nunca fijes solo el tamaño. Un título de 40 px con tracking normal se lee espaciado.
+- **Los titulares ocupan tres líneas como máximo**, equilibradas (`text-wrap: balance`) para que ninguna palabra quede sola en la última línea.
+- **Corta los titulares display por frases.** Desde 600 px, cada frase va en su propia línea; en móvil, tres líneas como máximo. Nunca partas una frase por la mitad («Visión / artificial.»).
+- **El espaciado entre letras es parte del token.** El negativo es solo para titulares; nunca añadas espaciado al texto corrido.
+- **El espacio agrupa el texto.** Deja más espacio sobre un título que debajo, para que pertenezca al texto que presenta.
+
+### Mismo papel, mismo estilo
+
+Un papel usa el mismo estilo en todas las webs, para que se lean como una familia.
+
+| Papel | Estilo |
+| --- | --- |
+| **Enlaces de navegación, botón de cabecera, elementos de menú** | Label, 15 px, peso 500 |
+| **Títulos de sección** | Heading |
+| **Títulos de tarjeta** | Subheading |
+| **Descripciones de tarjetas, ventajas y cifras** | Body, 16 px; nunca Small |
+| **Fechas, metadatos, notas** | Small o Caption |
+| **Antetítulos, etiquetas de la tira de logotipos** | Eyebrow, en una línea |
+
+## Escala de producto
+
+Las interfaces, como la aplicación Rosepetal, son más densas y se leen durante horas a un brazo de distancia. Usan una escala fija basada en 14 px, con los mismos pesos. No se aplica el espaciado de los titulares; a partir de 20 px se usa −0,01 em.
+
+| Token | Tamaño / interlineado | Uso |
+| --- | --- | --- |
+| `--ais-ui-xs` | 12 / 16 px | Solo ejes de gráficos y teclas |
+| `--ais-ui-base` | 14 / 20 px | Texto general de la interfaz, botones, campos |
+| `--ais-ui-md` | 16 / 24 px | Texto de diálogos, estados vacíos |
+| `--ais-ui-lg` | 20 / 28 px | Títulos de panel y de diálogo |
+| `--ais-ui-xl` | 24 / 32 px | Títulos de página dentro de la aplicación |
+
+## Texto y medida
+
+- El texto corrido ocupa **de 45 a 75 caracteres por línea**; 68 por defecto. Las entradillas, unos 60.
+- **Texto más pequeño.** En webs, nada mide menos de 12 px, el estilo Caption. En documentos impresos y PDF, nada mide menos de 8,5 pt (notas de fichas técnicas); las tarjetas de visita siguen su propia especificación, con los contactos a 8 pt y la dirección a 7 pt. En las interfaces de producto, todo lo que se lee mide al menos 14 px; 12 px solo para ejes de gráficos y teclas.
+- Alinea el texto a la izquierda. Nunca lo justifiques ni centres más de dos líneas.
+- Separa los párrafos con espacio, no con sangrías.
+- Los enlaces dentro del texto van en azul de acción y subrayados. Los enlaces de acción independientes usan el estilo Etiqueta con un icono de flecha, nunca una flecha escrita.
+
+## Cifras y unidades
+
+- Usa **cifras tabulares** siempre que los números se alineen en columna o cambien en su sitio: celdas numéricas de tablas, contadores, precios, marcas de tiempo. Aplícalas solo a las celdas con números: con cifras tabulares Inter dibuja el guion tan ancho como una cifra, y RS-232 se lee RS - 232.
+- Separa el número de la unidad con un espacio (12 mm, 30 fps, 24 V). Los porcentajes siguen el idioma: 99.8% en inglés, 99,8 % en español y catalán.
+- En las tablas, los intervalos numéricos llevan un signo: semirraya en inglés (15–30%) y guion en español y catalán (15-30 %). En el texto, se escriben con palabras: del 15 al 30 %, del 6 al 8 de octubre. Usa el signo de multiplicar en las dimensiones (1920 × 1080).
+
+## Español y catalán
+
+El español y el catalán ocupan entre un 15 y un 30 % más que el inglés. Diseña titulares, botones y navegación para el idioma más largo, no para el más corto.
+
+- No partas nunca los titulares con guiones. En columnas de texto estrechas se permite la división automática si la página declara su idioma (`lang="es"`, `lang="ca"`).
+- Respeta el interlineado de cada token: las mayúsculas acentuadas (À, É, Ó) lo necesitan. Nunca recortes el texto a su caja.
+- Escribe el punto volado catalán como punto medio (l·l), nunca como punto ni como viñeta.
+- Abre las preguntas y exclamaciones con ¿ y ¡.
+
+## Documentos, presentaciones y correo
+
+| Soporte | Título | Encabezados | Texto | Pequeño |
+| --- | --- | --- | --- | --- |
+| **Documentos** | 28 pt Medium | 18 pt Medium; 13 pt Semibold | 10,5 pt sobre 15 pt | 8,5 pt sobre 12 pt |
+| **Fichas técnicas** | 24 pt Medium | 13 pt Semibold | 10,5 pt sobre 15 pt | 8,5 pt sobre 11 pt |
+| **Presentaciones, 16:9 (1920 × 1080 px)** | 120 px Medium | 76 px Medium | 38 px sobre 52 px | 28 px sobre 38 px; 22 px para la numeración |
+| **Correo y firmas** | Arial en todo | 18 px Arial Bold | 14 px sobre 21 px | 12 px |
+
+Arial no tiene Medium, así que los encabezados del correo usan su Bold, el único titular en negrita de la marca. Las cifras grandes de las presentaciones llevan el espaciado del Display, −0,04 em.
+
+## Logotipos y tipografía
+
+Los logotipos son archivos gráficos. No reconstruyas un logotipo escribiendo su nombre con ninguna fuente, tampoco con Inter.

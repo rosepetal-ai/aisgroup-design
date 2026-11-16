@@ -1,0 +1,6 @@
+{
+  "_why": "Recorded false positives: the guide quotes these forms on purpose, as examples of what not to write.",
+  "brands/": ["Rosepetal AI", "Ais Vision", "AIS vision", "AIS VISION", "RosePetal", "Rose Petal", "rosepetal", "ROSEPETAL"],
+  "voice/": ["AIS VISION", "Ais Vision", "AIS vision", "RosePetal", "rosepetal", "Rev 360", "REV360", "Kariko", "AIS Automation", "Rosepetal AI"],
+  "typography/": ["99,8 %"]
+}

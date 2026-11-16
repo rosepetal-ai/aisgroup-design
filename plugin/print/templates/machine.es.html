@@ -1,0 +1,122 @@
+<!--
+  TEMPLATE: machine brochure, 3 A4 pages (cover / Qué inspecciona / Equipo y software + contact band).
+  Copy to studio/work/brochures/v2/<piece>/<name>.<lang>.html, change the '../' links to '../../shared/', put pictures in ./assets/, replace every {{…}} and every picture and text.
+  Components and rules: studio/print/system.css and the brochure skill (.claude/skills/brochure/SKILL.md).
+  This file is the REV 360 COMPACT master with its content swapped for slots; keep the structure.
+-->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>{{Producto}} | AIS Vision Systems</title>
+<link rel="stylesheet" href="../system.css">
+<script src="../assets/icons.js"></script>
+</head>
+<body>
+
+<section class="page cover" aria-label="Portada">
+  <header class="cover-head">
+    <img class="logo" src="../assets/ais-vision-systems-white.svg" alt="AIS Vision Systems">
+    <p class="eyebrow">{{Sector o función, 2-4 palabras}}</p>
+    <h1>{{Producto, nombre exacto}}</h1>
+    <p>Control de calidad a 360° del metal, el doble cierre, la litografía y el marcaje de cada envase. Analiza el 100 % de la producción sin afectar al ritmo de la línea.</p>
+    <div class="hexfield"></div>
+  </header>
+  <figure class="hero" style="--fx:40%;--fy:55%"><img src="assets/rev360-compact_can-line.jpg" alt="El AIS REV 360 COMPACT instalado en una línea de conservas"></figure>
+  <div class="cover-bottom">
+    <div class="facts">
+      <div class="fact"><span class="hx"><i data-i="camera"></i></span><h3>Cuatro cámaras en color</h3><p>Inspección a 360°, sin orientar el envase.</p></div>
+      <div class="fact"><span class="hx"><i data-i="brain-circuit"></i></span><h3>Aprendizaje profundo</h3><p>Ajustes a partir de ejemplos, sin programación.</p></div>
+      <div class="fact"><span class="hx"><i data-i="chart-column"></i></span><h3>Datos de producción</h3><p>Estadísticas e imágenes de cada lote.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page inner" aria-label="Qué inspecciona">
+  <header class="running"><strong>AIS REV 360 COMPACT</strong><span>02 / 03</span></header>
+  <main class="page-content">
+    <p class="eyebrow">Qué inspecciona</p>
+    <h2>Cada envase, en todo su perímetro</h2>
+    <p class="lead">Defectos y abolladuras en el metal o el doble cierre, litografía impresa, etiquetas y marcajes de lote, caducidad y código de barras.</p>
+
+    <div class="block">
+      <p class="sub">Doble cierre</p>
+      <ul class="tiles" style="--n:3;--ar:1.5;--fy:80%">
+        <li class="tile"><div class="frame"><img src="assets/cans_det-ok.jpg" alt="Doble cierre correcto en la tapa de una lata"></div><h3>Cierre correcto</h3><p>La referencia que aprende el sistema.</p></li>
+        <li class="tile"><div class="frame"><img src="assets/cans_det-false-seam.jpg" alt="Falso cierre en el borde de la tapa"></div><h3>Falso cierre</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/cans_det-second-op.jpg" alt="Fallo de la segunda carretilla en el cierre"></div><h3>Fallo de la segunda carretilla</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/cans_det-droop.jpg" alt="Pico en el doble cierre"></div><h3>Pico</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/cans_det-flange.jpg" alt="Fallo de pestaña inferior"></div><h3>Fallo de pestaña inferior</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/cans_det-chuck.jpg" alt="Fallo del plato mandril en el cierre"></div><h3>Fallo del plato mandril</h3></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <p class="sub">Metal, impresión y marcaje</p>
+      <ul class="tiles" style="--n:2;--ar:2.1">
+        <li class="tile"><div class="frame"><img src="assets/oval-tin-seam-dent-wide-blurred.jpg" alt="Imagen de cámara de un envase oval con un defecto en el cierre" style="--fy:60%"></div><h3>Abolladuras y defectos del metal</h3></li>
+        <li class="tile"><div class="frame"><img src="assets/oval-tin-date-code.jpg" alt="Fecha impresa en el lateral de un envase oval" style="--fx:20%"></div><h3>Lectura de lotes y caducidades</h3></li>
+      </ul>
+      <ul class="options" style="--n:3;margin-top:6mm">
+        <li class="option"><span class="hx"><i data-i="image"></i></span><p>Errores en la litografía impresa</p></li>
+        <li class="option"><span class="hx"><i data-i="tag"></i></span><p>Etiquetas ausentes o mal colocadas</p></li>
+        <li class="option"><span class="hx"><i data-i="scan-barcode"></i></span><p>Lectura de códigos de barras</p></li>
+      </ul>
+    </div>
+  </main>
+  <footer class="foot"><span>AIS Vision Systems</span><span>www.aisvision.com</span></footer>
+</section>
+
+<section class="page inner last" aria-label="Equipo y software">
+  <header class="running"><strong>AIS REV 360 COMPACT</strong><span>03 / 03</span></header>
+  <main class="page-content">
+    <p class="eyebrow">Equipo y software</p>
+    <h2>Compacto, en acero inoxidable y listo para la línea</h2>
+
+    <div class="split block">
+      <figure class="photo" style="--h:62mm;--fx:70%"><div class="frame"><img src="assets/rev360-compact_cans-entering.jpg" alt="Latas entrando en el túnel de inspección del AIS REV 360 COMPACT"></div><figcaption>Latas entrando en la cúpula de inspección.</figcaption></figure>
+      <div class="text">
+        <p class="sub">Equipo</p>
+        <ul class="specs" style="grid-template-columns:1fr">
+          <li>Fabricado en acero inoxidable, diseño compacto y ergonómico</li>
+          <li>Cuatro cámaras en color para el control lateral; cámara cenital opcional</li>
+          <li>Sistema de iluminación desarrollado por AIS</li>
+          <li>Cúpula que aísla de la luz exterior</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="sub">Software</p>
+      <ul class="specs">
+        <li>Motor propio de aprendizaje profundo</li>
+        <li>Ajustes sin programación a partir de ejemplos</li>
+        <li>Vista desplegada de envases cilíndricos, cuadrados u otras geometrías</li>
+        <li>OCR: lectura de texto</li>
+        <li>Profiler: creación de recetas en remoto a partir de la captura de un envase o de un diseño digital</li>
+        <li>Copia de seguridad en la nube de recetas, imágenes y estadísticas; registro estadístico de la producción</li>
+      </ul>
+    </div>
+
+    <div class="block grow">
+      <p class="sub">Opciones</p>
+      <ul class="options">
+        <li class="option"><span class="hx"><i data-i="ban"></i></span><p>Rechazo progresivo o por impacto</p></li>
+        <li class="option"><span class="hx"><i data-i="boxes"></i></span><p>Zona de acumulación del producto rechazado</p></li>
+        <li class="option"><span class="hx"><i data-i="truck"></i></span><p>Cintas de transporte</p></li>
+        <li class="option"><span class="hx"><i data-i="crosshair"></i></span><p>Centrador de producto</p></li>
+        <li class="option"><span class="hx"><i data-i="scan-text"></i></span><p>Lectura de marcaje láser o de tinta</p></li>
+        <li class="option"><span class="hx"><i data-i="qr-code"></i></span><p>TrazAIS: trazabilidad y serialización</p></li>
+      </ul>
+    </div>
+
+  </main>
+  <footer class="band">
+      <h2>Envíanos muestras de tus envases</h2>
+      <div class="contacts"><span>www.aisvision.com</span><span>+34 931 003 035</span></div>
+      <div class="hexfield"></div>
+    </footer>
+</section>
+
+</body>
+</html>

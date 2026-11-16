@@ -1,0 +1,25 @@
+---
+import AssetActions from './AssetActions.astro';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; linkedin?: boolean }
+const { lang, linkedin = false } = Astro.props;
+const L = (en:string, es:string, ca:string) => ({en,es,ca})[lang];
+const patterns = [['hexagon-landscape-rolling', 'Rolling'], ['hexagon-landscape-dramatic', 'Dramatic'], ['circuit-globe', L('Circuit globe','Globo de circuitos','Globus de circuits')], ['circuit-traces', L('Circuit traces','Pistas de circuito','Pistes de circuit')], ['scan-profiles', L('Scan profiles','Perfiles de escaneo','Perfils d’escaneig')]];
+const ways = [['white-on-blue', L('Brand blue','Azul de marca','Blau de marca')], ['white-on-deep-blue',L('Deep blue','Azul profundo','Blau profund')], ['blue-on-white',L('White','Blanco','Blanc')], ['blue-on-grey',L('Section grey','Gris de sección','Gris de secció')], ['white-transparent',L('Transparent, white','Transparente, blanco','Transparent, blanc')], ['blue-transparent',L('Transparent, blue','Transparente, azul','Transparent, blau')]];
+const newTab=L('opens in a new tab','se abre en una pestaña nueva','s’obre en una pestanya nova');
+const base = '/downloads/linkedin-patterns/ais-linkedin-background-';
+const corners = ['tr','tl','br','bl'];
+---
+{linkedin ? <div class="patterns">
+ {patterns.map(([id,name]) => <section class="pattern" id={id}>
+  <h2>{name}</h2>
+  <div class="dl-grid">{ways.map(([way,label]) => <div class="dl">
+   <span class:list={['dl-tile fill',{blue:way==='white-transparent'}]}><img src={`${base}${id}-${way}-1080x1080.svg`} alt="" loading="lazy" width="1080" height="1080" /></span>
+   <span class="dl-cap"><span>{label}</span><AssetActions lang={lang} href={`${base}${id}-${way}-1920x1080.svg`} name={`${name}, ${label}, SVG`} /></span>
+  </div>)}</div>
+  <div class="dl-cap zip"><span>{L('All grounds and sizes, SVG and PNG','Todos los fondos y tamaños, SVG y PNG','Tots els fons i mides, SVG i PNG')}</span><AssetActions lang={lang} href={`${base}${id}.zip`} name={`${name}, ZIP`} label="ZIP" /></div>
+ </section>)}
+</div> : <div class="dl-grid four">{corners.map(c=><div class="dl"><a class="dl-tile blue" target="_blank" rel="noopener" aria-label={`${c}, ${newTab}`} href={`/kit/hex-field-${c}.svg`}><img src={`/kit/hex-field-${c}.svg`} alt={`${L('Hexagon pattern','Trama de hexágonos','Trama d’hexàgons')}, ${c}`} loading="lazy" /></a><AssetActions lang={lang} href={`/kit/hex-field-${c}.svg`} name={`${c}, SVG`} label="SVG" /></div>)}</div>}
+<style>
+ .patterns{display:grid;gap:48px;margin-top:32px}.pattern h2{margin-top:0!important}.zip{justify-content:flex-start;margin-top:16px}.pattern .dl-tile{outline:1px solid var(--line);outline-offset:-1px}
+</style>

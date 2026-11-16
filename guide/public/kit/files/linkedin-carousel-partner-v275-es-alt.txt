@@ -1,0 +1,7 @@
+1. Impresora de etiquetas Zebra con el verificador Omron V275 imprimiendo una etiqueta de prueba de AIS.
+
+2. Una operaria ante la pantalla del software del V275, que marca en rojo una etiqueta de prueba defectuosa.
+
+3. El cabezal del Omron V275 sobre una etiqueta de prueba con código de barras, DataMatrix y marcado CE.
+
+4. ¿Verificamos tus etiquetas? Envíanos muestras. aisvision.com. +34 931 003 035.

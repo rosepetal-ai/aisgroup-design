@@ -1,0 +1,52 @@
+{
+  "name": "ais-vision-systems_post-callout_es_template",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Con varias cámaras laterales, el AIS REV 360 ve la botella entera a la vez: la etiqueta, la contraetiqueta y la cápsula, sin orientarla. La imagen es del propio sistema. Envíanos muestras",
+  "shots": [
+    {
+      "type": "callout",
+      "src": "@lib/media/rev360/still-rev360-wine-four-views_blurred.png",
+      "imageSize": [
+        1188,
+        1080
+      ],
+      "focus": [
+        50,
+        50
+      ],
+      "headline": "Etiqueta, contraetiqueta|y cápsula, *a la vez*",
+      "items": [
+        {
+          "icon": "target",
+          "text": "Cápsula",
+          "x": 63,
+          "y": 4,
+          "side": "left",
+          "labelY": 25
+        },
+        {
+          "icon": "scan-eye",
+          "text": "Etiqueta frontal",
+          "x": 77,
+          "y": 72,
+          "side": "left",
+          "labelY": 45
+        },
+        {
+          "icon": "file-text",
+          "text": "Contraetiqueta",
+          "x": 89,
+          "y": 68,
+          "side": "right",
+          "labelY": 40
+        }
+      ],
+      "fit": "contain"
+    }
+  ]
+}

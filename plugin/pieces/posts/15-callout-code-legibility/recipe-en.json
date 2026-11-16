@@ -1,0 +1,20 @@
+{
+  "name": "ais-vision-systems_post-code-legibility_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Code presence and legibility are separate checks. The marking is still present here, but ink streaks across the characters. To define a batch and date check, agree the expected text and test representative samples under line conditions. This demo-sample comparison is not an OPTICAIS reading or result. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "headline": "The code is there.|Can you read it?",
+      "src": "@lib/media/3d/renders/social-composites/15-callout-code-legibility-code-stack_en.png",
+      "evidence": "render",
+      "alt": "Printing window with date 10/2027 and batch L6299B2 14:32. The same marking, with horizontal ink streaks across the characters."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ais-vision-systems_post-recap-packaging-talks_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "At Packaging Talks 2026 we joined the panel on digitalisation and traceability in packaging: how to connect what happens on the line with the data for each batch. Thank you to the organisers and to our fellow panellists. Tell us about your line",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/real/packaging-talks2026_panel.jpg",
+      "focus": [
+        50,
+        70
+      ],
+      "headline": "Digitalisation|and traceability"
+    }
+  ]
+}

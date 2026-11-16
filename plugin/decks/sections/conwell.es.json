@@ -1,0 +1,60 @@
+{
+  "slides": [
+    {
+      "layout": "milestones",
+      "title": "Identificación automática en muelles de carga",
+      "items": [
+        {
+          "date": "Lectura",
+          "text": "Lee códigos 1D en las etiquetas"
+        },
+        {
+          "date": "WMS",
+          "text": "Se comunica con el software de gestión de almacenes"
+        },
+        {
+          "date": "Carga y descarga",
+          "text": "Registra la entrada o la salida de mercancía"
+        },
+        {
+          "date": "Avisos",
+          "text": "Error de carga, de descarga o de lectura"
+        },
+        {
+          "date": "Dónde se aplica",
+          "text": "Muelles de carga y descarga, entradas y salidas del almacén, final del proceso de producción"
+        }
+      ],
+      "notes": "Qué hace: lee códigos 1D en las etiquetas; se comunica con el WMS (software de gestión de almacenes); distingue entre carga y descarga para registrar la entrada o la salida de mercancía; avisa cuando hay un error de carga, de descarga o de lectura. Dónde se aplica: en los muelles de carga y descarga, en las entradas y salidas del almacén y al final del proceso de producción.",
+      "dateWidth": 528
+    },
+    {
+      "layout": "milestones",
+      "title": "Ventajas",
+      "items": [
+        {
+          "date": "Errores",
+          "text": "Elimina los errores humanos y evita el desperdicio innecesario de recursos"
+        },
+        {
+          "date": "Datos",
+          "text": "Usa los datos de salida para mejorar tus procesos"
+        },
+        {
+          "date": "Trazabilidad",
+          "text": "Sigue cada unidad y cada paso hasta la entrega final"
+        },
+        {
+          "date": "Calidad",
+          "text": "Mejora la calidad de tu producto o servicio con la tecnología de códigos de barras"
+        },
+        {
+          "date": "Facilidad de uso",
+          "text": "Ofrecemos plataformas con interfaz fácil de usar para todos nuestros equipos industriales fijos"
+        }
+      ],
+      "notes": "Ventajas: elimina los errores humanos y evita el desperdicio innecesario de recursos; usa los datos de salida para mejorar tus procesos; sigue cada unidad y cada paso hasta la entrega final; mejora la calidad de tu producto o servicio con la tecnología de códigos de barras; ofrecemos plataformas con interfaz fácil de usar para todos nuestros equipos industriales fijos.",
+      "dateWidth": 528
+    }
+  ]
+}

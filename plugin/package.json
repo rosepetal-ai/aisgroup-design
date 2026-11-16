@@ -1,0 +1,41 @@
+{
+  "name": "ais-group-design",
+  "private": true,
+  "type": "module",
+  "description": "AIS Group Design: on-brand posts, carousels, brochures, catalogues, datasheets, decks and stationery, with an MCP server and Claude Code skills.",
+  "scripts": {
+    "render": "node engine/render.mjs",
+    "check": "node engine/check.mjs",
+    "templates": "node engine/render.mjs templates/post-*.json templates/carousel-*.json --out out/templates",
+    "kit": "node engine/kit.mjs",
+    "examples": "node scripts/examples.mjs",
+    "mcp": "node mcp/start.mjs",
+    "test:mcp": "node --import ./mcp/tests/setup.mjs --test mcp/tests/*.test.mjs",
+    "mcp:smoke": "node mcp/smoke.mjs",
+    "mcp:pin": "node mcp/pin-print.mjs",
+    "mcp:e2e": "node mcp/media-smoke.mjs --e2e",
+    "guide": "node scripts/sync-guide.mjs",
+    "setup": "node scripts/setup.mjs",
+    "doctor": "node scripts/setup.mjs --check",
+    "test": "node --import ./mcp/tests/setup.mjs --test mcp/tests/*.test.mjs",
+    "budget": "node scripts/token-budget.mjs",
+    "verify": "npm test && node scripts/sync-guide.mjs --check && node scripts/token-budget.mjs && claude plugin validate --strict .",
+    "validate:plugin": "node scripts/validate-plugin.mjs",
+    "package:plugin": "node scripts/package-plugin.mjs",
+    "media:pull": "node scripts/media.mjs pull media",
+    "media:push": "node scripts/media.mjs push media"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@modelcontextprotocol/server": "2.4.0",
+    "playwright": "1.63.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "bwip-js": "^4.11.4",
+    "pptxgenjs": "^3.12.0",
+    "ajv": "^8.20.0",
+    "yaml": "^2.9.1"
+  }
+}

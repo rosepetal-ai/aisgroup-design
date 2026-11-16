@@ -1,0 +1,165 @@
+{
+  "name": "ais-vision-systems_carousel-guide-roi_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "Antes de invertir en visión artificial, reúne el coste del problema, el volumen y los defectos, la inspección manual, la integración y el mantenimiento. Estima el ahorro mensual neto y compara tres escenarios. La inversión inicial dividida por un ahorro mensual neto positivo estima los meses de recuperación simple; no es un ROI porcentual ni una promesa de ahorro. Cuéntanos cómo es tu línea.",
+  "shots": [
+    {
+      "type": "list",
+      "headline": "Antes de invertir,|calcula|*con datos de tu línea*",
+      "alt": "Antes de invertir, calcula con datos de tu línea. Coste del problema, inversión y escenarios. Una guía para preparar tus datos.",
+      "bg": "white",
+      "items": [
+        {
+          "text": "Coste del problema",
+          "icon": "check",
+          "detail": "Merma, retrabajo y reclamaciones."
+        },
+        {
+          "text": "Inversión inicial",
+          "icon": "check",
+          "detail": "Integración y mantenimiento."
+        },
+        {
+          "text": "Tres escenarios",
+          "icon": "check",
+          "detail": "Conservador, base y optimista."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Por qué estimarlo|antes de invertir",
+      "items": [
+        {
+          "text": "Priorizar y justificar",
+          "detail": "Identifica el impacto real y presenta datos objetivos a dirección y compras.",
+          "icon": "check"
+        },
+        {
+          "text": "Comparar escenarios",
+          "detail": "Evalúa opciones con criterios técnicos, sin presión comercial.",
+          "icon": "check"
+        },
+        {
+          "text": "Reducir el riesgo",
+          "detail": "Menos incertidumbre sobre el retorno esperado antes de comprometerte.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Por qué estimarlo antes de invertir. Priorizar y justificar: Identifica el impacto real y presenta datos objetivos a dirección y compras. Comparar escenarios: Evalúa opciones con criterios técnicos, sin presión comercial. Reducir el riesgo: Menos incertidumbre sobre el retorno esperado antes de comprometerte."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "¿Cuánto cuesta|el problema actual?",
+      "items": [
+        {
+          "text": "Merma, retrabajo y reclamaciones",
+          "detail": "Coste real del periodo, sin sumar dos veces la misma pérdida.",
+          "icon": "check"
+        },
+        {
+          "text": "Volumen y defectos",
+          "detail": "Producción total y tasa de defecto medida en el mismo periodo.",
+          "icon": "check"
+        },
+        {
+          "text": "Inspección manual",
+          "detail": "Costes directos e indirectos del proceso actual.",
+          "icon": "check"
+        }
+      ],
+      "alt": "¿Cuánto cuesta el problema actual? Merma, retrabajo y reclamaciones: coste real del periodo, sin sumar dos veces la misma pérdida. Volumen y defectos: producción total y tasa de defecto medida en el mismo periodo. Inspección manual: costes directos e indirectos del proceso actual."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Inversión|y ahorro",
+      "items": [
+        {
+          "text": "Integración y mantenimiento",
+          "detail": "Separa la inversión inicial de los costes recurrentes.",
+          "icon": "check"
+        },
+        {
+          "text": "Ahorro mensual neto",
+          "detail": "Costes evitables estimados menos el coste mensual añadido.",
+          "icon": "check"
+        },
+        {
+          "text": "Tres escenarios",
+          "detail": "Conservador, base y optimista. Cambia los supuestos, no los datos medidos.",
+          "icon": "check"
+        }
+      ],
+      "alt": "¿Qué inversión y qué ahorro estimas? Integración y mantenimiento: separa la inversión inicial de los costes recurrentes. Ahorro mensual neto: costes evitables estimados menos el coste mensual añadido. Tres escenarios: conservador, base y optimista. Cambia los supuestos, no los datos medidos."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Compara|tres escenarios",
+      "items": [
+        {
+          "text": "Conservador",
+          "detail": "Estimación prudente del ahorro mensual y del plazo de recuperación.",
+          "icon": "check"
+        },
+        {
+          "text": "Base",
+          "detail": "Escenario de referencia con los supuestos previstos para tu línea.",
+          "icon": "check"
+        },
+        {
+          "text": "Optimista",
+          "detail": "Estimación favorable, contrastada con las condiciones de tu línea.",
+          "icon": "check"
+        }
+      ],
+      "alt": "Compara tres escenarios. Conservador: Estimación prudente del ahorro mensual y del plazo de recuperación. Base: Escenario de referencia con los supuestos previstos para tu línea. Optimista: Estimación favorable, contrastada con las condiciones de tu línea."
+    },
+    {
+      "type": "list",
+      "bg": "white",
+      "headline": "Inversión inicial|÷ ahorro neto mensual|= meses",
+      "alt": "Inversión inicial ÷ ahorro mensual = meses. Usa ahorro mensual neto positivo y magnitudes del mismo alcance. Es una estimación de recuperación simple: no incluye el valor temporal del dinero. Contrasta cada escenario con pruebas de tu producto y condiciones de línea.",
+      "items": [
+        {
+          "text": "Condición",
+          "icon": "check",
+          "detail": "Usa ahorro mensual neto positivo y magnitudes del mismo alcance."
+        },
+        {
+          "text": "Recuperación simple",
+          "icon": "check",
+          "detail": "Es una estimación de recuperación simple: no incluye el valor temporal del dinero."
+        },
+        {
+          "text": "Validación",
+          "icon": "check",
+          "detail": "Contrasta cada escenario con pruebas de tu producto y condiciones de línea."
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "headline": "Pon cifras|*a tu proyecto*",
+      "action": "Cuéntanos cómo es tu línea",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "Pon cifras a tu proyecto. Cuéntanos cómo es tu línea. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

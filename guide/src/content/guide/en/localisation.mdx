@@ -1,0 +1,172 @@
+---
+title: Localisation
+rules:
+  - 'Localise, never translate word for word. A native writer of the target language rewrites the piece, and a different native reviewer checks it before it ships.'
+  - 'Follow each language’s authority: the IEC for Catalan spelling and TERMCAT for Catalan terms, the RAE for Spanish, and British spelling with -ise for English.'
+  - 'Numbers, dates and times follow the table on this page, with a non-breaking space between a number and its unit or % sign in every language that spaces them.'
+  - 'Every text passes LanguageTool, the spelling dictionary and the brand checks for its language before publishing. Each remaining flag is fixed or recorded as a false positive.'
+  - 'Machine translation is a draft only. It is never published without a native review.'
+---
+
+Adapt language, dates and numbers without changing the brand system.
+
+## Principles
+
+- **Localise, do not translate.** Keep the message, the evidence and the call to action; rewrite the sentences the way a native writer would.
+- **One language per piece.** Bilingual layouts are reserved for specific needs, with separate blocks of equal weight.
+- **Names never change.** Brand and product names, model names and labels quoted from our software stay exactly as they are.
+- **Plan for longer text.** Running text in Spanish and Catalan is about 15 to 30% longer than in English. Short strings grow far more: a button or tab label can double or triple in length. Design buttons, tabs and figure labels with that room, or rewrite the label.
+- **Mark the language.** Every page and every passage in another language carries its `lang` attribute (`en`, `es`, `ca`), so screen readers pronounce it and browsers hyphenate it correctly.
+
+## Languages and scope
+
+| Site | Languages |
+| --- | --- |
+| **AIS Vision Systems** | Spanish (default), Catalan, English, French, Portuguese |
+| **Rosepetal** | English |
+| **AIS Group** | English |
+
+- **A page that has not been localised does not exist in that language.** Never publish a fallback, an «only available in Spanish» stub, a title in the source language or an `hreflang` link to a page that is not there. Show readers the pages that exist.
+- **Legal and system text is copy.** Privacy and consent notices, cookie tables, form messages, error pages and emails are localised like any page, in the page’s language. Legal notices use the formal register (*usted*, *vós*) consistently; the company is written *AIS Vision Systems, S.L.*
+- **Quoting another language.** A testimonial may stay in its original language only if it is marked with `lang` and followed by a translation.
+- **French and Portuguese** follow the same principles, with a named native writer and reviewer for each. French puts a non-breaking space before `: ; ! ? %` and inside «  »; Portuguese (Portugal) follows the 1990 spelling agreement. Both use a decimal comma and a space for thousands.
+
+## Authorities
+
+When a question is not answered on this page, these sources decide, in this order.
+
+| Language | Spelling and grammar | Terminology | Style |
+| --- | --- | --- | --- |
+| **Catalan** | [IEC](https://www.iec.cat/) (*Ortografia catalana*, GIEC) and [Optimot](https://optimot.gencat.cat) | [TERMCAT](https://www.termcat.cat/ca/cercaterm) (Cercaterm, AI dictionary) | [Softcatalà style guide](https://www.softcatala.org/guia-estil-de-softcatala/tota-la-guia/) for software and interfaces; [esAdir](https://esadir.cat) (3Cat) for video and spoken copy |
+| **Spanish** | [RAE](https://www.rae.es/) (*Ortografía*, *Diccionario panhispánico de dudas*) | [FundéuRAE](https://www.fundeu.es/), TERMCAT’s Spanish equivalents | Microsoft’s Spain Spanish style guide for interfaces |
+| **English** | British spelling, *-ise* endings | Our glossary below | [GOV.UK style guide](https://www.gov.uk/guidance/style-guide/a-to-z), except where this page decides otherwise |
+
+## Conventions by language
+
+<div class="table-wrap">
+
+| Convention | English | Spanish | Catalan |
+| --- | --- | --- | --- |
+| **Addressing the reader** | *you* | **tú** in marketing, the web and the product; **usted** only in contracts and legal notices; *vosotros* only for a real plural | **tu** in marketing, the web and the product; **vós** in formal documents and legal notices, as the IEC recommends, because it is gender-neutral; *vosaltres* only for a real plural |
+| **Headings** | Sentence case | Sentence case | Sentence case |
+| **Quotation marks** | «angular», then “double” inside | «angular», then “double” inside | «angular», then “double” inside |
+| **Questions and exclamations** | ? ! | ¿…? ¡…! (opening marks required) | ? ! |
+| **Decimals** | 1.5 | 1,5 | 1,5 |
+| **Thousands** | 1,285 and 12,850 | 1285 and 12 850 (no separator up to four digits; a space from five) | 1285 and 12 850 (as Spanish) |
+| **Percent** | 95% | 95 % (space) | 95 % (space) |
+| **Units** | 50 ms and 12 GB (space, as in SI) | 50 ms and 12 GB | 50 ms and 12 GB |
+| **Currency** | €250 | 250 € | 250 € |
+| **Dates** | 14 October 2026 | 14 de octubre de 2026 | 14 d’octubre de 2026 |
+| **Months and weekdays** | Capitalised | Lower case | Lower case |
+| **Time** | 14:30 (24-hour clock) | 14:30 h | 14.30 h |
+| **Ranges in prose** | 6 to 8 October | del 6 al 8 de octubre | del 6 al 8 d’octubre |
+| **Ranges in figures** | 2024–2026 (en dash, tables only) | 2024-2026 (hyphen, tables only) | 2024-2026 (hyphen, tables only) |
+| **Acronym plurals** | PLCs | los PLC | els PLC |
+
+</div>
+
+Use a non-breaking space between a number and its unit or % sign, so they never split across lines. Write the degree sign `°`, never the ordinal `º`, and no space before `, . : ;` in any of the three languages. In files and code, dates are always ISO: `2026-10-14`.
+
+Two of our English choices differ from GOV.UK on purpose. We use the 24-hour clock and put a space before units, as SI does, because our readers are engineers in many countries and our products print times and measurements that way.
+
+## Marketing and product text
+
+| Text | English | Spanish | Catalan |
+| --- | --- | --- | --- |
+| **Calls to action** (web, campaigns) | Imperative: *Book a demo* | Imperative, tú: *Solicita una demo* | Imperative, tu: *Demana una demostració* |
+| **Commands** (buttons, menus in the product) | Imperative: *Save*, *Export* | Infinitive: *Guardar*, *Exportar* | Imperative, tu: *Desa*, *Exporta* |
+| **Error messages** | What happened, then what to do: *The file could not be saved. Check the disk space.* | *No se puede guardar el archivo. Comprueba el espacio en disco.* | *S’ha produït un error en desar el fitxer. Comprova l’espai al disc.* |
+
+Never translate *Sorry* or *Please* into an error message, and drop exclamation marks unless data is at risk. Keep keyboard shortcuts as written in the software: `Ctrl+S`.
+
+## Spanish
+
+- Use **tú** with imperative, direct verbs in marketing: *Solicita una demo*, *Consulta la ficha*. A company reading the page is *tú*, never *vosotros*: write *tu empresa… orientarte… tu línea*, not *tu empresa… orientaros… vuestra línea*.
+- Write **Spain Spanish**: *costes*, *ordenador*, *supervisión*, not *costos*, *computadora*, *monitoreo*.
+- Write **IA**, never *AI*. Use *aprendizaje profundo* in running text; *deep learning* may follow in italics in brackets the first time, for engineers.
+- The generic masculine is correct. Prefer collective or impersonal nouns where it reads naturally: *el equipo de calidad*, *la plantilla*. Never use slashes, `@`, `-x` or `-e` as gender marks.
+- Avoid anglicisms when a precise Spanish term exists: *conjunto de datos* rather than *dataset* in running text, *entrenamiento* for *training*. An English term kept in running text goes in italics; a label on screen stays as it is.
+- Write acronyms without plurals or points: *los PLC*, *las API*.
+
+## Catalan
+
+- Use **tu**: *Demana una demostració*, *Consulta la fitxa*. A company reading the page is *tu*: write *la teva empresa… orientar-te… la teva línia*, not *orientar-vos… la vostra línia*. In formal documents use **vós** (*us podem enviar*), never a mix of forms.
+- Write **IA**, never *AI*, and *aprenentatge profund* in running text.
+- Avoid common calques from Spanish: *en base a* (write *a partir de*, *segons*), *degut a* (*a causa de*), *a nivell de* (*pel que fa a*), *llevar a terme* (*dur a terme*), and *realitzar* where *fer* will do.
+- Keep the **punt volat**: *col·laboració*, *instal·lació*, *intel·ligència*. Never replace it with a full stop or hyphen. At a line break, split the two l’s with a hyphen: *col-* / *laboració*.
+- Use the typographic apostrophe (’) and elide by pronunciation: *l’Excel*, *l’HTML*, *la GPL*.
+- Prefer *tothom*, collective nouns (*la plantilla*, *el professorat*) and phrases with *persones* to doubled forms. Slashes (*director/a*) only in forms and tables.
+- Follow the IEC for spelling and TERMCAT for terms: *sol·licitud*, *conjunt de dades*, *entrenament del model*, *visió artificial*, *informàtica al núvol*.
+
+## English
+
+- Use **British spelling** with *-ise*: *colour*, *optimise*, *centre*, *modelling*. LanguageTool accepts *-ize* too, so the brand checks flag it.
+- Keep sentences short and verbs active: *Book a demo*, *Train in the cloud*. Use full verb forms, including *cannot*.
+- Spell out an acronym on first use unless the audience uses it daily (PLC, GPU, API). No full stops in acronyms.
+- Write **machine vision**, never *artificial vision*. Rosepetal may say *computer vision* to developers.
+- Dates in prose read *6 to 8 October 2026*, never *October 6th–8th, 2026*. Pages carry `lang="en"`.
+
+## Glossary
+
+Catalan terms follow TERMCAT; Spanish terms follow TERMCAT’s Spanish equivalents and FundéuRAE. Terms marked † are not in TERMCAT’s AI dictionary; Cercaterm is their reference.
+
+**Annotation, not labelling.** In our markets *etiquetado* and *etiquetatge* mean the label on a bottle or can, and label inspection is one of AIS Vision Systems’ main applications. Data labelling in Rosepetal is therefore *anotación* and *anotació*, so the two never meet on one page.
+
+| English | Spanish | Catalan |
+| --- | --- | --- |
+| Machine vision | Visión artificial | Visió artificial |
+| Inspection | Inspección | Inspecció |
+| Defect | Defecto | Defecte |
+| Reject | Rechazo | Rebuig |
+| False reject | Falso rechazo | Fals rebuig |
+| Reject system | Sistema de rechazo | Sistema de rebuig |
+| Changeover | Cambio de formato | Canvi de format |
+| Inline / offline | En línea / fuera de línea | En línia / fora de línia |
+| Production line | Línea de producción | Línia de producció |
+| Dataset | Conjunto de datos | Conjunt de dades |
+| Data labelling (annotation) | Anotación † | Anotació † |
+| Label (on a product) | Etiqueta | Etiqueta |
+| Label inspection | Inspección de etiquetas | Inspecció d’etiquetes |
+| Model training | Entrenamiento del modelo | Entrenament del model |
+| Pretrained model | Modelo preentrenado | Model preentrenat |
+| Fine-tuning | Ajuste fino | Afinament |
+| Inference | Inferencia † | Inferència † |
+| Machine learning | Aprendizaje automático | Aprenentatge automàtic |
+| Deep learning | Aprendizaje profundo | Aprenentatge profund |
+| Object detection | Detección de objetos | Detecció d’objectes |
+| Image segmentation | Segmentación de imágenes | Segmentació d’imatges |
+| Cloud computing | Computación en la nube | Informàtica al núvol |
+| Dashboard | Panel de control | Tauler de control |
+| Software | Software | Programari |
+| Datasheet | Ficha técnica | Fitxa tècnica |
+| Case study | Caso de éxito | Cas d’èxit |
+| Turnkey | Llave en mano | Clau en mà |
+| Upload / download | Subir / descargar | Pujar / baixar |
+| Book a demo | Solicita una demo | Demana una demostració |
+| Request access | Solicita acceso | Sol·licita accés |
+| Tell us about your line | Cuéntanos cómo es tu línea | Explica’ns com és la teva línia |
+
+## Checks before publishing
+
+Every text passes all of these for its language. A flag that remains is either fixed or recorded as a false positive with a reason.
+
+| Check | What it catches | Tool |
+| --- | --- | --- |
+| **Grammar and style** | Agreement, typos, missing ¿ ¡, wrong apostrophes, common anglicisms | [LanguageTool](https://languagetool.org) (`en-GB`, `es`, `ca-ES`); for Catalan the [Softcatalà corrector](https://www.softcatala.org/corrector/) uses the same engine |
+| **Spelling** | Misspellings, with a shared list of brand and product names | Hunspell dictionaries: `en_GB`, `es_ES`, `ca` (Softcatalà) |
+| **Brand conventions** | `%` without a space in Spanish and Catalan, a point in thousands, *l.l* for *l·l*, straight apostrophes, *vostè*, *-ize*, contracted negatives, listed anglicisms | The brand language check (`language-check.mjs` in the brand assets) |
+| **Build** | Non-breaking spaces before units and %, «» in Markdown in every language (the default typographic quotes are “ ”) | A step in each site’s build, so writers do not have to type them |
+| **Wrong language** | A passage in another language, a template string left in the source language | A language detector per page, and the review |
+| **Terminology** | A term that differs from the glossary | The glossary above; TERMCAT and Optimot for new terms |
+| **Layout** | Headlines, buttons and labels that break badly or overflow | Every language at desktop and phone width |
+
+### Review
+
+1. **Approve the source first.** Never localise copy that is still changing.
+2. **Glossary first.** A new term gets looked up (TERMCAT for Catalan, FundéuRAE and the RAE for Spanish) and added to the glossary with its source and date.
+3. **Native writing.** A native writer localises the piece. Machine translation may produce a first draft only, labelled as such.
+4. **Native review.** A different native reviewer checks meaning against the source, the glossary, the tone and the conventions on this page.
+5. **Automated checks.** The checks above, until nothing is left unexplained.
+6. **Layout check.** Every language at desktop and phone width.
+
+Corrections that recur become glossary entries or new brand checks, so the same mistake is caught automatically next time.

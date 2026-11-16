@@ -1,0 +1,42 @@
+---
+// Downloads page: the curated photos (library/), grouped by subject; each preview downloads its original file.
+import type { Lang } from '../i18n';
+import { photos, stockPhotos } from '../photos';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = {
+  en: { stock: 'Stock photographs', source: 'Download at source', app: 'Rosepetal app', frame: 'Video frame', subjects: {} as Record<string, string> },
+  es: { stock: 'Fotografías de stock', source: 'Descargar en origen', app: 'App de Rosepetal', frame: 'Fotograma de vídeo', subjects: { Industry: 'Industria', Events: 'Eventos' } as Record<string, string> },
+  ca: { stock: 'Fotografies d’estoc', source: 'Baixa a l’origen', app: 'App de Rosepetal', frame: 'Fotograma de vídeo', subjects: { Industry: 'Indústria', Events: 'Esdeveniments' } as Record<string, string> },
+}[lang];
+const groups = new Map<string, ReturnType<typeof photos>>();
+for (const p of photos(lang)) groups.set(p.subject, [...(groups.get(p.subject) ?? []), p]);
+---
+{[...groups].map(([subject, list]) => (
+  <div class="dl-brand">
+    <p class="dl-name">{subject === 'Rosepetal app' ? t.app : t.subjects[subject] ?? subject}</p>
+    <div class="dl-grid four">
+      {list.map((p) => (
+        <a class="dl" href={`/${p.file}`} download aria-label={`${p.title}${p.frame ? `, ${t.frame}` : ''}`}>
+          <span class="dl-tile photo"><img src={p.thumb} alt="" loading="lazy" decoding="async" /></span>
+          <span class="dl-cap"><span class="file">{p.title}{p.frame && <><br /><span class="note">{t.frame}</span></>}<br /><span class="note">{p.width} × {p.height} px</span></span><span class="fmt">{p.name.split('.').pop()!.toUpperCase()}</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+))}
+
+<div class="dl-brand">
+  <h3>{t.stock}</h3>
+  <div class="dl-grid four">
+    {stockPhotos(lang).map((p: any) => (
+      <div class="dl">
+        <a href={p.source} class="dl-tile photo" aria-label={`${p.title}, ${t.source}`}>
+          {p.preview ? <img src={p.preview} alt={p.title} loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <span>{p.title}</span>}
+        </a>
+        <span class="dl-cap"><span class="file">{p.title}<br /><a href={p.authorUrl}>{p.author}</a></span></span>
+        <span class="dl-cap"><span class="links"><a href={p.source}>{t.source}</a><a href={p.rights.licenceUrl}>{p.rights.licence}</a></span></span>
+      </div>
+    ))}
+  </div>
+</div>

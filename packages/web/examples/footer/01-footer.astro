@@ -1,0 +1,12 @@
+---
+// Each site gives its logo, its name and address, its columns and its legal links.
+import Footer from '@aisgroup/web/components/footer'
+const columns = [
+  { heading: 'Group', links: [{ label: 'About AIS Group', href: '/group/' }, { label: 'Investors', href: '/investors/' }, { label: 'Careers', href: '/careers/' }] },
+  { heading: 'Solutions', links: [{ label: 'Machine vision', href: '/solutions/machine-vision/' }, { label: 'Robotics', href: '/solutions/robotics/' }] },
+]
+const legal = [{ label: 'Privacy policy', href: '/privacy-policy/' }, { label: 'Legal notice', href: '/legal-notice/' }]
+---
+<div style="width: 100%">
+  <Footer logo={{ src: '/logos/ais-group-white.svg', alt: 'AIS Group', width: 72, height: 54 }} name="AIS Group" columns={columns} legal={legal} copyright="2026 AIS Group" />
+</div>

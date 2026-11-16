@@ -1,0 +1,21 @@
+---
+import Arrow from './Arrow.astro';
+import { tasks } from '../essentials';
+import { href, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<ul class="tasks">
+  {tasks[lang].map((task) => (
+    <li><a href={href(lang, task.slug)}><span class="ais-text-link">{task.label}<Arrow /></span></a></li>
+  ))}
+</ul>
+<style>
+  /* Rules between rows only, as in the AIS site's lists; the next section's divider closes the block. */
+  .tasks { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
+  .tasks li { margin: 0; border-top: 1px solid var(--line); }
+  a { display: block; height: 100%; padding: 16px 0 24px; text-decoration: none; }
+  .ais-text-link { gap: 16px; }
+  a:hover .ais-text-link { text-decoration: underline; text-underline-offset: 5px; }
+  @media (max-width: 640px) { .tasks { grid-template-columns: 1fr; } }
+</style>

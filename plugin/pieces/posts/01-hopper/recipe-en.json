@@ -1,0 +1,24 @@
+{
+  "name": "ais-vision-systems_post-hopper_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS Hopper checks the cap, the neck finish and the fill level on the line itself, with three colour cameras around the cap and an optional fourth from above. You set it up with examples of good and bad containers, no programming needed. Book a demo",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/hopper/hopper_juice_infeed_cover.jpg",
+      "focus": [
+        0,
+        100
+      ],
+      "headline": "Cap and fill,|checked on the line",
+      "evidence": "render",
+      "bleed": 1.15
+    }
+  ]
+}

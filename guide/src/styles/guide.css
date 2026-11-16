@@ -1,0 +1,253 @@
+@import '../../public/downloads/ais-tokens.css';
+
+/* Inter variable, SIL Open Font License (/fonts/OFL-Inter.txt). */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/fonts/inter-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/fonts/inter-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Text appears immediately in a fallback matched to Inter's metrics, then swaps to the preloaded font. */
+@font-face { font-family: 'Inter Fallback'; src: local('Arial'), local('Liberation Sans'), local('Helvetica'); ascent-override: 90.44%; descent-override: 22.52%; line-gap-override: 0%; size-adjust: 107.12%; }
+/* The same for code: Courier New and its metric twin share JetBrains Mono's 0.6 em advance; only the line box differs. */
+@font-face { font-family: 'JetBrains Mono Fallback'; src: local('Courier New'), local('Liberation Mono'), local('Cousine'); ascent-override: 102%; descent-override: 30%; line-gap-override: 0%; size-adjust: 100%; }
+/* JetBrains Mono variable, SIL Open Font License (/fonts/OFL-JetBrains-Mono.txt). */
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('/fonts/jetbrains-mono-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20C0, U+A720-A7FF; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
+
+:root {
+  --ink: var(--ais-neutral-900);
+  --muted: var(--ais-neutral-600);
+  --line: var(--ais-neutral-200);
+  --surface: var(--ais-blue-50);
+  --primary: var(--ais-blue-700);
+  --link: var(--ais-blue-500);
+  --mono: "JetBrains Mono", "JetBrains Mono Fallback", var(--ais-font-mono);
+  --side: 280px;
+  --top: 77px; /* header and logo match the AIS site: 77 px bar, 44 px logo */
+  --gutter: 24px;
+  --start: 48px; /* first line of sidebar, page and contents list */
+  --content: 880px; /* one width for headings, figures and tables; text keeps a reading measure inside it */
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--top) + 24px); }
+body { margin: 0; background: #fff; color: var(--ink); font: 400 var(--ais-text-body)/var(--ais-text-body-leading) "Inter", "Inter Fallback", var(--ais-font-primary); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+img { max-width: 100%; height: auto; } /* the build gives each image its size; height follows the width */
+.nobr { white-space: nowrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.skip { position: absolute; left: 16px; top: -48px; padding: 8px 12px; background: var(--primary); color: #fff; z-index: 10; }
+.skip:focus { top: 12px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* Top bar */
+.top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 16px; height: var(--top); padding: 0 var(--gutter); background: #fff; border-bottom: 1px solid var(--line); }
+.brand { flex: none; display: flex; align-items: center; text-decoration: none; }
+.brand svg { display: block; height: 44px; width: auto; }
+.header-controls { margin-left: auto; display: flex; align-items: center; gap: 4px; flex: none; }
+.menu-toggle { display: none; }
+.langs { display: flex; gap: 4px; }
+.langs a { display: grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: var(--ais-text-label-weight); color: var(--ink); text-decoration: none; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard), background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+.langs a:hover { color: var(--link); }
+.langs a[aria-current] { color: var(--primary); background: var(--ais-blue-50); }
+
+/* Layout */
+.shell { display: grid; grid-template-columns: var(--side) minmax(0, 1fr) 200px; }
+/* Links keep a 10 px hover pill, so the column starts 10 px early and every label lands on the logo's left edge. */
+.side { position: sticky; top: var(--top); align-self: start; height: calc(100dvh - var(--top)); overflow: auto; padding: var(--gutter) calc(var(--gutter) - 12px) 40px; border-right: 1px solid var(--line); }
+.side summary { display: none; }
+.group + .group { margin-top: var(--ais-space-400); }
+/* A group's title is the strongest line in it: ink, semibold, the links' size; the links are regular. */
+.group p { margin: 0 0 4px; padding: 0 12px; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.group ul { list-style: none; margin: 0; padding: 0; }
+.group a { display: block; padding: 8px 12px; color: var(--ink); text-decoration: none; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); letter-spacing: var(--ais-text-label-tracking); font-weight: 400; transition: color var(--ais-duration-moderate-1) var(--ais-ease-standard), background-color var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+/* Navigation links: ink to action blue, the same on every AIS site. */
+.group a:hover { color: var(--link); }
+.group a[aria-current] { background: var(--ais-blue-50); color: var(--primary); font-weight: 600; }
+
+main { min-width: 0; padding: var(--start) clamp(24px, 5vw, 80px) 64px; }
+/* Every text style comes from the brand type tokens (--ais-text-*), so the guide follows its own Typography page. */
+/* The intro belongs to its title: 24 px, against 64 px before each section. */
+h1 { margin: 0 0 var(--ais-space-400); max-width: var(--content); font-size: var(--ais-text-title); font-weight: var(--ais-text-title-weight); letter-spacing: var(--ais-text-title-tracking); line-height: var(--ais-text-title-leading); color: var(--ink); text-wrap: balance; }
+
+.toc { position: sticky; top: var(--top); align-self: start; padding: var(--start) var(--gutter) 0 8px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+.toc p { margin: 0 0 8px; font-weight: 600; color: var(--muted); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+.toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+.toc a { display: block; padding: 4px 12px; color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+
+/* Prose */
+.prose { max-width: none; }
+/* Text keeps its reading measure; figures, specimens and embeds use the whole column, however wide the screen. */
+.prose > :not(figure, .embed, .wide) { max-width: var(--content); }
+.prose > :is(p, blockquote), .prose > :is(ul, ol):not([class]) { max-width: 68ch; text-wrap: pretty; }
+.prose > * + * { margin-top: var(--ais-space-200); }
+.prose h2 { margin: var(--ais-space-block) 0 var(--ais-space-300); font-size: var(--ais-text-heading); font-weight: var(--ais-text-heading-weight); letter-spacing: var(--ais-text-heading-tracking); line-height: var(--ais-text-heading-leading); color: var(--ink); text-wrap: balance; }
+.prose > :first-child { margin-top: 0; }
+.prose > h2:first-child { margin-top: 0; }
+.prose h3 { margin: var(--ais-space-400) 0 var(--ais-space-150); font-size: var(--ais-text-subheading); font-weight: var(--ais-text-subheading-weight); letter-spacing: var(--ais-text-subheading-tracking); line-height: var(--ais-text-subheading-leading); }
+/* Text uses three colours only: ink, neutral 600 for secondary text, blue 600 for links. */
+.prose p:not([class]), .prose li { color: var(--ink); }
+.prose li + li { margin-top: 8px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose code { white-space: nowrap; font: 400 .875em var(--mono); background: var(--ais-neutral-100); padding: .1em .35em; border-radius: 0; }
+.prose code.copyable { cursor: copy; transition: background var(--ais-duration-moderate-1) var(--ais-ease-standard); }
+.prose code.copyable:hover { background: var(--ais-neutral-200); }
+.prose pre { margin: 24px 0; padding: 16px 16px; overflow-x: auto; background: var(--ais-neutral-100); border-radius: 0; font: 400 var(--ais-text-small)/var(--ais-text-small-leading) var(--mono); letter-spacing: var(--ais-text-small-tracking); color: var(--ink); white-space: pre; }
+.prose pre code { font: inherit; background: none; padding: 0; white-space: inherit; overflow-wrap: normal; }
+/* Astro's highlighter writes a dark theme inline; code blocks use the brand neutrals instead. */
+.prose pre.astro-code { background: var(--ais-neutral-100) !important; color: var(--ink) !important; }
+.prose pre.astro-code span { color: inherit !important; }
+.prose blockquote { margin: 32px 0; padding: 0; }
+.prose p > img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.prose blockquote p { margin: 0; color: var(--ink); }
+.prose :is(figure, .table-wrap, .wide) { max-width: none; }
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-variant-numeric: tabular-nums; }
+th { text-align: left; font-weight: 600; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); color: var(--muted); padding: 12px 12px 12px 0; border-bottom: 1px solid var(--ais-neutral-300); }
+td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child > td { border-bottom: 0; }
+.prose .table-wrap td { color: var(--ink); }
+
+/* Pager */
+.pager { display: flex; justify-content: space-between; gap: 16px; max-width: var(--content); margin-top: var(--ais-space-section); }
+.pager .ais-text-link { gap: 16px; }
+
+@media (max-width: 1180px) { .shell { grid-template-columns: var(--side) minmax(0, 1fr); } .toc { display: none; } }
+@media (max-width: 900px) {
+  .shell { display: block; }
+  .side { position: static; height: auto; padding: 0; border: 0; border-bottom: 1px solid var(--line); }
+  .side summary { display: none; }
+  .side nav { padding: 0 16px 24px; }
+  main { padding-top: 40px; }
+  /* Markdown tables have no wrapper, so on phones the table itself becomes the scroll box. */
+  .prose > table { display: block; overflow-x: auto; }
+  /* Long inline code wraps on phones instead of widening the page. */
+  .prose :not(pre) > code { white-space: normal; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Page transition (Motion): the client router keeps the header and the menu on screen; only the page content moves,
+   fading in and rising 16 px. The root swaps at once, so nothing else is ever shown as a snapshot. */
+main { view-transition-name: guide-main; }
+::view-transition-old(root), ::view-transition-old(guide-main) { display: none; }
+::view-transition-new(root), ::view-transition-group(root), ::view-transition-group(guide-main) { animation: none; }
+::view-transition-new(guide-main) { animation: guide-in var(--ais-duration-slow-1, 500ms) var(--ais-ease-enter, cubic-bezier(.16,1,.3,1)) both; }
+@keyframes guide-in { from { opacity: 0; transform: translateY(16px); } }
+@media (prefers-reduced-motion: reduce) { ::view-transition-new(guide-main) { animation: none; } }
+
+/* Wide pages (live specimens): no contents column. Text keeps its reading width. */
+.shell[data-wide] { grid-template-columns: var(--side) minmax(0, 1fr); }
+.shell[data-wide] .prose > :not(.embed) { max-width: var(--content); }
+
+/* Scrollbars: always reserve the gutter, so pages of different lengths never shift sideways; keep them thin and quiet. */
+html { scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: var(--ais-neutral-300) transparent; }
+.side, .toc { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.side:hover, .toc:hover { scrollbar-color: var(--ais-neutral-300) transparent; }
+
+/* Rosepetal components: the index and each example's live preview. */
+.component-index { columns: 3 12rem; padding: 0 !important; list-style: none; }
+.component-index li { margin: 0 0 8px !important; }
+.prose iframe.preview { display: block; width: 100%; height: 160px; margin: var(--ais-space-300) 0 0; border: 1px solid var(--line); background: #fff; }
+.prose iframe.preview + pre { margin-top: 0; border: 1px solid var(--line); border-top: 0; }
+
+/* Downloads: each file is a preview on its ground with its name and format under it; the whole card is the link. */
+.dl-name { margin: var(--ais-space-300) 0 0; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; color: var(--ink); }
+.dl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
+.dl-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.dl-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dl-grid.one { grid-template-columns: minmax(0, 1fr); }
+.dl { display: flex; flex-direction: column; gap: 8px; min-width: 0; color: var(--ink); text-decoration: none; }
+.dl-tile { display: grid; place-items: center; aspect-ratio: 2 / 1; padding: 6%; overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.dl-tile.blue { background: var(--primary); box-shadow: none; }
+.dl-tile img { display: block; height: auto; max-width: 100%; }
+.dl-tile.fill { padding: 0; aspect-ratio: 1; }
+.dl-tile.fill img { width: 100%; height: 100%; }
+.dl-tile.specimen { font-size: clamp(40px, 7vw, 72px); font-weight: 500; line-height: 1; color: var(--ink); }
+.dl-tile.icons { aspect-ratio: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 28px; padding: 32px; color: var(--ink); }
+.dl-tile.icons svg { width: 24px; height: 24px; }
+.dl-cap { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+.dl-cap > :first-child { min-width: 0; }
+.dl-cap .fmt { flex: none; }
+.dl-cap .fmt, .dl-cap .links a { display: inline-flex; align-items: center; gap: 4px; color: var(--link); }
+.dl-cap .links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 12px; }
+.dl-cap .fmt::after, .dl-cap .links a[download]::after { content: ''; width: 14px; height: 14px; background: currentColor; -webkit-mask: url(/downloads/icons/svg/download.svg) center / contain no-repeat; mask: url(/downloads/icons/svg/download.svg) center / contain no-repeat; }
+a.dl:hover .fmt, .dl-cap .links a:hover { text-decoration: underline; }
+a.dl:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+@media (max-width: 640px) {
+  .dl-grid { gap: 12px; }
+  .dl-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dl-grid.two { grid-template-columns: minmax(0, 1fr); }
+  .dl-tile.icons { gap: 16px 20px; padding: 24px 16px; }
+}
+.dl-tile.photo { aspect-ratio: 4 / 3; padding: 0; background: var(--ais-neutral-100); box-shadow: none; }
+.dl-tile.photo img { width: 100%; height: 100%; object-fit: contain; }
+.dl-tile.video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; padding: 0; background: var(--ais-blue-950); box-shadow: none; }
+.dl-cap .file { overflow-wrap: anywhere; }
+.dl-cap .file .nobr { white-space: normal; }
+.dl-cap .note { color: var(--muted); }
+
+/* Guide search follows the web rules: square corners, the 3:1 field border (neutral-500), a 48 px field. */
+/* Search and the highlighted row share the sidebar frame; their contents use the same 12 px inset. */
+.guide-search-trigger { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 48px; margin: 0; padding: 8px 11px; border: 1px solid var(--ais-neutral-500); border-radius: 0; background: white; color: var(--muted); font: inherit; font-size: var(--ais-text-label); line-height: var(--ais-text-label-leading); cursor: pointer; text-align: left; }
+.guide-search-trigger svg { flex: none; }
+.guide-search-trigger:hover { color: var(--ink); }
+.guide-search-bar { position: sticky; top: calc(-1 * var(--gutter)); z-index: 1; margin: calc(-1 * var(--gutter)) 0 var(--ais-space-200); padding: var(--gutter) 0 var(--ais-space-200); background: white; }
+.guide-search-trigger kbd { margin-left: auto; font: inherit; font-size: 13px; white-space: nowrap; }
+.guide-search { width: min(640px, calc(100% - 32px)); max-height: min(640px, 80dvh); margin: 12dvh auto auto; padding: 0; border: 1px solid var(--line); border-radius: 0; background: white; color: var(--ink); font-family: var(--ais-font-primary); overflow-y: auto; overscroll-behavior: contain; }
+.guide-search::backdrop { background: rgb(15 23 41 / .4); }
+.guide-search-field { display: flex; align-items: center; position: sticky; top: 0; background: white; border-bottom: 1px solid var(--line); padding: 8px 12px; gap: 8px; }
+.guide-search input { min-width: 0; flex: 1; min-height: 48px; padding: 8px; border: 0; background: white; color: var(--ink); font: inherit; font-size: 16px; }
+.guide-search-close { width: 44px; height: 44px; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 24px; cursor: pointer; }
+.guide-search [role='status'] { margin: 16px 20px; color: var(--muted); font-size: 13px; }
+.guide-search ol { padding: 0 8px 8px; margin: 0; list-style: none; }
+.guide-search li a { display: block; padding: 14px 12px; color: var(--ink); text-decoration: none; border-radius: 0; }
+.guide-search li a:hover, .guide-search li a:focus-visible { background: var(--surface); }
+.guide-search strong { display: block; font-size: 15px; font-weight: 600; line-height: 1.5; }
+.guide-search li span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+.guide-search mark { background: var(--surface); color: var(--primary); font-weight: 600; }
+.guide-search :focus-visible, .guide-search-trigger:focus-visible { outline: 2px solid var(--link); outline-offset: -2px; }
+body:has(.guide-search[open]) { overflow: hidden; }
+@media (max-width: 900px) { .guide-search { margin-top: 24px; max-height: calc(100dvh - 48px); } }
+
+/* The mobile controls form one row in normal flow, with equal 44 px targets. */
+.guide-search-icon { display: none; }
+@media (max-width: 900px) {
+  .top { gap: 8px; }
+  .top .guide-search-icon, .top .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; min-height: 44px; flex: none; margin: 0; padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer; }
+  .menu-toggle .close-icon { display: none; }
+  .menu-toggle[aria-expanded='true'] .menu-icon { display: none; }
+  .menu-toggle[aria-expanded='true'] .close-icon { display: block; }
+  .side { position: relative; z-index: 20; border: 0; }
+  .side nav { display: none; }
+  .side[data-open] nav { display: block; position: fixed; z-index: 20; inset: var(--top) 0 0; width: auto; max-height: calc(100dvh - var(--top)); overflow-y: auto; overscroll-behavior: contain; padding: 24px 12px; background: #fff; border-bottom: 1px solid var(--line); }
+  .side .guide-search-bar { display: none; }
+  html[data-menu-open], html[data-menu-open] body { overflow: hidden; }
+  html[data-menu-open]::view-transition { display: none; }
+  html[data-menu-open] main { visibility: hidden; }
+  html[data-menu-open]::view-transition-old(guide-main), html[data-menu-open]::view-transition-new(guide-main) { visibility: hidden; }
+}
+@media (max-width: 420px) { .top { padding-inline: 16px; } }
+
+/* Tables keep complete tokens and scroll locally rather than widening the page. */
+.prose table code { white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+@media (max-width: 900px) {
+  .prose table { display: block; max-width: 100%; overflow-x: auto; }
+  .prose table > :is(thead, tbody) { display: table; width: 100%; table-layout: fixed; }
+  .prose table:has(tr > :nth-child(4)) > :is(thead, tbody) { min-width: 560px; }
+  .prose table:has(tr > :nth-child(5)) > :is(thead, tbody) { min-width: 680px; }
+  .prose table :is(th, td) { overflow-wrap: normal; word-break: normal; }
+  .dl-cap { flex-wrap: wrap; }
+
+}
+
+/* Code and comparative tables keep their controls inside their own frame. */
+.code-block{position:relative;min-width:0;margin:24px 0}.code-block pre{margin:0;padding-top:64px;max-width:100%;overflow:auto}.copy-code{position:absolute;right:12px;top:10px;z-index:1;min-height:44px;padding:8px 12px;background:white;color:var(--link);border:1px solid var(--line);font:500 var(--ais-text-small)/var(--ais-text-small-leading) var(--ais-font-primary);cursor:pointer}.copy-code:focus-visible,.table-controls button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.prose table code{white-space:normal;overflow-wrap:anywhere}.table-controls{display:flex;align-items:center;gap:16px;margin:-16px 0 24px}.table-controls[hidden]{display:none}.table-controls button{display:grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);background:white;color:var(--link);cursor:pointer}.table-controls button:disabled{color:var(--muted);opacity:.4}.table-controls progress{width:100%;height:4px;accent-color:var(--link)}
+@media(max-width:600px){.table-wrap.wide-data>table{min-width:560px}.prose table code{white-space:normal;overflow-wrap:anywhere}.table-wrap{max-width:100%;scrollbar-width:auto}.prose table .nobr{white-space:normal}}
+
+
+/* Enhanced tables scroll in the outer frame, so the buttons and progress track control all columns. */
+@media(max-width:900px){
+ .table-wrap.wide-data>table{display:table;overflow:visible;min-width:560px}
+ .table-wrap.wide-data>table>thead{display:table-header-group;min-width:0;table-layout:auto}
+ .table-wrap.wide-data>table>tbody{display:table-row-group;min-width:0;table-layout:auto}
+ .table-wrap.wide-data:has(th:nth-child(5))>table{min-width:680px}
+}

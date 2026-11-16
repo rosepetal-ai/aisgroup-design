@@ -1,0 +1,30 @@
+---
+title: Com funcionen els widgets
+rules:
+  - 'Construeix els panells amb els nodes de sèrie del dashboard de FlowFuse i els widgets de Rosepetal; no dupliquis mai un widget per canviar-ne l’estil.'
+  - 'Dona a cada grup la classe `rp-section`, perquè es vegi com una secció plana amb el títol alineat amb el contingut.'
+  - 'Els interruptors i els widgets de text fan servir la disposició amb l’etiqueta a l’esquerra (`row-spread`). Etiquetes amb majúscula només inicial.'
+  - 'L’estat és una icona i una paraula, mai només color.'
+---
+
+## Què es manté i què canvia
+
+| Part | Es manté com a FlowFuse | Rosepetal afegeix |
+| --- | --- | --- |
+| Nodes | Cada node, els seus ajustos i la seva ajuda a l’editor | Els widgets de Rosepetal: vista en viu, estat de la sessió, cua d’imatges, últim error i més |
+| Missatges | `msg.payload`, `msg.ui_update`, `msg.enabled` i qualsevol altra propietat, sense canvis | Res: un flux fet per a FlowFuse funciona tal qual |
+| Pàgines i grups | ui-base, ui-page i ui-group, la graella, els punts de tall i les mides | La classe de grup `rp-section`: una secció plana en lloc d’una targeta |
+| Aspecte | | Els tokens de l’aplicació (color, tipografia, radi, espaiat), perquè el panell encaixi amb l’aplicació que l’envolta |
+
+## Construir un panell
+
+1. Construeix el flux com qualsevol dashboard de FlowFuse: un ui-base, les seves pàgines, grups i els widgets a dins.
+2. A cada grup, posa `rp-section` a **Class**.
+3. Fes servir els widgets de sèrie per als controls i els de Rosepetal per a la inspecció: la vista en viu, els resultats, les cues d’imatges i les sessions.
+4. Revisa la pàgina en clar i en fosc: el tema segueix el mode de l’aplicació.
+
+Les pàgines de galeria d’aquesta secció són fluxos així, en un Node-RED local: cada pàgina de widget són unes poques seccions com les tindria un panell.
+
+## Com s’instal·la
+
+El dashboard de Rosepetal és una compilació de `@flowfuse/node-red-dashboard` (1.33.0) de FlowFuse amb la capa del tema afegida. Manté el nom del paquet i els tipus de node, de manera que un controlador l’instal·la en lloc del paquet de sèrie i els seus fluxos s’importen sense canvis. Els widgets de Rosepetal vénen de `@rosepetal/node-red-dashboard-2-rosepetal`.

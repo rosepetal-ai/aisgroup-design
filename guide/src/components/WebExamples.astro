@@ -1,0 +1,23 @@
+---
+import { Code } from 'astro:components';
+import { examples } from '../design/web';
+import { fixture } from '../data/web-fixtures';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; id: string }
+const {lang,id}=Astro.props;
+const custom=['language-picker','page-opener','lead-form','product-film'].includes(id);
+const example=custom ? fixture(id,lang) : examples(id,lang)[0];
+const src=custom ? `/preview/web-guide/${id}/${lang}/` : `/preview/web/${example.path}/`;
+const codeLabel={en:'Code',es:'Código',ca:'Codi'}[lang];
+---
+<div class="web-example">
+ <iframe class="preview" src={src} title={example.name} loading="lazy" style={`height:${id==='lead-form'?780:id==='page-opener'?280:id==='language-picker'?222:360}px`}></iframe>
+ <details><summary>{codeLabel}</summary><Code code={example.code} lang="astro" theme="github-light" /></details>
+</div>
+<script>
+ document.addEventListener('astro:page-load',()=>{
+  const stop=new AbortController();document.addEventListener('astro:before-swap',()=>stop.abort(),{once:true});
+  addEventListener('message',e=>{if(e.origin!==location.origin||!e.data?.preview)return;document.querySelectorAll<HTMLIFrameElement>('.web-example iframe').forEach(f=>{if(new URL(f.src).pathname===e.data.preview)f.style.height=`${e.data.height}px`;});},{signal:stop.signal});
+ });
+</script>
+<style>.web-example {margin:24px 0} summary {cursor:pointer;font-weight:500;padding:12px 0} iframe {width:100%;box-sizing:border-box;border:1px solid var(--line);display:block}</style>

@@ -1,0 +1,1066 @@
+{
+  "catalog": {
+    "alert": {
+      "name": {
+        "es": "Aviso",
+        "ca": "Avís"
+      },
+      "description": {
+        "es": "Un mensaje de estado dentro de una sección: el icono y el texto indican el estado, y el fondo conserva el de la tarjeta.",
+        "ca": "Un missatge d’estat dins d’una secció: la icona i el text indiquen l’estat, i el fons conserva el de la targeta."
+      }
+    },
+    "alert-dialog": {
+      "name": {
+        "es": "Diálogo de confirmación",
+        "ca": "Diàleg de confirmació"
+      },
+      "description": {
+        "es": "Una pregunta que interrumpe el flujo y exige una respuesta para continuar.",
+        "ca": "Una pregunta que interromp el flux i exigeix una resposta per continuar."
+      }
+    },
+    "avatar": {
+      "name": {
+        "es": "Avatar",
+        "ca": "Avatar"
+      },
+      "description": {
+        "es": "La persona que ha iniciado sesión, representada por una imagen o sus iniciales.",
+        "ca": "La persona que ha iniciat la sessió, representada per una imatge o les seves inicials."
+      }
+    },
+    "badge": {
+      "name": {
+        "es": "Etiqueta",
+        "ca": "Etiqueta"
+      },
+      "description": {
+        "es": "Recuentos y etiquetas neutras breves. El estado se indica con un icono y una palabra, no con una etiqueta.",
+        "ca": "Recomptes i etiquetes neutres breus. L’estat s’indica amb una icona i una paraula, no amb una etiqueta."
+      }
+    },
+    "breadcrumb": {
+      "name": {
+        "es": "Ruta de navegación",
+        "ca": "Ruta de navegació"
+      },
+      "description": {
+        "es": "La ubicación de una página. Cada elemento lleva a su propia página.",
+        "ca": "La ubicació d’una pàgina. Cada element porta a la seva pròpia pàgina."
+      }
+    },
+    "button": {
+      "name": {
+        "es": "Botón",
+        "ca": "Botó"
+      },
+      "description": {
+        "es": "Variantes principal, secundaria, de contorno, discreta, destructiva y de enlace, en todos los tamaños.",
+        "ca": "Variants principal, secundària, de contorn, discreta, destructiva i d’enllaç, en totes les mides."
+      }
+    },
+    "card": {
+      "name": {
+        "es": "Tarjeta",
+        "ca": "Targeta"
+      },
+      "description": {
+        "es": "Solo para entidades que se pueden pulsar, resúmenes y paneles flotantes.",
+        "ca": "Només per a entitats que es poden prémer, resums i panells flotants."
+      }
+    },
+    "carousel": {
+      "name": {
+        "es": "Carrusel",
+        "ca": "Carrusel"
+      },
+      "description": {
+        "es": "Una fila de elementos que avanza de uno en uno.",
+        "ca": "Una fila d’elements que avança d’un en un."
+      }
+    },
+    "checkbox": {
+      "name": {
+        "es": "Casilla de verificación",
+        "ca": "Casella de selecció"
+      },
+      "description": {
+        "es": "Una opción que se activa o desactiva, o varias opciones de una lista.",
+        "ca": "Una opció que s’activa o es desactiva, o diverses opcions d’una llista."
+      }
+    },
+    "collapsible": {
+      "name": {
+        "es": "Sección desplegable",
+        "ca": "Secció desplegable"
+      },
+      "description": {
+        "es": "Una sección que se abre y se cierra.",
+        "ca": "Una secció que s’obre i es tanca."
+      }
+    },
+    "combobox": {
+      "name": {
+        "es": "Selector con búsqueda",
+        "ca": "Selector amb cerca"
+      },
+      "description": {
+        "es": "Selección en una lista larga, con búsqueda.",
+        "ca": "Selecció en una llista llarga, amb cerca."
+      }
+    },
+    "dialog": {
+      "name": {
+        "es": "Diálogo",
+        "ca": "Diàleg"
+      },
+      "description": {
+        "es": "Cabecera, cuerpo y botones de pie a todo el ancho: primero Cancelar y después la acción.",
+        "ca": "Capçalera, cos i botons de peu a tota l’amplada: primer Cancel·la i després l’acció."
+      }
+    },
+    "dropdown-menu": {
+      "name": {
+        "es": "Menú desplegable",
+        "ca": "Menú desplegable"
+      },
+      "description": {
+        "es": "Acciones de fila tras el botón de más opciones, con nombres claros.",
+        "ca": "Accions de fila darrere del botó de més opcions, amb noms clars."
+      }
+    },
+    "empty": {
+      "name": {
+        "es": "Estado vacío",
+        "ca": "Estat buit"
+      },
+      "description": {
+        "es": "Un contenedor vacío, con una acción clara.",
+        "ca": "Un contenidor buit, amb una acció clara."
+      }
+    },
+    "field": {
+      "name": {
+        "es": "Campo",
+        "ca": "Camp"
+      },
+      "description": {
+        "es": "Etiqueta encima del control, descripción y error debajo.",
+        "ca": "Etiqueta damunt del control, descripció i error a sota."
+      }
+    },
+    "input": {
+      "name": {
+        "es": "Entrada",
+        "ca": "Entrada"
+      },
+      "description": {
+        "es": "Texto, números y búsqueda, con las unidades como complementos del grupo de entrada.",
+        "ca": "Text, nombres i cerca, amb les unitats com a complements del grup d’entrada."
+      }
+    },
+    "input-group": {
+      "name": {
+        "es": "Grupo de entrada",
+        "ca": "Grup d’entrada"
+      },
+      "description": {
+        "es": "Un campo con iconos, texto o botones en su interior.",
+        "ca": "Un camp amb icones, text o botons a l’interior."
+      }
+    },
+    "item": {
+      "name": {
+        "es": "Elemento",
+        "ca": "Element"
+      },
+      "description": {
+        "es": "Entidades que se pueden pulsar: conjuntos de datos, modelos e imágenes.",
+        "ca": "Entitats que es poden prémer: conjunts de dades, models i imatges."
+      }
+    },
+    "kbd": {
+      "name": {
+        "es": "Tecla",
+        "ca": "Tecla"
+      },
+      "description": {
+        "es": "Atajos de teclado.",
+        "ca": "Dreceres de teclat."
+      }
+    },
+    "label": {
+      "name": {
+        "es": "Etiqueta de campo",
+        "ca": "Etiqueta de camp"
+      },
+      "description": {
+        "es": "El nombre de un campo.",
+        "ca": "El nom d’un camp."
+      }
+    },
+    "navigation-menu": {
+      "name": {
+        "es": "Menú de navegación",
+        "ca": "Menú de navegació"
+      },
+      "description": {
+        "es": "Un menú de enlaces con grupos desplegables.",
+        "ca": "Un menú d’enllaços amb grups desplegables."
+      }
+    },
+    "pagination": {
+      "name": {
+        "es": "Paginación",
+        "ca": "Paginació"
+      },
+      "description": {
+        "es": "Páginas numeradas debajo de una tabla.",
+        "ca": "Pàgines numerades sota una taula."
+      }
+    },
+    "popover": {
+      "name": {
+        "es": "Panel emergente",
+        "ca": "Panell emergent"
+      },
+      "description": {
+        "es": "Un panel anclado a su control.",
+        "ca": "Un panell ancorat al seu control."
+      }
+    },
+    "progress": {
+      "name": {
+        "es": "Progreso",
+        "ca": "Progrés"
+      },
+      "description": {
+        "es": "Cuánto ha avanzado una tarea.",
+        "ca": "Quant ha avançat una tasca."
+      }
+    },
+    "radio-group": {
+      "name": {
+        "es": "Grupo de opciones",
+        "ca": "Grup d’opcions"
+      },
+      "description": {
+        "es": "Elección entre unos pocos modos, presentados como tarjetas de selección.",
+        "ca": "Tria entre uns quants modes, presentats com a targetes de selecció."
+      }
+    },
+    "scroll-area": {
+      "name": {
+        "es": "Área desplazable",
+        "ca": "Àrea desplaçable"
+      },
+      "description": {
+        "es": "Una zona con su propio desplazamiento.",
+        "ca": "Una zona amb el seu propi desplaçament."
+      }
+    },
+    "select": {
+      "name": {
+        "es": "Selector",
+        "ca": "Selector"
+      },
+      "description": {
+        "es": "Selección en una lista corta.",
+        "ca": "Selecció en una llista curta."
+      }
+    },
+    "separator": {
+      "name": {
+        "es": "Separador",
+        "ca": "Separador"
+      },
+      "description": {
+        "es": "Solo entre filas y en barras de herramientas.",
+        "ca": "Només entre files i en barres d’eines."
+      }
+    },
+    "sheet": {
+      "name": {
+        "es": "Panel lateral",
+        "ca": "Panell lateral"
+      },
+      "description": {
+        "es": "Un panel lateral sobre la página.",
+        "ca": "Un panell lateral damunt de la pàgina."
+      }
+    },
+    "sidebar": {
+      "name": {
+        "es": "Barra lateral",
+        "ca": "Barra lateral"
+      },
+      "description": {
+        "es": "La navegación lateral de una página.",
+        "ca": "La navegació lateral d’una pàgina."
+      }
+    },
+    "skeleton": {
+      "name": {
+        "es": "Esqueleto de carga",
+        "ca": "Esquelet de càrrega"
+      },
+      "description": {
+        "es": "Contenido en carga, con la forma del contenido final.",
+        "ca": "Contingut en càrrega, amb la forma del contingut final."
+      }
+    },
+    "slider": {
+      "name": {
+        "es": "Control deslizante",
+        "ca": "Control lliscant"
+      },
+      "description": {
+        "es": "Un valor dentro de un intervalo.",
+        "ca": "Un valor dins d’un interval."
+      }
+    },
+    "sonner": {
+      "name": {
+        "es": "Notificación",
+        "ca": "Notificació"
+      },
+      "description": {
+        "es": "Información breve tras una acción.",
+        "ca": "Informació breu després d’una acció."
+      }
+    },
+    "spinner": {
+      "name": {
+        "es": "Indicador de carga",
+        "ca": "Indicador de càrrega"
+      },
+      "description": {
+        "es": "Una operación en curso: en su botón o en una zona vacía.",
+        "ca": "Una operació en curs: al seu botó o en una zona buida."
+      }
+    },
+    "switch": {
+      "name": {
+        "es": "Interruptor",
+        "ca": "Interruptor"
+      },
+      "description": {
+        "es": "Un ajuste activado o desactivado, en una fila de interruptor.",
+        "ca": "Un ajust activat o desactivat, en una fila d’interruptor."
+      }
+    },
+    "table": {
+      "name": {
+        "es": "Tabla",
+        "ca": "Taula"
+      },
+      "description": {
+        "es": "Filas de datos con cabeceras que permiten ordenar.",
+        "ca": "Files de dades amb capçaleres que permeten ordenar."
+      }
+    },
+    "tabs": {
+      "name": {
+        "es": "Pestañas",
+        "ca": "Pestanyes"
+      },
+      "description": {
+        "es": "Vistas de un mismo elemento.",
+        "ca": "Vistes d’un mateix element."
+      }
+    },
+    "textarea": {
+      "name": {
+        "es": "Área de texto",
+        "ca": "Àrea de text"
+      },
+      "description": {
+        "es": "Texto más largo.",
+        "ca": "Text més llarg."
+      }
+    },
+    "toggle": {
+      "name": {
+        "es": "Botón de alternancia",
+        "ca": "Botó de commutació"
+      },
+      "description": {
+        "es": "Un botón que permanece activado o desactivado.",
+        "ca": "Un botó que es manté activat o desactivat."
+      }
+    },
+    "toggle-group": {
+      "name": {
+        "es": "Grupo de alternancia",
+        "ca": "Grup de commutació"
+      },
+      "description": {
+        "es": "Una herramienta u opción entre varias.",
+        "ca": "Una eina o opció entre diverses."
+      }
+    },
+    "tooltip": {
+      "name": {
+        "es": "Ayuda emergente",
+        "ca": "Ajuda emergent"
+      },
+      "description": {
+        "es": "El nombre de un botón que solo contiene un icono.",
+        "ca": "El nom d’un botó que només conté una icona."
+      }
+    },
+    "top-bar": {
+      "name": {
+        "es": "Barra superior",
+        "ca": "Barra superior"
+      },
+      "description": {
+        "es": "La barra de marca: color, altura y logotipo. Cada aplicación aporta sus enlaces y acciones.",
+        "ca": "La barra de marca: color, alçada i logotip. Cada aplicació aporta els seus enllaços i accions."
+      }
+    },
+    "login-page": {
+      "name": {
+        "es": "Página de acceso",
+        "ca": "Pàgina d’accés"
+      },
+      "description": {
+        "es": "La página de inicio de sesión. Cada aplicación aporta sus textos y comprueba la contraseña.",
+        "ca": "La pàgina d’inici de sessió. Cada aplicació aporta els seus textos i comprova la contrasenya."
+      }
+    },
+    "confirm-dialog": {
+      "name": {
+        "es": "Diálogo de confirmación",
+        "ca": "Diàleg de confirmació"
+      },
+      "description": {
+        "es": "Una pregunta antes de una acción: ejecuta la acción, muestra su progreso y errores, y permite reintentar. Cada aplicación aporta sus textos y la acción.",
+        "ca": "Una pregunta abans d’una acció: executa l’acció, mostra el progrés i els errors, i permet tornar-ho a provar. Cada aplicació aporta els seus textos i l’acció."
+      }
+    },
+    "log-terminal": {
+      "name": {
+        "es": "Terminal de registros",
+        "ca": "Terminal de registres"
+      },
+      "description": {
+        "es": "Una consola de registros. Cada aplicación aporta sus líneas.",
+        "ca": "Una consola de registres. Cada aplicació aporta les seves línies."
+      }
+    }
+  },
+  "examples": {
+    "alert/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "Cada aviso conserva el fondo de tarjeta y el borde predeterminado; solo el icono y el texto indican el estado.",
+        "ca": "Cada avís conserva el fons de targeta i la vora predeterminada; només la icona i el text indiquen l’estat."
+      }
+    },
+    "alert/02-with-retry": {
+      "name": {
+        "es": "Con reintento",
+        "ca": "Amb reintent"
+      },
+      "about": {
+        "es": "Una sección que falla explica el fallo y ofrece Reintentar, que repite la misma solicitud.",
+        "ca": "Una secció que falla explica l’error i ofereix Torna-ho a provar, que repeteix la mateixa sol·licitud."
+      }
+    },
+    "alert-dialog/01-confirm": {
+      "name": {
+        "es": "Confirmación",
+        "ca": "Confirmació"
+      },
+      "about": {
+        "es": "Pregunta antes de una acción que no se puede deshacer.",
+        "ca": "Pregunta abans d’una acció que no es pot desfer."
+      }
+    },
+    "avatar/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Una imagen si está disponible; en caso contrario, las iniciales.",
+        "ca": "Una imatge si està disponible; altrament, les inicials."
+      }
+    },
+    "badge/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "Recuentos y etiquetas neutras. El estado nunca es una etiqueta: es un icono y una palabra.",
+        "ca": "Recomptes i etiquetes neutres. L’estat mai no és una etiqueta: és una icona i una paraula."
+      }
+    },
+    "breadcrumb/01-default": {
+      "name": {
+        "es": "Predeterminada",
+        "ca": "Predeterminada"
+      },
+      "about": {
+        "es": "Cada elemento abre su propia página; el último indica dónde estás.",
+        "ca": "Cada element obre la seva pròpia pàgina; l’últim indica on ets."
+      }
+    },
+    "button/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "Seis variantes: default para la acción principal, outline para acciones secundarias y barras de herramientas, ghost para iconos y acciones de fila, secondary para Cancelar en diálogos, destructive para eliminar y link para enlaces.",
+        "ca": "Sis variants: default per a l’acció principal, outline per a accions secundàries i barres d’eines, ghost per a icones i accions de fila, secondary per a Cancel·la en diàlegs, destructive per eliminar i link per a enllaços."
+      }
+    },
+    "button/02-sizes": {
+      "name": {
+        "es": "Tamaños",
+        "ca": "Mides"
+      },
+      "about": {
+        "es": "Los botones de barra de herramientas y cabecera miden 36 px por defecto; los de solo icono son cuadrados y tienen nombre y ayuda emergente.",
+        "ca": "Els botons de barra d’eines i capçalera fan 36 px per defecte; els de només icona són quadrats i tenen nom i ajuda emergent."
+      }
+    },
+    "button/03-with-icons": {
+      "name": {
+        "es": "Con iconos",
+        "ca": "Amb icones"
+      },
+      "about": {
+        "es": "Los iconos miden 16 px: antes de la etiqueta en acciones y después en menús.",
+        "ca": "Les icones fan 16 px: abans de l’etiqueta en accions i després en menús."
+      }
+    },
+    "button/04-working": {
+      "name": {
+        "es": "En curso",
+        "ca": "En curs"
+      },
+      "about": {
+        "es": "El botón de una operación en curso muestra un indicador de carga y permanece desactivado hasta que termina.",
+        "ca": "El botó d’una operació en curs mostra un indicador de càrrega i es manté desactivat fins que acaba."
+      }
+    },
+    "button/05-modal": {
+      "name": {
+        "es": "En diálogos",
+        "ca": "En diàlegs"
+      },
+      "about": {
+        "es": "En diálogos: primero Cancelar con secondary y después la acción; ambos con tamaño modal.",
+        "ca": "En diàlegs: primer Cancel·la amb secondary i després l’acció; tots dos amb mida modal."
+      }
+    },
+    "card/01-summary": {
+      "name": {
+        "es": "Resumen",
+        "ca": "Resum"
+      },
+      "about": {
+        "es": "Un resumen con su acción principal, como la vista general del conjunto de datos. Las tarjetas nunca enmarcan secciones.",
+        "ca": "Un resum amb la seva acció principal, com la vista general del conjunt de dades. Les targetes mai no emmarquen seccions."
+      }
+    },
+    "carousel/01-basic": {
+      "name": {
+        "es": "Básico",
+        "ca": "Bàsic"
+      },
+      "about": {
+        "es": "Un elemento cada vez, con flechas.",
+        "ca": "Un element cada vegada, amb fletxes."
+      }
+    },
+    "checkbox/01-default": {
+      "name": {
+        "es": "Predeterminada",
+        "ca": "Predeterminada"
+      },
+      "about": {
+        "es": "Una etiqueta junto a cada casilla; las opciones se agrupan en un conjunto de campos.",
+        "ca": "Una etiqueta al costat de cada casella; les opcions s’agrupen en un conjunt de camps."
+      }
+    },
+    "collapsible/01-basic": {
+      "name": {
+        "es": "Básica",
+        "ca": "Bàsica"
+      },
+      "about": {
+        "es": "Una sección que se abre y se cierra.",
+        "ca": "Una secció que s’obre i es tanca."
+      }
+    },
+    "combobox/01-searchable": {
+      "name": {
+        "es": "Con búsqueda",
+        "ca": "Amb cerca"
+      },
+      "about": {
+        "es": "Una lista larga: el campo permite buscar y «Crear nuevo» ocupa su propia fila al principio.",
+        "ca": "Una llista llarga: el camp permet cercar i «Crea’n un de nou» ocupa la seva pròpia fila al principi."
+      }
+    },
+    "confirm-dialog/01-delete": {
+      "name": {
+        "es": "Eliminar",
+        "ca": "Elimina"
+      },
+      "about": {
+        "es": "La aplicación aporta los textos y la acción. Mientras se ejecuta no se puede cerrar el diálogo; si falla, muestra el error y ofrece Reintentar.",
+        "ca": "L’aplicació aporta els textos i l’acció. Mentre s’executa no es pot tancar el diàleg; si falla, mostra l’error i ofereix Torna-ho a provar."
+      }
+    },
+    "confirm-dialog/02-type-to-confirm": {
+      "name": {
+        "es": "Escribir para confirmar",
+        "ca": "Escriu per confirmar"
+      },
+      "about": {
+        "es": "Para lo que no se puede recuperar: la acción permanece desactivada hasta que el texto coincide.",
+        "ca": "Per al que no es pot recuperar: l’acció es manté desactivada fins que el text coincideix."
+      }
+    },
+    "confirm-dialog/03-confirm": {
+      "name": {
+        "es": "Confirmar",
+        "ca": "Confirma"
+      },
+      "about": {
+        "es": "No solo para eliminar: otra variante, con el foco en la acción para confirmar con Intro.",
+        "ca": "No només per eliminar: una altra variant, amb el focus a l’acció per confirmar amb Retorn."
+      }
+    },
+    "confirm-dialog/04-progress": {
+      "name": {
+        "es": "Progreso",
+        "ca": "Progrés"
+      },
+      "about": {
+        "es": "Una acción larga: el progreso ocupa su slot y con background el único botón es Continuar, que deja la acción en curso. La aplicación cierra el diálogo y muestra el progreso en otro lugar.",
+        "ca": "Una acció llarga: el progrés ocupa el seu slot i amb background l’únic botó és Continua, que deixa l’acció en curs. L’aplicació tanca el diàleg i mostra el progrés en un altre lloc."
+      }
+    },
+    "dialog/01-form": {
+      "name": {
+        "es": "Formulario",
+        "ca": "Formulari"
+      },
+      "about": {
+        "es": "La franja de cabecera contiene el título; el pie, Cancelar y después la acción, a todo el ancho. El formulario se envía desde el pie.",
+        "ca": "La franja de capçalera conté el títol; el peu, Cancel·la i després l’acció, a tota l’amplada. El formulari s’envia des del peu."
+      }
+    },
+    "dialog/02-destructive": {
+      "name": {
+        "es": "Acción destructiva",
+        "ca": "Acció destructiva"
+      },
+      "about": {
+        "es": "La estructura de una eliminación. Para ejecutarla con estados de carga y error, usa el bloque ConfirmDialog.",
+        "ca": "L’estructura d’una eliminació. Per executar-la amb estats de càrrega i error, fes servir el bloc ConfirmDialog."
+      }
+    },
+    "dialog/03-form-states": {
+      "name": {
+        "es": "Estados del formulario",
+        "ca": "Estats del formulari"
+      },
+      "about": {
+        "es": "Un formulario que guarda: valida, no permite cerrar mientras guarda y muestra el error con Reintentar. El primer intento falla para mostrar este estado.",
+        "ca": "Un formulari que desa: valida, no permet tancar mentre desa i mostra l’error amb Torna-ho a provar. El primer intent falla per mostrar aquest estat."
+      }
+    },
+    "dropdown-menu/01-row-actions": {
+      "name": {
+        "es": "Acciones de fila",
+        "ca": "Accions de fila"
+      },
+      "about": {
+        "es": "Las acciones de fila están tras un botón discreto de más opciones, cada una con nombre; la destructiva va al final.",
+        "ca": "Les accions de fila són darrere d’un botó discret de més opcions, cadascuna amb nom; la destructiva va al final."
+      }
+    },
+    "dropdown-menu/02-tag-picker": {
+      "name": {
+        "es": "Selector de etiqueta",
+        "ca": "Selector d’etiqueta"
+      },
+      "about": {
+        "es": "Para cambiar la etiqueta de una fila: un botón discreto con muestra de color, nombre y flecha abre una lista de selección única.",
+        "ca": "Per canviar l’etiqueta d’una fila: un botó discret amb mostra de color, nom i fletxa obre una llista de selecció única."
+      }
+    },
+    "empty/01-filters": {
+      "name": {
+        "es": "Filtros",
+        "ca": "Filtres"
+      },
+      "about": {
+        "es": "Un contenedor vacío explica el motivo y ofrece una salida.",
+        "ca": "Un contenidor buit explica el motiu i ofereix una sortida."
+      }
+    },
+    "empty/02-loading": {
+      "name": {
+        "es": "Carga",
+        "ca": "Càrrega"
+      },
+      "about": {
+        "es": "Una zona en carga: Empty con un indicador y el progreso cuando se conoce.",
+        "ca": "Una zona en càrrega: Empty amb un indicador i el progrés quan es coneix."
+      }
+    },
+    "field/01-form": {
+      "name": {
+        "es": "Formulario",
+        "ca": "Formulari"
+      },
+      "about": {
+        "es": "Etiqueta encima del control y descripción debajo; el error la sustituye tras la interacción. Las unidades van en un complemento.",
+        "ca": "Etiqueta damunt del control i descripció a sota; l’error la substitueix després de la interacció. Les unitats van en un complement."
+      }
+    },
+    "field/02-switch-rows": {
+      "name": {
+        "es": "Filas de interruptores",
+        "ca": "Files d’interruptors"
+      },
+      "about": {
+        "es": "Ajustes en filas de interruptores: varios comparten una lista con borde.",
+        "ca": "Ajustos en files d’interruptors: diversos comparteixen una llista amb vora."
+      }
+    },
+    "input/01-default": {
+      "name": {
+        "es": "Predeterminada",
+        "ca": "Predeterminada"
+      },
+      "about": {
+        "es": "Texto, número y búsqueda; la búsqueda lleva su icono en un complemento.",
+        "ca": "Text, nombre i cerca; la cerca porta la seva icona en un complement."
+      }
+    },
+    "input-group/01-basic": {
+      "name": {
+        "es": "Básico",
+        "ca": "Bàsic"
+      },
+      "about": {
+        "es": "Iconos, texto o botones dentro del campo.",
+        "ca": "Icones, text o botons dins del camp."
+      }
+    },
+    "item/01-entities": {
+      "name": {
+        "es": "Entidades",
+        "ca": "Entitats"
+      },
+      "about": {
+        "es": "Las entidades que se pueden pulsar usan elementos con contorno: imagen primero, título, líneas de texto secundario y estado en el pie.",
+        "ca": "Les entitats que es poden prémer fan servir elements amb contorn: imatge primer, títol, línies de text secundari i estat al peu."
+      }
+    },
+    "kbd/01-default": {
+      "name": {
+        "es": "Predeterminada",
+        "ca": "Predeterminada"
+      },
+      "about": {
+        "es": "Atajos en ayudas emergentes y textos de ayuda.",
+        "ca": "Dreceres en ajudes emergents i textos d’ajuda."
+      }
+    },
+    "label/01-basic": {
+      "name": {
+        "es": "Básica",
+        "ca": "Bàsica"
+      },
+      "about": {
+        "es": "El nombre de un campo, vinculado a él mediante for.",
+        "ca": "El nom d’un camp, vinculat a aquest mitjançant for."
+      }
+    },
+    "log-terminal/01-lines": {
+      "name": {
+        "es": "Líneas",
+        "ca": "Línies"
+      },
+      "about": {
+        "es": "La aplicación aporta las líneas. Sigue las nuevas salvo que te hayas desplazado hacia arriba para leer.",
+        "ca": "L’aplicació aporta les línies. Segueix les noves tret que t’hagis desplaçat cap amunt per llegir."
+      }
+    },
+    "log-terminal/02-states": {
+      "name": {
+        "es": "Estados",
+        "ca": "Estats"
+      },
+      "about": {
+        "es": "Carga, vacío y error, con Reintentar.",
+        "ca": "Càrrega, buit i error, amb Torna-ho a provar."
+      }
+    },
+    "login-page/01-with-panel": {
+      "name": {
+        "es": "Con panel",
+        "ca": "Amb panell"
+      },
+      "about": {
+        "es": "Cada aplicación aporta los textos ya traducidos y comprueba la contraseña al recibir submit. Los controles de idioma y tema y la línea legal ocupan sus slots, como en el acceso de Rosepetal.",
+        "ca": "Cada aplicació aporta els textos ja traduïts i comprova la contrasenya quan rep submit. Els controls de llengua i tema i la línia legal ocupen els seus slots, com a l’accés de Rosepetal."
+      }
+    },
+    "login-page/02-without-panel": {
+      "name": {
+        "es": "Sin panel",
+        "ca": "Sense panell"
+      },
+      "about": {
+        "es": "Sin panel lateral, con textos de otra aplicación y un error de su propio inicio de sesión.",
+        "ca": "Sense panell lateral, amb textos d’una altra aplicació i un error del seu propi inici de sessió."
+      }
+    },
+    "navigation-menu/01-basic": {
+      "name": {
+        "es": "Básico",
+        "ca": "Bàsic"
+      },
+      "about": {
+        "es": "Enlaces, algunos agrupados en un desplegable.",
+        "ca": "Enllaços, alguns agrupats en un desplegable."
+      }
+    },
+    "pagination/01-numbered": {
+      "name": {
+        "es": "Numerada",
+        "ca": "Numerada"
+      },
+      "about": {
+        "es": "Debajo de una tabla: «Página x de y» a la izquierda y páginas numeradas a la derecha.",
+        "ca": "Sota una taula: «Pàgina x de y» a l’esquerra i pàgines numerades a la dreta."
+      }
+    },
+    "popover/01-tool-panel": {
+      "name": {
+        "es": "Panel de herramienta",
+        "ca": "Panell d’eina"
+      },
+      "about": {
+        "es": "Un panel anclado a su herramienta, con componentes estándar dentro.",
+        "ca": "Un panell ancorat a la seva eina, amb components estàndard a dins."
+      }
+    },
+    "progress/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Cuánto ha avanzado una tarea, con el valor expresado en texto al lado.",
+        "ca": "Quant ha avançat una tasca, amb el valor expressat en text al costat."
+      }
+    },
+    "radio-group/01-choice-cards": {
+      "name": {
+        "es": "Tarjetas de selección",
+        "ca": "Targetes de selecció"
+      },
+      "about": {
+        "es": "Una elección entre modos, como tarjetas de selección.",
+        "ca": "Una tria entre modes, com a targetes de selecció."
+      }
+    },
+    "scroll-area/01-basic": {
+      "name": {
+        "es": "Básica",
+        "ca": "Bàsica"
+      },
+      "about": {
+        "es": "Una zona con su propio desplazamiento.",
+        "ca": "Una zona amb el seu propi desplaçament."
+      }
+    },
+    "select/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Una lista corta de opciones.",
+        "ca": "Una llista curta d’opcions."
+      }
+    },
+    "separator/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Entre grupos de herramientas y en menús. Nunca entre secciones de una página.",
+        "ca": "Entre grups d’eines i en menús. Mai entre seccions d’una pàgina."
+      }
+    },
+    "sheet/01-side-panel": {
+      "name": {
+        "es": "Panel lateral",
+        "ca": "Panell lateral"
+      },
+      "about": {
+        "es": "Un panel lateral sobre la página para filtros o detalles en pantallas pequeñas. La cabecera lo nombra; la descripción es para lectores de pantalla.",
+        "ca": "Un panell lateral damunt de la pàgina per a filtres o detalls en pantalles petites. La capçalera l’anomena; la descripció és per a lectors de pantalla."
+      }
+    },
+    "sidebar/01-basic": {
+      "name": {
+        "es": "Básica",
+        "ca": "Bàsica"
+      },
+      "about": {
+        "es": "Un menú lateral con grupos. La barra lateral de esta página se construye con él.",
+        "ca": "Un menú lateral amb grups. La barra lateral d’aquesta pàgina es construeix amb aquest component."
+      }
+    },
+    "skeleton/01-shaped": {
+      "name": {
+        "es": "Con forma del contenido",
+        "ca": "Amb la forma del contingut"
+      },
+      "about": {
+        "es": "El contenido en carga adopta la forma del contenido final: aquí, tarjetas de elementos.",
+        "ca": "El contingut en càrrega adopta la forma del contingut final: aquí, targetes d’elements."
+      }
+    },
+    "slider/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Un valor dentro de un intervalo, con el valor en texto.",
+        "ca": "Un valor dins d’un interval, amb el valor en text."
+      }
+    },
+    "sonner/01-feedback": {
+      "name": {
+        "es": "Respuesta",
+        "ca": "Resposta"
+      },
+      "about": {
+        "es": "Información breve tras una acción, con Sonner estándar.",
+        "ca": "Informació breu després d’una acció, amb Sonner estàndard."
+      }
+    },
+    "spinner/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "En línea, dentro del botón en curso, o llenando una zona vacía.",
+        "ca": "En línia, dins del botó en curs, o omplint una zona buida."
+      }
+    },
+    "switch/01-default": {
+      "name": {
+        "es": "Predeterminado",
+        "ca": "Predeterminat"
+      },
+      "about": {
+        "es": "Un ajuste activado o desactivado. Las filas con descripción usan una fila de interruptor (véase Campo).",
+        "ca": "Un ajust activat o desactivat. Les files amb descripció fan servir una fila d’interruptor (vegeu Camp)."
+      }
+    },
+    "table/01-sortable": {
+      "name": {
+        "es": "Ordenable",
+        "ca": "Ordenable"
+      },
+      "about": {
+        "es": "Las cabeceras ordenables son botones discretos; el estado es un icono y una palabra; las acciones de fila van al final.",
+        "ca": "Les capçaleres ordenables són botons discrets; l’estat és una icona i una paraula; les accions de fila van al final."
+      }
+    },
+    "tabs/01-default": {
+      "name": {
+        "es": "Predeterminadas",
+        "ca": "Predeterminades"
+      },
+      "about": {
+        "es": "Vistas de un mismo elemento. Las aplicaciones usan siempre la variante de línea: pestañas de página, de conjunto de datos y del panel lateral del editor.",
+        "ca": "Vistes d’un mateix element. Les aplicacions fan servir sempre la variant de línia: pestanyes de pàgina, de conjunt de dades i del panell lateral de l’editor."
+      }
+    },
+    "textarea/01-default": {
+      "name": {
+        "es": "Predeterminada",
+        "ca": "Predeterminada"
+      },
+      "about": {
+        "es": "Texto más largo, con una etiqueta encima.",
+        "ca": "Text més llarg, amb una etiqueta al damunt."
+      }
+    },
+    "toggle/01-variants": {
+      "name": {
+        "es": "Variantes",
+        "ca": "Variants"
+      },
+      "about": {
+        "es": "Un botón que permanece activado o desactivado.",
+        "ca": "Un botó que es manté activat o desactivat."
+      }
+    },
+    "toggle-group/01-tools": {
+      "name": {
+        "es": "Herramientas",
+        "ca": "Eines"
+      },
+      "about": {
+        "es": "Una herramienta entre varias. En un lienzo, la barra usa espaciado y la herramienta pulsada adopta el estilo principal.",
+        "ca": "Una eina entre diverses. En un llenç, la barra fa servir espaiat i l’eina premuda adopta l’estil principal."
+      }
+    },
+    "tooltip/01-icon-buttons": {
+      "name": {
+        "es": "Botones de icono",
+        "ca": "Botons d’icona"
+      },
+      "about": {
+        "es": "Cada botón de solo icono tiene un nombre y una ayuda emergente que lo indica.",
+        "ca": "Cada botó de només icona té un nom i una ajuda emergent que l’indica."
+      }
+    },
+    "top-bar/01-app": {
+      "name": {
+        "es": "Aplicación",
+        "ca": "Aplicació"
+      },
+      "about": {
+        "es": "La barra principal de una aplicación: el logotipo por defecto, sus enlaces y sus acciones.",
+        "ca": "La barra principal d’una aplicació: el logotip per defecte, els seus enllaços i les seves accions."
+      }
+    },
+    "top-bar/02-full-width": {
+      "name": {
+        "es": "Ancho completo",
+        "ca": "Amplada completa"
+      },
+      "about": {
+        "es": "De borde a borde, para tareas a pantalla completa como el etiquetado o el editor: separador tras el logotipo, ruta de navegación en lugar de menú y una salida.",
+        "ca": "De vora a vora, per a tasques a pantalla completa com l’etiquetatge o l’editor: separador darrere del logotip, ruta de navegació en lloc de menú i una sortida."
+      }
+    }
+  }
+}

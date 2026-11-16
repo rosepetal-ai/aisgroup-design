@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "values": [
+      {
+        "model": "Compact A",
+        "family": "Compact family",
+        "size": 6,
+        "map": 0.71,
+        "labelY": 0.71
+      },
+      {
+        "model": "Compact B",
+        "family": "Compact family",
+        "size": 22,
+        "map": 0.78,
+        "labelY": 0.78
+      },
+      {
+        "model": "Balanced A",
+        "family": "Compact family",
+        "size": 52,
+        "map": 0.82,
+        "labelY": 0.83
+      },
+      {
+        "model": "Compact C",
+        "family": "Balanced family",
+        "size": 9,
+        "map": 0.76,
+        "labelY": 0.76
+      },
+      {
+        "model": "Balanced C",
+        "family": "Balanced family",
+        "size": 20,
+        "map": 0.81,
+        "labelY": 0.81
+      },
+      {
+        "model": "DETR r18",
+        "family": "Large family",
+        "size": 80,
+        "map": 0.83,
+        "labelY": 0.818
+      },
+      {
+        "model": "DETR r50",
+        "family": "Large family",
+        "size": 168,
+        "map": 0.86,
+        "labelY": 0.86
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "size",
+      "type": "quantitative",
+      "title": "Model size (MB)",
+      "scale": {
+        "domain": [
+          0,
+          180
+        ],
+        "nice": false
+      }
+    },
+    "y": {
+      "field": "map",
+      "type": "quantitative",
+      "title": "mAP@50",
+      "scale": {
+        "domain": [
+          0.65,
+          0.9
+        ]
+      }
+    },
+    "color": {
+      "field": "family",
+      "type": "nominal",
+      "sort": [
+        "Compact family",
+        "Balanced family",
+        "Large family"
+      ]
+    }
+  },
+  "layer": [
+    {
+      "mark": "point"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12
+      },
+      "encoding": {
+        "y": {
+          "field": "labelY",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "model"
+        },
+        "color": {
+          "value": "#4B5563"
+        }
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": "Model size and example accuracy",
+  "description": "Synthetic example data for chart design, not AIS measurements or model benchmarks."
+}

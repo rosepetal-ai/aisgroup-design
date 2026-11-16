@@ -1,0 +1,54 @@
+{
+  "name": "ais-vision-systems_carousel-application-labels_es_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "Una etiqueta torcida y una falta de tinta requieren comprobaciones distintas. AIS REV 360 inspecciona la alineación de la etiqueta y la impresión en los envases. Estas muestras de demostración muestran los dos defectos; las comprobaciones para tu etiqueta se definen con muestras representativas. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/carousel-application-labels/hero-pair.png",
+      "evidence": "render",
+      "crop": "none",
+      "headline": "¿Cuál|de estas botellas|*rechazarías*?",
+      "alt": "Dos primeros planos de botellas: la etiqueta derecha está torcida."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/carousel-application-labels/slide-2_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La de la derecha:|etiqueta torcida",
+      "alt": "Botella correcta y botella con etiqueta inclinada 4°, señalada en rojo."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/carousel-application-labels/slide-3_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "La de la derecha:|falta de tinta",
+      "alt": "Botella correcta y botella con falta de tinta; ampliación del nombre impreso."
+    },
+    {
+      "type": "contact",
+      "headline": "¿Revisamos|*tus etiquetas*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "¿Revisamos tus etiquetas?"
+    }
+  ],
+  "formats": [
+    "4x5"
+  ]
+}

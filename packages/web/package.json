@@ -1,0 +1,28 @@
+{
+  "name": "@aisgroup/web",
+  "version": "0.0.0",
+  "description": "The AIS Group websites' design: Astro components and tokens for every brand.",
+  "type": "module",
+  "files": [
+    "catalog.ts",
+    "components",
+    "lib",
+    "examples",
+    "brand.css",
+    "styles.css",
+    "README.md"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./components/*": "./components/*/index.ts",
+    "./catalog": "./catalog.ts",
+    "./examples/*": "./examples/*",
+    "./styles.css": "./styles.css",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "astro": ">=5.0.0"
+  }
+}

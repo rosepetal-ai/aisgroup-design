@@ -1,0 +1,25 @@
+---
+// Which token does which job, light and dark side by side; the values come from @rosepetal/design's styles.css.
+import { usage, resolve } from '../design/themes';
+import Swatch from './Swatch.astro';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; labels: { role: string; token: string; light: string; dark: string } }
+const { lang, labels } = Astro.props;
+---
+<div class="table-wrap"><table class="usage">
+  <thead><tr><th>{labels.role}</th><th>{labels.token}</th><th>{labels.light}</th><th>{labels.dark}</th></tr></thead>
+  <tbody>
+    {usage.map((u) => (
+      <tr>
+        <td>{u.role[lang]}</td>
+        <td><code>--{u.token}</code></td>
+        <td><Swatch {...resolve(u.token, 'light')} /></td>
+        <td><Swatch {...resolve(u.token, 'dark')} /></td>
+      </tr>
+    ))}
+  </tbody>
+</table></div>
+<style>
+  .usage td { vertical-align: middle; }
+  td > code { white-space: nowrap; overflow-wrap: normal; }
+</style>

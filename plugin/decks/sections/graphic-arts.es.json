@@ -1,0 +1,25 @@
+{
+  "slides": [
+    {
+      "layout": "divider",
+      "part": "Artes gráficas",
+      "title": "Compromiso con los más altos estándares de calidad"
+    },
+    {
+      "layout": "split",
+      "image": {
+        "src": "tpl:ext/c8-source.png",
+        "fit": "contain",
+        "pad": 150,
+        "maxScale": 0.65
+      },
+      "title": "Control de calidad de artes gráficas",
+      "points": [
+        "**Arts Platform:** la forma más rápida de encontrar y eliminar errores en los envases",
+        "**GlobalVision C8**",
+        "**¿Qué te ofrecemos?** Inspección de todos los envases a su llegada al almacén"
+      ],
+      "notes": "Control de calidad de artes gráficas con GlobalVision: Arts Platform, el C8 (en la imagen) y la inspección de todos los envases a su llegada al almacén."
+    }
+  ]
+}

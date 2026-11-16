@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import Guide from '../../layouts/Guide.astro';
+import { languages, order, type Lang } from '../../i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guide');
+  // The loader names an index file after its folder ("en"), so normalise it to "index".
+  const slugOf = (id: string) => id.split('/').slice(1).join('/') || 'index';
+  const find = (lang: string, slug: string) => entries.find((e) => e.id.split('/')[0] === lang && slugOf(e.id) === slug);
+  // A page not yet written in a language falls back to English, so navigation never breaks.
+  return Object.keys(languages).flatMap((lang) => {
+    const titles = Object.fromEntries(order.map((slug) => [slug, (find(lang, slug) ?? find('en', slug))!.data.title]));
+    return order.map((slug) => ({ params: { lang, slug: slug === 'index' ? undefined : slug }, props: { entry: find(lang, slug) ?? find('en', slug)!, lang, slug, titles } }));
+  });
+}
+const { entry, lang, slug, titles } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+<Guide lang={lang as Lang} slug={slug} title={entry.data.title} headings={headings} titles={titles} wide={entry.data.wide}>
+  <Content />
+</Guide>

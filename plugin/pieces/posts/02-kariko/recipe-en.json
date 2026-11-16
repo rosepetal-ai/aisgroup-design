@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-kariko_en_2026-10-29",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "AIS KARIKÓ inspects heat-sealed trays from both sides. On this sample tray, a fragment of blue plastic has landed on the lidding film, next to the label. It is an illustrative example, not the result of a machine trial. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/social-composites/02-kariko-tray_foreign-body_en.png",
+      "focus": [
+        50,
+        50
+      ],
+      "evidence": "render",
+      "headline": "A foreign body|on the lidding film"
+    }
+  ]
+}

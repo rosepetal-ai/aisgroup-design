@@ -1,0 +1,152 @@
+---
+title: Logotipos
+rules:
+  - 'Usa solo los archivos de logotipo suministrados: azul sobre blanco y fondos claros, blanco sobre el azul de marca, el azul marino o fotos oscuras, y negro solo en producción en negro y en las cabeceras de las webs de AIS sobre blanco.'
+  - 'El área de protección es una cuarta parte de la altura total del logotipo por cada lado, descriptor incluido.'
+  - 'Anchos mínimos: AIS Group 72 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.'
+  - 'El software usa la marca de app (la Λ de AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, iconos de app en `logos/app/`, favicons de web en `logos/favicons/`), a 24 px en una barra lateral o una cabecera y nunca por debajo de 16 px. Todo lo demás usa el logotipo completo.'
+---
+import Logos from '../../../components/Logos.astro';
+import DoDont from '../../../components/DoDont.astro';
+import AppMark from '../../../components/AppMark.astro';
+import LogoRules from '../../../components/LogoRules.astro';
+import FaviconTabs from '../../../components/FaviconTabs.astro';
+
+Usa estos logotipos aprobados y respeta su espacio de protección en cada soporte.
+
+## Variantes
+
+<Logos names={{ 'ais-group': 'AIS Group', 'ais-vision-systems': 'AIS Vision Systems', 'ais-vision-automation': 'AIS Vision Automation', 'ais-scanology': 'AIS Scanology', 'rosepetal': 'Rosepetal' }} />
+
+| Variante | Úsala sobre |
+| --- | --- |
+| **Azul** `#17356E` | Fondos blancos y muy claros. Es la versión por defecto, en pantalla e impresa, también en trabajos a una tinta que admitan un azul directo. |
+| **Blanca** (negativo) | El azul de marca, el azul marino oscuro o una fotografía lo bastante oscura para mantener el contraste. |
+| **Negra** `#000000` | En cabeceras de las webs de AIS sobre blanco y cuando la producción únicamente reproduce negro: impresión en blanco y negro, anuncios de prensa, formularios, grabado láser, sellos y páginas de socios que exigen todos los logotipos en negro. |
+
+El negro es una limitación de producción, con una excepción en pantalla: las cabeceras de las webs de AIS sobre blanco usan el logotipo negro, junto a la tinta de la navegación. La web de Rosepetal es clara y usa el logotipo azul. En el resto de la pantalla y en las piezas a color, el logotipo es azul o blanco. El archivo negro es negro puro (100 % K) y no el color de texto `#0F1729`, porque una impresora o una rotativa que solo imprime negro convierte cualquier otro tono oscuro en una trama gris. Los logotipos son planos: sin degradados, sombras, brillos ni efectos 3D. Qué versión lleva cada tema está en [Temas claro y oscuro](/es/themes/#logotipos-y-favicons).
+
+## Área de protección
+
+<LogoRules lang="es" part="space" />
+
+Deja un margen libre de **x por los cuatro lados**, donde **x es una cuarta parte de la altura total del logotipo**, descriptor incluido. En ese espacio no entra nada: ni texto, ni imágenes, ni bordes, ni otros logos. Mide desde los extremos visibles de la marca, no desde la caja del archivo.
+
+## Tamaño mínimo
+
+<LogoRules lang="es" part="size" />
+
+| Logotipo | En pantalla | Impreso |
+| --- | ---: | ---: |
+| AIS Group | 72 px | 15 mm |
+| AIS Vision Systems | 100 px | 18 mm |
+| AIS Vision Automation | 110 px | 20 mm |
+| AIS Scanology | 95 px | 17 mm |
+| Rosepetal | 130 px | 24 mm |
+
+Son mínimos, no tamaños de trabajo. El logotipo firma la pieza, no la encabeza: en un A4 el logotipo de AIS Vision Systems mide 20 mm de ancho y el de Rosepetal 38 mm (todos los logotipos con la misma área, para que una palabra larga pese lo mismo que una marca alta), en una tarjeta el de AIS 18 mm, en una firma de correo 100 px y en una diapositiva de 1920 px, 140 px.
+
+La prueba es si el descriptor se lee al tamaño final. Si no se lee, gana espacio o pide una variante compacta; nunca elimines palabras ni reduzcas el descriptor por separado. Las piezas de marketing no tienen variante compacta; el software usa la [marca de app](#marcas-de-app).
+
+## Uso correcto
+
+<LogoRules lang="es" part="donts" />
+
+<DoDont doLabel="Haz" dontLabel="Evita"
+  dos={['Escalar el logotipo completo manteniendo sus proporciones', 'Elegir la variante suministrada que corresponde al fondo', 'Situarlo sobre un fondo limpio y con contraste suficiente', 'Mantener el descriptor tal como está dibujado', 'Usar el archivo vectorial de Descargas']}
+  donts={['Estirar, inclinar o retocar letras, incluidas la «I» de AIS y la «o» de Rosepetal', 'Usar un azul aproximado o recolorear partes', 'Colocarlo sobre texturas o fotografías recargadas', 'Separar, traducir o sustituir el descriptor', 'Hacer una captura de pantalla o regenerarlo con IA']} />
+
+Los logotipos de clientes y partners mantienen sus colores y se sitúan separados de la marca que firma.
+
+## En las webs
+
+- **Solo los archivos oficiales** de Descargas. Nunca los reexportes, recortes ni calques: una exportación desde una app de diseño cortó el anillo de Rosepetal y el trazo descendente de la «p».
+- **Tamaños en cabecera:** los logotipos de AIS Group y AIS Vision Systems miden 44 px de alto; el de Rosepetal, 27 px (140 px de ancho), y 25 px en móvil (130 px de ancho, su mínimo en pantalla).
+- **Favicons:** el símbolo solo del juego de web, azul en modo claro y blanco en modo oscuro, ajustado al píxel en cada tamaño (consulta [Favicons](#favicons)). AIS Group y AIS Vision Systems usan la Λ; Rosepetal, la «o».
+- **Títulos de pestaña:** «Título de la página | Marca», por ejemplo «AIS REV 360 | AIS Vision Systems» o «Plataforma | Rosepetal». Sin guiones, puntos medios ni la marca delante.
+
+## Marcas de app
+
+Cada marca de software tiene un símbolo, recortado de su propio logotipo: la **Λ** de AIS y la **«o»** de Rosepetal. El símbolo firma nuestro software y las pestañas del navegador, donde el logotipo completo no cabe o se repetiría en cada pantalla: iconos de app, favicons y la barra lateral o la cabecera de un producto junto a su nombre. Los dos salen de los archivos oficiales del logotipo y nunca se redibujan.
+
+### Λ de AIS
+
+Para AIS Group, AIS Vision Systems, AIS Vision Automation, AIS Scanology y el software de AIS. AIS Vision Automation (aisautomation.ie) y AIS Scanology (scanology.nl) tienen web propia pero no un símbolo propio, así que también usan la Λ.
+
+<AppMark brand="ais" labels={['Azul, sobre claro', 'Blanca, sobre azul', 'Icono de app', 'Favicon de app, pestaña clara y oscura', 'Favicon de web, modo claro', 'Favicon de web, modo oscuro']} />
+
+### «o» de Rosepetal
+
+Para rosepetal.ai y la app de Rosepetal. La «o» conserva su pequeño círculo interior; a 16 px se cierra, y es lo esperado.
+
+<AppMark brand="rosepetal" labels={['Azul, sobre claro', 'Blanca, sobre azul', 'Icono de app', 'Favicon de app, pestaña clara y oscura', 'Favicon de web, modo claro', 'Favicon de web, modo oscuro']} />
+
+- **Solo en software y pestañas del navegador.** Folletos, documentos, presentaciones, papelería, publicaciones en redes y cabeceras de las webs usan el logotipo completo. Las pantallas de inicio de sesión y de carga también tienen sitio para el logotipo completo, así que lo usan. Una web muestra su símbolo solo como favicon.
+- **Colores:** azul sobre blanco y fondos claros, blanco sobre el azul de marca y el azul marino oscuro, negro solo cuando la producción es únicamente en negro. Los iconos de app son siempre el símbolo blanco sobre la pieza azul `#17356E`. Nunca con degradados, sombras ni brillos.
+- **Área de protección:** x por los cuatro lados, donde x es una cuarta parte de la altura del símbolo. Junto al nombre del producto, la separación es la mitad de la altura del símbolo.
+- **Tamaños:** 16 px de alto como mínimo. En una barra lateral o la cabecera de una app mide 24 px de alto, con el nombre del producto en la fuente de la interfaz a 14–16 px, seminegrita.
+
+| Pieza | Símbolo | Esquinas | Uso |
+| --- | --- | --- | --- |
+| Icono de app | Λ al 56 % de la altura, elevada un 2 %; «o» al 50 %, centrada | Rectas | Tiendas de iOS, Android y escritorio; la plataforma redondea las esquinas |
+| Icono redondeado | Λ al 56 %, elevada un 2 %; «o» al 50 % | 22,5 % del lado | Instalación como PWA, directorios de apps, presentaciones y documentos que muestran la app |
+| Icono enmascarable | Λ al 50 %, «o» al 44 % (dentro de la zona segura del 80 %) | Rectas | Iconos adaptativos de Android desde el manifiesto web |
+| Favicon de 16, 32 y 48 px | Λ de 11, 22 y 31 px de alto; «o» de 10, 20 y 30 px de ancho, en píxeles enteros | 3 px a 16 | Pestañas del navegador de nuestras apps. Dibujado para cada tamaño; nunca reduzcas el icono de 512 px |
+
+<DoDont doLabel="Haz" dontLabel="Evita"
+  dos={['Usar los archivos suministrados de Descargas', 'Escribir el nombre del producto como texto real junto al símbolo', 'Elegir azul sobre claro y blanco sobre oscuro', 'Dar a las apps la pieza y a las webs el símbolo solo', 'Usar el favicon dibujado para cada tamaño']}
+  donts={['Usar un símbolo en lugar del logotipo completo fuera del software y las pestañas', 'Escribir una Λ griega o una «o» con una fuente en lugar del símbolo', 'Añadir el resto del logotipo, el descriptor o un marco', 'Ponerlo sobre una pieza de otro color o forma', 'Dejar un favicon azul en pestañas oscuras o uno blanco en pestañas claras', 'Contornearlo, girarlo, estirarlo o añadir efectos']} />
+
+## Favicons
+
+Cada símbolo tiene dos tipos de favicon. Los dos se leen en pestañas claras y oscuras.
+
+- **Favicon de app** (`logos/app/ais/`, `logos/app/rosepetal/`): el símbolo blanco sobre la pieza azul. Para el software que se instala o se deja abierto: la app de AIS, la app de Rosepetal, los paneles de Node-RED. La pieza lleva su propio fondo, así que un solo archivo sirve en los dos modos.
+- **Favicon de web** (`logos/favicons/ais/`, `logos/favicons/rosepetal/`): el símbolo solo, sobre fondo transparente, azul `#17356E` en modo claro y blanco en modo oscuro. Para las webs y esta guía. `favicon.svg` cambia solo; los PNG claro y oscuro cubren los navegadores que no leen favicons SVG; `favicon.ico` es la versión clara, para navegadores antiguos.
+
+Los iconos de pantalla de inicio e instalación (icono táctil de Apple, 192, 512 y enmascarable) son la pieza en los dos tipos: quedan sobre cualquier fondo de pantalla, y iOS rellena de negro un icono transparente. Las pestañas fijadas de Safari ya usan el favicon, así que no hay archivo `mask-icon`.
+
+<FaviconTabs tabs={['AIS Group', 'Plataforma | Rosepetal', 'Inspección | App de AIS', 'Proyectos | App de Rosepetal']} />
+
+| Web o app | Carpeta | Modo claro | Modo oscuro |
+| --- | --- | --- | --- |
+| aisgroup.ai | `web/ais-group/` | Λ azul | Λ blanca |
+| aisvision.com | `web/ais-vision/` | Λ azul | Λ blanca |
+| rosepetal.ai | `web/rosepetal/` | «o» azul | «o» blanca |
+| aisautomation.ie, scanology.nl, esta guía | `logos/favicons/ais/` | Λ azul | Λ blanca |
+| App de AIS y paneles Node-RED de AIS | `logos/app/ais/` | Pieza con Λ | Pieza con Λ |
+| App de Rosepetal y sus paneles Node-RED | `logos/app/rosepetal/` | Pieza con «o» | Pieza con «o» |
+
+Las carpetas `web/<web>/` contienen el juego de web con el nombre de la web ya puesto en `site.webmanifest`; en los demás casos, cambia `name` y `short_name` por el nombre de la web o la app.
+
+| Archivo | Qué es |
+| --- | --- |
+| `favicon.svg` | Web: el símbolo solo, azul o blanco según el tema del sistema. App: la pieza |
+| `favicon-16-light.png` … `favicon-48-dark.png` | Solo web: el símbolo a 16, 32 y 48 px, azul (claro) y blanco (oscuro) |
+| `favicon-16.png`, `favicon-32.png`, `favicon-48.png` | Solo app: la pieza a 16, 32 y 48 px |
+| `favicon.ico` | 16, 32 y 48 px en un solo archivo (web: la versión clara) |
+| `apple-touch-icon.png` | Pieza de 180 px para la pantalla de inicio del iPhone y el iPad |
+| `icon-192.png`, `icon-512.png`, `maskable-512.png` | Iconos de instalación y el icono adaptativo de Android, listados en el manifiesto |
+| `site.webmanifest` | El manifiesto web con los iconos anteriores |
+
+**Web:** copia la carpeta en la raíz de la web (`public/`) y pega esto en el `<head>`. Respeta el orden: los navegadores que leen SVG toman el último icono.
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon-32-light.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/favicon-32-dark.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+**App:** lo mismo, sin las líneas de claro y oscuro.
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+En Node-RED, apunta `editorTheme.page.favicon` de `settings.js` al `favicon.ico` del juego de app.

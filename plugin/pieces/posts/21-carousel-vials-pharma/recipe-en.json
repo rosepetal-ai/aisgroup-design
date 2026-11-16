@@ -1,0 +1,60 @@
+{
+  "name": "ais-vision-systems_carousel-defects-vials_en_2026-10-29",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "copy": "AIS REV 360 PHARMA inspects vials all the way round. These images illustrate a missing flip-off cap, a double label and an illegible code. They are examples of defects, not results from a machine validation. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/stock/vials_crimped-tray_pexels-9259963.jpg",
+      "headline": "Vials: three defects|*to look for*",
+      "focus": [
+        50,
+        50
+      ],
+      "scale": 1.3
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-2_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "Front row:|missing flip-off cap",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-3_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|double label",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-4_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The one on the right:|faded batch print",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "What should it catch|*on your vials*?",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "bleed": 1.6,
+      "alt": "What should it catch on your vials?. Send us samples. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

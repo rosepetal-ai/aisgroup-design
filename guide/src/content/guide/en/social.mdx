@@ -1,0 +1,59 @@
+---
+title: Social media
+rules:
+  - 'One message per post, one idea per slide. If it needs a second headline, it is a second post.'
+  - 'No line above or beside the headline: no product name, eyebrow, tagline or subtitle. The only second line is a quote''s author or a figure''s source.'
+  - 'Real first: our machines (photographs, or exterior views from engineering models), lines, screens, stands and people. A generated or composited picture only when it is credible at feed size, as Imagery says. Stock photographs only for context (a line, a product, a plant), under a licence with no attribution (Unsplash, Pexels, CC0), never shown as our machine, our software or a customer.'
+  - 'The picture proves the words. If the headline names a defect, the picture shows the system finding it.'
+  - 'Start from a template in the AIS Group Design plugin and check it before publishing. Never edit an old post or a screenshot.'
+  - 'One approved call to action per piece, from the list in Voice.'
+  - 'LinkedIn banners come from the Marketing kit: brand blue, the hexagon landscape and one approved line, with nothing above it. Words stay clear of the page logo and the profile photo, and the landscape never runs behind them.'
+  - '**Blue, for machines, screens and events:** the photograph across the top with a clean, hard edge, then a solid brand-blue panel with the white headline. No fade and no gradient.'
+  - '**White, for products and detections:** the headline at the top, the picture under it filling its band: a product group cropped close, never a small packshot in a white field. When a wide group leaves room, the headline grows into it. Only the detection marks sit on the picture. Carousel content slides are white; a cover is white or blue, so the feed alternates.'
+  - '**Brand blue, for results and quotes:** solid brand blue (or white, to keep the feed alternating) and no photograph; the figure or the exact words fill it, and the figure’s source or the quote’s author is the one second line. The closing slide of a carousel is brand blue too, with the one call to action.'
+  - '**Nothing above or beside the headline:** one purpose, the plainest layout. Cut taglines, helper text, subtitles, eyebrows and secondary labels; if something only makes sense with them, fix the layout instead. A post or a slide carries the headline, the detection marks'' own labels (OK or NOK and the defect name), a quote’s author or a figure’s source, the carousel step number and the logo, nothing else; the product’s name goes in the post text. The plugin’s check fails any other line.'
+  - '**The logo signs at the foot**, small: 120 px wide for AIS Vision Systems on a 1080 px post. Inner carousel slides carry no logo, only the step number in a flat-top outline hexagon.'
+  - '**The default hexagon pattern** on posts, one size, as hairlines that thin out from one corner, flush to the edges: the hairline colour on blue, a pale brand-blue line on white. Always in the corner the words leave free, never over the photograph or behind text (see [Imagery](/en/imagery/)).'
+  - '**No huge empty space:** the picture’s subject covers at least 55% of its band, and no empty strip taller than 12% of the post sits between two elements. The plugin’s check measures both.'
+  - '**Every word at 4.5:1 or more** against what is really behind it, and the headline in sentence case, broken by phrase.'
+  - '**The accent colour** only on the closing phrase of a headline, on one or two slides of a piece.'
+  - '**One campaign, one system:** the same headline, picture and call to action in every format, and never a different blue.'
+  - 'Every post and carousel cover takes one of three looks on the same grid, and a set mixes them so the feed alternates: a third to half of the posts blue.'
+---
+import PostAnatomy from '../../../components/PostAnatomy.astro';
+import SocialGallery from '../../../components/SocialGallery.astro';
+import DoDont from '../../../components/DoDont.astro';
+
+Build posts and carousels from the approved kit and one clear message.
+
+
+## How a post is built
+
+<PostAnatomy lang="en" />
+
+## Formats
+
+| Piece | Size | Notes |
+| --- | --- | --- |
+| Post | 1080 × 1350 px (4:5) | The default: it fills the feed on a phone |
+| Square post | 1080 × 1080 px (1:1) | When a network or a partner asks for it; the photo band gets smaller |
+| Link post | 1200 × 628 px (1.91:1) | Only when the post links out; the picture leads, the headline is shorter |
+| Carousel | 1080 × 1350 px, 3 to 10 slides, as a PDF | Cover white or blue, content slides on white, closing on brand blue |
+| Video | 9:16, 4:5, 1:1 and 16:9 | The seven types in [Video](/en/video/) |
+
+## Post and carousel types
+
+Every post and carousel in the [Marketing kit](/en/kit/#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.
+
+<SocialGallery lang="en" mode="types" />
+
+
+## Do and do not
+
+<DoDont doLabel="Do" dontLabel="Do not"
+  dos={['Lead with the real photograph', 'Write the headline as the one thing the reader should remember', 'Show a figure only with its basis, conditions and source', 'Ask for consent from every identifiable person and approval from every customer site', 'Publish the event announcement once, and the recap within a week']}
+  donts={['A generated image that fails at its final size: invented text, impossible geometry, a machine that is not the one named', 'Particle waves, glows, holograms or gradients', 'Headlines in capitals, typed arrows, emoji or several accent colours', 'Ten claims on one image, or claims the picture does not show', 'The logo as the largest thing on the post']} />
+
+## How to make one
+
+Ask Claude with the AIS Group Design plugin ([AI agents](/en/agents/)), giving it the photograph and the message. It starts from the template closest to the message and runs the check. It refuses rejected images, wrong names, forbidden claims and calls to action outside the approved list. Before publishing, look at the post at feed size, about 550 px wide: the headline and the proof must read there.

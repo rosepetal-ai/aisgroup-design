@@ -1,0 +1,66 @@
+---
+title: Visualización de datos
+rules:
+  - 'Elige el gráfico por su tarea: barras para comparar, líneas para la evolución en el tiempo, una cifra para un único número y una tabla para valores exactos. Nunca circulares de más de tres partes, 3D ni dos ejes verticales.'
+  - 'Los colores de serie salen de los seis colores de datos en orden fijo (de --ais-data-1 a -6), sin repetirlos ni reordenarlos. Una séptima serie pasa a «Otros» o a gráficos pequeños múltiples.'
+  - 'La magnitud usa un solo tono, de claro a oscuro (--ais-seq-*). Los valores por encima y por debajo de una referencia usan naranja y azul alrededor de un gris neutro (--ais-div-*).'
+  - 'Los colores de estado (éxito, aviso, error) solo indican estado, con un icono o una palabra, y nunca son color de serie.'
+  - 'El texto nunca toma el color de una serie; hay leyenda a partir de dos series, etiquetas directas hasta cuatro, y todo gráfico tiene vista de tabla.'
+---
+import DataSpecimens from '../../../components/DataSpecimens.astro';
+import ChartGallery from '../../../components/ChartGallery.astro';
+
+Usa estos gráficos para presentar cantidades y comparaciones con claridad.
+
+## Elige la forma
+
+| La tarea del dato | Forma |
+| --- | --- |
+| Comparar categorías | Barras ordenadas por valor, horizontales si las etiquetas son largas |
+| Mostrar la evolución en el tiempo | Línea; columnas si hay pocos periodos discretos |
+| Parte de un todo | Una sola barra apilada; un gráfico circular solo para dos o tres partes |
+| Mostrar una distribución | Histograma o franja de puntos |
+| Un número que importa | Una cifra: valor, etiqueta y la comparación que necesita |
+| Valores exactos para consultar | Una tabla con cifras tabulares |
+
+Si un número lleva el mensaje, usa una cifra, no un gráfico. Nunca uses 3D, dos ejes verticales en un mismo gráfico ni gráficos decorativos sin datos reales.
+
+## Color
+
+Seis colores de datos, validados para personas con daltonismo y para contraste sobre blanco y sobre la superficie oscura. Todos proceden del sistema de diseño de Rosepetal; la columna oscura es la misma familia de tono ajustada a fondos oscuros.
+
+<DataSpecimens lang="es" show="palettes" />
+
+- **Categórica:** asigna en orden, empezando por el azul. El color sigue a la entidad: si un filtro quita una serie, las demás conservan su color.
+- **Secuencial:** un solo tono, de claro a oscuro para más. Sobre fondos oscuros la escala va de oscuro a claro.
+- **Divergente:** naranja por debajo y azul por encima de una referencia, con un gris neutro en el centro.
+- **Estado:** el verde, el ámbar y el rojo se reservan para estados, siempre con una palabra o un icono, y nunca se usan como colores de serie.
+
+## Marcas
+
+| Marca | Especificación |
+| --- | --- |
+| **Barras y columnas** | Como máximo 24 px de grosor, extremos rectos, desde una sola línea base en cero; 2 px de blanco entre barras contiguas y segmentos apilados |
+| **Líneas** | 2 px, uniones redondeadas; un punto de 8 px con un anillo blanco de 2 px marca el último valor |
+| **Áreas** | El color de la serie al 10 % de opacidad |
+| **Líneas de cuadrícula** | 1 px, `#E2E8F0`, continuas, detrás de los datos; la línea base de cero en `#94A3B8` |
+| **Texto de los ejes** | Estilo Pie (12 px), texto secundario, cifras tabulares, marcas redondas (0, 10, 20 o 1K, 2K) |
+
+## Etiquetas y leyendas
+
+- Una sola serie no necesita leyenda: el título la nombra. A partir de dos series, pon una leyenda sobre el gráfico; con hasta cuatro, etiqueta además las líneas o barras directamente.
+- Etiqueta con criterio: el último valor, el máximo o la serie de la que trata la historia. Nunca un número en cada punto.
+- Valores, etiquetas y leyendas van en colores de texto (tinta y texto secundario), nunca en el color de una serie. La marca de color junto al texto lleva la identidad.
+- Los títulos usan Cuerpo Semibold y dicen qué se representa; el subtítulo indica la unidad, el periodo y, si los datos son ilustrativos, lo dice.
+
+## Herramienta de gráficos
+
+Las piezas de marketing, las páginas de campaña, los documentos y las presentaciones usan una sola herramienta, para que un gráfico hecho por cualquiera, o por un agente de IA, salga con la marca. El estilo vive en una configuración de [Vega-Lite](https://vega.github.io/vega-lite/); un gráfico es una especificación breve que solo describe los datos. Todos los gráficos de abajo salen de su especificación con el mismo comando.
+
+<ChartGallery lang="es" />
+
+**Los gráficos interactivos en webs** usan la misma especificación y configuración con Vega-Embed, así que ganan descripciones emergentes sin cambiar el estilo. **La aplicación Rosepetal** mantiene su propia biblioteca de gráficos en JavaScript, donde `--chart-1`, `--chart-2` y `--chart-3` son los colores de datos azul, naranja y violeta (1, 2 y 5); [el tema de ECharts](/downloads/charts/ais-echarts-theme.json) (con versión oscura) y los tokens de datos le dan los mismos colores, tipografía y marcas.
+
+## En pantalla
+
+Los gráficos web son interactivos: al pasar el cursor por una barra o un punto se ve su valor exacto, los gráficos de líneas muestran una línea guía que cruza todas las series y cada gráfico ofrece una vista de tabla con los mismos datos. Los filtros van en una fila sobre el gráfico que controlan.

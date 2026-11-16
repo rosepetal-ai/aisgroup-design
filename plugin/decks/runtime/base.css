@@ -1,0 +1,58 @@
+/* AIS HTML decks: tokens, type and motion of the deck.
+   Colours, durations and curves are the brand tokens (public/downloads/ais-tokens.css). Screen type at 1920 px:
+   cover 120, divider 136, headline 76, lead 44, item 46, body 38 (never under 36), labels 28, slide number 22.
+   Inter 400/500/600, sentence case. Motion: transform and opacity only, enter curve, 700 ms reveals with a 60 ms
+   stagger, the masked headline in 1100 ms, the blue wipe on the opening picture. */
+:root{
+  --brand:#17356E;--deep:#10254C;--night:#0B1220;--action:#3664B3;--light:#A7BFE4;--sky:#7C9FD7;
+  --ink:#0F1729;--muted:#4B5563;--grey:#F1F5F9;--line:#CBD5E1;--soft:#E2E8F0;
+  --ease-enter:cubic-bezier(.16,1,.3,1);--ease-standard:cubic-bezier(.2,0,0,1);
+  --slow2:700ms;--expressive:1100ms;--stagger:60ms;
+}
+.slide{color:var(--ink)}
+.slide.g-brand{background:var(--brand);color:#fff}
+.slide.g-deep{background:var(--deep);color:#fff}
+.slide.g-night{background:var(--night);color:#fff}
+.slide.g-white{background:#fff}
+.abs{position:absolute}
+.stack{position:absolute;display:flex;flex-direction:column}
+.stack>*{flex:none}
+
+/* Type */
+.t-display{font-size:120px;line-height:124px;font-weight:500;letter-spacing:-.035em}
+.t-divider{font-size:136px;line-height:140px;font-weight:500;letter-spacing:-.035em}
+.t-num{font-size:240px;line-height:240px;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.t-h{font-size:76px;line-height:84px;font-weight:500;letter-spacing:-.02em}
+.t-lead{font-size:44px;line-height:60px;font-weight:400}
+.t-item{font-size:46px;line-height:56px;font-weight:500;letter-spacing:-.01em}
+.t-body{font-size:38px;line-height:52px;font-weight:400}
+.t-label{font-size:28px;line-height:38px;font-weight:500}
+.t-meta{font-size:22px;line-height:32px;font-weight:400;font-variant-numeric:tabular-nums}
+.t-h,.t-lead,.t-item,.t-body,.t-display,.t-divider{text-wrap:balance}
+b{font-weight:600}
+.c-white{color:#fff}.c-light{color:var(--light)}.c-sky{color:var(--sky)}.c-ink{color:var(--ink)}.c-muted{color:var(--muted)}.c-brand{color:var(--brand)}.c-action{color:var(--action)}
+
+/* Rules separate, never frame */
+.rl{height:2px;background:var(--line);flex:none}
+.g-brand .rl,.g-deep .rl,.g-night .rl,.on-blue .rl{background:rgba(167,191,228,.35)}
+
+/* Pictures: an absolutely placed frame, the image cover-fitted inside it */
+.pic{position:absolute;overflow:hidden}
+.pic img{width:100%;height:100%;display:block;object-fit:cover}
+.pic.contain img{object-fit:contain}
+.logo{position:absolute;display:block}
+.hex{position:absolute;width:520px;height:520px;pointer-events:none;display:block}
+.scrim{position:absolute;pointer-events:none}
+.num{position:absolute;right:128px;bottom:40px;font-size:22px;line-height:32px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.g-brand .num,.g-deep .num,.g-night .num{color:var(--light)}
+
+/* Motion: reveals run when the slide arrives (.shown). Export and print show the end state. */
+.rv{opacity:0;transform:translateY(16px);transition:opacity var(--slow2) var(--ease-enter),transform var(--slow2) var(--ease-enter);transition-delay:calc(200ms + var(--i,0) * var(--stagger))}
+.shown .rv{opacity:1;transform:none}
+.mask{overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.mask>.mi{display:block;transform:translateY(105%);transition:transform var(--expressive) var(--ease-enter);transition-delay:calc(100ms + var(--i,0) * 100ms)}
+.shown .mask>.mi{transform:none}
+.pic img{transform:scale(1.03);transition:transform var(--expressive) var(--ease-enter)}
+.shown .pic img{transform:none}
+.wipe{position:absolute;background:var(--brand);transform-origin:100% 50%;transition:transform var(--slow2) var(--ease-enter) 150ms}
+.shown .wipe{transform:scaleX(0)}

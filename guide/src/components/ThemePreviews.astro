@@ -1,0 +1,35 @@
+---
+// Examples of @rosepetal/design in light and dark side by side: the same preview page, the second with ?theme=dark.
+import { ui, type Lang } from '../i18n';
+import previewHeights from '../data/preview-heights.json';
+
+interface Props { lang: Lang; examples: string[] }
+const { lang, examples } = Astro.props;
+const t = ui[lang];
+---
+<div class="theme-previews">
+  <p class="head">{t.light}</p><p class="head">{t.dark}</p>
+  {examples.map((e) => (
+    <>
+      <iframe class="preview" src={`/preview/${e}/`} title={`${e}, ${t.light}`} loading="lazy" style={previewHeights[`/preview/${e}/#pair`] ? `height:${previewHeights[`/preview/${e}/#pair`]}px` : undefined}></iframe>
+      <iframe class="preview" src={`/preview/${e}/?theme=dark`} title={`${e}, ${t.dark}`} loading="lazy" style={previewHeights[`/preview/${e}/?theme=dark#pair`] ? `height:${previewHeights[`/preview/${e}/?theme=dark#pair`]}px` : undefined}></iframe>
+    </>
+  ))}
+</div>
+<script is:inline>
+  // Runs again after every page change (client router): its own scope, and its listener leaves with the page.
+  (() => { const page = new AbortController(); document.addEventListener('astro:before-swap', () => page.abort(), { once: true });
+  // Each preview reports its height; both frames of an example take it, so neither scrolls.
+  addEventListener('message', (m) => { if (!m.data?.preview) return;
+    for (const f of document.querySelectorAll('.theme-previews iframe')) if (new URL(f.src).pathname === m.data.preview) f.style.height = `${Math.max(parseFloat(f.style.height) || 0, m.data.height)}px`; }, { signal: page.signal });
+  })();
+</script>
+<style>
+  .theme-previews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 16px; margin: 24px 0 32px; }
+  .head { margin: 0 !important; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; color: var(--ink); }
+  .theme-previews :global(iframe.preview) { margin: 0 !important; }
+  @media (max-width: 760px) {
+    .theme-previews { grid-template-columns: minmax(0, 1fr); }
+    .head { display: none; }
+  }
+</style>

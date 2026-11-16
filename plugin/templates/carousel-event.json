@@ -1,0 +1,51 @@
+{
+  "name": "rosepetal_carousel-event_en_template",
+  "kind": "carousel",
+  "brand": "rosepetal",
+  "lang": "en",
+  "copy": "Thank you to everyone who came to the Tech Barcelona stand at 4YFN, MWC Barcelona 2026. Four days of live demos and talks on building AI for the factory floor. If we missed you, we can show you the platform on your own images. Book a demo",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/rosepetal/mwc2026_demo.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        40
+      ],
+      "headline": "Four days *on the stand*"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/rosepetal/mwc2026_stand.jpg",
+      "split": 0.6,
+      "focus": [
+        55,
+        45
+      ],
+      "headline": "Tech Barcelona’s stand|at 4YFN",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/rosepetal/mwc2026_talk.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        45
+      ],
+      "headline": "Talks on AI|for the factory floor",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "Missed us *in Barcelona*?",
+      "action": "Book a demo",
+      "rows": [
+        {
+          "text": "rosepetal.ai"
+        }
+      ]
+    }
+  ]
+}

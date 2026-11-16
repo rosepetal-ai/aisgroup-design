@@ -1,0 +1,60 @@
+{
+  "name": "ais-vision-systems_carousel-defects-vials_es_2026-10-29",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "AIS REV 360 PHARMA inspecciona viales a 360°. Estas imágenes ilustran una cápsula sin flip-off, una doble etiqueta y un marcado ilegible. Son ejemplos de defectos, no resultados de una validación de máquina. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/stock/vials_crimped-tray_pexels-9259963.jpg",
+      "headline": "Viales: tres defectos|*que conviene ver*",
+      "focus": [
+        50,
+        50
+      ],
+      "scale": 1.3
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-2_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "Fila delantera:|falta el flip-off",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-3_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "El de la derecha:|etiqueta doble",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/3d/renders/social-composites/21-carousel-vials-pharma-slide-4_es.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "El de la derecha:|lote ilegible",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "¿Qué defectos buscas|*en tus viales*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "bleed": 1.6,
+      "alt": "¿Qué defectos buscas en tus viales?. Envíanos muestras. aisvision.com. +34 931 003 035."
+    }
+  ]
+}

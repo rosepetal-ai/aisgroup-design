@@ -1,0 +1,66 @@
+---
+title: Agents d’IA
+---
+
+Fes servir aquestes regles i aquests fitxers d’origen quan un agent crea peces de marca.
+
+## El fitxer
+
+Cada llengua té un únic fitxer de regles generat a partir d’aquesta guia: [anglès](/en/brand.md), [castellà](/es/brand.md) i [català](/ca/brand.md). Conté l’essencial, els valors exactes de color, la ubicació dels logotips i les regles de cada pàgina. Com que surt de la mateixa font que aquestes pàgines, mai no es contradiuen.
+
+Per al producte, [components.md](/components.md) enumera cada component, bloc de marca, widget i part del Profiler, amb el seu fitxer font. Dona’l als agents que construeixen pantalles o skills.
+
+## Com preparar l’encàrrec
+
+1. **Dona-li el fitxer de regles** de la llengua de la peça. A Claude, afegeix-lo al coneixement del projecte o referencia’l des del `CLAUDE.md` del repositori. En altres eines, enganxa’l al començament de la conversa.
+2. **Indica la marca, el format i el públic.** Per exemple: «Rosepetal, carrusel de LinkedIn, responsables de qualitat en alimentació».
+3. **Dona-li les dades.** Noms de producte, xifres amb les seves condicions i enllaços. Un agent no ha d’inventar afirmacions; si li falta evidència, ha de preguntar.
+4. **Demana la llengua que necessites,** no una traducció d’una altra versió.
+
+## Connectar el MCP
+
+El MCP d’AIS Group Design dona a qualsevol agent les regles de marca, els tokens, els logotips, el codi dels components i els exemples aprovats. Només llegeix: mai no canvia ni publica res. A Claude Code:
+
+```
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+```
+
+A claude.ai, afegeix la mateixa adreça com a connector personalitzat.
+
+## Fer servir el plugin AIS Group Design
+
+El plugin AIS Group Design per a Claude Code porta aquesta guia com a skills i un estudi local que crea publicacions, carrusels, fullets, catàlegs, fitxes tècniques i presentacions a partir de les teves fotos i un encàrrec breu. Instal·la’l a Claude Code:
+
+```
+/plugin marketplace add rosepetal-ai/aisgroup-design
+/plugin install ais-group-design@ais-group-design
+```
+
+Després, un cop per ordinador, demana a Claude: «Configura AIS Group Design». El repositori i les fotos de marca són privats: demana accés a l’equip de màrqueting.
+
+Després enganxa les teves fotos al terminal i digues què necessites. L’estudi tria la plantilla, edita la font (qualsevol text o imatge pel seu espai), la comprova amb la marca i et mostra el resultat. Revisa’l, demana canvis i exporta el PDF, el PNG o el PowerPoint quan estigui bé. No es publica ni es puja res si no ho demanes.
+
+## Portar una aplicació als components de Rosepetal
+
+El plugin també porta les aplicacions de producte als components de Rosepetal (`@rosepetal/design`, shadcn-vue). Obre Claude Code al repositori de l’aplicació i demana:
+
+```
+Redissenya [l’aplicació / la pantalla] amb el nostre sistema shadcn-vue i @rosepetal/design. Primer passa l’auditoria d’UI sobre src/ i la comparació de temes sobre el CSS del tema de l’aplicació, i mostra’m els resultats. Després canvia una família de components cada vegada i conserva totes les dades, les accions i els estats de càrrega, buit i error. Compila després de cada pas i revisa el mode clar i el fosc.
+```
+
+## Un encàrrec de partida
+
+```
+Fes servir les regles de marca d’AIS Group de brand.md. Escriu per a [marca], [format], [públic], en [llengua]. Fes servir només les dades de sota. Respecta la majúscula només inicial, els noms de marca exactes i les regles de veu. Si falta una dada, pregunta en lloc de suposar.
+```
+
+## El que un agent no ha de fer mai
+
+- Redibuixar, recolorir o regenerar un logotip. Fes servir sempre els fitxers que indica brand.md.
+- Inventar clients, testimonis, certificacions o dades de rendiment.
+- Aproximar un color o canviar la tipografia.
+- Barrejar llengües o traduir noms de marques i productes.
+
+## Revisió abans de publicar
+
+Compara el resultat amb l’essencial de la portada, contrasta cada dada amb la seva font i demana que una persona nativa revisi les peces en castellà i català. En tot el que sigui una pàgina, executa la [revisió de marca](/downloads/qa/brand-check.js) amb axe-core carregat i corregeix cada troballa abans que ho revisi una persona.

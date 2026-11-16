@@ -1,0 +1,6 @@
+---
+import {balanceCopy} from '../data/balance';
+const lang=Astro.params.lang??'en'; const text=balanceCopy[lang];
+---
+<div class="balance">{text.map((row,i)=><figure><figcaption><strong>{row[0]}</strong><span>{row[1]}</span><span>{row[2]}</span></figcaption><div class:list={['bar',{dark:i===1}]} aria-hidden="true"><span/><span/></div></figure>)}</div>
+<style>.balance{display:grid;gap:24px;margin:24px 0}figure{margin:0}figcaption{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:var(--ais-text-body);margin-bottom:12px}.bar{display:grid;grid-template-columns:7fr 3fr;height:64px;border:1px solid var(--line)}.bar span:first-child{background:var(--ais-neutral-100)}.bar span:last-child{background:var(--primary)}.bar.dark span:first-child{background:#0B1220}.bar.dark span:last-child{background:#fff}</style>

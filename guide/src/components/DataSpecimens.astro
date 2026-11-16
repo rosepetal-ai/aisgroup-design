@@ -1,0 +1,68 @@
+---
+import type { Lang } from '../i18n';
+interface Props { lang: Lang; show: 'palettes' }
+const { lang, show } = Astro.props;
+// Chart specimens drawn to the Data page's spec from the --ais-data/seq/div tokens. Values are illustrative.
+const t = {
+  en: { cat: 'Categorical, fixed order', seq: 'Sequential (magnitude)', div: 'Diverging (above and below a reference)', light: 'Light', dark: 'Dark', name: 'Name', names: ['Blue', 'Orange', 'Cyan', 'Pink', 'Violet', 'Teal'] },
+  es: { cat: 'Categórica, en orden fijo', seq: 'Secuencial (magnitud)', div: 'Divergente (por encima y por debajo de una referencia)', light: 'Claro', dark: 'Oscuro', name: 'Nombre', names: ['Azul', 'Naranja', 'Cian', 'Rosa', 'Violeta', 'Verde azulado'] },
+  ca: { cat: 'Categòrica, en ordre fix', seq: 'Seqüencial (magnitud)', div: 'Divergent (per sobre i per sota d’una referència)', light: 'Clar', dark: 'Fosc', name: 'Nom', names: ['Blau', 'Taronja', 'Cian', 'Rosa', 'Violeta', 'Verd blavós'] },
+}[lang];
+const cat = [['#3664B3', '#517FC9'], ['#EA580C', '#EA580C'], ['#0891B2', '#0891B2'], ['#DB2777', '#DB2777'], ['#8B5CF6', '#A855F7'], ['#0D9488', '#0D9488']];
+const seq = ['#7C9FD7', '#517FC9', '#3664B3', '#1E4591', '#17356E', '#10254C'];
+const seqD = ['#1E4591', '#3664B3', '#517FC9', '#7C9FD7', '#A7BFE4'];
+const div = ['#92400E', '#EA580C', '#CBD5E1', '#3664B3', '#1E4591'];
+const divD = ['#FDD9A8', '#EA580C', '#334155', '#517FC9', '#A7BFE4'];
+---
+{show === 'palettes' && (
+  <div class="pal">
+    <figure>
+      <figcaption>{t.cat}</figcaption>
+      <table class="cat">
+        <thead><tr><th>#</th><th><span class="sr">{t.name}</span></th><th>{t.light}</th><th>{t.dark}</th></tr></thead>
+        <tbody>{cat.map(([l, d], i) => (
+          <tr>
+            <td class="n">{i + 1}</td>
+            <td>{t.names[i]}</td>
+            <td><span class="chip"><span class="sw" style={`background:${l}`} /><code data-copy={l}>{l}</code></span></td>
+            <td><span class="chip"><span class="sw on-dark" style={`--c:${d}`} /><code data-copy={d}>{d}</code></span></td>
+          </tr>
+        ))}</tbody>
+      </table>
+    </figure>
+    <figure>
+      <figcaption>{t.seq}</figcaption>
+      <div class="ramps">
+        <span class="mode">{t.light}</span><div class="ramp">{seq.map((c) => <span style={`background:${c}`} title={c} data-copy={c} />)}</div>
+        <span class="mode">{t.dark}</span><div class="ramp dark">{seqD.map((c) => <span style={`background:${c}`} title={c} data-copy={c} />)}</div>
+      </div>
+      <figcaption>{t.div}</figcaption>
+      <div class="ramps">
+        <span class="mode">{t.light}</span><div class="ramp">{div.map((c) => <span style={`background:${c}`} title={c} data-copy={c} />)}</div>
+        <span class="mode">{t.dark}</span><div class="ramp dark">{divD.map((c) => <span style={`background:${c}`} title={c} data-copy={c} />)}</div>
+      </div>
+    </figure>
+  </div>
+)}
+<style>
+  .pal { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--ais-space-400); margin: var(--ais-space-300) 0 0; }
+  figure { min-width: 0; margin: 0; }
+  figcaption { margin: 0 0 var(--ais-space-100); font-size: var(--ais-text-body); color: var(--ink); line-height: var(--ais-text-body-leading); }
+  figcaption:not(:first-child) { margin-top: var(--ais-space-300); }
+  .cat { width: 100%; border-collapse: collapse; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); font-weight: var(--ais-text-small-weight); }
+  .cat th { padding: 0 0 var(--ais-space-100); font-size: var(--ais-text-caption); font-weight: 600; color: var(--muted); text-align: left; border-bottom: var(--ais-border); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); }
+  .cat td { padding: var(--ais-space-100) var(--ais-space-200) var(--ais-space-100) 0; border-bottom: var(--ais-border); vertical-align: middle; }
+  .cat tr:last-child td { border-bottom: 0; }
+  .cat .n { width: 24px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .chip { display: inline-flex; align-items: center; gap: var(--ais-space-100); }
+  .sw { display: block; width: 24px; height: 24px; }
+  /* Dark-mode colours are shown on the dark surface they are made for. */
+  .sw.on-dark { background: var(--c); border: 4px solid var(--ais-blue-950); }
+  .cat code, .ramp span { cursor: copy; }
+  .cat code { font: 400 var(--ais-text-caption)/var(--ais-text-caption-leading) var(--mono); letter-spacing: var(--ais-text-caption-tracking); color: var(--ink); background: none; padding: 0; }
+  .ramps { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: var(--ais-space-100) var(--ais-space-150); }
+  .mode { font-size: var(--ais-text-caption); color: var(--muted); line-height: var(--ais-text-caption-leading); letter-spacing: var(--ais-text-caption-tracking); font-weight: var(--ais-text-caption-weight); }
+  .ramp { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; height: 32px; }
+  .ramp.dark { padding: 4px; background: var(--ais-blue-950); }
+  @media (max-width: 760px) { .pal { grid-template-columns: minmax(0, 1fr); } }
+</style>

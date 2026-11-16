@@ -1,0 +1,13 @@
+---
+import { essentials } from '../essentials';
+import { inline } from '../inline';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<ol class="essentials">{essentials[lang].map((rule) => <li><span set:html={inline(rule.replace(/ (?:Linear’s website and Apple Notes are the bar|La web de Linear y Apple Notes son el listón|El web de Linear i Apple Notes són el llistó)\./, '').replace(/don’t/g, 'do not'))} /></li>)}</ol>
+<style>
+  .essentials { margin: 24px 0 0; padding: 0; list-style: none; counter-reset: rule; }
+  .essentials li { margin: 0; counter-increment: rule; display: grid; grid-template-columns: 40px 1fr; padding: 16px 0; border-top: 1px solid var(--line); line-height: 1.55; }
+  li::before { content: counter(rule, decimal-leading-zero); color: var(--ais-blue-600); font-size: var(--ais-text-eyebrow); font-weight: 600; font-variant-numeric: tabular-nums; padding-top: 2px; }
+</style>

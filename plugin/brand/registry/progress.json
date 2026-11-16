@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "How far a task has gone.",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/progress/Progress.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { ProgressRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport {\n  ProgressIndicator,\n  ProgressRoot,\n} from 'reka-ui'\nimport type { ProgressIndicatorVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { progressIndicatorVariants } from '.'\n\nconst props = withDefaults(\n  defineProps<ProgressRootProps & { class?: HTMLAttributes['class'], variant?: ProgressIndicatorVariants['variant'] }>(),\n  {\n    modelValue: 0,\n  },\n)\n\nconst delegatedProps = reactiveOmit(props, 'class', 'variant')\n</script>\n\n<template>\n  <ProgressRoot\n    data-slot=\"progress\"\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'bg-primary/15 h-1.5 rounded-full relative flex w-full items-center overflow-x-hidden',\n        props.class,\n      )\n    \"\n  >\n    <ProgressIndicator\n      data-slot=\"progress-indicator\"\n      :class=\"progressIndicatorVariants({ variant })\"\n      :style=\"`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`\"\n    />\n  </ProgressRoot>\n</template>\n"
+    },
+    {
+      "path": "components/ui/progress/index.ts",
+      "type": "registry:ui",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Progress } from './Progress.vue'\n\n// Colour of the filled part. Not in stock shadcn: usage meters go green → amber → red.\nexport const progressIndicatorVariants = cva('size-full flex-1 transition-all', {\n  variants: {\n    variant: {\n      default: 'bg-primary',\n      success: 'bg-success',\n      warning: 'bg-warning',\n      danger: 'bg-destructive',\n      muted: 'bg-muted-foreground/40',\n    },\n  },\n  defaultVariants: { variant: 'default' },\n})\nexport type ProgressIndicatorVariants = VariantProps<typeof progressIndicatorVariants>\n"
+    }
+  ],
+  "meta": {
+    "package": "@rosepetal/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/progress/Progress.vue"
+  }
+}

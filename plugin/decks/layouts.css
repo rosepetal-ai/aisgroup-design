@@ -1,0 +1,85 @@
+/* AIS decks, "Hoy + azul": the layout components. Facts and points are spec rows split by rules (never framed). */
+.facts,.points{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.contacts{display:flex;flex-direction:column}
+.contacts>.rl.gap{margin:20px 0}
+.crow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;column-gap:40px}
+.cline{display:flex;gap:64px}
+
+/* Grid, scale and rhythm (layouts.mjs).
+   Rhythm: label to value 8, caption 16, item 24, block 40, headline to content 64. Columns: 12 of 102 px, gutters 40. */
+.hbody{display:flex;flex-direction:column;margin-top:64px}
+.hbody.centre{flex:1 1 auto;min-height:0;justify-content:center;padding-bottom:64px}
+.stack>.hbody.centre{flex:1 1 auto}
+.gridc{display:grid;column-gap:40px}
+.gridc.rows{row-gap:64px}
+.gridc.c2{grid-template-columns:repeat(2,812px)}.gridc.c3{grid-template-columns:repeat(3,528px)}.gridc.c4{grid-template-columns:repeat(4,386px)}
+.phcell,.col,.fig{display:flex;flex-direction:column}
+.facts .rl.gap,.points .rl.gap{margin:24px 0}
+.rows4{display:flex;flex-direction:column;width:1664px}
+.rows4 .rl.gap{margin:24px 0}
+.rows4.tight .rl.gap{margin:16px 0}
+.arow-in{display:grid;grid-template-columns:102px 954px 528px;column-gap:40px;align-items:baseline}
+/* The marker sits on the name's first line (84 px, the .t-h line), never centred on a row the description makes taller. */
+.arow-in>.mk{align-self:start;height:84px;display:flex;align-items:center}
+.mrow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:baseline}
+.hexwrap{position:relative;width:112px;height:97px;flex:none}
+.hexwrap>.abs{position:absolute}
+.hexnum{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-weight:500;font-variant-numeric:tabular-nums}
+.steprow{display:flex}
+.pic-box{position:relative;flex:none}
+.pic-fill{position:relative;flex:1 1 auto!important}
+.tiles2{display:grid;grid-template-columns:repeat(2,1fr);column-gap:24px;row-gap:40px}
+.ico{width:64px;height:64px;color:var(--action)}
+.logorow{display:flex;align-items:center;gap:40px;height:96px}
+.bars{display:flex;flex-direction:column;row-gap:64px}
+.brow{display:grid;grid-template-columns:528px 1096px;column-gap:40px;align-items:center}
+.bwrap{display:flex;align-items:center;gap:24px}
+.bar{height:60px;flex:none}
+.gantt{display:flex;flex-direction:column}
+.gantt .rl.gap{margin:24px 0}
+.grow{display:grid;grid-template-columns:386px 1238px;column-gap:40px;align-items:center}
+.gm{display:flex}
+.gbar{display:flex;align-items:center}
+.slide{--panel:#F1F5F9}.slide.g-brand{--panel:var(--brand)}.slide.g-deep{--panel:var(--deep)}
+.g-white .rl{background:var(--line)}
+.g-brand .rl,.g-deep .rl{background:rgba(167,191,228,.35)}
+.strips{display:flex;flex-direction:column;row-gap:40px}
+.srow{display:grid;grid-template-columns:812px 812px;column-gap:40px;align-items:center}
+/* One step up or down the closed scale for a whole block (deck.js snap): body 38 / lead 44 / headline 76. */
+.up1 .t-body:not(.hexnum){font-size:44px;line-height:60px}
+.up1 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-body:not(.hexnum),.up2 .t-lead{font-size:76px;line-height:84px;letter-spacing:-.02em}
+.up2 .t-label{font-size:38px;line-height:52px}
+.up2 .t-h:not(.mi){font-size:120px;line-height:124px;letter-spacing:-.035em}
+.dn1 .t-lead{font-size:38px;line-height:52px}
+.dn1 .t-h:not(.mi){font-size:44px;line-height:60px;letter-spacing:0}
+.gantt .bar{height:40px}
+
+/* Table (layout table): one grid row per table row, every cell a text box on its grid columns. Column titles bottom-aligned
+   over the stronger rule; rows split by the hairline. Numbers right-aligned in tabular figures. */
+.tbl{display:flex;flex-direction:column;width:1664px}
+.tbl .rl.gap{margin:24px 0}
+.tbl .rl{background:var(--soft)}
+.tbl .rl.head{background:var(--line)}
+.trow{display:grid;column-gap:40px;align-items:start}
+.trow.thead{align-items:end}
+.trow .th{font-weight:500}
+.tbl.tight .rl.gap{margin:16px 0}
+.trow .tn{text-align:right;font-variant-numeric:tabular-nums}
+.L-statement.g-brand b{color:#fff}
+.trow .tn .hy{font-variant-numeric:normal}
+
+/* Match the title's first line when the existing stage selects another type-scale step. */
+.dn1 .arow-in>.mk{height:60px}
+.up2 .arow-in>.mk{height:124px}
+
+/* Corporate content has a stable scale; whitespace never promotes a row name to a headline. */
+.L-features .arow-in>.t-h,.L-phases .arow-in>.t-h,.L-steps .arow-in>.t-h{font-size:44px;line-height:60px;letter-spacing:0}
+.L-features .arow-in>.mk,.L-phases .arow-in>.mk,.L-steps .arow-in>.mk{height:60px}
+.L-features .arow-in>.t-body,.L-phases .arow-in>.t-body,.L-steps .arow-in>.t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body{font-size:38px;line-height:52px}
+.L-features .gridc .t-body[style*="font-weight:500"]{font-size:44px;line-height:60px;letter-spacing:0}
+.L-photo.panorama .hbody.centre{padding-bottom:0}
+
+.L-photo.panorama .hbody.centre>.pic{margin-top:96px}

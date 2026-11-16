@@ -1,0 +1,54 @@
+{
+  "name": "ais-vision-systems_carousel-application-labels_en_2026-11-12",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "copy": "A crooked label and missing ink call for different checks. AIS REV 360 inspects label alignment and print on containers. These demonstration samples show the two defects; the checks for your label need to be defined using representative samples. Send us samples",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "light",
+      "src": "@lib/media/3d/renders/carousel-application-labels/hero-pair.png",
+      "evidence": "render",
+      "crop": "none",
+      "headline": "Which|of these bottles|*would you reject*?",
+      "alt": "Two close-ups of bottles: the right label is crooked."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/carousel-application-labels/slide-2_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The right one:|crooked label",
+      "alt": "OK bottle and bottle with a label tilted 4°, marked in red."
+    },
+    {
+      "type": "panel",
+      "bg": "white",
+      "src": "@lib/media/3d/renders/carousel-application-labels/slide-3_en.png",
+      "split": 0.6,
+      "evidence": "render",
+      "headline": "The right one:|missing ink",
+      "alt": "OK bottle and bottle with missing ink; magnified printed name."
+    },
+    {
+      "type": "contact",
+      "headline": "Shall we check|*your labels*?",
+      "action": "Send us samples",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ],
+      "hex": "br",
+      "alt": "Shall we check your labels?"
+    }
+  ],
+  "formats": [
+    "4x5"
+  ]
+}
