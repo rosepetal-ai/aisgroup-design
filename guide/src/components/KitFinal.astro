@@ -101,7 +101,7 @@ const ratio = { print: '210 / 297', datasheet: '210 / 297', sales: '210 / 297', 
 </ul>
 </section>)}
 <style>
-  .kf { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
+  .kf { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 32px 24px; }
   .kf[data-family='deck'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .kf[data-family='banner'] { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; }
   .kf[data-rules] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -113,7 +113,7 @@ const ratio = { print: '210 / 297', datasheet: '210 / 297', sales: '210 / 297', 
   .kf[data-family='office'] .frame img { box-shadow: 0 0 0 1px var(--line); width: auto; height: auto; max-width: 100%; max-height: 100%; }
   strong { color: var(--ink); font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); font-weight: 600; }
   li > span { color: var(--muted); font-size: var(--ais-text-caption); line-height: var(--ais-text-caption-leading); }
-  .links { display: flex; flex-direction: column; gap: 4px 16px; margin: auto 0 0 !important; padding-top: 4px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
+  .links { display: flex; flex-direction: column; margin: auto 0 0 !important; padding-top: 4px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); }
   .links a { color: var(--ais-blue-500); font-weight: 500; text-underline-offset: 3px; }
   .links a:hover { color: var(--ais-blue-600); }
   @media (max-width: 760px) { .kf[data-rules], .kf[data-family='deck'][data-rules] { grid-template-columns: 1fr; } .kf[data-family='banner'] { grid-template-columns: 1fr; } .kf, .kf[data-family='deck'] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } }
