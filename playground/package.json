@@ -10,7 +10,7 @@
     "build:artifact": "vue-tsc -b && vite build --mode artifact && node scripts/to-artifact.mjs"
   },
   "dependencies": {
-    "@rosepetal/design": "*",
+    "@aisgroup/design": "*",
     "@fontsource-variable/inter": "^5.3.0",
     "@lucide/vue": "^1.54.0",
     "@vue/compiler-dom": "^3.5.44",

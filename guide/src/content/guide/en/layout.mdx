@@ -4,7 +4,7 @@ rules:
   - 'Use only the spacing tokens (--ais-space-050 to --ais-space-1600, a 4 px base on an 8 px rhythm). Never use values between them, such as 6, 10, 14, 18 or 22 px.'
   - 'On websites and documents, content stops at 1440 px with fluid side margins of 24 to 64 px, on a 12-column grid (8 below 900 px, 4 below 600 px), and sections sit 64 to 128 px apart. Product interfaces are full width.'
   - 'Websites and documents use the breakpoints 600, 900, 1200 and 1440 px, written mobile-first with min-width. Never add another. Product interfaces use the Tailwind breakpoints of the design system; Node-RED panels keep the FlowFuse grid and breakpoints.'
-  - 'Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@rosepetal/design` and never override them. Fully round only for avatars, dots and toggles.'
+  - 'Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@aisgroup/design` and never override them. Fully round only for avatars, dots and toggles.'
   - 'Borders separate content; shadows only for things that float (menus, dialogs, toasts). Cards never cast a shadow, not even on hover.'
   - 'Rules separate, they never frame: a line goes between the rows of a list or table, never after the last row and never above or below a block that already has one. Two lines with nothing between them are a fault. Text sits centred between its rules, with the same space above and below.'
 ---
@@ -71,13 +71,13 @@ The parts of a brochure are in the [Marketing kit](/en/kit/#print-system).
 
 ## Shape
 
-Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@rosepetal/design`.
+Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@aisgroup/design`.
 
 <LayoutSpecimens lang="en" show="shape" />
 
 - **Websites are square everywhere**, including cards, dropdowns, menus, dialogs, notices and cookie bars, so every edge lines up with the square buttons and the grid.
 - **A product screen shown as a window** is the one exception: a screenshot or screen film in its 1 px frame takes the window’s 4 px corner (`--ais-radius-md`), because a window is round in reality, and may float on the raised shadow. The picture is never rounded on its own; photographs and footage stay square.
-- **Product interfaces** take their corners from `@rosepetal/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
+- **Product interfaces** take their corners from `@aisgroup/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
 - One radius per component, and never two systems on one screen: a website never borrows the product’s rounded corners, and a product screen never squares a package component.
 - Nested corners follow the outer one: in product, the package’s scale gives inner elements the smaller step; in square layouts, everything inside stays square.
 - Never use pill shapes for buttons or tags, and never round a photograph.

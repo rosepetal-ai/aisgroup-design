@@ -1,7 +1,7 @@
 <!-- The button that is working shows a spinner and is disabled until it ends. -->
 <script setup>
-import { Button } from '@rosepetal/design/ui/button';
-import { Spinner } from '@rosepetal/design/ui/spinner';
+import { Button } from '@aisgroup/design/ui/button';
+import { Spinner } from '@aisgroup/design/ui/spinner';
 </script>
 
 <template>

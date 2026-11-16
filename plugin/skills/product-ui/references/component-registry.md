@@ -1,10 +1,10 @@
 # Rosepetal design system: component index
 
-Every component and brand block of `@rosepetal/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @rosepetal/design`, from the company's Artifact Registry) and import `@rosepetal/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
+Every component and brand block of `@aisgroup/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @aisgroup/design`, from the company's Artifact Registry) and import `@aisgroup/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
 
 ## Components
 
-Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@rosepetal/design/ui/button'`.
+Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@aisgroup/design/ui/button'`.
 
 - **Alert** (`alert`): A status message inside a section: icon and text take the tone, the surface stays the card. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/alert/`
 - **Alert dialog** (`alert-dialog`): A question that interrupts: it has to be answered to go on. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/alert-dialog/`
@@ -50,7 +50,7 @@ Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@rosepe
 
 ## Blocks
 
-Brand pieces built from the components, with no app logic: texts and data come from each app. Import: `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+Brand pieces built from the components, with no app logic: texts and data come from each app. Import: `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 
 - **Top bar** (`top-bar`): The brand bar: colour, height and logo. Each app gives its links and actions. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/TopBar.vue`
 - **Login page** (`login-page`): The sign-in page. Each app gives its texts and checks the password. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/LoginPage.vue`

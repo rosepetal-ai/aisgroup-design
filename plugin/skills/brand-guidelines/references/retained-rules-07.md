@@ -411,7 +411,7 @@ Source: guide/dist/es/brand.md:254.
 ## AIS-314c8b4038b8
 
 <!-- AIS-314c8b4038b8 -->
-Instala `@rosepetal/design`, sin copiar sus ficheros. Un arreglo en un componente se hace en el paquete (`packages/design`) y se publica como versión nueva.
+Instala `@aisgroup/design`, sin copiar sus ficheros. Un arreglo en un componente se hace en el paquete (`packages/design`) y se publica como versión nueva.
 
 Source: guide/dist/es/brand.md:258.
 
@@ -439,14 +439,14 @@ Source: guide/dist/es/brand.md:261.
 ## AIS-3b5fbd1ca841
 
 <!-- AIS-3b5fbd1ca841 -->
-Usa los componentes de shadcn-vue de serie de `@rosepetal/design` con sus propias variantes y tamaños. Las clases son solo para la maquetación de la página: grid, flex, gap, ancho y posición.
+Usa los componentes de shadcn-vue de serie de `@aisgroup/design` con sus propias variantes y tamaños. Las clases son solo para la maquetación de la página: grid, flex, gap, ancho y posición.
 
 Source: guide/dist/es/brand.md:262.
 
 ## AIS-93a97ce8e80a
 
 <!-- AIS-93a97ce8e80a -->
-Cada color es un token de `@rosepetal/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.
+Cada color es un token de `@aisgroup/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.
 
 Source: guide/dist/es/brand.md:263.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// The components contract: the guide shows @rosepetal/design (packages/design) and nothing else. Run after the build
+// The components contract: the guide shows @aisgroup/design (packages/design) and nothing else. Run after the build
 // (it reads guide/dist); it fails (exit 1) when the built guide and the package drift apart:
 //   - a component folder (ui/<id>), a block or an examples folder the catalogue does not list, or a catalogue entry
 //     with no folder, no file or no examples;

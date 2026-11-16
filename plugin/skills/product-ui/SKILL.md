@@ -9,7 +9,7 @@ Apply the [writing essentials: use «» for prose quotes, UI labels and section 
 
 Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
 
-1. Read components.json and package.json to identify the actual stack. @rosepetal/design is the source for shadcn-vue components and styles.css is the Tailwind v4 theme.
+1. Read components.json and package.json to identify the actual stack. @aisgroup/design is the source for shadcn-vue components and styles.css is the Tailwind v4 theme.
 2. Search design_code, read the registry item and existing package examples before composing a screen. Never scrape a deployed screen for source.
 3. Read using-components.md for async states, tables, dialogs and dataset colours; design-language owns the general chart rules.
 4. For PrimeVue or Vuetify use their adapter skill. For review, theme comparison or convergence use ui-audit, ui-theme-diff or ui-unify.

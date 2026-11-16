@@ -1,6 +1,6 @@
 import tokenNotes from '../data/token-notes.json';
 import type { Lang } from '../i18n';
-// Light and dark values of every semantic token, read from @rosepetal/design's styles.css at build time,
+// Light and dark values of every semantic token, read from @aisgroup/design's styles.css at build time,
 // so the Light and dark themes page can never drift from the package.
 import { styles } from './package';
 import { contrast } from '../palette';

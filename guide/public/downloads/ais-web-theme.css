@@ -1,4 +1,4 @@
-/* AIS websites on Tailwind v4: load after ais-theme.css (@rosepetal/design's styles.css, the products' tokens) and ais-tokens.css.
+/* AIS websites on Tailwind v4: load after ais-theme.css (@aisgroup/design's styles.css, the products' tokens) and ais-tokens.css.
    Tailwind's text sizes become the brand type styles, as on the sites; the rest are the few tokens the websites add. */
 @custom-variant dark (&:is(.dark *));
 

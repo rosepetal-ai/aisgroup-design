@@ -1,7 +1,7 @@
 <!-- Icons are 16 px, before the label for actions and after it for menus. -->
 <script setup>
 import { ChevronDownIcon, DownloadIcon, PlusIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

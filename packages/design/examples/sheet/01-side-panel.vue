@@ -1,10 +1,10 @@
 <!-- A side panel over the page, for filters or details on small screens. The header names it; the description is for screen readers. -->
 <script setup>
 import { FilterIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Checkbox } from '@rosepetal/design/ui/checkbox';
-import { Field, FieldGroup, FieldLabel, FieldLegend, FieldSet } from '@rosepetal/design/ui/field';
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@rosepetal/design/ui/sheet';
+import { Button } from '@aisgroup/design/ui/button';
+import { Checkbox } from '@aisgroup/design/ui/checkbox';
+import { Field, FieldGroup, FieldLabel, FieldLegend, FieldSet } from '@aisgroup/design/ui/field';
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@aisgroup/design/ui/sheet';
 </script>
 
 <template>

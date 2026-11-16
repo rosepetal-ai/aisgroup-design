@@ -1,8 +1,8 @@
 <!-- Sortable headers are ghost buttons; status is an icon and a word; row actions at the end. -->
 <script setup>
 import { ArrowUpDownIcon, CircleCheckIcon, CircleXIcon, EllipsisIcon, LoaderCircleIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@rosepetal/design/ui/table';
+import { Button } from '@aisgroup/design/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@aisgroup/design/ui/table';
 const rows = [
   { name: 'm-inspection-03', dataset: 'PCB inspection', date: '06/10/2026', status: 'Finished', icon: CircleCheckIcon, tone: 'text-success' },
   { name: 'm-inspection-04', dataset: 'PCB inspection', date: '07/10/2026', status: 'Training', icon: LoaderCircleIcon, tone: 'animate-spin' },

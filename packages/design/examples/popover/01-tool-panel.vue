@@ -1,10 +1,10 @@
 <!-- A panel anchored to its tool, with stock parts inside. -->
 <script setup>
 import { SlidersHorizontalIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Field, FieldLabel } from '@rosepetal/design/ui/field';
-import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from '@rosepetal/design/ui/popover';
-import { Slider } from '@rosepetal/design/ui/slider';
+import { Button } from '@aisgroup/design/ui/button';
+import { Field, FieldLabel } from '@aisgroup/design/ui/field';
+import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from '@aisgroup/design/ui/popover';
+import { Slider } from '@aisgroup/design/ui/slider';
 </script>
 
 <template>

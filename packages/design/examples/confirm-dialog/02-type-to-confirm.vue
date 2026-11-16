@@ -1,8 +1,8 @@
 <!-- For what cannot be recovered: the action stays disabled until the text matches. -->
 <script setup>
 import { ref } from 'vue';
-import ConfirmDialog from '@rosepetal/design/blocks/ConfirmDialog.vue';
-import { Button } from '@rosepetal/design/ui/button';
+import ConfirmDialog from '@aisgroup/design/blocks/ConfirmDialog.vue';
+import { Button } from '@aisgroup/design/ui/button';
 
 const open = ref(true);
 const wait = () => new Promise(resolve => setTimeout(resolve, 1200));

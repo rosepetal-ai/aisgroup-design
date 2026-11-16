@@ -523,7 +523,7 @@ Source: guide/dist/en/brand.md:167.
 ## AIS-b866a6f11550
 
 <!-- AIS-b866a6f11550 -->
-In the app, `.dark` on `<html>` switches the theme: the user's choice first, then the system setting. Components take every colour from the `@rosepetal/design` tokens, so they need no colours of their own for dark mode.
+In the app, `.dark` on `<html>` switches the theme: the user's choice first, then the system setting. Components take every colour from the `@aisgroup/design` tokens, so they need no colours of their own for dark mode.
 
 Source: guide/dist/en/brand.md:168.
 

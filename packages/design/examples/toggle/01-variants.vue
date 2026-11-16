@@ -1,7 +1,7 @@
 <!-- One button that stays on or off. -->
 <script setup>
 import { BoldIcon } from '@lucide/vue';
-import { Toggle } from '@rosepetal/design/ui/toggle';
+import { Toggle } from '@aisgroup/design/ui/toggle';
 </script>
 
 <template>

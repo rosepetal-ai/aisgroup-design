@@ -1,8 +1,8 @@
 <!-- An area that is loading: Empty with a spinner, and progress when it is known. -->
 <script setup>
-import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@rosepetal/design/ui/empty';
-import { Progress } from '@rosepetal/design/ui/progress';
-import { Spinner } from '@rosepetal/design/ui/spinner';
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@aisgroup/design/ui/empty';
+import { Progress } from '@aisgroup/design/ui/progress';
+import { Spinner } from '@aisgroup/design/ui/spinner';
 </script>
 
 <template>

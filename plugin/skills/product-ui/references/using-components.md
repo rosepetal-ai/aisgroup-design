@@ -4,9 +4,9 @@ Install the product package and use its components and tokens together.
 
 ## Set up an app
 
-1. Set up the private registry and install `@rosepetal/design`, as the package’s README explains.
-2. Import `@rosepetal/design/styles.css` after Tailwind’s theme and utilities.
-3. Import components by folder and blocks by file: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+1. Set up the private registry and install `@aisgroup/design`, as the package’s README explains.
+2. Import `@aisgroup/design/styles.css` after Tailwind’s theme and utilities.
+3. Import components by folder and blocks by file: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 4. Keep Inter and the full-width page, and open every page under the TopBar block.
 5. Add a test that fails on middle dots or Unicode arrows in templates, like rosepetal-ui’s `tests/uiTextRules.spec.js`.
 
@@ -58,7 +58,7 @@ DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full
 
 ## Data colours
 
-Tags, chart series and dataset splits have colours of their own in `@rosepetal/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
+Tags, chart series and dataset splits have colours of their own in `@aisgroup/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
 
 - Tag colours are the same in light and dark mode, so a defect class never changes colour; the first and third chart series and the training split take a lighter step in dark mode. Every token in both modes is on [Light and dark themes](../../design-language/references/themes.md#tokens).
 - They never appear in navigation, buttons or marketing graphics.

@@ -1,7 +1,7 @@
 <!-- Shortcuts, in tooltips and help. -->
 <script setup>
 import { ArrowRightIcon } from '@lucide/vue';
-import { Kbd, KbdGroup } from '@rosepetal/design/ui/kbd';
+import { Kbd, KbdGroup } from '@aisgroup/design/ui/kbd';
 </script>
 
 <template>

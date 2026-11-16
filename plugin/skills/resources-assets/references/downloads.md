@@ -124,12 +124,12 @@ The core set of Lucide icons as SVG, with the Lucide licence. See [Icons](../../
 
 | File | Contents |
 | --- | --- |
-| [ais-theme.css](../../../brand/downloads/ais-theme.css) | The Tailwind v4 theme: `@rosepetal/design/styles.css`, the Rosepetal products' tokens |
+| [ais-theme.css](../../../brand/downloads/ais-theme.css) | The Tailwind v4 theme: `@aisgroup/design/styles.css`, the Rosepetal products' tokens |
 | [ais-tokens.css](../../../brand/downloads/ais-tokens.css) | The same values as CSS custom properties, for print, email and anything without Tailwind |
 | [ais-tokens.json](../../../brand/downloads/ais-tokens.json) | Design tokens (W3C DTCG format) |
 | [ais-web-theme.css](../../../brand/downloads/ais-web-theme.css) | Tailwind’s text sizes as the brand type styles, and the field border, on ais-theme.css and ais-tokens.css. The websites use its type block on ais-tokens.css alone; see [Website components](../../web-design/references/web-components.md#set-up). |
 
-Every product is built with Tailwind v4 on ais-theme.css, the Rosepetal products’ tokens (`@rosepetal/design/styles.css`), so the classes are the app’s: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. It needs `tw-animate-css`. The websites load ais-tokens.css instead, under their own components; see [Website components](../../web-design/references/web-components.md#set-up).
+Every product is built with Tailwind v4 on ais-theme.css, the Rosepetal products’ tokens (`@aisgroup/design/styles.css`), so the classes are the app’s: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. It needs `tw-animate-css`. The websites load ais-tokens.css instead, under their own components; see [Website components](../../web-design/references/web-components.md#set-up).
 
 ```css
 @import "tailwindcss";

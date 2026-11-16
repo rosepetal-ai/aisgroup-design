@@ -642,7 +642,7 @@ Source: plugin/skills/design-language/references/patterns.md:15.
 ## AIS-26865de51ce4
 
 <!-- AIS-26865de51ce4 -->
-Exact values, version 1.0. Token files: [ais-tokens.css](../../../brand/downloads/ais-tokens.css) (CSS custom properties), [ais-theme.css](../../../brand/downloads/ais-theme.css) (the Tailwind v4 theme, the tokens of the Rosepetal products, from @rosepetal/design/styles.css: import it after tailwindcss and use the same classes as the app, bg-primary, text-muted-foreground) and [ais-tokens.json](../../../brand/downloads/ais-tokens.json) (W3C design tokens).
+Exact values, version 1.0. Token files: [ais-tokens.css](../../../brand/downloads/ais-tokens.css) (CSS custom properties), [ais-theme.css](../../../brand/downloads/ais-theme.css) (the Tailwind v4 theme, the tokens of the Rosepetal products, from @aisgroup/design/styles.css: import it after tailwindcss and use the same classes as the app, bg-primary, text-muted-foreground) and [ais-tokens.json](../../../brand/downloads/ais-tokens.json) (W3C design tokens).
 
 Source: plugin/skills/design-language/references/tokens.md:3.
 

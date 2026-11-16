@@ -1,7 +1,7 @@
 <!-- Asks before something that cannot be undone. -->
 <script setup>
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@rosepetal/design/ui/alert-dialog';
-import { Button } from '@rosepetal/design/ui/button';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@aisgroup/design/ui/alert-dialog';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

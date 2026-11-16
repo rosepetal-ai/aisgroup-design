@@ -26,7 +26,7 @@
     }
   ],
   "meta": {
-    "package": "@rosepetal/design@0.0.0",
+    "package": "@aisgroup/design@0.0.0",
     "source": "rosepetal-ai/aisgroup-design@dev:packages/design/blocks/TopBar.vue"
   }
 }

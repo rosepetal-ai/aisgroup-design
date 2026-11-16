@@ -96,7 +96,7 @@ Source: plugin/skills/design-language/SKILL.md:32.
 ## AIS-6e64710e173e
 
 <!-- AIS-6e64710e173e -->
-Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@rosepetal/design` and never override them. Fully round only for avatars, dots and toggles.
+Websites are square everywhere: buttons, cards, menus, dropdowns, dialogs and notices. The one exception is a product screen shown as a window, which takes the window’s 4 px corner. Product interfaces take their corners from `@aisgroup/design` and never override them. Fully round only for avatars, dots and toggles.
 
 Source: plugin/skills/design-language/SKILL.md:33.
 

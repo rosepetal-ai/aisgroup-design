@@ -1,7 +1,7 @@
 <!-- A label beside every checkbox; a group of options as a field set. -->
 <script setup>
-import { Checkbox } from '@rosepetal/design/ui/checkbox';
-import { Field, FieldLabel } from '@rosepetal/design/ui/field';
+import { Checkbox } from '@aisgroup/design/ui/checkbox';
+import { Field, FieldLabel } from '@aisgroup/design/ui/field';
 </script>
 
 <template>

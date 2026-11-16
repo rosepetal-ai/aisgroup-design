@@ -1,7 +1,7 @@
 <!-- Views of the same thing. Our apps use the line variant everywhere: page tabs, dataset tabs and the editor side panel. -->
 <script setup>
-import { Badge } from '@rosepetal/design/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@rosepetal/design/ui/tabs';
+import { Badge } from '@aisgroup/design/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@aisgroup/design/ui/tabs';
 </script>
 
 <template>

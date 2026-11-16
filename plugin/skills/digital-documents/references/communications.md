@@ -64,7 +64,7 @@ Exact values for several items, to look up or compare.
 | **Documents and datasheets (A4)** | 9.5 pt on 13.5 pt | 8.5 pt Semibold | 2 mm above and below, 5 mm between columns | 0.25 mm |
 | **Presentations (1920 × 1080)** | 38 px on 52 px | 38 px Medium | 24 px above and below (16 px from five rows), 40 px between columns | 2 px |
 | **Websites** | Small, 14 px | Small Semibold | 12 px above and below, 24 px between columns | 1 px |
-| **Product interface** | The `@rosepetal/design` Table as it ships: 14 px, hover and selected rows | Medium, in ink (they sort) | Number columns take `text-right tabular-nums` | `--border` |
+| **Product interface** | The `@aisgroup/design` Table as it ships: 14 px, hover and selected rows | Medium, in ink (they sort) | Number columns take `text-right tabular-nums` | `--border` |
 
 </div>
 

@@ -53,7 +53,7 @@ const TREE = [
   ['Resources and Assets', 'Logo and graphic assets', 'resources-assets', 'downloads.md', /logo/i],
   ['Resources and Assets', 'Templates', 'resources-assets', 'kit.md', /template|plantilla/i],
   ['Resources and Assets', 'Design tokens', 'resources-assets', 'downloads.md', /tokens/i],
-  ['Resources and Assets', 'Component packages', 'product-ui', 'component-registry.md', /@rosepetal\/design/],
+  ['Resources and Assets', 'Component packages', 'product-ui', 'component-registry.md', /@aisgroup\/design/],
 ];
 for (const [branch, topic, skill, ref, pattern] of TREE) {
   const file = ref === 'SKILL.md' ? path.join(SKILLS, skill, 'SKILL.md') : path.join(SKILLS, skill, 'references', ref);

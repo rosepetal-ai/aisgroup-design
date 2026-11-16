@@ -1,7 +1,7 @@
 <!-- Longer text, with a label above. -->
 <script setup>
-import { Field, FieldLabel } from '@rosepetal/design/ui/field';
-import { Textarea } from '@rosepetal/design/ui/textarea';
+import { Field, FieldLabel } from '@aisgroup/design/ui/field';
+import { Textarea } from '@aisgroup/design/ui/textarea';
 </script>
 
 <template>

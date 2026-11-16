@@ -4,7 +4,7 @@ rules:
   - 'Fes servir només els tokens d’espai (de --ais-space-050 a --ais-space-1600, base de 4 px i ritme de 8 px). No facis servir mai valors intermedis, com 6, 10, 14, 18 o 22 px.'
   - 'En webs i documents, el contingut s’atura a 1440 px amb marges laterals fluids de 24 a 64 px, sobre una retícula de 12 columnes (8 per sota de 900 px i 4 per sota de 600 px), i les seccions se separen de 64 a 128 px. Les interfícies de producte ocupen tota l’amplada.'
   - 'Els webs i els documents fan servir els punts de ruptura 600, 900, 1200 i 1440 px, escrits de mòbil a escriptori amb min-width. No n’afegeixis mai cap altre. Les interfícies de producte fan servir els punts de ruptura de Tailwind del sistema de disseny; els panells de Node-RED mantenen la quadrícula i els punts de ruptura de FlowFuse.'
-  - 'Els webs són rectes en tot: botons, targetes, menús, desplegables, diàlegs i avisos. L’única excepció és una pantalla de producte mostrada com a finestra, que pren la cantonada de 4 px de la finestra. Les interfícies de producte prenen les cantonades de `@rosepetal/design` i no les canvien mai. Rodó només en avatars, punts i interruptors.'
+  - 'Els webs són rectes en tot: botons, targetes, menús, desplegables, diàlegs i avisos. L’única excepció és una pantalla de producte mostrada com a finestra, que pren la cantonada de 4 px de la finestra. Les interfícies de producte prenen les cantonades de `@aisgroup/design` i no les canvien mai. Rodó només en avatars, punts i interruptors.'
   - 'Les vores separen el contingut; les ombres, només per al que sura (menús, diàlegs, avisos). Les targetes no projecten mai ombra, tampoc en hover.'
   - 'Les línies separen, mai emmarquen: van entre les files d’una llista o una taula, mai després de l’última fila ni a sobre o a sota d’un bloc que ja en té una. Dues línies sense res entre elles són un error. El text queda centrat entre les seves línies, amb el mateix espai a dalt i a baix.'
 ---
@@ -71,13 +71,13 @@ Les parts d’un tríptic són al [Kit de màrqueting](/ca/kit/#sistema-dimpress
 
 ## Forma
 
-El que és recte és la forma per defecte de la marca: coincideix amb els logotips, els botons i el kit de capes. Els webs, els documents i el màrqueting només arrodoneixen el que és rodó a la realitat; les interfícies de producte prenen les cantonades de `@rosepetal/design`.
+El que és recte és la forma per defecte de la marca: coincideix amb els logotips, els botons i el kit de capes. Els webs, els documents i el màrqueting només arrodoneixen el que és rodó a la realitat; les interfícies de producte prenen les cantonades de `@aisgroup/design`.
 
 <LayoutSpecimens lang="ca" show="shape" />
 
 - **Els webs són rectes en tot**, també targetes, desplegables, menús, diàlegs, avisos i barres de galetes, perquè cada vora s’alineï amb els botons rectes i la retícula.
 - **Una pantalla de producte mostrada com a finestra** és l’única excepció: una captura o un vídeo de pantalla al seu marc d’1 px pren la cantonada de 4 px de la finestra (`--ais-radius-md`), perquè una finestra és rodona en la realitat, i pot flotar amb l’ombra elevada. La imatge no s’arrodoneix mai per si sola; les fotografies i els enregistraments continuen rectes.
-- **Les interfícies de producte** prenen les cantonades de `@rosepetal/design`: el paquet és la referència dels seus components. Defineix `--radius` (8 px) i `--radius-modal` (12 px, diàlegs), i la cantonada de cada component en surt. Fes servir els seus components i classes tal com són; no escriguis mai un radi ni el canviïs.
+- **Les interfícies de producte** prenen les cantonades de `@aisgroup/design`: el paquet és la referència dels seus components. Defineix `--radius` (8 px) i `--radius-modal` (12 px, diàlegs), i la cantonada de cada component en surt. Fes servir els seus components i classes tal com són; no escriguis mai un radi ni el canviïs.
 - Un radi per component, i mai dos sistemes en una pantalla: un web no pren mai les cantonades arrodonides del producte, i una pantalla de producte no posa mai recte un component del paquet.
 - Les cantonades niades segueixen l’exterior: en producte, l’escala del paquet dona als elements interiors el pas menor; en les composicions rectes, tot el que hi ha dins continua recte.
 - No facis servir mai formes de píndola en botons o etiquetes, ni arrodoneixis una fotografia.

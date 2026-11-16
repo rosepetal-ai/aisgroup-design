@@ -1,8 +1,8 @@
 <!-- The app gives the lines. It follows new ones unless you have scrolled up to read. -->
 <script setup>
 import { ref } from 'vue';
-import LogTerminal from '@rosepetal/design/blocks/LogTerminal.vue';
-import { Button } from '@rosepetal/design/ui/button';
+import LogTerminal from '@aisgroup/design/blocks/LogTerminal.vue';
+import { Button } from '@aisgroup/design/ui/button';
 
 const lines = ref([
   { time: '10:02:11', text: 'Starting training' },

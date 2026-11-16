@@ -1,8 +1,8 @@
 <!-- Every icon-only button has a name and a tooltip saying it. -->
 <script setup>
 import { MaximizeIcon, RotateCcwIcon, ZoomInIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@rosepetal/design/ui/tooltip';
+import { Button } from '@aisgroup/design/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@aisgroup/design/ui/tooltip';
 const actions = [{ label: 'Zoom in', icon: ZoomInIcon }, { label: 'Reset zoom', icon: RotateCcwIcon }, { label: 'Full screen', icon: MaximizeIcon }];
 </script>
 

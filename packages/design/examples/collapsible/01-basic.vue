@@ -1,8 +1,8 @@
 <!-- A section that opens and closes. -->
 <script setup>
 import { ChevronDownIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@rosepetal/design/ui/collapsible';
+import { Button } from '@aisgroup/design/ui/button';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@aisgroup/design/ui/collapsible';
 </script>
 
 <template>

@@ -1,9 +1,9 @@
-// @rosepetal/design as a shadcn-vue registry, so any app can install a component's real source:
+// @aisgroup/design as a shadcn-vue registry, so any app can install a component's real source:
 //   npx shadcn-vue@latest add https://design.aisgroup.ai/r/button.json
 // and agents fetch the same JSON (files with their content) through the MCP. Built from packages/design, through the
 // workspace; /r/registry.json lists every item. The package imports its own parts by relative path (../../lib/utils,
 // ../button); here they become the shadcn aliases (@/lib/utils, @/components/ui/button), as the CLI expects.
-// Apps that can install the package should install it instead (npm i @rosepetal/design): the registry is for copying.
+// Apps that can install the package should install it instead (npm i @aisgroup/design): the registry is for copying.
 import type { APIRoute } from 'astro';
 import { posix } from 'node:path';
 import { blockItems, componentItems, files, sourceOf, styles, version } from '../../design/package';
@@ -48,17 +48,17 @@ const item = (it: Item) => {
     dependencies: NPM.filter((d) => content.some((c) => c.includes(`'${d}'`) || c.includes(`"${d}"`))),
     registryDependencies: deps.map((d) => `${SITE}/r/${d}.json`),
     files: it.paths.map((p, i) => ({ path: target(p), type: it.type, content: content[i] })),
-    meta: { package: `@rosepetal/design@${version}`, source: sourceOf(`packages/design/${it.paths[0]}`) },
+    meta: { package: `@aisgroup/design@${version}`, source: sourceOf(`packages/design/${it.paths[0]}`) },
   };
 };
 
 // The tokens: the package's styles.css, as an app imports it after Tailwind.
 const theme = {
   $schema: 'https://shadcn-vue.com/schema/registry-item.json',
-  name: 'theme', type: 'registry:file', title: 'Theme', description: 'The tokens of every Rosepetal product: @rosepetal/design/styles.css (Tailwind v4).',
+  name: 'theme', type: 'registry:file', title: 'Theme', description: 'The tokens of every Rosepetal product: @aisgroup/design/styles.css (Tailwind v4).',
   dependencies: ['tw-animate-css'], registryDependencies: [],
   files: [{ path: 'assets/theme.css', type: 'registry:file', target: 'src/assets/theme.css', content: styles.replace(/^@source .*\n/gm, '') }],
-  meta: { package: `@rosepetal/design@${version}`, source: sourceOf('packages/design/styles.css') },
+  meta: { package: `@aisgroup/design@${version}`, source: sourceOf('packages/design/styles.css') },
 };
 
 export const getStaticPaths = () => [

@@ -1,6 +1,6 @@
 # Vue theme adapters
 
-`node packages/vue-themes/generate.mjs` generates both adapters and resolved light/dark tokens from `packages/design/styles.css`. `--check` fails on drift. `@rosepetal/design` remains the component source of truth; these are token adapters, not equivalent implementations of its blocks.
+`node packages/vue-themes/generate.mjs` generates both adapters and resolved light/dark tokens from `packages/design/styles.css`. `--check` fails on drift. `@aisgroup/design` remains the component source of truth; these are token adapters, not equivalent implementations of its blocks.
 
 For PrimeVue, install `primevue`, `@primeuix/themes`, Vue and Tailwind v4. Import `primevue.mjs` as `preset` and use `app.use(PrimeVue, { theme: { preset, options: { darkModeSelector: '.dark', cssLayer: { name: 'primevue', order: 'theme, base, primevue, utilities' } } } })`. Import Tailwind and `base.css`; put `.dark` on `html` when switching modes. Layout utilities stay in Tailwind. Do not import the shadcn component CSS into a PrimeVue app.
 

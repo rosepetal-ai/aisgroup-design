@@ -17,7 +17,7 @@ Live website components, their source code and the rules for using them.
 
 ## Set up
 
-How the three sites are built. Each is an Astro site that takes its tokens and shared components from `@aisgroup/web` (`packages/web` in this repo), the website counterpart of the products’ `@rosepetal/design`, and keeps its own pages, header and content.
+How the three sites are built. Each is an Astro site that takes its tokens and shared components from `@aisgroup/web` (`packages/web` in this repo), the website counterpart of the products’ `@aisgroup/design`, and keeps its own pages, header and content.
 
 1. `@aisgroup/web/styles.css` first: the brand’s tokens ([ais-tokens.css](/downloads/ais-tokens.css), `--ais-*`), the site roles below (`--web-*`) and each brand’s settings, chosen with `data-brand` on `<html>` (`ais-group`, `ais-vision` or `rosepetal`): logo height, call-to-action size and the details that differ.
 2. Tailwind v4 for layout, with its text sizes pointed at the brand styles (`--text-base: var(--ais-text-body)` and so on). The components need no Tailwind.

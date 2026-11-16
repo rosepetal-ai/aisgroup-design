@@ -1,6 +1,6 @@
 <!-- Inline, in the button that is working; or filling an empty area. -->
 <script setup>
-import { Spinner } from '@rosepetal/design/ui/spinner';
+import { Spinner } from '@aisgroup/design/ui/spinner';
 </script>
 
 <template>

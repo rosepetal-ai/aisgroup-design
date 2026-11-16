@@ -1,6 +1,6 @@
 <!-- Counts and neutral labels. Status is never a badge: it is an icon and a word. -->
 <script setup>
-import { Badge } from '@rosepetal/design/ui/badge';
+import { Badge } from '@aisgroup/design/ui/badge';
 </script>
 
 <template>

@@ -2,9 +2,9 @@
 <script setup>
 import { LanguagesIcon, MoonIcon, SunIcon } from '@lucide/vue';
 import { ref } from 'vue';
-import LoginPage from '@rosepetal/design/blocks/LoginPage.vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from '@rosepetal/design/ui/dropdown-menu';
+import LoginPage from '@aisgroup/design/blocks/LoginPage.vue';
+import { Button } from '@aisgroup/design/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
 
 const email = ref('');
 const password = ref('');

@@ -9,7 +9,7 @@ Apply the [writing essentials: use «» for prose quotes, UI labels and section 
 
 Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
 
-1. Use @aisgroup/web for company websites; product screens use @rosepetal/design.
+1. Use @aisgroup/web for company websites; product screens use @aisgroup/design.
 2. Read web.md and web-components.md before editing layout or shared components; use assets.md for site media.
 3. Use the package source, existing examples and website roles. Tailwind v4 product code comes from design_code kind=tailwind.
 

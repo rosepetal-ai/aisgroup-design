@@ -2,13 +2,13 @@
 <script setup>
 import { CircleAlertIcon } from '@lucide/vue';
 import { computed, ref, useId } from 'vue';
-import { Alert, AlertDescription, AlertTitle } from '@rosepetal/design/ui/alert';
-import { Button } from '@rosepetal/design/ui/button';
-import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@rosepetal/design/ui/dialog';
-import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@rosepetal/design/ui/field';
-import { Input } from '@rosepetal/design/ui/input';
-import { Spinner } from '@rosepetal/design/ui/spinner';
-import { Textarea } from '@rosepetal/design/ui/textarea';
+import { Alert, AlertDescription, AlertTitle } from '@aisgroup/design/ui/alert';
+import { Button } from '@aisgroup/design/ui/button';
+import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@aisgroup/design/ui/dialog';
+import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@aisgroup/design/ui/field';
+import { Input } from '@aisgroup/design/ui/input';
+import { Spinner } from '@aisgroup/design/ui/spinner';
+import { Textarea } from '@aisgroup/design/ui/textarea';
 
 const uid = useId();
 const open = ref(true);

@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-2f443bde1e1b
 
 <!-- AIS-2f443bde1e1b -->
-The components and brand blocks of `@rosepetal/design`, the package every Rosepetal product installs, live and with their code. Every product uses them as they are.
+The components and brand blocks of `@aisgroup/design`, the package every Rosepetal product installs, live and with their code. Every product uses them as they are.
 
 Source: guide/src/content/guide/en/components.mdx:6.
 

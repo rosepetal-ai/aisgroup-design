@@ -1,7 +1,7 @@
 <!-- Loading content takes the shape of the content: here, item tiles. -->
 <script setup>
-import { Item, ItemContent, ItemHeader } from '@rosepetal/design/ui/item';
-import { Skeleton } from '@rosepetal/design/ui/skeleton';
+import { Item, ItemContent, ItemHeader } from '@aisgroup/design/ui/item';
+import { Skeleton } from '@aisgroup/design/ui/skeleton';
 </script>
 
 <template>

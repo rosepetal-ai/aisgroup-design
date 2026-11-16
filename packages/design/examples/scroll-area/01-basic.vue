@@ -1,6 +1,6 @@
 <!-- A region with its own scroll. -->
 <script setup>
-import { ScrollArea } from '@rosepetal/design/ui/scroll-area';
+import { ScrollArea } from '@aisgroup/design/ui/scroll-area';
 </script>
 
 <template>

@@ -31,11 +31,11 @@ export const ASSERTIONS = {
   ],
   "web-design": [
     "Identifies @aisgroup/web as the website component package and locates its source or web guide.",
-    "Distinguishes @rosepetal/design product Tailwind from the website system; does not invent a website dark theme.",
-    "Uses the current light Rosepetal website, full blue Rosepetal wordmark at 27 px high (140 px wide) desktop and 25 px (130 px) phones, plus bare transparent adaptive web favicon rather than the AIS product app tile. Keeps @aisgroup/web separate from @rosepetal/design."
+    "Distinguishes @aisgroup/design product Tailwind from the website system; does not invent a website dark theme.",
+    "Uses the current light Rosepetal website, full blue Rosepetal wordmark at 27 px high (140 px wide) desktop and 25 px (130 px) phones, plus bare transparent adaptive web favicon rather than the AIS product app tile. Keeps @aisgroup/web separate from @aisgroup/design."
   ],
   "product-ui": [
-    "Identifies actual @rosepetal/design package or registry component sources before proposing code.",
+    "Identifies actual @aisgroup/design package or registry component sources before proposing code.",
     "Plans sortable right-aligned numeric columns and row actions plus loading, empty and error states using canonical components/tokens."
   ],
   "vue-primevue": [

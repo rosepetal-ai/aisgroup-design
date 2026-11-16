@@ -1,7 +1,7 @@
-/* The component previews and website specimens: Tailwind v4 and the tokens of @rosepetal/design (packages/design/styles.css),
+/* The component previews and website specimens: Tailwind v4 and the tokens of @aisgroup/design (packages/design/styles.css),
    exactly as an app loads them. Only the preview pages load this. */
 @import "tailwindcss";
-@import "@rosepetal/design/styles.css";
+@import "@aisgroup/design/styles.css";
 /* The package's styles.css scans its ui/ and blocks/; its examples are shown here too. */
 @source "../../../packages/design/examples";
 /* Inter variable, SIL Open Font License (/fonts/OFL-Inter.txt). */

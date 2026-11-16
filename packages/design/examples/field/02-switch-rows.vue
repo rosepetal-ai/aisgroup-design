@@ -1,7 +1,7 @@
 <!-- Settings as switch rows: several share one bordered list. -->
 <script setup>
-import { Field, FieldContent, FieldDescription, FieldLabel } from '@rosepetal/design/ui/field';
-import { Switch } from '@rosepetal/design/ui/switch';
+import { Field, FieldContent, FieldDescription, FieldLabel } from '@aisgroup/design/ui/field';
+import { Switch } from '@aisgroup/design/ui/switch';
 </script>
 
 <template>

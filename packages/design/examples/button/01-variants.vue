@@ -1,6 +1,6 @@
 <!-- Six variants: default for the primary action, outline for secondary actions and toolbars, ghost for icon and row actions, secondary for Cancel in dialogs, destructive for deletes, and link. -->
 <script setup>
-import { Button } from '@rosepetal/design/ui/button';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

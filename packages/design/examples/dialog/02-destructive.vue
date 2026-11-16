@@ -1,8 +1,8 @@
 <!-- The layout of a delete. To really run one, with its loading and error states, use the ConfirmDialog block. -->
 <script setup>
 import { ref } from 'vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@rosepetal/design/ui/dialog';
+import { Button } from '@aisgroup/design/ui/button';
+import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@aisgroup/design/ui/dialog';
 const open = ref(true);
 </script>
 

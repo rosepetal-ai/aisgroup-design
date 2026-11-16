@@ -1,6 +1,6 @@
 # Rosepetal Design playground
 
-The playground to try the components of [`@rosepetal/design`](../packages/design) (Rosepetal's [shadcn-vue](https://www.shadcn-vue.com/) components) and change their variables. It reads the package straight from `../packages/design`.
+The playground to try the components of [`@aisgroup/design`](../packages/design) (Rosepetal's [shadcn-vue](https://www.shadcn-vue.com/) components) and change their variables. It reads the package straight from `../packages/design`.
 
 ## What's inside
 

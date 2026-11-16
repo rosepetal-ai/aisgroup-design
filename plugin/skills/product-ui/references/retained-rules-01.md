@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-4772e4b1ef42
 
 <!-- AIS-4772e4b1ef42 -->
-Install `@rosepetal/design` instead of copying its files. A fix to a component is made in the package (`packages/design`) and published as a new version.
+Install `@aisgroup/design` instead of copying its files. A fix to a component is made in the package (`packages/design`) and published as a new version.
 
 Source: plugin/skills/product-ui/SKILL.md:14.
 
@@ -33,14 +33,14 @@ Source: plugin/skills/product-ui/SKILL.md:17.
 ## AIS-0dd2942d71e6
 
 <!-- AIS-0dd2942d71e6 -->
-Use the stock shadcn-vue components from `@rosepetal/design` with their own variants and sizes. Classes are for page layout only: grid, flex, gap, width, position.
+Use the stock shadcn-vue components from `@aisgroup/design` with their own variants and sizes. Classes are for page layout only: grid, flex, gap, width, position.
 
 Source: plugin/skills/product-ui/SKILL.md:18.
 
 ## AIS-08f601f803ff
 
 <!-- AIS-08f601f803ff -->
-Every colour is a token from `@rosepetal/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.
+Every colour is a token from `@aisgroup/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.
 
 Source: plugin/skills/product-ui/SKILL.md:19.
 
@@ -68,21 +68,21 @@ Source: plugin/skills/product-ui/SKILL.md:27.
 ## AIS-47cb174e5db2
 
 <!-- AIS-47cb174e5db2 -->
-`references/components.md`: every component and block of @rosepetal/design, the Node-RED widgets and the parts of the Profiler, with their source files
+`references/components.md`: every component and block of @aisgroup/design, the Node-RED widgets and the parts of the Profiler, with their source files
 
 Source: plugin/skills/product-ui/SKILL.md:28.
 
 ## AIS-de84bbd1bd06
 
 <!-- AIS-de84bbd1bd06 -->
-Every component and brand block of `@rosepetal/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @rosepetal/design`, from the company's Artifact Registry) and import `@rosepetal/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
+Every component and brand block of `@aisgroup/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @aisgroup/design`, from the company's Artifact Registry) and import `@aisgroup/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
 
 Source: plugin/skills/product-ui/references/components.md:3.
 
 ## AIS-e66a0220aa10
 
 <!-- AIS-e66a0220aa10 -->
-Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@rosepetal/design/ui/button'`.
+Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@aisgroup/design/ui/button'`.
 
 Source: plugin/skills/product-ui/references/components.md:7.
 
@@ -376,7 +376,7 @@ Source: plugin/skills/product-ui/references/components.md:49.
 ## AIS-b80e783f0a6a
 
 <!-- AIS-b80e783f0a6a -->
-Brand pieces built from the components, with no app logic: texts and data come from each app. Import: `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+Brand pieces built from the components, with no app logic: texts and data come from each app. Import: `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 
 Source: plugin/skills/product-ui/references/components.md:53.
 

@@ -628,7 +628,7 @@ Source: plugin/skills/brand-guidelines/references/downloads.md:121.
 ## AIS-01deae3af211
 
 <!-- AIS-01deae3af211 -->
-| [ais-theme.css](../../../brand/downloads/ais-theme.css) | The Tailwind v4 theme: `@rosepetal/design/styles.css`, the Rosepetal products' tokens |
+| [ais-theme.css](../../../brand/downloads/ais-theme.css) | The Tailwind v4 theme: `@aisgroup/design/styles.css`, the Rosepetal products' tokens |
 
 Source: plugin/skills/brand-guidelines/references/downloads.md:127.
 
@@ -656,7 +656,7 @@ Source: plugin/skills/brand-guidelines/references/downloads.md:130.
 ## AIS-35ad1458fb8e
 
 <!-- AIS-35ad1458fb8e -->
-Every product is built with Tailwind v4 on ais-theme.css, the Rosepetal products’ tokens (`@rosepetal/design/styles.css`), so the classes are the app’s: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. It needs `tw-animate-css`. The websites load ais-tokens.css instead, under their own components; see [Website components](../../web-design/references/web-components.md#set-up).
+Every product is built with Tailwind v4 on ais-theme.css, the Rosepetal products’ tokens (`@aisgroup/design/styles.css`), so the classes are the app’s: `bg-primary`, `text-muted-foreground`, `bg-page`, `border-border`. It needs `tw-animate-css`. The websites load ais-tokens.css instead, under their own components; see [Website components](../../web-design/references/web-components.md#set-up).
 
 Source: plugin/skills/brand-guidelines/references/downloads.md:132.
 

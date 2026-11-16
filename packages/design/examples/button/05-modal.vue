@@ -1,6 +1,6 @@
 <!-- In dialogs: Cancel first as secondary, the action second, both modal size. -->
 <script setup>
-import { Button } from '@rosepetal/design/ui/button';
+import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>

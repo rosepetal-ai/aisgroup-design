@@ -1,8 +1,8 @@
 <!-- An empty container says why, and offers the way out. -->
 <script setup>
 import { SearchXIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@rosepetal/design/ui/empty';
+import { Button } from '@aisgroup/design/ui/button';
+import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@aisgroup/design/ui/empty';
 </script>
 
 <template>

@@ -495,7 +495,7 @@ Source: guide/dist/es/brand.md:124.
 ## AIS-4a7b6ad041e2
 
 <!-- AIS-4a7b6ad041e2 -->
-Las webs son rectas en todo: botones, tarjetas, menús, desplegables, diálogos y avisos. La única excepción es una pantalla de producto mostrada como ventana, que toma la esquina de 4 px de la ventana. Las interfaces de producto toman sus esquinas de `@rosepetal/design` y nunca las cambian. Redondo solo en avatares, puntos e interruptores.
+Las webs son rectas en todo: botones, tarjetas, menús, desplegables, diálogos y avisos. La única excepción es una pantalla de producto mostrada como ventana, que toma la esquina de 4 px de la ventana. Las interfaces de producto toman sus esquinas de `@aisgroup/design` y nunca las cambian. Redondo solo en avatares, puntos e interruptores.
 
 Source: guide/dist/es/brand.md:125.
 
@@ -691,7 +691,7 @@ Source: guide/dist/es/brand.md:167.
 ## AIS-251abff3a0dd
 
 <!-- AIS-251abff3a0dd -->
-En la aplicación, `.dark` en `<html>` cambia el tema: primero la elección del usuario, después el ajuste del sistema. Los componentes toman todos sus colores de los tokens de `@rosepetal/design`, así que no necesitan colores propios para el modo oscuro.
+En la aplicación, `.dark` en `<html>` cambia el tema: primero la elección del usuario, después el ajuste del sistema. Los componentes toman todos sus colores de los tokens de `@aisgroup/design`, así que no necesitan colores propios para el modo oscuro.
 
 Source: guide/dist/es/brand.md:168.
 

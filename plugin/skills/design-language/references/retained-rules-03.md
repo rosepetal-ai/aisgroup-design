@@ -572,7 +572,7 @@ Source: plugin/skills/design-language/references/layout.md:46.
 ## AIS-53aced0c4413
 
 <!-- AIS-53aced0c4413 -->
-Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@rosepetal/design`.
+Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@aisgroup/design`.
 
 Source: plugin/skills/design-language/references/layout.md:50.
 
@@ -593,7 +593,7 @@ Source: plugin/skills/design-language/references/layout.md:53.
 ## AIS-5226d8b7521f
 
 <!-- AIS-5226d8b7521f -->
-**Product interfaces** take their corners from `@rosepetal/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
+**Product interfaces** take their corners from `@aisgroup/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
 
 Source: plugin/skills/design-language/references/layout.md:54.
 

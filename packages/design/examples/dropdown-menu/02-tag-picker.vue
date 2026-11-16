@@ -2,8 +2,8 @@
 <script setup>
 import { ref } from 'vue';
 import { ChevronDownIcon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from '@rosepetal/design/ui/dropdown-menu';
+import { Button } from '@aisgroup/design/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
 const tags = [{ id: 'component', name: 'Component', color: 'var(--chart-1)' }, { id: 'defect', name: 'Defect', color: 'var(--chart-2)' }, { id: 'connector', name: 'Connector', color: 'var(--chart-3)' }];
 const tag = ref('defect');
 </script>

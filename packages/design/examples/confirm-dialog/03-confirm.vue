@@ -1,8 +1,8 @@
 <!-- Not only for deleting: another variant, and the action focused so Enter confirms. -->
 <script setup>
 import { ref } from 'vue';
-import ConfirmDialog from '@rosepetal/design/blocks/ConfirmDialog.vue';
-import { Button } from '@rosepetal/design/ui/button';
+import ConfirmDialog from '@aisgroup/design/blocks/ConfirmDialog.vue';
+import { Button } from '@aisgroup/design/ui/button';
 
 const open = ref(true);
 const wait = () => new Promise(resolve => setTimeout(resolve, 1200));

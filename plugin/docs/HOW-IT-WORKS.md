@@ -1,9 +1,9 @@
 # How AIS Group Design works
 
-One repository, `rosepetal-ai/aisgroup-design`, holds everything; there are two MCP servers. One source feeds the components (the package `@rosepetal/design`) and one feeds the rules (the brand guide).
+One repository, `rosepetal-ai/aisgroup-design`, holds everything; there are two MCP servers. One source feeds the components (the package `@aisgroup/design`) and one feeds the rules (the brand guide).
 
 ```
-packages/design  = @rosepetal/design                         ← components, blocks, examples, product tokens (styles.css)
+packages/design  = @aisgroup/design                         ← components, blocks, examples, product tokens (styles.css)
    │  npm workspaces: the guide and the playground import it; a tag vX.Y.Z publishes it to Artifact Registry
    ▼
 guide/  = the brand guide (Astro)                            ← rules, marketing tokens, kit; shows the package
@@ -116,5 +116,5 @@ From the repo root:
 3. `npm test` (tokens contract, package typecheck, plugin and hosted tests).
 4. Deploy:
    - the guide: `npm run deploy:guide` (Firebase project `aisgroup-design`, site `aisgroup-design`);
-   - the package: tag `vX.Y.Z`; the workflow publish-design.yml publishes `@rosepetal/design` to Artifact Registry;
+   - the package: tag `vX.Y.Z`; the workflow publish-design.yml publishes `@aisgroup/design` to Artifact Registry;
    - the MCP: from `guide/`, `firebase deploy --only hosting:aisgroup-design,functions:mcp` publishes the guide and the function `mcp` together (see the README).

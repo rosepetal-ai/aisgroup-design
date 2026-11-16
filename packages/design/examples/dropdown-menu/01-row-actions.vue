@@ -1,8 +1,8 @@
 <!-- Row actions sit behind a ghost more button, each with a name; the destructive one last. -->
 <script setup>
 import { CopyIcon, EllipsisIcon, PencilIcon, Trash2Icon } from '@lucide/vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@rosepetal/design/ui/dropdown-menu';
+import { Button } from '@aisgroup/design/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
 </script>
 
 <template>

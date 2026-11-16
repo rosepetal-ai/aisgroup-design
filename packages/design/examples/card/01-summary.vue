@@ -1,7 +1,7 @@
 <!-- A summary with its primary action, like the dataset Overview. Cards are never boxes around sections. -->
 <script setup>
-import { Button } from '@rosepetal/design/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@rosepetal/design/ui/card';
+import { Button } from '@aisgroup/design/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@aisgroup/design/ui/card';
 </script>
 
 <template>

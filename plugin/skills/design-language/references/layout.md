@@ -57,11 +57,11 @@ The parts of a brochure are in the [Marketing kit](../../resources-assets/refere
 
 ## Shape
 
-Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@rosepetal/design`.
+Square is the brand’s default: it matches the logos, the buttons and the overlay kit. Websites, documents and marketing round only what is round in reality; product interfaces take their corners from `@aisgroup/design`.
 
 - **Websites are square everywhere**, including cards, dropdowns, menus, dialogs, notices and cookie bars, so every edge lines up with the square buttons and the grid.
 - **A product screen shown as a window** is the one exception: a screenshot or screen film in its 1 px frame takes the window’s 4 px corner (`--ais-radius-md`), because a window is round in reality, and may float on the raised shadow. The picture is never rounded on its own; photographs and footage stay square.
-- **Product interfaces** take their corners from `@rosepetal/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
+- **Product interfaces** take their corners from `@aisgroup/design`: the package is the reference for its components. It sets `--radius` (8 px) and `--radius-modal` (12 px, dialogs), and every component’s corner follows from them. Use its components and classes as they are; never type a radius or override one.
 - One radius per component, and never two systems on one screen: a website never borrows the product’s rounded corners, and a product screen never squares a package component.
 - Nested corners follow the outer one: in product, the package’s scale gives inner elements the smaller step; in square layouts, everything inside stays square.
 - Never use pill shapes for buttons or tags, and never round a photograph.

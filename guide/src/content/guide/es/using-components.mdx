@@ -1,12 +1,12 @@
 ---
 title: Uso de los componentes
 rules:
-  - 'Instala `@rosepetal/design`, sin copiar sus ficheros. Un arreglo en un componente se hace en el paquete (`packages/design`) y se publica como versión nueva.'
+  - 'Instala `@aisgroup/design`, sin copiar sus ficheros. Un arreglo en un componente se hace en el paquete (`packages/design`) y se publica como versión nueva.'
   - 'Nunca añadas una variante de Button o Badge, nunca cambies el radio de un componente y nunca uses selectores `[&_…]` para cambiar el estilo de una pieza.'
   - 'Los botones solo con icono llevan `aria-label` y un Tooltip.'
   - 'Cada sección asíncrona tiene estado de carga (Skeleton o Spinner), estado vacío y estado de error con Reintentar.'
-  - 'Usa los componentes de shadcn-vue de serie de `@rosepetal/design` con sus propias variantes y tamaños. Las clases son solo para la maquetación de la página: grid, flex, gap, ancho y posición.'
-  - 'Cada color es un token de `@rosepetal/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.'
+  - 'Usa los componentes de shadcn-vue de serie de `@aisgroup/design` con sus propias variantes y tamaños. Las clases son solo para la maquetación de la página: grid, flex, gap, ancho y posición.'
+  - 'Cada color es un token de `@aisgroup/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.'
   - 'El estado es un icono con su tono y una palabra (Terminado, Pendiente, Error). Nunca solo color y nunca etiquetas tintadas.'
   - 'Mayúscula solo inicial en títulos, etiquetas y botones. Sin puntos medios ni flechas Unicode. Todo lo que se lee mide al menos 14 px; 12 px solo para ejes de gráficos y teclas.'
 ---
@@ -15,9 +15,9 @@ Instala el paquete de producto y usa sus componentes y tokens juntos.
 
 ## Preparar una aplicación
 
-1. Configura el registro privado e instala `@rosepetal/design`, como explica el README del paquete.
-2. Importa `@rosepetal/design/styles.css` después del tema y las utilidades de Tailwind.
-3. Importa los componentes por carpeta y los bloques por fichero: `import { Button } from '@rosepetal/design/ui/button'`, `import TopBar from '@rosepetal/design/blocks/TopBar.vue'`.
+1. Configura el registro privado e instala `@aisgroup/design`, como explica el README del paquete.
+2. Importa `@aisgroup/design/styles.css` después del tema y las utilidades de Tailwind.
+3. Importa los componentes por carpeta y los bloques por fichero: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 4. Mantén Inter y la página a todo el ancho, y abre cada página bajo el bloque TopBar.
 5. Añade un test que falle con puntos medios o flechas Unicode en las plantillas, como `tests/uiTextRules.spec.js` de rosepetal-ui.
 
@@ -69,7 +69,7 @@ DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con bo
 
 ## Colores de datos
 
-Etiquetas, series de gráficos y particiones de dataset tienen colores propios en `@rosepetal/design/styles.css`: las etiquetas (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), las particiones (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) y las series de gráficos (de `--chart-1` a `--chart-3`):
+Etiquetas, series de gráficos y particiones de dataset tienen colores propios en `@aisgroup/design/styles.css`: las etiquetas (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), las particiones (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) y las series de gráficos (de `--chart-1` a `--chart-3`):
 
 - Los colores de etiqueta son iguales en modo claro y oscuro, así que una clase de defecto nunca cambia de color; la primera y la tercera serie y la partición de entrenamiento pasan a un tono más claro en modo oscuro. Todos los tokens en los dos modos están en [Temas claro y oscuro](/es/themes/#tokens).
 - Nunca aparecen en la navegación, los botones ni los gráficos de marketing.

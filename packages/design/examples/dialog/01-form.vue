@@ -1,10 +1,10 @@
 <!-- The header band holds the title; the footer, Cancel then the action, full width. A form submits from the footer. -->
 <script setup>
 import { ref } from 'vue';
-import { Button } from '@rosepetal/design/ui/button';
-import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@rosepetal/design/ui/dialog';
-import { Field, FieldGroup, FieldLabel } from '@rosepetal/design/ui/field';
-import { Input } from '@rosepetal/design/ui/input';
+import { Button } from '@aisgroup/design/ui/button';
+import { Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@aisgroup/design/ui/dialog';
+import { Field, FieldGroup, FieldLabel } from '@aisgroup/design/ui/field';
+import { Input } from '@aisgroup/design/ui/input';
 const open = ref(true);
 </script>
 

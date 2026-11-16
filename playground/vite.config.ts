@@ -205,7 +205,7 @@ export default defineConfig(({ mode }) => ({
       { find: '@/components/ui', replacement: fileURLToPath(new URL('../packages/design/ui', import.meta.url)) },
       { find: '@/components/blocks', replacement: fileURLToPath(new URL('../packages/design/blocks', import.meta.url)) },
       { find: '@/lib/utils', replacement: fileURLToPath(new URL('../packages/design/lib/utils.ts', import.meta.url)) },
-      { find: '@rosepetal/design', replacement: fileURLToPath(new URL('../packages/design', import.meta.url)) },
+      { find: '@aisgroup/design', replacement: fileURLToPath(new URL('../packages/design', import.meta.url)) },
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
     ],
   },

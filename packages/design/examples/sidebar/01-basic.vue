@@ -1,7 +1,7 @@
 <!-- A side menu with groups. The sidebar of this page is built with it. -->
 <script setup>
 import { BoxIcon, HomeIcon, SettingsIcon } from '@lucide/vue';
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '@rosepetal/design/ui/sidebar';
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '@aisgroup/design/ui/sidebar';
 const items = [{ name: 'Dashboard', icon: HomeIcon }, { name: 'Datasets', icon: BoxIcon }, { name: 'Settings', icon: SettingsIcon }];
 </script>
 

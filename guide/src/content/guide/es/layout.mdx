@@ -4,7 +4,7 @@ rules:
   - 'Usa solo los tokens de espacio (de --ais-space-050 a --ais-space-1600, base de 4 px y ritmo de 8 px). Nunca uses valores intermedios, como 6, 10, 14, 18 o 22 px.'
   - 'En webs y documentos, el contenido se detiene en 1440 px con márgenes laterales fluidos de 24 a 64 px, sobre una retícula de 12 columnas (8 por debajo de 900 px y 4 por debajo de 600 px), y las secciones se separan de 64 a 128 px. Las interfaces de producto ocupan todo el ancho.'
   - 'Las webs y los documentos usan los puntos de ruptura 600, 900, 1200 y 1440 px, escritos de móvil a escritorio con min-width. Nunca añadas otro. Las interfaces de producto usan los puntos de ruptura de Tailwind del sistema de diseño; los paneles de Node-RED mantienen la cuadrícula y los puntos de ruptura de FlowFuse.'
-  - 'Las webs son rectas en todo: botones, tarjetas, menús, desplegables, diálogos y avisos. La única excepción es una pantalla de producto mostrada como ventana, que toma la esquina de 4 px de la ventana. Las interfaces de producto toman sus esquinas de `@rosepetal/design` y nunca las cambian. Redondo solo en avatares, puntos e interruptores.'
+  - 'Las webs son rectas en todo: botones, tarjetas, menús, desplegables, diálogos y avisos. La única excepción es una pantalla de producto mostrada como ventana, que toma la esquina de 4 px de la ventana. Las interfaces de producto toman sus esquinas de `@aisgroup/design` y nunca las cambian. Redondo solo en avatares, puntos e interruptores.'
   - 'Los bordes separan el contenido; las sombras, solo para lo que flota (menús, diálogos, avisos). Las tarjetas nunca proyectan sombra, tampoco en hover.'
   - 'Las líneas separan, nunca enmarcan: van entre las filas de una lista o una tabla, nunca después de la última fila ni encima o debajo de un bloque que ya tiene una. Dos líneas sin nada entre ellas son un error. El texto queda centrado entre sus líneas, con el mismo espacio arriba y abajo.'
 ---
@@ -71,13 +71,13 @@ Las partes de un folleto están en el [Kit de marketing](/es/kit/#sistema-de-imp
 
 ## Forma
 
-Lo recto es la forma por defecto de la marca: coincide con los logotipos, los botones y el kit de capas. Las webs, los documentos y el marketing solo redondean lo que es redondo en la realidad; las interfaces de producto toman sus esquinas de `@rosepetal/design`.
+Lo recto es la forma por defecto de la marca: coincide con los logotipos, los botones y el kit de capas. Las webs, los documentos y el marketing solo redondean lo que es redondo en la realidad; las interfaces de producto toman sus esquinas de `@aisgroup/design`.
 
 <LayoutSpecimens lang="es" show="shape" />
 
 - **Las webs son rectas en todo**, también tarjetas, desplegables, menús, diálogos, avisos y barras de cookies, para que cada borde se alinee con los botones rectos y la retícula.
 - **Una pantalla de producto mostrada como ventana** es la única excepción: una captura o un vídeo de pantalla en su marco de 1 px toma la esquina de 4 px de la ventana (`--ais-radius-md`), porque una ventana es redonda en la realidad, y puede flotar con la sombra elevada. La imagen nunca se redondea por sí sola; las fotografías y las grabaciones siguen rectas.
-- **Las interfaces de producto** toman sus esquinas de `@rosepetal/design`: el paquete es la referencia de sus componentes. Define `--radius` (8 px) y `--radius-modal` (12 px, diálogos), y la esquina de cada componente sale de ellos. Usa sus componentes y clases tal cual; nunca escribas un radio ni lo cambies.
+- **Las interfaces de producto** toman sus esquinas de `@aisgroup/design`: el paquete es la referencia de sus componentes. Define `--radius` (8 px) y `--radius-modal` (12 px, diálogos), y la esquina de cada componente sale de ellos. Usa sus componentes y clases tal cual; nunca escribas un radio ni lo cambies.
 - Un radio por componente, y nunca dos sistemas en una pantalla: una web nunca toma las esquinas redondeadas del producto, y una pantalla de producto nunca pone recto un componente del paquete.
 - Las esquinas anidadas siguen a la exterior: en producto, la escala del paquete da a los elementos interiores el paso menor; en las composiciones rectas, todo lo de dentro sigue recto.
 - Nunca uses formas de píldora en botones o etiquetas, ni redondees una fotografía.

@@ -90,7 +90,7 @@ test('design_tokens values match ais-tokens.json and ais-tokens.css', async () =
   assert(simple.length > 100, `only ${simple.length} shared values`);
   for (const k of simple) assert.equal(css[k].toLowerCase(), guide[k].toLowerCase(), k);
 
-  // Tailwind is theme.css (@rosepetal/design's styles.css) without its comments, every rule and value as in the file.
+  // Tailwind is theme.css (@aisgroup/design's styles.css) without its comments, every rule and value as in the file.
   const { value: tw } = await call('design_tokens', { format: 'tailwind' });
   assert.equal(tw.text, uncommented(fs.readFileSync(path.join(DATA, 'downloads/ais-theme.css'), 'utf8')));
   // Corners as the package sets them (the package is the reference for its components).
