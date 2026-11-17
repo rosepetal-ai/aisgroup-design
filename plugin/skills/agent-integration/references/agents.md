@@ -17,13 +17,15 @@ For the product, [components.md](/components.md) lists every component, brand bl
 
 ## Connect the MCP
 
-The AIS Group Design MCP gives any agent the brand rules, the tokens, the logos, the component code and the approved examples. It only reads; it never changes or publishes anything. In Claude Code:
+The AIS Group Design MCP gives any agent the brand rules, the tokens, the logos, the component code and the approved examples. It only reads; it never changes or publishes anything, and it needs an access token: ask the team for it.
+
+The plugin below connects it for you. Without the plugin, add it in Claude Code with the token:
 
 ```
-claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp --header "Authorization: Bearer <token>"
 ```
 
-In claude.ai, add the same address as a custom connector.
+Keep the token in a password manager and never commit it. claude.ai custom connectors can't send a token, so they can't connect.
 
 ## Use the AIS Group Design plugin
 
@@ -34,7 +36,7 @@ The AIS Group Design plugin for Claude Code brings this guide as skills and a lo
 /plugin install ais-group-design@ais-group-design
 ```
 
-Then, once per computer, ask Claude: «Set up AIS Group Design.» The repository and the brand photos are private: ask the marketing team for access.
+The install asks for the MCP token and keeps it in your system keychain; it connects the MCP too, so you don't add it by hand. Then, once per computer, ask Claude: «Set up AIS Group Design.» The repository and the brand photos are private: ask the marketing team for access.
 
 Then paste your photos into the terminal and say what you need. The studio picks the template, edits the source (any text or picture by its slot), checks it against the brand and shows you the result. Review it, ask for changes, and export the PDF, PNG or PowerPoint when it is right. Nothing is published or uploaded unless you ask.
 

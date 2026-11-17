@@ -26,7 +26,7 @@ playground/  = the playground for the package's components and their variables (
 
 ## 1. Hosted MCP: `design.aisgroup.ai/mcp`
 
-It's read-only and has no database. It's for developers and claude.ai: "what are the rules, give me the tokens, the logo, the button code".
+It's read-only and has no database. It's for developers' agents, behind a bearer token (the plugin sends it from the keychain): "what are the rules, give me the tokens, the logo, the button code".
 
 **Where its data comes from.** It never reads the live site or Firebase at runtime. `npm run build -w hosted` copies these parts of the built guide (`guide/dist`) into `hosted/data/`:
 - skills;
