@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lintCopy } from './copy.mjs';
 import { ensureMedia } from '../scripts/media.mjs';
-import { productImageError } from './product-images.mjs';
+import { productImageError, productImageWarning } from './product-images.mjs';
 import { isVideoFrame, bannedImage } from '../print/image-rules.mjs';
 
 export const STUDIO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -138,10 +138,11 @@ export function checkRecipe(raw, dir, file = path.join(dir, 'recipe.json')) {
     const banned = bannedImage(abs); if (banned) err(where, banned);
     if (['post', 'carousel'].includes(r.kind)) {
       const invalid = productImageError(abs, s, a, STUDIO); if (invalid) err(where, `${base}: ${invalid}`);
+      const unsure = productImageWarning(abs, s, a, STUDIO); if (unsure) warn(where, `${base}: ${unsure}`);
     }
     assets.push({ where, path: abs, entry: a?.id });
     if (!a) {
-      if (!abs.startsWith(GUIDE)) warn(where, `${base} is not in library/catalog.json: confirm it is real (or a permitted generated image) and has its rights, then add it`);
+      if (!abs.startsWith(GUIDE) && !['post', 'carousel'].includes(r.kind)) warn(where, `${base} is not in library/catalog.json: confirm it is real (or a permitted generated image) and has its rights, then add it`);
     } else if (a.status === 'rejected') err(where, `${base} is rejected in the library: ${a.reason}`);
     else if (a.status === 'review') warn(where, `${base} is waiting for review in the library: ${a.reason}`);
     const generated = a?.origin === 'generated' || /generated|chatgpt|gemini|midjourney|dall-?e|firefly|nano.?banana|runway|kling|veo\b|sora\b/i.test(base);

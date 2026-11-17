@@ -39,6 +39,13 @@ test('isolated real Cables content updates, backups, image replacement and stale
  let a=call(f,'edit_piece',{action:'copy',pieceId:'cables',source});assert(a.valid);assert.equal(a.shotCount,1);
  a=call(f,'edit_piece',{action:'update',pieceId:'cables',expectedDigest:a.digest,changes:[{field:'headline',value:'Inspección de superficie|*en cables y tubos*'}]});assert(a.valid);
  const stale=a.digest;
+ // A guide photo by the path get_asset returns (brand/library/photos/…) is the guide's own file, not one in the piece's folder;
+ // one whose origin was never recorded is accepted with a warning that asks the person to confirm it.
+ const gears=call(f,'get_asset',{assetId:'automotive_gears-and-housing'});assert.equal(gears.path,'brand/library/photos/automotive_gears-and-housing.webp');
+ a=call(f,'edit_piece',{action:'update',pieceId:'cables',expectedDigest:a.digest,changes:[{field:'src',value:gears.path}]});assert(a.valid);assert.match(a.shot.src,/^@guide\/library\/photos\//);assert(a.warnings.some(w=>/origin is «unknown»/.test(w)));
+ // A picture the person gave the studio (copied to the inbox) can go in a recipe too.
+ const given=path.join(STUDIO_DIR,'work/inbox',`given-${process.pid}.webp`);fs.copyFileSync(path.join(STUDIO_DIR,'brand/library/photos/automotive_gears-and-housing.webp'),given);t.after(()=>fs.rmSync(given,{force:true}));
+ a=call(f,'edit_piece',{action:'update',pieceId:'cables',expectedDigest:a.digest,changes:[{field:'src',value:given}]});assert(a.valid);assert(a.warnings.some(w=>/not in the library/.test(w)));
  a=call(f,'edit_piece',{action:'update',pieceId:'cables',expectedDigest:a.digest,changes:[{field:'src',value:'@lib/media/real/rev360-cables_factory-floor.jpg'}]});assert(a.valid);assert.match(a.shot.src,/@lib/);
  assert.throws(()=>call(f,'edit_piece',{action:'update',pieceId:'cables',expectedDigest:stale,changes:[{field:'headline',value:'Stale'}]}));
  const before=a.digest;
