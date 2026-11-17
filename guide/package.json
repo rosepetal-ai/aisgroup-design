@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "sync": "node scripts/sync-assets.mjs && node scripts/sync-web-assets.mjs && node scripts/build-charts.mjs",
     "kit": "node scripts/sync-kit.mjs",
-    "deploy": "astro build && npx --yes firebase-tools deploy --only hosting:aisgroup-design,functions:mcp",
+    "deploy": "node ../scripts/check-deploy.mjs && astro build && npx --yes firebase-tools deploy --only hosting:aisgroup-design,functions:mcp",
     "test:search": "node tests/search.test.mjs"
   },
   "dependencies": {

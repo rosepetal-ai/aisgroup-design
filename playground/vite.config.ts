@@ -7,9 +7,14 @@ import { dirname, extname, join } from 'node:path'
 import { defineConfig } from 'vite'
 import { viteSingleFile } from 'vite-plugin-singlefile'
 
-// In dev, serve this repo's rp-assets/ (copies of rosepetal-ui's images and videos) at /rp-assets.
+// In dev, serve rp-assets/ (copies of rosepetal-ui's images and videos) at /rp-assets. The copies live in the bucket
+// (RP_ASSETS_BUCKET); rp-assets/ is its local mirror, pulled when the dev server starts with the user's gcloud account.
 // They stay out of the build: the Artifact publish uploads them as separate files at the same paths.
 const LOCAL_ASSETS = fileURLToPath(new URL('./rp-assets', import.meta.url))
+const BUCKET = (process.env.RP_ASSETS_BUCKET || 'gs://aisgroup-design/assets').replace(/\/$/, '')
+const gcloud = (args: string[]) => new Promise<void>((resolve, reject) =>
+  execFile('gcloud', args, { shell: process.platform === 'win32', maxBuffer: 16 * 1024 * 1024 }, (e, _out, err) => (e ? reject(new Error(String(err || e.message).split('\n').find(l => /ERROR/.test(l))?.trim() || e.message)) : resolve())))
+const inBucket = (url: string) => `${BUCKET}/${url.slice('rp-assets/'.length)}`
 // The Assets section lists src/data/assets.json (scripts/assets-manifest.mjs). It is rebuilt when the
 // dev server starts and on every build, and again whenever a file is added, changed or removed in
 // rp-assets/ while the dev server runs (the JSON import then updates the page).
@@ -35,7 +40,14 @@ const rpAssets = {
   buildStart() {
     refreshManifest(true)
   },
-  configureServer(server: { middlewares: { use: (fn: (req: any, res: any, next: () => void) => void) => void }, watcher: { add: (p: string) => void, on: (e: string, fn: (file: string) => void) => void } }) {
+  configureServer(server: { config: { logger: { info: (m: string) => void, warn: (m: string) => void } }, middlewares: { use: (fn: (req: any, res: any, next: () => void) => void) => void }, watcher: { add: (p: string) => void, on: (e: string, fn: (file: string) => void) => void } }) {
+    // Adds and updates only: a file made here and not yet uploaded is never deleted by the pull.
+    gcloud(['storage', 'rsync', '--recursive', BUCKET, LOCAL_ASSETS])
+      .then(() => {
+        server.config.logger.info(`rp-assets: up to date with ${BUCKET}`)
+        refreshManifest()
+      })
+      .catch(e => server.config.logger.warn(`rp-assets: could not pull ${BUCKET} (${e.message}); using the local copy. Sign in with gcloud auth login.`))
     server.watcher.add(LOCAL_ASSETS)
     for (const event of ['add', 'change', 'unlink'])
       server.watcher.on(event, file => file.startsWith(LOCAL_ASSETS) && refreshManifest())
@@ -100,7 +112,7 @@ const iconUsagePlugin = {
 }
 
 // Saving to the repo (dev server only; the published artifact has no files to write): the Preset page
-// writes ../packages/design/styles.css, the Assets page moves / deletes files in rp-assets/ (and updates the
+// writes ../packages/design/styles.css, the Assets page moves / deletes files in the bucket and rp-assets/ (and updates the
 // playground's references to a moved file). GET /__repo answers so the pages know they can.
 const CSS_FILE = join(ROOT, '../packages/design/styles.css')
 function readBody(req: any): Promise<any> {
@@ -153,11 +165,20 @@ const repoSync = {
         if (req.method === 'POST' && url === '/__repo/assets') {
           const { moves = [], deletes = [] } = await readBody(req) as { moves?: { from: string, to: string }[], deletes?: string[] }
           const moved: { from: string, to: string }[] = []
+          const failed: string[] = []
           const refs = new Set<string>()
           const code = codeFiles(SRC)
           for (const m of moves) {
             if (!inAssets(m.from) || !inAssets(m.to) || m.from === m.to || !existsSync(join(ROOT, m.from)) || existsSync(join(ROOT, m.to)))
               continue
+            // The bucket first: a file that could not move there stays where it is here too
+            try {
+              await gcloud(['storage', 'mv', inBucket(m.from), inBucket(m.to)])
+            }
+            catch (e) {
+              failed.push(`${m.from}: ${(e as Error).message}`)
+              continue
+            }
             mkdirSync(dirname(join(ROOT, m.to)), { recursive: true })
             renameSync(join(ROOT, m.from), join(ROOT, m.to))
             moved.push(m)
@@ -174,6 +195,13 @@ const repoSync = {
           for (const d of deletes) {
             if (!inAssets(d) || !existsSync(join(ROOT, d)))
               continue
+            try {
+              await gcloud(['storage', 'rm', inBucket(d)])
+            }
+            catch (e) {
+              failed.push(`${d}: ${(e as Error).message}`)
+              continue
+            }
             unlinkSync(join(ROOT, d))
             removed.push(d)
           }
@@ -184,6 +212,8 @@ const repoSync = {
               rmdirSync(dir)
           }
           refreshManifest(true)
+          if (failed.length)
+            return reply(502, { error: `Not changed in ${BUCKET}: ${failed.join('; ')}`, moved, removed, references: [...refs] })
           return reply(200, { moved, removed, references: [...refs] })
         }
         return reply(404, { error: 'Unknown' })

@@ -89,7 +89,11 @@ const lean = value => Array.isArray(value) ? value.map(lean) : value && typeof v
 export function serverFactory({ data, baseUrl, filesBase }) {
   return ctx => {
     const base = baseUrl || (ctx.requestInfo ? new URL(ctx.requestInfo.url).origin : '');
-    const server = new McpServer({ name: 'ais-group-design', version: data.catalogue.version }, { instructions: INSTRUCTIONS });
+    const server = new McpServer({ name: 'ais-group-design', version: data.catalogue.version }, {
+      instructions: INSTRUCTIONS,
+      // Tools never change, and Hosting buffers streams: listChanged made clients wait 25 s on a listen stream.
+      capabilities: { tools: { listChanged: false } },
+    });
     for (const [name, tool] of Object.entries(TOOLS)) server.registerTool(name, { description: tool.description, inputSchema: fromJsonSchema(lean(z.toJSONSchema(tool.schema))), annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false } }, async args => {
       try { return { content: [{ type: 'text', text: bounded(tool.run(data, tool.schema.parse(args ?? {}), base, filesBase)) }] }; }
       catch (e) { return { isError: true, content: [{ type: 'text', text: JSON.stringify({ error: String(e.message).slice(0, 1000) }) }] }; }
