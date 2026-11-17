@@ -40,8 +40,9 @@ function setupStatus() {
 export const digest = v => createHash('sha256').update(v).digest('hex');
 const json = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const uri = p => pathToFileURL(p).href;
-// A picture as the user or get_asset names it (library/media/…, a file:// URI) becomes the recipe's @lib/… reference.
-const libRef = v => /^file:/i.test(v) ? fileURLToPath(v) : v.replace(/^(\.\/)?library\//, '@lib/');
+// A picture as the user or get_asset names it (library/media/…, the guide's brand/library/photos/…, a file:// URI) becomes
+// the recipe's @lib/… or @guide/… reference; a bare relative path would otherwise resolve inside the piece's own folder.
+const libRef = v => /^file:/i.test(v) ? fileURLToPath(v) : v.replace(/^(\.\/)?library\//, '@lib/').replace(/^(\.\/)?brand\//, '@guide/');
 // What safe_render.py said when it refused to start (its first stdout line is a JSON receipt).
 // What holds a render up, in plain words (the lock files are the studio's own business).
 const PLAIN = { 'lock busy: ais-marketing-render.lock': 'another export is running', 'lock busy: ais-blender.lock': 'a 3D render is running' };
@@ -194,12 +195,13 @@ export class Factory {
     const walk=v=> { if(!v||typeof v!=='object') return; for(const [k,x] of Object.entries(v)) {
       if(['src','bgSrc','portrait','captionsFrom'].includes(k) && typeof x==='string') {
         const p=resolveFile(x,dir);
-        if(![path.join(STUDIO,'library'),path.join(STUDIO,'library/media'),GUIDE].some(r=>inside(p,r)||inside(p,fs.realpathSync(r)))) throw Error('Recipe media outside library/public roots');
+        // The library, the guide and the inbox, where the pictures a person gives the studio are copied.
+        if(![path.join(STUDIO,'library'),path.join(STUDIO,'library/media'),GUIDE,INBOX].some(r=>inside(p,r)||inside(p,fs.realpathSync(r)))) throw Error('Recipe media outside library/public roots');
         // realpath containment defeats symlink escapes. Do not copy private engineering inputs.
-        const real=fs.realpathSync(p); if(![path.join(STUDIO,'library/media'),GUIDE].some(r=>inside(real,fs.realpathSync(r)))) throw Error('Recipe symlink escapes roots');
+        const real=fs.realpathSync(p); if(![path.join(STUDIO,'library/media'),GUIDE,INBOX].some(r=>inside(real,fs.realpathSync(r)))) throw Error('Recipe symlink escapes roots');
         const ext=path.extname(real).toLowerCase(); const mime={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.mp4':'video/mp4'}[ext];
         if(!mime) throw Error('Unsupported recipe media');
-        this.media({path:studioRel(real),mime}); v[k]=real;
+        this.media({path:inside(real,STUDIO)?studioRel(real):real,mime}); v[k]=real;
       } else if(typeof x==='string' && /(?:https?:|data:|file:|<script)/i.test(x)) throw Error('External/active content unsupported');
       else walk(x);
     }}; walk(raw); return raw;
@@ -233,7 +235,7 @@ export class Factory {
         }
         else if(c.field==='copy') raw.copy=c.value;
         else if(c.field==='lang') { if(!['es','en','ca'].includes(c.value)) throw Error('Unsupported language'); raw.lang=c.value; }
-        else { if(!raw.shots[a.shot]) throw Error('Unknown shot'); raw.shots[a.shot][c.field]=c.field==='src'?libRef(c.value):c.value; }
+        else { if(!raw.shots[a.shot]) throw Error('Unknown shot'); raw.shots[a.shot][c.field]=['src','bgSrc','portrait'].includes(c.field)?libRef(c.value):c.value; }
       }
       const check=this.check(raw,p); if(!check.valid) return {updated:false,...check};
       const out=JSON.stringify(raw,null,2); if(Buffer.byteLength(out)>LIMITS.recipeBytes) throw Error('Recipe size cap');
