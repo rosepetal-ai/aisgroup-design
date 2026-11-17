@@ -85,7 +85,7 @@ Photos, renders and videos (`media/`) and the delivered marketing kit (`marketin
 
 ## Releasing
 
-Releases are manual, from an up-to-date `dev` after `npm ci && npm run build && npm test`.
+Changes go to `dev` through pull requests, then `dev` is promoted to `main`. Releases are manual, from an up-to-date `main` after `npm ci && npm run build && npm test`; `npm run deploy:guide` refuses any other checkout (`scripts/check-deploy.mjs`).
 
 | Part | How |
 | --- | --- |
