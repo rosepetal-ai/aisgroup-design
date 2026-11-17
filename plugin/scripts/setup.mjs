@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// One-time setup on a new laptop: the Chromium the renderers use, a Python venv with the generators' packages,
+// One-time setup on a new laptop: the plugin's Node packages, the Chromium the renderers use, a Python venv with the generators' packages,
 // and a check of the system tools. Safe to run again; it only installs what is missing.
 //   npm run setup            install what is missing, then print the checklist
 //   npm run setup -- --check only print the checklist (exit 1 if something is missing)
@@ -30,6 +30,7 @@ const run = (cmd, args, opts = {}) => { const r = spawnSync(cmd, args, { stdio: 
 async function chromium() {
   try { const { chromium: c } = await import('playwright'); return fs.existsSync(c.executablePath()); } catch { return false; }
 }
+const nodeReady = () => { try { createRequire(path.join(ROOT, 'package.json')).resolve('playwright'); return true; } catch { return false; } };
 const pythonReady = () => fs.existsSync(bin('python')) && spawnSync(bin('python'), ['-c', 'import PIL, pptx, fitz, psutil'], { stdio: 'ignore' }).status === 0;
 
 // ponytail: Windows hints name winget; choco install poppler / ffmpeg or the official zip builds (bin folder on PATH) work too
@@ -38,7 +39,7 @@ const hint = (linux, mac, win) => WIN ? win : MAC ? mac : linux;
 export async function status() {
   const media = path.join(ROOT, 'library/media');
   return [
-    { item: 'Node packages', ok: (() => { try { createRequire(path.join(ROOT, 'package.json')).resolve('playwright'); return true; } catch { return false; } })(), fix: 'npm ci (Claude Code does this when it installs the plugin)' },
+    { item: 'Node packages', ok: nodeReady(), fix: 'npm run setup' },
     { item: 'Chromium for rendering', ok: await chromium(), fix: 'npm run setup' },
     { item: 'Python packages (Pillow, python-pptx, PyMuPDF, psutil)', ok: pythonReady(), fix: 'npm run setup' },
     { item: 'Media library (on demand from the bucket)', ok: Boolean(signedIn()) || (fs.existsSync(media) && fs.readdirSync(media).length > 0),
@@ -52,6 +53,8 @@ export async function status() {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (!process.argv.includes('--check')) {
     fs.mkdirSync(DATA, { recursive: true });
+    // The installed plugin ships no lockfile (it lives in the repo's workspace); its dependencies are pinned exactly.
+    if (!nodeReady()) { console.error('Installing the Node packages...'); run('npm', ['install', '--omit=dev', '--no-package-lock', '--no-audit', '--no-fund'], { cwd: ROOT, shell: WIN }); }
     if (!(await chromium())) { console.error('Installing Chromium for rendering (about 150 MB, once)...'); run(process.execPath, [path.join(ROOT, 'node_modules/playwright/cli.js'), 'install', 'chromium']); }
     if (!pythonReady()) {
       const py = ['python3', 'python'].find((p) => has(p));
