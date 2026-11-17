@@ -48,13 +48,13 @@ The components of `@aisgroup/web`, live and with their Astro code. Each site imp
 
 ## Actions
 
-One filled call to action per view: the split button. The compact one goes in headers and cards. Text actions are links with an arrow. On a brand-blue band the button is white.
+One filled call to action per view: the split button, 44 px everywhere. Text actions are links with an arrow. On a brand-blue band the button is white.
 
-| Part | Split button | Compact |
-| --- | --- | --- |
-| **Height** | 52 px | 44 px |
-| **Label** | Label style, 24 px from the left edge, 24 px to the arrow segment | 16 px and 16 px |
-| **Arrow segment** | 52 px square, 24 px arrow, a 1 px divider in the label colour at 20% | 44 px square, 20 px arrow |
+| Part | Split button |
+| --- | --- |
+| **Height** | 44 px, in the header, in cards and on the page |
+| **Label** | Label style, 16 px from the left edge, 16 px to the arrow segment |
+| **Arrow segment** | 44 px square, 20 px arrow, a 1 px divider in the label colour at 20% (13% on Rosepetal) |
 
 - **Primary:** brand blue with a white label; deep blue `#10254C` on hover and focus, blue-950 `#0B1220` while pressed. The segment stays put and the arrow inside moves 3 px (180 ms).
 - **Secondary:** an outline for a second action beside the primary one: no fill, ink label, 1 px `#64748B` border; on hover the hover fill and an ink border.

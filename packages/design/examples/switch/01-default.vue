@@ -7,6 +7,8 @@ const on = ref(true);
 </script>
 
 <template>
-  <Field orientation="horizontal" class="w-auto"><Switch id="sw-1" v-model="on" /><FieldLabel for="sw-1">Legend</FieldLabel></Field>
-  <Field orientation="horizontal" class="w-auto"><Switch id="sw-2" disabled /><FieldLabel for="sw-2">Stats</FieldLabel></Field>
+  <div class="flex flex-col gap-3">
+    <Field orientation="horizontal"><Switch id="sw-1" v-model="on" /><FieldLabel for="sw-1">Legend</FieldLabel></Field>
+    <Field orientation="horizontal" data-disabled><Switch id="sw-2" disabled /><FieldLabel for="sw-2">Stats</FieldLabel></Field>
+  </div>
 </template>

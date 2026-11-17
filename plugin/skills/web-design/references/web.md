@@ -7,7 +7,7 @@ Apply the brand system to website layout, content and navigation.
 | Element | Specification |
 | --- | --- |
 | **Grid** | Content up to 1440 px wide, fluid 24–64 px margins, 12 columns and four breakpoints. See [Layout and shape](../../design-language/references/layout.md). |
-| **Split button** | The primary call to action: 52 px tall, square corners, label plus a separate 52 px arrow segment; 44 px compact in headers and cards (AIS sites). Rosepetal uses the 44 px size for every call to action, on pages too. |
+| **Split button** | The call to action: 44 px tall on every site, in the header, in cards and on the page; square corners, label plus a separate 44 px arrow segment. |
 | **Controls** | Header buttons and menus 44 px tall; form fields 48 px. Every target is at least 44 × 44 px. |
 | **Header** | 76 px tall, in the page colour over a 1 px rule. Logo; navigation; on the right the actions: an optional secondary action as text, then the compact split button. No theme toggle. |
 | **Logo in the header** | The official file only. AIS lockups 44 px tall, in black; Rosepetal wordmark 27 px tall (140 px wide), 25 px (130 px, its minimum) on phones, in blue. See [Logos](../../brand-guidelines/references/logos.md#on-websites). |

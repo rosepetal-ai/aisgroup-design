@@ -19,11 +19,11 @@ npm run build -w guide     # guide/dist/
 | `src/pages/r/[name].json.ts` | The package as a shadcn-vue registry (`/r/<name>.json`, `/r/theme.json`). |
 | `src/pages/components.md.ts` | The agents' component index (the hosted MCP's `design_components` and the plugin read it). |
 | `src/pages/downloads/ais-theme.css.ts` | `/downloads/ais-theme.css`: the package's `styles.css`, the Tailwind theme of every site and product. |
-| `firebase.json`, `.firebaserc` | Hosting for design.aisgroup.ai: project `aisgroup-design`, site `aisgroup-design`. Caching: `/_astro/` and fonts a year (immutable), images a day, downloads an hour, pages and agent files revalidate on every visit. |
+| `../firebase.json`, `../.firebaserc` | Hosting for design.aisgroup.ai: project `aisgroup-design`, site `aisgroup-design`. Caching: `/_astro/` and fonts a year (immutable), images a day, downloads an hour, pages and agent files revalidate on every visit. |
 
 `npm run build` is plain `astro build`: it needs nothing outside this repo.
 
-`/mcp` is rewritten to the Firebase function `mcp` (europe-west1), the hosted MCP in `../hosted`, which this file also lists as its functions source. It answers once the function is published; the rest of the guide doesn't depend on it.
+`/mcp` is rewritten to the Firebase function `mcp` (europe-west1), the hosted MCP in `../hosted`, which the same file lists as its functions source. It answers once the function is published; the rest of the guide doesn't depend on it.
 
 ## Maintainer commands
 

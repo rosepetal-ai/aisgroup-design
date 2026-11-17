@@ -5,7 +5,7 @@ rules:
   - 'Websites are Astro sites with their own components, styled on brand.css (the `--ais-*` tokens) through a short layer of site roles: action, link, ink, muted, line. A theme changes the roles, never a component. Never type a colour or a size, and never restyle a part per page.'
   - 'Websites do not use theme.css, the app’s registry or Vue: the app’s components carry its rounded corners and screen density.'
   - 'Websites are square, except a product screen shown as a window (4 px). Form fields are 48 px with the 3:1 field border.'
-  - 'Calls to action are split buttons: 52 px, square, label plus a separate arrow segment; 44 px compact in headers and cards; Rosepetal uses 44 px for every call to action. On a brand-blue band and on dark surfaces the button is white.'
+  - 'Calls to action are 44 px split buttons, square, label plus a separate arrow segment: the same size in headers, cards and pages, on every site. On a brand-blue band and on dark surfaces the button is white.'
   - 'Text actions are action-blue links with a 20 px arrow that moves 3 px on hover; back links point left; links in running text are underlined, with no arrow.'
   - 'Cards are links with no box, shadow or lift, in four layouts: stack, row, text and featured. On hover the title turns action blue, the arrow nudges and the photograph eases to 103%.'
   - 'A page’s H1 is Title size; Display is only for the home page and campaign openers.'
@@ -49,13 +49,13 @@ The components of `@aisgroup/web`, live and with their Astro code. Each site imp
 
 ## Actions
 
-One filled call to action per view: the split button. The compact one goes in headers and cards. Text actions are links with an arrow. On a brand-blue band the button is white.
+One filled call to action per view: the split button, 44 px everywhere. Text actions are links with an arrow. On a brand-blue band the button is white.
 
-| Part | Split button | Compact |
-| --- | --- | --- |
-| **Height** | 52 px | 44 px |
-| **Label** | Label style, 24 px from the left edge, 24 px to the arrow segment | 16 px and 16 px |
-| **Arrow segment** | 52 px square, 24 px arrow, a 1 px divider in the label colour at 20% | 44 px square, 20 px arrow |
+| Part | Split button |
+| --- | --- |
+| **Height** | 44 px, in the header, in cards and on the page |
+| **Label** | Label style, 16 px from the left edge, 16 px to the arrow segment |
+| **Arrow segment** | 44 px square, 20 px arrow, a 1 px divider in the label colour at 20% (13% on Rosepetal) |
 
 - **Primary:** brand blue with a white label; deep blue `#10254C` on hover and focus, blue-950 `#0B1220` while pressed. The segment stays put and the arrow inside moves 3 px (180 ms).
 - **Secondary:** an outline for a second action beside the primary one: no fill, ink label, 1 px `#64748B` border; on hover the hover fill and an ink border.

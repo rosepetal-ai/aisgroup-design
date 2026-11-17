@@ -5,7 +5,7 @@ rules:
   - 'Las webs son sitios Astro con sus propios componentes, con estilos sobre brand.css (los tokens `--ais-*`) a través de una capa corta de papeles de la web: acción, enlace, tinta, secundario, línea. Un tema cambia los papeles, nunca un componente. Nunca escribas a mano un color o un tamaño, y nunca cambies el estilo de una pieza en una página concreta.'
   - 'Las webs no usan theme.css, el registro de la app ni Vue: los componentes de la app llevan sus esquinas redondeadas y la densidad de una pantalla.'
   - 'Las webs son rectas, salvo una pantalla de producto mostrada como ventana (4 px). Los campos miden 48 px y llevan el borde de campo de 3:1.'
-  - 'Las llamadas a la acción son botones partidos: 52 px, rectos, con el texto y un segmento aparte con la flecha; 44 px en la versión compacta de cabeceras y tarjetas; Rosepetal usa 44 px en todas sus llamadas a la acción. Sobre una banda azul de marca y sobre superficies oscuras el botón es blanco.'
+  - 'Las llamadas a la acción son botones partidos de 44 px, rectos, con el texto y un segmento aparte con la flecha: el mismo tamaño en cabeceras, tarjetas y páginas, en todas las webs. Sobre una banda azul de marca y sobre superficies oscuras el botón es blanco.'
   - 'Las acciones de texto son enlaces en azul de acción con una flecha de 20 px que avanza 3 px al pasar el cursor; los enlaces de vuelta apuntan a la izquierda; los enlaces dentro del texto van subrayados y sin flecha.'
   - 'Las tarjetas son enlaces sin caja, sombra ni elevación, en cuatro composiciones: apilada, en fila, de texto y destacada. Al pasar el cursor el título pasa a azul de acción, la flecha avanza y la fotografía crece al 103 %.'
   - 'El H1 de una página va en tamaño Title; Display es solo para la página de inicio y las aperturas de campaña.'
@@ -49,13 +49,13 @@ Los componentes de `@aisgroup/web`, en vivo y con su código Astro. Cada web los
 
 ## Acciones
 
-Una sola llamada a la acción rellena por vista: el botón partido. El compacto va en cabeceras y tarjetas. Las acciones de texto son enlaces con flecha. Sobre una banda azul de marca el botón es blanco.
+Una sola llamada a la acción rellena por vista: el botón partido, de 44 px en todas partes. Las acciones de texto son enlaces con flecha. Sobre una banda azul de marca el botón es blanco.
 
-| Parte | Botón partido | Compacto |
-| --- | --- | --- |
-| **Alto** | 52 px | 44 px |
-| **Texto** | Estilo Label, a 24 px del borde izquierdo y a 24 px del segmento de la flecha | 16 px y 16 px |
-| **Segmento de la flecha** | Cuadrado de 52 px, flecha de 24 px, una línea divisoria de 1 px del color del texto al 20 % | Cuadrado de 44 px, flecha de 20 px |
+| Parte | Botón partido |
+| --- | --- |
+| **Alto** | 44 px, en la cabecera, en las tarjetas y en la página |
+| **Texto** | Estilo Label, a 16 px del borde izquierdo y a 16 px del segmento de la flecha |
+| **Segmento de la flecha** | Cuadrado de 44 px, flecha de 20 px, una línea divisoria de 1 px del color del texto al 20 % (13 % en Rosepetal) |
 
 - **Principal:** azul de marca con texto blanco; azul profundo `#10254C` al pasar el cursor y con foco, blue-950 `#0B1220` al pulsar. El segmento no se mueve y la flecha avanza 3 px dentro de él (180 ms).
 - **Secundario:** un contorno para una segunda acción junto a la principal: sin relleno, texto en tinta, borde de 1 px `#64748B`; al pasar el cursor, el relleno al pasar y un borde en tinta.

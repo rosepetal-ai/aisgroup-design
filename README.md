@@ -19,7 +19,7 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | [`packages/vue-themes/`](packages/vue-themes/) | PrimeVue and Vuetify presets generated from the product tokens. | Served by the guide and the MCP |
 | [`playground/`](playground/) | A Vite app to try the product components and tune their variables. | Local only |
 | [`plugin/`](plugin/) | The Claude Code plugin: the guide as skills, and the studio MCP that makes posts, carousels, brochures, datasheets and decks. | Claude Code plugin |
-| [`hosted/`](hosted/) | The read-only MCP: rules, tokens, component code and assets for developers and claude.ai. | Firebase function behind the guide |
+| [`hosted/`](hosted/) | The read-only MCP: rules, tokens, component code and assets for developers' agents, behind a bearer token. | Firebase function behind the guide |
 | [`library/`](library/) | The media catalogue: every approved photo and render, with its origin and rights. The files themselves are in the media bucket. | Read by both MCPs |
 | [`scripts/`](scripts/) | Contract checks and sync tools used by `npm test` and the release steps. | |
 
@@ -89,8 +89,7 @@ Releases are manual, from an up-to-date `dev` after `npm ci && npm run build && 
 
 | Part | How |
 | --- | --- |
-| Guide | `npm run deploy:guide`: builds, then deploys to the Firebase site `aisgroup-design` |
-| Hosted MCP | `cd guide && firebase deploy --only hosting:aisgroup-design,functions:mcp --project aisgroup-design`, after a guide build. The predeploy step snapshots the guide into `hosted/data`. Limits and costs: [`hosted/README.md`](hosted/README.md) |
+| Guide and hosted MCP | `npm run deploy:guide`: builds the guide, then deploys the Firebase site `aisgroup-design` and the function `mcp` together (`firebase.json` at the root). The predeploy step snapshots the guide into `hosted/data`. The function needs the secret `AIS_MCP_TOKEN`; token, limits and costs: [`hosted/README.md`](hosted/README.md) |
 | `@aisgroup/design` | Push a tag `vX.Y.Z`. The [`publish-design`](.github/workflows/publish-design.yml) workflow sets that version, checks the package and publishes it |
 | Plugin | Merge to `dev`. Bump the version in `plugin/.claude-plugin/plugin.json` when the skills or the studio change |
 
@@ -112,8 +111,8 @@ All Google Cloud roles are on the `aisgroup-design` project.
 | Build, test and run the guide locally | Read access to this repository |
 | Use the plugin's studio with brand media | «Storage Object Viewer», the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and `gcloud auth login` |
 | Upload media or the marketing kit | «Storage Object Creator» |
-| Deploy the guide | Firebase Hosting access and `npx firebase-tools login` |
-| Deploy the hosted MCP | «Firebase Admin» and «Service Account User» (`roles/iam.serviceAccountUser`); the project is on the Blaze plan |
+| Deploy the guide and the hosted MCP | «Firebase Admin» and «Service Account User» (`roles/iam.serviceAccountUser`), and `npx firebase-tools login`; the project is on the Blaze plan |
+| Set or rotate the MCP token | «Secret Manager Admin» |
 | Publish `@aisgroup/design` | A version tag; the workflow uses the repository secret `GCP_SA_KEY` |
 | Install `@aisgroup/design` | Read access to the `private-node-packages` registry |
 

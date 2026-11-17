@@ -248,8 +248,8 @@
         "ca": "Mides"
       },
       "about": {
-        "es": "El tamaño predeterminado depende de la marca: 52 px en AIS y 44 px en Rosepetal. El compacto mide 44 px, para cabeceras y tarjetas.",
-        "ca": "La mida predeterminada depèn de la marca: 52 px a AIS i 44 px a Rosepetal. El compacte fa 44 px, per a capçaleres i targetes."
+        "es": "Un solo tamaño en todas las webs: 44 px, en la cabecera, en las tarjetas y en la página. El compacto mide lo mismo.",
+        "ca": "Una sola mida a totes les webs: 44 px, a la capçalera, a les targetes i a la pàgina. El compacte fa el mateix."
       }
     },
     "split-button/03-states": {

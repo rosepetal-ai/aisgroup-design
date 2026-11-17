@@ -28,26 +28,28 @@ Rebuild the snapshot whenever the guide changes. The build fails if a usage rule
 
 ## Deploy
 
-It runs as the Firebase function `mcp` (`function.mjs`), behind the guide's hosting: `guide/firebase.json` rewrites `/mcp` to it and lists this folder as the functions source, so `firebase deploy --only hosting:aisgroup-design,functions:mcp` from `guide/` publishes both (see the root README). The predeploy step rebuilds `data/` from the built guide; the upload leaves out everything the guide already serves (logos, fonts, photos, downloads), so the function carries only the text it answers from.
+It runs as the Firebase function `mcp` (`function.mjs`), behind the guide's hosting: `firebase.json` at the repo root rewrites `/mcp` to it and lists this folder as the functions source, so `npm run deploy:guide` (`firebase deploy --only hosting:aisgroup-design,functions:mcp`) publishes both (see the root README). Firebase only uploads a functions source inside the folder that holds `firebase.json`, which is why it lives at the root, and it matches `ignore` against absolute paths, which is why those patterns start with `**/hosted/`. Of `data/downloads/*/` only `aisgroup-web/` and `vue-themes/` are uploaded, because `download-tools.mjs` loads them at start; a new folder the server reads must be added to that exception, or the function fails to start. The predeploy step rebuilds `data/` from the built guide; the upload leaves out everything the guide already serves (logos, fonts, photos, downloads), so the function carries only the text it answers from.
 
 The deploying account needs, on the `aisgroup-design` project: Firebase Admin, and **Service Account User** (`roles/iam.serviceAccountUser`) to act as the function's runtime service account. A project owner has both. The project is on the Blaze plan and its APIs are on.
+
+The function declares the secret `AIS_MCP_TOKEN`, so the deploy fails until it exists. Create it once (it enables Secret Manager the first time): `openssl rand -base64 32`, then `npx firebase-tools functions:secrets:set AIS_MCP_TOKEN --project aisgroup-design` and paste the value. Each deploy pins the secret's latest version: to rotate it, set a new value, deploy again and hand the new token to every user.
 
 Cost: no instance runs while nobody calls it; one 256 MiB instance answers up to 80 calls at once; at most two instances. At a team's traffic this stays inside the free monthly allowance. After the first deploy, keep old build images from piling up in Artifact Registry with `firebase functions:artifacts:setpolicy`.
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
 | `AIS_MCP_FILES_BASE` | `https://aisgroup-design.web.app` | Function only: where download links point (the guide's own files) |
-| `AIS_MCP_TOKEN` | unset (off) | When set, `/mcp` needs `Authorization: Bearer <token>`. Keep it in Secret Manager, never in the repo. |
+| `AIS_MCP_TOKEN` | Secret Manager in the function, unset (off) locally | `/mcp` needs `Authorization: Bearer <token>`; anything else gets 401. Never in the repo or in a `.env` here (it would be uploaded). |
 | `AIS_MCP_RATE_LIMIT` | `120` | Requests per minute per caller, per instance |
 | `AIS_MCP_CORS_ORIGIN` | unset (off) | The one browser origin allowed to call it; any other browser origin is refused |
 | `AIS_GUIDE_DIST` | `../guide/dist` | Build only: the built guide to snapshot |
 
-Locally, `npm start -w hosted` serves the same handler on port 8080 with the snapshot's files at `/files/…` (`PORT`, `AIS_MCP_BASE_URL`, `AIS_MCP_TRUST_PROXY` apply there); `firebase emulators:start --only functions` from `guide/` runs the function itself.
+Locally, `npm start -w hosted` serves the same handler on port 8080 with the snapshot's files at `/files/…` (`PORT`, `AIS_MCP_BASE_URL`, `AIS_MCP_TRUST_PROXY` apply there); `firebase emulators:start --only functions` from the repo root runs the function itself.
 
 ## Connect
 
 ```
-claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp --header "Authorization: Bearer <token>"
 ```
 
-With a bearer token, add `--header "Authorization: Bearer <token>"`. claude.ai custom connectors sign in with OAuth rather than a fixed token, so they wait for the sign-in decision.
+Ask for the token through the password manager, never a repo or a chat; Claude Code keeps it in `~/.claude.json` (or the project's `.mcp.json`, which must not be committed). claude.ai custom connectors sign in with OAuth rather than a fixed token, so they can't connect. To check a deploy, `tools/list` with the header must list the four tools and without it answer 401; `/health` answers only on the function's own URL, since the hosting hands it `/mcp/health`.
