@@ -24,9 +24,10 @@
   --web-footer: var(--ais-blue-800);
   --web-footer-ink: var(--ais-blue-200);
 
-  --web-button-size: 52px;
-  --web-button-icon: 24px;
-  --web-button-inset: var(--ais-space-300);
+  /* One call-to-action size on every site: 44 px, the header's, in cards and on the page too. */
+  --web-button-size: 44px;
+  --web-button-icon: 20px;
+  --web-button-inset: var(--ais-space-200);
   --web-button-divider: 20%;
   --web-button-press: none;
   --web-link-offset: 5px;
@@ -45,12 +46,9 @@
   --web-breadcrumb-icon-shrink: 1;
 }
 
-/* Rosepetal keeps one 44 px size for every call to action. */
+/* Rosepetal: a lighter divider, a pressed state that darkens, a closer underline and its wordmark height. */
 [data-brand="rosepetal"] {
   --web-action-press: var(--ais-blue-900);
-  --web-button-size: 44px;
-  --web-button-icon: 20px;
-  --web-button-inset: var(--ais-space-200);
   --web-button-divider: 13%;
   --web-button-press: brightness(.94);
   --web-link-offset: 4px;
