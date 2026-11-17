@@ -19,13 +19,15 @@ Per al producte, [components.md](/components.md) enumera cada component, bloc de
 
 ## Connectar el MCP
 
-El MCP d’AIS Group Design dona a qualsevol agent les regles de marca, els tokens, els logotips, el codi dels components i els exemples aprovats. Només llegeix: mai no canvia ni publica res. A Claude Code:
+El MCP d’AIS Group Design dona a qualsevol agent les regles de marca, els tokens, els logotips, el codi dels components i els exemples aprovats. Només llegeix: mai no canvia ni publica res, i necessita un token d’accés: demana’l a l’equip.
+
+El plugin de més avall el connecta per tu. Sense el plugin, afegeix-lo a Claude Code amb el token:
 
 ```
-claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp --header "Authorization: Bearer <token>"
 ```
 
-A claude.ai, afegeix la mateixa adreça com a connector personalitzat.
+Desa el token en un gestor de contrasenyes i no el pugis mai a un repositori. Els connectors personalitzats de claude.ai no poden enviar un token, així que no s’hi poden connectar.
 
 ## Fer servir el plugin AIS Group Design
 
@@ -36,7 +38,7 @@ El plugin AIS Group Design per a Claude Code porta aquesta guia com a skills i u
 /plugin install ais-group-design@ais-group-design
 ```
 
-Després, un cop per ordinador, demana a Claude: «Configura AIS Group Design». El repositori i les fotos de marca són privats: demana accés a l’equip de màrqueting.
+La instal·lació demana el token del MCP i el desa al clauer del sistema; també connecta el MCP, així que no cal afegir-lo a mà. Després, un cop per ordinador, demana a Claude: «Configura AIS Group Design». El repositori i les fotos de marca són privats: demana accés a l’equip de màrqueting.
 
 Després enganxa les teves fotos al terminal i digues què necessites. L’estudi tria la plantilla, edita la font (qualsevol text o imatge pel seu espai), la comprova amb la marca i et mostra el resultat. Revisa’l, demana canvis i exporta el PDF, el PNG o el PowerPoint quan estigui bé. No es publica ni es puja res si no ho demanes.
 

@@ -19,13 +19,15 @@ Para el producto, [components.md](/components.md) enumera cada componente, bloqu
 
 ## Conectar el MCP
 
-El MCP de AIS Group Design da a cualquier agente las reglas de marca, los tokens, los logotipos, el código de los componentes y los ejemplos aprobados. Solo lee: nunca cambia ni publica nada. En Claude Code:
+El MCP de AIS Group Design da a cualquier agente las reglas de marca, los tokens, los logotipos, el código de los componentes y los ejemplos aprobados. Solo lee: nunca cambia ni publica nada, y necesita un token de acceso: pídelo al equipo.
+
+El plugin de abajo lo conecta por ti. Sin el plugin, añádelo en Claude Code con el token:
 
 ```
-claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp --header "Authorization: Bearer <token>"
 ```
 
-En claude.ai, añade la misma dirección como conector personalizado.
+Guarda el token en un gestor de contraseñas y no lo subas nunca a un repositorio. Los conectores personalizados de claude.ai no pueden enviar un token, así que no se pueden conectar.
 
 ## Usar el plugin AIS Group Design
 
@@ -36,7 +38,7 @@ El plugin AIS Group Design para Claude Code trae esta guía como skills y un est
 /plugin install ais-group-design@ais-group-design
 ```
 
-Después, una vez por ordenador, pide a Claude: «Configura AIS Group Design». El repositorio y las fotos de marca son privados: pide acceso al equipo de marketing.
+La instalación pide el token del MCP y lo guarda en el llavero del sistema; también conecta el MCP, así que no hace falta añadirlo a mano. Después, una vez por ordenador, pide a Claude: «Configura AIS Group Design». El repositorio y las fotos de marca son privados: pide acceso al equipo de marketing.
 
 Después pega tus fotos en el terminal y di qué necesitas. El estudio elige la plantilla, edita la fuente (cualquier texto o imagen por su espacio), la comprueba con la marca y te enseña el resultado. Revísalo, pide cambios y exporta el PDF, el PNG o el PowerPoint cuando esté bien. No se publica ni se sube nada si no lo pides.
 
