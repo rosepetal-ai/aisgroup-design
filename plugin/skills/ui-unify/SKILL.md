@@ -19,3 +19,7 @@ Read only the reference needed for this task.
 
 - [redesign](references/redesign.md)
 - [unify](references/unify.md)
+
+## Done
+
+A redesign is done when `ui-contract.mjs audit` gives `legacyFree: true` and `ui-states.mjs` gives `statesFree: true` on every route, in both themes, at desktop and phone width ([redesign](references/redesign.md), step 6). Look at every failure screenshot yourself before reporting. A redesign that skips either check is not finished.
