@@ -13,8 +13,8 @@ const props = defineProps({ page: { type: Object, required: true } });
 const modules = import.meta.glob('../../../packages/design/examples/*/*.vue');
 const sources = import.meta.glob('../../../packages/design/examples/*/*.vue', { query: '?raw', import: 'default', eager: true });
 const UI_FILES = Object.keys(import.meta.glob('../../../packages/design/ui/*/*.{vue,ts}')).map(f => f.replace('../../../', ''));
-const BLOCK_FILES = Object.keys(import.meta.glob('../../../packages/design/blocks/*.vue')).map(f => f.replace('../../../', ''));
-const BLOCKS = { 'top-bar': ['TopBar', 'BrandLogo'], 'login-page': ['LoginPage', 'InspectionGrid', 'BrandLogo'], 'log-terminal': ['LogTerminal'], 'confirm-dialog': ['ConfirmDialog'] };
+const BLOCK_FILES = Object.keys(import.meta.glob('../../../packages/design/blocks/*.{vue,ts}')).map(f => f.replace('../../../', ''));
+const BLOCKS = { 'top-bar': ['TopBar', 'BrandLogo'], 'login-page': ['LoginPage', 'InspectionGrid', 'BrandLogo'], 'log-terminal': ['LogTerminal'], 'confirm-dialog': ['ConfirmDialog'], 'confirm-host': ['ConfirmHost', 'confirm', 'ConfirmDialog'] };
 
 const examples = computed(() => Object.keys(modules)
     .filter(path => path.includes(`/examples/${props.page.id}/`))
@@ -33,7 +33,7 @@ const examples = computed(() => Object.keys(modules)
     }));
 const tabs = ref({});
 const files = computed(() => (BLOCKS[props.page.id]
-    ? BLOCKS[props.page.id].map(n => BLOCK_FILES.find(f => f.endsWith(`/${n}.vue`)))
+    ? BLOCKS[props.page.id].map(n => BLOCK_FILES.find(f => f.endsWith(`/${n}.vue`) || f.endsWith(`/${n}.ts`)))
     : UI_FILES.filter(f => f.split('/')[3] === props.page.id)));
 </script>
 

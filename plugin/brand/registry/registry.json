@@ -358,6 +358,12 @@
       "description": "A question before an action: it runs the action, shows its progress and errors, and offers Retry. Each app gives its texts and the action."
     },
     {
+      "name": "confirm-host",
+      "type": "registry:block",
+      "title": "Confirm host",
+      "description": "Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts."
+    },
+    {
       "name": "log-terminal",
       "type": "registry:block",
       "title": "Log terminal",

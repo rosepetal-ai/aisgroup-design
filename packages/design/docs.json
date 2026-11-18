@@ -440,6 +440,16 @@
         "ca": "Una pregunta abans d’una acció: executa l’acció, mostra el progrés i els errors, i permet tornar-ho a provar. Cada aplicació aporta els seus textos i l’acció."
       }
     },
+    "confirm-host": {
+      "name": {
+        "es": "Host de confirmaciones",
+        "ca": "Host de confirmacions"
+      },
+      "description": {
+        "es": "Confirmaciones pedidas desde el código: useConfirm().ask() abre el diálogo de confirmación en el único host que monta App.",
+        "ca": "Confirmacions demanades des del codi: useConfirm().ask() obre el diàleg de confirmació a l’únic host que munta App."
+      }
+    },
     "log-terminal": {
       "name": {
         "es": "Terminal de registros",
@@ -800,6 +810,16 @@
       "about": {
         "es": "Una acción larga: el progreso ocupa su slot y con background el único botón es Continuar, que deja la acción en curso. La aplicación cierra el diálogo y muestra el progreso en otro lugar.",
         "ca": "Una acció llarga: el progrés ocupa el seu slot i amb background l’únic botó és Continua, que deixa l’acció en curs. L’aplicació tanca el diàleg i mostra el progrés en un altre lloc."
+      }
+    },
+    "confirm-host/01-from-code": {
+      "name": {
+        "es": "Desde el código",
+        "ca": "Des del codi"
+      },
+      "about": {
+        "es": "Una pregunta hecha desde el código, como una opción de menú o un store: useConfirm().ask() abre el diálogo de confirmación en el ConfirmHost que App monta una sola vez, con las etiquetas traducidas de la aplicación. La acción se ejecuta en el diálogo, con su progreso, sus errores y Reintentar.",
+        "ca": "Una pregunta feta des del codi, com una opció de menú o un store: useConfirm().ask() obre el diàleg de confirmació al ConfirmHost que App munta un sol cop, amb les etiquetes traduïdes de l’aplicació. L’acció s’executa al diàleg, amb el progrés, els errors i Torna-ho a provar."
       }
     },
     "dialog/01-form": {

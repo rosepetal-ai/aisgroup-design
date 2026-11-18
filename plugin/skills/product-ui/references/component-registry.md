@@ -70,6 +70,7 @@ Brand pieces built from the components, with no app logic: texts and data come f
 - **Top bar** (`top-bar`): The brand bar: colour, height and logo. Each app gives its links and actions. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/TopBar.vue`
 - **Login page** (`login-page`): The sign-in page. Each app gives its logo, its texts and its sign-in. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/LoginPage.vue`
 - **Confirm dialog** (`confirm-dialog`): A question before an action: it runs the action, shows its progress and errors, and offers Retry. Each app gives its texts and the action. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/ConfirmDialog.vue`
+- **Confirm host** (`confirm-host`): Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/ConfirmHost.vue`
 - **Log terminal** (`log-terminal`): A console for logs. Each app gives its lines. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/LogTerminal.vue`
 
 ## Node-RED dashboard widgets
