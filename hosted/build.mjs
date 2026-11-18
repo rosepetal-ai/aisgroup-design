@@ -16,6 +16,15 @@ const LIBRARY = path.join(HERE, '../library'); // the curated photos and their i
 const OUT = path.join(HERE, 'data');
 const fail = (m) => { console.error(m); process.exit(1); };
 if (!fs.existsSync(path.join(DIST, 'skills/index.json'))) fail(`No built guide at ${DIST}. Build it (npm run build -w guide) or set AIS_GUIDE_DIST.`);
+// The PrimeVue, Vuetify and icon migration maps (design_code kind=migration), checked before the old snapshot is removed.
+// AIS_MIGRATION_DIR=<folder> builds with other maps (the test fixtures, while the package has none).
+const MIGRATION = path.resolve(process.env.AIS_MIGRATION_DIR || path.join(HERE, '../packages/vue-themes/migration'));
+const MAPS = ['primevue', 'vuetify', 'icons'];
+for (const n of MAPS) {
+  const file = path.join(MIGRATION, `${n}.json`);
+  if (!fs.existsSync(file)) fail(`No migration map ${file}: design_code kind=migration serves it. Write it (packages/vue-themes/migration/), then build again.`);
+  try { JSON.parse(fs.readFileSync(file, 'utf8')); } catch (e) { fail(`${file} is not valid JSON: ${e.message}`); }
+}
 
 const COPY = ['skills', 'en/brand.md', 'es/brand.md', 'ca/brand.md', 'components.md', 'r', 'logos', 'downloads', 'fonts',
   'kit/hex-field-tl.svg', 'kit/hex-field-tr.svg', 'kit/hex-field-bl.svg', 'kit/hex-field-br.svg'];
@@ -27,6 +36,18 @@ for (const p of COPY) {
 // The curated library and public Downloads descriptor share the same source selection.
 if (!fs.existsSync(path.join(LIBRARY, 'library.json'))) fail(`No library at ${LIBRARY} (node scripts/import-library.mjs).`);
 fs.cpSync(LIBRARY, path.join(OUT, 'library'), { recursive: true });
+fs.mkdirSync(path.join(OUT, 'migration'));
+for (const n of MAPS) fs.copyFileSync(path.join(MIGRATION, `${n}.json`), path.join(OUT, 'migration', `${n}.json`));
+// Each component's examples (packages/design/examples/<id>/NN-name.vue): the guide shows them on its pages but publishes
+// no file of them, so they come from the package.
+const EXAMPLES = path.join(HERE, '../packages/design/examples');
+const componentExamples = Object.fromEntries(fs.readdirSync(EXAMPLES, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort()
+  .map((id) => [id, fs.readdirSync(path.join(EXAMPLES, id)).filter((f) => f.endsWith('.vue')).sort().map((f) => ({ path: `examples/${id}/${f}`, content: fs.readFileSync(path.join(EXAMPLES, id, f), 'utf8') }))]));
+fs.writeFileSync(path.join(OUT, 'component-examples.json'), JSON.stringify(componentExamples));
+// packages/design/styles.css repeats its three scrollbar @utility blocks; the theme answer keeps each identical block once.
+// Only @utility: a repeated rule elsewhere can matter to the cascade.
+const THEME = path.join(OUT, 'downloads/ais-theme.css'), utilities = new Set();
+fs.writeFileSync(THEME, fs.readFileSync(THEME, 'utf8').replace(/^@utility [^\n]*\{\n[\s\S]*?^\}\n\n?/gm, (block) => utilities.has(block.trim()) ? '' : (utilities.add(block.trim()), block)));
 // The examples' index, pages and stylesheets only: design_examples reads their source; pictures and PDFs stay on the site.
 if (!fs.existsSync(path.join(DIST, 'examples/index.json'))) fail('The guide build has no examples/index.json (npm run examples -w plugin, then build the guide).');
 fs.cpSync(path.join(DIST, 'examples'), path.join(OUT, 'examples'), { recursive: true, dereference: true, filter: (f) => fs.statSync(f).isDirectory() || /\.(html|css|json)$/.test(f) });

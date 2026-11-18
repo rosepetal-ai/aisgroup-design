@@ -1,0 +1,2108 @@
+{
+ "description": "PrimeVue 4 (and the v3 names still found in apps) to @aisgroup/design. Each entry: from (component, directive, service or setup piece), import, to (registry names), status, props (PrimeVue prop or usage: what replaces it), needs (components being added to the package), notes. A full redesign removes PrimeVue; the adapters in packages/vue-themes are only a bridge for screens not yet moved.",
+ "library": "primevue",
+ "version": "4",
+ "statuses": {
+  "direct": "A counterpart exists: swap the component and map the props.",
+  "compose": "No single counterpart: build it from the listed components.",
+  "gap": "No counterpart, even after the components being added. The notes say what the library needs and how to compose a temporary version.",
+  "remove": "PrimeVue-only behaviour or setup: delete it. The notes say what replaces it under our rules."
+ },
+ "entries": [
+  {
+   "from": "Button",
+   "import": "primevue/button",
+   "to": [
+    "button",
+    "spinner",
+    "tooltip"
+   ],
+   "status": "direct",
+   "props": {
+    "label": "default slot text, sentence case",
+    "icon=\"pi pi-x\"": "Lucide icon from @lucide/vue as the first child, with data-icon=\"inline-start\" (icons.json maps every pi- class)",
+    "iconPos=\"right\"": "the icon as the last child with data-icon=\"inline-end\"",
+    "severity=\"primary\" or none": "variant=\"default\" (the one primary action of a page, section or dialog)",
+    "severity=\"secondary\"": "variant=\"outline\" for secondary actions and toolbars; variant=\"secondary\" only for Cancel in a dialog footer",
+    "severity=\"danger\"": "variant=\"destructive\", after a confirmation that names the target",
+    "severity=\"success|info|warn|help|contrast\"": "no AIS variant: use variant=\"default\" or \"outline\"; status is an icon and a word, never a button colour",
+    "outlined": "variant=\"outline\"; with severity=\"danger\", variant=\"outline-destructive\"",
+    "text": "variant=\"ghost\"; with severity=\"danger\", variant=\"ghost-destructive\"",
+    "variant=\"outlined\"": "variant=\"outline\"",
+    "variant=\"text\"": "variant=\"ghost\"",
+    "variant=\"link\" or link": "variant=\"link\"",
+    "size=\"small\"": "size=\"sm\"",
+    "size=\"large\"": "size=\"lg\"",
+    "icon only (no label)": "size=\"icon\" (or \"icon-sm\" in rows), aria-label, and a Tooltip with the same name",
+    "loading": "<Spinner data-icon=\"inline-start\" /> as the first child, the working label, and disabled",
+    "loadingIcon": "remove: the Spinner is the only loading mark",
+    "raised, rounded, plain": "remove: never override a component radius or shadow; the top bar uses size=\"icon-round\"",
+    "badge, badgeSeverity": "a Badge after the label (counts only)",
+    "fluid": "class=\"w-full\" (layout class)",
+    "as, asChild": "as-child around a RouterLink or <a>",
+    "dialog footer button": "size=\"modal\": Cancel variant=\"secondary\" first, the action second"
+   },
+   "notes": "Variants: default, outline, secondary, ghost, destructive, link; topbar and topbar-tab only inside the top bar, size modal only in dialog footers. Never add a variant."
+  },
+  {
+   "from": "ButtonGroup",
+   "import": "primevue/buttongroup",
+   "to": [
+    "button",
+    "toggle-group"
+   ],
+   "status": "compose",
+   "props": {
+    "children": "Buttons in a flex row with gap-2; a choice of one tool or option is a ToggleGroup"
+   },
+   "notes": "There is no joined button group: buttons keep their own borders."
+  },
+  {
+   "from": "SplitButton",
+   "import": "primevue/splitbutton",
+   "to": [
+    "button",
+    "dropdown-menu",
+    "tooltip"
+   ],
+   "status": "compose",
+   "props": {
+    "label, icon, @click": "a Button with the main action",
+    "model": "a DropdownMenu on an outline size=\"icon\" Button with ChevronDownIcon, aria-label (More actions) and a Tooltip; one DropdownMenuItem per item: label as text, icon as a Lucide first child, command as @select, separator as DropdownMenuSeparator, items as DropdownMenuGroup with DropdownMenuLabel, disabled as disabled, url as an <a> with as-child",
+    "severity": "as Button"
+   },
+   "notes": "Two buttons side by side (flex gap-2), not a joined control."
+  },
+  {
+   "from": "SpeedDial",
+   "import": "primevue/speeddial",
+   "to": [
+    "button",
+    "dropdown-menu",
+    "tooltip"
+   ],
+   "status": "compose",
+   "props": {
+    "model": "a Button that opens a DropdownMenu; one DropdownMenuItem per item: label as text, icon as a Lucide first child, command as @select, separator as DropdownMenuSeparator, items as DropdownMenuGroup with DropdownMenuLabel, disabled as disabled, url as an <a> with as-child",
+    "direction, type=\"circle|semi-circle|quarter-circle\", radius": "remove",
+    "showIcon, hideIcon": "one Lucide icon (PlusIcon) on the trigger"
+   },
+   "notes": "No floating fan of actions: put the actions in the page header or a toolbar, or behind one menu button."
+  },
+  {
+   "from": "InputText",
+   "import": "primevue/inputtext",
+   "to": [
+    "input",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model",
+    "label (separate <label>)": "FieldLabel above the control inside a Field; placeholder only as an example",
+    "invalid": "aria-invalid=\"true\" on the control and data-invalid on its Field, with a FieldError under it",
+    "size=\"small|large\"": "remove: inputs have one height in product screens",
+    "variant=\"filled\"": "remove",
+    "fluid": "the form is max-w-sm; class=\"w-full\" only for layout"
+   },
+   "notes": "Forms are Field, FieldGroup and FieldDescription, label above the control."
+  },
+  {
+   "from": "InputNumber",
+   "import": "primevue/inputnumber",
+   "to": [
+    "number-field",
+    "input-group",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model (number)",
+    "min, max, step": "min, max, step",
+    "showButtons": "NumberFieldContent with NumberFieldDecrement, NumberFieldInput, NumberFieldIncrement",
+    "buttonLayout, incrementButtonIcon, decrementButtonIcon": "remove",
+    "mode=\"currency\" currency=\"EUR\" locale=\"es-ES\"": ":format-options=\"{ style: 'currency', currency: 'EUR' }\" locale=\"es-ES\"",
+    "minFractionDigits, maxFractionDigits, useGrouping": "the same keys inside format-options (minimumFractionDigits, maximumFractionDigits, useGrouping)",
+    "suffix=\" kg\", prefix": "the unit as InputGroupText in an InputGroupAddon (align=\"inline-end\" for a unit)",
+    "invalid": "aria-invalid=\"true\" on the control and data-invalid on its Field, with a FieldError under it"
+   },
+   "needs": [
+    "number-field"
+   ],
+   "notes": "Numbers align right with tabular figures where they are read in columns."
+  },
+  {
+   "from": "InputMask",
+   "import": "primevue/inputmask",
+   "to": [
+    "input",
+    "field"
+   ],
+   "status": "gap",
+   "props": {
+    "mask=\"99-999\"": "no mask: the format goes in FieldDescription or the placeholder example, and is checked on blur with a FieldError",
+    "slotChar, autoClear, unmask": "remove"
+   },
+   "notes": "The library needs a masked input (an Input with a mask option, for example built on the maska directive). Until then: Input with inputmode and pattern, a described format and validation. Fixed-length codes use PinInput."
+  },
+  {
+   "from": "InputOtp",
+   "import": "primevue/inputotp",
+   "to": [
+    "pin-input",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model (an array of characters; join it for the code)",
+    "length=\"6\"": "six PinInputSlot inside a PinInputGroup (:index from 0 to 5)",
+    "integerOnly": "type=\"number\"",
+    "mask": "mask"
+   },
+   "needs": [
+    "pin-input"
+   ],
+   "notes": "Give the group a FieldLabel above it."
+  },
+  {
+   "from": "Password",
+   "import": "primevue/password",
+   "to": [
+    "input-group",
+    "field",
+    "tooltip"
+   ],
+   "status": "compose",
+   "props": {
+    "v-model": "InputGroupInput type=\"password\" v-model",
+    "toggleMask": "an InputGroupButton in an InputGroupAddon align=\"inline-end\" with EyeIcon or EyeOffIcon, aria-label (Show password, Hide password) and a Tooltip; it switches the input type",
+    "feedback, promptLabel, weakLabel, mediumLabel, strongLabel": "the rules in words in a FieldDescription; errors as FieldError"
+   },
+   "notes": "No strength meter popup."
+  },
+  {
+   "from": "Textarea",
+   "import": "primevue/textarea",
+   "to": [
+    "textarea",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model, rows": "v-model, rows",
+    "autoResize": "class=\"field-sizing-content\" (sizing only)",
+    "invalid": "aria-invalid=\"true\" on the control and data-invalid on its Field, with a FieldError under it"
+   },
+   "notes": "Label above it, as every field."
+  },
+  {
+   "from": "Select",
+   "import": "primevue/select",
+   "to": [
+    "select",
+    "combobox",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model on Select",
+    "options + optionLabel + optionValue": "SelectContent with one SelectItem :value per option, label as its text",
+    "placeholder": "SelectValue placeholder",
+    "optionGroupLabel, optionGroupChildren": "SelectGroup with a SelectLabel",
+    "filter, editable, virtualScrollerOptions": "a long list or a search is a Combobox",
+    "showClear": "an explicit option such as None, or a ghost clear button with aria-label",
+    "loading": "disabled with a Skeleton in the field shape until the options arrive",
+    "invalid": "aria-invalid on SelectTrigger, data-invalid on its Field",
+    "size=\"small\"": "SelectTrigger size=\"sm\"",
+    "checkmark, highlightOnSelect": "remove: SelectItem draws its check"
+   },
+   "notes": "Dropdown is the v3 name. A short list is a Select, a long one a Combobox."
+  },
+  {
+   "from": "Dropdown",
+   "import": "primevue/dropdown",
+   "to": [
+    "select",
+    "combobox"
+   ],
+   "status": "direct",
+   "notes": "v3 name of Select: map it as Select."
+  },
+  {
+   "from": "MultiSelect",
+   "import": "primevue/multiselect",
+   "to": [
+    "multi-select",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (array)": "v-model (array)",
+    "options, optionLabel, optionValue": "the options of MultiSelect",
+    "display=\"chip\"": "the chosen values as removable items, as TagsInput shows them",
+    "filter": "search inside the list",
+    "maxSelectedLabels, selectedItemsLabel": "a count in words (3 lines)",
+    "selectAll": "a Select all item at the top"
+   },
+   "needs": [
+    "multi-select"
+   ],
+   "notes": "Until multi-select lands, a Combobox with multiple and TagsInput for the chosen values covers it."
+  },
+  {
+   "from": "Listbox",
+   "import": "primevue/listbox",
+   "to": [
+    "command",
+    "radio-group",
+    "checkbox"
+   ],
+   "status": "compose",
+   "props": {
+    "single selection, few options": "RadioGroup of choice cards",
+    "multiple": "a list of Checkbox rows divided by lines",
+    "filter": "an inline Command (CommandInput and CommandList, not in a dialog)"
+   },
+   "needs": [
+    "command"
+   ],
+   "notes": "An always-open list with a selected row: rows divided by lines, the selected row bg-muted font-medium."
+  },
+  {
+   "from": "AutoComplete",
+   "import": "primevue/autocomplete",
+   "to": [
+    "combobox",
+    "tags-input"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model on Combobox",
+    "suggestions + @complete": "ComboboxInput emits the search text; filter or fetch the items and render ComboboxItem for each",
+    "optionLabel, field": "display-value on ComboboxInput",
+    "dropdown": "ComboboxTrigger with ChevronsUpDownIcon",
+    "forceSelection": "the default: only listed values are taken",
+    "multiple, typeahead=false": "TagsInput (free values) or Combobox multiple with TagsInput for the chosen items",
+    "emptySearchMessage": "ComboboxEmpty text",
+    "loading": "a Spinner in the list while it fetches"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "Chips (v3) became AutoComplete multiple: that case is TagsInput."
+  },
+  {
+   "from": "CascadeSelect",
+   "import": "primevue/cascadeselect",
+   "to": [
+    "select",
+    "combobox"
+   ],
+   "status": "compose",
+   "props": {
+    "options with nested optionGroupChildren": "one Select per level, each enabled when the level above is chosen; or one Combobox whose items show the whole path"
+   },
+   "notes": "No cascading popup."
+  },
+  {
+   "from": "TreeSelect",
+   "import": "primevue/treeselect",
+   "to": [
+    "popover",
+    "tree",
+    "button"
+   ],
+   "status": "compose",
+   "props": {
+    "options (TreeNode[])": "a Tree inside PopoverContent, opened by an outline Button that shows the chosen label",
+    "selectionMode=\"checkbox|multiple\"": "Tree multiple with checkboxes",
+    "display=\"chip\"": "the chosen labels in words, or as TagsInput items"
+   },
+   "needs": [
+    "tree"
+   ],
+   "notes": "Choose a node from a hierarchy."
+  },
+  {
+   "from": "DatePicker",
+   "import": "primevue/datepicker",
+   "to": [
+    "date-picker",
+    "calendar",
+    "range-calendar",
+    "input"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (Date)": "v-model with a DateValue from @internationalized/date (CalendarDate); convert at the edges with toDate and fromDate",
+    "selectionMode=\"range\"": "a RangeCalendar in the picker",
+    "selectionMode=\"multiple\"": "Calendar multiple",
+    "inline": "the Calendar alone, without the popover",
+    "showIcon, icon": "CalendarIcon in the trigger button",
+    "dateFormat": "the date shown with DateFormatter for the app locale",
+    "minDate, maxDate, disabledDates": "min-value, max-value, is-date-disabled",
+    "showTime, hourFormat, timeOnly": "no time picker: an Input type=\"time\" next to the date",
+    "view=\"month|year\"": "a Select of months or years",
+    "showButtonBar (Today, Clear)": "buttons under the calendar only if the task needs them"
+   },
+   "needs": [
+    "date-picker",
+    "calendar",
+    "range-calendar"
+   ],
+   "notes": "Calendar is the v3 name."
+  },
+  {
+   "from": "Calendar",
+   "import": "primevue/calendar",
+   "to": [
+    "date-picker",
+    "calendar"
+   ],
+   "status": "direct",
+   "needs": [
+    "date-picker",
+    "calendar"
+   ],
+   "notes": "v3 name of DatePicker: map it as DatePicker."
+  },
+  {
+   "from": "ColorPicker",
+   "import": "primevue/colorpicker",
+   "to": [
+    "input",
+    "field"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, format=\"hex\"": "a native <input type=\"color\"> next to an Input with the hex value, both inside a Field",
+    "inline": "remove"
+   },
+   "notes": "The library needs a colour picker (swatch, hex input, popover). Product screens rarely do: the brand and data colours are tokens, never picked by users."
+  },
+  {
+   "from": "Knob",
+   "import": "primevue/knob",
+   "to": [
+    "slider",
+    "number-field"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, min, max, step": "a Slider with the value as text beside it (tabular figures), or a NumberField",
+    "valueTemplate": "the value and its unit as text",
+    "size, strokeWidth, valueColor, rangeColor": "remove"
+   },
+   "needs": [
+    "number-field"
+   ],
+   "notes": "The library has no dial. A Slider or a NumberField is the replacement, and may be all it ever needs."
+  },
+  {
+   "from": "Rating",
+   "import": "primevue/rating",
+   "to": [
+    "toggle-group"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, stars=\"5\"": "a ToggleGroup type=\"single\" with items 1 to 5, or the value as text (4 of 5) when read only",
+    "readonly": "the value as text",
+    "onIcon, offIcon": "remove: no filled icons"
+   },
+   "notes": "The library needs a rating input. Lucide has no filled star and the guide forbids filling icons."
+  },
+  {
+   "from": "Slider",
+   "import": "primevue/slider",
+   "to": [
+    "slider"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (number)": "v-model as an array: [value]",
+    "range": "v-model with two values: [min, max]",
+    "min, max, step, orientation": "min, max, step, orientation"
+   },
+   "notes": "Show the value as text next to it."
+  },
+  {
+   "from": "ToggleSwitch",
+   "import": "primevue/toggleswitch",
+   "to": [
+    "switch",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model",
+    "label": "a switch row: FieldLabel and FieldDescription on the left, the Switch on the right (Field orientation=\"horizontal\")",
+    "trueValue, falseValue": "map the boolean in the parent"
+   },
+   "notes": "InputSwitch is the v3 name."
+  },
+  {
+   "from": "InputSwitch",
+   "import": "primevue/inputswitch",
+   "to": [
+    "switch"
+   ],
+   "status": "direct",
+   "notes": "v3 name of ToggleSwitch: map it as ToggleSwitch."
+  },
+  {
+   "from": "ToggleButton",
+   "import": "primevue/togglebutton",
+   "to": [
+    "toggle"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model (boolean: the pressed state)",
+    "onLabel, offLabel": "one fixed label; the pressed state shows on the control (aria-pressed)",
+    "onIcon, offIcon": "one Lucide icon",
+    "icon only": "aria-label and a Tooltip"
+   },
+   "notes": "One button that stays on or off."
+  },
+  {
+   "from": "SelectButton",
+   "import": "primevue/selectbutton",
+   "to": [
+    "toggle-group",
+    "radio-group",
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model, options, optionLabel, optionValue": "ToggleGroup type=\"single\" v-model with a ToggleGroupItem per option",
+    "multiple": "ToggleGroup type=\"multiple\"",
+    "allowEmpty=false": "keep a value: ignore the empty update"
+   },
+   "notes": "A tool choice is a ToggleGroup; one of a few modes is a RadioGroup of choice cards; switching views of the same thing is Tabs."
+  },
+  {
+   "from": "Checkbox",
+   "import": "primevue/checkbox",
+   "to": [
+    "checkbox",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model + binary": "v-model (boolean)",
+    "v-model (array) + value": ":model-value=\"list.includes(value)\" and @update:model-value adds or removes it",
+    "indeterminate": ":model-value=\"'indeterminate'\"",
+    "inputId + <label for>": "Field orientation=\"horizontal\" with the Checkbox and a FieldLabel",
+    "invalid": "aria-invalid=\"true\" on the control and data-invalid on its Field, with a FieldError under it"
+   },
+   "notes": "One option on or off, or several from a list."
+  },
+  {
+   "from": "RadioButton",
+   "import": "primevue/radiobutton",
+   "to": [
+    "radio-group",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model + name + value on each": "one RadioGroup v-model around RadioGroupItem :value per option",
+    "inputId + <label for>": "a FieldLabel per item, or choice cards"
+   },
+   "notes": "A choice between a few modes, as choice cards."
+  },
+  {
+   "from": "RadioButtonGroup",
+   "import": "primevue/radiobuttongroup",
+   "to": [
+    "radio-group"
+   ],
+   "status": "direct",
+   "notes": "RadioGroup."
+  },
+  {
+   "from": "IconField",
+   "import": "primevue/iconfield",
+   "to": [
+    "input-group"
+   ],
+   "status": "direct",
+   "props": {
+    "IconField + InputIcon + InputText": "InputGroup with an InputGroupAddon holding the Lucide icon and an InputGroupInput",
+    "iconPosition=\"left\"": "InputGroupAddon align=\"inline-start\"",
+    "iconPosition=\"right\"": "InputGroupAddon align=\"inline-end\""
+   },
+   "notes": "A search field is SearchIcon in an inline-start addon."
+  },
+  {
+   "from": "InputIcon",
+   "import": "primevue/inputicon",
+   "to": [
+    "input-group"
+   ],
+   "status": "direct",
+   "props": {
+    "class=\"pi pi-x\"": "the Lucide icon inside InputGroupAddon"
+   },
+   "notes": "See IconField."
+  },
+  {
+   "from": "InputGroup",
+   "import": "primevue/inputgroup",
+   "to": [
+    "input-group"
+   ],
+   "status": "direct",
+   "props": {
+    "InputGroupAddon with text": "InputGroupAddon with InputGroupText",
+    "InputGroupAddon with a Button": "InputGroupAddon with an InputGroupButton (icon only: aria-label and Tooltip)",
+    "InputText inside": "InputGroupInput"
+   },
+   "notes": "Units are input group addons."
+  },
+  {
+   "from": "InputGroupAddon",
+   "import": "primevue/inputgroupaddon",
+   "to": [
+    "input-group"
+   ],
+   "status": "direct",
+   "notes": "InputGroupAddon, align inline-start or inline-end."
+  },
+  {
+   "from": "FloatLabel",
+   "import": "primevue/floatlabel",
+   "to": [
+    "field",
+    "label"
+   ],
+   "status": "remove",
+   "props": {
+    "variant=\"over|in|on\"": "remove",
+    "<label>": "FieldLabel above the control inside a Field; placeholder only as an example"
+   },
+   "notes": "No floating labels: every field has a visible label above it."
+  },
+  {
+   "from": "IftaLabel",
+   "import": "primevue/iftalabel",
+   "to": [
+    "field",
+    "label"
+   ],
+   "status": "remove",
+   "props": {
+    "<label>": "FieldLabel above the control inside a Field; placeholder only as an example"
+   },
+   "notes": "No labels inside the field: the label sits above it."
+  },
+  {
+   "from": "Fluid",
+   "import": "primevue/fluid",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "Fluid wrapper": "forms are max-w-sm; class=\"w-full\" on a control only for layout"
+   },
+   "notes": "Width is a layout class."
+  },
+  {
+   "from": "KeyFilter (v-keyfilter)",
+   "import": "primevue/keyfilter",
+   "to": [
+    "number-field",
+    "input",
+    "field"
+   ],
+   "status": "remove",
+   "props": {
+    "v-keyfilter.int, .num, .money": "NumberField",
+    "v-keyfilter=\"/regex/\"": "inputmode, pattern and validation with a FieldError that says how to fix it"
+   },
+   "needs": [
+    "number-field"
+   ],
+   "notes": "Do not swallow keystrokes: accept the text and explain the error."
+  },
+  {
+   "from": "Form",
+   "import": "@primevue/forms",
+   "to": [
+    "field"
+   ],
+   "status": "compose",
+   "props": {
+    "Form + resolver (zod, yup)": "a <form :id @submit.prevent> with FieldGroup; keep the schema and validate on submit or blur",
+    "FormField + $form.name.invalid": "Field data-invalid, aria-invalid on the control and FieldError with the message",
+    "Message under a field": "FieldError"
+   },
+   "notes": "In a dialog, the submit button sits in DialogFooter with form=\"<form id>\"."
+  },
+  {
+   "from": "FormField",
+   "import": "@primevue/forms/formfield",
+   "to": [
+    "field"
+   ],
+   "status": "direct",
+   "notes": "Field with FieldLabel, the control, FieldDescription and FieldError."
+  },
+  {
+   "from": "Message",
+   "import": "primevue/message",
+   "to": [
+    "alert",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "severity=\"success\"": "Alert variant=\"success\" with CircleCheckIcon",
+    "severity=\"info\"": "Alert variant=\"info\" with InfoIcon",
+    "severity=\"warn\"": "Alert variant=\"warning\" with TriangleAlertIcon",
+    "severity=\"error\"": "Alert variant=\"destructive\" with CircleAlertIcon",
+    "severity=\"secondary|contrast\"": "Alert (default)",
+    "summary or first line": "AlertTitle",
+    "detail or body": "AlertDescription",
+    "closable": "an AlertAction with a ghost size=\"icon-sm\" Button, XIcon, aria-label and Tooltip",
+    "life": "remove: an alert stays; passing feedback is a toast",
+    "size=\"small\" variant=\"simple\" under a field": "FieldError",
+    "icon": "the Lucide icon as the Alert first child"
+   },
+   "notes": "A status message inside a section: icon and text take the tone, the surface stays the card."
+  },
+  {
+   "from": "InlineMessage",
+   "import": "primevue/inlinemessage",
+   "to": [
+    "field",
+    "alert"
+   ],
+   "status": "direct",
+   "notes": "v3: a field error is FieldError; a short section message is an Alert."
+  },
+  {
+   "from": "Toast",
+   "import": "primevue/toast",
+   "to": [
+    "sonner"
+   ],
+   "status": "direct",
+   "props": {
+    "<Toast /> in App": "<Toaster /> from @aisgroup/design/ui/sonner, once in App",
+    "position": "Toaster position",
+    "group": "remove: one Toaster; use toast ids to update or dismiss",
+    "template slots": "remove: title and description only"
+   },
+   "notes": "Short feedback after an action. Errors that need a decision go in the section (Alert) or a dialog."
+  },
+  {
+   "from": "ToastService",
+   "import": "primevue/toastservice",
+   "to": [
+    "sonner"
+   ],
+   "status": "remove",
+   "props": {
+    "app.use(ToastService)": "remove; mount <Toaster /> once"
+   },
+   "notes": "vue-sonner needs no plugin."
+  },
+  {
+   "from": "useToast",
+   "import": "primevue/usetoast",
+   "to": [
+    "sonner"
+   ],
+   "status": "direct",
+   "props": {
+    "toast.add({ severity: 'success', summary, detail, life })": "toast.success(summary, { description: detail, duration: life })",
+    "severity: 'error'": "toast.error(...)",
+    "severity: 'warn'": "toast.warning(...)",
+    "severity: 'info' or 'secondary'": "toast.info(...) or toast(...)",
+    "no life (sticky)": "duration: Infinity",
+    "toast.removeGroup, toast.removeAllGroups": "toast.dismiss() or toast.dismiss(id)",
+    "import": "import { toast } from 'vue-sonner'",
+    "large apps": "allowed first step: a local useToast() with the same add({ severity, summary, detail, life }) shape that calls vue-sonner, so call sites move later"
+   },
+   "notes": "Keep the summary short and in sentence case; the description says what to do next."
+  },
+  {
+   "from": "ConfirmDialog",
+   "import": "primevue/confirmdialog",
+   "to": [
+    "confirm-dialog",
+    "alert-dialog"
+   ],
+   "status": "direct",
+   "props": {
+    "header": "title",
+    "message": "default slot (a <p>)",
+    "acceptLabel": "confirm-label",
+    "rejectLabel": "cancel-label (Cancel is first, left)",
+    "accept()": ":action, returning the promise: the block shows the Spinner, the error with Retry, and emits done",
+    "reject()": "@close",
+    "acceptProps: { severity: 'danger' }": "variant=\"destructive\" (the default)",
+    "icon": "remove: no icon in the title band",
+    "group": "one ConfirmDialog per pending question",
+    "typed confirmation": "confirm-text, confirm-prompt and mismatch-text"
+   },
+   "notes": "The block is mounted with v-if (it opens itself) and closes on @close or @done."
+  },
+  {
+   "from": "ConfirmPopup",
+   "import": "primevue/confirmpopup",
+   "to": [
+    "confirm-dialog"
+   ],
+   "status": "direct",
+   "props": {
+    "target: event.currentTarget": "remove: the anchored popup becomes the same centred ConfirmDialog",
+    "other options": "as ConfirmDialog"
+   },
+   "notes": "No anchored confirmations."
+  },
+  {
+   "from": "ConfirmationService",
+   "import": "primevue/confirmationservice",
+   "to": [
+    "confirm-dialog"
+   ],
+   "status": "remove",
+   "props": {
+    "app.use(ConfirmationService)": "remove"
+   },
+   "notes": "The block needs no plugin."
+  },
+  {
+   "from": "useConfirm",
+   "import": "primevue/useconfirm",
+   "to": [
+    "confirm-dialog"
+   ],
+   "status": "direct",
+   "props": {
+    "confirm.require({ header, message, acceptLabel, accept })": "set a ref (pending = { title, message, confirmLabel, action }) and render <ConfirmDialog v-if=\"pending\" :title=\"pending.title\" :confirm-label=\"pending.confirmLabel\" :action=\"pending.action\" @close=\"pending = null\" @done=\"pending = null\"><p>{{ pending.message }}</p></ConfirmDialog>",
+    "confirm.close()": "pending = null",
+    "large apps": "allowed first step: a local useConfirm() with the same require() shape that sets a shared pending ref, and one ConfirmDialog in App that renders it"
+   },
+   "notes": "accept must return the promise of the action, not fire it and forget: the block shows progress and errors with Retry."
+  },
+  {
+   "from": "Dialog",
+   "import": "primevue/dialog",
+   "to": [
+    "dialog",
+    "button"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model:visible": "v-model:open on Dialog",
+    "header": "DialogHeader with DialogTitle (the title on a grey band)",
+    "default slot": "DialogBody",
+    "footer slot": "DialogFooter with full-width buttons: Cancel variant=\"secondary\" size=\"modal\" first, the action size=\"modal\" second",
+    "closable": "show-close-button on DialogContent",
+    "modal": "remove: dialogs are always modal",
+    "dismissableMask": "the default; to block it, @pointer-down-outside.prevent on DialogContent",
+    "draggable, resizable, maximizable, position, breakpoints": "remove",
+    "style=\"{ width: '40rem' }\"": "a width class on DialogContent (sm:max-w-lg)",
+    "form inside": "give the form an id and set form=\"<id>\" on the footer submit button"
+   },
+   "notes": "A side panel is a Sheet; a question before an action is the confirm-dialog block."
+  },
+  {
+   "from": "DynamicDialog",
+   "import": "primevue/dynamicdialog",
+   "to": [
+    "dialog"
+   ],
+   "status": "compose",
+   "props": {
+    "dialog.open(Component, { props, data, onClose })": "render the component inside a Dialog in the parent with v-model:open; pass data as props; onClose becomes an emitted event"
+   },
+   "notes": "Templates own their dialogs."
+  },
+  {
+   "from": "DialogService",
+   "import": "primevue/dialogservice",
+   "to": [
+    "dialog"
+   ],
+   "status": "remove",
+   "props": {
+    "app.use(DialogService)": "remove"
+   },
+   "notes": "See DynamicDialog."
+  },
+  {
+   "from": "useDialog",
+   "import": "primevue/usedialog",
+   "to": [
+    "dialog"
+   ],
+   "status": "compose",
+   "notes": "See DynamicDialog."
+  },
+  {
+   "from": "Drawer",
+   "import": "primevue/drawer",
+   "to": [
+    "sheet",
+    "sidebar"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model:visible": "v-model:open on Sheet",
+    "position=\"left|right|top|bottom\"": "side on SheetContent",
+    "position=\"full\"": "a Dialog or its own page",
+    "header": "SheetHeader with SheetTitle",
+    "footer": "SheetFooter",
+    "app navigation": "the Sidebar component, not a sheet"
+   },
+   "notes": "Sidebar is the v3 name of Drawer."
+  },
+  {
+   "from": "Sidebar",
+   "import": "primevue/sidebar",
+   "to": [
+    "sheet",
+    "sidebar"
+   ],
+   "status": "direct",
+   "notes": "v3 name of Drawer: map it as Drawer. App navigation is our Sidebar component."
+  },
+  {
+   "from": "Popover",
+   "import": "primevue/popover",
+   "to": [
+    "popover",
+    "button"
+   ],
+   "status": "direct",
+   "props": {
+    "ref.toggle(event)": "PopoverTrigger as-child around the Button; or v-model:open with a PopoverAnchor",
+    "dismissable": "the default",
+    "showCloseIcon": "remove",
+    "appendTo": "remove: it portals by itself"
+   },
+   "notes": "OverlayPanel is the v3 name. A panel anchored to its control."
+  },
+  {
+   "from": "OverlayPanel",
+   "import": "primevue/overlaypanel",
+   "to": [
+    "popover"
+   ],
+   "status": "direct",
+   "notes": "v3 name of Popover: map it as Popover."
+  },
+  {
+   "from": "Tooltip (v-tooltip)",
+   "import": "primevue/tooltip",
+   "to": [
+    "tooltip"
+   ],
+   "status": "direct",
+   "props": {
+    "v-tooltip=\"'Text'\"": "<Tooltip><TooltipTrigger as-child>the button</TooltipTrigger><TooltipContent>Text</TooltipContent></Tooltip>",
+    "v-tooltip.top, .bottom, .left, .right": "side on TooltipContent",
+    "showDelay, hideDelay": "delay-duration on TooltipProvider (once at the app root)",
+    "app.directive('tooltip', Tooltip)": "remove"
+   },
+   "notes": "A tooltip names an icon-only button, which also needs aria-label. Never the only place of information."
+  },
+  {
+   "from": "Menu",
+   "import": "primevue/menu",
+   "to": [
+    "dropdown-menu",
+    "button"
+   ],
+   "status": "direct",
+   "props": {
+    "model": "one DropdownMenuItem per item: label as text, icon as a Lucide first child, command as @select, separator as DropdownMenuSeparator, items as DropdownMenuGroup with DropdownMenuLabel, disabled as disabled, url as an <a> with as-child",
+    "popup + ref.toggle(event)": "DropdownMenuTrigger as-child around the Button",
+    "row actions": "a ghost size=\"icon-sm\" Button with EllipsisIcon, aria-label and Tooltip",
+    "destructive item": "DropdownMenuItem variant=\"destructive\"",
+    "inline menu (not popup)": "a Sidebar menu or a list of rows"
+   },
+   "notes": "Items are named in sentence case."
+  },
+  {
+   "from": "Menubar",
+   "import": "primevue/menubar",
+   "to": [
+    "top-bar",
+    "navigation-menu",
+    "dropdown-menu"
+   ],
+   "status": "compose",
+   "props": {
+    "app header menubar": "the TopBar block with the app links and actions",
+    "model with submenus": "NavigationMenu with NavigationMenuTrigger and NavigationMenuContent, or DropdownMenu on topbar buttons",
+    "start, end slots": "TopBar slots"
+   },
+   "notes": "Every page opens under the TopBar block."
+  },
+  {
+   "from": "MegaMenu",
+   "import": "primevue/megamenu",
+   "to": [
+    "navigation-menu"
+   ],
+   "status": "compose",
+   "props": {
+    "model with columns": "NavigationMenuContent laid out with grid columns of NavigationMenuLink",
+    "orientation=\"vertical\"": "the Sidebar"
+   },
+   "notes": "Product screens rarely need it."
+  },
+  {
+   "from": "TieredMenu",
+   "import": "primevue/tieredmenu",
+   "to": [
+    "dropdown-menu"
+   ],
+   "status": "direct",
+   "props": {
+    "nested items": "DropdownMenuSub with DropdownMenuSubTrigger and DropdownMenuSubContent",
+    "popup": "DropdownMenuTrigger as-child"
+   },
+   "notes": "Keep it to one level of submenu where possible."
+  },
+  {
+   "from": "ContextMenu",
+   "import": "primevue/contextmenu",
+   "to": [
+    "context-menu"
+   ],
+   "status": "direct",
+   "props": {
+    "model": "ContextMenuItem, ContextMenuSeparator, ContextMenuSub as for Menu",
+    "ref.show(event) on @contextmenu": "ContextMenuTrigger as-child around the target",
+    "global": "remove"
+   },
+   "needs": [
+    "context-menu"
+   ],
+   "notes": "Every action in a context menu is also reachable without it (row menu or toolbar)."
+  },
+  {
+   "from": "PanelMenu",
+   "import": "primevue/panelmenu",
+   "to": [
+    "sidebar",
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "model with expandable groups": "SidebarGroup with Collapsible, SidebarMenuSub and SidebarMenuSubButton",
+    "expandedKeys": "Collapsible v-model:open per group"
+   },
+   "notes": "Side navigation is the Sidebar."
+  },
+  {
+   "from": "Breadcrumb",
+   "import": "primevue/breadcrumb",
+   "to": [
+    "breadcrumb"
+   ],
+   "status": "direct",
+   "props": {
+    "home + model": "BreadcrumbList with BreadcrumbItem and BreadcrumbLink per crumb (as-child for RouterLink), BreadcrumbSeparator between, BreadcrumbPage last",
+    "separator slot": "remove: BreadcrumbSeparator draws it"
+   },
+   "notes": "Every crumb navigates to its own page."
+  },
+  {
+   "from": "Dock",
+   "import": "primevue/dock",
+   "to": [
+    "top-bar",
+    "sidebar"
+   ],
+   "status": "remove",
+   "props": {
+    "model": "links in the TopBar or the Sidebar"
+   },
+   "notes": "Not a product pattern."
+  },
+  {
+   "from": "Steps",
+   "import": "primevue/steps",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "v3 (deprecated in v4): map it as Stepper."
+  },
+  {
+   "from": "TabMenu",
+   "import": "primevue/tabmenu",
+   "to": [
+    "tabs",
+    "navigation-menu"
+   ],
+   "status": "direct",
+   "notes": "v3 (deprecated in v4): views of the same thing are Tabs with TabsList variant=\"line\"; links between pages belong in the TopBar or Sidebar."
+  },
+  {
+   "from": "Stepper",
+   "import": "primevue/stepper",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "v-model (the step number)",
+    "linear": "linear",
+    "StepList > Step": "StepperItem :step with StepperTrigger, StepperIndicator, StepperTitle and StepperSeparator",
+    "StepPanels > StepPanel": "the current step content below the Stepper (v-if on the step)",
+    "activateCallback(n)": "set v-model to n",
+    "StepItem (vertical)": "Stepper orientation=\"vertical\""
+   },
+   "needs": [
+    "stepper"
+   ],
+   "notes": "Next and Back are Buttons in the footer, the primary action last."
+  },
+  {
+   "from": "StepList",
+   "import": "primevue/steplist",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "The Stepper itself."
+  },
+  {
+   "from": "Step",
+   "import": "primevue/step",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "StepperItem with StepperTrigger, StepperIndicator and StepperTitle."
+  },
+  {
+   "from": "StepPanels",
+   "import": "primevue/steppanels",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "Remove the wrapper; render the current step content."
+  },
+  {
+   "from": "StepPanel",
+   "import": "primevue/steppanel",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "The content of one step, shown with v-if."
+  },
+  {
+   "from": "StepItem",
+   "import": "primevue/stepitem",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "StepperItem in a vertical Stepper."
+  },
+  {
+   "from": "Tabs",
+   "import": "primevue/tabs",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "v-model or default-value on Tabs",
+    "scrollable": "remove",
+    "lazy": "TabsContent renders only when active by default"
+   },
+   "notes": "TabsList is always variant=\"line\"."
+  },
+  {
+   "from": "TabList",
+   "import": "primevue/tablist",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "TabList": "TabsList variant=\"line\""
+   },
+   "notes": "Always the line variant."
+  },
+  {
+   "from": "Tab",
+   "import": "primevue/tab",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "TabsTrigger value",
+    "count after the label": "a Badge variant=\"card\" in the trigger"
+   },
+   "notes": "Sentence case labels."
+  },
+  {
+   "from": "TabPanels",
+   "import": "primevue/tabpanels",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "notes": "Remove the wrapper; TabsContent sits in Tabs."
+  },
+  {
+   "from": "TabPanel",
+   "import": "primevue/tabpanel",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "TabsContent value",
+    "header (v3 TabView)": "a TabsTrigger in TabsList variant=\"line\""
+   },
+   "notes": "TabsContent."
+  },
+  {
+   "from": "TabView",
+   "import": "primevue/tabview",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "notes": "v3: Tabs, TabsList variant=\"line\", TabsTrigger, TabsContent."
+  },
+  {
+   "from": "Accordion",
+   "import": "primevue/accordion",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "AccordionPanel": "one Collapsible per section, rows divided by lines",
+    "multiple": "independent Collapsibles (the default)",
+    "value (single open)": "one ref for the open section; each Collapsible :open=\"open === id\""
+   },
+   "notes": "A section that opens and closes."
+  },
+  {
+   "from": "AccordionPanel",
+   "import": "primevue/accordionpanel",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "notes": "Collapsible."
+  },
+  {
+   "from": "AccordionHeader",
+   "import": "primevue/accordionheader",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "header text": "CollapsibleTrigger as-child around a ghost Button with the title and ChevronDownIcon"
+   },
+   "notes": "CollapsibleTrigger."
+  },
+  {
+   "from": "AccordionContent",
+   "import": "primevue/accordioncontent",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "notes": "CollapsibleContent."
+  },
+  {
+   "from": "AccordionTab",
+   "import": "primevue/accordiontab",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "notes": "v3: one Collapsible."
+  },
+  {
+   "from": "Panel",
+   "import": "primevue/panel",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "header": "a section heading (h2 font-heading text-lg font-medium)",
+    "toggleable, collapsed": "Collapsible",
+    "icons slot": "actions at the end of the heading row"
+   },
+   "notes": "A section on the page, not a card: cards are only for clickable entities, summaries and floating panels."
+  },
+  {
+   "from": "Fieldset",
+   "import": "primevue/fieldset",
+   "to": [
+    "field",
+    "collapsible"
+   ],
+   "status": "direct",
+   "props": {
+    "legend": "FieldSet with FieldLegend",
+    "toggleable": "Collapsible around the fields"
+   },
+   "notes": "A group of fields."
+  },
+  {
+   "from": "Card",
+   "import": "primevue/card",
+   "to": [
+    "card",
+    "item"
+   ],
+   "status": "direct",
+   "props": {
+    "title": "CardTitle in CardHeader",
+    "subtitle": "CardDescription, only if it carries a fact",
+    "content": "CardContent",
+    "footer": "CardFooter",
+    "header (image)": "the image first in the Card"
+   },
+   "notes": "Only for clickable entities, summaries and floating panels. A dataset, model or image is an Item variant=\"outline\"; plain content is a flat section."
+  },
+  {
+   "from": "Divider",
+   "import": "primevue/divider",
+   "to": [
+    "separator"
+   ],
+   "status": "direct",
+   "props": {
+    "layout=\"vertical\"": "orientation=\"vertical\"",
+    "type=\"dashed|dotted\", align": "remove",
+    "text inside": "remove, or a heading"
+   },
+   "notes": "Only between rows and in toolbars; sections are separated by space."
+  },
+  {
+   "from": "Splitter",
+   "import": "primevue/splitter",
+   "to": [
+    "scroll-area"
+   ],
+   "status": "gap",
+   "props": {
+    "SplitterPanel size": "fixed grid columns (grid-cols-[20rem_1fr])",
+    "layout=\"vertical\"": "grid rows",
+    "gutterSize, stateKey": "remove"
+   },
+   "notes": "The library needs resizable panels (reka-ui Splitter: SplitterGroup, SplitterPanel, SplitterResizeHandle, on our tokens). Until then: fixed columns, each with its own ScrollArea."
+  },
+  {
+   "from": "SplitterPanel",
+   "import": "primevue/splitterpanel",
+   "to": [
+    "scroll-area"
+   ],
+   "status": "gap",
+   "notes": "See Splitter."
+  },
+  {
+   "from": "ScrollPanel",
+   "import": "primevue/scrollpanel",
+   "to": [
+    "scroll-area"
+   ],
+   "status": "direct",
+   "props": {
+    "style height": "a height class on ScrollArea"
+   },
+   "notes": "A region with its own scroll."
+  },
+  {
+   "from": "Toolbar",
+   "import": "primevue/toolbar",
+   "to": [
+    "button",
+    "separator",
+    "toggle-group"
+   ],
+   "status": "compose",
+   "props": {
+    "start, center, end slots": "a flex row (flex items-center justify-between gap-2)",
+    "buttons": "outline or ghost Buttons, h-9 with 16 px icons; icon-only ones with aria-label and Tooltip",
+    "groups": "Separator orientation=\"vertical\" between groups"
+   },
+   "notes": "No toolbar band or background."
+  },
+  {
+   "from": "DeferredContent",
+   "import": "primevue/deferredcontent",
+   "to": [
+    "skeleton"
+   ],
+   "status": "remove",
+   "props": {
+    "@load": "useIntersectionObserver from @vueuse/core, a Skeleton in the shape of the content until it loads"
+   },
+   "notes": "Lazy loading stays; the component goes."
+  },
+  {
+   "from": "Inplace",
+   "import": "primevue/inplace",
+   "to": [
+    "button",
+    "input",
+    "dialog"
+   ],
+   "status": "compose",
+   "props": {
+    "display slot": "a ghost Button showing the value with PencilIcon",
+    "content slot": "v-if: Input with Save and Cancel, or edit in a Dialog"
+   },
+   "notes": "Editing is always explicit."
+  },
+  {
+   "from": "DataTable",
+   "import": "primevue/datatable",
+   "to": [
+    "data-table",
+    "table",
+    "pagination",
+    "skeleton",
+    "empty"
+   ],
+   "status": "direct",
+   "props": {
+    "value": ":data",
+    "Column children": ":columns as ColumnDef[] ({ accessorKey: field, header })",
+    "dataKey": "get-row-id",
+    "sortable (on Column), sortField, sortOrder": "enableSorting and DataTableColumnHeader; sorting state in TanStack",
+    "paginator + rows": "page-size; numbered Pagination under the table",
+    "rowsPerPageOptions": "a Select next to the pagination",
+    "selection + selectionMode=\"multiple\"": "selectable (a checkbox column)",
+    "selectionMode=\"single\" + @row-click": "a clickable row: the selected row bg-muted font-medium",
+    "loading": "loading (Skeleton rows; no veil over the table)",
+    "emptyMessage, empty slot": "labels.empty, or Empty with a clear action",
+    "globalFilter, filters, filterDisplay": "TanStack global and column filters; the search field above the table",
+    "lazy + @page, @sort, totalRecords (server side)": "Table with your own sort headers and Pagination :total, fetching each page; keep the Skeleton and Retry states",
+    "stripedRows, showGridlines, size": "remove: rows divided by lines",
+    "scrollable, scrollHeight": "ScrollArea around the table",
+    "frozen columns, resizableColumns, reorderableColumns, columnResizeMode": "remove",
+    "expandable rows, rowGroupMode, editMode": "see the TreeTable gap; edit in a Dialog or a Sheet",
+    "exportCSV()": "the app builds the CSV",
+    "number columns": "text-right tabular-nums on header and cell",
+    "status column": "a toned icon and the word, in muted text; never a tinted pill",
+    "row actions column": "a ghost size=\"icon-sm\" Button with EllipsisIcon that opens a DropdownMenu"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "Rows of facts with sortable headers. Every async table has loading, empty and failure (Retry) states."
+  },
+  {
+   "from": "Column",
+   "import": "primevue/column",
+   "to": [
+    "data-table",
+    "table"
+   ],
+   "status": "direct",
+   "props": {
+    "field": "accessorKey",
+    "header": "header (sentence case)",
+    "body slot": "cell: ({ row }) => h(...)",
+    "sortable": "enableSorting with DataTableColumnHeader",
+    "style width, headerClass, bodyClass": "meta classes for width and text-right tabular-nums only",
+    "selectionMode=\"multiple\" column": "the DataTable selectable prop"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "One ColumnDef."
+  },
+  {
+   "from": "ColumnGroup",
+   "import": "primevue/columngroup",
+   "to": [
+    "data-table",
+    "table"
+   ],
+   "status": "direct",
+   "props": {
+    "grouped header rows": "ColumnDef with columns (header groups)",
+    "footer groups": "TableFooter"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "Grouped headers."
+  },
+  {
+   "from": "Row",
+   "import": "primevue/row",
+   "to": [
+    "data-table",
+    "table"
+   ],
+   "status": "direct",
+   "needs": [
+    "data-table"
+   ],
+   "notes": "Part of ColumnGroup: a header group or a TableFooter row."
+  },
+  {
+   "from": "DataView",
+   "import": "primevue/dataview",
+   "to": [
+    "item",
+    "pagination",
+    "empty",
+    "skeleton"
+   ],
+   "status": "compose",
+   "props": {
+    "layout=\"list\"": "Item variant=\"outline\" in an ItemGroup, or rows divided by lines",
+    "layout=\"grid\"": "image tiles: Item size=\"sm\" with the image as ItemHeader, in a grid",
+    "paginator, rows": "Pagination",
+    "empty slot": "Empty"
+   },
+   "notes": "Datasets, models and images are Items."
+  },
+  {
+   "from": "Paginator",
+   "import": "primevue/paginator",
+   "to": [
+    "pagination"
+   ],
+   "status": "direct",
+   "props": {
+    "rows, totalRecords, first": ":items-per-page, :total, :page (page = first / rows + 1)",
+    "@page": "@update:page",
+    "rowsPerPageOptions": "a Select next to it",
+    "template, currentPageReportTemplate": "remove: numbered pages; a count in words if it helps"
+   },
+   "notes": "Numbered pages under a table."
+  },
+  {
+   "from": "Tree",
+   "import": "primevue/tree",
+   "to": [
+    "tree"
+   ],
+   "status": "direct",
+   "props": {
+    "value (TreeNode[])": "items with get-key and get-children",
+    "selectionMode=\"single|multiple|checkbox\"": "v-model with multiple, checkboxes for checkbox mode",
+    "expandedKeys": "v-model:expanded",
+    "filter": "an Input with SearchIcon above it",
+    "node icon": "a Lucide icon before the label"
+   },
+   "needs": [
+    "tree"
+   ],
+   "notes": "Hierarchies such as folders."
+  },
+  {
+   "from": "TreeTable",
+   "import": "primevue/treetable",
+   "to": [
+    "data-table",
+    "table"
+   ],
+   "status": "gap",
+   "props": {
+    "value (TreeNode[]) + Column expander": "until data-table supports it: Table rows with an indent and a ghost icon-sm chevron toggle (aria-expanded, aria-label) per parent row"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "The library needs row expanding in data-table (TanStack expanding with getSubRows)."
+  },
+  {
+   "from": "OrganizationChart",
+   "import": "primevue/organizationchart",
+   "to": [
+    "tree"
+   ],
+   "status": "gap",
+   "props": {
+    "value": "a Tree (indented list), which is also the accessible form of the hierarchy"
+   },
+   "needs": [
+    "tree"
+   ],
+   "notes": "The library needs a hierarchy diagram. Until then the Tree carries the same data."
+  },
+  {
+   "from": "Timeline",
+   "import": "primevue/timeline",
+   "to": [
+    "timeline"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "one item per event",
+    "content, opposite slots": "the item title and description; the date in tabular figures",
+    "marker slot": "a Lucide icon; a status is an icon and a word, never a coloured dot",
+    "layout=\"horizontal\"": "a Stepper if it is a process; otherwise vertical"
+   },
+   "needs": [
+    "timeline"
+   ],
+   "notes": "Events in order."
+  },
+  {
+   "from": "OrderList",
+   "import": "primevue/orderlist",
+   "to": [
+    "button",
+    "tooltip"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model (array)": "rows divided by lines, each with ghost icon-sm Move up and Move down buttons (ArrowUpIcon, ArrowDownIcon, aria-label, Tooltip)"
+   },
+   "notes": "The library needs a sortable list (keyboard reordering and drag). Until then the move buttons do it."
+  },
+  {
+   "from": "PickList",
+   "import": "primevue/picklist",
+   "to": [
+    "multi-select"
+   ],
+   "status": "compose",
+   "props": {
+    "source and target lists": "a MultiSelect: the target list is its value"
+   },
+   "needs": [
+    "multi-select"
+   ],
+   "notes": "Choosing items from a list is a multi-select."
+  },
+  {
+   "from": "VirtualScroller",
+   "import": "primevue/virtualscroller",
+   "to": [
+    "scroll-area",
+    "pagination"
+   ],
+   "status": "gap",
+   "props": {
+    "items, itemSize": "Pagination, or @tanstack/vue-virtual inside a ScrollArea"
+   },
+   "notes": "The library needs a virtual list. Most product lists page instead."
+  },
+  {
+   "from": "Tag",
+   "import": "primevue/tag",
+   "to": [
+    "badge"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "default slot",
+    "severity on a status (Finished, Failed)": "not a tag: a toned icon (CircleCheckIcon, TriangleAlertIcon, CircleXIcon) and the word, in muted text",
+    "severity=\"secondary\" on a neutral label": "Badge variant=\"secondary\" or \"outline\"",
+    "rounded": "remove",
+    "icon": "a Lucide icon in the Badge with data-icon=\"inline-start\""
+   },
+   "notes": "Badges are counts and short neutral labels. Never tinted status pills."
+  },
+  {
+   "from": "Chip",
+   "import": "primevue/chip",
+   "to": [
+    "badge",
+    "tags-input"
+   ],
+   "status": "compose",
+   "props": {
+    "label": "Badge variant=\"outline\"",
+    "removable": "an editable set of values is TagsInput (TagsInputItem with TagsInputItemDelete)",
+    "image, icon": "remove, or a Lucide icon in the Badge"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "A value in a set the user edits is a TagsInput item."
+  },
+  {
+   "from": "Chips",
+   "import": "primevue/chips",
+   "to": [
+    "tags-input"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (string[])": "v-model on TagsInput",
+    "separator": "TagsInput delimiter"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "v3 component."
+  },
+  {
+   "from": "Badge",
+   "import": "primevue/badge",
+   "to": [
+    "badge"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "default slot text (a count)",
+    "severity=\"secondary\"": "variant=\"secondary\"",
+    "severity=\"danger\" (a count of errors)": "variant=\"destructive\"",
+    "severity=\"success|info|warn\"": "remove: a count is neutral; status is an icon and a word",
+    "size": "remove"
+   },
+   "notes": "Counts and short neutral labels."
+  },
+  {
+   "from": "OverlayBadge",
+   "import": "primevue/overlaybadge",
+   "to": [
+    "badge",
+    "button",
+    "avatar"
+   ],
+   "status": "compose",
+   "props": {
+    "on an icon button": "the count in the button aria-label (Notifications, 3 new) and a Badge in the button",
+    "on an avatar": "AvatarBadge"
+   },
+   "notes": "The count must be readable as text, not only as a dot."
+  },
+  {
+   "from": "Avatar",
+   "import": "primevue/avatar",
+   "to": [
+    "avatar"
+   ],
+   "status": "direct",
+   "props": {
+    "image": "AvatarImage :src with alt (the person name)",
+    "label": "AvatarFallback with the initials",
+    "icon": "AvatarFallback with UserIcon",
+    "size=\"large|xlarge\"": "size=\"lg\"",
+    "shape=\"square\"": "remove: never override the radius"
+   },
+   "notes": "The person signed in, as a picture or initials."
+  },
+  {
+   "from": "AvatarGroup",
+   "import": "primevue/avatargroup",
+   "to": [
+    "avatar"
+   ],
+   "status": "direct",
+   "props": {
+    "+N avatar": "AvatarGroupCount"
+   },
+   "notes": "AvatarGroup."
+  },
+  {
+   "from": "Skeleton",
+   "import": "primevue/skeleton",
+   "to": [
+    "skeleton"
+   ],
+   "status": "direct",
+   "props": {
+    "width, height": "size classes in the shape of the content (h-4 w-32)",
+    "shape=\"circle\"": "the size of the avatar it stands in for",
+    "animation=\"none\"": "remove"
+   },
+   "notes": "Content loading, in the shape of the content."
+  },
+  {
+   "from": "ProgressBar",
+   "import": "primevue/progressbar",
+   "to": [
+    "progress",
+    "spinner"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "model-value",
+    "showValue": "the percentage as text beside it, tabular figures",
+    "mode=\"indeterminate\"": "a Spinner in the working button, or filling the empty area",
+    "color by state": "variant (success, warning, danger, muted) with the state in words"
+   },
+   "notes": "How far a task has gone."
+  },
+  {
+   "from": "ProgressSpinner",
+   "import": "primevue/progressspinner",
+   "to": [
+    "spinner",
+    "skeleton"
+   ],
+   "status": "direct",
+   "props": {
+    "in a button": "<Spinner data-icon=\"inline-start\" /> and disabled",
+    "filling an area": "a centred Spinner",
+    "strokeWidth, animationDuration, fill": "remove",
+    "over content (with BlockUI)": "remove: no veils; Skeleton for content, Spinner in the button"
+   },
+   "notes": "Something working."
+  },
+  {
+   "from": "MeterGroup",
+   "import": "primevue/metergroup",
+   "to": [
+    "progress",
+    "chart"
+   ],
+   "status": "compose",
+   "props": {
+    "value: [{ label, value, color }]": "one row per meter: the label, a Progress and the value as text (tabular figures)",
+    "stacked bar": "a stacked bar Chart with a legend"
+   },
+   "needs": [
+    "chart"
+   ],
+   "notes": "Never colour alone: each part has its label."
+  },
+  {
+   "from": "Image",
+   "import": "primevue/image",
+   "to": [
+    "dialog",
+    "button"
+   ],
+   "status": "compose",
+   "props": {
+    "src, alt": "<img> with an alt that says what the image proves",
+    "preview": "a ghost Button around the image (aria-label Enlarge image) that opens a Dialog with it",
+    "zoom and rotate toolbar": "remove"
+   },
+   "notes": "Decorative images take alt=\"\"."
+  },
+  {
+   "from": "ImageCompare",
+   "import": "primevue/imagecompare",
+   "to": [],
+   "status": "gap",
+   "props": {
+    "left and right images": "the two images side by side, each with its label"
+   },
+   "notes": "The library needs a before and after comparison. Until then side by side, labelled."
+  },
+  {
+   "from": "Galleria",
+   "import": "primevue/galleria",
+   "to": [
+    "carousel",
+    "dialog"
+   ],
+   "status": "compose",
+   "props": {
+    "value + item slot": "Carousel with CarouselItem per image",
+    "thumbnail slot": "a row of image buttons that scroll the Carousel to that index",
+    "fullScreen": "a Dialog with the Carousel",
+    "autoPlay, transitionInterval": "only with a pause control (anything that moves for more than 5 s)"
+   },
+   "notes": "Each image keeps its alt."
+  },
+  {
+   "from": "Carousel",
+   "import": "primevue/carousel",
+   "to": [
+    "carousel"
+   ],
+   "status": "direct",
+   "props": {
+    "value + item slot": "CarouselContent with a CarouselItem per item",
+    "numVisible": "basis classes on CarouselItem (basis-1/3)",
+    "circular": ":opts=\"{ loop: true }\"",
+    "showNavigators": "CarouselPrevious and CarouselNext",
+    "orientation=\"vertical\"": "orientation=\"vertical\"",
+    "autoplayInterval": "the embla autoplay plugin, with a pause control",
+    "responsiveOptions": "responsive basis classes"
+   },
+   "notes": "A row of items that moves one at a time."
+  },
+  {
+   "from": "FileUpload",
+   "import": "primevue/fileupload",
+   "to": [
+    "file-upload",
+    "button",
+    "progress"
+   ],
+   "status": "direct",
+   "props": {
+    "mode=\"basic\"": "an outline Button that opens the file input",
+    "multiple, accept": "multiple, accept",
+    "maxFileSize": "check it and show a FieldError that names the limit",
+    "customUpload + @uploader, url": "the app upload function; progress with Progress",
+    "auto": "upload on select",
+    "chooseLabel, uploadLabel, cancelLabel": "button texts in sentence case",
+    "empty slot": "the drop area text"
+   },
+   "needs": [
+    "file-upload"
+   ],
+   "notes": "Show each file, its progress and its failure with Retry."
+  },
+  {
+   "from": "Editor",
+   "import": "primevue/editor",
+   "to": [
+    "textarea",
+    "toggle-group",
+    "separator"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model (HTML)": "until then: Textarea with plain text or Markdown",
+    "toolbar": "a toolbar of Toggles (BoldIcon, ItalicIcon) with aria-label and Tooltip, Separators between groups"
+   },
+   "notes": "The library needs a rich text editor (for example Tiptap, headless, with our toolbar)."
+  },
+  {
+   "from": "Chart",
+   "import": "primevue/chart",
+   "to": [
+    "chart"
+   ],
+   "status": "compose",
+   "props": {
+    "type=\"line\"": "ChartContainer with a ChartConfig and VisLine (unovis)",
+    "type=\"bar\"": "VisGroupedBar or VisStackedBar",
+    "type=\"pie|doughnut\"": "VisDonut",
+    "data.datasets[].backgroundColor": "the --chart-1 to --chart-3 tokens through ChartConfig, never the library palette",
+    "options.plugins.legend": "ChartLegendContent, or direct labels",
+    "options.plugins.tooltip": "ChartTooltipContent"
+   },
+   "needs": [
+    "chart"
+   ],
+   "notes": "Every chart has a title, a one-sentence finding as its text alternative, and a table view of the data. Axis text may be 12 px."
+  },
+  {
+   "from": "Terminal",
+   "import": "primevue/terminal",
+   "to": [
+    "log-terminal",
+    "input"
+   ],
+   "status": "compose",
+   "props": {
+    "responses": "the lines of the LogTerminal block",
+    "prompt and command input": "an Input below the block, submitted with Enter"
+   },
+   "notes": "A console for logs."
+  },
+  {
+   "from": "TerminalService",
+   "import": "primevue/terminalservice",
+   "to": [
+    "log-terminal"
+   ],
+   "status": "remove",
+   "props": {
+    "TerminalService.on('command')": "the Input submit handler appends lines"
+   },
+   "notes": "No event bus."
+  },
+  {
+   "from": "BlockUI",
+   "import": "primevue/blockui",
+   "to": [
+    "spinner",
+    "skeleton"
+   ],
+   "status": "remove",
+   "props": {
+    "blocked": "disable the controls that cannot be used, a Spinner in the working button; content that is loading shows a Skeleton"
+   },
+   "notes": "No veils over content."
+  },
+  {
+   "from": "ScrollTop",
+   "import": "primevue/scrolltop",
+   "to": [],
+   "status": "remove",
+   "notes": "No floating scroll-to-top button; the page header and keyboard (Home) do it."
+  },
+  {
+   "from": "Ripple (v-ripple)",
+   "import": "primevue/ripple",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "app.use(PrimeVue, { ripple: true })": "remove"
+   },
+   "notes": "Components have their own hover, active and focus states."
+  },
+  {
+   "from": "StyleClass (v-styleclass)",
+   "import": "primevue/styleclass",
+   "to": [
+    "collapsible",
+    "sheet"
+   ],
+   "status": "remove",
+   "props": {
+    "selector, enterFromClass, leaveToClass, toggleClass": "a ref and v-if, or Collapsible, Sheet or Popover, which animate themselves"
+   },
+   "notes": "State lives in Vue, not in toggled classes."
+  },
+  {
+   "from": "FocusTrap (v-focustrap)",
+   "import": "primevue/focustrap",
+   "to": [
+    "dialog",
+    "sheet",
+    "alert-dialog"
+   ],
+   "status": "remove",
+   "notes": "Dialog, Sheet, AlertDialog and Popover manage focus themselves; nothing else traps focus."
+  },
+  {
+   "from": "AnimateOnScroll (v-animateonscroll)",
+   "import": "primevue/animateonscroll",
+   "to": [],
+   "status": "remove",
+   "notes": "No scroll animations in product screens; motion follows the Motion page and stops with reduced motion."
+  },
+  {
+   "from": "PrimeVue plugin",
+   "import": "primevue/config",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "app.use(PrimeVue, { theme, ripple, pt, unstyled, zIndex, inputVariant })": "remove, with the services and app.directive calls; import Tailwind, then @aisgroup/design/styles.css",
+    "locale": "the app i18n",
+    "dark mode": "the .dark class on <html>"
+   },
+   "notes": "Uninstall primevue once the last screen has moved."
+  },
+  {
+   "from": "usePrimeVue",
+   "import": "primevue/config",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "config.locale": "the app i18n",
+    "config.ripple": "remove"
+   },
+   "notes": "No global component config."
+  },
+  {
+   "from": "definePreset",
+   "import": "@primeuix/themes",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "definePreset(Aura, { semantic, components })": "remove; the tokens are @aisgroup/design/styles.css"
+   },
+   "notes": "Never re-create our theme as a preset in the redesigned app."
+  },
+  {
+   "from": "Aura, Lara, Nora presets",
+   "import": "@primeuix/themes/aura, @primevue/themes/aura",
+   "to": [],
+   "status": "remove",
+   "notes": "Uninstall @primeuix/themes and @primevue/themes."
+  },
+  {
+   "from": "primeicons",
+   "import": "primeicons/primeicons.css",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "<i class=\"pi pi-x\" />, icon: 'pi pi-x' in menu models": "the Lucide component named in icons.json"
+   },
+   "notes": "Uninstall primeicons."
+  },
+  {
+   "from": "pt, ptOptions (pass through)",
+   "import": "primevue",
+   "to": [],
+   "status": "remove",
+   "props": {
+    ":pt=\"{ root: { class } }\"": "remove: the look comes from variant and size; classes only place a component on the page"
+   },
+   "notes": "Never restyle a part with [&_...] selectors."
+  },
+  {
+   "from": "unstyled mode",
+   "import": "primevue/config",
+   "to": [],
+   "status": "remove",
+   "notes": "Our components are styled from the package."
+  },
+  {
+   "from": "tailwindcss-primeui",
+   "import": "tailwindcss-primeui",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "bg-primary, text-primary-contrast": "bg-primary, text-primary-foreground",
+    "text-muted-color": "text-muted-foreground",
+    "bg-emphasis, bg-highlight": "bg-muted",
+    "border-surface": "border-border",
+    "bg-surface-0, bg-surface-50 ... 950": "bg-background, bg-card, bg-muted"
+   },
+   "notes": "Every colour is a token from @aisgroup/design/styles.css; no palette classes."
+  },
+  {
+   "from": "Design tokens (--p-*, $dt())",
+   "import": "primevue",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "var(--p-primary-color)": "var(--primary)",
+    "var(--p-text-muted-color)": "var(--muted-foreground)",
+    "var(--p-content-border-color)": "var(--border)",
+    "$dt('...')": "the token class or variable"
+   },
+   "notes": "Tokens from @aisgroup/design/styles.css."
+  },
+  {
+   "from": "PrimeVueResolver",
+   "import": "@primevue/auto-import-resolver",
+   "to": [],
+   "status": "remove",
+   "notes": "Import our components by folder: import { Button } from '@aisgroup/design/ui/button'."
+  },
+  {
+   "from": "@primevue/nuxt-module",
+   "import": "@primevue/nuxt-module",
+   "to": [],
+   "status": "remove",
+   "notes": "Import our components by folder."
+  }
+ ]
+}

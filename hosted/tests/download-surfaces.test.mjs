@@ -4,10 +4,11 @@ import fs from 'node:fs';
 import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/client';
 import { start } from '../server.mjs';
 import { allowedDownload } from '../download-policy.mjs';
+import { LIMITS } from '../tools.mjs';
 
 let server, client;
 before(async () => {
-  server = await start({ port: 0, host: '127.0.0.1' });
+  server = await start({ port: 0, host: '127.0.0.1', ratePerMinute: 1000 }); // many calls in one minute; the limit has its own test
   client = new Client({ name: 'download-test', version: '1.0.0' });
   await client.connect(new StreamableHTTPClientTransport(new URL(server.url + '/mcp')));
 });
@@ -68,4 +69,92 @@ test('unapproved mascots remain empty; machine models are excluded from download
     assert.equal((await fetch(`${server.url}/files/downloads/machine.${ext}`)).status, 404);
   }
   for (const file of fs.readdirSync(new URL('../data/', import.meta.url), { recursive: true })) assert(allowedDownload(file), file);
+});
+
+const refusal = async (name, args) => {
+  const r = await client.callTool({ name, arguments: args });
+  assert(r.isError, `${name} ${JSON.stringify(args)} should fail`);
+  return JSON.parse(r.content[0].text).error;
+};
+// Every chunk of a design_code answer, joined; the first chunk's other fields.
+const readAll = async (args) => {
+  let first, text = '';
+  for (let offset = 0; offset !== null;) {
+    const r = await call('design_code', { ...args, offset });
+    assert(r.text.length <= LIMITS.chunkChars);
+    first ??= r; text += r.text; offset = r.next;
+  }
+  return { ...first, text };
+};
+const DATA = new URL('../data/', import.meta.url);
+
+test('Code search matches each word, hyphens and case ignored, most hits first', async () => {
+  for (const query of ['topbar', 'Top-Bar', 'top bar']) assert.equal((await call('design_code', { query })).items[0].name, 'top-bar', query);
+  const shell = (await call('design_code', { query: 'login top bar sidebar app shell' })).items.map(i => i.name);
+  assert.deepEqual(shell.slice(0, 3).sort(), ['login-page', 'sidebar', 'top-bar'], shell.join(', '));
+  assert.equal((await call('design_code', { query: 'zzz' })).items.length, 0);
+  assert.equal((await call('design_code', { kind: 'web', query: 'browserframe' })).items[0].name, 'browser-frame');
+  assert.equal((await call('design_examples', { type: 'software-view', query: 'topbar' })).examples[0].id, 'software-top-bar');
+});
+
+test('Code returns a component with its package examples, in chunks under the budget', async () => {
+  const dir = new URL('../../packages/design/examples/top-bar/', import.meta.url);
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.vue')).sort();
+  const bar = await readAll({ name: 'top-bar' });
+  assert.deepEqual(bar.examples, files.map(f => `examples/top-bar/${f}`));
+  for (const f of files) assert(bar.text.includes(`// examples/top-bar/${f}\n${fs.readFileSync(new URL(f, dir), 'utf8')}`), f);
+  assert.match(bar.text, /variant="topbar-/, 'the topbar button variants are shown');
+  assert.equal(bar.install, `npx shadcn-vue@latest add ${server.url}/r/top-bar.json`);
+  // The registry item alone is over the answer budget; it reads back whole, in order.
+  const item = JSON.parse(fs.readFileSync(new URL('r/sidebar.json', DATA), 'utf8'));
+  assert(JSON.stringify(item).length > LIMITS.responseBytes);
+  const side = await readAll({ name: 'sidebar' });
+  assert.equal(side.text.length, side.total);
+  assert.deepEqual(side.files, item.files.map(f => f.path));
+  assert(side.text.startsWith(item.files.map(f => `// ${f.path}\n${f.content}`).join('\n\n')));
+  assert(side.examples.length > 0 && side.text.includes(`// ${side.examples[0]}\n`));
+});
+
+test('PrimeVue and Vuetify serve the preset, base.css, README and tokens by name', async () => {
+  const want = { preset: null, base: 'base.css', readme: 'README.md', tokens: 'tokens.json' };
+  for (const kind of ['primevue', 'vuetify']) {
+    for (const [name, file] of Object.entries({ ...want, preset: `${kind}.mjs` })) {
+      const r = await readAll({ kind, name });
+      assert.equal(r.file, file);
+      assert.deepEqual(r.names, Object.keys(want));
+      assert.equal(r.text, fs.readFileSync(new URL(`downloads/vue-themes/${file}`, DATA), 'utf8'), `${kind} ${name}`);
+      assert.equal((await fetch(r.url)).status, 200, r.url);
+    }
+    assert.equal((await call('design_code', { kind })).file, `${kind}.mjs`, 'the preset by default');
+    for (const name of ['base.css', 'README.md', `${kind}.mjs`]) assert.equal((await call('design_code', { kind, name })).file, name, 'a file name works too');
+    for (const name of ['nope', 'constructor', kind === 'primevue' ? 'vuetify.mjs' : 'primevue.mjs']) assert.match(await refusal('design_code', { kind, name }), /Names: preset, base, readme, tokens/);
+  }
+});
+
+test('Code lists the migration maps of the snapshot', async () => {
+  const list = await call('design_code', { kind: 'migration' });
+  assert.deepEqual(list.maps.map(m => m.name), ['icons', 'primevue', 'vuetify']);
+  for (const m of list.maps) {
+    assert(m.entries > 0, m.name);
+    const map = await readAll({ kind: 'migration', name: m.name });
+    assert.deepEqual(JSON.parse(map.text), JSON.parse(fs.readFileSync(new URL(`migration/${m.name}.json`, DATA), 'utf8')));
+  }
+  assert.match(await refusal('design_code', { kind: 'migration', name: 'nope' }), /Maps: icons, primevue, vuetify/);
+});
+
+test('Examples advertises every type and refuses an unknown one with the full list', async () => {
+  const { tools } = await client.listTools();
+  const types = tools.find(t => t.name === 'design_examples').inputSchema.properties.type.enum;
+  for (const t of ['brochure', 'catalogue', 'datasheet', 'presentation', 'stationery', 'post', 'software-view', 'pdf', 'image', '3d-model']) assert(types.includes(t), t);
+  const error = await refusal('design_examples', { type: 'software' });
+  for (const t of types) assert(error.includes(`"${t}"`), `${t} missing from: ${error}`);
+});
+
+test('the Tailwind theme defines each utility once', async () => {
+  for (const [name, args] of [['design_code', { kind: 'tailwind' }], ['design_standards', { kind: 'tokens', format: 'tailwind' }]]) {
+    const { text } = await call(name, args);
+    const utilities = [...text.matchAll(/^@utility ([\w-]+)/gm)].map(m => m[1]);
+    for (const u of ['no-scrollbar', 'scrollbar-thumb-transparent', 'scrollbar-track-transparent']) assert.equal(utilities.filter(x => x === u).length, 1, u);
+    assert.equal(new Set(utilities).size, utilities.length, utilities.join(', '));
+  }
 });

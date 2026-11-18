@@ -65,7 +65,11 @@ export function createApp({ dataDir = path.join(HERE, 'data'), token, baseUrl, f
       if (size > BODY_BYTES) return send(413, { error: 'Request too large' }, { connection: 'close' });
       const headers = new Headers();
       for (const [k, vs] of Object.entries(req.headersDistinct)) for (const v of vs) headers.append(k, v);
-      const request = new Request(new URL(url.pathname + url.search, `http://${req.headers.host ?? 'localhost'}`), { method: req.method, headers, body: ['GET', 'HEAD'].includes(req.method) ? undefined : Buffer.concat(chunks) });
+      // Behind a proxy (trustProxy) the public host and scheme are in x-forwarded-host and x-forwarded-proto; a configured
+      // baseUrl still wins for every link the tools return (serverFactory).
+      const forwarded = (h) => trustProxy && String(req.headers[h] ?? '').split(',')[0].trim();
+      const self = `${forwarded('x-forwarded-proto') || 'http'}://${forwarded('x-forwarded-host') || req.headers.host || 'localhost'}`;
+      const request = new Request(new URL(url.pathname + url.search, self), { method: req.method, headers, body: ['GET', 'HEAD'].includes(req.method) ? undefined : Buffer.concat(chunks) });
       const response = await handler.fetch(request);
       res.writeHead(response.status, Object.fromEntries(response.headers));
       if (response.body) for await (const c of response.body) res.write(c);
