@@ -1178,8 +1178,8 @@
         "ca": "Bàsica"
       },
       "about": {
-        "es": "Un menú lateral con grupos. La barra lateral de esta página se construye con él.",
-        "ca": "Un menú lateral amb grups. La barra lateral d’aquesta pàgina es construeix amb aquest component."
+        "es": "Un menú lateral: un grupo por sección, con su etiqueta y sus enlaces.",
+        "ca": "Un menú lateral: un grup per secció, amb la seva etiqueta i els seus enllaços."
       }
     },
     "skeleton/01-shaped": {

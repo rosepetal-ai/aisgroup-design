@@ -1,4 +1,4 @@
-<!-- A side menu with groups. The sidebar of this page is built with it. -->
+<!-- A side menu: one group per section, a label and its links. -->
 <script setup>
 import { BoxIcon, HomeIcon, SettingsIcon } from '@lucide/vue';
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '@aisgroup/design/ui/sidebar';
