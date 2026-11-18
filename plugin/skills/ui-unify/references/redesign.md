@@ -29,10 +29,20 @@ Moves a Vue app built on PrimeVue, Vuetify or its own styles onto our components
 - Confirmations asked from code are `useConfirm().ask()` from the `confirm-host` block, with one `<ConfirmHost />` in App and its translated labels.
 - With many callers of PrimeVue's `useToast().add()` or `useConfirm().require()`, add the `bridge` of those entries (`design_code kind=migration name=primevue query=useToast`, then `query=useConfirm`): callers change only their import. New code calls `toast()` and `ask()`.
 
-## 5. One family at a time
+## 5. Every view, one at a time
 
-- For each family (buttons, inputs, tables, dialogs, menus, icons): `design_code kind=migration name=primevue|vuetify|icons query=<component>` gives the target, the props and the rule. Move every use of that family, build, run the tests, commit, then the next family.
-- Tests: move their DOM drivers to our components (selectors such as `.p-menu-item-label` or `.p-toast-message`, mocks of the old library) and keep every assertion. When a test fails because a guarded behaviour is gone, the behaviour comes back.
+Swapping components is not the redesign. Each view is rebuilt as if it were new, from our blocks and examples, with the app's data and behaviour.
+
+- **List the views first.** Every route from the router, plus every dialog, drawer and panel, in a file in the app's repo (`docs/redesign-status.md`): view, route, status (old, in progress, done). Report from that list; a part is never «done» for the whole.
+- **Shared parts before modules.** The layout, the dashboard, toolbars, empty states and shared dialogs go first, keeping their props and events, so module views reuse them.
+- **For each view, all four together, then the next view:**
+  1. **Components:** only ours. `design_code kind=migration name=primevue|vuetify|icons query=<component>` gives the target and its props; install anything missing from the registry, never hand-build or restyle one (classes only place it: grid, flex, gap, width).
+  2. **Layout:** the page in `PageLayout`, then the [page system](page-system.md). Open the guide example of each component you use and make the view look like it, not like a restyled version of the old screen.
+  3. **Texts:** every string the view shows, rewritten in every language to our voice (guide «Voice»: «Template text is copy too», «Writing that reads as ours»): short, plain, labels as names, no explanations of how the system works, no helper footnotes, greetings or filler. Placeholders, error meaning and key parity stay; owner-decided texts keep their content.
+  4. **Behaviour:** handlers, stores, undo, permissions, keyboard paths and test ids stay. Tests: move their DOM drivers to our components (`.p-menu-item-label`, `.p-toast-message`, mocks of the old library) and keep every assertion. When a test fails because a guarded behaviour is gone, the behaviour comes back.
+- **Check the view before the next one:** type check, its tests, the audit on its files, the states check on its route, and its screenshots (light and dark, 1440 and 390, every dialog open). Look at each screenshot like a critic: boxes in boxes, blank gaps, mixed sizes, misalignment, clipped text, text that reads generated, anything unlike our examples. Fix, shoot again, then mark it done in the list.
+- **Parallel agents:** split by module; each edits only its module and its i18n files and uses the shared parts as they are. Run type checks, test runs and browsers one at a time across agents (a shared lock file): parallel heavy runs exhaust memory.
+- **Gaps in our system:** when this procedure, the guide, a block or a component didn't say what to do, write it in the report («MCP corrections»: what was missing, the change it needs) instead of inventing a local pattern.
 
 ## 6. Finish
 

@@ -11,7 +11,7 @@ Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design
 
 1. Redesigning a whole app: follow [redesign](references/redesign.md) from its first step. A colour preset only bridges screens not yet moved.
 2. Before removing any text, button or interaction, read the app's tests and decision docs. Owner decisions stay unless the guide makes them impossible; list the overridden ones for the owner.
-3. Inventory the screen, dependencies, variants and states; run ui-audit first. Replace one component family at a time with the registry source and `design_code kind=migration`.
+3. List every view (routes, dialogs, panels) and redo each one completely before the next: our components, the page system, texts in our voice, behaviour kept, then both checks and its screenshots ([redesign](references/redesign.md), step 5). Swapping components alone is not a redesign.
 4. Preserve dataset/image cards, facts, forms, actions and error states. Do not remove working content to make the screenshot simpler.
 5. Build the app, run its tests and verify interactions and both themes. Keep unresolved differences explicit.
 
