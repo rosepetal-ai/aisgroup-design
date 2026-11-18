@@ -1038,8 +1038,8 @@
         "ca": "Llista"
       },
       "about": {
-        "es": "Una página de lista: la barra de filtros y la tabla directamente sobre la página, con las páginas numeradas debajo. Un rol es una palabra; un estado, un icono y una palabra.",
-        "ca": "Una pàgina de llista: la barra de filtres i la taula directament sobre la pàgina, amb les pàgines numerades a sota. Un rol és una paraula; un estat, una icona i una paraula."
+        "es": "Una página de lista: la barra de filtros sobre la página, la tabla sobre su card y las páginas numeradas debajo. Un rol es una palabra; un estado, un icono y una palabra.",
+        "ca": "Una pàgina de llista: la barra de filtres sobre la pàgina, la taula sobre la seva card i les pàgines numerades a sota. Un rol és una paraula; un estat, una icona i una paraula."
       }
     },
     "page-layout/04-detail": {
@@ -1590,6 +1590,16 @@
       "about": {
         "es": "Con un menú lateral, como Ajustes: el título y el menú se quedan quietos y solo se desplaza el contenido; por debajo de 1024 px el menú es una fila encima.",
         "ca": "Amb un menú lateral, com Configuració: el títol i el menú es queden quiets i només es desplaça el contingut; per sota de 1024 px el menú és una fila a sobre."
+      }
+    },
+    "page-layout/10-tasks": {
+      "name": {
+        "es": "Tareas",
+        "ca": "Tasques"
+      },
+      "about": {
+        "es": "Una lista de tareas, como el ejemplo de tareas de shadcn: una búsqueda, filtros cuya elección se ve como chips, las columnas visibles, la tabla sobre una card con selección y acciones por fila, y páginas numeradas.",
+        "ca": "Una llista de tasques, com l’exemple de tasques de shadcn: una cerca, filtres amb l’elecció en forma de xips, les columnes visibles, la taula sobre una card amb selecció i accions per fila, i pàgines numerades."
       }
     }
   }
