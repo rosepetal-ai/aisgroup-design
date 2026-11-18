@@ -21,9 +21,13 @@ test('audit catches what the redesign forbids', () => {
   <div class="absolute inset-0 bg-card/80"></div>
   <v-btn color="blue">Save</v-btn>
   <p class="bg-success/10">Finished</p>
+  <Button size="modal" :disabled="busy"><Spinner v-if="busy" /><PlusIcon v-else />Create</Button>
+  <DialogContent @interact-outside="(e: Event) => e.preventDefault()" />
+  <DropdownMenuItem><LogOutIcon />Sign out</DropdownMenuItem>
+  <div class="grid items-start gap-4 xl:grid-cols-2" />
 </template>`;
   const got = new Set(rules(vue));
-  for (const r of ['heading-weight', 'stock-palette', 'raw-colour', 'pill-tabs', 'non-stock-variant', 'radius-override', 'separator', 'veil', 'named-colour', 'tinted-status']) assert(got.has(r), r);
+  for (const r of ['heading-weight', 'stock-palette', 'raw-colour', 'pill-tabs', 'non-stock-variant', 'radius-override', 'separator', 'veil', 'named-colour', 'tinted-status', 'modal-button-icon', 'outside-blocked', 'sign-out', 'row-items-start']) assert(got.has(r), r);
 });
 test('audit leaves the reference app\'s own patterns alone', () => {
   const vue = `<template>
@@ -33,6 +37,15 @@ test('audit leaves the reference app\'s own patterns alone', () => {
   <Button variant="ghost" class="w-full rounded-none" />
   <Button variant="topbar" size="icon" class="rounded-full" />
   <TabsList variant="line" />
+  <TabsList variant="nav" class="max-lg:flex-row!" />
+  <Button variant="secondary" size="modal">Cancel</Button>
+  <Button size="modal" :disabled="busy"><Spinner v-if="busy" />Create</Button>
+  <DialogContent @interact-outside="(e: Event) => { if (busy) e.preventDefault(); }" />
+  <DropdownMenuItem><LogOutIcon />Log out</DropdownMenuItem>
+  <FieldLabel>Sign out when idle</FieldLabel>
+  <li class="hover:bg-action-soft">Row</li>
+  <div class="grid gap-4 xl:grid-cols-2" />
+  <div class="grid items-start gap-6 lg:grid-cols-[16rem_minmax(0,1fr)]" />
   <code class="font-semibold">id</code>
   <span class="text-sm">Catalan col·lecció</span>
 </template>`;
@@ -40,6 +53,11 @@ test('audit leaves the reference app\'s own patterns alone', () => {
 });
 test('a .css file: token definitions are fine, raw colours in rules are not', () => {
   assert.deepEqual(rules(':root {\n  --x: #fff;\n}\n.a { color: #000; }', 'a.css'), ['raw-colour']);
+});
+test('corners: radius tokens pass, raw radii fail, in .css and in a .vue style', () => {
+  assert.deepEqual(rules('.a { border-radius: var(--radius-sm); }\n.b { border-radius: 50%; }\n.c { border-top-left-radius: 0; }', 'a.css'), []);
+  assert.deepEqual(rules('.a { border-radius: 4px; }\n.b { border-top-left-radius: 0.5rem; }', 'a.css'), ['raw-radius', 'raw-radius']);
+  assert.deepEqual(rules('<template><p>x</p></template>\n<style scoped>\n.x { border-radius: 4px; }\n</style>'), ['raw-radius']);
 });
 const canonical = fs.readFileSync(new URL('../../packages/design/styles.css', import.meta.url), 'utf8');
 test('theme diff: the package against itself is clean', () => {
