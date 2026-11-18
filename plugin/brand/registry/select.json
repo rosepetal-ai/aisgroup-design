@@ -41,7 +41,7 @@
     {
       "path": "components/ui/select/SelectLabel.vue",
       "type": "registry:ui",
-      "content": "<script setup lang=\"ts\">\nimport type { SelectLabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { SelectLabel } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SelectLabelProps & { class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <SelectLabel\n    data-slot=\"select-label\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-xs', props.class)\"\n  >\n    <slot />\n  </SelectLabel>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { SelectLabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { SelectLabel } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SelectLabelProps & { class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <SelectLabel\n    data-slot=\"select-label\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-sm', props.class)\"\n  >\n    <slot />\n  </SelectLabel>\n</template>\n"
     },
     {
       "path": "components/ui/select/SelectScrollDownButton.vue",

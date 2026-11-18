@@ -41,7 +41,7 @@
     {
       "path": "components/ui/context-menu/ContextMenuLabel.vue",
       "type": "registry:ui",
-      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuLabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { ContextMenuLabel } from 'reka-ui'\n\nconst props = defineProps<ContextMenuLabelProps & { class?: HTMLAttributes['class'], inset?: boolean }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ContextMenuLabel\n    data-slot=\"context-menu-label\"\n    :data-inset=\"inset ? '' : undefined\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-xs font-medium data-inset:pl-8', props.class)\"\n  >\n    <slot />\n  </ContextMenuLabel>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuLabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { ContextMenuLabel } from 'reka-ui'\n\nconst props = defineProps<ContextMenuLabelProps & { class?: HTMLAttributes['class'], inset?: boolean }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ContextMenuLabel\n    data-slot=\"context-menu-label\"\n    :data-inset=\"inset ? '' : undefined\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-sm font-medium data-inset:pl-8', props.class)\"\n  >\n    <slot />\n  </ContextMenuLabel>\n</template>\n"
     },
     {
       "path": "components/ui/context-menu/ContextMenuPortal.vue",

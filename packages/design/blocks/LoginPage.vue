@@ -121,7 +121,7 @@ const canSubmit = computed(() => !props.loading && !!email.value.trim() && !!pas
                   <InputGroup class="h-10">
                     <InputGroupInput id="login-password" v-model="password" :type="showPassword ? 'text' : 'password'" autocomplete="current-password" :disabled="loading" :aria-invalid="passwordInvalid || undefined" />
                     <InputGroupAddon align="inline-end">
-                      <InputGroupButton size="icon-xs" :disabled="loading" :aria-label="showPassword ? hidePasswordLabel : showPasswordLabel" @click="showPassword = !showPassword">
+                      <InputGroupButton size="icon-sm" :disabled="loading" :aria-label="showPassword ? hidePasswordLabel : showPasswordLabel" @click="showPassword = !showPassword">
                         <EyeOffIcon v-if="showPassword" />
                         <EyeIcon v-else />
                       </InputGroupButton>
@@ -139,15 +139,15 @@ const canSubmit = computed(() => !props.loading && !!email.value.trim() && !!pas
                 {{ loading ? submittingLabel : submitLabel }}
               </Button>
 
-              <FieldDescription v-if="$slots.legal" class="text-center text-xs"><slot name="legal" /></FieldDescription>
+              <FieldDescription v-if="$slots.legal" class="text-center"><slot name="legal" /></FieldDescription>
             </form>
           </slot>
         </div>
       </main>
 
-      <footer class="relative flex justify-center px-6 pb-6 text-xs text-muted-foreground">
+      <footer class="relative flex justify-center px-6 pb-6 text-sm text-muted-foreground">
         <slot name="footer"><p v-if="footer">{{ footer }}</p></slot>
-        <Button v-if="panel && !$slots['panel-art']" variant="ghost" size="xs" class="absolute right-4 bottom-4 hidden text-muted-foreground motion-reduce:hidden lg:inline-flex" :aria-pressed="paused" @click="paused = !paused">
+        <Button v-if="panel && !$slots['panel-art']" variant="ghost" size="sm" class="absolute right-4 bottom-4 hidden text-muted-foreground motion-reduce:hidden lg:inline-flex" :aria-pressed="paused" @click="paused = !paused">
           <PlayIcon v-if="paused" data-icon="inline-start" />
           <PauseIcon v-else data-icon="inline-start" />
           {{ paused ? playLabel : pauseLabel }}

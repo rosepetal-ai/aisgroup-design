@@ -41,7 +41,7 @@ const action = () => new Promise((resolve) => {
       <div class="flex flex-col gap-2">
         <p class="flex items-center gap-2 text-sm"><Spinner class="size-4 shrink-0 text-primary" />Deleting...</p>
         <Progress :model-value="percent" class="h-2" aria-label="Deleting" />
-        <p class="text-xs text-muted-foreground tabular-nums">{{ done }} / {{ TOTAL }} images</p>
+        <p class="text-sm text-muted-foreground tabular-nums">{{ done }} / {{ TOTAL }} images</p>
       </div>
     </template>
   </ConfirmDialog>

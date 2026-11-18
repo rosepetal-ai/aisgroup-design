@@ -364,6 +364,12 @@
       "description": "Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts."
     },
     {
+      "name": "page-layout",
+      "type": "registry:block",
+      "title": "Page layout",
+      "description": "A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls."
+    },
+    {
       "name": "log-terminal",
       "type": "registry:block",
       "title": "Log terminal",

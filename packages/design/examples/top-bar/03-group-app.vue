@@ -19,7 +19,7 @@ import { Button } from '@aisgroup/design/ui/button';
       <template #actions>
         <Button variant="topbar" size="icon-round" aria-label="Dark mode"><MoonIcon /></Button>
         <Button variant="topbar" size="icon-round" aria-label="Account">
-          <Avatar class="size-8"><AvatarFallback class="bg-topbar-foreground text-xs font-semibold text-brand">SB</AvatarFallback></Avatar>
+          <Avatar class="size-8"><AvatarFallback class="bg-topbar-foreground text-sm font-semibold text-brand">SB</AvatarFallback></Avatar>
         </Button>
       </template>
     </TopBar>

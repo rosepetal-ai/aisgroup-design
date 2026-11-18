@@ -502,12 +502,3 @@ body {
     color: var(--foreground);
     -webkit-font-smoothing: antialiased;
 }
-
-/* Borders with no colour of their own take the theme border (shadcn base rule), not currentColor. */
-@layer base {
-    *,
-    ::before,
-    ::after {
-        border-color: var(--border);
-    }
-}

@@ -114,7 +114,7 @@ async function confirm() {
             autocomplete="off"
             @keydown.enter="confirm"
           />
-          <FieldError v-if="mismatch" class="text-xs">{{ mismatchText }}</FieldError>
+          <FieldError v-if="mismatch" class="text-sm">{{ mismatchText }}</FieldError>
         </Field>
 
         <slot v-if="loading" name="progress" />
