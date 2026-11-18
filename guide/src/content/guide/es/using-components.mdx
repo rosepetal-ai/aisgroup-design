@@ -9,6 +9,8 @@ rules:
   - 'Cada color es un token de `@aisgroup/design/styles.css`. Nada de clases de paleta como `bg-gray-500` ni valores hexadecimales en las plantillas.'
   - 'El estado es un icono con su tono y una palabra (Terminado, Pendiente, Error). Nunca solo color y nunca etiquetas tintadas.'
   - 'Mayúscula solo inicial en títulos, etiquetas y botones. Sin puntos medios ni flechas Unicode. Todo lo que se lee mide al menos 14 px; 12 px solo para ejes de gráficos y teclas.'
+  - 'Usa un bloque donde encaje (TopBar, PageLayout, LoginPage, ConfirmDialog). Cuando las notas de diseño propias de una aplicación no coinciden con el paquete, manda el paquete.'
+  - 'Los botones del pie de un diálogo llevan solo texto. Un diálogo se cierra con un clic fuera o con Esc, salvo mientras su acción trabaja.'
 ---
 
 Instala el paquete de producto y usa sus componentes y tokens juntos.
@@ -18,8 +20,10 @@ Instala el paquete de producto y usa sus componentes y tokens juntos.
 1. Configura el registro privado e instala `@aisgroup/design`, como explica el README del paquete.
 2. Importa `@aisgroup/design/styles.css` después del tema y las utilidades de Tailwind.
 3. Importa los componentes por carpeta y los bloques por fichero: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
-4. Mantén Inter y la página a todo el ancho, y abre cada página bajo el bloque TopBar.
-5. Añade un test que falle con puntos medios o flechas Unicode en las plantillas, como `tests/uiTextRules.spec.js` de rosepetal-ui.
+4. Usa un bloque donde encaje: TopBar para la barra, PageLayout para cada página (con su menú lateral si la página lo tiene), LoginPage y ConfirmDialog. Parte de sus ejemplos.
+5. Cuando las notas de diseño propias de la aplicación no coinciden con el paquete o con esta guía, manda el paquete: cambia las notas.
+6. Mantén Inter y la página a todo el ancho, y abre cada página bajo el bloque TopBar.
+7. Añade un test que falle con puntos medios o flechas Unicode en las plantillas, como `tests/uiTextRules.spec.js` de rosepetal-ui.
 
 ## Componer, no reestilizar
 
@@ -60,12 +64,14 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 | Uno de pocos modos | RadioGroup de tarjetas de opción; elegir herramienta es un ToggleGroup |
 | Elegir de una lista larga | Combobox con búsqueda; una lista corta es un Select |
 | Acciones de fila | Un botón ghost `icon-sm` con Ellipsis que abre un DropdownMenu |
+| Secciones lado a lado | Cards en `grid gap-4 xl:grid-cols-2`; las Cards de una fila comparten su altura, así que sin `items-start` |
+| La cuenta | Un Avatar en la barra superior que abre un DropdownMenu; su último elemento es Log out |
 | Estado | Un icono con su tono y la palabra, en texto atenuado |
 | Carga | Skeleton con la forma del contenido; Spinner dentro del botón que trabaja |
 
 ## Diálogos
 
-DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con botones a todo el ancho: Cancelar `variant="secondary" size="modal"` primero y la acción `size="modal"` después. En los diálogos con formulario, el formulario lleva un `id` y su botón de envío va en el pie.
+DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con botones a todo el ancho: Cancelar `variant="secondary" size="modal"` primero y la acción `size="modal"` después. En los diálogos con formulario, el formulario lleva un `id` y su botón de envío va en el pie. Los botones del pie llevan solo texto (Crear, Guardar); mientras la acción trabaja, un Spinner va dentro de su botón. Un clic fuera o Esc cierra el diálogo, salvo mientras su acción trabaja.
 
 ## Notificaciones y confirmaciones
 

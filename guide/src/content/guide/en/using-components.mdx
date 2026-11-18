@@ -9,6 +9,8 @@ rules:
   - 'Every colour is a token from `@aisgroup/design/styles.css`. No palette classes such as `bg-gray-500` and no hex values in templates.'
   - 'Status is a toned icon and a word (Finished, Pending, Failed). Never colour alone and never tinted pills.'
   - 'Sentence case for every title, label and button. No middle dots or Unicode arrows. Anything people read is at least 14 px; 12 px only for chart axes and keyboard keys.'
+  - 'Use a block wherever one fits (TopBar, PageLayout, LoginPage, ConfirmDialog). When an app’s own design notes disagree with the package, the package wins.'
+  - 'Dialog footer buttons carry text only. A dialog closes on a click outside or Esc, except while its action runs.'
 ---
 
 Install the product package and use its components and tokens together.
@@ -18,8 +20,10 @@ Install the product package and use its components and tokens together.
 1. Set up the private registry and install `@aisgroup/design`, as the package’s README explains.
 2. Import `@aisgroup/design/styles.css` after Tailwind’s theme and utilities.
 3. Import components by folder and blocks by file: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
-4. Keep Inter and the full-width page, and open every page under the TopBar block.
-5. Add a test that fails on middle dots or Unicode arrows in templates, like rosepetal-ui’s `tests/uiTextRules.spec.js`.
+4. Use a block wherever one fits: TopBar for the bar, PageLayout for each page (with its side menu where the page has one), LoginPage and ConfirmDialog. Start from their examples.
+5. When the app’s own design notes disagree with the package or this guide, the package wins: change the notes.
+6. Keep Inter and the full-width page, and open every page under the TopBar block.
+7. Add a test that fails on middle dots or Unicode arrows in templates, like rosepetal-ui’s `tests/uiTextRules.spec.js`.
 
 ## Compose, do not restyle
 
@@ -60,12 +64,14 @@ Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens 
 | One of a few modes | RadioGroup of choice cards; a tool choice is a ToggleGroup |
 | A long list to choose from | Combobox with search; a short list is a Select |
 | Row actions | A ghost `icon-sm` button with an Ellipsis that opens a DropdownMenu |
+| Sections side by side | Cards in `grid gap-4 xl:grid-cols-2`; the Cards of a row share its height, so no `items-start` |
+| The account | An Avatar in the top bar that opens a DropdownMenu; its last item is Log out |
 | Status | A toned icon and the word, in muted text |
 | Loading | Skeleton in the shape of the content; Spinner inside the working button |
 
 ## Dialogs
 
-DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full-width buttons: Cancel `variant="secondary" size="modal"` first, the action `size="modal"` second. Form dialogs give the form an `id` and put its submit button in the footer.
+DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full-width buttons: Cancel `variant="secondary" size="modal"` first, the action `size="modal"` second. Form dialogs give the form an `id` and put its submit button in the footer. Footer buttons carry text only (Create, Save); while the action runs, a Spinner sits inside its button. A click outside or Esc closes the dialog, except while its action runs.
 
 ## Notices and confirmations
 

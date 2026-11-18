@@ -91,7 +91,8 @@ const DATA = new URL('../data/', import.meta.url);
 test('Code search matches each word, hyphens and case ignored, most hits first', async () => {
   for (const query of ['topbar', 'Top-Bar', 'top bar']) assert.equal((await call('design_code', { query })).items[0].name, 'top-bar', query);
   const shell = (await call('design_code', { query: 'login top bar sidebar app shell' })).items.map(i => i.name);
-  assert.deepEqual(shell.slice(0, 3).sort(), ['login-page', 'sidebar', 'top-bar'], shell.join(', '));
+  // The shell blocks, PageLayout included, come before anything else
+  assert.deepEqual(shell.slice(0, 4).sort(), ['login-page', 'page-layout', 'sidebar', 'top-bar'], shell.join(', '));
   assert.equal((await call('design_code', { query: 'zzz' })).items.length, 0);
   assert.equal((await call('design_code', { kind: 'web', query: 'browserframe' })).items[0].name, 'browser-frame');
   assert.equal((await call('design_examples', { type: 'software-view', query: 'topbar' })).examples[0].id, 'software-top-bar');

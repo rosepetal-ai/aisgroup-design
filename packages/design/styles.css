@@ -479,19 +479,26 @@ html {
     z-index: 1000010;
 }
 
+/* Tailwind 4's preflight draws borders in currentColor and gives buttons the default cursor; the components expect Tailwind 3's (and shadcn's) */
+@layer base {
+    *,
+    ::before,
+    ::after,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--border);
+    }
+
+    button:not(:disabled),
+    [role="button"]:not([aria-disabled="true"]) {
+        cursor: pointer;
+    }
+}
+
 /* What components inherit: text with no size of its own measures 14px in every app. */
 body {
     font-family: var(--font-family);
     font-size: 0.875rem;
     color: var(--foreground);
     -webkit-font-smoothing: antialiased;
-}
-
-/* Borders with no colour of their own take the theme border (shadcn base rule), not currentColor. */
-@layer base {
-    *,
-    ::before,
-    ::after {
-        border-color: var(--border);
-    }
 }

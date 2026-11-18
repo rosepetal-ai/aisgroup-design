@@ -9,6 +9,8 @@ rules:
   - 'Cada color és un token de `@aisgroup/design/styles.css`. Res de classes de paleta com `bg-gray-500` ni valors hexadecimals a les plantilles.'
   - 'L’estat és una icona amb el seu to i una paraula (Acabat, Pendent, Error). Mai només color i mai etiquetes tintades.'
   - 'Majúscula només inicial a títols, etiquetes i botons. Sense punts volats ni fletxes Unicode. Tot el que es llegeix fa almenys 14 px; 12 px només per a eixos de gràfics i tecles.'
+  - 'Fes servir un bloc allà on encaixi (TopBar, PageLayout, LoginPage, ConfirmDialog). Quan les notes de disseny pròpies d’una aplicació no coincideixen amb el paquet, mana el paquet.'
+  - 'Els botons del peu d’un diàleg porten només text. Un diàleg es tanca amb un clic a fora o amb Esc, excepte mentre la seva acció treballa.'
 ---
 
 Instal·la el paquet de producte i fes servir els seus components i tokens conjuntament.
@@ -18,8 +20,10 @@ Instal·la el paquet de producte i fes servir els seus components i tokens conju
 1. Configura el registre privat i instal·la `@aisgroup/design`, com explica el README del paquet.
 2. Importa `@aisgroup/design/styles.css` després del tema i les utilitats de Tailwind.
 3. Importa els components per carpeta i els blocs per fitxer: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
-4. Mantén Inter i la pàgina a tota l’amplada, i obre cada pàgina sota el bloc TopBar.
-5. Afegeix un test que falli amb punts volats o fletxes Unicode a les plantilles, com `tests/uiTextRules.spec.js` de rosepetal-ui.
+4. Fes servir un bloc allà on encaixi: TopBar per a la barra, PageLayout per a cada pàgina (amb el seu menú lateral si la pàgina en té), LoginPage i ConfirmDialog. Parteix dels seus exemples.
+5. Quan les notes de disseny pròpies de l’aplicació no coincideixen amb el paquet o amb aquesta guia, mana el paquet: canvia les notes.
+6. Mantén Inter i la pàgina a tota l’amplada, i obre cada pàgina sota el bloc TopBar.
+7. Afegeix un test que falli amb punts volats o fletxes Unicode a les plantilles, com `tests/uiTextRules.spec.js` de rosepetal-ui.
 
 ## Compondre, no reestilitzar
 
@@ -60,12 +64,14 @@ Els botons de capçalera i de barra d’eines són `h-9` (36 px); les icones, de
 | Un de pocs modes | RadioGroup de targetes d’opció; triar eina és un ToggleGroup |
 | Triar d’una llista llarga | Combobox amb cerca; una llista curta és un Select |
 | Accions de fila | Un botó ghost `icon-sm` amb Ellipsis que obre un DropdownMenu |
+| Seccions una al costat de l’altra | Cards en `grid gap-4 xl:grid-cols-2`; les Cards d’una fila comparteixen la seva alçada, així que sense `items-start` |
+| El compte | Un Avatar a la barra superior que obre un DropdownMenu; el seu últim element és Log out |
 | Estat | Una icona amb el seu to i la paraula, en text atenuat |
 | Càrrega | Skeleton amb la forma del contingut; Spinner dins del botó que treballa |
 
 ## Diàlegs
 
-DialogHeader (el títol sobre una banda grisa), DialogBody i DialogFooter amb botons a tota l’amplada: Cancel·la `variant="secondary" size="modal"` primer i l’acció `size="modal"` després. Als diàlegs amb formulari, el formulari porta un `id` i el seu botó d’enviament va al peu.
+DialogHeader (el títol sobre una banda grisa), DialogBody i DialogFooter amb botons a tota l’amplada: Cancel·la `variant="secondary" size="modal"` primer i l’acció `size="modal"` després. Als diàlegs amb formulari, el formulari porta un `id` i el seu botó d’enviament va al peu. Els botons del peu porten només text (Crea, Desa); mentre l’acció treballa, un Spinner va dins del seu botó. Un clic a fora o Esc tanca el diàleg, excepte mentre la seva acció treballa.
 
 ## Notificacions i confirmacions
 

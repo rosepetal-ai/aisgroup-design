@@ -609,6 +609,16 @@
         "es": "Elementos anidados como filas de lista que se abren y se cierran, con casillas opcionales.",
         "ca": "Elements niats com a files de llista que s’obren i es tanquen, amb caselles opcionals."
       }
+    },
+    "page-layout": {
+      "name": {
+        "es": "Diseño de página",
+        "ca": "Disseny de pàgina"
+      },
+      "description": {
+        "es": "Una página bajo la barra superior: su ancho, título y acciones, y un menú lateral opcional que se queda quieto mientras el contenido se desplaza.",
+        "ca": "Una pàgina sota la barra superior: la seva amplada, títol i accions, i un menú lateral opcional que es queda quiet mentre el contingut es desplaça."
+      }
     }
   },
   "examples": {
@@ -1560,6 +1570,26 @@
       "about": {
         "es": "Elegir varias ramas: la casilla de un elemento padre sigue a sus hijos, y marcarla los marca todos.",
         "ca": "Triar diverses branques: la casella d’un element pare segueix els seus fills, i marcar-la els marca tots."
+      }
+    },
+    "page-layout/01-page": {
+      "name": {
+        "es": "Página",
+        "ca": "Pàgina"
+      },
+      "about": {
+        "es": "Una página bajo la barra superior: el ancho de página, su título, sus acciones y sus secciones. El área de contenido de la aplicación es la que se desplaza.",
+        "ca": "Una pàgina sota la barra superior: l’amplada de pàgina, el seu títol, les seves accions i les seves seccions. L’àrea de contingut de l’aplicació és la que es desplaça."
+      }
+    },
+    "page-layout/02-with-nav": {
+      "name": {
+        "es": "Con menú lateral",
+        "ca": "Amb menú lateral"
+      },
+      "about": {
+        "es": "Con un menú lateral, como Ajustes: el título y el menú se quedan quietos y solo se desplaza el contenido; por debajo de 1024 px el menú es una fila encima.",
+        "ca": "Amb un menú lateral, com Configuració: el títol i el menú es queden quiets i només es desplaça el contingut; per sota de 1024 px el menú és una fila a sobre."
       }
     }
   }
