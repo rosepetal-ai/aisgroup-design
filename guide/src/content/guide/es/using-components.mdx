@@ -67,6 +67,10 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 
 DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con botones a todo el ancho: Cancelar `variant="secondary" size="modal"` primero y la acción `size="modal"` después. En los diálogos con formulario, el formulario lleva un `id` y su botón de envío va en el pie.
 
+## Notificaciones y confirmaciones
+
+Las notificaciones son `toast()` de `vue-sonner`, que se llama desde cualquier sitio, con un solo Toaster en App. Una confirmación es el bloque ConfirmDialog; el código que pregunta sin una página propia, como una opción de menú o un store, llama a `useConfirm().ask()`, y la muestra el único ConfirmHost de App.
+
 ## Colores de datos
 
 Etiquetas, series de gráficos y particiones de dataset tienen colores propios en `@aisgroup/design/styles.css`: las etiquetas (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), las particiones (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) y las series de gráficos (de `--chart-1` a `--chart-3`):

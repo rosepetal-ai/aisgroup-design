@@ -67,6 +67,10 @@ Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens 
 
 DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full-width buttons: Cancel `variant="secondary" size="modal"` first, the action `size="modal"` second. Form dialogs give the form an `id` and put its submit button in the footer.
 
+## Notices and confirmations
+
+Notices are `toast()` from `vue-sonner`, called from anywhere, with one Toaster in App. A confirmation is the ConfirmDialog block; code that asks without a page of its own, such as a menu item or a store, calls `useConfirm().ask()`, and the one ConfirmHost in App shows it.
+
 ## Data colours
 
 Tags, chart series and dataset splits have colours of their own in `@aisgroup/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
