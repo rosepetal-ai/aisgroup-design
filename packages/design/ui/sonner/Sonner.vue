@@ -12,6 +12,7 @@ import {
 import { reactiveOmit, useMutationObserver } from '@vueuse/core'
 import { ref } from 'vue'
 import { Toaster as Sonner } from 'vue-sonner'
+import 'vue-sonner/style.css'
 import { cn } from '../../lib/utils'
 
 // Every notice has a close cross (top right), so it can go before its time is up.
