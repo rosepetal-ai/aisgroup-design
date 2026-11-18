@@ -91,6 +91,24 @@ function pageComposition(template, add) {
   for (const m of template.matchAll(TILE)) if (/<h[12]\b/.test(template.slice(m.index + m[0].length, m.index + m[0].length + 300))) add('title-icon-tile', m, PAGE_RULES['title-icon-tile'], template, m.index, flat(m[0]));
 }
 
+// Capitals and letter-spacing: product text is sentence case and never letter-spaced (eyebrows, uppercase labels).
+// Keyboard keys, menu shortcuts and code values (a hex colour shown in capitals) keep their own style.
+const CAPS_FIX = 'Sentence case, no letter-spacing (guide Typography, Keep it simple): design_standards kind=guidelines section=design-language page=typography.';
+const CAPS = /(?<![\w-])(?:[\w-]+:)*(?:uppercase|tracking-wide|tracking-wider|tracking-widest)(?![\w-])/g, KEYS = /^(?:kbd|Kbd\w*|\w*Shortcut|code)$/;
+// In CSS: uppercase, and any letter-spacing above zero (negative tracking on large titles stays).
+const CAPS_CSS = /text-transform\s*:\s*uppercase|letter-spacing\s*:(?!\s*(?:-|0(?![.\d])|normal\b|inherit\b|initial\b|unset\b|var\())\s*[^;"}\s][^;"}]*/g;
+function capitals(template, style, add) {
+  for (const m of template.matchAll(TAG)) {
+    if (m[1] || KEYS.test(m[2])) continue;
+    for (const a of m[3].matchAll(/(?:^|\s)(?::|v-bind:)?class="([^"]*)"|(?:^|\s)style="([^"]*)"/g)) {
+      const at = m.index + m[0].indexOf(a[0]) + a[0].indexOf('"') + 1;
+      for (const c of (a[1] ?? '').matchAll(CAPS)) add('caps', c, CAPS_FIX, template, at + c.index);
+      for (const c of (a[2] ?? '').matchAll(CAPS_CSS)) add('caps', c, CAPS_FIX, template, at + c.index);
+    }
+  }
+  for (const c of style.matchAll(CAPS_CSS)) add('caps', c, CAPS_FIX, style);
+}
+
 // Legacy families. Fixes name the design MCP call that solves them, since the target app has none of our repo paths.
 export const FAMILIES = ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file', 'page-composition'];
 const ADVISORY = new Set(['small-text']);
@@ -162,6 +180,7 @@ export function audit(text, file = '') {
   for (const [rule, pattern, fix] of STYLE) for (const m of style.matchAll(pattern)) add(rule, m, fix, style);
   for (const [tag, allowed] of [['Badge', BADGE], ['Button', BUTTON]]) for (const m of template.matchAll(new RegExp(`<${tag}\\b[^>]*\\bvariant="([a-z-]+)"`, 'g'))) if (!allowed.includes(m[1])) add('non-stock-variant', m, `${tag} variants are stock only: ${allowed.join(', ')}.`, template);
   pageComposition(template, add);
+  capitals(template, style, add);
 
   // Imports and plugins: script imports, require() and dynamic import(), CSS @import/@plugin.
   for (const [source, re] of [[script, /\b(?:from|import|require)\s*\(?\s*(['"])([^'"\n]+)\1/g], [css, /@(?:import|plugin|reference)\s+(?:url\(\s*)?(['"])([^'"\n]+)\1/g]])

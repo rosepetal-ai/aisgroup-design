@@ -217,6 +217,24 @@ test('separator: middle dots in UI strings of scripts and i18n files, not commen
   assert.deepEqual(audit('{ "x": "a · b" }', 'src/data/x.json'), []);
 });
 
+test('caps: uppercase and letter-spaced labels in templates and CSS; keys, shortcuts, code and tight titles pass', () => {
+  const vue = `<template>
+  <h3 class="text-xs font-medium uppercase tracking-wide text-muted-foreground">Recipients</h3>
+  <span class="md:tracking-widest">x</span>
+  <p :class="['tracking-wider', a]" style="text-transform: uppercase">y</p>
+  <h1 class="text-2xl font-medium tracking-tight">Users</h1>
+  <Kbd class="uppercase">k</Kbd><DropdownMenuShortcut class="tracking-widest">⌘K</DropdownMenuShortcut><code class="uppercase">#17356e</code>
+  <p class="uppercased-note">z</p>
+</template>
+<style scoped>
+.a { text-transform: uppercase; letter-spacing: 0.05em; }
+.b { letter-spacing: -0.01em; text-transform: none; }
+.c { letter-spacing: 0; }
+</style>`;
+  assert.deepEqual(audit(vue, 'Labels.vue').filter((f) => f.rule === 'caps').map((f) => `${f.line} ${f.value}`), ['2 uppercase', '2 tracking-wide', '3 md:tracking-widest', '4 tracking-wider', '4 text-transform: uppercase', '10 text-transform: uppercase', '10 letter-spacing: 0.05em']);
+  assert.match(audit(vue, 'Labels.vue').find((f) => f.rule === 'caps').fix, /Sentence case, no letter-spacing/);
+});
+
 test('audit stays linear on long files', () => {
   const ts = Array.from({ length: 20000 }, (_, i) => `export const k${i} = 'value ${i}'`).join('\n');
   const start = performance.now();
