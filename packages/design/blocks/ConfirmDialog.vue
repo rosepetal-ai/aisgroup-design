@@ -44,6 +44,8 @@ const props = withDefaults(defineProps<{
   contentClass: '',
 })
 const emit = defineEmits<{ close: [], done: [result: unknown], background: [] }>()
+// Its root, the Dialog, renders nothing: attributes (a test id) go on the visible dialog.
+defineOptions({ inheritAttrs: false })
 
 const uid = useId()
 const typed = ref('')
@@ -89,7 +91,7 @@ async function confirm() {
 
 <template>
   <Dialog :open="true" @update:open="o => !o && close()">
-    <DialogContent :class="contentClass" :show-close-button="!loading || canBackground" @open-auto-focus="focusConfirmButton" @escape-key-down="e => loading && !canBackground && e.preventDefault()" @pointer-down-outside="e => loading && !canBackground && e.preventDefault()">
+    <DialogContent v-bind="$attrs" :class="contentClass" :show-close-button="!loading || canBackground" @open-auto-focus="focusConfirmButton" @escape-key-down="e => loading && !canBackground && e.preventDefault()" @pointer-down-outside="e => loading && !canBackground && e.preventDefault()">
       <DialogHeader>
         <DialogTitle>{{ title }}</DialogTitle>
         <DialogDescription class="sr-only">{{ confirmText ? `${title}: ${confirmText}` : title }}</DialogDescription>

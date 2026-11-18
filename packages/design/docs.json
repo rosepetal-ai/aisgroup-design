@@ -426,8 +426,8 @@
         "ca": "Pàgina d’accés"
       },
       "description": {
-        "es": "La página de inicio de sesión. Cada aplicación aporta sus textos y comprueba la contraseña.",
-        "ca": "La pàgina d’inici de sessió. Cada aplicació aporta els seus textos i comprova la contrasenya."
+        "es": "La página de inicio de sesión. Cada aplicación aporta su logotipo, sus textos y su inicio de sesión.",
+        "ca": "La pàgina d’inici de sessió. Cada aplicació aporta el seu logotip, els seus textos i el seu inici de sessió."
       }
     },
     "confirm-dialog": {
@@ -982,6 +982,16 @@
         "ca": "Sense panell lateral, amb textos d’una altra aplicació i un error del seu propi inici de sessió."
       }
     },
+    "login-page/03-group-app": {
+      "name": {
+        "es": "Aplicación del grupo",
+        "ca": "Aplicació del grup"
+      },
+      "about": {
+        "es": "Software que usa todo el grupo: lo firma solo AIS Group, con su logotipo completo, y la aplicación se llama «Nexus ERP», sin una empresa delante. El panel lleva la esquina de hexágonos de las portadas de los catálogos en lugar de la animación de inspección, así que no hay botón de pausa. El formulario es el de la aplicación: aquí, un inicio de sesión con Google. El logotipo y la trama son los archivos de la guía, descargados, nunca redibujados.",
+        "ca": "Programari que fa servir tot el grup: el signa només AIS Group, amb el seu logotip complet, i l’aplicació es diu «Nexus ERP», sense cap empresa al davant. El panell porta la cantonada d’hexàgons de les portades dels catàlegs en lloc de l’animació d’inspecció, així que no hi ha botó de pausa. El formulari és el de l’aplicació: aquí, un inici de sessió amb Google. El logotip i la trama són els fitxers de la guia, descarregats, mai redibuixats."
+      }
+    },
     "navigation-menu/01-basic": {
       "name": {
         "es": "Básico",
@@ -1108,8 +1118,8 @@
         "ca": "Resposta"
       },
       "about": {
-        "es": "Información breve tras una acción, con Sonner estándar.",
-        "ca": "Informació breu després d’una acció, amb Sonner estàndard."
+        "es": "Información breve tras una acción: toast() de vue-sonner es la única API de notificaciones, se llama desde cualquier sitio y App monta un solo Toaster.",
+        "ca": "Informació breu després d’una acció: toast() de vue-sonner és l’única API de notificacions, es crida des de qualsevol lloc i App munta un sol Toaster."
       }
     },
     "spinner/01-default": {
@@ -1210,6 +1220,16 @@
       "about": {
         "es": "De borde a borde, para tareas a pantalla completa como el etiquetado o el editor: separador tras el logotipo, ruta de navegación en lugar de menú y una salida.",
         "ca": "De vora a vora, per a tasques a pantalla completa com l’etiquetatge o l’editor: separador darrere del logotip, ruta de navegació en lloc de menú i una sortida."
+      }
+    },
+    "top-bar/03-group-app": {
+      "name": {
+        "es": "Aplicación del grupo",
+        "ca": "Aplicació del grup"
+      },
+      "about": {
+        "es": "Software que usa todo el grupo: la marca de aplicación, la Λ blanca a 24 px, y el nombre de la aplicación en el enlace al inicio. Ahí la marca es decorativa (alt=\"\"), así que el nombre accesible del enlace es el texto que se lee. Tras el nombre no hay nada, así que no hay separador.",
+        "ca": "Programari que fa servir tot el grup: la marca d’aplicació, la Λ blanca a 24 px, i el nom de l’aplicació a l’enllaç a l’inici. Allà la marca és decorativa (alt=\"\"), així que el nom accessible de l’enllaç és el text que es llegeix. Després del nom no hi ha res, així que no hi ha separador."
       }
     },
     "calendar/01-single": {

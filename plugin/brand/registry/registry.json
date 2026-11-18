@@ -349,7 +349,7 @@
       "name": "login-page",
       "type": "registry:block",
       "title": "Login page",
-      "description": "The sign-in page. Each app gives its texts and checks the password."
+      "description": "The sign-in page. Each app gives its logo, its texts and its sign-in."
     },
     {
       "name": "confirm-dialog",

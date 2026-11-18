@@ -12,12 +12,17 @@
     {
       "path": "components/blocks/TopBar.vue",
       "type": "registry:block",
-      "content": "<script setup lang=\"ts\">\nimport { Separator } from '@/components/ui/separator'\nimport BrandLogo from './BrandLogo.vue'\n\ndefineProps<{ full?: boolean }>()\n</script>\n\n<template>\n  <header class=\"flex h-13 shrink-0 bg-topbar text-topbar-foreground\">\n    <div class=\"flex h-full min-w-0 items-center\" :class=\"full ? 'w-full gap-4 px-4 sm:px-6 lg:px-8' : 'mx-auto w-[var(--page-width,calc(100%-2rem))] gap-2'\">\n      <div class=\"flex h-full min-w-0 items-center\" :class=\"full ? 'gap-3' : 'gap-2'\">\n        <slot name=\"logo\"><BrandLogo :class=\"!full && 'mr-4'\" /></slot>\n        <Separator v-if=\"full\" orientation=\"vertical\" class=\"hidden h-5 bg-topbar-foreground/20 data-[orientation=vertical]:self-center md:block\" />\n        <slot />\n      </div>\n      <div class=\"ml-auto flex h-full shrink-0 items-center\" :class=\"full ? 'gap-1' : 'gap-3 pl-3'\">\n        <slot name=\"actions\" />\n      </div>\n    </div>\n  </header>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { Separator } from '@/components/ui/separator'\nimport BrandLogo from './BrandLogo.vue'\n\ndefineProps<{ full?: boolean, brand?: 'rosepetal' | 'ais' }>()\n</script>\n\n<template>\n  <header class=\"flex h-13 shrink-0 bg-topbar text-topbar-foreground\">\n    <div class=\"flex h-full min-w-0 items-center\" :class=\"full ? 'w-full gap-4 px-4 sm:px-6 lg:px-8' : 'mx-auto w-[var(--page-width,calc(100%-2rem))] gap-2'\">\n      <div class=\"flex h-full min-w-0 items-center\" :class=\"full ? 'gap-3' : 'gap-2'\">\n        <slot name=\"logo\"><BrandLogo :brand=\"brand\" :class=\"!full && 'mr-4'\" /></slot>\n        <Separator v-if=\"full && $slots.default\" orientation=\"vertical\" class=\"hidden h-5 bg-topbar-foreground/20 data-[orientation=vertical]:self-center md:block\" />\n        <slot />\n      </div>\n      <div class=\"ml-auto flex h-full shrink-0 items-center\" :class=\"full ? 'gap-1' : 'gap-3 pl-3'\">\n        <slot name=\"actions\" />\n      </div>\n    </div>\n  </header>\n</template>\n"
     },
     {
       "path": "components/blocks/BrandLogo.vue",
       "type": "registry:block",
-      "content": "<script setup lang=\"ts\">\nimport logo from './rosepetal.svg'\n</script>\n\n<template>\n  <img :src=\"logo\" alt=\"Rosepetal\" class=\"h-6 w-auto object-contain\">\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport aisMark from './ais-mark-white.svg'\nimport rosepetal from './rosepetal.svg'\n\n// Rosepetal's app signs with its wordmark; AIS software with the app mark, the white Λ at 24 px (guide, Logos: App marks).\nwithDefaults(defineProps<{ brand?: 'rosepetal' | 'ais' }>(), { brand: 'rosepetal' })\n</script>\n\n<template>\n  <img v-if=\"brand === 'ais'\" :src=\"aisMark\" alt=\"AIS Group\" class=\"h-6 w-auto shrink-0\">\n  <img v-else :src=\"rosepetal\" alt=\"Rosepetal\" class=\"h-6 w-auto object-contain\">\n</template>\n"
+    },
+    {
+      "path": "components/blocks/ais-mark-white.svg",
+      "type": "registry:block",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0.006 -0.015 110.379 145.945\" fill=\"#FFFFFF\" role=\"img\" aria-label=\"AIS\"><path d=\"m110.17 142.74-42.43-139.55a4.09 4.09 0 0 0 -4.34-3.19h-16.4a4.08 4.08 0 0 0 -4.34 3.19l-42.44 139.55q-.91 3.19 2.05 3.19h11.4q2.51 0 3.42-3.19l10.51-32.6 3.65-14.14 23.49-78.9h.91l23.49 78.9 3.65 14.13 10.5 32.6c.46 2.13 1.52 3.19 3.2 3.19h11.63c1.97.01 2.66-1.05 2.05-3.18z\"/></svg>\n"
     },
     {
       "path": "components/blocks/rosepetal.svg",
