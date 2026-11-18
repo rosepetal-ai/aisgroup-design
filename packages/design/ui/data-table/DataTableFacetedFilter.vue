@@ -11,31 +11,37 @@ import { Popover, PopoverContent, PopoverTrigger } from '../popover'
 import { Separator } from '../separator'
 import type { DataTableFeatures } from '.'
 
-// A filter in a data table's toolbar, as in shadcn's tasks example: a dashed button that opens a searchable list of
-// options with their row counts; the chosen options show as chips on the button. The column filters with 'arrHas'.
+// A filter in a data table's toolbar, as in shadcn's tasks example: a dashed button that opens the list of options
+// with their row counts (searchable when it is long); the chosen options show as chips on the button. With a
+// `column` it filters that column ('arrHas'); without one it is a v-model of the chosen values, with `facets` counts.
+defineOptions({ inheritAttrs: false })
 const props = defineProps<{
   column?: Column<DataTableFeatures, TData, unknown>
+  modelValue?: string[]
+  facets?: Map<string, number>
   title: string
   options: { label: string, value: string, icon?: Component }[]
   labels?: { selected?: string, empty?: string, clear?: string }
   class?: HTMLAttributes['class']
 }>()
+const emit = defineEmits<{ 'update:modelValue': [values: string[]] }>()
 
 const text = computed(() => ({ selected: '{count} selected', empty: 'No results', clear: 'Clear filter', ...props.labels }))
-const facets = computed(() => props.column?.getFacetedUniqueValues())
-const selected = computed(() => (props.column?.getFilterValue() as string[] | undefined) ?? [])
+const facets = computed(() => props.column?.getFacetedUniqueValues() ?? props.facets)
+const selected = computed(() => (props.column ? props.column.getFilterValue() as string[] | undefined : props.modelValue) ?? [])
 const chosen = computed(() => props.options.filter(option => selected.value.includes(option.value)))
 
 function update(values: unknown) {
   const list = (values as string[]) ?? []
   props.column?.setFilterValue(list.length ? list : undefined)
+  emit('update:modelValue', list)
 }
 </script>
 
 <template>
   <Popover>
     <PopoverTrigger as-child>
-      <Button data-slot="data-table-faceted-filter" variant="outline" :class="cn('border-dashed bg-card', props.class)">
+      <Button data-slot="data-table-faceted-filter" variant="outline" v-bind="$attrs" :class="cn('border-dashed bg-card', props.class)">
         <CirclePlusIcon data-icon="inline-start" />{{ title }}
         <template v-if="chosen.length">
           <Separator orientation="vertical" class="mx-0.5 data-[orientation=vertical]:h-4" />
@@ -51,7 +57,7 @@ function update(values: unknown) {
     </PopoverTrigger>
     <PopoverContent class="w-56 p-0" align="start">
       <Command multiple :model-value="selected" @update:model-value="update">
-        <CommandInput :placeholder="title" />
+        <CommandInput v-if="options.length > 7" :placeholder="title" />
         <CommandList>
           <CommandEmpty>{{ text.empty }}</CommandEmpty>
           <CommandGroup>
