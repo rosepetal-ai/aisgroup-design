@@ -1,0 +1,86 @@
+---
+title: Pàgines
+rules:
+  - 'Cada pàgina és un PageLayout: el seu títol, com a molt una línia atenuada i les accions a la dreta. Res d’icona en una tessel·la, salutació, badge ni recompte al costat del títol.'
+  - 'Una secció és una capçalera (h2, com a molt una línia atenuada, accions a la dreta) i el seu contingut. Les seccions se separen amb espai, mai amb una línia ni amb una caixa al voltant.'
+  - 'Un sol nivell de superfície: la pàgina i, a sobre, les cards. Mai una card ni una caixa amb vora dins d’una card, i mai una taula en una caixa amb vora pròpia.'
+  - 'El contingut que falta és un Empty al seu lloc, tan alt com el contingut que substitueix. Un missatge de manca de permís o d’error mai és una caixa discontínua curta amb la pàgina en blanc a sota.'
+  - 'Un tauler mostra les xifres com una fila d’etiqueta sobre valor i dona a cada tema una Card amb contingut real. Mai una graella de cards de xifres idèntiques.'
+  - 'Un rol o una categoria és text normal, un estat és una icona amb el seu to i la paraula, i Badge és per a recomptes i etiquetes neutres curtes. Res d’etiquetes de colors ni color decoratiu.'
+  - 'Majúscula només inicial, sense majúscules ni espaiat entre lletres. Res d’avanttítols, eslògans, notes d’ajuda al peu, subtítols que repeteixen el títol, etiquetes secundàries ni llistes unides amb punts volats.'
+  - 'Comença per l’exemple del component en aquesta guia: la pantalla s’hi ha d’assemblar.'
+---
+
+## Fes-ho simple en una pantalla
+
+- Un propòsit per pàgina i la maquetació més senzilla que el serveixi.
+- Comença per l’exemple del component en aquesta guia i, per a una pàgina sencera, pels exemples de [disseny de pàgina](/ca/components/page-layout/): llista, detall, configuració, tauler, buida, sense permís i error. La teva pantalla s’hi ha d’assemblar.
+- Majúscula només inicial en títols, etiquetes i botons. Res d’etiquetes en majúscules ni amb espaiat entre lletres.
+- Res d’avanttítols, eslògans, notes d’ajuda al peu, subtítols que repeteixen el títol ni etiquetes secundàries. Si una pantalla només s’entén amb ells, arregla la maquetació.
+- Els elements d’una línia s’uneixen amb comes o es mostren com a llista, mai amb punts volats.
+- El color marca un estat o un color que ha triat l’usuari, sempre amb paraules. Res de fons tintats, franges ni vores d’accent.
+
+## Capçalera de pàgina
+
+PageLayout dona a cada pàgina la seva capçalera: el títol, com a molt una línia atenuada i les accions a la dreta.
+
+- El títol anomena la pàgina («Usuaris», «Tauler»). Una pàgina de detall porta com a títol el nom del que mostra («Laura Vidal»).
+- La línia atenuada dona una dada («8 persones poden entrar»), no una descripció de la pàgina. Si no hi ha dada, no s’hi posa.
+- Mai una icona en una tessel·la, una salutació, un rol, un badge ni un recompte al costat del títol.
+
+## Seccions
+
+El contingut comença sota la capçalera i fa servir l’amplada de la pàgina. Les seccions se succeeixen amb espai entre elles (`flex flex-col gap-10`), mai amb una línia ni amb una caixa al voltant.
+
+- La capçalera d’una secció és el patró de [«Compondre, no reestilitzar»](/ca/using-components/#compondre-no-reestilitzar): h2, com a molt una línia atenuada i les accions a la dreta.
+- Un resum amb la seva acció va en una columna lateral a la dreta: `grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]`.
+- Les seccions una al costat de l’altra són Cards en `grid gap-4 xl:grid-cols-2`, tan altes com la seva fila ([Ús dels components](/ca/using-components/)).
+- Les dades són una graella d’etiqueta sobre valor; les llistes són files dividides per línies (`divide-y border-y`), les úniques línies d’una pàgina.
+
+## Un sol nivell de superfície
+
+La pàgina i, a sobre, les cards. Les cards són per a seccions una al costat de l’altra, entitats on es fa clic, un resum i panells flotants.
+
+- Mai una card ni una caixa amb vora dins d’una card. Dins d’una card, files dividides per línies o una graella d’etiqueta sobre valor.
+- Una taula va directament sobre la pàgina, sota la seva barra de filtres, o a la Card de la seva secció. Mai en una caixa amb vora pròpia.
+- Sobre la pàgina grisa, els camps de la barra de filtres porten `bg-card`.
+
+## Llistes i taules
+
+La pàgina de llista és la barra de filtres (cerca i filtres), la DataTable a sota i les pàgines numerades sota la taula, tot directament sobre la pàgina. Un rol o una categoria és text normal, un estat és una icona amb el seu to i la paraula, i les accions de la fila van darrere del botó de més.
+
+## Buit, sense permís i errors
+
+| Cas | Fes servir |
+| --- | --- |
+| Encara res, o sense resultats | Un Empty al lloc de la llista, tan alt com el contingut que substitueix, amb la sortida |
+| Sense permís per a la pàgina | Un Empty que omple el contingut: el motiu i qui pot ajudar. El títol es queda. |
+| La pàgina no s’ha pogut carregar | Un Empty que omple el contingut: què ha fallat, i Torna-ho a provar |
+| Una secció no s’ha pogut carregar | Un Alert amb Torna-ho a provar en aquesta secció; la resta de la pàgina es queda |
+
+La vora discontínua és només de l’Empty. Mai una caixa discontínua curta amb una línia de text i la pàgina en blanc a sota.
+
+## Taulers
+
+- El títol és «Tauler» o el nom que el producte li dona. Sense salutació i sense rol.
+- Primer van les xifres, com una fila d’etiqueta sobre valor a la pàgina.
+- Després, una Card per tema, amb el seu títol, una línia i la seva acció, i contingut real: files, una barra amb els seus números o un gràfic. Les Cards una al costat de l’altra comparteixen l’alçada de la seva fila.
+- Mai una graella de cards de xifres idèntiques, una xifra sola en una caixa ni una nota al peu sobre com personalitzar la pàgina.
+
+## Senyals d’una interfície generada
+
+Una pantalla que mostra alguna d’aquestes no està acabada:
+
+- Una icona en una tessel·la tintada al costat del títol de la pàgina o d’una secció.
+- Una salutació com a títol de la pàgina («Hola, Owner»), o una etiqueta de rol al costat.
+- Una graella de cards idèntiques, cadascuna amb una icona, una etiqueta i un número gran.
+- Una card dins d’una altra, o una taula en una caixa amb vora pròpia.
+- Una caixa discontínua amb una línia de text i la pàgina en blanc a sota.
+- Etiquetes de colors per a rols o categories que no són un estat.
+- Elements units amb punts volats.
+- Etiquetes petites en majúscules i amb espaiat entre lletres damunt de les seccions.
+- Una nota d’ajuda al peu del contingut que explica la pantalla.
+- Un subtítol que repeteix el títol, o una descripció sota cada secció.
+- Color decoratiu: fons tintats, franges de color, vores d’accent.
+
+`ui-contract.mjs audit` en troba la majoria (la família page-composition i les regles caps i separator). Mira la pantalla en marxa per a la resta.
