@@ -12,25 +12,36 @@ Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@aisgro
 - **Badge** (`badge`): Counts and short neutral labels. Status is an icon and a word, not a badge. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/badge/`
 - **Breadcrumb** (`breadcrumb`): Where a page sits. Every crumb navigates to its own page. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/breadcrumb/`
 - **Button** (`button`): Primary, secondary, outline, ghost, destructive and link, in every size. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/button/`
+- **Calendar** (`calendar`): One date from a month view, in the locale's language and first weekday. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/calendar/`
 - **Card** (`card`): Only for clickable entities, summaries and floating panels. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/card/`
 - **Carousel** (`carousel`): A row of items that moves one at a time. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/carousel/`
+- **Chart** (`chart`): Area, bar, line and donut charts on Unovis, in the data colours, with tooltips and a legend. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/chart/`
 - **Checkbox** (`checkbox`): One option on or off, or several options from a list. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/checkbox/`
 - **Collapsible** (`collapsible`): A section that opens and closes. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/collapsible/`
 - **Combobox** (`combobox`): Choosing from a long list, with search. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/combobox/`
+- **Command** (`command`): A searchable list of options or actions, inline or as a palette. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/command/`
+- **Context menu** (`context-menu`): An object's actions on right-click, as well as on a visible button. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/context-menu/`
+- **Data table** (`data-table`): A table from columns and data: sorting, search, filters, pages, column visibility and selection. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/data-table/`
+- **Date picker** (`date-picker`): A date or a range in a button with the formatted date, and a calendar in a popover. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/date-picker/`
 - **Dialog** (`dialog`): Header band, body and full-width footer buttons: Cancel first, the action second. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/dialog/`
 - **Dropdown menu** (`dropdown-menu`): Row actions behind the more button, with named items. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/dropdown-menu/`
 - **Empty** (`empty`): An empty container, with a clear action. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/empty/`
 - **Field** (`field`): Label above the control, description and error under it. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/field/`
+- **File upload** (`file-upload`): A dashed drop zone with a button, and the list of files with progress and remove. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/file-upload/`
 - **Input** (`input`): Text, numbers and search, with units as input group addons. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/input/`
 - **Input group** (`input-group`): A field with icons, text or buttons inside. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/input-group/`
 - **Item** (`item`): Clickable entities: datasets, models, images. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/item/`
 - **Kbd** (`kbd`): Keyboard shortcuts. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/kbd/`
 - **Label** (`label`): The name of a field. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/label/`
+- **Multi select** (`multi-select`): Several options from a list, shown as tags in the field. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/multi-select/`
 - **Navigation menu** (`navigation-menu`): A menu of links, with dropdown groups. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/navigation-menu/`
+- **Number field** (`number-field`): A number with minus and plus buttons, formatted for the locale. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/number-field/`
 - **Pagination** (`pagination`): Numbered pages under a table. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/pagination/`
+- **Pin input** (`pin-input`): A short code, one character per box. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/pin-input/`
 - **Popover** (`popover`): A panel anchored to its control. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/popover/`
 - **Progress** (`progress`): How far a task has gone. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/progress/`
 - **Radio group** (`radio-group`): A choice between a few modes, as choice cards. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/radio-group/`
+- **Range calendar** (`range-calendar`): A start and an end date across one or more months. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/range-calendar/`
 - **Scroll area** (`scroll-area`): A region with its own scroll. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/scroll-area/`
 - **Select** (`select`): Choosing from a short list. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/select/`
 - **Separator** (`separator`): Between rows and in toolbars only. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/separator/`
@@ -40,13 +51,17 @@ Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@aisgro
 - **Slider** (`slider`): A value in a range. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/slider/`
 - **Toast** (`sonner`): Short feedback after an action. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/sonner/`
 - **Spinner** (`spinner`): Something working: in its button, or filling an empty area. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/spinner/`
+- **Stepper** (`stepper`): The steps of a task in order, with the current one marked. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/stepper/`
 - **Switch** (`switch`): A setting on or off, in a switch row. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/switch/`
 - **Table** (`table`): Rows of facts with sortable headers. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/table/`
 - **Tabs** (`tabs`): Views of the same thing. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/tabs/`
+- **Tags input** (`tags-input`): Free values typed as tags. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/tags-input/`
 - **Textarea** (`textarea`): Longer text. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/textarea/`
+- **Timeline** (`timeline`): Events in time order, each with its marker, title, details and time. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/timeline/`
 - **Toggle** (`toggle`): One button that stays on or off. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/toggle/`
 - **Toggle group** (`toggle-group`): One tool or option out of a few. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/toggle-group/`
 - **Tooltip** (`tooltip`): The name of an icon-only button. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/tooltip/`
+- **Tree** (`tree`): Nested items as list rows that open and close, with optional checkboxes. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/tree/`
 
 ## Blocks
 

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "tree",
+  "type": "registry:ui",
+  "title": "Tree",
+  "description": "Nested items as list rows that open and close, with optional checkboxes.",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core",
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/checkbox.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/tree/Tree.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { TreeRootEmits, TreeRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TreeRoot, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\n// reka-ui's tree: arrow keys move and open, Enter or Space selects, type-ahead finds. The slot gets the visible rows\n// (flattenItems) to render as TreeItem. For checkboxes: `multiple`, `propagate-select` (a parent selects its children)\n// and `bubble-select` (a parent shows its children's state).\nconst props = defineProps<TreeRootProps<any, any, boolean> & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<TreeRootEmits<any, boolean>>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <TreeRoot\n    v-slot=\"slotProps\"\n    data-slot=\"tree\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex flex-col gap-0.5 text-sm select-none', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </TreeRoot>\n</template>\n"
+    },
+    {
+      "path": "components/ui/tree/TreeItem.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { TreeItemEmits, TreeItemProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TreeItem, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Checkbox } from '@/components/ui/checkbox'\n\n// One row of a tree, as a list row: indented by its level, a chevron when it has children, the selected row in muted\n// and medium weight. `checkbox` shows its selection as a checkbox (with Tree's multiple, propagate-select and bubble-select).\nconst props = defineProps<TreeItemProps<any> & {\n  hasChildren?: boolean\n  checkbox?: boolean\n  class?: HTMLAttributes['class']\n}>()\nconst emits = defineEmits<TreeItemEmits<any>>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'hasChildren', 'checkbox')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <TreeItem\n    v-slot=\"slotProps\"\n    data-slot=\"tree-item\"\n    v-bind=\"forwarded\"\n    :style=\"{ paddingLeft: `calc(${level - 1} * 1.25rem + 0.5rem)` }\"\n    :class=\"cn(\n      'flex h-9 cursor-pointer items-center gap-2 rounded-md pr-2 outline-none transition-colors hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/15 data-[selected]:bg-muted data-[selected]:font-medium data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg:not([class*=size-])]:size-4 [&_svg]:shrink-0',\n      checkbox && 'data-[selected]:bg-transparent data-[selected]:font-normal hover:data-[selected]:bg-muted',\n      props.class,\n    )\"\n  >\n    <ChevronRightIcon v-if=\"hasChildren\" class=\"text-muted-foreground transition-transform\" :class=\"slotProps.isExpanded && 'rotate-90'\" />\n    <span v-else class=\"size-4 shrink-0\" />\n    <Checkbox\n      v-if=\"checkbox\"\n      :model-value=\"slotProps.isIndeterminate ? 'indeterminate' : slotProps.isSelected\"\n      tabindex=\"-1\"\n      @click.stop\n      @update:model-value=\"slotProps.handleSelect\"\n    />\n    <slot v-bind=\"slotProps\" />\n  </TreeItem>\n</template>\n"
+    },
+    {
+      "path": "components/ui/tree/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Tree } from './Tree.vue'\nexport { default as TreeItem } from './TreeItem.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/tree/Tree.vue"
+  }
+}

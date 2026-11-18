@@ -449,6 +449,156 @@
         "es": "Una consola de registros. Cada aplicación aporta sus líneas.",
         "ca": "Una consola de registres. Cada aplicació aporta les seves línies."
       }
+    },
+    "calendar": {
+      "name": {
+        "es": "Calendario",
+        "ca": "Calendari"
+      },
+      "description": {
+        "es": "Un día en la vista de un mes, en el idioma y con el primer día de la semana de la configuración regional.",
+        "ca": "Un dia a la vista d’un mes, en l’idioma i amb el primer dia de la setmana de la configuració regional."
+      }
+    },
+    "chart": {
+      "name": {
+        "es": "Gráfico",
+        "ca": "Gràfic"
+      },
+      "description": {
+        "es": "Gráficos de área, barras, líneas y anillo sobre Unovis, en los colores de datos, con ayuda emergente y leyenda.",
+        "ca": "Gràfics d’àrea, barres, línies i anell sobre Unovis, en els colors de dades, amb ajuda emergent i llegenda."
+      }
+    },
+    "command": {
+      "name": {
+        "es": "Comando",
+        "ca": "Ordre"
+      },
+      "description": {
+        "es": "Una lista de opciones o acciones con búsqueda, integrada o como paleta.",
+        "ca": "Una llista d’opcions o accions amb cerca, integrada o com a paleta."
+      }
+    },
+    "context-menu": {
+      "name": {
+        "es": "Menú contextual",
+        "ca": "Menú contextual"
+      },
+      "description": {
+        "es": "Las acciones de un objeto al hacer clic derecho, además de en un botón visible.",
+        "ca": "Les accions d’un objecte en fer clic dret, a més d’en un botó visible."
+      }
+    },
+    "data-table": {
+      "name": {
+        "es": "Tabla de datos",
+        "ca": "Taula de dades"
+      },
+      "description": {
+        "es": "Una tabla a partir de columnas y datos: orden, búsqueda, filtros, páginas, columnas visibles y selección.",
+        "ca": "Una taula a partir de columnes i dades: ordre, cerca, filtres, pàgines, columnes visibles i selecció."
+      }
+    },
+    "date-picker": {
+      "name": {
+        "es": "Selector de fecha",
+        "ca": "Selector de data"
+      },
+      "description": {
+        "es": "Una fecha o un intervalo en un botón con la fecha formateada, y un calendario en un panel emergente.",
+        "ca": "Una data o un interval en un botó amb la data formatada, i un calendari en un panell emergent."
+      }
+    },
+    "file-upload": {
+      "name": {
+        "es": "Subida de archivos",
+        "ca": "Pujada de fitxers"
+      },
+      "description": {
+        "es": "Una zona discontinua para soltar archivos, con su botón, y la lista de archivos con el progreso y la opción de quitarlos.",
+        "ca": "Una zona discontínua per deixar anar fitxers, amb el seu botó, i la llista de fitxers amb el progrés i l’opció de treure’ls."
+      }
+    },
+    "multi-select": {
+      "name": {
+        "es": "Selección múltiple",
+        "ca": "Selecció múltiple"
+      },
+      "description": {
+        "es": "Varias opciones de una lista, mostradas como etiquetas en el campo.",
+        "ca": "Diverses opcions d’una llista, mostrades com a etiquetes al camp."
+      }
+    },
+    "number-field": {
+      "name": {
+        "es": "Campo numérico",
+        "ca": "Camp numèric"
+      },
+      "description": {
+        "es": "Un número con botones de restar y sumar, con el formato de la configuración regional.",
+        "ca": "Un número amb botons de restar i sumar, amb el format de la configuració regional."
+      }
+    },
+    "pin-input": {
+      "name": {
+        "es": "Código",
+        "ca": "Codi"
+      },
+      "description": {
+        "es": "Un código corto, un carácter por casilla.",
+        "ca": "Un codi curt, un caràcter per casella."
+      }
+    },
+    "range-calendar": {
+      "name": {
+        "es": "Calendario de intervalo",
+        "ca": "Calendari d’interval"
+      },
+      "description": {
+        "es": "Una fecha de inicio y otra de fin en uno o varios meses.",
+        "ca": "Una data d’inici i una de final en un o diversos mesos."
+      }
+    },
+    "stepper": {
+      "name": {
+        "es": "Pasos",
+        "ca": "Passos"
+      },
+      "description": {
+        "es": "Los pasos de una tarea en orden, con el actual marcado.",
+        "ca": "Els passos d’una tasca en ordre, amb l’actual marcat."
+      }
+    },
+    "tags-input": {
+      "name": {
+        "es": "Campo de etiquetas",
+        "ca": "Camp d’etiquetes"
+      },
+      "description": {
+        "es": "Valores libres escritos como etiquetas.",
+        "ca": "Valors lliures escrits com a etiquetes."
+      }
+    },
+    "timeline": {
+      "name": {
+        "es": "Cronología",
+        "ca": "Cronologia"
+      },
+      "description": {
+        "es": "Sucesos en orden temporal, cada uno con su marcador, título, detalles y hora.",
+        "ca": "Esdeveniments en ordre temporal, cadascun amb el seu marcador, títol, detalls i hora."
+      }
+    },
+    "tree": {
+      "name": {
+        "es": "Árbol",
+        "ca": "Arbre"
+      },
+      "description": {
+        "es": "Elementos anidados como filas de lista que se abren y se cierran, con casillas opcionales.",
+        "ca": "Elements niats com a files de llista que s’obren i es tanquen, amb caselles opcionals."
+      }
     }
   },
   "examples": {
@@ -1060,6 +1210,246 @@
       "about": {
         "es": "De borde a borde, para tareas a pantalla completa como el etiquetado o el editor: separador tras el logotipo, ruta de navegación en lugar de menú y una salida.",
         "ca": "De vora a vora, per a tasques a pantalla completa com l’etiquetatge o l’editor: separador darrere del logotip, ruta de navegació en lloc de menú i una sortida."
+      }
+    },
+    "calendar/01-single": {
+      "name": {
+        "es": "Una fecha",
+        "ca": "Una data"
+      },
+      "about": {
+        "es": "Un mes para elegir una fecha. Hoy aparece marcado; las semanas empiezan el primer día de la configuración regional.",
+        "ca": "Un mes per triar una data. Avui apareix marcat; les setmanes comencen el primer dia de la configuració regional."
+      }
+    },
+    "chart/01-bar": {
+      "name": {
+        "es": "Barras",
+        "ca": "Barres"
+      },
+      "about": {
+        "es": "Columnas para pocos periodos discretos: una serie en el primer color de gráfico, extremos rectos y 24 px de ancho como máximo; el título la nombra, así que no hay leyenda. Al pasar el cursor se ve el valor.",
+        "ca": "Columnes per a pocs períodes discrets: una sèrie en el primer color de gràfic, extrems rectes i 24 px d’amplada com a màxim; el títol l’anomena, així que no hi ha llegenda. En passar el cursor es veu el valor."
+      }
+    },
+    "chart/02-line": {
+      "name": {
+        "es": "Líneas",
+        "ca": "Línies"
+      },
+      "about": {
+        "es": "Cambio en el tiempo: líneas de 2 px con su área al 10 %, una leyenda encima para dos series, una cruz con todos los valores y los mismos datos como tabla.",
+        "ca": "Canvi en el temps: línies de 2 px amb la seva àrea al 10 %, una llegenda a sobre per a dues sèries, una creu amb tots els valors i les mateixes dades com a taula."
+      }
+    },
+    "chart/03-donut": {
+      "name": {
+        "es": "Anillo",
+        "ca": "Anell"
+      },
+      "about": {
+        "es": "Parte de un todo, solo con dos o tres partes: un anillo en los colores de la división del conjunto de datos, el total en el centro y una leyenda con cada proporción.",
+        "ca": "Part d’un tot, només amb dues o tres parts: un anell en els colors de la divisió del conjunt de dades, el total al centre i una llegenda amb cada proporció."
+      }
+    },
+    "command/01-listbox": {
+      "name": {
+        "es": "Lista con búsqueda",
+        "ca": "Llista amb cerca"
+      },
+      "about": {
+        "es": "Una lista con búsqueda: escribe para filtrar los grupos, usa las flechas para moverte e Intro para elegir; el valor elegido aparece marcado.",
+        "ca": "Una llista amb cerca: escriu per filtrar els grups, fes servir les fletxes per moure’t i Retorn per triar; el valor triat apareix marcat."
+      }
+    },
+    "command/02-palette": {
+      "name": {
+        "es": "Paleta",
+        "ca": "Paleta"
+      },
+      "about": {
+        "es": "Una paleta de comandos en un diálogo, que se abre con su botón o con Ctrl K (Cmd K en un Mac): busca y ejecuta con Intro.",
+        "ca": "Una paleta d’ordres en un diàleg, que s’obre amb el seu botó o amb Ctrl K (Cmd K en un Mac): cerca i executa amb Retorn."
+      }
+    },
+    "context-menu/01-image": {
+      "name": {
+        "es": "Imagen",
+        "ca": "Imatge"
+      },
+      "about": {
+        "es": "El clic derecho o una pulsación larga abre las acciones de un objeto. Mantenlas también en un botón visible: nunca solo aquí.",
+        "ca": "El clic dret o una pulsació llarga obre les accions d’un objecte. Mantén-les també en un botó visible: mai només aquí."
+      }
+    },
+    "data-table/01-models": {
+      "name": {
+        "es": "Modelos",
+        "ca": "Models"
+      },
+      "about": {
+        "es": "Columnas y datos de entrada: cabeceras ordenables, una búsqueda y un filtro de estado en la barra de herramientas, columnas visibles, selección de filas y páginas numeradas. Las columnas numéricas se alinean a la derecha.",
+        "ca": "Columnes i dades d’entrada: capçaleres ordenables, una cerca i un filtre d’estat a la barra d’eines, columnes visibles, selecció de files i pàgines numerades. Les columnes numèriques s’alineen a la dreta."
+      }
+    },
+    "data-table/02-loading": {
+      "name": {
+        "es": "Cargando",
+        "ca": "Carregant"
+      },
+      "about": {
+        "es": "Mientras se cargan las filas, filas Skeleton con la forma de la tabla; la cabecera se mantiene.",
+        "ca": "Mentre es carreguen les files, files Skeleton amb la forma de la taula; la capçalera es manté."
+      }
+    },
+    "data-table/03-empty": {
+      "name": {
+        "es": "Vacía",
+        "ca": "Buida"
+      },
+      "about": {
+        "es": "Sin filas: el espacio vacío explica por qué y ofrece la salida.",
+        "ca": "Sense files: l’espai buit explica per què i ofereix la sortida."
+      }
+    },
+    "date-picker/01-single": {
+      "name": {
+        "es": "Una fecha",
+        "ca": "Una data"
+      },
+      "about": {
+        "es": "Un botón de contorno con la fecha escrita según la configuración regional; el calendario se abre debajo y se cierra al elegir.",
+        "ca": "Un botó de contorn amb la data escrita segons la configuració regional; el calendari s’obre a sota i es tanca en triar."
+      }
+    },
+    "date-picker/02-range": {
+      "name": {
+        "es": "Intervalo",
+        "ca": "Interval"
+      },
+      "about": {
+        "es": "Un periodo, como filtro encima de una tabla: los dos extremos en un botón y dos meses uno al lado del otro.",
+        "ca": "Un període, com a filtre damunt d’una taula: els dos extrems en un botó i dos mesos l’un al costat de l’altre."
+      }
+    },
+    "date-picker/03-locale": {
+      "name": {
+        "es": "Configuración regional",
+        "ca": "Configuració regional"
+      },
+      "about": {
+        "es": "La configuración regional fija el idioma, el formato de fecha y el primer día de la semana.",
+        "ca": "La configuració regional fixa l’idioma, el format de data i el primer dia de la setmana."
+      }
+    },
+    "file-upload/01-images": {
+      "name": {
+        "es": "Imágenes",
+        "ca": "Imatges"
+      },
+      "about": {
+        "es": "Suelta imágenes en la zona discontinua o elígelas; la lista muestra cada archivo con su progreso, uno rechazado con el motivo, y un botón para quitarlo.",
+        "ca": "Deixa anar imatges a la zona discontínua o tria-les; la llista mostra cada fitxer amb el seu progrés, un de rebutjat amb el motiu, i un botó per treure’l."
+      }
+    },
+    "multi-select/01-datasets": {
+      "name": {
+        "es": "Conjuntos de datos",
+        "ca": "Conjunts de dades"
+      },
+      "about": {
+        "es": "Varias opciones de una lista, mostradas como etiquetas: escribe para buscar y haz clic o pulsa Intro para añadir.",
+        "ca": "Diverses opcions d’una llista, mostrades com a etiquetes: escriu per cercar i fes clic o prem Retorn per afegir."
+      }
+    },
+    "number-field/01-quantity": {
+      "name": {
+        "es": "Cantidad",
+        "ca": "Quantitat"
+      },
+      "about": {
+        "es": "Un número entero dentro de un intervalo, con botones de restar y sumar; las flechas del teclado y la rueda también lo cambian.",
+        "ca": "Un nombre enter dins d’un interval, amb botons de restar i sumar; les fletxes del teclat i la roda també el canvien."
+      }
+    },
+    "number-field/02-formats": {
+      "name": {
+        "es": "Formatos",
+        "ca": "Formats"
+      },
+      "about": {
+        "es": "El formato viene de la configuración regional: un porcentaje y un precio en euros escrito a la española.",
+        "ca": "El format ve de la configuració regional: un percentatge i un preu en euros escrit a l’espanyola."
+      }
+    },
+    "pin-input/01-code": {
+      "name": {
+        "es": "Código",
+        "ca": "Codi"
+      },
+      "about": {
+        "es": "Un código corto, un dígito por casilla: al escribir se pasa a la siguiente y al pegar se rellenan todas.",
+        "ca": "Un codi curt, un dígit per casella: en escriure es passa a la següent i en enganxar s’emplenen totes."
+      }
+    },
+    "range-calendar/01-two-months": {
+      "name": {
+        "es": "Dos meses",
+        "ca": "Dos mesos"
+      },
+      "about": {
+        "es": "Una fecha de inicio y otra de fin en dos meses; los días intermedios llevan el relleno suave.",
+        "ca": "Una data d’inici i una de final en dos mesos; els dies intermedis porten l’emplenament suau."
+      }
+    },
+    "stepper/01-wizard": {
+      "name": {
+        "es": "Asistente",
+        "ca": "Assistent"
+      },
+      "about": {
+        "es": "Los pasos de una tarea en orden: los hechos muestran una marca de verificación y el actual va relleno; Atrás y Siguiente permiten recorrerlos.",
+        "ca": "Els passos d’una tasca en ordre: els fets mostren una marca de verificació i l’actual va emplenat; Enrere i Següent permeten recórrer-los."
+      }
+    },
+    "tags-input/01-keywords": {
+      "name": {
+        "es": "Palabras clave",
+        "ca": "Paraules clau"
+      },
+      "about": {
+        "es": "Valores libres como etiquetas: Intro añade uno; la tecla de retroceso o la cruz lo quitan.",
+        "ca": "Valors lliures com a etiquetes: Retorn n’afegeix un; la tecla de retrocés o la creu el treuen."
+      }
+    },
+    "timeline/01-history": {
+      "name": {
+        "es": "Historial",
+        "ca": "Historial"
+      },
+      "about": {
+        "es": "El historial de un objeto, de más reciente a más antiguo: cada suceso tiene su marcador, título, detalles y hora.",
+        "ca": "L’historial d’un objecte, del més recent al més antic: cada esdeveniment té el seu marcador, títol, detalls i hora."
+      }
+    },
+    "tree/01-folders": {
+      "name": {
+        "es": "Carpetas",
+        "ca": "Carpetes"
+      },
+      "about": {
+        "es": "Carpetas anidadas como filas de lista: un clic o Intro selecciona y abre; las flechas mueven, abren y cierran.",
+        "ca": "Carpetes niades com a files de llista: un clic o Retorn selecciona i obre; les fletxes mouen, obren i tanquen."
+      }
+    },
+    "tree/02-checkboxes": {
+      "name": {
+        "es": "Casillas",
+        "ca": "Caselles"
+      },
+      "about": {
+        "es": "Elegir varias ramas: la casilla de un elemento padre sigue a sus hijos, y marcarla los marca todos.",
+        "ca": "Triar diverses branques: la casella d’un element pare segueix els seus fills, i marcar-la els marca tots."
       }
     }
   }
