@@ -449,6 +449,16 @@
         "es": "Una consola de registros. Cada aplicación aporta sus líneas.",
         "ca": "Una consola de registres. Cada aplicació aporta les seves línies."
       }
+    },
+    "page-layout": {
+      "name": {
+        "es": "Diseño de página",
+        "ca": "Disseny de pàgina"
+      },
+      "description": {
+        "es": "Una página bajo la barra superior: su ancho, título y acciones, y un menú lateral opcional que se queda quieto mientras el contenido se desplaza.",
+        "ca": "Una pàgina sota la barra superior: la seva amplada, títol i accions, i un menú lateral opcional que es queda quiet mentre el contingut es desplaça."
+      }
     }
   },
   "examples": {
@@ -1060,6 +1070,26 @@
       "about": {
         "es": "De borde a borde, para tareas a pantalla completa como el etiquetado o el editor: separador tras el logotipo, ruta de navegación en lugar de menú y una salida.",
         "ca": "De vora a vora, per a tasques a pantalla completa com l’etiquetatge o l’editor: separador darrere del logotip, ruta de navegació en lloc de menú i una sortida."
+      }
+    },
+    "page-layout/01-page": {
+      "name": {
+        "es": "Página",
+        "ca": "Pàgina"
+      },
+      "about": {
+        "es": "Una página bajo la barra superior: el ancho de página, su título, sus acciones y sus secciones. El área de contenido de la aplicación es la que se desplaza.",
+        "ca": "Una pàgina sota la barra superior: l’amplada de pàgina, el seu títol, les seves accions i les seves seccions. L’àrea de contingut de l’aplicació és la que es desplaça."
+      }
+    },
+    "page-layout/02-with-nav": {
+      "name": {
+        "es": "Con menú lateral",
+        "ca": "Amb menú lateral"
+      },
+      "about": {
+        "es": "Con un menú lateral, como Ajustes: el título y el menú se quedan quietos y solo se desplaza el contenido; por debajo de 1024 px el menú es una fila encima.",
+        "ca": "Amb un menú lateral, com Configuració: el títol i el menú es queden quiets i només es desplaça el contingut; per sota de 1024 px el menú és una fila a sobre."
       }
     }
   }

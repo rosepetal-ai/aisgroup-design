@@ -22,14 +22,21 @@ const TEMPLATE = [
   ['heading-weight', /<(?:h[1-6]|[A-Z][A-Za-z]*Title|TableHead|Label|FieldLabel|FieldLegend)\b[^>]*\bclass="[^"]*\bfont-(?:bold|semibold|extrabold)\b/g, 'Headings and labels are font-medium; never bold or semibold.'],
   ['tinted-status', /\bbg-(?:success|destructive|warning|info)\/\d+\b/g, 'Status is a toned icon and the word, not a tinted background.'],
   ['veil', /\babsolute\b[^"]*\binset-0\b[^"]*\bbg-(?:card|background|white|black)\/\d+/g, 'No veil over content: Skeleton, Spinner in the working button, or Empty with Spinner.'],
-  ['pill-tabs', /<TabsList\b(?![^>]*variant="line")[^>]*>/g, 'Tabs are always TabsList variant="line".'],
+  ['pill-tabs', /<TabsList\b(?![^>]*variant="(?:line|nav)")[^>]*>/g, 'Tabs are TabsList variant="line", or variant="nav" for a side menu.'],
+  ['modal-button-icon', /<Button\b[^>]*\bsize="modal"[^>]*>(?:(?!<\/Button>)[\s\S])*?<[A-Z]\w*Icon\b/g, 'Dialog footer buttons carry text only; a Spinner inside while the action runs.'],
+  ['outside-blocked', /@(?:interact|pointer-down)-outside(?:\.prevent\b|="(?:\(?\w*(?::\s*\w+)?\)?\s*=>\s*)?\w+\.preventDefault\(\)")/g, 'A click outside closes a dialog; block it only while its action runs: if (busy) e.preventDefault().'],
+  ['sign-out', /<DropdownMenuItem\b[^>]*>(?:(?!<\/DropdownMenuItem>)[\s\S])*?\bSign out\b/g, 'The account menu says Log out.'],
+  ['row-items-start', /\bgrid\b[^"]*\bitems-start\b[^"]*\b(?:md|lg|xl|2xl):grid-cols-2\b|\bgrid\b[^"]*\b(?:md|lg|xl|2xl):grid-cols-2\b[^"]*\bitems-start\b/g, 'Check: Cards side by side share the height of their row; drop items-start.'],
   ['selector-hack', /\[&_[^\]]*\]/g, 'No [&_…] selector hacks on components: compose stock parts.'],
   ['separator', /(?<![lL])·|·(?![lL])/g, 'No middle-dot separators; Catalan l·l is the only spelling exception.'],
   ['unicode-arrow', /[←-⇿]/g, 'Use a Lucide icon (ArrowLeft, ArrowRight…) rather than a Unicode arrow.'],
   ['small-text', /\btext-xs\b/g, 'Check: text-xs only for chart axes and Kbd; content people read is 14 px or more.'],
 ];
+// Candidates to look at, not failures.
+const CHECKS = ['small-text', 'row-items-start'];
 const STYLE = [
   ['raw-colour', /#[0-9a-f]{3,8}\b/ig, 'Use var(--token) from packages/design/styles.css.'],
+  ['raw-radius', /\bborder(?:-[a-z]+)*-radius\s*:(?!\s*(?:var\(|inherit\b|0\s*[;}]|50%|9999px))[^;}]+/g, 'Use var(--radius-sm|md|lg|xl) from packages/design/styles.css.'],
   ['separator', /content:\s*["'][^"']*·/g, 'No middle-dot separators, also in CSS content.'],
 ];
 const blank = (s) => s.replace(/[^\n]/g, ' ');
@@ -74,7 +81,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const files = args.flatMap(walk);
     const findings = files.flatMap((file) => audit(fs.readFileSync(file, 'utf8'), file));
     console.log(JSON.stringify({ scope: 'static only, templates and styles; runtime, keyboard and visual checks remain required', files: files.length, counts: count(findings), findings }, null, 2));
-    if (findings.some((f) => f.rule !== 'small-text')) process.exitCode = 1;
+    if (findings.some((f) => !CHECKS.includes(f.rule))) process.exitCode = 1;
   } else {
     const differences = diff(fs.readFileSync(args[0], 'utf8'), fs.readFileSync(path.join(ROOT, 'packages/design/styles.css'), 'utf8'));
     console.log(JSON.stringify({ differences }, null, 2));
