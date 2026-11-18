@@ -1022,6 +1022,76 @@
         "ca": "Enllaços, alguns agrupats en un desplegable."
       }
     },
+    "page-layout/03-list": {
+      "name": {
+        "es": "Lista",
+        "ca": "Llista"
+      },
+      "about": {
+        "es": "Una página de lista: la barra de filtros y la tabla directamente sobre la página, con las páginas numeradas debajo. Un rol es una palabra; un estado, un icono y una palabra.",
+        "ca": "Una pàgina de llista: la barra de filtres i la taula directament sobre la pàgina, amb les pàgines numerades a sota. Un rol és una paraula; un estat, una icona i una paraula."
+      }
+    },
+    "page-layout/04-detail": {
+      "name": {
+        "es": "Detalle",
+        "ca": "Detall"
+      },
+      "about": {
+        "es": "Una página de detalle: el nombre de la persona como título y, debajo, secciones separadas por espacio. Los datos son una cuadrícula de etiqueta sobre valor, las listas son filas divididas y la columna lateral reúne el resumen de acceso.",
+        "ca": "Una pàgina de detall: el nom de la persona com a títol i, a sota, seccions separades per espai. Les dades són una graella d’etiqueta sobre valor, les llistes són files dividides i la columna lateral recull el resum d’accés."
+      }
+    },
+    "page-layout/05-settings": {
+      "name": {
+        "es": "Ajustes",
+        "ca": "Configuració"
+      },
+      "about": {
+        "es": "Una página de ajustes con su menú lateral, como el de PageLayout: una sección por pestaña, las etiquetas encima de los controles, los interruptores como filas de una sola lista con borde, y Guardar y luego Cancelar abajo a la izquierda.",
+        "ca": "Una pàgina de configuració amb el seu menú lateral, com el de PageLayout: una secció per pestanya, les etiquetes damunt dels controls, els interruptors com a files d’una sola llista amb vora, i Desa i després Cancel·la a baix a l’esquerra."
+      }
+    },
+    "page-layout/06-dashboard": {
+      "name": {
+        "es": "Panel",
+        "ca": "Tauler"
+      },
+      "about": {
+        "es": "Un panel: las cifras como una fila de etiqueta sobre valor en la página y, después, una Card por tema con su contenido real, una al lado de otra y tan altas como su fila. Nunca una caja por cifra.",
+        "ca": "Un tauler: les xifres com una fila d’etiqueta sobre valor a la pàgina i, després, una Card per tema amb el seu contingut real, una al costat de l’altra i tan altes com la seva fila. Mai una caixa per xifra."
+      }
+    },
+    "page-layout/07-empty": {
+      "name": {
+        "es": "Vacía",
+        "ca": "Buida"
+      },
+      "about": {
+        "es": "Todavía no hay nada que listar: el Empty ocupa el lugar que llenaría la lista, dice por qué y ofrece la salida. La cabecera es la misma que con la página llena.",
+        "ca": "Encara no hi ha res a llistar: l’Empty ocupa el lloc que ompliria la llista, diu per què i ofereix la sortida. La capçalera és la mateixa que amb la pàgina plena."
+      }
+    },
+    "page-layout/08-no-permission": {
+      "name": {
+        "es": "Sin permiso",
+        "ca": "Sense permís"
+      },
+      "about": {
+        "es": "Una página que la persona no puede ver: el título se queda y el Empty llena el contenido con el motivo y quién puede ayudar. Nunca una línea discontinua corta con la página en blanco debajo.",
+        "ca": "Una pàgina que la persona no pot veure: el títol es queda i l’Empty omple el contingut amb el motiu i qui pot ajudar. Mai una línia discontínua curta amb la pàgina en blanc a sota."
+      }
+    },
+    "page-layout/09-error": {
+      "name": {
+        "es": "Error",
+        "ca": "Error"
+      },
+      "about": {
+        "es": "La página no ha podido cargar: el Empty llena el contenido, dice qué ha fallado y ofrece Reintentar, que repite la misma petición. Una sección que falla dentro de una página cargada es un Alert con Reintentar en su lugar.",
+        "ca": "La pàgina no s’ha pogut carregar: l’Empty omple el contingut, diu què ha fallat i ofereix Torna-ho a provar, que repeteix la mateixa petició. Una secció que falla dins d’una pàgina carregada és un Alert amb Torna-ho a provar al seu lloc."
+      }
+    },
     "pagination/01-numbered": {
       "name": {
         "es": "Numerada",
