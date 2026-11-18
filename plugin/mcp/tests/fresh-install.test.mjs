@@ -63,13 +63,15 @@ test('the hexagon check and the stylesheet check hold in an installed plugin (no
   assert(!/retainRules\(/.test(pkg), 'packaging ships the live skills as they are');
 });
 
-test('the installed plugin carries the product-UI audit and theme diff, runnable from any app folder', () => {
+test('the installed plugin carries the product-UI audit, theme diff and states check, runnable from any app folder', () => {
   const app = fs.mkdtempSync(path.join(os.tmpdir(), 'ais-app-')), script = path.join(STUDIO, 'scripts/ui-contract.mjs');
   fs.writeFileSync(path.join(app, 'View.vue'), '<template><h2 class="font-semibold text-[#123456]">Hi</h2></template>');
   fs.writeFileSync(path.join(app, 'theme.css'), ':root { --background: #fff; }');
   const audit = spawnSync(process.execPath, [script, 'audit', 'View.vue'], { cwd: app, encoding: 'utf8' });
   const diff = spawnSync(process.execPath, [script, 'diff', 'theme.css'], { cwd: app, encoding: 'utf8' });
+  const states = spawnSync(process.execPath, [path.join(STUDIO, 'scripts/ui-states.mjs')], { cwd: app, encoding: 'utf8' });
   fs.rmSync(app, { recursive: true, force: true });
+  assert.deepEqual([states.status, /^Usage: ui-states\.mjs/.test(states.stderr)], [2, true], states.stderr);
   assert.deepEqual(Object.keys(JSON.parse(audit.stdout).counts).sort(), ['heading-weight', 'raw-colour']);
   assert(JSON.parse(diff.stdout).differences.light.length > 0, diff.stderr);
 });

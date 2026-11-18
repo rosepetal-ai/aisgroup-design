@@ -37,6 +37,7 @@ export function packagePlugin(dest, { zip = false, proposed = true } = {}) {
     fs.mkdirSync(path.join(dest, 'packages/design'), { recursive: true });
     fs.copyFileSync(path.join(repo, 'packages/design/styles.css'), path.join(dest, 'packages/design/styles.css'));
     fs.copyFileSync(path.join(repo, 'scripts/ui-contract.mjs'), path.join(dest, 'scripts/ui-contract.mjs'));
+    fs.copyFileSync(path.join(repo, 'scripts/ui-states.mjs'), path.join(dest, 'scripts/ui-states.mjs'));
   }
   // Cached downloads are links in the upload; the full Git/Claude Code distribution retains the local originals.
   for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md') && !/(?:retained-(?:rules|updates)-\d+|writing-essentials)\.md$/.test(f))) {
