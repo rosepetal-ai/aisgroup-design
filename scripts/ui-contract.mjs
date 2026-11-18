@@ -38,8 +38,61 @@ const STYLE = [
   ['separator', /content:\s*["'][^"']*·/g, 'No middle-dot separators, also in CSS content.'],
 ];
 
+// Page composition: how a page is put together (guide «Pages»), read from the template's element tree. A box is a Card
+// (ours, PrimeVue's or Vuetify's), an outline Item, or an element with a full border and a corner; avatars, dots, chips
+// and inline code are not boxes.
+const PAGES = 'design_standards kind=guidelines section=product-ui page=pages', LAYOUT = 'design_code kind=components name=page-layout';
+const PAGE_RULES = {
+  'nested-box': `One surface level: never a card or bordered box inside another; inside a box, use rows (divide-y) or a label-over-value grid. ${PAGES}.`,
+  'table-box': `Tables sit straight on the page or in a section's Card, never in a bordered box of their own: ${LAYOUT}, example 03-list. ${PAGES}.`,
+  'dashed-box': `A dashed border belongs only to the Empty component filling an empty container; a no-permission or error message is an Alert or an Empty in the content area: ${LAYOUT}, examples 07-empty, 08-no-permission and 09-error. ${PAGES}.`,
+  'title-icon-tile': `No icon tile beside a page or section title: PageLayout's own header and the section header pattern, ${LAYOUT}. ${PAGES}.`,
+  'kpi-tile': `A figure is never alone in a box: show figures as a label-over-value grid, or give the system's Card its real content (bar, rows, chart): ${LAYOUT}, example 06-dashboard. ${PAGES}.`,
+};
+// Middle dots joining labels in UI strings: every script string literal (`.join(' · ')`, labels) and i18n JSON values.
+const STRING = /"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`/g, DOT = /(?<![lL])·|·(?![lL])/g;
+function joinedLists(source, add) {
+  for (const s of source.matchAll(STRING)) for (const m of s[0].matchAll(DOT)) add('separator', m, 'No middle-dot separators; Catalan l·l is the only spelling exception. Join items with commas or show them as a list.', source, s.index + m.index);
+}
+const CARD_TAG = /^(?:Card|Panel|Fieldset|VCard|v-card)$/;
+const NOT_BOX = /^(?:span|code|kbd|img|i|svg|input|textarea|select|option|td|th|tr|TableCell|TableHead|TableRow|Skeleton|Badge|Avatar|Input|Textarea|Kbd|Button|Toggle)$/;
+const isBox = (tag, attrs) => {
+  const cls = attrs.match(/(?:^|\s)class="([^"]*)"/)?.[1] ?? '';
+  // A Card stripped of its border (a panel inside a popover) is no box.
+  if (/(?<![\w:-])border-(?:0|none)\b/.test(cls)) return '';
+  if (CARD_TAG.test(tag) || (tag === 'Item' && /\bvariant="outline"/.test(attrs))) return 'card';
+  return !NOT_BOX.test(tag) && /(?<![\w:-])border(?![\w-])/.test(cls) && /(?<![\w:-])rounded(?:-(?!full\b|none\b)[\w-]+)?(?![\w-])/.test(cls) && !/(?<![\w:-])size-\d/.test(cls) ? 'class' : '';
+};
+const TAG = /<(\/?)([A-Za-z][\w.:-]*)((?:"[^"]*"|'[^']*'|[^'">])*)>/g, VOID = /^(?:area|base|br|col|embed|hr|img|input|link|meta|source|track|wbr)$/i;
+const TABLE = /^(?:Table|table|DataTable|data-table)$/, flat = (s) => s.replace(/\s+/g, ' ');
+// A tile: a big figure with its label (two or more text elements), and nothing that makes it a system's card.
+const FIGURE = /\bclass="[^"]*\btext-(?:2xl|3xl|4xl|5xl|6xl)\b/, TEXT = /<(?:p|span|div|dt|dd|h[1-6]|label|small|CardTitle|CardDescription)\b/g, RICH = /<(?:Progress|Table|DataTable|table|Chart\w*|Vis\w+|ul|ol|dl|Item|Button|Collapsible)\b|\bdivide-y\b/;
+// An icon alone in a tinted, centred tile, with a page or section title right after it.
+const TILE = /<(div|span)\b[^>]*\bclass="(?=[^"]*\bbg-(?!transparent\b)[\w/-]+)(?=[^"]*\bjustify-center\b)[^"]*"[^>]*>\s*<(?:i|[A-Z]\w*Icon|component|svg)\b(?:"[^"]*"|'[^']*'|[^'">])*?(?:\/>|>\s*<\/(?:i|component|svg)>)\s*<\/\1>/g;
+function pageComposition(template, add) {
+  const stack = [];
+  for (const m of template.matchAll(TAG)) {
+    const [whole, closing, tag, attrs] = m;
+    if (closing) {
+      const at = stack.findLastIndex((e) => e.tag === tag);
+      if (at < 0) continue;
+      for (const e of stack.splice(at)) if (e.box && e.tag === tag) {
+        const inner = template.slice(e.end, m.index);
+        if (FIGURE.test(inner) && !RICH.test(inner) && (inner.match(TEXT) ?? []).length >= 2) add('kpi-tile', e.m, PAGE_RULES['kpi-tile'], template, e.m.index, flat(e.m[0]));
+      }
+      continue;
+    }
+    const box = isBox(tag, attrs), outer = stack.findLast((e) => e.box);
+    if (box && outer) add('nested-box', m, PAGE_RULES['nested-box'], template, m.index, flat(whole));
+    if (TABLE.test(tag) && outer?.box === 'class' && !outer.table) { outer.table = true; add('table-box', outer.m, PAGE_RULES['table-box'], template, outer.m.index, flat(outer.m[0])); }
+    if (tag !== 'Empty' && !NOT_BOX.test(tag) && /(?:^|\s)class="[^"]*\bborder-dashed\b/.test(attrs)) add('dashed-box', m, PAGE_RULES['dashed-box'], template, m.index, flat(whole));
+    if (!/\/\s*$/.test(attrs) && !VOID.test(tag)) stack.push({ tag, box, m, end: m.index + whole.length });
+  }
+  for (const m of template.matchAll(TILE)) if (/<h[12]\b/.test(template.slice(m.index + m[0].length, m.index + m[0].length + 300))) add('title-icon-tile', m, PAGE_RULES['title-icon-tile'], template, m.index, flat(m[0]));
+}
+
 // Legacy families. Fixes name the design MCP call that solves them, since the target app has none of our repo paths.
-export const FAMILIES = ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file'];
+export const FAMILIES = ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file', 'page-composition'];
 const ADVISORY = new Set(['small-text']);
 const PRIMEVUE = 'design_code kind=migration name=primevue', VUETIFY = 'design_code kind=migration name=vuetify', ICONS = 'design_code kind=migration name=icons';
 const THEME_PKG = /^@(?:primevue|primeuix)\/themes(?:\/|$)/;
@@ -108,6 +161,7 @@ export function audit(text, file = '') {
   for (const [rule, pattern, fix] of TEMPLATE) for (const m of template.matchAll(pattern)) add(rule, m, fix, template);
   for (const [rule, pattern, fix] of STYLE) for (const m of style.matchAll(pattern)) add(rule, m, fix, style);
   for (const [tag, allowed] of [['Badge', BADGE], ['Button', BUTTON]]) for (const m of template.matchAll(new RegExp(`<${tag}\\b[^>]*\\bvariant="([a-z-]+)"`, 'g'))) if (!allowed.includes(m[1])) add('non-stock-variant', m, `${tag} variants are stock only: ${allowed.join(', ')}.`, template);
+  pageComposition(template, add);
 
   // Imports and plugins: script imports, require() and dynamic import(), CSS @import/@plugin.
   for (const [source, re] of [[script, /\b(?:from|import|require)\s*\(?\s*(['"])([^'"\n]+)\1/g], [css, /@(?:import|plugin|reference)\s+(?:url\(\s*)?(['"])([^'"\n]+)\1/g]])
@@ -121,6 +175,7 @@ export function audit(text, file = '') {
   // Brand names: template text, index.html and other pages, and string literals (not keys) of i18n files and manifests.
   const i18n = /\.webmanifest$/.test(file) || (/i18n|locales?/i.test(file) && /\.(?:[cm]?[jt]s|json)$/.test(file));
   for (const m of template.matchAll(BRAND)) add('brand-name', m, brandFix(m[0]), template);
+  joinedLists(/\.(json|webmanifest)$/.test(file) ? (i18n ? text : '') : script, add);
   if (i18n) {
     const source = /\.(json|webmanifest)$/.test(file) ? text : script;
     for (const s of source.matchAll(/"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`/g)) {
@@ -177,7 +232,7 @@ export function report(paths) {
   };
   for (const p of paths) visit(p, fs.statSync(p).isDirectory() ? '' : path.basename(p));
   const findings = [...files.values()].flatMap(([p, rel]) => IMAGE.test(p) ? auditLogo(fs.readFileSync(p), p, rel) : audit(fs.readFileSync(p, 'utf8'), p));
-  const family = (f) => FAMILIES.includes(f.rule) ? f.rule : 'template';
+  const family = (f) => FAMILIES.includes(f.rule) ? f.rule : f.rule in PAGE_RULES ? 'page-composition' : 'template';
   const blocking = findings.filter((f) => !ADVISORY.has(f.rule));
   return {
     scope: 'static only: templates, styles, imports, theme overrides, brand names and logo files; runtime, keyboard and visual checks remain required',

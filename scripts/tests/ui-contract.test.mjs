@@ -151,13 +151,72 @@ test('report: families, legacyFree, skipped folders; small-text stays advisory',
   const clean = report([path.join(dir, 'src'), dir]);
   assert.equal(clean.files, 2);
   assert.deepEqual([clean.legacyFree, clean.counts], [true, { 'small-text': 1 }]);
-  assert.deepEqual(Object.keys(clean.families), ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file']);
+  assert.deepEqual(Object.keys(clean.families), ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file', 'page-composition']);
   write(dir, { 'src/main.ts': "import PrimeVue from 'primevue/config'\n", 'src/i18n/es.json': '{ "t": "AISVision" }' });
   const legacy = report([dir]);
   fs.rmSync(dir, { recursive: true, force: true });
   assert.equal(legacy.legacyFree, false);
-  assert.deepEqual(legacy.families, { template: 0, 'foreign-ui': 1, 'foreign-icons': 0, 'foreign-theme': 0, 'brand-name': 1, 'logo-file': 0 });
+  assert.deepEqual(legacy.families, { template: 0, 'foreign-ui': 1, 'foreign-icons': 0, 'foreign-theme': 0, 'brand-name': 1, 'logo-file': 0, 'page-composition': 0 });
 });
+// Page composition: the patterns that made redesigned Nexus pages look generated (guide «Pages»).
+const page = (text, file = 'Page.vue') => audit(text, file).filter((f) => !['small-text'].includes(f.rule)).map((f) => `${f.line} ${f.rule}`);
+test('page-composition: boxes in boxes, tables in boxes, dashed boxes, title icon tiles and KPI tiles', () => {
+  const vue = `<template>
+  <div class="flex items-start gap-3">
+    <div v-if="icon" class="flex size-10 items-center justify-center rounded-lg bg-primary/10"><UsersIcon class="size-5" /></div>
+    <div><h1 class="text-2xl font-medium">Users</h1></div>
+  </div>
+  <div class="rounded-xl border border-dashed p-6 text-center">You have no permission to see this section.</div>
+  <section class="rounded-xl border bg-card p-4">
+    <h2 class="font-medium">Activity</h2>
+    <Card>
+      <CardContent>x</CardContent>
+    </Card>
+    <Table><TableBody /></Table>
+    <DataTable :columns="c" :data="d" />
+  </section>
+  <div class="grid gap-4 lg:grid-cols-3">
+    <RouterLink v-for="k in kpis" :key="k.id" :to="k.to" class="block rounded-xl border p-5">
+      <span class="text-sm">{{ k.label }}</span>
+      <p class="text-3xl font-medium">{{ k.value }}</p>
+    </RouterLink>
+  </div>
+</template>`;
+  assert.deepEqual(page(vue), ['3 title-icon-tile', '6 dashed-box', '7 table-box', '9 nested-box', '16 kpi-tile']);
+  const fix = audit(vue, 'Page.vue').find((f) => f.rule === 'nested-box').fix;
+  assert.match(fix, /design_standards kind=guidelines section=product-ui page=pages/);
+  assert.match(audit(vue, 'Page.vue').find((f) => f.rule === 'title-icon-tile').fix, /design_code kind=components name=page-layout/);
+});
+test('page-composition: the page system\'s own patterns pass', () => {
+  const vue = `<template>
+  <PageLayout title="Users" description="10 people"><template #actions><Button>Invite</Button></template></PageLayout>
+  <Empty class="border border-dashed"><EmptyTitle>No users</EmptyTitle></Empty>
+  <DataTable :columns="c" :data="d" />
+  <div class="divide-y rounded-lg border">
+    <Field orientation="horizontal" class="p-4"><Switch /></Field>
+  </div>
+  <dl class="grid grid-cols-4 gap-6"><div><dt class="text-muted-foreground">Users</dt><dd class="text-2xl">10</dd></div></dl>
+  <Card>
+    <CardHeader><CardTitle>Storage</CardTitle><CardDescription>Of 100 GB</CardDescription></CardHeader>
+    <CardContent><p class="text-3xl">62 GB</p><Progress :model-value="62" /></CardContent>
+    <CardContent><div class="size-8 rounded-full border" /><span class="rounded border px-1">tag</span><img class="rounded-md border" /></CardContent>
+  </Card>
+  <Card class="border-0 shadow-none"><Item variant="outline">Prompt</Item></Card>
+  <Card><CardContent class="text-4xl">1</CardContent></Card>
+  <Button variant="outline" class="border-dashed">Load more</Button>
+  <Item><ItemMedia class="flex items-center justify-center bg-muted"><BoxIcon /></ItemMedia><ItemTitle>Model</ItemTitle></Item>
+  <table><tr><td class="rounded border">3</td></tr></table>
+</template>`;
+  assert.deepEqual(page(vue), []);
+});
+test('separator: middle dots in UI strings of scripts and i18n files, not comments or Catalan words', () => {
+  const vue = `<template><p>{{ names }}</p></template>\n<script setup>\n// gmail · zoho in a note\nconst names = list.join(' · ')\nconst ca = 'Col·laboradors'\n</script>`;
+  assert.deepEqual(audit(vue, 'Dashboard.vue').map((f) => `${f.line} ${f.rule}`), ['4 separator']);
+  assert.deepEqual(audit("export default { created: 'Created: {date} · {user}' }", 'src/i18n/en.ts').map((f) => f.rule), ['separator']);
+  assert.deepEqual(audit('{ "hint": "Drag · double-click", "ca": "Il·lustració" }', 'src/locales/en.json').map((f) => f.value), ['·']);
+  assert.deepEqual(audit('{ "x": "a · b" }', 'src/data/x.json'), []);
+});
+
 test('audit stays linear on long files', () => {
   const ts = Array.from({ length: 20000 }, (_, i) => `export const k${i} = 'value ${i}'`).join('\n');
   const start = performance.now();
