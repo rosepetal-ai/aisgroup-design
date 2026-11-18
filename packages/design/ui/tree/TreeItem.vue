@@ -25,6 +25,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-slot="slotProps"
     data-slot="tree-item"
     v-bind="forwarded"
+    :value="value"
     :style="{ paddingLeft: `calc(${level - 1} * 1.25rem + 0.5rem)` }"
     :class="cn(
       'flex h-9 cursor-pointer items-center gap-2 rounded-md pr-2 outline-none transition-colors hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/15 data-[selected]:bg-muted data-[selected]:font-medium data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg:not([class*=size-])]:size-4 [&_svg]:shrink-0',
