@@ -44,6 +44,8 @@ export function outputs(css) {
   const blue = Object.fromEntries(Object.entries(modes.light).filter(([k]) => /^blue-\d+$/.test(k)).map(([k, v]) => [k.slice(5), v]));
   const surface = Object.fromEntries(Object.entries(modes.light).filter(([k]) => /^neutral-\d+$/.test(k)).map(([k, v]) => [k.slice(8), v]));
   surface[900] = modes.dark.card; surface[950] = modes.dark.background;
+  // Per scheme too: @primeuix/themes 2 (MIT) lets Aura's light and dark surfaces win over a scheme-less one.
+  for (const m of Object.values(scheme)) m.surface = surface;
   const pair = token => modes.light[token] === modes.dark[token] ? modes.light[token] : `light-dark(${modes.light[token]}, ${modes.dark[token]})`;
   const buttonRole = (background, foreground, hover = background) => ({ background: pair(background), hoverBackground: pair(hover), activeBackground: pair(hover), borderColor: pair(background), hoverBorderColor: pair(hover), activeBorderColor: pair(hover), color: pair(foreground), hoverColor: pair(foreground), activeColor: pair(foreground), focusRing: { color: pair('info'), shadow: 'none' } });
   const preset = { primitive: { borderRadius: { sm: modes.light.radius, md: modes.light.radius, lg: modes.light['radius-modal'] }, blue }, semantic: { primary: blue, surface, focusRing: { color: '{primary.color}' }, formField: { borderRadius: modes.light.radius }, colorScheme: scheme }, components: { dialog: { root: { borderRadius: modes.light['radius-modal'] } }, button: { root: { primary: buttonRole('primary', 'primary-foreground', 'primary-hover'), secondary: buttonRole('secondary', 'secondary-foreground', 'secondary-hover'), danger: buttonRole('destructive', 'destructive-foreground') } } } };
@@ -56,7 +58,7 @@ export function outputs(css) {
     'tokens.json': JSON.stringify(modes, null, 2) + '\n',
     'primevue.mjs': header + "import { definePreset } from '@primeuix/themes';\nimport Aura from '@primeuix/themes/aura';\n\nexport default definePreset(Aura, " + JSON.stringify(preset, null, 2) + ');\n',
     'vuetify.mjs': header + 'export const themes = ' + JSON.stringify(vuetify, null, 2) + ';\nexport default { defaultTheme: \'aisLight\', themes };\n',
-    'base.css': header.replace('// ', '/* ').trimEnd() + ' */\n:root {\n  --ais-control-radius: ' + modes.light.radius + ';\n  --ais-modal-radius: ' + modes.light['radius-modal'] + ';\n}\nbody { font-family: ' + modes.light['font-family'] + '; font-size: 0.875rem; }\n'
+    'base.css': header.replace('// ', '/* ').trimEnd() + ' */\n:root {\n  --ais-control-radius: ' + modes.light.radius + ';\n  --ais-modal-radius: ' + modes.light['radius-modal'] + ';\n}\n.dark { color-scheme: dark; }\nbody { font-family: ' + modes.light['font-family'] + '; font-size: 0.875rem; }\n'
   };
 }
 

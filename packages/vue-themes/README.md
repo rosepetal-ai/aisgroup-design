@@ -2,11 +2,11 @@
 
 `node packages/vue-themes/generate.mjs` generates both adapters and resolved light/dark tokens from `packages/design/styles.css`. `--check` fails on drift. `@aisgroup/design` remains the component source of truth; these are token adapters, not equivalent implementations of its blocks.
 
-For PrimeVue, install `primevue`, `@primeuix/themes`, Vue and Tailwind v4. Import `primevue.mjs` as `preset` and use `app.use(PrimeVue, { theme: { preset, options: { darkModeSelector: '.dark', cssLayer: { name: 'primevue', order: 'theme, base, primevue, utilities' } } } })`. Import Tailwind and `base.css`; put `.dark` on `html` when switching modes. Layout utilities stay in Tailwind. Do not import the shadcn component CSS into a PrimeVue app.
+For PrimeVue, install `primevue@^4`, `@primeuix/themes@^2`, Vue and Tailwind v4. Both are MIT; PrimeVue 5 and `@primeuix/themes` 3 are under PrimeUI's commercial licence, so do not upgrade to them. Import `primevue.mjs` as `preset` and use `app.use(PrimeVue, { theme: { preset, options: { darkModeSelector: '.dark', cssLayer: { name: 'primevue', order: 'theme, base, primevue, utilities' } } } })`. Import Tailwind and `base.css`; put `.dark` on `html` when switching modes. `base.css` sets `color-scheme: dark` on `.dark`, which the button colours (`light-dark()`) need; an app with another dark class uses it as `darkModeSelector` and sets `color-scheme: dark` on it. Layout utilities stay in Tailwind. Do not import the shadcn component CSS into a PrimeVue app.
 
 For Vuetify, install `vuetify` and Vue. Import `vuetify/styles`, `base.css`, and `theme` from `vuetify.mjs`; use `createVuetify({ theme, defaults: { VCard: { elevation: 0 } } })`. Switch `theme.global.name.value` between `aisLight` and `aisDark`. Vuetify geometry, control typography, density, icons and interaction behaviour still need an application adapter and visual review; a colour preset alone does not make a screen compliant. Use the exported radius CSS variables when implementing that adapter, not guessed values.
 
-`node packages/vue-themes/check-build.mjs` installs real libraries into a disposable temporary project, builds a Vue application with both libraries and Tailwind, checks both modes against the product tokens, and removes the project. No workspace dependencies change.
+`node packages/vue-themes/check-build.mjs` installs real libraries (PrimeVue 4 with `@primeuix/themes` 2) into a disposable temporary project, builds a Vue application with both libraries and Tailwind, checks both modes against the product tokens, and removes the project. No workspace dependencies change.
 
 ## Component mapping
 

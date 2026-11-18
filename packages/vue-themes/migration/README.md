@@ -19,12 +19,17 @@ What an agent reads to move a whole Vue app from PrimeVue or Vuetify onto `@aisg
 - `props`: each library prop or usage, and what replaces it.
 - `needs`: components being added to `packages/design` that the entry depends on (date-picker, data-table and others).
 - `notes`: the rule that decides the mapping.
+- `bridge` (only `useToast` and `useConfirm`): a file for the app, see below.
 
 `icons.json` lists `{ from, set, to }`. `to` is the component name to import from `@lucide/vue`. Brand logos are `null`: Lucide has no brand icons, so write the brand name or use the brand's official asset. Names are the canonical exports of the installed Lucide, except the aliases our package imports itself (`HomeIcon`, `Trash2Icon`, `TriangleAlertIcon` and a few more, listed in the file); an older alias of the same icon renders the same icon.
 
 ## Redesign, not bridge
 
 A full redesign removes PrimeVue or Vuetify, their themes and their icon sets. The adapters in `..` (`primevue.mjs`, `vuetify.mjs`) only bridge the screens not yet moved: they colour the old components, they do not make them compliant.
+
+## Bridges for large apps
+
+Notices are `toast()` from `vue-sonner`, with one `<Toaster />` in App. Confirmations asked from code are `useConfirm().ask()` from the `confirm-host` block, with one `<ConfirmHost />` in App. When an app calls PrimeVue's `useToast().add()` or `useConfirm().require()` from dozens of files, the `bridge` of those two entries is an allowed first step: a file that keeps PrimeVue's call shape over ours (`src/lib/toast.ts`, `src/lib/confirm.ts`), so every caller keeps its behaviour and changes only its import. New code calls `toast()` and `ask()`; the bridge goes once the callers have moved.
 
 ## Checks
 

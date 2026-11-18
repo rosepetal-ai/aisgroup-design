@@ -1,5 +1,5 @@
 {
- "description": "PrimeVue 4 (and the v3 names still found in apps) to @aisgroup/design. Each entry: from (component, directive, service or setup piece), import, to (registry names), status, props (PrimeVue prop or usage: what replaces it), needs (components being added to the package), notes. A full redesign removes PrimeVue; the adapters in packages/vue-themes are only a bridge for screens not yet moved.",
+ "description": "PrimeVue 4 (and the v3 names still found in apps) to @aisgroup/design. Each entry: from (component, directive, service or setup piece), import, to (registry names), status, props (PrimeVue prop or usage: what replaces it), needs (components being added to the package), notes; useToast and useConfirm also carry a bridge, a file that keeps PrimeVue's call shape over ours while a large app's callers move. A full redesign removes PrimeVue; the adapters in packages/vue-themes are only a bridge for screens not yet moved.",
  "library": "primevue",
  "version": "4",
  "statuses": {
@@ -723,15 +723,17 @@
     "no life (sticky)": "duration: Infinity",
     "toast.removeGroup, toast.removeAllGroups": "toast.dismiss() or toast.dismiss(id)",
     "import": "import { toast } from 'vue-sonner'",
-    "large apps": "allowed first step: a local useToast() with the same add({ severity, summary, detail, life }) shape that calls vue-sonner, so call sites move later"
+    "large apps": "allowed first step: this entry's bridge (src/lib/toast.ts) keeps add({ severity, summary, detail, life }) over vue-sonner, so callers change only their import"
    },
-   "notes": "Keep the summary short and in sentence case; the description says what to do next."
+   "notes": "Keep the summary short and in sentence case; the description says what to do next.",
+   "bridge": "// src/lib/toast.ts: PrimeVue's useToast().add() over vue-sonner, so every caller keeps its behaviour and changes only its import.\n// New code calls toast() from vue-sonner. Remove this file once the callers have moved.\nimport { toast } from 'vue-sonner'\n\nexport interface ToastMessageOptions {\n  severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast'\n  summary?: string\n  detail?: string\n  /** Milliseconds; without it the notice stays until it is closed, as in PrimeVue. */\n  life?: number\n  closable?: boolean\n  /** Set by add, so remove can take back the same object. */\n  id?: string | number\n  group?: string\n}\n\nconst bySeverity = { success: toast.success, info: toast.info, warn: toast.warning, error: toast.error }\n\nexport function useToast() {\n  return {\n    add(message: ToastMessageOptions): void {\n      const show = message.severity && message.severity in bySeverity ? bySeverity[message.severity as keyof typeof bySeverity] : toast\n      message.id = show(message.summary ?? '', {\n        description: message.detail,\n        duration: message.life ?? Number.POSITIVE_INFINITY,\n        dismissible: message.closable !== false,\n        closeButton: message.closable !== false,\n      })\n    },\n    remove(message: ToastMessageOptions): void {\n      if (message.id !== undefined) toast.dismiss(message.id)\n    },\n    removeAllGroups(): void {\n      toast.dismiss()\n    },\n  }\n}\n"
   },
   {
    "from": "ConfirmDialog",
    "import": "primevue/confirmdialog",
    "to": [
     "confirm-dialog",
+    "confirm-host",
     "alert-dialog"
    ],
    "status": "direct",
@@ -745,7 +747,8 @@
     "acceptProps: { severity: 'danger' }": "variant=\"destructive\" (the default)",
     "icon": "remove: no icon in the title band",
     "group": "one ConfirmDialog per pending question",
-    "typed confirmation": "confirm-text, confirm-prompt and mismatch-text"
+    "typed confirmation": "confirm-text, confirm-prompt and mismatch-text",
+    "<ConfirmDialog /> fed by useConfirm()": "<ConfirmHost />: see useConfirm"
    },
    "notes": "The block is mounted with v-if (it opens itself) and closes on @close or @done."
   },
@@ -753,7 +756,8 @@
    "from": "ConfirmPopup",
    "import": "primevue/confirmpopup",
    "to": [
-    "confirm-dialog"
+    "confirm-dialog",
+    "confirm-host"
    ],
    "status": "direct",
    "props": {
@@ -766,27 +770,33 @@
    "from": "ConfirmationService",
    "import": "primevue/confirmationservice",
    "to": [
-    "confirm-dialog"
+    "confirm-host"
    ],
    "status": "remove",
    "props": {
-    "app.use(ConfirmationService)": "remove"
+    "app.use(ConfirmationService)": "remove; mount <ConfirmHost /> once in App"
    },
-   "notes": "The block needs no plugin."
+   "notes": "The host needs no plugin."
   },
   {
    "from": "useConfirm",
    "import": "primevue/useconfirm",
    "to": [
+    "confirm-host",
     "confirm-dialog"
    ],
    "status": "direct",
    "props": {
-    "confirm.require({ header, message, acceptLabel, accept })": "set a ref (pending = { title, message, confirmLabel, action }) and render <ConfirmDialog v-if=\"pending\" :title=\"pending.title\" :confirm-label=\"pending.confirmLabel\" :action=\"pending.action\" @close=\"pending = null\" @done=\"pending = null\"><p>{{ pending.message }}</p></ConfirmDialog>",
-    "confirm.close()": "pending = null",
-    "large apps": "allowed first step: a local useConfirm() with the same require() shape that sets a shared pending ref, and one ConfirmDialog in App that renders it"
+    "confirm.require({ header, message, acceptLabel, accept })": "useConfirm().ask({ title, message, confirmLabel, action }) from the confirm-host block (blocks/confirm.ts)",
+    "<ConfirmDialog /> in App": "<ConfirmHost /> once in App, with the app's translated labels",
+    "<ConfirmDialog group=\"…\" /> in a page": "<ConfirmHost group=\"…\" /> in that page; ask({ group })",
+    "acceptProps: { severity: 'danger' }": "variant: 'destructive' (the default); any other severity is variant: 'default'",
+    "reject()": "onCancel",
+    "confirm.close()": "useConfirm().close()",
+    "large apps": "allowed first step: this entry's bridge (src/lib/confirm.ts) keeps require({ … }) over ask(), so callers change only their import"
    },
-   "notes": "accept must return the promise of the action, not fire it and forget: the block shows progress and errors with Retry."
+   "notes": "accept must return the promise of the action, not fire it and forget: the block shows progress and errors with Retry.",
+   "bridge": "// src/lib/confirm.ts: PrimeVue's useConfirm().require() over the confirm-host block, so every caller keeps its behaviour and\n// changes only its import. Mount <ConfirmHost /> once in App (and <ConfirmHost group=\"…\" /> where a page had its own group).\n// New code calls useConfirm().ask() from @/components/blocks/confirm. Remove this file once the callers have moved.\nimport { useConfirm as useConfirmHost } from '@/components/blocks/confirm'\n\nexport interface ConfirmationOptions {\n  header?: string\n  message?: string\n  acceptLabel?: string\n  rejectLabel?: string\n  acceptProps?: { label?: string, severity?: string }\n  rejectProps?: { label?: string }\n  acceptClass?: string\n  accept?: () => unknown\n  reject?: () => unknown\n  onHide?: () => unknown\n  group?: string\n  /** Set by ConfirmPopup callers: the anchored popup becomes the same dialog, shown by the host in App. */\n  target?: unknown\n}\n\nexport function useConfirm() {\n  const host = useConfirmHost()\n  return {\n    require(options: ConfirmationOptions): void {\n      const danger = options.acceptProps?.severity === 'danger' || /danger/.test(options.acceptClass ?? '')\n      host.ask({\n        title: options.header ?? options.message ?? '',\n        message: options.header ? options.message : undefined,\n        confirmLabel: options.acceptProps?.label ?? options.acceptLabel,\n        cancelLabel: options.rejectProps?.label ?? options.rejectLabel,\n        variant: danger ? 'destructive' : 'default',\n        group: options.target ? undefined : options.group,\n        action: async () => {\n          const result = await options.accept?.()\n          options.onHide?.()\n          return result\n        },\n        onCancel: () => {\n          options.reject?.()\n          options.onHide?.()\n        },\n      })\n    },\n    close: host.close,\n  }\n}\n"
   },
   {
    "from": "Dialog",
