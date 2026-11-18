@@ -1,4 +1,4 @@
-<!-- A list page: the toolbar on the page, the table on its card, numbered pages under it. A role is a word; a status is an icon and a word. -->
+<!-- A list page: the toolbar and the table straight on the page, numbered pages under it. A role is a word; a status is an icon and a word. -->
 <script setup>
 import { ref } from 'vue';
 import { BanIcon, CircleCheckIcon, ClockIcon, EllipsisIcon, PencilIcon, PlusIcon, SearchIcon } from '@lucide/vue';

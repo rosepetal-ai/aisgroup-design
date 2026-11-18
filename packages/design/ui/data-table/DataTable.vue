@@ -5,7 +5,6 @@ import { FlexRender, useTable } from '@tanstack/vue-table'
 import { SearchXIcon } from '@lucide/vue'
 import { computed, h } from 'vue'
 import { cn } from '../../lib/utils'
-import { Card } from '../card'
 import { Checkbox } from '../checkbox'
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '../empty'
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationNext, PaginationPrevious } from '../pagination'
@@ -17,7 +16,6 @@ import DataTableColumnHeader from './DataTableColumnHeader.vue'
 // shadcn-vue's data table as one component: columns and data in; sorting, filters, pages, column visibility and row
 // selection inside. A string header becomes a sortable header; `meta: { numeric: true }` right-aligns a number column
 // with tabular figures; a `cell-<column id>` slot renders that column's cells. Toolbar, summary and empty are slots.
-// The table sits on a card with a muted header row; the toolbar and the pages stay on the page around it.
 // ponytail: client-side rows only; for server pages pass manual pagination through TanStack options when an app needs it.
 const props = withDefaults(defineProps<{
   columns: ColumnDef<DataTableFeatures, TData, any>[]
@@ -81,55 +79,53 @@ defineExpose({ table })
 <template>
   <div data-slot="data-table" :class="cn('flex w-full flex-col gap-4', props.class)">
     <slot name="toolbar" :table="table" />
-    <Card class="gap-0 overflow-hidden py-0">
-      <Table>
-        <TableHeader>
-          <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id" class="bg-muted/60 hover:bg-muted/60">
-            <TableHead
-              v-for="header in headerGroup.headers"
-              :key="header.id"
-              :class="numeric(header.column.columnDef.meta)"
-              :aria-sort="header.column.getCanSort() ? ariaSort(header.column.getIsSorted()) : undefined"
-            >
-              <template v-if="!header.isPlaceholder">
-                <DataTableColumnHeader v-if="typeof header.column.columnDef.header === 'string'" :column="header.column" :title="header.column.columnDef.header" />
-                <FlexRender v-else :header="header" />
-              </template>
-            </TableHead>
+    <Table>
+      <TableHeader>
+        <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+          <TableHead
+            v-for="header in headerGroup.headers"
+            :key="header.id"
+            :class="numeric(header.column.columnDef.meta)"
+            :aria-sort="header.column.getCanSort() ? ariaSort(header.column.getIsSorted()) : undefined"
+          >
+            <template v-if="!header.isPlaceholder">
+              <DataTableColumnHeader v-if="typeof header.column.columnDef.header === 'string'" :column="header.column" :title="header.column.columnDef.header" />
+              <FlexRender v-else :header="header" />
+            </template>
+          </TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <template v-if="loading">
+          <TableRow v-for="i in pagination.pageSize" :key="i">
+            <TableCell v-for="column in visibleColumns" :key="column.id">
+              <Skeleton :class="column.columnDef.meta?.numeric ? 'ml-auto h-4 w-12' : 'h-4 w-full max-w-40'" />
+            </TableCell>
           </TableRow>
-        </TableHeader>
-        <TableBody>
-          <template v-if="loading">
-            <TableRow v-for="i in pagination.pageSize" :key="i">
-              <TableCell v-for="column in visibleColumns" :key="column.id">
-                <Skeleton :class="column.columnDef.meta?.numeric ? 'ml-auto h-4 w-12' : 'h-4 w-full max-w-40'" />
-              </TableCell>
-            </TableRow>
-          </template>
-          <template v-else-if="table.getRowModel().rows.length">
-            <TableRow v-for="row in table.getRowModel().rows" :key="row.id" :data-state="row.getIsSelected() ? 'selected' : undefined">
-              <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" :class="numeric(cell.column.columnDef.meta)">
-                <slot :name="`cell-${cell.column.id}`" v-bind="cell.getContext()">
-                  <FlexRender :cell="cell" />
-                </slot>
-              </TableCell>
-            </TableRow>
-          </template>
-          <TableRow v-else class="hover:bg-transparent">
-            <TableCell :colspan="visibleColumns.length" class="p-0">
-              <slot name="empty">
-                <Empty class="p-10">
-                  <EmptyHeader>
-                    <EmptyMedia><SearchXIcon class="size-6 text-muted-foreground" /></EmptyMedia>
-                    <EmptyTitle>{{ text.empty }}</EmptyTitle>
-                  </EmptyHeader>
-                </Empty>
+        </template>
+        <template v-else-if="table.getRowModel().rows.length">
+          <TableRow v-for="row in table.getRowModel().rows" :key="row.id" :data-state="row.getIsSelected() ? 'selected' : undefined">
+            <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" :class="numeric(cell.column.columnDef.meta)">
+              <slot :name="`cell-${cell.column.id}`" v-bind="cell.getContext()">
+                <FlexRender :cell="cell" />
               </slot>
             </TableCell>
           </TableRow>
-        </TableBody>
-      </Table>
-    </Card>
+        </template>
+        <TableRow v-else class="hover:bg-transparent">
+          <TableCell :colspan="visibleColumns.length" class="p-0">
+            <slot name="empty">
+              <Empty class="p-10">
+                <EmptyHeader>
+                  <EmptyMedia><SearchXIcon class="size-6 text-muted-foreground" /></EmptyMedia>
+                  <EmptyTitle>{{ text.empty }}</EmptyTitle>
+                </EmptyHeader>
+              </Empty>
+            </slot>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
     <div v-if="!loading && (selectable || table.getPageCount() > 1)" class="flex items-center justify-between gap-4">
       <span class="text-muted-foreground">
         <slot name="summary" :table="table">

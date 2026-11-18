@@ -1,4 +1,4 @@
-<!-- A task list, as in shadcn's tasks example: a search, filters whose choices show as chips, the visible columns, the table on a card with row selection and row actions, numbered pages. -->
+<!-- A task list, as in shadcn's tasks example: a search, filters whose choices show as chips, the visible columns, the table straight on the page with row selection and row actions, numbered pages. -->
 <script setup>
 import { computed, ref } from 'vue';
 import { ArrowDownIcon, ArrowRightIcon, ArrowUpIcon, CircleCheckIcon, CircleDashedIcon, CircleIcon, CircleOffIcon, CopyIcon, EllipsisIcon, PencilIcon, PlusIcon, SearchIcon, StarIcon, TagIcon, TimerIcon, Trash2Icon, XIcon } from '@lucide/vue';

@@ -31,12 +31,12 @@ Content starts under the header and uses the page’s width. Sections follow one
 The page, then cards. Cards are for sections side by side, clickable entities, a summary and floating panels.
 
 - Never a card or a bordered box inside a card. Inside a card, use rows divided by lines or a label-over-value grid.
-- A table is a DataTable: the table on its card, the toolbar above it and the pages below it on the page. Inside the Card of a section, use the Table on its own. Never a bordered box of its own around a table.
+- A table sits straight on the page, under its toolbar, or in the Card of its section. Never in a bordered box of its own.
 - On the grey page, the toolbar’s fields take `bg-card`.
 
 ## Lists and tables
 
-The list page is the toolbar (search, filters whose choices show as chips, the visible columns), the DataTable under it and the numbered pages under the table, as in the [page layout](/en/components/page-layout/) tasks example. A role or a category is plain text, a status is a toned icon and the word, and the row actions sit behind the more button.
+The list page is the toolbar (search, filters whose choices show as chips, the visible columns), the DataTable under it and the numbered pages under the table, all straight on the page, as in the [page layout](/en/components/page-layout/) tasks example. A role or a category is plain text, a status is a toned icon and the word, and the row actions sit behind the more button.
 
 ## Empty, no permission and errors
 
