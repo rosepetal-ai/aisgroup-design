@@ -118,7 +118,7 @@ function capitals(template, style, add) {
 
 // Legacy families. Fixes name the design MCP call that solves them, since the target app has none of our repo paths.
 export const FAMILIES = ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file', 'page-composition'];
-// Sergio's CHECKS (candidates to look at, not failures) are the advisory rules.
+// The CHECKS rules are advisory: candidates to look at, not failures.
 const ADVISORY = new Set(CHECKS);
 const PRIMEVUE = 'design_code kind=migration name=primevue', VUETIFY = 'design_code kind=migration name=vuetify', ICONS = 'design_code kind=migration name=icons';
 const THEME_PKG = /^@(?:primevue|primeuix)\/themes(?:\/|$)/;

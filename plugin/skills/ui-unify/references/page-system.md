@@ -32,4 +32,4 @@ Sentence case, no uppercase or letter-spaced labels, no eyebrows, taglines, help
 ## 6. Check
 
 - `node <plugin root>/scripts/ui-contract.mjs audit src`: the `page-composition` family, `caps` and `separator` report nothing on the route.
-- Look at the route in a browser, light and dark, at 1440 and 390 wide, beside its page-layout example. Go through «Signs of a generated UI» in Pages; say which routes were not seen.
+- Look at the route in a browser, light and dark, at 1440 and 390 wide, beside its page-layout example. Go through «Common defects» in Pages; say which routes were not seen.
