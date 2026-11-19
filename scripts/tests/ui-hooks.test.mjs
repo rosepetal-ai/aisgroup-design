@@ -67,6 +67,22 @@ test('hook: anything that is not a Vue, CSS or i18n file of a Vue app passes at 
 });
 
 const git = (cwd, ...args) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@t', ...args], { cwd, stdio: 'ignore' });
+test('stop with a session: only the files that session (or that subagent) edited, never someone else\'s', () => {
+  const dir = app({ 'src/Theirs.vue': BAD, 'src/Mine.vue': BAD });
+  const session = `s-${process.pid}-${Date.now()}`, cwd = path.join(dir, 'src');
+  const stop = (extra = {}) => run(['stop'], { input: { hook_event_name: 'Stop', stop_hook_active: false, session_id: session, cwd, ...extra } });
+  assert.equal(stop().status, 0, 'this session edited nothing: another agent\'s bad file does not hold it');
+  run(['hook'], { input: { tool_name: 'Edit', tool_input: { file_path: 'Mine.vue' }, session_id: session, agent_id: 'a1', cwd } });
+  const r = stop();
+  assert.equal(r.status, 2, 'the main agent answers for its session, subagents included');
+  assert.match(r.stderr, /Mine\.vue/);
+  assert.doesNotMatch(r.stderr, /Theirs\.vue/);
+  assert.equal(stop({ hook_event_name: 'SubagentStop', agent_id: 'a2' }).status, 0, 'another subagent edited nothing');
+  assert.equal(stop({ hook_event_name: 'SubagentStop', agent_id: 'a1' }).status, 2, 'the subagent that edited it');
+  fs.rmSync(path.join(os.tmpdir(), 'ais-ui-hooks', `${session}.json`), { force: true });
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
 test('stop: changed files of the working tree keep the agent working until they pass, and never loop', () => {
   const dir = app({ 'src/Clean.vue': '<template><p>x</p></template>\n', 'src/Old.vue': '<template><p>x</p></template>\n', 'notes.md': 'x' });
   git(dir, 'init', '-q'); git(dir, 'add', '.'); git(dir, 'commit', '-qm', 'init');

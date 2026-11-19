@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { themes } from '../packages/vue-themes/generate.mjs';
@@ -258,31 +259,61 @@ function gate(app, files) {
 const listing = (findings, max = 40) => findings.slice(0, max).map((f) => `${f.file}:${f.line} ${f.rule}: ${f.value}\n  Fix: ${f.fix}`).join('\n') + (findings.length > max ? `\n…and ${findings.length - max} more: node ${path.join(HERE, 'ui-contract.mjs')} audit <these files>.` : '');
 const readInput = () => { try { return JSON.parse(fs.readFileSync(0, 'utf8') || '{}'); } catch { return {}; } };
 
+// The files a session edited, by agent ('main' or the subagent's id), so the stop gate holds an agent only on its own
+// work, never on someone else's edits in a shared checkout. One small JSON file per session in the temp folder.
+const LEDGERS = path.join(os.tmpdir(), 'ais-ui-hooks');
+const ledgerFile = (session) => path.join(LEDGERS, `${String(session).replace(/[^\w-]/g, '_')}.json`);
+function remember(input, file) {
+  if (!input.session_id) return;
+  try {
+    fs.mkdirSync(LEDGERS, { recursive: true });
+    const at = ledgerFile(input.session_id), ledger = fs.existsSync(at) ? JSON.parse(fs.readFileSync(at, 'utf8')) : {}, key = input.agent_id ?? 'main';
+    ledger[key] = [...new Set([...(ledger[key] ?? []), file])];
+    fs.writeFileSync(at, JSON.stringify(ledger));
+  } catch {}
+}
+// A subagent's own files; for the main agent, everything edited in the session. null without a session id.
+function edited(input) {
+  if (!input.session_id) return null;
+  try {
+    const ledger = JSON.parse(fs.readFileSync(ledgerFile(input.session_id), 'utf8'));
+    return input.agent_id ? ledger[input.agent_id] ?? [] : Object.values(ledger).flat();
+  } catch { return []; }
+}
+
 // PostToolUse on Edit, Write and MultiEdit: the edited file only. Exit 2 shows the findings to the agent.
 export function hook(input) {
   const target = input.tool_input?.file_path;
   if (!target || !HOOKED(target)) return 0;
   const file = path.resolve(input.cwd ?? process.cwd(), target), app = fs.existsSync(file) && vueApp(file);
   if (!app) return 0;
+  remember(input, file);
   const found = gate(app, [file]);
   if (!found.length) return 0;
   process.stderr.write(`AIS Group design rules: ${found.length} finding${found.length > 1 ? 's' : ''} in the file you just edited (${path.relative(input.cwd ?? process.cwd(), file)}). Fix ${found.length > 1 ? 'them' : 'it'} now; each line names the fix.\n${listing(found)}\n`);
   return 2;
 }
 
-// Stop and SubagentStop: every changed file in the git working tree. Exit 2 keeps the agent working while error findings
-// remain; once it is already continuing because of a stop hook (stop_hook_active), it may stop, so it never loops.
-export function stop(input) {
-  if (input.stop_hook_active) return 0;
-  const cwd = input.cwd ?? process.cwd();
+// Changed files of the git working tree, for a stop with no session id (a manual run).
+function workingTree(cwd) {
   let top, status;
   try {
     top = execFileSync('git', ['rev-parse', '--show-toplevel'], { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
     status = execFileSync('git', ['status', '--porcelain', '-z', '--untracked-files=all'], { cwd: top, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 });
-  } catch { return 0; }
+  } catch { return []; }
   const changed = [], parts = status.split('\0');
   // Each entry is «XY path»; a rename or copy is followed by its old path.
   for (let i = 0; i < parts.length; i++) if (parts[i]) { changed.push(path.join(top, parts[i].slice(3))); if (/[RC]/.test(parts[i].slice(0, 2))) i++; }
+  return changed;
+}
+
+// Stop and SubagentStop: the files this session (or this subagent) edited, or without a session id every changed file
+// of the git working tree. Exit 2 keeps the agent working while error findings remain; once it is already continuing
+// because of a stop hook (stop_hook_active), it may stop, so it never loops.
+export function stop(input) {
+  if (input.stop_hook_active) return 0;
+  const cwd = input.cwd ?? process.cwd();
+  const changed = edited(input) ?? workingTree(cwd);
   const byApp = new Map();
   for (const f of changed) if (HOOKED(f) && fs.existsSync(f) && fs.statSync(f).isFile()) { const app = vueApp(f); if (app) byApp.set(app, [...byApp.get(app) ?? [], f]); }
   const found = [...byApp].flatMap(([app, files]) => gate(app, files).map((f) => ({ ...f, file: path.relative(cwd, path.join(app, f.file)) })));
