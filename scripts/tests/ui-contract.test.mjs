@@ -17,7 +17,7 @@ test('audit catches what the redesign forbids', () => {
   <h2 class="text-lg font-semibold">Copy</h2>
   <div class="bg-gray-100 text-[#123456]">x</div>
   <TabsList><TabsTrigger value="a">A</TabsTrigger></TabsList>
-  <Badge variant="success">Done</Badge>
+  <Badge variant="pill">Done</Badge>
   <Button class="rounded-xl">Go</Button>
   <span>Labels · Images</span>
   <div class="absolute inset-0 bg-card/80"></div>
@@ -154,7 +154,7 @@ test('official-logos.json matches the guide\'s logo files, and the plugin carrie
   const json = fs.readFileSync(new URL('../official-logos.json', import.meta.url), 'utf8');
   assert.deepEqual(JSON.parse(json), officialLogos(), 'run node scripts/ui-contract.mjs hashes');
   assert.equal(fs.readFileSync(new URL('../../plugin/scripts/official-logos.json', import.meta.url), 'utf8'), json);
-  assert.equal(fs.readFileSync(new URL('../../plugin/scripts/ui-contract.mjs', import.meta.url), 'utf8'), fs.readFileSync(new URL('../ui-contract.mjs', import.meta.url), 'utf8'));
+  for (const f of ['scripts/ui-contract.mjs', 'scripts/ui-rules.mjs', 'packages/design/ui/button/index.ts', 'packages/design/ui/badge/index.ts']) assert.equal(fs.readFileSync(new URL(`../../plugin/${f}`, import.meta.url), 'utf8'), fs.readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8'), `plugin/${f} (npm run guide -w plugin)`);
 });
 test('report: families, legacyFree, skipped folders; small-text stays advisory', () => {
   const dir = tmp();

@@ -36,8 +36,10 @@ export function packagePlugin(dest, { zip = false, proposed = true } = {}) {
     fs.cpSync(path.join(repo, 'packages/vue-themes'), path.join(dest, 'packages/vue-themes'), { recursive: true });
     fs.mkdirSync(path.join(dest, 'packages/design'), { recursive: true });
     fs.copyFileSync(path.join(repo, 'packages/design/styles.css'), path.join(dest, 'packages/design/styles.css'));
-    fs.copyFileSync(path.join(repo, 'scripts/ui-contract.mjs'), path.join(dest, 'scripts/ui-contract.mjs'));
-    fs.copyFileSync(path.join(repo, 'scripts/ui-states.mjs'), path.join(dest, 'scripts/ui-states.mjs'));
+    for (const f of ['scripts/ui-contract.mjs', 'scripts/ui-rules.mjs', 'scripts/ui-states.mjs', 'packages/design/ui/button/index.ts', 'packages/design/ui/badge/index.ts']) {
+      fs.mkdirSync(path.dirname(path.join(dest, f)), { recursive: true });
+      fs.copyFileSync(path.join(repo, f), path.join(dest, f));
+    }
   }
   // Cached downloads are links in the upload; the full Git/Claude Code distribution retains the local originals.
   for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md') && !/(?:retained-(?:rules|updates)-\d+|writing-essentials)\.md$/.test(f))) {

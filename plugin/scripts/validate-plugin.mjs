@@ -33,6 +33,23 @@ export function validateManifests(root) {
   if (claude.userConfig?.designToken?.sensitive !== true || claude.mcpServers?.design?.headers?.Authorization !== 'Bearer ${user_config.designToken}') errors.push('Claude hosted MCP must send the keychain token');
   if (claude.userConfig?.mediaLibrary?.type !== 'string' || claude.mcpServers?.studio?.env?.AIS_MEDIA_LIBRARY !== '${user_config.mediaLibrary}') errors.push('Claude media library behaviour lost');
   if (claude.mcpServers?.studio?.args?.[0] !== '${CLAUDE_PLUGIN_ROOT}/mcp/start.mjs') errors.push('Claude studio entry invalid');
+  return [...errors, ...validateHooks(root)];
+}
+
+// hooks/hooks.json (Claude Code loads it from the plugin root): the event map under a top-level "hooks" key, and every
+// command runs a file the plugin ships, its ${CLAUDE_PLUGIN_ROOT} quoted.
+export function validateHooks(root) {
+  if (!fs.existsSync(path.join(root, 'hooks/hooks.json'))) return [];
+  let hooks;
+  try { ({ hooks } = readJSON(root, 'hooks/hooks.json')); } catch (e) { return [`hooks/hooks.json: ${e.message}`]; }
+  if (!hooks || typeof hooks !== 'object' || Array.isArray(hooks)) return ['hooks/hooks.json needs its events under a top-level "hooks" object'];
+  const errors = [];
+  for (const [event, groups] of Object.entries(hooks)) for (const h of (Array.isArray(groups) ? groups : []).flatMap((g) => g.hooks ?? [])) {
+    if (h.type !== 'command' || typeof h.command !== 'string') { errors.push(`hooks/hooks.json ${event}: only command hooks`); continue; }
+    if (/\$\{CLAUDE_PLUGIN_ROOT\}/.test(h.command.replace(/"\$\{CLAUDE_PLUGIN_ROOT\}[^"]*"/g, ''))) errors.push(`hooks/hooks.json ${event}: quote \${CLAUDE_PLUGIN_ROOT}`);
+    for (const [, file] of h.command.matchAll(/"\$\{CLAUDE_PLUGIN_ROOT\}\/([^"]+)"/g)) if (!fs.existsSync(path.join(root, file))) errors.push(`hooks/hooks.json ${event}: runs ${file}, which the plugin does not have`);
+  }
+  if (!Object.values(hooks).flat().length) errors.push('hooks/hooks.json has no hooks');
   return errors;
 }
 
