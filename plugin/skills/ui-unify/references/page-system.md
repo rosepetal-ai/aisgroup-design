@@ -17,7 +17,7 @@ List, detail, settings, dashboard or a tool screen. Open the matching page-layou
 
 - Sections: the section header pattern (h2, at most one muted line, actions right) and their content, separated by space. Remove the Card or bordered box around a section that runs the page width; sections side by side are Cards in `grid gap-4 xl:grid-cols-2`.
 - One surface level: take out cards and bordered boxes inside cards, and the bordered box around a table.
-- Tables: `meta.primary` on the main text column and `meta.showFrom` on the columns a narrow table can drop. Nothing on the page scrolls sideways at 1440 or 390; the states check fails `page-scroll` and `inner-scroll`.
+- Tables: `meta.primary` on the main text column and `meta.showFrom` on the columns a narrow table can drop. Nothing on the page scrolls sideways at 1920, 1440 or 390; the states check fails `page-scroll` and `inner-scroll`.
 - Figures: the `figure-cards` block (label, value, optional detail; up to four in a row), one block per group of figures that belong together. Replace hand-made figure rows and figure boxes with it.
 - Status as a toned icon and the word; roles and categories as plain text; no coloured pills.
 
@@ -34,4 +34,4 @@ Sentence case, no uppercase or letter-spaced labels, no eyebrows, taglines, help
 ## 6. Check
 
 - `node <plugin root>/scripts/ui-contract.mjs audit src`: the `page-composition` family, `caps` and `separator` report nothing on the route.
-- Look at the route in a browser, light and dark, at 1440 and 390 wide, beside its page-layout example. Go through «Common defects» in Pages; say which routes were not seen.
+- Look at the route in a browser, light and dark, at 1920, 1440 and 390 wide, beside its page-layout example. Go through «Common defects» in Pages; say which routes were not seen.

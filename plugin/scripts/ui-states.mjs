@@ -7,8 +7,8 @@
 // Bounded: only our own triggers ([data-slot$="-trigger"]), no sub-menus, no hover styles; keyboard, focus and screen
 // reader checks remain manual.
 //   node ui-states.mjs <base URL> [routes...] [--config states.json] [--login hook.mjs] [--theme-key key]
-//     [--dark-class "dark"] [--themes light,dark] [--viewports 1440x900,390x844] [--out ui-states] [--chromium path]
-//     [--max-triggers 25] [--settle 800]
+//     [--dark-class "dark"] [--themes light,dark] [--viewports 1920x1080,1440x900,390x844] [--out ui-states]
+//     [--chromium path] [--max-triggers 25] [--settle 800] [--timeout 30000]
 // A config file holds the same options as JSON: { "baseURL", "routes": [], "login", "themeKey", "darkClass", … }.
 // The login hook is an ES module whose default export, async ({ page, context, baseURL }) => {}, signs in once.
 import fs from 'node:fs';
@@ -23,7 +23,8 @@ export const CONTENTS = ['dropdown-menu', 'dropdown-menu-sub', 'popover', 'selec
   .map((s) => `[data-slot="${s}-content"]`).concat('[data-slot="sidebar"][data-mobile="true"]', '[role="dialog"]', '[role="alertdialog"]', '[role="menu"]', '[role="listbox"]', '[role="tooltip"]').join(',');
 export const RULES = ['clipped-text', 'wrapped-label', 'overlay-off-screen', 'page-scroll', 'inner-scroll', 'small-text', 'small-target', 'button-height', 'button-row-height', 'divider-overflow', 'divider-off-centre', 'console-error', 'page-error'];
 const PER_RULE = 25; // findings kept per rule and state; counts stay complete
-const DEFAULTS = { themes: ['light', 'dark'], viewports: [{ width: 1440, height: 900 }, { width: 390, height: 844 }], out: 'ui-states', maxTriggers: 25, settle: 800, darkClass: 'dark' };
+// 1920 too: a page that is fine at 1440 can spread thin or look empty on a wide screen.
+const DEFAULTS = { themes: ['light', 'dark'], viewports: [{ width: 1920, height: 1080 }, { width: 1440, height: 900 }, { width: 390, height: 844 }], out: 'ui-states', maxTriggers: 25, settle: 800, darkClass: 'dark', timeout: 30000 };
 
 // Runs in the page. With open: true it checks only the overlays opened since run() marked the visible ones
 // (data-ui-states-seen); otherwise the whole page.
@@ -237,6 +238,9 @@ export async function run(options) {
   const browser = await chromium.launch({ executablePath: o.chromium || undefined });
   const context = await browser.newContext({ viewport: o.viewports[0], baseURL: o.baseURL });
   const page = await context.newPage();
+  // A busy shared machine can need longer than Playwright's 30 s to load a route.
+  page.setDefaultNavigationTimeout(o.timeout);
+  page.setDefaultTimeout(o.timeout);
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push({ rule: 'console-error', measured: { message: m.text().slice(0, 300), source: m.location()?.url ?? '' } }); });
   page.on('pageerror', (e) => errors.push({ rule: 'page-error', measured: { message: String(e.message ?? e).slice(0, 300) } }));
@@ -333,7 +337,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const { values: v, positionals } = parseArgs({ allowPositionals: true, options: {
     config: { type: 'string' }, login: { type: 'string' }, 'theme-key': { type: 'string' }, 'dark-class': { type: 'string' },
     themes: { type: 'string' }, viewports: { type: 'string' }, out: { type: 'string' }, chromium: { type: 'string' },
-    'max-triggers': { type: 'string' }, settle: { type: 'string' },
+    'max-triggers': { type: 'string' }, settle: { type: 'string' }, timeout: { type: 'string' },
   } });
   const file = v.config ? JSON.parse(fs.readFileSync(v.config, 'utf8')) : {};
   // Paths in a config file are relative to it.
@@ -351,9 +355,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (v.chromium) options.chromium = v.chromium;
   if (v['max-triggers']) options.maxTriggers = Number(v['max-triggers']);
   if (v.settle) options.settle = Number(v.settle);
+  if (v.timeout) options.timeout = Number(v.timeout);
   if (typeof options.viewports?.[0] === 'string') options.viewports = options.viewports.map((s) => { const [width, height] = s.split('x').map(Number); return { width, height }; });
   if (!options.baseURL || !options.routes?.length) {
-    console.error('Usage: ui-states.mjs <base URL> <routes...> [--config states.json] [--login hook.mjs] [--theme-key key | --dark-class "dark"] [--themes light,dark] [--viewports 1440x900,390x844] [--out ui-states] [--chromium path] [--max-triggers 25]');
+    console.error('Usage: ui-states.mjs <base URL> <routes...> [--config states.json] [--login hook.mjs] [--theme-key key | --dark-class "dark"] [--themes light,dark] [--viewports 1920x1080,1440x900,390x844] [--out ui-states] [--chromium path] [--max-triggers 25] [--timeout 30000]');
     process.exit(2);
   }
   const report = await run(options);

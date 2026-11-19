@@ -26,6 +26,6 @@ A legacy app adopts the audit with a baseline: `node <plugin root>/scripts/ui-co
 
 ## In the browser
 
-The code cannot prove contrast, sizes on screen, clipping or keyboard use. Run `scripts/ui-states.mjs` on the running app (ui-unify/references/redesign.md, step 6): it opens every menu, popover, select, tooltip, dialog and sheet on each route, in both themes, at 1440 and 390 px, and fails on clipped or wrapped labels, overlays off screen, sideways scrolling, text under 14 px, targets under 24 px, button heights off the scale or mixed in one row, and console errors. Look at every failure screenshot yourself.
+The code cannot prove contrast, sizes on screen, clipping or keyboard use. Run `scripts/ui-states.mjs` on the running app (ui-unify/references/redesign.md, step 6): it opens every menu, popover, select, tooltip, dialog and sheet on each route, in both themes, at 1920, 1440 and 390 px, and fails on clipped or wrapped labels, overlays off screen, sideways scrolling of the page or of anything in it, misplaced dividers, text under 14 px, targets under 24 px, button heights off the scale or mixed in one row, and console errors. Look at every failure screenshot yourself.
 
 Report file and line, source rule, evidence and fix; list the checks that did not run as unverified.

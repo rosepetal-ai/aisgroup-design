@@ -88,12 +88,12 @@ test('fails on a clipped menu, a 12 px label, a page wider than the phone, butto
   }
 });
 
-test('the fixed menu passes in both themes, at desktop and phone width', async () => {
+test('the fixed menu passes in both themes, at wide, desktop and phone width', async () => {
   const server = await serve(), out = tmp();
   try {
     const r = await run({ baseURL: server.url, routes: ['/menu-fixed'], out, settle: 0 });
     assert.equal(r.statesFree, true, JSON.stringify(r.findings, null, 2));
-    assert.deepEqual(r.states.map((s) => [s.theme, s.viewport, s.opened.length]), [['light', '1440x900', 1], ['dark', '1440x900', 1], ['light', '390x844', 1], ['dark', '390x844', 1]]);
+    assert.deepEqual(r.states.map((s) => [s.theme, s.viewport, s.opened.length]), [['light', '1920x1080', 1], ['dark', '1920x1080', 1], ['light', '1440x900', 1], ['dark', '1440x900', 1], ['light', '390x844', 1], ['dark', '390x844', 1]]);
   } finally {
     server.close();
     fs.rmSync(out, { recursive: true, force: true });
