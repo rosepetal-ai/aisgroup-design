@@ -32,6 +32,8 @@ const PAGES = {
   '/menu-fixed': menu('min-width: max(8rem, 60px); width: max-content'),
   '/small-label': page('<label style="font-size: 12px">Batch</label>'),
   '/wide': page('<div style="width: 600px; height: 20px; background: #ccc"></div>'),
+  // A table wider than its scrolling container: the page itself does not scroll, the container does. Code may.
+  '/wide-table': page('<div style="overflow-x: auto; width: 300px"><table><tr><td style="white-space: nowrap">A very long value that does not fit in three hundred pixels at all</td></tr></table></div><pre style="overflow-x: auto; width: 200px">a long line of code that is allowed to scroll sideways</pre>'),
   // A 36 px button beside a 28 px one, and a 36 px one in a dialog footer, whose buttons are 40 px.
   '/buttons': page('<div style="display: flex; gap: 8px"><button style="height: 36px">Save</button><button style="height: 28px">Cancel</button></div><div data-slot="dialog-footer"><button style="height: 36px">Delete</button></div>'),
   '/errors': page('<p>Ready</p><script>console.error("boom"); setTimeout(() => { throw new Error("late"); });</script>'),
@@ -68,6 +70,7 @@ test('fails on a clipped menu, a 12 px label, a page wider than the phone, butto
     assert.equal(r.routes['/menu-fixed'], undefined, JSON.stringify(r.findings.filter((f) => f.route === '/menu-fixed')));
     assert.deepEqual(Object.keys(r.routes['/small-label']), ['small-text']);
     assert.deepEqual(Object.keys(r.routes['/wide']), ['page-scroll']);
+    assert.deepEqual(r.routes['/wide-table'], { 'inner-scroll': 1 });
     assert.deepEqual(r.routes['/buttons'], { 'button-height': 2, 'button-row-height': 1 });
     assert.deepEqual(r.findings.find((f) => f.rule === 'button-row-height').measured, { heights: [36, 28], buttons: ['Save', 'Cancel'] });
     assert.deepEqual(r.routes['/errors'], { 'console-error': 1, 'page-error': 1 }, 'errors raised while loading count once, at rest');

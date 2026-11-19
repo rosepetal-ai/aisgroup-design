@@ -44,9 +44,10 @@ Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens 
 | Content | Use |
 | --- | --- |
 | Lists of rows | Rows divided by lines (`divide-y border-y`), the selected row `bg-muted font-medium` |
-| Tables | Table with sortable headers and numbered Pagination; number columns take `text-right tabular-nums` on TableHead and TableCell |
+| Tables | DataTable with sortable headers and numbered Pagination; number columns take `meta.numeric`, the main text column `meta.primary` and the others `meta.showFrom`, so the table never scrolls sideways |
 | Datasets, models, images | Item `variant="outline"`; image tiles `size="sm"` with the image as ItemHeader |
 | Facts | A label-over-value grid (`dt` muted, `dd`) |
+| Figures of an overview | The `figure-cards` block, one per group of figures that belong together |
 | Forms | Field, FieldGroup and FieldDescription, label above the control, `max-w-sm` |
 | One of a few modes | RadioGroup of choice cards; a tool choice is a ToggleGroup |
 | A long list to choose from | Combobox with search; a short list is a Select |
@@ -76,4 +77,4 @@ Tags, chart series and dataset splits have colours of their own in `@aisgroup/de
 
 Product screens are full width. They use the Tailwind breakpoints, not the website grid. On desktop, toolbar and header buttons are 36 px (`h-9`) with 16 px icons; on touch screens and operator panels, every target is 44 px. Text follows the product scale on [Typography](../../design-language/references/typography.md).
 
-Menus, buttons, tabs and badges fit their longest label: they never wrap or clip. Long user data truncates, with the full text in a Tooltip or `title`. Buttons in one row share one height.
+Menus, buttons, tabs and badges fit their longest label: they never wrap or clip. Long user data truncates, with the full text in a Tooltip or `title`. Buttons in one row share one height. Nothing scrolls sideways at any width, neither the page nor anything on it; only code and logs may.

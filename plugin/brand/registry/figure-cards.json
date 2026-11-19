@@ -1,0 +1,24 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "figure-cards",
+  "type": "registry:block",
+  "title": "Figure cards",
+  "description": "The figures of an overview as cards: label, value and an optional detail line, up to four in a row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/card.json",
+    "https://design.aisgroup.ai/r/skeleton.json"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/FigureCards.vue",
+      "type": "registry:block",
+      "content": "<script setup lang=\"ts\">\n// The figures of an overview as cards, as rosepetal-ui's dashboard shows its usage: the label, the value large and an\n// optional detail line. Up to four in a row on a wide screen, two on a tablet, one on a phone. Figures that belong\n// together are one FigureCards; a second group is another, so it starts its own row. `attrs` go on each figure's card\n// (an app's test ids, for instance); the value carries data-figure-value.\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Skeleton } from '@/components/ui/skeleton'\n\nexport interface Figure {\n  id: string\n  label: string\n  value: string | number\n  detail?: string\n  attrs?: Record<string, string>\n}\n\nconst props = defineProps<{ figures: Figure[], loading?: boolean, class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div data-slot=\"figure-cards\" :class=\"cn('grid gap-4 sm:grid-cols-2 xl:grid-cols-4', props.class)\">\n    <Card v-for=\"figure in figures\" :key=\"figure.id\" v-bind=\"figure.attrs\">\n      <CardHeader>\n        <CardDescription>{{ figure.label }}</CardDescription>\n        <Skeleton v-if=\"loading\" class=\"h-9 w-24\" />\n        <CardTitle v-else data-figure-value class=\"text-3xl font-semibold tracking-tight tabular-nums\">\n          {{ figure.value }}\n        </CardTitle>\n      </CardHeader>\n      <CardContent v-if=\"figure.detail\" class=\"text-muted-foreground tabular-nums\">\n        {{ figure.detail }}\n      </CardContent>\n    </Card>\n  </div>\n</template>\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/blocks/FigureCards.vue"
+  }
+}

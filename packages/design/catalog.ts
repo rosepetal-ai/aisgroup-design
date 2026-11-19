@@ -72,6 +72,7 @@ export const blockItems: CatalogItem[] = [
   { id: 'login-page', name: 'Login page', description: 'The sign-in page. Each app gives its logo, its texts and its sign-in.', file: 'packages/design/blocks/LoginPage.vue', ready: true },
   { id: 'confirm-dialog', name: 'Confirm dialog', description: 'A question before an action: it runs the action, shows its progress and errors, and offers Retry. Each app gives its texts and the action.', file: 'packages/design/blocks/ConfirmDialog.vue', ready: true },
   { id: 'confirm-host', name: 'Confirm host', description: 'Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts.', file: 'packages/design/blocks/ConfirmHost.vue', ready: true },
+  { id: 'figure-cards', name: 'Figure cards', description: 'The figures of an overview as cards: label, value and an optional detail line, up to four in a row.', file: 'packages/design/blocks/FigureCards.vue', ready: true },
   { id: 'page-layout', name: 'Page layout', description: 'A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls.', file: 'packages/design/blocks/PageLayout.vue', ready: true },
   { id: 'log-terminal', name: 'Log terminal', description: 'A console for logs. Each app gives its lines.', file: 'packages/design/blocks/LogTerminal.vue', ready: true },
 ]

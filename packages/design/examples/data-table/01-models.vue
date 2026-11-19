@@ -1,4 +1,4 @@
-<!-- Columns and data in: sortable headers, a search and a status filter in the toolbar, column visibility, row selection and numbered pages. Number columns align right. -->
+<!-- Columns and data in: sortable headers, a search and a status filter in the toolbar, column visibility, row selection and numbered pages. Number columns align right; the name takes the free width and truncates, and the dataset and images columns appear when the table is wide enough, so it never scrolls sideways. -->
 <script setup>
 import { ref } from 'vue';
 import { CircleCheckIcon, CircleXIcon, LoaderCircleIcon, SearchIcon } from '@lucide/vue';
@@ -15,10 +15,10 @@ const models = [
   ['m-cable-02', 'Cable harness', 'failed', 3810, null], ['m-blister-02', 'Blister packaging', 'finished', 3075, 99.3],
 ].map(([name, dataset, status, images, accuracy]) => ({ name, dataset, status, images, accuracy }));
 const columns = [
-  { accessorKey: 'name', header: 'Name' },
-  { accessorKey: 'dataset', header: 'Dataset' },
+  { accessorKey: 'name', header: 'Name', meta: { primary: true } },
+  { accessorKey: 'dataset', header: 'Dataset', meta: { showFrom: 'xl' } },
   { accessorKey: 'status', header: 'Status', filterFn: 'equalsString' },
-  { accessorKey: 'images', header: 'Images', meta: { numeric: true }, cell: ({ getValue }) => getValue().toLocaleString('en-GB') },
+  { accessorKey: 'images', header: 'Images', meta: { numeric: true, showFrom: 'lg' }, cell: ({ getValue }) => getValue().toLocaleString('en-GB') },
   { accessorKey: 'accuracy', header: 'Accuracy', meta: { numeric: true }, cell: ({ getValue }) => (getValue() == null ? '' : `${getValue().toFixed(1)}%`) },
 ];
 const search = ref('');

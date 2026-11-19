@@ -1,12 +1,13 @@
-<!-- A dashboard: the figures as one label-over-value row on the page, then one Card per subject with its real content, side by side and as tall as their row. Never a box per figure. -->
+<!-- A dashboard: the figures first in Figure cards, then one Card per subject with its real content, side by side and as tall as their row. -->
 <script setup>
 import { VisAxis, VisStackedBar, VisXYContainer } from '@unovis/vue';
+import FigureCards from '@aisgroup/design/blocks/FigureCards.vue';
 import PageLayout from '@aisgroup/design/blocks/PageLayout.vue';
 import { Button } from '@aisgroup/design/ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@aisgroup/design/ui/card';
 import { ChartContainer, ChartCrosshair, ChartTooltip, ChartTooltipContent, componentToString } from '@aisgroup/design/ui/chart';
 
-const figures = [['Users', '10'], ['Active automations', '0 of 1'], ['Integrations', '7'], ['Actions today', '24']];
+const figures = [{ id: 'users', label: 'Users', value: 10 }, { id: 'automations', label: 'Active automations', value: '0 of 1' }, { id: 'integrations', label: 'Integrations', value: 7 }, { id: 'actions', label: 'Actions today', value: 24 }];
 const validations = [['Expense report, March', 'Jordi Ferrer', '2 days'], ['Holiday request', 'Anna Roca', '1 day'], ['New supplier', 'Marc Puig', '5 hours']];
 const activity = [{ day: 'Mon', actions: 31 }, { day: 'Tue', actions: 42 }, { day: 'Wed', actions: 28 }, { day: 'Thu', actions: 37 }, { day: 'Fri', actions: 45 }, { day: 'Sat', actions: 6 }, { day: 'Sun', actions: 24 }];
 const config = { actions: { label: 'Actions', color: 'var(--chart-1)' } };
@@ -15,14 +16,9 @@ const config = { actions: { label: 'Actions', color: 'var(--chart-1)' } };
 <template>
   <div class="min-h-120 w-full bg-page text-foreground">
     <PageLayout title="Dashboard">
-      <dl class="grid grid-cols-2 gap-6 lg:grid-cols-4">
-        <div v-for="[label, value] in figures" :key="label" class="flex flex-col gap-1">
-          <dt class="text-muted-foreground">{{ label }}</dt>
-          <dd class="text-2xl font-medium tabular-nums">{{ value }}</dd>
-        </div>
-      </dl>
+      <FigureCards :figures="figures" />
       <div class="grid gap-4 xl:grid-cols-2">
-        <Card class="shadow-none">
+        <Card>
           <CardHeader>
             <CardTitle>Pending validations</CardTitle>
             <CardDescription>3 waiting for you</CardDescription>
@@ -37,7 +33,7 @@ const config = { actions: { label: 'Actions', color: 'var(--chart-1)' } };
             </ul>
           </CardContent>
         </Card>
-        <Card class="shadow-none">
+        <Card>
           <CardHeader>
             <CardTitle>Activity</CardTitle>
             <CardDescription>Actions per day, last week</CardDescription>

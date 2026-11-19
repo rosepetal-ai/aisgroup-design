@@ -69,5 +69,16 @@ declare module '@tanstack/vue-table' {
   interface ColumnMeta<in out TFeatures extends TableFeatures, in out TData extends RowData, TValue extends CellData = CellData> {
     /** A number column: header and cells right-aligned, with tabular figures. */
     numeric?: boolean
+    /**
+     * The main text column (usually the name): it takes the width the other columns leave and truncates its text, with
+     * the full text on hover, so a long value never makes the table scroll sideways.
+     */
+    primary?: boolean
+    /**
+     * The column shows only when the table is at least this wide (Tailwind container sizes: sm 24rem … 7xl 80rem, then
+     * 8xl 96rem and 9xl 120rem for big screens), so a narrow table keeps its important columns and never scrolls
+     * sideways. Leave it off the primary column.
+     */
+    showFrom?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'
   }
 }

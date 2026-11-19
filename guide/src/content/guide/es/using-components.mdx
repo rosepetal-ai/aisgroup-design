@@ -57,9 +57,10 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 | Contenido | Usa |
 | --- | --- |
 | Listas de filas | Filas separadas por líneas (`divide-y border-y`), la fila elegida `bg-muted font-medium` |
-| Tablas | Table con cabeceras ordenables y Pagination numerada; las columnas de números llevan `text-right tabular-nums` en TableHead y TableCell |
+| Tablas | DataTable con cabeceras ordenables y Pagination numerada; las columnas de números llevan `meta.numeric`, la columna de texto principal `meta.primary` y las demás `meta.showFrom`, para que la tabla nunca se desplace lateralmente |
 | Datasets, modelos, imágenes | Item `variant="outline"`; las fichas de imagen `size="sm"` con la imagen como ItemHeader |
 | Datos | Una cuadrícula de etiqueta sobre valor (`dt` atenuado, `dd`) |
+| Cifras de un resumen | El bloque `figure-cards`, uno por grupo de cifras que van juntas |
 | Formularios | Field, FieldGroup y FieldDescription, etiqueta sobre el control, `max-w-sm` |
 | Uno de pocos modos | RadioGroup de tarjetas de opción; elegir herramienta es un ToggleGroup |
 | Elegir de una lista larga | Combobox con búsqueda; una lista corta es un Select |
@@ -89,4 +90,4 @@ Etiquetas, series de gráficos y particiones de dataset tienen colores propios e
 
 Las pantallas de producto ocupan todo el ancho. Usan los puntos de ruptura de Tailwind, no la retícula de las webs. En escritorio, los botones de barra de herramientas y de cabecera miden 36 px (`h-9`), con iconos de 16 px; en pantallas táctiles y paneles de operario, cada zona interactiva mide 44 px. El texto sigue la escala de producto de [Tipografía](/es/typography/).
 
-Los menús, los botones, las pestañas y los Badge se ajustan a su etiqueta más larga: nunca pasan a otra línea ni se cortan. Los datos largos del usuario se truncan, con el texto completo en un Tooltip o en `title`. Los botones de una misma fila tienen la misma altura.
+Los menús, los botones, las pestañas y los Badge se ajustan a su etiqueta más larga: nunca pasan a otra línea ni se cortan. Los datos largos del usuario se truncan, con el texto completo en un Tooltip o en `title`. Los botones de una misma fila tienen la misma altura. Nada se desplaza lateralmente en ningún ancho, ni la página ni nada de lo que contiene; solo pueden hacerlo el código y los registros.

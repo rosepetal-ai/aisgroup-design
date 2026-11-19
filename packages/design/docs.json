@@ -619,6 +619,16 @@
         "es": "Una página bajo la barra superior: su ancho, título y acciones, y un menú lateral opcional que se queda quieto mientras el contenido se desplaza.",
         "ca": "Una pàgina sota la barra superior: la seva amplada, títol i accions, i un menú lateral opcional que es queda quiet mentre el contingut es desplaça."
       }
+    },
+    "figure-cards": {
+      "name": {
+        "es": "Tarjetas de cifras",
+        "ca": "Targetes de xifres"
+      },
+      "description": {
+        "es": "Las cifras de un resumen como tarjetas: etiqueta, valor y una línea de detalle opcional, hasta cuatro por fila.",
+        "ca": "Les xifres d’un resum com a targetes: etiqueta, valor i una línia de detall opcional, fins a quatre per fila."
+      }
     }
   },
   "examples": {
@@ -1068,8 +1078,8 @@
         "ca": "Tauler"
       },
       "about": {
-        "es": "Un panel: las cifras como una fila de etiqueta sobre valor en la página y, después, una Card por tema con su contenido real, una al lado de otra y tan altas como su fila. Nunca una caja por cifra.",
-        "ca": "Un tauler: les xifres com una fila d’etiqueta sobre valor a la pàgina i, després, una Card per tema amb el seu contingut real, una al costat de l’altra i tan altes com la seva fila. Mai una caixa per xifra."
+        "es": "Un panel: primero las cifras en Tarjetas de cifras y, después, una Card por tema con su contenido real, una al lado de otra y tan altas como su fila.",
+        "ca": "Un tauler: primer les xifres a Targetes de xifres i, després, una Card per tema amb el seu contingut real, una al costat de l’altra i tan altes com la seva fila."
       }
     },
     "page-layout/07-empty": {
@@ -1408,8 +1418,8 @@
         "ca": "Models"
       },
       "about": {
-        "es": "Columnas y datos de entrada: cabeceras ordenables, una búsqueda y un filtro de estado en la barra de herramientas, columnas visibles, selección de filas y páginas numeradas. Las columnas numéricas se alinean a la derecha.",
-        "ca": "Columnes i dades d’entrada: capçaleres ordenables, una cerca i un filtre d’estat a la barra d’eines, columnes visibles, selecció de files i pàgines numerades. Les columnes numèriques s’alineen a la dreta."
+        "es": "Columnas y datos de entrada: cabeceras ordenables, una búsqueda y un filtro de estado en la barra de herramientas, columnas visibles, selección de filas y páginas numeradas. Las columnas numéricas se alinean a la derecha. El nombre ocupa el ancho libre y se trunca, y las columnas de dataset e imágenes aparecen cuando la tabla es lo bastante ancha, así que nunca se desplaza lateralmente.",
+        "ca": "Columnes i dades d’entrada: capçaleres ordenables, una cerca i un filtre d’estat a la barra d’eines, columnes visibles, selecció de files i pàgines numerades. Les columnes numèriques s’alineen a la dreta. El nom ocupa l’amplada lliure i es trunca, i les columnes de dataset i imatges apareixen quan la taula és prou ampla, de manera que no es desplaça mai lateralment."
       }
     },
     "data-table/02-loading": {
@@ -1600,6 +1610,16 @@
       "about": {
         "es": "Una lista de tareas, como el ejemplo de tareas de shadcn: una búsqueda, filtros cuya elección se ve como chips, las columnas visibles, la tabla directamente sobre la página con selección y acciones por fila, y páginas numeradas.",
         "ca": "Una llista de tasques, com l’exemple de tasques de shadcn: una cerca, filtres amb l’elecció en forma de xips, les columnes visibles, la taula directament sobre la pàgina amb selecció i accions per fila, i pàgines numerades."
+      }
+    },
+    "figure-cards/01-overview": {
+      "name": {
+        "es": "Resumen",
+        "ca": "Resum"
+      },
+      "about": {
+        "es": "Las cifras de un resumen: un bloque por grupo de cifras que van juntas, cada uno en su propia fila.",
+        "ca": "Les xifres d’un resum: un bloc per grup de xifres que van juntes, cadascun a la seva fila."
       }
     }
   }

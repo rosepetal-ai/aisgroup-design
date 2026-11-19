@@ -69,5 +69,6 @@ Brand pieces built from the components, with no app logic: the top bar, the logi
 - **Login page** (`login-page`): The sign-in page. Each app gives its logo, its texts and its sign-in. [Live](https://aisgroup-design.web.app/en/components/login-page/)
 - **Confirm dialog** (`confirm-dialog`): A question before an action: it runs the action, shows its progress and errors, and offers Retry. Each app gives its texts and the action. [Live](https://aisgroup-design.web.app/en/components/confirm-dialog/)
 - **Confirm host** (`confirm-host`): Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts. [Live](https://aisgroup-design.web.app/en/components/confirm-host/)
+- **Figure cards** (`figure-cards`): The figures of an overview as cards: label, value and an optional detail line, up to four in a row. [Live](https://aisgroup-design.web.app/en/components/figure-cards/)
 - **Page layout** (`page-layout`): A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls. [Live](https://aisgroup-design.web.app/en/components/page-layout/)
 - **Log terminal** (`log-terminal`): A console for logs. Each app gives its lines. [Live](https://aisgroup-design.web.app/en/components/log-terminal/)

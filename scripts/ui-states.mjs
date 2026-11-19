@@ -2,7 +2,7 @@
 // The runtime states check: what ui-contract.mjs cannot read from code. On every route, in every theme and viewport, it
 // checks the page at rest, then opens each trigger of our overlays in turn (menus, popovers, selects, comboboxes,
 // tooltips, dialogs, sheets, context menus; the sidebar sheet at phone width), checks the open state and closes it.
-// Rules: clipped-text, wrapped-label, overlay-off-screen, page-scroll, small-text, small-target, button-height,
+// Rules: clipped-text, wrapped-label, overlay-off-screen, page-scroll, inner-scroll, small-text, small-target, button-height,
 // button-row-height, divider-overflow, divider-off-centre, console-error, page-error. Each failing state is screenshotted with the failing elements outlined.
 // Bounded: only our own triggers ([data-slot$="-trigger"]), no sub-menus, no hover styles; keyboard, focus and screen
 // reader checks remain manual.
@@ -21,7 +21,7 @@ const TRIGGERS = TRIGGER_SLOTS.map((s) => `[data-slot="${s}-trigger"]`).join(','
 // Open overlays: our content slots, the mobile sidebar sheet, and any ARIA overlay (PrimeVue and others).
 export const CONTENTS = ['dropdown-menu', 'dropdown-menu-sub', 'popover', 'select', 'combobox', 'tooltip', 'dialog', 'alert-dialog', 'sheet', 'context-menu', 'context-menu-sub', 'hover-card', 'navigation-menu']
   .map((s) => `[data-slot="${s}-content"]`).concat('[data-slot="sidebar"][data-mobile="true"]', '[role="dialog"]', '[role="alertdialog"]', '[role="menu"]', '[role="listbox"]', '[role="tooltip"]').join(',');
-export const RULES = ['clipped-text', 'wrapped-label', 'overlay-off-screen', 'page-scroll', 'small-text', 'small-target', 'button-height', 'button-row-height', 'divider-overflow', 'divider-off-centre', 'console-error', 'page-error'];
+export const RULES = ['clipped-text', 'wrapped-label', 'overlay-off-screen', 'page-scroll', 'inner-scroll', 'small-text', 'small-target', 'button-height', 'button-row-height', 'divider-overflow', 'divider-off-centre', 'console-error', 'page-error'];
 const PER_RULE = 25; // findings kept per rule and state; counts stay complete
 const DEFAULTS = { themes: ['light', 'dark'], viewports: [{ width: 1440, height: 900 }, { width: 390, height: 844 }], out: 'ui-states', maxTriggers: 25, settle: 800, darkClass: 'dark' };
 
@@ -60,6 +60,13 @@ export function inspect({ open, contents, perRule }) {
   if (!open && document.documentElement.scrollWidth > vw + 1) {
     const wide = [...document.body.querySelectorAll('*')].filter((e) => box(e).right > vw + 1 && !(e.parentElement && box(e.parentElement).right > vw + 1) && visible(e)).slice(0, 3);
     add('page-scroll', wide[0] ?? null, { documentWidth: document.documentElement.scrollWidth, viewportWidth: vw, origins: wide.map((e) => describe(e).selector) });
+  }
+  // inner-scroll: nothing inside the page scrolls sideways either (a table too wide for its place, a row of tabs or
+  // chips). Code, logs and carousels scroll sideways on purpose.
+  for (const e of tops.flatMap((r) => [r, ...r.querySelectorAll('*')])) {
+    if (!(e instanceof HTMLElement) || e === document.body || e.closest(SKIP) || e.clientWidth < 1 || e.scrollWidth <= e.clientWidth + 1) continue;
+    if (!/auto|scroll/.test(getComputedStyle(e).overflowX) || e.closest('pre,code,[data-slot="log-terminal"],[data-slot^="carousel"]') || !visible(e)) continue;
+    add('inner-scroll', e, { scrollWidth: e.scrollWidth, clientWidth: e.clientWidth, over: e.scrollWidth - e.clientWidth });
   }
   for (const r of open ? tops : []) {
     const b = box(r);

@@ -53,9 +53,9 @@ A dashed border belongs only to the Empty. Never a short dashed box with one lin
 ## Dashboards
 
 - The title is «Dashboard» or the product’s own name for it. No greeting and no role.
-- The figures go first, as one label-over-value row on the page.
+- The figures go first, in the Figure cards block: label, value and an optional detail line, up to four in a row. Figures that belong together share one block; a second group starts its own row.
 - Then one Card per subject, with its title, one line and its action, and real content: rows, a bar with its numbers or a chart. Cards side by side share the height of their row.
-- Never a grid of identical figure cards, a figure alone in a box, or a footnote about customising the page.
+- Never figures laid out by hand, or a footnote about customising the page.
 
 ## Common defects
 

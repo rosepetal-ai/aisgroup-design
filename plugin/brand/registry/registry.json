@@ -364,6 +364,12 @@
       "description": "Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts."
     },
     {
+      "name": "figure-cards",
+      "type": "registry:block",
+      "title": "Figure cards",
+      "description": "The figures of an overview as cards: label, value and an optional detail line, up to four in a row."
+    },
+    {
       "name": "page-layout",
       "type": "registry:block",
       "title": "Page layout",

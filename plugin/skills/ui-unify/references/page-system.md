@@ -17,7 +17,8 @@ List, detail, settings, dashboard or a tool screen. Open the matching page-layou
 
 - Sections: the section header pattern (h2, at most one muted line, actions right) and their content, separated by space. Remove the Card or bordered box around a section that runs the page width; sections side by side are Cards in `grid gap-4 xl:grid-cols-2`.
 - One surface level: take out cards and bordered boxes inside cards, and the bordered box around a table.
-- Figures: one label-over-value row on the page, or inside the Card of their subject with its real content. A grid of identical figure cards goes.
+- Tables: `meta.primary` on the main text column and `meta.showFrom` on the columns a narrow table can drop. Nothing on the page scrolls sideways at 1440 or 390; the states check fails `page-scroll` and `inner-scroll`.
+- Figures: the `figure-cards` block (label, value, optional detail; up to four in a row), one block per group of figures that belong together. Replace hand-made figure rows and figure boxes with it.
 - Status as a toned icon and the word; roles and categories as plain text; no coloured pills.
 
 ## 4. States
