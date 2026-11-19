@@ -27,7 +27,9 @@ const Tag = href ? 'a' : 'button';
     transition: background-color var(--ais-duration-moderate-1) var(--ais-ease-standard), color var(--ais-duration-moderate-1) var(--ais-ease-standard), border-color var(--ais-duration-moderate-1) var(--ais-ease-standard);
   }
   .web-split-button--compact { --split-size: 44px; --split-icon: 20px; --split-inset: var(--ais-space-200); }
-  .web-split-button__label { min-width: 0; }
+  /* The label is trimmed to its capitals and baseline, so the box centres the letters themselves, whatever line metrics the
+     browser reads from the font (on some systems the untrimmed line put the text 1.5 px high). */
+  .web-split-button__label { min-width: 0; text-box: trim-both cap alphabetic; }
   .web-split-button__arrow {
     display: grid; place-items: center; flex: none; box-sizing: border-box;
     width: calc(var(--split-size) - 2 * var(--split-border)); height: calc(var(--split-size) - 2 * var(--split-border));
