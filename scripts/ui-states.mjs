@@ -3,7 +3,7 @@
 // checks the page at rest, then opens each trigger of our overlays in turn (menus, popovers, selects, comboboxes,
 // tooltips, dialogs, sheets, context menus; the sidebar sheet at phone width), checks the open state and closes it.
 // Rules: clipped-text, wrapped-label, overlay-off-screen, page-scroll, small-text, small-target, button-height,
-// button-row-height, console-error, page-error. Each failing state is screenshotted with the failing elements outlined.
+// button-row-height, divider-overflow, divider-off-centre, console-error, page-error. Each failing state is screenshotted with the failing elements outlined.
 // Bounded: only our own triggers ([data-slot$="-trigger"]), no sub-menus, no hover styles; keyboard, focus and screen
 // reader checks remain manual.
 //   node ui-states.mjs <base URL> [routes...] [--config states.json] [--login hook.mjs] [--theme-key key]
@@ -21,7 +21,7 @@ const TRIGGERS = TRIGGER_SLOTS.map((s) => `[data-slot="${s}-trigger"]`).join(','
 // Open overlays: our content slots, the mobile sidebar sheet, and any ARIA overlay (PrimeVue and others).
 export const CONTENTS = ['dropdown-menu', 'dropdown-menu-sub', 'popover', 'select', 'combobox', 'tooltip', 'dialog', 'alert-dialog', 'sheet', 'context-menu', 'context-menu-sub', 'hover-card', 'navigation-menu']
   .map((s) => `[data-slot="${s}-content"]`).concat('[data-slot="sidebar"][data-mobile="true"]', '[role="dialog"]', '[role="alertdialog"]', '[role="menu"]', '[role="listbox"]', '[role="tooltip"]').join(',');
-export const RULES = ['clipped-text', 'wrapped-label', 'overlay-off-screen', 'page-scroll', 'small-text', 'small-target', 'button-height', 'button-row-height', 'console-error', 'page-error'];
+export const RULES = ['clipped-text', 'wrapped-label', 'overlay-off-screen', 'page-scroll', 'small-text', 'small-target', 'button-height', 'button-row-height', 'divider-overflow', 'divider-off-centre', 'console-error', 'page-error'];
 const PER_RULE = 25; // findings kept per rule and state; counts stay complete
 const DEFAULTS = { themes: ['light', 'dark'], viewports: [{ width: 1440, height: 900 }, { width: 390, height: 844 }], out: 'ui-states', maxTriggers: 25, settle: 800, darkClass: 'dark' };
 
@@ -187,6 +187,27 @@ export function inspect({ open, contents, perRule }) {
       const heights = items.map((e) => Math.round(box(e).height));
       if (Math.max(...heights) - Math.min(...heights) > 1) add('button-row-height', r, { heights, buttons: items.map((e) => describe(e).text || describe(e).selector) });
     }
+  }
+
+  // divider-overflow: a divider stays inside its parent's box; a full-width one given side margins runs past it, into
+  // the border. divider-off-centre: a vertical divider shorter than its row sits on the row's centre; a fixed height
+  // with align-self: stretch pins it to the top. Both come from a class that lost to the component's own.
+  const DIVIDERS = '[data-slot="separator"],[data-slot$="-separator"],[data-sidebar="separator"],[role="separator"],hr';
+  // A focusable separator is a splitter (the sidebar's resize handle), placed across an edge on purpose.
+  const dividers = tops.flatMap((r) => [...r.querySelectorAll(DIVIDERS)])
+    .filter((e) => !e.closest(SKIP) && e.parentElement && !e.matches('[tabindex]:not([tabindex="-1"]),[aria-valuenow]') && visible(e));
+  for (const e of dividers) {
+    const b = box(e), p = e.parentElement, pb = box(p), ps = getComputedStyle(p);
+    if (b.width < 0.5 || b.height < 0.5) continue;
+    if (b.left < pb.left - 0.5 || b.right > pb.right + 0.5 || b.top < pb.top - 0.5 || b.bottom > pb.bottom + 0.5) {
+      add('divider-overflow', e, { box: px(b), parent: px(pb) });
+      continue;
+    }
+    const vertical = (e.getAttribute('aria-orientation') ?? e.dataset.orientation) === 'vertical' || b.height > b.width;
+    if (!vertical || !ps.display.includes('flex') || ps.flexDirection.startsWith('column')) continue;
+    const padTop = parseFloat(ps.paddingTop), rowHeight = p.clientHeight - padTop - parseFloat(ps.paddingBottom);
+    const offset = b.top + b.height / 2 - (pb.top + p.clientTop + padTop + rowHeight / 2);
+    if (b.height < rowHeight - 1 && Math.abs(offset) > 1) add('divider-off-centre', e, { offset: Math.round(offset), height: Math.round(b.height), rowHeight: Math.round(rowHeight) });
   }
   return { opened: true, found, counts };
 }

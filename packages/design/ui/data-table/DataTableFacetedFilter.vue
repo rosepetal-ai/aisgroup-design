@@ -52,7 +52,7 @@ function update(values: unknown) {
       <Button data-slot="data-table-faceted-filter" variant="outline" v-bind="$attrs" :class="cn('border-dashed bg-card', props.class)">
         <CirclePlusIcon data-icon="inline-start" />{{ title }}
         <template v-if="chosen.length">
-          <Separator orientation="vertical" class="mx-0.5 data-[orientation=vertical]:h-4" />
+          <Separator orientation="vertical" class="mx-0.5 h-4 self-center" />
           <Badge variant="secondary" class="lg:hidden">{{ chosen.length }}</Badge>
           <span class="hidden gap-1 lg:flex">
             <Badge v-if="chosen.length > 2" variant="secondary">{{ text.selected.replace('{count}', String(chosen.length)) }}</Badge>

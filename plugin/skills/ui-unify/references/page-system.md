@@ -11,6 +11,7 @@ List, detail, settings, dashboard or a tool screen. Open the matching page-layou
 - Replace the app's own header with PageLayout: title, at most one muted line carrying a fact, actions at the right.
 - Remove the icon tile, the greeting, the role pill and any badge or count beside the title. Keep the data behind them if the page shows it elsewhere; say which ones you removed.
 - A back link or breadcrumb the app had stays where the app keeps it (top bar or sidebar) until PageLayout offers one; never a second title row.
+- A module whose pages have their own section menu: in an app with a sidebar, move the sections into the sidebar as the module's second level and title each page with its section. Keep PageLayout's `#nav` only in apps without a sidebar.
 
 ## 3. Content
 

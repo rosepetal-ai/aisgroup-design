@@ -35,6 +35,11 @@ const PAGES = {
   // A 36 px button beside a 28 px one, and a 36 px one in a dialog footer, whose buttons are 40 px.
   '/buttons': page('<div style="display: flex; gap: 8px"><button style="height: 36px">Save</button><button style="height: 28px">Cancel</button></div><div data-slot="dialog-footer"><button style="height: 36px">Delete</button></div>'),
   '/errors': page('<p>Ready</p><script>console.error("boom"); setTimeout(() => { throw new Error("late"); });</script>'),
+  // The two Nexus dividers: a filter's 16 px divider pinned to the top of its button, and a collapsed sidebar's rule
+  // given side margins on top of full width. Then both as they should be.
+  ...Object.fromEntries([['/dividers', 'align-self: stretch', 'width: 100%'], ['/dividers-fixed', 'align-self: center', 'width: auto']].map(([route, align, width]) => [route, page(`<button style="display: flex; align-items: center; gap: 4px; border: 0">Status<span data-slot="separator" data-orientation="vertical" style="width: 1px; height: 16px; ${align}; background: #888"></span>Active</button>
+<div style="display: flex; flex-direction: column; width: 48px; overflow: hidden; border-right: 1px solid #888"><div data-slot="separator" data-orientation="horizontal" style="height: 1px; margin: 0 8px; ${width}; background: #888"></div></div>
+<div style="position: relative; width: 48px; height: 40px"><div role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize" style="position: absolute; right: -12px; width: 24px; height: 40px"></div></div>`)])),
 };
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json', '.png': 'image/png' };
 // Serves the fixtures, or a folder (the built guide) when given one.
@@ -66,6 +71,9 @@ test('fails on a clipped menu, a 12 px label, a page wider than the phone, butto
     assert.deepEqual(r.routes['/buttons'], { 'button-height': 2, 'button-row-height': 1 });
     assert.deepEqual(r.findings.find((f) => f.rule === 'button-row-height').measured, { heights: [36, 28], buttons: ['Save', 'Cancel'] });
     assert.deepEqual(r.routes['/errors'], { 'console-error': 1, 'page-error': 1 }, 'errors raised while loading count once, at rest');
+    assert.deepEqual(r.routes['/dividers'], { 'divider-overflow': 1, 'divider-off-centre': 1 });
+    assert.deepEqual(r.findings.find((f) => f.rule === 'divider-off-centre').measured, { offset: -8, height: 16, rowHeight: 32 });
+    assert.equal(r.routes['/dividers-fixed'], undefined, JSON.stringify(r.findings.filter((f) => f.route === '/dividers-fixed')));
     const clipped = r.findings.find((f) => f.rule === 'clipped-text');
     assert.equal(clipped.state, 'open dropdown-menu Dev');
     assert.equal(clipped.element.text, 'Documentation');
