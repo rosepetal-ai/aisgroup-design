@@ -1,12 +1,13 @@
 <!-- Sortable headers are ghost buttons; status is an icon and a word; row actions at the end. -->
 <script setup>
-import { ArrowUpDownIcon, CircleCheckIcon, CircleXIcon, EllipsisIcon, LoaderCircleIcon } from '@lucide/vue';
+import { ArrowUpDownIcon, EllipsisIcon } from '@lucide/vue';
 import { Button } from '@aisgroup/design/ui/button';
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@aisgroup/design/ui/table';
 const rows = [
-  { name: 'm-inspection-03', dataset: 'PCB inspection', date: '06/10/2026', status: 'Finished', icon: CircleCheckIcon, tone: 'text-success' },
-  { name: 'm-inspection-04', dataset: 'PCB inspection', date: '07/10/2026', status: 'Training', icon: LoaderCircleIcon, tone: 'animate-spin' },
-  { name: 'm-food-01', dataset: 'Tortilla line', date: '01/10/2026', status: 'Failed', icon: CircleXIcon, tone: 'text-destructive' },
+  { name: 'm-inspection-03', dataset: 'PCB inspection', date: '06/10/2026', status: 'Finished', tone: 'success' },
+  { name: 'm-inspection-04', dataset: 'PCB inspection', date: '07/10/2026', status: 'Training', tone: 'running' },
+  { name: 'm-food-01', dataset: 'Tortilla line', date: '01/10/2026', status: 'Failed', tone: 'destructive' },
 ];
 </script>
 
@@ -26,7 +27,7 @@ const rows = [
         <TableCell class="font-medium">{{ r.name }}</TableCell>
         <TableCell>{{ r.dataset }}</TableCell>
         <TableCell class="tabular-nums">{{ r.date }}</TableCell>
-        <TableCell><span class="flex items-center gap-1.5 text-muted-foreground"><component :is="r.icon" class="size-4" :class="r.tone" />{{ r.status }}</span></TableCell>
+        <TableCell><StatusLabel :tone="r.tone">{{ r.status }}</StatusLabel></TableCell>
         <TableCell><Button variant="ghost" size="icon-sm" :aria-label="`Actions for ${r.name}`"><EllipsisIcon /></Button></TableCell>
       </TableRow>
     </TableBody>

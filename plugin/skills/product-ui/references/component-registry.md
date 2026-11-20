@@ -51,6 +51,7 @@ Stock shadcn-vue in the Rosepetal look. Import: `import { Button } from '@aisgro
 - **Slider** (`slider`): A value in a range. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/slider/`
 - **Toast** (`sonner`): Short feedback after an action. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/sonner/`
 - **Spinner** (`spinner`): Something working: in its button, or filling an empty area. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/spinner/`
+- **Status label** (`status-label`): A status as a toned icon and the word, in muted text. Never colour alone, never a badge. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/status-label/`
 - **Stepper** (`stepper`): The steps of a task in order, with the current one marked. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/stepper/`
 - **Switch** (`switch`): A setting on or off, in a switch row. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/switch/`
 - **Table** (`table`): Rows of facts with sortable headers. `rosepetal-ai/aisgroup-design@dev:packages/design/ui/table/`

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "status-label",
+  "type": "registry:ui",
+  "title": "Status label",
+  "description": "A status as a toned icon and the word, in muted text. Never colour alone, never a badge.",
+  "dependencies": [
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/status-label/StatusLabel.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { Component, HTMLAttributes } from 'vue'\nimport type { StatusTone } from '.'\nimport { CircleCheckIcon, CircleIcon, CircleXIcon, InfoIcon, LoaderCircleIcon, TriangleAlertIcon } from '@lucide/vue'\nimport { cn } from '@/lib/utils'\n\n// A status as the guide writes it: a toned icon and the word, in muted text. Never colour alone, never a tinted pill.\n// The tone picks the icon and its colour; `icon` replaces the icon where a status needs its own (a clock for pending).\nconst props = withDefaults(defineProps<{\n  tone?: StatusTone\n  icon?: Component\n  class?: HTMLAttributes['class']\n}>(), { tone: 'neutral' })\n\nconst ICONS: Record<StatusTone, Component> = {\n  success: CircleCheckIcon,\n  warning: TriangleAlertIcon,\n  destructive: CircleXIcon,\n  info: InfoIcon,\n  neutral: CircleIcon,\n  running: LoaderCircleIcon,\n}\nconst TONES: Record<StatusTone, string> = {\n  success: 'text-success',\n  warning: 'text-warning',\n  destructive: 'text-destructive',\n  info: 'text-info',\n  neutral: '',\n  running: 'animate-spin motion-reduce:animate-none',\n}\n</script>\n\n<template>\n  <span data-slot=\"status-label\" :data-tone=\"tone\" :class=\"cn('inline-flex items-center gap-1.5 whitespace-nowrap text-muted-foreground', props.class)\">\n    <component :is=\"icon ?? ICONS[tone]\" aria-hidden=\"true\" :class=\"cn('size-4 shrink-0', TONES[tone])\" />\n    <slot />\n  </span>\n</template>\n"
+    },
+    {
+      "path": "components/ui/status-label/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as StatusLabel } from './StatusLabel.vue'\n\n/** success, warning and destructive for outcomes; info for a neutral fact worth noticing; neutral for an idle state; running for work in progress (a spinning icon). */\nexport type StatusTone = 'success' | 'warning' | 'destructive' | 'info' | 'neutral' | 'running'\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/status-label/StatusLabel.vue"
+  }
+}

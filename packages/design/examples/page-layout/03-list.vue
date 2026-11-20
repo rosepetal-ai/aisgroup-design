@@ -1,15 +1,16 @@
 <!-- A list page: the toolbar and the table straight on the page, numbered pages under it. A role is a word; a status is an icon and a word. -->
 <script setup>
 import { ref } from 'vue';
-import { BanIcon, CircleCheckIcon, ClockIcon, EllipsisIcon, PencilIcon, PlusIcon, SearchIcon } from '@lucide/vue';
+import { BanIcon, ClockIcon, EllipsisIcon, PencilIcon, PlusIcon, SearchIcon } from '@lucide/vue';
 import PageLayout from '@aisgroup/design/blocks/PageLayout.vue';
 import { Button } from '@aisgroup/design/ui/button';
 import { DataTable } from '@aisgroup/design/ui/data-table';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@aisgroup/design/ui/input-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@aisgroup/design/ui/select';
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
 
-const statuses = { active: { label: 'Active', icon: CircleCheckIcon, tone: 'text-success' }, pending: { label: 'Pending', icon: ClockIcon, tone: '' }, disabled: { label: 'Disabled', icon: BanIcon, tone: '' } };
+const statuses = { active: { label: 'Active', tone: 'success' }, pending: { label: 'Pending', icon: ClockIcon }, disabled: { label: 'Disabled', icon: BanIcon } };
 const roles = ['Owner', 'Administrator', 'HR administrator', 'Worker', 'Viewer'];
 const users = [
   ['Laura Vidal', 'laura.vidal@example.com', 'Owner', 'active'], ['Marc Puig', 'marc.puig@example.com', 'Administrator', 'active'],
@@ -62,7 +63,7 @@ const filter = (table, column, value) => table.getColumn(column)?.setFilterValue
         <template #cell-name="{ getValue }"><span class="font-medium">{{ getValue() }}</span></template>
         <template #cell-email="{ getValue }"><span class="text-muted-foreground">{{ getValue() }}</span></template>
         <template #cell-status="{ getValue }">
-          <span class="flex items-center gap-1.5 text-muted-foreground"><component :is="statuses[getValue()].icon" class="size-4" :class="statuses[getValue()].tone" />{{ statuses[getValue()].label }}</span>
+          <StatusLabel :tone="statuses[getValue()].tone" :icon="statuses[getValue()].icon">{{ statuses[getValue()].label }}</StatusLabel>
         </template>
         <template #cell-actions="{ row }">
           <div class="flex justify-end">
