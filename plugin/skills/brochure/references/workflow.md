@@ -20,10 +20,10 @@ Sales pieces that beat the original marketing PDFs: more and better real picture
    - The piece's own `assets/` folder. Verdicts, crops and blur regions for pictures taken from marketing's originals: [original-images.json](original-images.json).
    - `library/catalog.json` and `library/media/**` (not `rejected`); blurred originals in `library/media/originals/`.
    - The AIS website's media (aisvision.com product and journal images).
-   - Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). A missing tile is made with the `detection-tiles` skill; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.
+   - Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). Ask the brand team for a missing tile; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.
    - Machine pictures (exterior, guards closed): `library/media/3d/machines/<machine>/` (finals) and `library/media/3d/machine-previews/` (700 px: too small for print, note it). Alt text describes the machine like a photo; it never says render, CAD or 3D.
    - Video frames (`ffmpeg -ss t -i f -frames:v 1`) when sharp and free of overlays.
-   Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture (many originals are) only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.
+   Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.
    - **Rebuilds follow the original.** Same image subjects and density as marketing's original; a page or product (e.g. C8 GlobalVision) appears only if the original has it.
 3. **Build** from `print/templates/machine.es.html` (change `../` to `../../shared/`) or from the closest existing piece.
 4. **Render** (one Chromium job at a time, always under the lock): `python3 skills/_shared/scripts/safe_render.py -- node print/render.mjs pieces/brochures/<piece>/<name>.es.html`. It must pass: no overflow, 6 mm or more above footer and band, no picture enlarged past 1.25× or used twice, cover 240 ppi or more and not a video frame (unless the only real picture is soft: mark it `data-cover-ok="<why>"` and tell the person), no flat-label wine, nothing under 8.5 pt, no review wording (render, CAD, 3D, middle-dot separators), and in Spanish and Catalan no point in thousands (30 000, never 30.000). It reports ppi; under 150 is soft in print: use a better original or note it.
@@ -39,8 +39,8 @@ Sales pieces that beat the original marketing PDFs: more and better real picture
 
 - Small pictures floating in big pale panels; lists stretched to fill a page; hairlines everywhere. Pages must look calm and full.
 - Repeating a picture in the same document; a machine brochure that never shows the machine.
-- Using the Standard model photo as COMPACT or PHARMA; using the website's AI cleanroom images.
-- Test renders (400 px, noisy) shipped as tiles; blurred labels that still read "Montsant".
+- Using the Standard model photo as COMPACT or PHARMA; using generated cleanroom images.
+- Test renders (400 px, noisy) shipped as tiles; blurred labels that are still legible.
 - Copy that says "speed and diameters per project" next to a restored "hasta 300 m/min".
 - Starting extra agents or renderers the session doesn't allow.
 

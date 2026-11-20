@@ -75,7 +75,7 @@ Source: plugin/skills/communications/references/kit.md:17.
 ## AIS-a7a6faf71604
 
 <!-- AIS-a7a6faf71604 -->
-| **Equipment page** | One large photograph, the specifications in a [specification block](../../communications/references/communications.md#specification-block), the options as hexagon icons, then the contact band. |
+| **Equipment page** | One large photograph, the specifications in a [specification block](../../digital-documents/references/communications.md#specification-block), the options as hexagon icons, then the contact band. |
 
 Source: plugin/skills/communications/references/kit.md:18.
 
@@ -117,14 +117,14 @@ Source: plugin/skills/communications/references/kit.md:27.
 ## AIS-abe4153e6a9a
 
 <!-- AIS-abe4153e6a9a -->
-Slides open on brand blue with the company line, say one thing each and close with one next step. Every deck is built from one template; the logo on a 1920 px slide is 140 px wide, the type scale follows [Documents and presentations](../../communications/references/communications.md), and the hexagon pattern fades from one corner. The PPTX is the editable version.
+Slides open on brand blue with the company line, say one thing each and close with one next step. Every deck is built from one template; the logo on a 1920 px slide is 140 px wide, the type scale follows [Documents and presentations](../../digital-documents/references/communications.md), and the hexagon pattern fades from one corner. The PPTX is the editable version.
 
 Source: plugin/skills/communications/references/kit.md:31.
 
 ## AIS-67c03f9deeed
 
 <!-- AIS-67c03f9deeed -->
-Each post comes with its text for LinkedIn. How they are built and every type: [Social media](../../communications/references/social.md).
+Each post comes with its text for LinkedIn. How they are built and every type: [Social media](../../marketing/references/social.md).
 
 Source: plugin/skills/communications/references/kit.md:35.
 

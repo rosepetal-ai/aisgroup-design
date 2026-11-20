@@ -6,7 +6,7 @@ Passing checks proves little: every fault below passed the engine's checks once.
 
 ## 1. Relevant measured checks
 
-1. 3D renders come from the separate product-render skill, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.
+1. 3D renders come from AIS's internal render pipeline, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.
 2. `python3 skills/_shared/scripts/safe_render.py -- node engine/render.mjs work/<slug>/recipe-<lang>.json` for every language: no errors, every warning explained. The engine fails a render whose baked-in overlay is cropped by its slot (`overlay-cropped`), text in the logo's clear space, chips outside the safe area, pictures shown over 2× their size.
 3. `node engine/check.mjs templates/<the template>.json` if the piece is (or changed) a template; after an engine change, the carousel templates still render without errors.
 
@@ -23,7 +23,7 @@ At feed size (about 550 px wide):
 - **Hexagons stay faint and in their corner,** never behind words.
 - **Isolated products:** no conveyor, chain, rails or hood in a product post.
 - **Machines:** exterior only, guards closed, nothing inside visible; never captioned or named as render, CAD or 3D (captions, alt text, file names, PDF metadata).
-- **Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set (`detection-tiles` step 7).
+- **Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set.
 
 At 2×:
 

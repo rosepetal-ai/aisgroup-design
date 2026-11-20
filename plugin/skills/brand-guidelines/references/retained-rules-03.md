@@ -399,7 +399,7 @@ Source: brand decisions.
 ## AIS-b44e0bb010ff
 
 <!-- AIS-b44e0bb010ff -->
-**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Most machine and installation pictures in the original brochures are generated or composited (triage: `studio/work/brochures/ORIGINAL-IMAGES.md`); never reuse those.
+**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Check the original image verdicts before reusing a picture from an older brochure; never reuse a rejected one.
 
 Source: brand decisions.
 

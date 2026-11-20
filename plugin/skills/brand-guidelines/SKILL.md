@@ -30,7 +30,7 @@ Source rules, loaded only when needed:
 - [Retained rules 07](references/retained-rules-07.md)
 - [Retained rules 08](references/retained-rules-08.md)
 - [Retained rules 09](references/retained-rules-09.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
-- [Retained rules retained-resolutions](references/retained-resolutions.md)
+- [Retained updates 01](references/retained-updates-01.md)
+- [Retained resolutions](references/retained-resolutions.md)
 
 Answer the requested variant and clear-space question directly. Add numerical placement or size recommendations only when needed and distinguish a sourced house rule from a proposed choice.

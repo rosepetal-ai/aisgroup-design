@@ -572,7 +572,7 @@ Source: plugin/skills/design-language/references/motion.md:144.
 ## AIS-ab2ceeda8f55
 
 <!-- AIS-ab2ceeda8f55 -->
-Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../communications/references/video.md).
+Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../brand-video/references/video.md).
 
 Source: plugin/skills/design-language/references/motion.md:148.
 

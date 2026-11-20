@@ -145,7 +145,7 @@ Source: plugin/skills/social-post/SKILL.md:48.
 ## AIS-5e58af5b7350
 
 <!-- AIS-5e58af5b7350 -->
-**One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `"look"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes, on white with `"look": "light"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating.
+**One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `"look"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes: solid brand blue, or the same composition on white with `"look": "light"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating.
 
 Source: plugin/skills/social-post/SKILL.md:49.
 

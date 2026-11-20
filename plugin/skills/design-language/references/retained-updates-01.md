@@ -229,7 +229,7 @@ Source: plugin/skills/design-language/references/layout.md:56.
 ## AIS-b7dd2de3b525
 
 <!-- AIS-b7dd2de3b525 -->
-The parts of a brochure are in the [Marketing kit](../../communications/references/kit.md#print-system).
+The parts of a brochure are in the [Marketing kit](../../resources-assets/references/kit.md#print-system).
 
 Source: plugin/skills/design-language/references/layout.md:58.
 

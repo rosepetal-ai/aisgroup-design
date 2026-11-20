@@ -9,7 +9,7 @@ import { checkRecipe, STUDIO, GUIDE, resolveFile, libraryPhotos } from '../engin
 import { PATTERNS, patternAssets } from '../engine/linkedin-patterns.mjs';
 import { searchAssets, assetSummary } from './assets.mjs';
 import { sourceStamp, resolveMediaReference, inspectMedia, PYTHON, stopTree } from './media.mjs';
-import { ensureMedia, mediaRefs, canFetch, signedIn } from '../scripts/media.mjs';
+import { ensureMedia, mediaRefs } from '../scripts/media.mjs';
 import { printSource, printSources, printFamily, printDescriptor, copyPrint, updatePrint, checkPrint, printDigest, preparePrint } from './print.mjs';
 import { VERSION, LIMITS, schemas } from './contracts.mjs';
 import { generators, APPROVAL, DOC_KINDS, documentKind, snapshotDocument, checkDocument as checkDocumentSource, documentCommand, documentOutputs } from './documents.mjs';
@@ -31,11 +31,10 @@ function setupStatus() {
   const missing = [];
   try { if (!fs.existsSync(chromium.executablePath())) missing.push('Chromium for rendering: run npm run setup'); } catch { missing.push('Chromium for rendering: run npm run setup'); }
   if (!ok(process.env.AIS_PYTHON || PYTHON, ['-c', 'import PIL, pptx, fitz'])) missing.push('Python packages: run npm run setup');
-  // The media library comes from the bucket on demand; a local copy (npm run media:pull) also works offline.
-  const local = fs.existsSync(media) && fs.readdirSync(media).length > 0, account = signedIn();
-  if (!local && !account) missing.push(canFetch() ? 'Media library: run «gcloud auth login» with an account that can read the aisgroup-design project' : 'Media library: install the Google Cloud CLI and run «gcloud auth login»');
+  // The media library comes from the public bucket on demand; a local copy (npm run media:pull) also works offline.
+  const local = fs.existsSync(media) && fs.readdirSync(media).length > 0;
   if (!ok('pdftoppm', ['-v'])) missing.push('pdftoppm (page previews): install poppler');
-  return { ready: !missing.length, missing, inbox: INBOX, media: account ? `on demand from the bucket (${account})${local ? ', with a local copy' : ''}` : local ? 'local copy' : 'unavailable' };
+  return { ready: !missing.length, missing, inbox: INBOX, media: `on demand from the bucket${local ? ', with a local copy' : ''}` };
 }
 export const digest = v => createHash('sha256').update(v).digest('hex');
 const json = p => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -181,7 +180,7 @@ export class Factory {
   }
   asset(a) {
     const x=this.assets.find(x=>x.id===a.assetId); if(!x) throw Error('Unknown asset');
-    if(String(x.path).startsWith('library/media/')&&ensureMedia([x.path.slice(14)]).length&&!fs.existsSync(path.resolve(STUDIO,x.path))) throw Error('This picture could not be fetched from the media bucket: run «gcloud auth login» with an account that can read the aisgroup-design project.');
+    if(String(x.path).startsWith('library/media/')&&ensureMedia([x.path.slice(14)]).length&&!fs.existsSync(path.resolve(STUDIO,x.path))) throw Error('This picture could not be fetched from the media bucket: check the internet connection and try again.');
     const summary=assetSummary(x); if(!summary.pathExists)return {...summary,uri:null,bytes:null};
     let p;try{p=safe(path.resolve(STUDIO,x.path),[path.join(STUDIO,'library'),path.join(STUDIO,'library/media'),path.join(STUDIO,'library/factory-library/assets'),GUIDE]);}catch{return {...summary,uri:null,bytes:null,retrievalReason:'Registered file exists outside controlled delivery roots; metadata retained'};}
     return {...summary,id:x.id,path:x.path,status:x.status,reason:String(x.reason||'').slice(0,1500),kind:x.kind,product:x.product,origin:x.origin,source:String(x.source||'').slice(0,1500),brand:x.brand,consent:x.consent,size:x.size,uri:uri(p),bytes:fs.statSync(p).size};

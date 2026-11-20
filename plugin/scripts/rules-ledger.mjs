@@ -132,7 +132,7 @@ export function retainRules(pluginRoot, ledger) {
     const body = fs.readFileSync(at, 'utf8');
     const missing = files.filter(f => !body.includes(`](references/${path.basename(f)})`));
     if (!missing.length) continue;
-    const routes = missing.map(f => `- [Retained rules ${path.basename(f, '.md').replace('retained-rules-', '')}](references/${path.basename(f)})`).join('\n');
+    const routes = missing.map(f => `- [Retained ${path.basename(f, '.md').replace('retained-', '').replace('-', ' ')}](references/${path.basename(f)})`).join('\n');
     fs.appendFileSync(at, (body.includes('Source rules, loaded only when needed:') ? '\n' : '\nSource rules, loaded only when needed:\n\n') + routes + '\n');
   }
   if (ledger.commonWritingRules?.length) for (const skill of INVENTORY) {

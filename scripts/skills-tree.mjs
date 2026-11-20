@@ -51,7 +51,7 @@ const SHORT = {
   'vue-primevue': '04. Set up AIS PrimeVue + Tailwind presets, themes and component mappings.',
   'vue-vuetify': "04. Load for AIS Vuetify setup, light/dark themes and adapter limits.",
   'resources-assets': "Load for AIS downloads and design-MCP client calls: Code, Assets, Examples, Standards.",
-  'agent-integration': 'Load for AIS plugin migration/upgrades, old writing routes and agent/MCP connections.',
+  'agent-integration': 'Load to connect AIS Group Design to an agent or MCP client, or to update an installed copy.',
   'ui-audit': "04. Load before auditing Rosepetal Vue snippets or existing product screens.",
   'ui-theme-diff': '04. Compare product CSS tokens and detect PrimeVue/Vuetify theme drift.',
   'ui-unify': '04. Unify Rosepetal UI, preserving data, behaviour and supported states.',

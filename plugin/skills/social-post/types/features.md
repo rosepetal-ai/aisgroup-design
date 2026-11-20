@@ -52,7 +52,7 @@ A white post, image first.
 When the message is "what it catches on your product" and no real screen shows it, the post is a white `grid` of two or three square detection tiles. Reference: `pieces/posts/02-kariko/` (AIS KARIKÓ trays, ES and EN).
 
 - Shot: `"type": "grid"`, `"bg": "white"`, `"hex": "none"`, `"tile": "5 / 6"`, `"evidence": "render"`, `headline` (what it sees, plain: "Lo que ve en la bandeja"), `items` of `{ "src", "text", "focus", "scale" }`.
-- Tiles: `library/media/3d/renders/<machine>/det/` (see `detection-tiles`). Each tile shows one different defect, cropped on it; `text` names the defect in plant words ("Esquina deformada"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.
+- Tiles: `library/media/3d/renders/<machine>/det/`. Each tile shows one different defect, cropped on it; `text` names the defect in plant words ("Esquina deformada"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.
 - Copy: what the machine inspects, then "here are two of the defects it finds", then the call to action.
 
 ## Structure

@@ -37,5 +37,5 @@ Source rules, loaded only when needed:
 - [Retained rules 05](references/retained-rules-05.md)
 - [Retained rules 06](references/retained-rules-06.md)
 - [Retained rules 07](references/retained-rules-07.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
-- [Retained rules retained-resolutions](references/retained-resolutions.md)
+- [Retained updates 01](references/retained-updates-01.md)
+- [Retained resolutions](references/retained-resolutions.md)

@@ -12,7 +12,7 @@ Source: plugin/skills/render-review/SKILL.md:11.
 ## AIS-f95d4fddf994
 
 <!-- AIS-f95d4fddf994 -->
-3D renders come from the separate product-render skill, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.
+3D renders come from AIS's internal render pipeline, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.
 
 Source: plugin/skills/render-review/SKILL.md:15.
 
@@ -103,7 +103,7 @@ Source: plugin/skills/render-review/SKILL.md:31.
 ## AIS-1b0cfca50196
 
 <!-- AIS-1b0cfca50196 -->
-**Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set (`detection-tiles` step 7).
+**Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set.
 
 Source: plugin/skills/render-review/SKILL.md:32.
 
@@ -264,7 +264,7 @@ Source: brand decisions.
 ## AIS-2336c8c4e7d0
 
 <!-- AIS-2336c8c4e7d0 -->
-| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures: `product-render`; defect tiles: `detection-tiles` |
+| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures and defect tiles come from AIS's render pipeline |
 
 Source: brand decisions.
 

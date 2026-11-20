@@ -19,7 +19,7 @@ Decks are content files rendered by one engine, the approved «Hoy + azul» syst
 - Stable Inter scale by layout: content headings 76/84; list names 44/60 and descriptions 38/52; three/four-column feature names 44/60 and body 38/52; figures 120/124 beside a photo; labels 28/38, number 22/32. Whitespace changes spacing, never the list type scale. Give actual screens and photographs priority over repetitive icon lists; `features.image` supports a proof photograph beside the original wording.
 - No content-slide empty band above 15% (162 px), excluding deliberate covers, numbered dividers and quotations. Both `build.mjs` and `verify.mjs` enforce it. Layout, source-pixel scale, facility identity and full-panel geometry are checked alongside 2 px alignment.
 - Rebuilds preserve every original text, figure, name and usable picture. Review numbered before/after pairs against the accepted deck, then every final slide at 1920 × 1080; retain an accepted slide if a trial is not clearly better.
-To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill. The Word letter template stays.
+To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill.
 
 ## Steps
 
