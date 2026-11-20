@@ -49,6 +49,7 @@ The components and brand blocks of `@aisgroup/design`, the package every Rosepet
 - **Slider** (`slider`): A value in a range. [Live](https://aisgroup-design.web.app/en/components/slider/)
 - **Toast** (`sonner`): Short feedback after an action. [Live](https://aisgroup-design.web.app/en/components/sonner/)
 - **Spinner** (`spinner`): Something working: in its button, or filling an empty area. [Live](https://aisgroup-design.web.app/en/components/spinner/)
+- **Status label** (`status-label`): A status as a toned icon and the word, in muted text. Never colour alone, never a badge. [Live](https://aisgroup-design.web.app/en/components/status-label/)
 - **Stepper** (`stepper`): The steps of a task in order, with the current one marked. [Live](https://aisgroup-design.web.app/en/components/stepper/)
 - **Switch** (`switch`): A setting on or off, in a switch row. [Live](https://aisgroup-design.web.app/en/components/switch/)
 - **Table** (`table`): Rows of facts with sortable headers. [Live](https://aisgroup-design.web.app/en/components/table/)

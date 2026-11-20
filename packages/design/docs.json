@@ -629,6 +629,16 @@
         "es": "Las cifras de un resumen como tarjetas: etiqueta, valor y una línea de detalle opcional, hasta cuatro por fila.",
         "ca": "Les xifres d’un resum com a targetes: etiqueta, valor i una línia de detall opcional, fins a quatre per fila."
       }
+    },
+    "status-label": {
+      "name": {
+        "es": "Etiqueta de estado",
+        "ca": "Etiqueta d’estat"
+      },
+      "description": {
+        "es": "Un estado como un icono con su tono y la palabra, en texto atenuado. Nunca solo color, nunca una etiqueta.",
+        "ca": "Un estat com una icona amb el seu to i la paraula, en text atenuat. Mai només color, mai una etiqueta."
+      }
     }
   },
   "examples": {
@@ -1620,6 +1630,26 @@
       "about": {
         "es": "Las cifras de un resumen: un bloque por grupo de cifras que van juntas, cada uno en su propia fila.",
         "ca": "Les xifres d’un resum: un bloc per grup de xifres que van juntes, cadascun a la seva fila."
+      }
+    },
+    "status-label/01-tones": {
+      "name": {
+        "es": "Tonos",
+        "ca": "Tons"
+      },
+      "about": {
+        "es": "Cada tono con su icono: la palabra dice el estado y el color del icono solo ayuda a recorrerlo con la vista. Un estado puede llevar su propio icono.",
+        "ca": "Cada to amb la seva icona: la paraula diu l’estat i el color de la icona només ajuda a recórrer-lo amb la vista. Un estat pot portar la seva pròpia icona."
+      }
+    },
+    "sheet/02-details": {
+      "name": {
+        "es": "Detalles",
+        "ca": "Detalls"
+      },
+      "about": {
+        "es": "Los detalles de un registro junto a la lista de la que viene. Un contenido más ancho que una lista de filtros usa un tamaño mayor; sm sigue siendo el predeterminado.",
+        "ca": "Els detalls d’un registre al costat de la llista d’on ve. Un contingut més ample que una llista de filtres fa servir una mida més gran; sm continua sent el predeterminat."
       }
     }
   }

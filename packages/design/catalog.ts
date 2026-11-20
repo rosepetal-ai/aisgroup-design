@@ -53,6 +53,7 @@ export const componentItems: CatalogItem[] = [
   { id: "slider", name: "Slider", description: "A value in a range.", file: `packages/design/ui/slider`, ready: true },
   { id: "sonner", name: "Toast", description: "Short feedback after an action.", file: `packages/design/ui/sonner`, ready: true },
   { id: "spinner", name: "Spinner", description: "Something working: in its button, or filling an empty area.", file: `packages/design/ui/spinner`, ready: true },
+  { id: "status-label", name: "Status label", description: "A status as a toned icon and the word, in muted text. Never colour alone, never a badge.", file: `packages/design/ui/status-label`, ready: true },
   { id: "stepper", name: "Stepper", description: "The steps of a task in order, with the current one marked.", file: `packages/design/ui/stepper`, ready: true },
   { id: "switch", name: "Switch", description: "A setting on or off, in a switch row.", file: `packages/design/ui/switch`, ready: true },
   { id: "table", name: "Table", description: "Rows of facts with sortable headers.", file: `packages/design/ui/table`, ready: true },

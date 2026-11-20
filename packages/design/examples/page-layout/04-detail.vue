@@ -1,16 +1,17 @@
 <!-- A detail page: the person's name as the title, then sections separated by space. Facts are a label-over-value grid, lists are divided rows, the side column holds the access summary. -->
 <script setup>
-import { CircleCheckIcon, CircleXIcon, ClockIcon, EllipsisIcon, PencilIcon, UserXIcon } from '@lucide/vue';
+import { ClockIcon, EllipsisIcon, PencilIcon, UserXIcon } from '@lucide/vue';
 import PageLayout from '@aisgroup/design/blocks/PageLayout.vue';
 import { Button } from '@aisgroup/design/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
 
 const details = [['Email', 'laura.vidal@example.com'], ['Phone', '+34 600 123 456'], ['Department', 'Quality'], ['Manager', 'Marc Puig'], ['Location', 'Barcelona'], ['Started', '3 March 2025']];
 const access = [['Role', 'Owner'], ['Last sign-in', 'Today, 08:12'], ['Two-step sign-in', 'On']];
 const trainings = [
-  { name: 'Machine safety', date: '12 May 2026', status: 'Valid', icon: CircleCheckIcon, tone: 'text-success' },
-  { name: 'Forklift licence', date: '2 December 2026', status: 'Expires soon', icon: ClockIcon, tone: 'text-warning' },
-  { name: 'First aid', date: '15 January 2026', status: 'Expired', icon: CircleXIcon, tone: 'text-destructive' },
+  { name: 'Machine safety', date: '12 May 2026', status: 'Valid', tone: 'success' },
+  { name: 'Forklift licence', date: '2 December 2026', status: 'Expires soon', tone: 'warning', icon: ClockIcon },
+  { name: 'First aid', date: '15 January 2026', status: 'Expired', tone: 'destructive' },
 ];
 </script>
 
@@ -47,7 +48,7 @@ const trainings = [
                 <span class="font-medium">{{ t.name }}</span>
                 <span class="flex items-center gap-4 text-muted-foreground">
                   <span class="tabular-nums max-sm:hidden">{{ t.date }}</span>
-                  <span class="flex w-32 items-center gap-1.5"><component :is="t.icon" class="size-4" :class="t.tone" />{{ t.status }}</span>
+                  <StatusLabel class="w-32" :tone="t.tone" :icon="t.icon">{{ t.status }}</StatusLabel>
                 </span>
               </li>
             </ul>

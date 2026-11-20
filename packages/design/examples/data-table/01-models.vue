@@ -1,11 +1,12 @@
 <!-- Columns and data in: sortable headers, a search and a status filter in the toolbar, column visibility, row selection and numbered pages. Number columns align right; the name takes the free width and truncates, and the dataset and images columns appear when the table is wide enough, so it never scrolls sideways. -->
 <script setup>
 import { ref } from 'vue';
-import { CircleCheckIcon, CircleXIcon, LoaderCircleIcon, SearchIcon } from '@lucide/vue';
+import { SearchIcon } from '@lucide/vue';
 import { DataTable, DataTableViewOptions } from '@aisgroup/design/ui/data-table';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@aisgroup/design/ui/input-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@aisgroup/design/ui/select';
-const statuses = { finished: { label: 'Finished', icon: CircleCheckIcon, tone: 'text-success' }, training: { label: 'Training', icon: LoaderCircleIcon, tone: 'animate-spin' }, failed: { label: 'Failed', icon: CircleXIcon, tone: 'text-destructive' } };
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
+const statuses = { finished: { label: 'Finished', tone: 'success' }, training: { label: 'Training', tone: 'running' }, failed: { label: 'Failed', tone: 'destructive' } };
 const models = [
   ['m-inspection-01', 'PCB inspection', 'finished', 4210, 97.4], ['m-inspection-02', 'PCB inspection', 'finished', 4210, 98.1],
   ['m-inspection-03', 'PCB inspection', 'training', 5120, null], ['m-food-01', 'Tortilla line', 'failed', 1890, null],
@@ -46,7 +47,7 @@ const status = ref('all');
     </template>
     <template #cell-name="{ getValue }"><span class="font-medium">{{ getValue() }}</span></template>
     <template #cell-status="{ getValue }">
-      <span class="flex items-center gap-1.5 text-muted-foreground"><component :is="statuses[getValue()].icon" class="size-4" :class="statuses[getValue()].tone" />{{ statuses[getValue()].label }}</span>
+      <StatusLabel :tone="statuses[getValue()].tone">{{ statuses[getValue()].label }}</StatusLabel>
     </template>
   </DataTable>
 </template>
