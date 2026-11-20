@@ -8,6 +8,11 @@
 
 ## Start with a task
 
+- [Get a logo](logos.md)
+- [Write content](../../communications/references/voice.md)
+- [Make a presentation or datasheet](../../digital-documents/references/communications.md)
+- [Brief an AI agent](../../agent-integration/references/agents.md)
+
 ## The essentials
 
 1. **Keep it simple:** one purpose, the plainest layout, design and implementation that serve it. Linear’s website and Apple Notes are the bar. Cut taglines, helper text, subtitles, eyebrows and secondary labels; if something only makes sense with them, fix the layout instead. A decision ships only if it improves user, developer and agent experience at once. When two rules disagree, this one wins.

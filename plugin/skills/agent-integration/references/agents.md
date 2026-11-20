@@ -4,9 +4,9 @@ Use these rules and source files when an agent creates brand work.
 
 ## The file
 
-Every language has a single rules file generated from this guide: [English](/en/brand.md), [Spanish](/es/brand.md) and [Catalan](/ca/brand.md). It contains the essentials, the exact colour values, the logo file locations and the rules from every page. Because it is built from the same source as these pages, the two never disagree.
+Every language has a single rules file generated from this guide: [English](https://design.aisgroup.ai/en/brand.md), [Spanish](https://design.aisgroup.ai/es/brand.md) and [Catalan](https://design.aisgroup.ai/ca/brand.md). It contains the essentials, the exact colour values, the logo file locations and the rules from every page. Because it is built from the same source as these pages, the two never disagree.
 
-For the product, [components.md](/components.md) lists every component, brand block, widget and Profiler part, with its source file. Give it to agents that build screens or skills.
+For the product, [components.md](https://design.aisgroup.ai/components.md) lists every component, brand block, widget and Profiler part, with its source file. Give it to agents that build screens or skills.
 
 ## How to brief an agent
 
@@ -36,7 +36,7 @@ The AIS Group Design plugin for Claude Code brings this guide as skills and a lo
 /plugin install ais-group-design@ais-group-design
 ```
 
-The install asks for the MCP token and keeps it in your system keychain; it connects the MCP too, so you don't add it by hand. Then, once per computer, ask Claude: «Set up AIS Group Design.» The repository and the brand photos are private: ask the marketing team for access.
+The install asks for the MCP token, which is optional: AIS staff get it from the marketing team, and it is kept in your system keychain. The skills and the brand photos work without it. Then, once per computer, ask Claude: «Set up AIS Group Design.»
 
 Then paste your photos into the terminal and say what you need. The studio picks the template, edits the source (any text or picture by its slot), checks it against the brand and shows you the result. Review it, ask for changes, and export the PDF, PNG or PowerPoint when it is right. Nothing is published or uploaded unless you ask.
 

@@ -3,7 +3,7 @@
 ## Keep it simple
 
 - One purpose per page, the plainest layout that serves it.
-- Start from the component’s example in this guide, and for a whole page from the [page layout](/en/components/page-layout/) examples: list, detail, settings, dashboard, empty, no permission and error. The screen matches them.
+- Start from the component’s example in this guide, and for a whole page from the [page layout](https://design.aisgroup.ai/en/components/page-layout/) examples: list, detail, settings, dashboard, empty, no permission and error. The screen matches them.
 - Sentence case for every title, label and button. No uppercase and no letter-spaced labels.
 - No eyebrows, taglines, helper footnotes, subtitles that repeat the title or secondary labels. If a screen only makes sense with them, fix the layout.
 - Items in a line are joined with commas or shown as a list, never with middle dots.
@@ -37,7 +37,7 @@ The page, then cards. Cards are for sections side by side, clickable entities, a
 
 ## Lists and tables
 
-The list page is the toolbar (search, filters whose choices show as chips, the visible columns), the DataTable under it and the numbered pages under the table, all straight on the page, as in the [page layout](/en/components/page-layout/) tasks example. A role or a category is plain text, a status is a toned icon and the word, and the row actions sit behind the more button.
+The list page is the toolbar (search, filters whose choices show as chips, the visible columns), the DataTable under it and the numbered pages under the table, all straight on the page, as in the [page layout](https://design.aisgroup.ai/en/components/page-layout/) tasks example. A role or a category is plain text, a status is a toned icon and the word, and the row actions sit behind the more button.
 
 ## Empty, no permission and errors
 

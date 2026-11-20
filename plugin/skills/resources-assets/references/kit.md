@@ -4,7 +4,43 @@ Every finished piece AIS Vision Systems and Rosepetal can send or publish today,
 
 ## Brochures and catalogues
 
+- **Food catalogue ES**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-food.pdf)
+- **Food catalogue EN**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-food-en.pdf)
+- **Beverage catalogue ES**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-beverage.pdf)
+- **Beverage catalogue EN**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-beverage-en.pdf)
+- **Cosmetics catalogue ES**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-cosmetics.pdf)
+- **Cosmetics catalogue EN**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-cosmetics-en.pdf)
+- **Pharmaceutical catalogue ES**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-pharma.pdf)
+- **Pharmaceutical catalogue EN**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-pharma-en.pdf)
+- **Wine catalogue ES**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-wine.pdf)
+- **Wine catalogue EN**: [PDF](https://design.aisgroup.ai/kit/files/catalogue-wine-en.pdf)
+- **AIS Hopper ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-hopper.pdf)
+- **AIS Hopper EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-hopper-en.pdf)
+- **AIS KARIKÓ ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-kariko.pdf)
+- **AIS KARIKÓ EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-kariko-en.pdf)
+- **AIS REV 360 Cables ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-cables.pdf)
+- **AIS REV 360 Cables EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-cables-en.pdf)
+- **AIS REV 360 COMPACT Canning ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-compact.pdf)
+- **AIS REV 360 COMPACT Canning EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-compact-en.pdf)
+- **AIS REV 360 PHARMA ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-pharma.pdf)
+- **AIS REV 360 PHARMA EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-pharma-en.pdf)
+- **AIS REV 360 STANDARD ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rev360-standard.pdf)
+- **AIS Vacuum ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-vacuum.pdf)
+- **AIS Vacuum EN**: [PDF](https://design.aisgroup.ai/kit/files/brochure-vacuum-en.pdf)
+- **OPTICAIS ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-opticais.pdf)
+- **Rosepetal ES**: [PDF](https://design.aisgroup.ai/kit/files/brochure-rosepetal.pdf)
+
 ## Datasheets
+
+- **AIS Hopper datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-hopper.pdf)
+- **AIS KARIKÓ datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-kariko.pdf)
+- **AIS REV 360 Cables datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-rev360-cables.pdf)
+- **AIS REV 360 COMPACT Canning datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-rev360-compact.pdf)
+- **AIS REV 360 PHARMA datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-rev360-pharma.pdf)
+- **AIS REV 360 STANDARD datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-rev360-standard.pdf)
+- **OPTICAIS datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-opticais.pdf)
+- **Omron LVS-9510 datasheet ES**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-lvs-9510.pdf)
+- **Omron LVS-9510 datasheet EN**: [PDF](https://design.aisgroup.ai/kit/files/datasheet-lvs-9510-en.pdf)
 
 ## Print system
 
@@ -26,9 +62,19 @@ Every picture is a real photograph, one of our product images or exterior machin
 
 A proposal for one line (what we install, what it costs and on what terms) and a customer case study, both on the print system. The proposal’s customer and prices are examples: replace them all before it goes to a buyer. A case study goes out only with the customer’s written approval.
 
+- **Technical and commercial proposal ES**: [PDF](https://design.aisgroup.ai/kit/files/sales-proposal.pdf)
+- **Daymsa case study ES**: [PDF](https://design.aisgroup.ai/kit/files/sales-case-study.pdf)
+
 ## Presentations
 
 Slides open on brand blue with the company line, say one thing each and close with one next step. Every deck is built from one template; the logo on a 1920 px slide is 140 px wide, the type scale follows [Documents and presentations](../../digital-documents/references/communications.md), and the hexagon pattern fades from one corner. The PPTX is the editable version.
+
+- **Corporate presentation 2026 ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-corporate-2026.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-corporate-2026.pptx)
+- **Automotive presentation ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-automotive.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-automotive.pptx)
+- **Beverage presentation ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-beverage.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-beverage.pptx)
+- **Biscuits presentation ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-biscuits.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-biscuits.pptx)
+- **Canning presentation ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-canning.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-canning.pptx)
+- **Wine presentation ES**: [PDF](https://design.aisgroup.ai/kit/files/presentation-wine.pdf), [PPTX](https://design.aisgroup.ai/kit/files/presentation-wine.pptx)
 
 ## LinkedIn posts and carousels
 
@@ -41,6 +87,9 @@ The company page cover and the team’s profile banner for each brand with a Lin
 ## Office kit
 
 The letterhead is small and calm, with one hexagon fade in a corner. To write a letter in Word, start from the letter template; it carries the guide’s styles and logo, so type into the placeholders. To edit a deck in PowerPoint, start from the PPTX of the closest presentation above.
+
+- **AIS Vision Systems letterhead ES**: [PDF](https://design.aisgroup.ai/kit/files/stationery-letterhead.pdf)
+- **AIS Vision Systems letter ES**: [file](../../../brand/kit/office/letter-ais-vision-systems.docx)
 
 Before opening the Office templates, install the three fonts in `/kit/office/fonts/` ([Inter](../../../brand/kit/office/fonts/Inter.ttf), [Inter Medium](../../../brand/kit/office/fonts/InterMedium.ttf) and [Inter SemiBold](../../../brand/kit/office/fonts/InterSemiBold.ttf), [OFL](../../../brand/kit/office/fonts/OFL-Inter.txt) licence); without them, Office falls back to Arial. Logos and pictograms are on [Logos](../../brand-guidelines/references/logos.md) and [Icons](../../design-language/references/icons.md). Business cards carry personal phone numbers, so they are not published here: ask marketing for yours.
 

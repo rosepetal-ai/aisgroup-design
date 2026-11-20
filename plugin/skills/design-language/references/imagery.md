@@ -20,6 +20,8 @@ Start from the message, not from the image bank. Each message has one image type
 
 Each type has a purpose, approved references and a direction for anyone shooting, selecting or briefing it. The references are the standard: a new image should sit comfortably next to them.
 
+<a id="type-machine"></a>
+
 ### Machine
 
 The real machine in a studio on a light grey seamless background. Three-quarter view from operator eye height, soft even light, the whole machine in frame with room around it, screens on and showing the real interface. Until a photograph exists, an exterior view from the engineering model on the same background, every guard closed.
@@ -27,6 +29,8 @@ The real machine in a studio on a light grey seamless background. Three-quarter 
 ![Machine](../../../brand/library/photos/hopper_exterior.jpg)
 ![Machine](../../../brand/library/photos/rev360-compact_exterior.jpg)
 ![Machine](../../../brand/library/photos/rev360-pharma_vials-three-quarter.jpg)
+
+<a id="type-line"></a>
 
 ### In production
 
@@ -36,13 +40,19 @@ The machine installed in its real line, shot at working height with product flow
 ![In production](../../../brand/imagery/line-2.webp)
 ![In production](../../../brand/imagery/line-3.webp)
 
+<a id="type-result"></a>
+
 ### Detail and result
 
 A matched pair from the same viewpoint and light: the good part, and the same part with one real-world defect such as a missing tablet, a scratch or a crooked cap. Photographed, rendered or generated, the image never contains the detection: boxes, masks and the verdict are drawn on top in the layout with the overlay kit, in brand colours only. Real results with figures always come from the system itself.
 
+<a id="type-interface"></a>
+
 ### Interface
 
 Real screenshots at 1× or 2×, cropped to the task, with a demo dataset or anonymised customer data. No browser frame unless the context needs one, and no retouched values. Photographs of the screen in use on the line are welcome.
+
+<a id="type-subject"></a>
 
 ### Industry subject
 
@@ -51,6 +61,8 @@ A still life of the product category: machined parts, circuit boards, blister pa
 ![Industry subject](../../../brand/imagery/subject-1.webp)
 ![Industry subject](../../../brand/imagery/subject-2.webp)
 ![Industry subject](../../../brand/imagery/subject-3.webp)
+
+<a id="type-people"></a>
 
 ### People
 

@@ -24,6 +24,22 @@ Build posts and carousels from the approved kit and one clear message.
 
 Every post and carousel in the [Marketing kit](../../resources-assets/references/kit.md#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.
 
+- **Practical guide**: Inputs, scenarios and simple payback before investing.
+- **Sector carousel**: Inspection on a canning line, from the double seam to traceability.
+- **Product carousel**: The machine, the context, what it inspects, and a samples invitation.
+- **Product post**: White or blue: the machine whole on white, or at work on a real line, with a solid blue panel under it; what it does as the headline.
+- **Detection post**: White: one defect, framed where the system finds it.
+- **What it inspects**: Blue: each part the system checks, named where it is.
+- **Reading post**: White: the real screen, whole, with the code or date the system reads.
+- **Software in use**: Blue: Rosepetal on a real line; what it measures as the headline.
+- **Company news**: Blue: the people who came, one headline.
+- **Event recap**: Blue: the real moment; the topic as the headline.
+- **Quote**: Brand blue: the exact words, large, with name and role on one line.
+- **Result**: Brand blue: one published figure, with its source in one line.
+- **Comparison**: White: a good and a bad example of the same thing, marked OK and NOK.
+- **Partner carousel**: A white cover with the partner’s product, what it solves and what it checks on white, and a brand-blue close.
+- **Defects carousel**: A white cover, one defect per white slide beside a good one, and a brand-blue close with one call to action.
+
 ## Do and do not
 
 **Do**
