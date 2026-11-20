@@ -115,8 +115,8 @@ All Google Cloud roles are on the `aisgroup-design` project.
 | Upload media or the marketing kit | «Storage Object Creator» |
 | Deploy the guide and the hosted MCP | «Firebase Admin» and «Service Account User» (`roles/iam.serviceAccountUser`), and `npx firebase-tools login`; the project is on the Blaze plan |
 | Set or rotate the MCP token | «Secret Manager Admin» |
-| Publish `@aisgroup/design` | A version tag; the workflow uses the repository secret `GCP_SA_KEY` |
-| Install `@aisgroup/design` | Read access to the `private-node-packages` registry |
+| Publish `@aisgroup/design` | A version tag; the workflow publishes to npmjs with the repository secret `NPM_TOKEN` (a granular access token with write access to the `@rosepetal` scope); it publishes as `@rosepetal/design` |
+| Install `@aisgroup/design` | Nothing: it is public on npmjs as `@rosepetal/design`; install it under the name the imports use, `npm i @aisgroup/design@npm:@rosepetal/design` |
 
 ## Licence
 
