@@ -101,6 +101,10 @@ The brand intros, and marketing’s intro films with real footage (1080p for web
 - ais-vision-systems intro: [1080p](../../../brand/downloads/video/ais-vision-systems-intro.mp4), [poster](../../../brand/downloads/video/ais-vision-systems-intro.jpg); the 4K original is on the guide's Downloads page
 - rosepetal intro: [1080p](../../../brand/downloads/video/rosepetal-intro.mp4), [poster](../../../brand/downloads/video/rosepetal-intro.jpg); the 4K original is on the guide's Downloads page
 
+## Music
+
+Rosepetal’s soundtrack: instrumental tracks for Rosepetal films and animations, each with an alternative take. AAC (M4A), 48 kHz.
+
 ## Typefaces
 
 Both typefaces are free under the SIL Open Font License. Install the desktop versions for documents and slides.
