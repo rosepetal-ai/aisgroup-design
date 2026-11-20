@@ -40,6 +40,12 @@
       "description": "Primary, secondary, outline, ghost, destructive and link, in every size."
     },
     {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "One date from a month view, in the locale's language and first weekday."
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -50,6 +56,12 @@
       "type": "registry:ui",
       "title": "Carousel",
       "description": "A row of items that moves one at a time."
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Area, bar, line and donut charts on Unovis, in the data colours, with tooltips and a legend."
     },
     {
       "name": "checkbox",
@@ -68,6 +80,30 @@
       "type": "registry:ui",
       "title": "Combobox",
       "description": "Choosing from a long list, with search."
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "A searchable list of options or actions, inline or as a palette."
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context menu",
+      "description": "An object's actions on right-click, as well as on a visible button."
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data table",
+      "description": "A table from columns and data: sorting, search, filters, pages, column visibility and selection."
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "A date or a range in a button with the formatted date, and a calendar in a popover."
     },
     {
       "name": "dialog",
@@ -92,6 +128,12 @@
       "type": "registry:ui",
       "title": "Field",
       "description": "Label above the control, description and error under it."
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:ui",
+      "title": "File upload",
+      "description": "A dashed drop zone with a button, and the list of files with progress and remove."
     },
     {
       "name": "input",
@@ -124,16 +166,34 @@
       "description": "The name of a field."
     },
     {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi select",
+      "description": "Several options from a list, shown as tags in the field."
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:ui",
       "title": "Navigation menu",
       "description": "A menu of links, with dropdown groups."
     },
     {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number field",
+      "description": "A number with minus and plus buttons, formatted for the locale."
+    },
+    {
       "name": "pagination",
       "type": "registry:ui",
       "title": "Pagination",
       "description": "Numbered pages under a table."
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:ui",
+      "title": "Pin input",
+      "description": "A short code, one character per box."
     },
     {
       "name": "popover",
@@ -152,6 +212,12 @@
       "type": "registry:ui",
       "title": "Radio group",
       "description": "A choice between a few modes, as choice cards."
+    },
+    {
+      "name": "range-calendar",
+      "type": "registry:ui",
+      "title": "Range calendar",
+      "description": "A start and an end date across one or more months."
     },
     {
       "name": "scroll-area",
@@ -208,6 +274,12 @@
       "description": "Something working: in its button, or filling an empty area."
     },
     {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "The steps of a task in order, with the current one marked."
+    },
+    {
       "name": "switch",
       "type": "registry:ui",
       "title": "Switch",
@@ -226,10 +298,22 @@
       "description": "Views of the same thing."
     },
     {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "title": "Tags input",
+      "description": "Free values typed as tags."
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
       "description": "Longer text."
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Events in time order, each with its marker, title, details and time."
     },
     {
       "name": "toggle",
@@ -250,6 +334,12 @@
       "description": "The name of an icon-only button."
     },
     {
+      "name": "tree",
+      "type": "registry:ui",
+      "title": "Tree",
+      "description": "Nested items as list rows that open and close, with optional checkboxes."
+    },
+    {
       "name": "top-bar",
       "type": "registry:block",
       "title": "Top bar",
@@ -259,13 +349,25 @@
       "name": "login-page",
       "type": "registry:block",
       "title": "Login page",
-      "description": "The sign-in page. Each app gives its texts and checks the password."
+      "description": "The sign-in page. Each app gives its logo, its texts and its sign-in."
     },
     {
       "name": "confirm-dialog",
       "type": "registry:block",
       "title": "Confirm dialog",
       "description": "A question before an action: it runs the action, shows its progress and errors, and offers Retry. Each app gives its texts and the action."
+    },
+    {
+      "name": "confirm-host",
+      "type": "registry:block",
+      "title": "Confirm host",
+      "description": "Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts."
+    },
+    {
+      "name": "figure-cards",
+      "type": "registry:block",
+      "title": "Figure cards",
+      "description": "The figures of an overview as cards: label, value and an optional detail line, up to four in a row."
     },
     {
       "name": "page-layout",

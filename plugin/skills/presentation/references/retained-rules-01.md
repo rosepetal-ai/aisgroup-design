@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-99fcd9907fe4
 
 <!-- AIS-99fcd9907fe4 -->
-Then read [the shared workflow](../_shared/WORKFLOW.md): the sources, generators and brand rules every piece shares; it wins over anything below. Commands run from the plugin folder. Production rules: [production-rules.md](../_shared/references/production-rules.md).
+Then read [the shared workflow](../../_shared/WORKFLOW.md): the sources, generators and brand rules every piece shares; it wins over anything below. Commands run from the plugin folder. Production rules: [production-rules.md](../../_shared/references/production-rules.md).
 
 Source: plugin/skills/presentation/SKILL.md:9.
 

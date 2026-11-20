@@ -9,7 +9,7 @@ export const LIMITS = Object.freeze({ responseBytes: 20000, chunkChars: 6000, hi
 export const SITE = 'https://aisgroup-design.web.app';
 const GROUPS = { colour: ['color'], type: ['font', 'typography', 'typography-ui'], space: ['space'], layout: ['layout'], radius: ['radius'], shadow: ['shadow'], motion: ['motion'], data: ['data'] };
 const KINDS = ['logo', 'app-mark', 'app-icon', 'favicon', 'pattern', 'icon', 'chart', 'web', 'font', 'photo', 'stock', 'video', 'poster', 'code', 'tokens'];
-const EXAMPLE_TYPES = ['brochure', 'catalogue', 'datasheet', 'presentation', 'stationery', 'post'];
+export const EXAMPLE_TYPES = ['brochure', 'catalogue', 'datasheet', 'presentation', 'stationery', 'post'];
 
 export function load(dir) {
   const read = (p) => readSkillSource(dir, p);

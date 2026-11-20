@@ -1,0 +1,87 @@
+---
+title: Páginas
+rules:
+  - 'Cada página es un PageLayout: su título, como mucho una línea atenuada y las acciones a la derecha. Nada de icono en una tesela, saludo, badge ni recuento junto al título.'
+  - 'Una sección es una cabecera (h2, como mucho una línea atenuada, acciones a la derecha) y su contenido. Las secciones se separan con espacio, nunca con una línea ni con una caja alrededor.'
+  - 'Un solo nivel de superficie: la página y, encima, las cards. Nunca una card ni una caja con borde dentro de una card, y nunca una tabla en una caja con borde propia.'
+  - 'El contenido que falta es un Empty en su lugar, tan alto como el contenido que sustituye. Un mensaje de falta de permiso o de error nunca es una caja discontinua corta con la página en blanco debajo.'
+  - 'Un panel muestra sus cifras en Tarjetas de cifras y da a cada tema una Card con contenido real.'
+  - 'Un rol o una categoría es texto normal, un estado es un icono con su tono y la palabra, y Badge es para recuentos y etiquetas neutras cortas. Nada de etiquetas de colores ni color decorativo.'
+  - 'Mayúscula solo inicial, sin mayúsculas ni espaciado entre letras. Nada de antetítulos, eslóganes, notas de ayuda al pie, subtítulos que repiten el título, etiquetas secundarias ni listas unidas con puntos medios.'
+  - 'Empieza por el ejemplo del componente en esta guía: la pantalla debe parecerse a él.'
+---
+
+## Hazlo simple
+
+- Un propósito por página y la maquetación más sencilla que lo sirva.
+- Empieza por el ejemplo del componente en esta guía y, para una página entera, por los ejemplos de [diseño de página](/es/components/page-layout/): lista, detalle, ajustes, panel, vacía, sin permiso y error. La pantalla se ajusta a ellos.
+- Mayúscula solo inicial en títulos, etiquetas y botones. Nada de etiquetas en mayúsculas ni con espaciado entre letras.
+- Nada de antetítulos, eslóganes, notas de ayuda al pie, subtítulos que repiten el título ni etiquetas secundarias. Si una pantalla solo se entiende con ellos, arregla la maquetación.
+- Los elementos de una línea se unen con comas o se muestran como lista, nunca con puntos medios.
+- El color marca un estado o un color que eligió el usuario, siempre con palabras. Nada de fondos tintados, franjas ni bordes de acento.
+
+## Cabecera de página
+
+PageLayout da a cada página su cabecera: el título, como mucho una línea atenuada y las acciones a la derecha.
+
+- El título nombra la página («Usuarios», «Panel»). Una página de detalle lleva por título el nombre de lo que muestra («Laura Vidal»).
+- La línea atenuada da un dato («8 personas pueden entrar»), no una descripción de la página. Si no hay dato, no se pone.
+- Nunca un icono en una tesela, un saludo, un rol, un badge ni un recuento junto al título.
+- Un módulo con varias secciones: en una app con menú lateral, las secciones son el segundo nivel del menú bajo el módulo y el título nombra la sección. El menú lateral de PageLayout (`#nav`) es para apps sin menú lateral.
+
+## Secciones
+
+El contenido empieza bajo la cabecera y usa el ancho de la página. Las secciones se suceden con espacio entre ellas (`flex flex-col gap-10`), nunca con una línea ni con una caja alrededor.
+
+- La cabecera de una sección es el patrón de [«Componer, no reestilizar»](/es/using-components/#componer-no-reestilizar): h2, como mucho una línea atenuada y las acciones a la derecha.
+- Un resumen con su acción va en una columna lateral a la derecha: `grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]`.
+- Las secciones una al lado de otra son Cards en `grid gap-4 xl:grid-cols-2`, tan altas como su fila ([Uso de los componentes](/es/using-components/)).
+- Los datos son una cuadrícula de etiqueta sobre valor; las listas son filas divididas por líneas (`divide-y border-y`), las únicas líneas de una página.
+
+## Un solo nivel de superficie
+
+La página y, encima, las cards. Las cards son para secciones una al lado de otra, entidades en las que se hace clic, un resumen y paneles flotantes.
+
+- Nunca una card ni una caja con borde dentro de una card. Dentro de una card, filas divididas por líneas o una cuadrícula de etiqueta sobre valor.
+- Una tabla va directamente sobre la página, bajo su barra de filtros, o en la Card de su sección. Nunca en una caja con borde propia.
+- Sobre la página gris, los campos de la barra de filtros llevan `bg-card`.
+
+## Listas y tablas
+
+La página de lista es la barra de filtros (búsqueda, filtros cuya elección se ve como chips, las columnas visibles), la DataTable debajo y las páginas numeradas bajo la tabla, todo directamente sobre la página, como en el ejemplo de tareas de [diseño de página](/es/components/page-layout/). Un rol o una categoría es texto normal, un estado es un icono con su tono y la palabra, y las acciones de la fila van tras el botón de más.
+
+## Vacío, sin permiso y errores
+
+| Caso | Usa |
+| --- | --- |
+| Todavía nada, o sin resultados | Un Empty en el lugar de la lista, tan alto como el contenido que sustituye, con la salida |
+| Sin permiso para la página | Un Empty que llena el contenido: el motivo y quién puede ayudar. El título se queda. |
+| La página no ha podido cargar | Un Empty que llena el contenido: qué ha fallado, y Reintentar |
+| Una sección no ha podido cargar | Un Alert con Reintentar en esa sección; el resto de la página se queda |
+
+El borde discontinuo es solo del Empty. Nunca una caja discontinua corta con una línea de texto y la página en blanco debajo.
+
+## Paneles
+
+- El título es «Panel» o el nombre que el producto le da. Sin saludo y sin rol.
+- Primero van las cifras, en el bloque Tarjetas de cifras: etiqueta, valor y una línea de detalle opcional, hasta cuatro por fila. Las cifras que van juntas comparten un bloque; un segundo grupo empieza su propia fila.
+- Después, una Card por tema, con su título, una línea y su acción, y contenido real: filas, una barra con sus números o un gráfico. Las Cards una al lado de otra comparten la altura de su fila.
+- Nunca cifras compuestas a mano ni una nota al pie sobre cómo personalizar la página.
+
+## Defectos habituales
+
+Una pantalla que muestra alguna de estas no está terminada:
+
+- Un icono en una tesela tintada junto al título de la página o de una sección.
+- Un saludo como título de la página («Hola, Owner»), o una etiqueta de rol a su lado.
+- Una cuadrícula de cards idénticas, cada una con un icono, una etiqueta y un número grande.
+- Una card dentro de otra, o una tabla en una caja con borde propia.
+- Una caja discontinua con una línea de texto y la página en blanco debajo.
+- Etiquetas de colores para roles o categorías que no son un estado.
+- Elementos unidos con puntos medios.
+- Etiquetas pequeñas en mayúsculas y con espaciado entre letras sobre las secciones.
+- Una nota de ayuda al pie del contenido que explica la pantalla.
+- Un subtítulo que repite el título, o una descripción bajo cada sección.
+- Color decorativo: fondos tintados, franjas de color, bordes de acento.
+
+`ui-contract.mjs audit` encuentra la mayoría (la familia page-composition y las reglas caps y separator). Mira la pantalla en marcha para el resto.

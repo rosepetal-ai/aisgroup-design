@@ -4,7 +4,7 @@ The read-only MCP at `https://design.aisgroup.ai/mcp` (also `aisgroup-design.web
 
 | Surface | Tool | Downloads |
 | --- | --- | --- |
-| Code | `design_code` | Tailwind v4 theme, Vue component search and source (`@aisgroup/design`), website components (`@aisgroup/web`), generated PrimeVue and Vuetify presets |
+| Code | `design_code` | Tailwind v4 theme, Vue component search, source and examples (`@aisgroup/design`), website components (`@aisgroup/web`), the PrimeVue and Vuetify adapters (`name`: `preset`, `base`, `readme`, `tokens`), the PrimeVue, Vuetify and icon migration maps (`kind=migration`) |
 | Assets | `design_assets` | Logos, favicons, the five decorative patterns and backgrounds, approved media, fonts |
 | Examples | `design_examples` | Document HTML and PDFs, product component views, approved images |
 | Standards | `design_standards` | Tokens (DTCG, CSS, JS), guide search and sections, brand rules in en, es and ca |
@@ -15,7 +15,7 @@ Illustrations, mascots and 3D models are held back by decision: their slots retu
 
 ## Build and run
 
-The server reads only `hosted/data/`, a snapshot of the built guide (`guide/dist`) and curated media library (`library/`). `library/downloads.json` is the same selection offered on the guide's Downloads page: it adds rights metadata without duplicating files and includes official intros and posters. Stock entries link to the photographer's source under its licence; their originals are not copied or served as AIS files. Do not replace the expanded library with an older review import. From the repo root:
+The server reads only `hosted/data/`, a snapshot of the built guide (`guide/dist`), the curated media library (`library/`), each component's examples (`packages/design/examples/`) and the migration maps (`packages/vue-themes/migration/{primevue,vuetify,icons}.json`; the build fails without them). `library/downloads.json` is the same selection offered on the guide's Downloads page: it adds rights metadata without duplicating files and includes official intros and posters. Stock entries link to the photographer's source under its licence; their originals are not copied or served as AIS files. Do not replace the expanded library with an older review import. From the repo root:
 
 ```
 npm run build -w guide      # the guide
@@ -24,11 +24,11 @@ npm run start -w hosted     # http://localhost:8080/mcp
 npm test -w hosted
 ```
 
-Rebuild the snapshot whenever the guide changes. The build fails if a usage rule it quotes is no longer in the guide.
+Rebuild the snapshot whenever the guide changes. The build fails if a usage rule it quotes is no longer in the guide, or if a migration map is missing or not JSON.
 
 ## Deploy
 
-It runs as the Firebase function `mcp` (`function.mjs`), behind the guide's hosting: `firebase.json` at the repo root rewrites `/mcp` to it and lists this folder as the functions source, so `npm run deploy:guide` (`firebase deploy --only hosting:aisgroup-design,functions:mcp`) publishes both (see the root README). Firebase only uploads a functions source inside the folder that holds `firebase.json`, which is why it lives at the root, and it matches `ignore` against absolute paths, which is why those patterns start with `**/hosted/`. Of `data/downloads/*/` only `aisgroup-web/` and `vue-themes/` are uploaded, because `download-tools.mjs` loads them at start; a new folder the server reads must be added to that exception, or the function fails to start. The predeploy step rebuilds `data/` from the built guide; the upload leaves out everything the guide already serves (logos, fonts, photos, downloads), so the function carries only the text it answers from.
+It runs as the Firebase function `mcp` (`function.mjs`), behind the guide's hosting: `firebase.json` at the repo root rewrites `/mcp` to it and lists this folder as the functions source, so `npm run deploy:guide` (`firebase deploy --only hosting:aisgroup-design,functions:mcp`) publishes both (see the root README). Firebase only uploads a functions source inside the folder that holds `firebase.json`, which is why it lives at the root, and it matches `ignore` against absolute paths, which is why those patterns start with `**/hosted/`. Of `data/downloads/*/` only `aisgroup-web/` and `vue-themes/` are uploaded, because `download-tools.mjs` loads them at start (with `data/migration/` and `data/component-examples.json`, which no pattern ignores); a new folder the server reads must be added to that exception, or the function fails to start. The predeploy step rebuilds `data/` from the built guide; the upload leaves out everything the guide already serves (logos, fonts, photos, downloads), so the function carries only the text it answers from.
 
 The deploying account needs, on the `aisgroup-design` project: Firebase Admin, and **Service Account User** (`roles/iam.serviceAccountUser`) to act as the function's runtime service account. A project owner has both. The project is on the Blaze plan and its APIs are on.
 
@@ -38,11 +38,13 @@ Cost: no instance runs while nobody calls it; one 256 MiB instance answers up to
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
+| `AIS_MCP_BASE_URL` | `https://aisgroup-design.web.app` in the function; unset locally | The public origin of every other link (install lines, `/r/…`, pages). Unset, links follow the request's host, or `x-forwarded-host` and `x-forwarded-proto` with `AIS_MCP_TRUST_PROXY=1` |
 | `AIS_MCP_FILES_BASE` | `https://aisgroup-design.web.app` | Function only: where download links point (the guide's own files) |
 | `AIS_MCP_TOKEN` | Secret Manager in the function, unset (off) locally | `/mcp` needs `Authorization: Bearer <token>`; anything else gets 401. Never in the repo or in a `.env` here (it would be uploaded). |
 | `AIS_MCP_RATE_LIMIT` | `120` | Requests per minute per caller, per instance |
 | `AIS_MCP_CORS_ORIGIN` | unset (off) | The one browser origin allowed to call it; any other browser origin is refused |
 | `AIS_GUIDE_DIST` | `../guide/dist` | Build only: the built guide to snapshot |
+| `AIS_MIGRATION_DIR` | `../packages/vue-themes/migration` | Build only: the folder of migration maps to snapshot (`tests/fixtures/migration` for a test build) |
 
 Locally, `npm start -w hosted` serves the same handler on port 8080 with the snapshot's files at `/files/…` (`PORT`, `AIS_MCP_BASE_URL`, `AIS_MCP_TRUST_PROXY` apply there); `firebase emulators:start --only functions` from the repo root runs the function itself.
 

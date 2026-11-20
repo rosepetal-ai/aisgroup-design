@@ -7,14 +7,18 @@ import { fileURLToPath } from 'node:url';
 import { ROOT, validateManifests, validateSkills, validateArchive } from './validate-plugin.mjs';
 import { checkLedger } from './rules-ledger.mjs';
 
-export function packagePlugin(dest, { zip = false, proposed = true } = {}) {
+// The lite edition is what claude.ai and Anthropic's directory accept (under 512 files and 50 MiB): skills, hooks and
+// checks with the hosted design server. The studio (renderer, templates, pieces) stays in the full Git install.
+const LITE = /^(?:\.claude-plugin|skills|hooks|scripts|commands)\/|^(?:README\.md|LICENSE|plugin\.json|mcp\.json)$/;
+
+export function packagePlugin(dest, { zip = false, proposed = true, lite = false } = {}) {
   if (fs.existsSync(dest)) throw new Error(`Destination already exists: ${dest}`);
   const result = spawnSync('git', ['ls-files', '-z', '--', '.'], { cwd: ROOT, encoding: 'utf8' });
   if (result.status) throw new Error(result.stderr);
   // Large photo masters and ZIP bundles remain downloadable from the hosted catalogue. Business cards are private.
   const excluded = /^(?:brand\/library\/|brand\/imagery\/|brand\/kit\/fonts\/|brand\/illustrations\/|brand\/downloads\/video\/|brand\/downloads\/linkedin-patterns\/|brand\/kit\/files\/|brand\/kit\/office\/|pieces\/posts\/|pieces\/patterns\/|library\/factory-library\/assets\/|pieces\/stationery\/business-cards\/)|\.zip$|(?:^|\/)\.env(?:\.|$)/i;
   for (const file of result.stdout.split('\0').filter(Boolean)) {
-    if (excluded.test(file) || (file.startsWith('pieces/posts/') && /\.(?:png|jpe?g|webp|mp4)$/i.test(file))) continue;
+    if ((lite && !LITE.test(file)) || excluded.test(file) || (file.startsWith('pieces/posts/') && /\.(?:png|jpe?g|webp|mp4)$/i.test(file))) continue;
     const src = path.join(ROOT, file), stat = fs.lstatSync(src);
     if (stat.isSymbolicLink()) {
       const target = fs.realpathSync(src);
@@ -36,19 +40,32 @@ export function packagePlugin(dest, { zip = false, proposed = true } = {}) {
     fs.cpSync(path.join(repo, 'packages/vue-themes'), path.join(dest, 'packages/vue-themes'), { recursive: true });
     fs.mkdirSync(path.join(dest, 'packages/design'), { recursive: true });
     fs.copyFileSync(path.join(repo, 'packages/design/styles.css'), path.join(dest, 'packages/design/styles.css'));
-    fs.copyFileSync(path.join(repo, 'scripts/ui-contract.mjs'), path.join(dest, 'scripts/ui-contract.mjs'));
+    for (const f of ['scripts/ui-contract.mjs', 'scripts/ui-rules.mjs', 'scripts/ui-states.mjs', 'packages/design/ui/button/index.ts', 'packages/design/ui/badge/index.ts']) {
+      fs.mkdirSync(path.dirname(path.join(dest, f)), { recursive: true });
+      fs.copyFileSync(path.join(repo, f), path.join(dest, f));
+    }
+  }
+  if (lite) for (const f of ['mcp.json', '.claude-plugin/plugin.json']) {
+    const manifest = JSON.parse(fs.readFileSync(path.join(dest, f), 'utf8'));
+    delete manifest.mcpServers.studio;
+    fs.writeFileSync(path.join(dest, f), JSON.stringify(manifest, null, 2) + '\n');
   }
   // Cached downloads are links in the upload; the full Git/Claude Code distribution retains the local originals.
-  for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md') && !/(?:retained-(?:rules|updates)-\d+|writing-essentials)\.md$/.test(f))) {
+  // The ledger proves every rule's wording first; the rewrite below changes only link targets.
+  const retained = checkLedger(dest, JSON.parse(fs.readFileSync(path.join(ROOT, 'evals/rules-ledger.json'))));
+  if (retained.errors.length) throw new Error(retained.errors.join('\n'));
+  for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md'))) {
     const at = path.join(dest, 'skills', file), body = fs.readFileSync(at, 'utf8');
     fs.writeFileSync(at, body.replace(/\]\(([^)#]+)(#[^)]*)?\)/g, (all, link, fragment = '') => {
       if (/^(?:https?:|\/|#)/.test(link)) return all;
       const target = path.resolve(path.dirname(at), link), brand = path.join(dest, 'brand') + path.sep;
-      return target.startsWith(brand) && !fs.existsSync(target) ? `](https://aisgroup-design.web.app/${path.relative(path.join(dest, 'brand'), target)}${fragment})` : all;
+      if (fs.existsSync(target) || !target.startsWith(dest + path.sep)) return all;
+      // Guide downloads go to the hosted guide; studio files the upload leaves out go to their source on GitHub.
+      return target.startsWith(brand)
+        ? `](https://aisgroup-design.web.app/${path.relative(path.join(dest, 'brand'), target)}${fragment})`
+        : `](https://github.com/rosepetal-ai/aisgroup-design/blob/main/plugin/${path.relative(dest, target)}${fragment})`;
     }));
   }
-  const retained = checkLedger(dest, JSON.parse(fs.readFileSync(path.join(ROOT, 'evals/rules-ledger.json'))));
-  if (retained.errors.length) throw new Error(retained.errors.join('\n'));
   const archive = validateArchive(dest), skills = validateSkills(dest);
   const errors = [...validateManifests(dest), ...skills.errors, ...archive.errors];
   if (errors.length) throw new Error(errors.join('\n'));
@@ -61,5 +78,5 @@ export function packagePlugin(dest, { zip = false, proposed = true } = {}) {
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const dest = process.argv.find(a => a.startsWith('--out='))?.slice(6) ?? path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ais-plugin-')), 'ais-group-design');
-  console.log(JSON.stringify({ path: dest + '.zip', ...packagePlugin(dest, { zip: true }) }));
+  console.log(JSON.stringify({ path: dest + '.zip', ...packagePlugin(dest, { zip: true, lite: process.argv.includes('--lite') }) }));
 }

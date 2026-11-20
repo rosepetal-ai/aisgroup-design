@@ -89,7 +89,7 @@ Source: plugin/skills/social-post/SKILL.md:29.
 ## AIS-a7620038271e
 
 <!-- AIS-a7620038271e -->
-**Post export checks:** follow the [shared generator checks](../_shared/WORKFLOW.md). `engine/render.mjs` validates source pixels, number formatting, prohibited production terms and separators, wine labels and customer-logo treatment before exporting the post.
+**Post export checks:** follow the [shared generator checks](../../_shared/WORKFLOW.md). `engine/render.mjs` validates source pixels, number formatting, prohibited production terms and separators, wine labels and customer-logo treatment before exporting the post.
 
 Source: plugin/skills/social-post/SKILL.md:31.
 
@@ -124,7 +124,7 @@ Source: plugin/skills/social-post/SKILL.md:42.
 ## AIS-9304efadd6db
 
 <!-- AIS-9304efadd6db -->
-**Look.** Read every PNG at full size and at feed size (about 550 px wide), then 2× crops of the picture's subject. Answer the [look checklist](../brand-review/references/look-checklist.md) in writing, then the playbook's "Before publishing".
+**Look.** Read every PNG at full size and at feed size (about 550 px wide), then 2× crops of the picture's subject. Answer the [look checklist](../../brand-review/references/look-checklist.md) in writing, then the playbook's "Before publishing".
 
 Source: plugin/skills/social-post/SKILL.md:43.
 
@@ -243,7 +243,7 @@ Source: plugin/skills/social-post/SKILL.md:67.
 ## AIS-2afe48b64bd0
 
 <!-- AIS-2afe48b64bd0 -->
-Write as [writing](../writing/SKILL.md) says. Sentence case; names exactly; three headline lines at most (`|` breaks a line).
+Write as [writing](../../communications/SKILL.md) says. Sentence case; names exactly; three headline lines at most (`|` breaks a line).
 
 Source: plugin/skills/social-post/SKILL.md:71.
 

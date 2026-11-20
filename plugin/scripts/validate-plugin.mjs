@@ -24,15 +24,34 @@ export function validateManifests(root) {
   const openai = portable.extensions?.['com.openai'];
   if (!openai || !openai.onboardingSkill?.startsWith('./') || !fs.existsSync(path.join(root, openai.onboardingSkill))) errors.push('OpenAI onboarding skill missing');
   const studio = mcp.mcpServers.studio, remote = mcp.mcpServers.design;
-  if (studio?.type !== 'stdio' || studio.command !== 'node' || !studio.args.includes('${PLUGIN_ROOT}/mcp/start.mjs')) errors.push('Portable studio entry invalid');
+  // The lite edition ships without the studio; a plugin that carries the studio must declare it correctly.
+  const hasStudio = fs.existsSync(path.join(root, 'mcp/start.mjs'));
+  if (hasStudio && (studio?.type !== 'stdio' || studio.command !== 'node' || !studio.args.includes('${PLUGIN_ROOT}/mcp/start.mjs'))) errors.push('Portable studio entry invalid');
   for (const value of [...(studio?.args ?? []), ...Object.values(studio?.env ?? {})]) {
     if ([...value.matchAll(/\$\{([^}]+)\}/g)].some(([, v]) => !['PLUGIN_ROOT', 'PLUGIN_DATA'].includes(v))) errors.push('Nonportable variable in portable MCP');
   }
   if (remote?.type !== 'streamable-http' || remote.url !== 'https://design.aisgroup.ai/mcp') errors.push('Hosted MCP entry invalid');
   if (remote?.headers?.Authorization !== 'Bearer ${AIS_MCP_TOKEN}') errors.push('Portable hosted MCP must send its bearer token');
   if (claude.userConfig?.designToken?.sensitive !== true || claude.mcpServers?.design?.headers?.Authorization !== 'Bearer ${user_config.designToken}') errors.push('Claude hosted MCP must send the keychain token');
-  if (claude.userConfig?.mediaLibrary?.type !== 'string' || claude.mcpServers?.studio?.env?.AIS_MEDIA_LIBRARY !== '${user_config.mediaLibrary}') errors.push('Claude media library behaviour lost');
-  if (claude.mcpServers?.studio?.args?.[0] !== '${CLAUDE_PLUGIN_ROOT}/mcp/start.mjs') errors.push('Claude studio entry invalid');
+  if (hasStudio && (claude.userConfig?.mediaLibrary?.type !== 'string' || claude.mcpServers?.studio?.env?.AIS_MEDIA_LIBRARY !== '${user_config.mediaLibrary}')) errors.push('Claude media library behaviour lost');
+  if (hasStudio && claude.mcpServers?.studio?.args?.[0] !== '${CLAUDE_PLUGIN_ROOT}/mcp/start.mjs') errors.push('Claude studio entry invalid');
+  return [...errors, ...validateHooks(root)];
+}
+
+// hooks/hooks.json (Claude Code loads it from the plugin root): the event map under a top-level "hooks" key, and every
+// command runs a file the plugin ships, its ${CLAUDE_PLUGIN_ROOT} quoted.
+export function validateHooks(root) {
+  if (!fs.existsSync(path.join(root, 'hooks/hooks.json'))) return [];
+  let hooks;
+  try { ({ hooks } = readJSON(root, 'hooks/hooks.json')); } catch (e) { return [`hooks/hooks.json: ${e.message}`]; }
+  if (!hooks || typeof hooks !== 'object' || Array.isArray(hooks)) return ['hooks/hooks.json needs its events under a top-level "hooks" object'];
+  const errors = [];
+  for (const [event, groups] of Object.entries(hooks)) for (const h of (Array.isArray(groups) ? groups : []).flatMap((g) => g.hooks ?? [])) {
+    if (h.type !== 'command' || typeof h.command !== 'string') { errors.push(`hooks/hooks.json ${event}: only command hooks`); continue; }
+    if (/\$\{CLAUDE_PLUGIN_ROOT\}/.test(h.command.replace(/"\$\{CLAUDE_PLUGIN_ROOT\}[^"]*"/g, ''))) errors.push(`hooks/hooks.json ${event}: quote \${CLAUDE_PLUGIN_ROOT}`);
+    for (const [, file] of h.command.matchAll(/"\$\{CLAUDE_PLUGIN_ROOT\}\/([^"]+)"/g)) if (!fs.existsSync(path.join(root, file))) errors.push(`hooks/hooks.json ${event}: runs ${file}, which the plugin does not have`);
+  }
+  if (!Object.values(hooks).flat().length) errors.push('hooks/hooks.json has no hooks');
   return errors;
 }
 
@@ -66,6 +85,16 @@ export function validateSkills(root) {
     }
     for (const [, target] of body.matchAll(/\]\((references\/[^)#]+)(?:#[^)]*)?\)/g)) {
       if (target.split('/').length !== 2 || !fs.existsSync(path.join(root, 'skills', dir, target))) errors.push(`${dir}: missing or nested reference ${target}`);
+    }
+  }
+  // Every link from one skill to another must land on a file. Links out of skills/ (guide downloads, studio files)
+  // are checked by the upload, which points the ones it leaves out at the hosted guide or GitHub.
+  const skillsRoot = path.join(root, 'skills') + path.sep;
+  for (const file of fs.readdirSync(skillsRoot, { recursive: true }).filter(f => f.endsWith('.md'))) {
+    const at = path.join(skillsRoot, file);
+    for (const [, link] of fs.readFileSync(at, 'utf8').matchAll(/\]\(([^)#\s|]+)(?:#[^)]*)?\)/g)) {
+      const target = path.resolve(path.dirname(at), link);
+      if (!/^(?:[a-z]+:|\/)/.test(link) && target.startsWith(skillsRoot) && !fs.existsSync(target)) errors.push(`skills/${file}: dead link ${link}`);
     }
   }
   return { errors, count, maxLines, maxTokens };

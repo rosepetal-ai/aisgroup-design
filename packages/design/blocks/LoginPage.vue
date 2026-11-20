@@ -9,7 +9,7 @@ import { Input } from '../ui/input'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '../ui/input-group'
 import { Spinner } from '../ui/spinner'
 import InspectionGrid from './InspectionGrid.vue'
-import logo from './rosepetal.svg'
+import rosepetalLogo from './rosepetal.svg'
 
 const props = withDefaults(defineProps<{
   panel?: boolean
@@ -32,6 +32,9 @@ const props = withDefaults(defineProps<{
   loading?: boolean
   error?: { title: string, text: string } | null
   passwordInvalid?: boolean
+  logo?: string
+  logoAlt?: string
+  logoClass?: string
 }>(), {
   panel: true,
   panelTitle: 'AI Visual Inspection Platform',
@@ -51,6 +54,9 @@ const props = withDefaults(defineProps<{
   playLabel: 'Play animation',
   pauseLabel: 'Pause animation',
   error: null,
+  logo: rosepetalLogo,
+  logoAlt: 'Rosepetal',
+  logoClass: 'h-auto w-44',
 })
 const emit = defineEmits<{ submit: [] }>()
 
@@ -66,13 +72,13 @@ const canSubmit = computed(() => !props.loading && !!email.value.trim() && !!pas
 <template>
   <div class="relative grid min-h-svh bg-background text-foreground" :class="panel && 'lg:grid-cols-2'">
     <div v-if="panel" class="relative hidden h-full flex-col overflow-hidden bg-brand text-brand-foreground lg:flex">
-      <InspectionGrid :paused="paused" />
+      <slot name="panel-art"><InspectionGrid :paused="paused" /></slot>
       <div class="relative p-10">
-        <img :src="logo" alt="Rosepetal" class="h-auto w-44">
+        <img :src="logo" :alt="logoAlt" :class="logoClass">
       </div>
       <div class="relative mt-auto flex max-w-lg flex-col gap-4 p-10 pb-9">
-        <h1 class="text-4xl leading-tight font-medium text-balance">{{ panelTitle }}</h1>
-        <p class="text-lg text-brand-foreground/70">{{ panelSubtitle }}</p>
+        <h1 v-if="panelTitle" class="text-4xl leading-tight font-medium text-balance">{{ panelTitle }}</h1>
+        <p v-if="panelSubtitle" class="text-lg text-brand-foreground/70">{{ panelSubtitle }}</p>
       </div>
     </div>
 
@@ -83,61 +89,65 @@ const canSubmit = computed(() => !props.loading && !!email.value.trim() && !!pas
       <main class="flex flex-1 flex-col items-center justify-center px-6 py-6">
         <div class="flex w-full max-w-sm flex-col gap-7">
           <div class="flex flex-col items-center gap-3 text-center">
-            <svg viewBox="0 0 256 256" class="size-14 text-primary" aria-hidden="true">
-              <mask id="rp-login-ring">
-                <rect width="256" height="256" fill="white" />
-                <circle cx="128" cy="128" r="52" fill="black" />
-                <circle cx="169" cy="74" r="17" fill="black" />
-              </mask>
-              <circle cx="128" cy="128" r="93" fill="currentColor" mask="url(#rp-login-ring)" />
-            </svg>
+            <slot name="mark">
+              <svg viewBox="0 0 256 256" class="size-14 text-primary" aria-hidden="true">
+                <mask id="rp-login-ring">
+                  <rect width="256" height="256" fill="white" />
+                  <circle cx="128" cy="128" r="52" fill="black" />
+                  <circle cx="169" cy="74" r="17" fill="black" />
+                </mask>
+                <circle cx="128" cy="128" r="93" fill="currentColor" mask="url(#rp-login-ring)" />
+              </svg>
+            </slot>
             <h1 class="text-4xl font-medium text-heading">{{ title }}</h1>
-            <p class="text-sm text-muted-foreground">{{ subtitle }}</p>
+            <p v-if="subtitle" class="text-sm text-muted-foreground">{{ subtitle }}</p>
           </div>
 
-          <form class="flex flex-col gap-6" @submit.prevent="canSubmit && emit('submit')">
-            <Alert v-if="error" variant="destructive" class="animate-in fade-in slide-in-from-top-2 duration-240 motion-reduce:animate-none">
-              <CircleAlertIcon />
-              <AlertTitle>{{ error.title }}</AlertTitle>
-              <AlertDescription>{{ error.text }}</AlertDescription>
-            </Alert>
+          <slot name="form">
+            <form class="flex flex-col gap-6" @submit.prevent="canSubmit && emit('submit')">
+              <Alert v-if="error" variant="destructive" class="animate-in fade-in slide-in-from-top-2 duration-240 motion-reduce:animate-none">
+                <CircleAlertIcon />
+                <AlertTitle>{{ error.title }}</AlertTitle>
+                <AlertDescription>{{ error.text }}</AlertDescription>
+              </Alert>
 
-            <FieldGroup class="gap-4">
-              <Field :data-disabled="loading || undefined">
-                <FieldLabel for="login-email">{{ emailLabel }}</FieldLabel>
-                <Input id="login-email" v-model="email" type="email" autocomplete="username" :placeholder="emailPlaceholder" :disabled="loading" class="h-10" />
-              </Field>
-              <Field :data-invalid="passwordInvalid || undefined" :data-disabled="loading || undefined">
-                <FieldLabel for="login-password">{{ passwordLabel }}</FieldLabel>
-                <InputGroup class="h-10">
-                  <InputGroupInput id="login-password" v-model="password" :type="showPassword ? 'text' : 'password'" autocomplete="current-password" :disabled="loading" :aria-invalid="passwordInvalid || undefined" />
-                  <InputGroupAddon align="inline-end">
-                    <InputGroupButton size="icon-xs" :disabled="loading" :aria-label="showPassword ? hidePasswordLabel : showPasswordLabel" @click="showPassword = !showPassword">
-                      <EyeOffIcon v-if="showPassword" />
-                      <EyeIcon v-else />
-                    </InputGroupButton>
-                  </InputGroupAddon>
-                </InputGroup>
-              </Field>
-              <Field v-if="showRemember" orientation="horizontal" :data-disabled="loading || undefined">
-                <Checkbox id="login-remember" v-model="remember" :disabled="loading" />
-                <FieldLabel for="login-remember" class="font-normal">{{ rememberLabel }}</FieldLabel>
-              </Field>
-            </FieldGroup>
+              <FieldGroup class="gap-4">
+                <Field :data-disabled="loading || undefined">
+                  <FieldLabel for="login-email">{{ emailLabel }}</FieldLabel>
+                  <Input id="login-email" v-model="email" type="email" autocomplete="username" :placeholder="emailPlaceholder" :disabled="loading" class="h-10" />
+                </Field>
+                <Field :data-invalid="passwordInvalid || undefined" :data-disabled="loading || undefined">
+                  <FieldLabel for="login-password">{{ passwordLabel }}</FieldLabel>
+                  <InputGroup class="h-10">
+                    <InputGroupInput id="login-password" v-model="password" :type="showPassword ? 'text' : 'password'" autocomplete="current-password" :disabled="loading" :aria-invalid="passwordInvalid || undefined" />
+                    <InputGroupAddon align="inline-end">
+                      <InputGroupButton size="icon-sm" :disabled="loading" :aria-label="showPassword ? hidePasswordLabel : showPasswordLabel" @click="showPassword = !showPassword">
+                        <EyeOffIcon v-if="showPassword" />
+                        <EyeIcon v-else />
+                      </InputGroupButton>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </Field>
+                <Field v-if="showRemember" orientation="horizontal" :data-disabled="loading || undefined">
+                  <Checkbox id="login-remember" v-model="remember" :disabled="loading" />
+                  <FieldLabel for="login-remember" class="font-normal">{{ rememberLabel }}</FieldLabel>
+                </Field>
+              </FieldGroup>
 
-            <Button type="submit" size="lg" class="w-full" :disabled="!canSubmit">
-              <Spinner v-if="loading" data-icon="inline-start" />
-              {{ loading ? submittingLabel : submitLabel }}
-            </Button>
+              <Button type="submit" size="lg" class="w-full" :disabled="!canSubmit">
+                <Spinner v-if="loading" data-icon="inline-start" />
+                {{ loading ? submittingLabel : submitLabel }}
+              </Button>
 
-            <FieldDescription v-if="$slots.legal" class="text-center text-xs"><slot name="legal" /></FieldDescription>
-          </form>
+              <FieldDescription v-if="$slots.legal" class="text-center"><slot name="legal" /></FieldDescription>
+            </form>
+          </slot>
         </div>
       </main>
 
-      <footer class="relative flex justify-center px-6 pb-6 text-xs text-muted-foreground">
-        <p>{{ footer }}</p>
-        <Button v-if="panel" variant="ghost" size="xs" class="absolute right-4 bottom-4 hidden text-muted-foreground motion-reduce:hidden lg:inline-flex" :aria-pressed="paused" @click="paused = !paused">
+      <footer class="relative flex justify-center px-6 pb-6 text-sm text-muted-foreground">
+        <slot name="footer"><p v-if="footer">{{ footer }}</p></slot>
+        <Button v-if="panel && !$slots['panel-art']" variant="ghost" size="sm" class="absolute right-4 bottom-4 hidden text-muted-foreground motion-reduce:hidden lg:inline-flex" :aria-pressed="paused" @click="paused = !paused">
           <PlayIcon v-if="paused" data-icon="inline-start" />
           <PauseIcon v-else data-icon="inline-start" />
           {{ paused ? playLabel : pauseLabel }}

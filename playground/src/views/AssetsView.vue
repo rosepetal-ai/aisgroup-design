@@ -583,7 +583,7 @@ const isVideo = (a: Asset) => a.format === 'mp4' || a.format === 'webm'
             <dt class="text-muted-foreground">{{ $t('Path') }}</dt>
             <dd class="flex min-w-0 items-center gap-1">
               <code class="truncate text-xs">rosepetal-ui/{{ detail.path }}</code>
-              <Button variant="ghost" size="icon-xs" :aria-label="$t('Copy path')" @click="copyPath(detail.path)">
+              <Button variant="ghost" size="icon-sm" :aria-label="$t('Copy path')" @click="copyPath(detail.path)">
                 <CheckIcon v-if="copied" />
                 <CopyIcon v-else />
               </Button>

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "file-upload",
+  "type": "registry:ui",
+  "title": "File upload",
+  "description": "A dashed drop zone with a button, and the list of files with progress and remove.",
+  "dependencies": [
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/button.json",
+    "https://design.aisgroup.ai/r/empty.json",
+    "https://design.aisgroup.ai/r/item.json",
+    "https://design.aisgroup.ai/r/progress.json",
+    "https://design.aisgroup.ai/r/tooltip.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/file-upload/FileUpload.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { FileRejection } from '.'\nimport { UploadIcon } from '@lucide/vue'\nimport { ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'\nimport { acceptsFile } from '.'\n\n// A dashed drop zone, built from Empty: drop files on it or choose them with its button. It checks type (`accept`,\n// as the file input reads it) and size (`maxSize`, in bytes) and emits the files it takes and the ones it rejects.\n// The app keeps the list and shows it with FileUploadItem.\nconst props = withDefaults(defineProps<{\n  accept?: string\n  multiple?: boolean\n  maxSize?: number\n  disabled?: boolean\n  label?: string\n  description?: string\n  buttonLabel?: string\n  class?: HTMLAttributes['class']\n}>(), {\n  label: 'Drag files here',\n  buttonLabel: 'Choose files',\n})\n\nconst emits = defineEmits<{\n  files: [files: File[]]\n  reject: [rejections: FileRejection[]]\n}>()\n\nconst input = ref<HTMLInputElement>()\nconst dragging = ref(false)\n\nfunction take(list?: FileList | null) {\n  dragging.value = false\n  if (!list || props.disabled)\n    return\n  const files = props.multiple ? [...list] : [...list].slice(0, 1)\n  const rejected: FileRejection[] = []\n  const accepted = files.filter((file) => {\n    const reason = !acceptsFile(file, props.accept) ? 'type' : props.maxSize && file.size > props.maxSize ? 'size' : undefined\n    if (reason)\n      rejected.push({ file, reason })\n    return !reason\n  })\n  if (accepted.length)\n    emits('files', accepted)\n  if (rejected.length)\n    emits('reject', rejected)\n  if (input.value)\n    input.value.value = ''\n}\n\nfunction leave(event: DragEvent) {\n  if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as Node | null))\n    dragging.value = false\n}\n</script>\n\n<template>\n  <Empty\n    data-slot=\"file-upload\"\n    :data-dragging=\"dragging || undefined\"\n    :data-disabled=\"disabled || undefined\"\n    :class=\"cn('border p-8 transition-colors data-dragging:border-ring data-dragging:bg-muted data-disabled:opacity-50', props.class)\"\n    @dragenter.prevent=\"dragging = !disabled\"\n    @dragover.prevent\n    @dragleave=\"leave\"\n    @drop.prevent=\"take($event.dataTransfer?.files)\"\n  >\n    <slot :open=\"() => input?.click()\" :dragging=\"dragging\">\n      <EmptyHeader>\n        <EmptyMedia><UploadIcon class=\"size-6 text-muted-foreground\" /></EmptyMedia>\n        <EmptyTitle class=\"text-base\">{{ label }}</EmptyTitle>\n        <EmptyDescription v-if=\"description\">{{ description }}</EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button variant=\"outline\" :disabled=\"disabled\" @click=\"input?.click()\">{{ buttonLabel }}</Button>\n      </EmptyContent>\n    </slot>\n    <input\n      ref=\"input\"\n      type=\"file\"\n      class=\"sr-only\"\n      tabindex=\"-1\"\n      aria-hidden=\"true\"\n      :accept=\"accept\"\n      :multiple=\"multiple\"\n      :disabled=\"disabled\"\n      @change=\"take(($event.target as HTMLInputElement).files)\"\n    >\n  </Empty>\n</template>\n"
+    },
+    {
+      "path": "components/ui/file-upload/FileUploadItem.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { CircleAlertIcon, FileIcon, XIcon } from '@lucide/vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@/components/ui/item'\nimport { Progress } from '@/components/ui/progress'\nimport { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'\nimport { formatBytes } from '.'\n\n// One file in an upload list, as an outline item: name, size, progress while it uploads, an error as a toned icon\n// and its words, and a remove button.\nconst props = withDefaults(defineProps<{\n  file: { name: string, size: number }\n  progress?: number\n  error?: string\n  removeLabel?: string\n  class?: HTMLAttributes['class']\n}>(), {\n  removeLabel: 'Remove',\n})\n\ndefineEmits<{ remove: [] }>()\n</script>\n\n<template>\n  <Item data-slot=\"file-upload-item\" role=\"listitem\" variant=\"outline\" size=\"sm\" :class=\"cn('flex-nowrap', props.class)\">\n    <ItemMedia variant=\"icon\"><FileIcon class=\"text-muted-foreground\" /></ItemMedia>\n    <ItemContent class=\"min-w-0\">\n      <ItemTitle class=\"w-full truncate\">{{ file.name }}</ItemTitle>\n      <ItemDescription v-if=\"error\" class=\"flex items-center gap-1.5\"><CircleAlertIcon class=\"size-4 shrink-0 text-destructive\" />{{ error }}</ItemDescription>\n      <ItemDescription v-else class=\"tabular-nums\">{{ formatBytes(file.size) }}</ItemDescription>\n      <Progress v-if=\"progress !== undefined && !error\" :model-value=\"progress\" class=\"mt-1\" />\n    </ItemContent>\n    <ItemActions>\n      <Tooltip>\n        <TooltipTrigger as-child>\n          <Button variant=\"ghost\" size=\"icon-sm\" :aria-label=\"`${removeLabel} ${file.name}`\" @click=\"$emit('remove')\"><XIcon /></Button>\n        </TooltipTrigger>\n        <TooltipContent>{{ removeLabel }}</TooltipContent>\n      </Tooltip>\n    </ItemActions>\n  </Item>\n</template>\n"
+    },
+    {
+      "path": "components/ui/file-upload/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as FileUpload } from './FileUpload.vue'\nexport { default as FileUploadItem } from './FileUploadItem.vue'\n\nexport interface FileRejection {\n  file: File\n  reason: 'type' | 'size'\n}\n\n/** Whether a file matches an `accept` list as the file input reads it: `.pdf`, `image/*`, `image/png`. */\nexport function acceptsFile(file: { name: string, type: string }, accept?: string) {\n  if (!accept)\n    return true\n  const name = file.name.toLowerCase()\n  const type = file.type.toLowerCase()\n  return accept.split(',').map(a => a.trim().toLowerCase()).filter(Boolean).some(a =>\n    a.startsWith('.') ? name.endsWith(a) : a.endsWith('/*') ? type.startsWith(a.slice(0, -1)) : type === a)\n}\n\n/** A file size in the units people read: 512 B, 2.4 MB. */\nexport function formatBytes(bytes: number, locale = 'en-GB') {\n  const units = ['B', 'KB', 'MB', 'GB']\n  const i = bytes > 0 ? Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1) : 0\n  return `${new Intl.NumberFormat(locale, { maximumFractionDigits: i ? 1 : 0 }).format(bytes / 1024 ** i)} ${units[i]}`\n}\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/file-upload/FileUpload.vue"
+  }
+}

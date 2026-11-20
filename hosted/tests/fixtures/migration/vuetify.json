@@ -1,0 +1,7 @@
+{
+ "description": "Test fixture: Vuetify components to @aisgroup/design.",
+ "entries": [
+  { "from": "VDataTable", "to": "Table" },
+  { "from": "VBtn", "to": "Button" }
+ ]
+}

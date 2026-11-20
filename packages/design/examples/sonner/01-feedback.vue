@@ -1,4 +1,4 @@
-<!-- Short feedback after an action, stock Sonner. -->
+<!-- Short feedback after an action: toast() from vue-sonner is the one toast API, called anywhere, with one Toaster in App. -->
 <script setup>
 import { toast } from 'vue-sonner';
 import { Button } from '@aisgroup/design/ui/button';

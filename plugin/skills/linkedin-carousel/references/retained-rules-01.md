@@ -12,7 +12,7 @@ Source: plugin/skills/linkedin-carousel/SKILL.md:11.
 ## AIS-84cc3d076e62
 
 <!-- AIS-84cc3d076e62 -->
-**The engine enforces** the [shared workflow](../_shared/WORKFLOW.md)'s *Brand rules the generators check* and the text check: the cover at least its slot's size (above 1.25× fails, above 1× warns; a video frame warns until a photograph exists); Spanish and Catalan thousands 30 000 and 7200, never 30.000; no render, CAD, 3D or middle-dot separators in text or alt text; round-label wine renders only; client logos blurred. Only `engine/render.mjs` on `engine/stage.html` and `templates/*.json` makes posts and carousels.
+**The engine enforces** the [shared workflow](../../_shared/WORKFLOW.md)'s *Brand rules the generators check* and the text check: the cover at least its slot's size (above 1.25× fails, above 1× warns; a video frame warns until a photograph exists); Spanish and Catalan thousands 30 000 and 7200, never 30.000; no render, CAD, 3D or middle-dot separators in text or alt text; round-label wine renders only; client logos blurred. Only `engine/render.mjs` on `engine/stage.html` and `templates/*.json` makes posts and carousels.
 
 Source: plugin/skills/linkedin-carousel/SKILL.md:13.
 
@@ -147,7 +147,7 @@ Source: plugin/skills/linkedin-carousel/SKILL.md:41.
 ## AIS-0013a02a831c
 
 <!-- AIS-0013a02a831c -->
-**Look.** Read the sheet, every slide, 2× crops of every overlay. Answer the [look checklist](../brand-review/references/look-checklist.md) in writing; read it as a swipe; then the playbook's "Before publishing". Carousels with renders also get `render-review` before anyone sees them.
+**Look.** Read the sheet, every slide, 2× crops of every overlay. Answer the [look checklist](../../brand-review/references/look-checklist.md) in writing; read it as a swipe; then the playbook's "Before publishing". Carousels with renders also get `render-review` before anyone sees them.
 
 Source: plugin/skills/linkedin-carousel/SKILL.md:42.
 
@@ -336,7 +336,7 @@ Source: plugin/skills/linkedin-carousel/SKILL.md:77.
 ## AIS-2b3de84f99fb
 
 <!-- AIS-2b3de84f99fb -->
-Write as [writing](../writing/SKILL.md) says. Sentence case; names exactly; headlines three lines at most, broken by phrase with `|`.
+Write as [writing](../../communications/SKILL.md) says. Sentence case; names exactly; headlines three lines at most, broken by phrase with `|`.
 
 Source: plugin/skills/linkedin-carousel/SKILL.md:81.
 
@@ -371,7 +371,7 @@ Source: plugin/skills/linkedin-carousel/SKILL.md:85.
 ## AIS-a26e6e6e5f49
 
 <!-- AIS-a26e6e6e5f49 -->
-Use the shared [LinkedIn pattern instructions](../linkedin-banner/SKILL.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.
+Use the shared [LinkedIn pattern instructions](../../linkedin-banner/SKILL.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.
 
 Source: plugin/skills/linkedin-carousel/SKILL.md:89.
 

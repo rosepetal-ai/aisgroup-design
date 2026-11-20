@@ -37,18 +37,16 @@ export const buttonVariants = cva(
       },
       size: {
         'default': 'h-9 gap-1.5 px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
-        'xs': 'h-6 gap-1 rounded-md px-2 text-xs in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*=size-])]:size-3',
         'sm': 'h-8 gap-1 rounded-md px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5',
         'lg': 'h-10 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
         'modal': 'h-10 min-w-30 gap-2 rounded-lg px-6 font-normal',
         'icon': 'size-9',
-        'icon-xs': 'size-6 rounded-md in-data-[slot=button-group]:rounded-md [&_svg:not([class*=size-])]:size-3',
         'icon-sm': 'size-8 rounded-md in-data-[slot=button-group]:rounded-md',
         'icon-lg': 'size-10',
         // Round icon button (top bar).
         'icon-round': 'size-9 rounded-full',
         // Small rounded pill (top bar status).
-        'pill': 'h-7 gap-1.5 rounded-full px-2 text-xs lg:px-3',
+        'pill': 'h-8 gap-1.5 rounded-full px-3',
         // A whole card as one button (asset tiles): content laid out by the card, not the button.
         'card': 'h-auto w-full flex-col items-stretch justify-start gap-0 rounded-none p-0 text-left font-normal whitespace-normal active:not-aria-[haspopup]:translate-y-0',
         // Top bar items: full bar height, 20px icons.

@@ -57,9 +57,10 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 | Contenido | Usa |
 | --- | --- |
 | Listas de filas | Filas separadas por líneas (`divide-y border-y`), la fila elegida `bg-muted font-medium` |
-| Tablas | Table con cabeceras ordenables y Pagination numerada; las columnas de números llevan `text-right tabular-nums` en TableHead y TableCell |
+| Tablas | DataTable con cabeceras ordenables y Pagination numerada; las columnas de números llevan `meta.numeric`, la columna de texto principal `meta.primary` y las demás `meta.showFrom`, para que la tabla nunca se desplace lateralmente |
 | Datasets, modelos, imágenes | Item `variant="outline"`; las fichas de imagen `size="sm"` con la imagen como ItemHeader |
 | Datos | Una cuadrícula de etiqueta sobre valor (`dt` atenuado, `dd`) |
+| Cifras de un resumen | El bloque `figure-cards`, uno por grupo de cifras que van juntas |
 | Formularios | Field, FieldGroup y FieldDescription, etiqueta sobre el control, `max-w-sm` |
 | Uno de pocos modos | RadioGroup de tarjetas de opción; elegir herramienta es un ToggleGroup |
 | Elegir de una lista larga | Combobox con búsqueda; una lista corta es un Select |
@@ -73,6 +74,10 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 
 DialogHeader (el título sobre una banda gris), DialogBody y DialogFooter con botones a todo el ancho: Cancelar `variant="secondary" size="modal"` primero y la acción `size="modal"` después. En los diálogos con formulario, el formulario lleva un `id` y su botón de envío va en el pie. Los botones del pie llevan solo texto (Crear, Guardar); mientras la acción trabaja, un Spinner va dentro de su botón. Un clic fuera o Esc cierra el diálogo, salvo mientras su acción trabaja.
 
+## Notificaciones y confirmaciones
+
+Las notificaciones son `toast()` de `vue-sonner`, que se llama desde cualquier sitio, con un solo Toaster en App. Una confirmación es el bloque ConfirmDialog; el código que pregunta sin una página propia, como una opción de menú o un store, llama a `useConfirm().ask()`, y la muestra el único ConfirmHost de App.
+
 ## Colores de datos
 
 Etiquetas, series de gráficos y particiones de dataset tienen colores propios en `@aisgroup/design/styles.css`: las etiquetas (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), las particiones (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) y las series de gráficos (de `--chart-1` a `--chart-3`):
@@ -84,3 +89,5 @@ Etiquetas, series de gráficos y particiones de dataset tienen colores propios e
 ## Maquetación y zonas interactivas
 
 Las pantallas de producto ocupan todo el ancho. Usan los puntos de ruptura de Tailwind, no la retícula de las webs. En escritorio, los botones de barra de herramientas y de cabecera miden 36 px (`h-9`), con iconos de 16 px; en pantallas táctiles y paneles de operario, cada zona interactiva mide 44 px. El texto sigue la escala de producto de [Tipografía](/es/typography/).
+
+Los menús, los botones, las pestañas y los Badge se ajustan a su etiqueta más larga: nunca pasan a otra línea ni se cortan. Los datos largos del usuario se truncan, con el texto completo en un Tooltip o en `title`. Los botones de una misma fila tienen la misma altura. Nada se desplaza lateralmente en ningún ancho, ni la página ni nada de lo que contiene; solo pueden hacerlo el código y los registros.
