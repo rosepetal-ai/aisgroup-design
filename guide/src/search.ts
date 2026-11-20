@@ -83,7 +83,8 @@ export function setupGuideSearch() {
     const box = dialog.getBoundingClientRect();
     if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close();
   } });
-  dialog.addEventListener('close', () => { ++version; clearTimeout(timer); results.removeAttribute('aria-busy'); returnFocus?.focus(); });
+  // The close event arrives a task after close(): if the dialog was reopened meanwhile, it must not cancel the new search.
+  dialog.addEventListener('close', () => { if (dialog.open) return; ++version; clearTimeout(timer); results.removeAttribute('aria-busy'); returnFocus?.focus(); });
   input.addEventListener('input', () => { ++version; clearTimeout(timer); results.replaceChildren(); results.removeAttribute('aria-busy'); message(input.value.trim() ? 'loading' : 'prompt'); timer = setTimeout(run, 160); });
   dialog.addEventListener('keydown', event => {
     const links = [...results.querySelectorAll<HTMLAnchorElement>('a')];
