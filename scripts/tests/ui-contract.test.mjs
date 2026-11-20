@@ -156,19 +156,25 @@ test('official-logos.json matches the guide\'s logo files, and the plugin carrie
   assert.equal(fs.readFileSync(new URL('../../plugin/scripts/official-logos.json', import.meta.url), 'utf8'), json);
   for (const f of ['scripts/ui-contract.mjs', 'scripts/ui-rules.mjs', 'packages/design/ui/button/index.ts', 'packages/design/ui/badge/index.ts']) assert.equal(fs.readFileSync(new URL(`../../plugin/${f}`, import.meta.url), 'utf8'), fs.readFileSync(new URL(`../../${f}`, import.meta.url), 'utf8'), `plugin/${f} (npm run guide -w plugin)`);
 });
-test('report: families, legacyFree, skipped folders; small-text stays advisory', () => {
+// The package's Button as its registry installs it in an app.
+const stockButton = JSON.parse(fs.readFileSync(new URL('../../plugin/brand/registry/button.json', import.meta.url), 'utf8')).files.find((f) => f.path.endsWith('Button.vue'));
+test('report: families, legacyFree, skipped folders; small-text stays advisory; stock copies only against the package', () => {
   const dir = tmp();
   write(dir, {
     'package.json': '{ "dependencies": { "vue": "^3" } }',
     'src/App.vue': '<template><p class="text-xs">AIS Vision Systems</p></template>',
-    'src/components/ui/button/Button.vue': '<template><i class="pi pi-check" /></template>',
+    [`src/${stockButton.path}`]: stockButton.content,
     'src/components/blocks/Login.vue': '<template><h1 class="font-bold">x</h1></template>',
     'node_modules/primevue/index.js': "import 'primevue'", 'dist/app.js': "import 'primevue'", '.cache/x.ts': "import 'primevue'",
     'src/env.d.ts': "declare module 'primevue'",
   });
   const clean = report([path.join(dir, 'src'), dir]);
-  assert.equal(clean.files, 2);
+  assert.equal(clean.files, 4);
   assert.deepEqual([clean.legacyFree, clean.counts], [true, { 'small-text': 1 }]);
+  // A stock copy that differs from the package is reported, and only that: its own classes are the package's business.
+  write(dir, { [`src/${stockButton.path}`]: stockButton.content.replace('</template>', '  <i class="pi pi-check" />\n</template>') });
+  assert.deepEqual(report([path.join(dir, 'src')]).findings.filter((f) => f.file.includes('components/ui')).map((f) => `${f.rule} ${f.value}`), [`stale-component ${stockButton.path}`]);
+  write(dir, { [`src/${stockButton.path}`]: stockButton.content });
   assert.deepEqual(Object.keys(clean.families), ['template', 'foreign-ui', 'foreign-icons', 'foreign-theme', 'brand-name', 'logo-file', 'page-composition']);
   write(dir, { 'src/main.ts': "import PrimeVue from 'primevue/config'\n", 'src/i18n/es.json': '{ "t": "AISVision" }' });
   const legacy = report([dir]);

@@ -8,6 +8,9 @@
 /packages/design/   @sergio-rosepetal
 /playground/        @sergio-rosepetal
 
+# The product UI rules for apps (they read the components and the audit in scripts/): both.
+/packages/lint/     @sergio-rosepetal @luciamoyap
+
 # The brand guide, the website components, the Claude Code plugin and the hosted MCP.
 /guide/             @luciamoyap
 /packages/web/      @luciamoyap

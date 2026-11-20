@@ -6,6 +6,7 @@
   "workspaces": [
     "packages/design",
     "packages/web",
+    "packages/lint",
     "guide",
     "playground",
     "plugin",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "build": "npm run build -w guide && npm run build -w playground && npm run build -w hosted",
-    "test": "node scripts/check-tokens.mjs && node --test scripts/tests/*.test.mjs && npm run typecheck -w @aisgroup/design && npm test -w plugin && npm test -w hosted && node scripts/check-components.mjs && node scripts/check-web.mjs && node scripts/check-spec.mjs && npm run test:search -w guide",
+    "test": "node scripts/check-tokens.mjs && node --test scripts/tests/*.test.mjs && npm run typecheck -w @aisgroup/design && npm test -w @aisgroup/design-lint && npm test -w plugin && npm test -w hosted && node scripts/check-components.mjs && node scripts/check-web.mjs && node scripts/check-spec.mjs && npm run test:search -w guide",
     "dev:guide": "npm run dev -w guide",
     "dev:playground": "npm run dev -w playground",
     "deploy:guide": "npm run deploy -w guide",

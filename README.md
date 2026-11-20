@@ -15,6 +15,7 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | --- | --- | --- |
 | [`guide/`](guide/) | The brand guide (Astro), in English, Spanish and Catalan: brand, design language, communications, websites and the product design system. | design.aisgroup.ai (Firebase Hosting) |
 | [`packages/design/`](packages/design/) | `@aisgroup/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). | npm package, Artifact Registry |
+| [`packages/lint/`](packages/lint/) | `@aisgroup/design-lint`: the product UI rules for an app, as ESLint presets, the audit with a baseline and the browser states check, with `design-lint init` to set an app up. | npm package, Artifact Registry |
 | [`packages/web/`](packages/web/) | `@aisgroup/web`: the websites' Astro components, examples and web tokens. | Copied into each company website |
 | [`packages/vue-themes/`](packages/vue-themes/) | PrimeVue and Vuetify presets generated from the product tokens. | Served by the guide and the MCP |
 | [`playground/`](playground/) | A Vite app to try the product components and tune their variables. | Local only |
@@ -91,6 +92,7 @@ Changes go to `dev` through pull requests, then `dev` is promoted to `main`. Rel
 | --- | --- |
 | Guide and hosted MCP | `npm run deploy:guide`: builds the guide, then deploys the Firebase site `aisgroup-design` and the function `mcp` together (`firebase.json` at the root). The predeploy step snapshots the guide into `hosted/data`. The function needs the secret `AIS_MCP_TOKEN`; token, limits and costs: [`hosted/README.md`](hosted/README.md) |
 | `@aisgroup/design` | Push a tag `vX.Y.Z`. The [`publish-design`](.github/workflows/publish-design.yml) workflow sets that version, checks the package and publishes it |
+| `@aisgroup/design-lint` | Push a tag `lint-vX.Y.Z`. The [`publish-lint`](.github/workflows/publish-lint.yml) workflow sets that version, bundles the audit into the package, checks it and publishes it |
 | Plugin | Merge to `dev`. Bump the version in `plugin/.claude-plugin/plugin.json` when the skills or the studio change |
 
 Install the plugin in Claude Code:
