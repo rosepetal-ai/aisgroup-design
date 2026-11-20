@@ -2,6 +2,7 @@
   "name": "@aisgroup/design",
   "version": "0.0.0",
   "description": "Rosepetal's design: shadcn-vue components, brand blocks and tokens.",
+  "license": "MIT",
   "type": "module",
   "files": [
     "catalog.ts",
@@ -79,6 +80,7 @@
     "vue-tsc": "^2.2.0"
   },
   "publishConfig": {
-    "registry": "https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
