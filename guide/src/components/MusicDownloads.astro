@@ -1,0 +1,61 @@
+---
+// Rosepetal's soundtrack (marketing's generated instrumental tracks, 2026-11-18), grouped by style: each track and its
+// alternative take, AAC at 48 kHz in public/kit/files/rosepetal_music_<track>[-alternative]_v01.m4a. Lengths in seconds, from ffprobe.
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = {
+  en: { track: 'Track', main: 'Main take', alt: 'Alternative take', alternative: 'alternative take', download: 'Download', styles: ['Ambient trip-hop', 'Ambient electro', 'Ambient techno'] },
+  es: { track: 'Pista', main: 'Versión principal', alt: 'Versión alternativa', alternative: 'versión alternativa', download: 'Descargar', styles: ['Trip-hop ambiental', 'Electro ambiental', 'Techno ambiental'] },
+  ca: { track: 'Peça', main: 'Versió principal', alt: 'Versió alternativa', alternative: 'versió alternativa', download: 'Baixa', styles: ['Trip-hop ambiental', 'Electro ambiental', 'Techno ambiental'] },
+}[lang];
+const groups: [string, string, number, number][][] = [
+  [
+    ['quiet-beauty', 'Quiet Beauty', 228.4, 229.2],
+    ['silent-pulse', 'Silent Pulse', 243.6, 217.6],
+    ['fragile-piano-motif', 'Fragile Piano Motif', 198.0, 204.8],
+    ['quiet-tail', 'Quiet Tail', 212.4, 288.8],
+    ['silent-pulse-v2', 'Silent Pulse v2', 248.0, 214.8],
+    ['fragile-pauses', 'Fragile Pauses', 218.0, 230.0],
+    ['tail-of-silence', 'Tail of Silence', 217.2, 218.0],
+    ['piano-and-room', 'Piano and Room', 217.2, 214.8],
+  ],
+  [
+    ['euphoric-piano', 'Euphoric Piano', 179.6, 178.8],
+    ['fragmented-darkness', 'Fragmented Darkness', 228.4, 229.2],
+  ],
+  [['dissolving-sequence', 'Dissolving Sequence', 218.4, 179.2]],
+];
+const time = (s: number) => `${Math.floor(Math.round(s) / 60)}:${String(Math.round(s) % 60).padStart(2, '0')}`;
+const file = (id: string) => `/kit/files/rosepetal_music_${id}_v01.m4a`;
+---
+<div class="table-wrap music">
+  <table>
+    <thead><tr><th scope="col">{t.track}</th><th scope="col">{t.main}</th><th scope="col">{t.alt}</th></tr></thead>
+    {groups.map((tracks, g) => (
+      <tbody>
+        <tr class="music-style"><th scope="colgroup" colspan="3">{t.styles[g]}</th></tr>
+        {tracks.map(([id, name, main, alt]) => (
+          <tr>
+            <th scope="row">{name}</th>
+            {([[id, main, name], [`${id}-alternative`, alt, `${name}, ${t.alternative}`]] as [string, number, string][]).map(([src, seconds, label]) => (
+              <td>
+                <audio controls preload="none" src={file(src)} aria-label={label}></audio>
+                <a href={file(src)} download aria-label={`${t.download} ${label} (M4A, ${time(seconds)})`}>{t.download} M4A ({time(seconds)})</a>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    ))}
+  </table>
+</div>
+<style>
+  .music table { min-width: 600px; }
+  .music th[scope='row'] { vertical-align: top; padding-top: 22px; border-bottom-color: var(--line); color: var(--ink); font-weight: 600; }
+  .music .music-style th { padding-top: 32px; color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--ais-neutral-300); }
+  .music tbody:first-of-type .music-style th { padding-top: 16px; }
+  .music tr:last-child > th { border-bottom: 0; }
+  .music audio { display: block; width: 100%; min-width: 200px; height: 40px; margin-bottom: 8px; }
+  .music a { color: var(--link); white-space: nowrap; }
+</style>
