@@ -2,6 +2,7 @@
   "name": "@aisgroup/design",
   "version": "0.0.0",
   "description": "Rosepetal's design: shadcn-vue components, brand blocks and tokens.",
+  "license": "MIT",
   "type": "module",
   "files": [
     "catalog.ts",
