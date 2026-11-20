@@ -23,7 +23,7 @@ Instal·la el paquet de producte i fes servir els seus components i tokens conju
 4. Fes servir un bloc allà on encaixi: TopBar per a la barra, PageLayout per a cada pàgina (amb el seu menú lateral si la pàgina en té), LoginPage i ConfirmDialog. Parteix dels seus exemples.
 5. Quan les notes de disseny pròpies de l’aplicació no coincideixen amb el paquet o amb aquesta guia, mana el paquet: canvia les notes.
 6. Mantén Inter i la pàgina a tota l’amplada, i obre cada pàgina sota el bloc TopBar.
-7. Afegeix un test que falli amb punts volats o fletxes Unicode a les plantilles, com `tests/uiTextRules.spec.js` de rosepetal-ui.
+7. Instal·la `@aisgroup/design-lint` i executa `npx design-lint init --write`. Aleshores ESLint mostra aquestes regles a l’editor, `lint:ui` falla amb troballes noves i la CI revisa les pantalles a 1920, 1440 i 390 px.
 
 ## Compondre, no reestilitzar
 
@@ -67,7 +67,7 @@ Els botons de capçalera i de barra d’eines són `h-9` (36 px); les icones, de
 | Accions de fila | Un botó ghost `icon-sm` amb Ellipsis que obre un DropdownMenu |
 | Seccions una al costat de l’altra | Cards en `grid gap-4 xl:grid-cols-2`; les Cards d’una fila comparteixen la seva alçada, així que sense `items-start` |
 | El compte | Un Avatar a la barra superior que obre un DropdownMenu; el seu últim element és Log out |
-| Estat | Una icona amb el seu to i la paraula, en text atenuat |
+| Estat | StatusLabel: una icona amb el seu to i la paraula, en text atenuat |
 | Càrrega | Skeleton amb la forma del contingut; Spinner dins del botó que treballa |
 
 ## Diàlegs

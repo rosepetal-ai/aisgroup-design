@@ -274,6 +274,12 @@
       "description": "Something working: in its button, or filling an empty area."
     },
     {
+      "name": "status-label",
+      "type": "registry:ui",
+      "title": "Status label",
+      "description": "A status as a toned icon and the word, in muted text. Never colour alone, never a badge."
+    },
+    {
       "name": "stepper",
       "type": "registry:ui",
       "title": "Stepper",

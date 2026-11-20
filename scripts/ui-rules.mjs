@@ -82,6 +82,10 @@ export const RULES = [
   { rule: 'title-icon-tile', ledger: null, by: 'tree', fix: `No icon tile beside a page or section title: PageLayout's own header and the section header pattern, ${LAYOUT}. ${PAGES}.` },
   { rule: 'kpi-tile', ledger: L.facts, by: 'tree', fix: `A figure is never alone in a box: show figures as a label-over-value grid, or give the system's Card its real content (bar, rows, chart): ${LAYOUT}, example 06-dashboard. ${PAGES}.` },
 
+  // Stock copies: an app's components/ui and components/blocks files are the package's, exactly as its registry installs
+  // them. A copy that differs is an older version or a local change; both are fixed in the package and reinstalled.
+  { rule: 'stale-component', ledger: L.stock, by: 'copy', fix: (name) => `This copy of ${name} differs from the package's current one: reinstall it (npx shadcn-vue@latest add https://design.aisgroup.ai/r/${name}.json) and make any change in the package, never in the copy: ${component(name)}.` },
+
   // Legacy families: an app is only redesigned when none of these remain. Package rows are tried in order.
   { rule: 'foreign-theme', ledger: L.theme, by: 'package', match: /^@(?:primevue|primeuix)\/themes(?:\/|$)/, fix: `The theme is ours, not PrimeVue's: ${PRIMEVUE}.` },
   { rule: 'foreign-icons', ledger: L.icons, by: 'package', match: /^(?:primeicons(?:\/|$)|lucide-vue-next(?:\/|$)|@(?:mdi|fortawesome|heroicons|iconify)\/)/, fix: `Icons are Lucide from @lucide/vue: ${ICONS}.` },

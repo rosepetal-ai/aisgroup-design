@@ -8,6 +8,7 @@ import { Button } from '@aisgroup/design/ui/button';
 import { DataTable, DataTableFacetedFilter, DataTableViewOptions } from '@aisgroup/design/ui/data-table';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@aisgroup/design/ui/dropdown-menu';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@aisgroup/design/ui/input-group';
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
 
 const statuses = [
   { value: 'backlog', label: 'Backlog', icon: CircleDashedIcon },
@@ -84,7 +85,7 @@ function reset(table) {
           </span>
         </template>
         <template #cell-status="{ getValue }">
-          <span class="flex items-center gap-1.5 text-muted-foreground"><component :is="byValue(statuses, getValue()).icon" class="size-4" :class="getValue() === 'done' && 'text-success'" />{{ byValue(statuses, getValue()).label }}</span>
+          <StatusLabel :tone="getValue() === 'done' ? 'success' : 'neutral'" :icon="byValue(statuses, getValue()).icon">{{ byValue(statuses, getValue()).label }}</StatusLabel>
         </template>
         <template #cell-priority="{ getValue }">
           <span class="flex items-center gap-1.5 text-muted-foreground"><component :is="byValue(priorities, getValue()).icon" class="size-4" />{{ byValue(priorities, getValue()).label }}</span>

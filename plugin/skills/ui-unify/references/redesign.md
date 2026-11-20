@@ -14,6 +14,7 @@ Moves a Vue app built on PrimeVue, Vuetify or its own styles onto our components
 - `components.json` aliases: `components` `@/components`, `ui` `@/components/ui`, `utils` `@/lib/utils`. Import `src/assets/theme.css` after Tailwind.
 - A Vite app with project references (`tsconfig.app.json`) also needs `compilerOptions.paths` (`"@/*": ["./src/*"]`) in the root `tsconfig.json`, or the CLI stops with «resolvedPaths: Required».
 - In a pnpm workspace, run the CLI with `npm_config_ignore_workspace_root_check=true`, or pnpm refuses with `ERR_PNPM_ADDING_TO_ROOT`.
+- Where the app reaches the private registry, install `@aisgroup/design-lint` and run `npx design-lint init` (it only lists what it would write), then `npx design-lint init --write`. The app gets the rules in ESLint, `lint:ui` with a baseline of today's findings, `check:ui`, a CI workflow and the UI section of `AGENTS.md`. The baseline is written once, before the redesign starts; every view you finish leaves its own findings at zero. Then bring the app's copies of the package's components to its current version with `npx design-lint sync --write` (without `--write` it lists them): an older copy brings back bugs the package has fixed.
 
 ## 3. Brand surfaces first
 

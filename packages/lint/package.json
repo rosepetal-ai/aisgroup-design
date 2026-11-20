@@ -1,0 +1,44 @@
+{
+  "name": "@aisgroup/design-lint",
+  "version": "0.0.0",
+  "description": "The AIS Group product UI rules for ESLint, the audit and the browser states check, with a one-command app setup.",
+  "type": "module",
+  "files": [
+    "index.mjs",
+    "core.mjs",
+    "bin",
+    "templates",
+    "core",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "bin": {
+    "design-lint": "./bin/design-lint.mjs"
+  },
+  "scripts": {
+    "prepack": "node scripts/bundle.mjs",
+    "postpack": "node scripts/bundle.mjs --clean",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0",
+    "playwright": ">=1.40.0"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^10.14.0",
+    "vue-eslint-parser": "^10.4.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "registry": "https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/"
+  }
+}

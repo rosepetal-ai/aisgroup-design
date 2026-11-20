@@ -14,7 +14,7 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
       </template>
       <Empty class="min-h-80 border border-dashed bg-card">
         <EmptyHeader>
-          <EmptyMedia><CircleXIcon class="size-6 text-destructive" /></EmptyMedia>
+          <EmptyMedia variant="error"><CircleXIcon /></EmptyMedia>
           <EmptyTitle>The users could not load</EmptyTitle>
           <EmptyDescription>The server did not answer.</EmptyDescription>
         </EmptyHeader>

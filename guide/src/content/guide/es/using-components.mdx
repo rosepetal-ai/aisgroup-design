@@ -23,7 +23,7 @@ Instala el paquete de producto y usa sus componentes y tokens juntos.
 4. Usa un bloque donde encaje: TopBar para la barra, PageLayout para cada página (con su menú lateral si la página lo tiene), LoginPage y ConfirmDialog. Parte de sus ejemplos.
 5. Cuando las notas de diseño propias de la aplicación no coinciden con el paquete o con esta guía, manda el paquete: cambia las notas.
 6. Mantén Inter y la página a todo el ancho, y abre cada página bajo el bloque TopBar.
-7. Añade un test que falle con puntos medios o flechas Unicode en las plantillas, como `tests/uiTextRules.spec.js` de rosepetal-ui.
+7. Instala `@aisgroup/design-lint` y ejecuta `npx design-lint init --write`. ESLint muestra entonces estas reglas en el editor, `lint:ui` falla con hallazgos nuevos y la CI revisa las pantallas a 1920, 1440 y 390 px.
 
 ## Componer, no reestilizar
 
@@ -67,7 +67,7 @@ Los botones de cabecera y de barra de herramientas son `h-9` (36 px); los iconos
 | Acciones de fila | Un botón ghost `icon-sm` con Ellipsis que abre un DropdownMenu |
 | Secciones lado a lado | Cards en `grid gap-4 xl:grid-cols-2`; las Cards de una fila comparten su altura, así que sin `items-start` |
 | La cuenta | Un Avatar en la barra superior que abre un DropdownMenu; su último elemento es Log out |
-| Estado | Un icono con su tono y la palabra, en texto atenuado |
+| Estado | StatusLabel: un icono con su tono y la palabra, en texto atenuado |
 | Carga | Skeleton con la forma del contenido; Spinner dentro del botón que trabaja |
 
 ## Diálogos

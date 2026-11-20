@@ -1,7 +1,8 @@
 <!-- Clickable entities are outline items: image first, title, muted lines, the state in the footer. -->
 <script setup>
-import { CircleCheckIcon, ClockIcon } from '@lucide/vue';
+import { ClockIcon } from '@lucide/vue';
 import { Item, ItemContent, ItemDescription, ItemFooter, ItemHeader, ItemTitle } from '@aisgroup/design/ui/item';
+import { StatusLabel } from '@aisgroup/design/ui/status-label';
 const datasets = [
   { name: 'PCB inspection', meta: '1,248 images, 3 tags', image: `${import.meta.env.BASE_URL}samples/electronics.webp`, done: true },
   { name: 'Tortilla line', meta: '842 images, 2 tags', image: `${import.meta.env.BASE_URL}samples/food.webp`, done: false },
@@ -18,8 +19,8 @@ const datasets = [
           <ItemDescription>{{ d.meta }}</ItemDescription>
         </ItemContent>
         <ItemFooter class="text-muted-foreground">
-          <span v-if="d.done" class="flex items-center gap-1.5"><CircleCheckIcon class="size-4 text-success" />Labeled</span>
-          <span v-else class="flex items-center gap-1.5"><ClockIcon class="size-4" />Pending</span>
+          <StatusLabel v-if="d.done" tone="success">Labelled</StatusLabel>
+          <StatusLabel v-else :icon="ClockIcon">Pending</StatusLabel>
         </ItemFooter>
       </a>
     </Item>
