@@ -176,7 +176,7 @@ test('report: families, legacyFree, skipped folders; small-text stays advisory',
   assert.equal(legacy.legacyFree, false);
   assert.deepEqual(legacy.families, { template: 0, 'foreign-ui': 1, 'foreign-icons': 0, 'foreign-theme': 0, 'brand-name': 1, 'logo-file': 0, 'page-composition': 0 });
 });
-// Page composition: the patterns that made redesigned Nexus pages look generated (guide «Pages»).
+// Page composition: patterns that make a redesigned page look assembled instead of designed (guide «Pages»).
 const page = (text, file = 'Page.vue') => audit(text, file).filter((f) => !['small-text'].includes(f.rule)).map((f) => `${f.line} ${f.rule}`);
 test('page-composition: boxes in boxes, tables in boxes, dashed boxes, title icon tiles and KPI tiles', () => {
   const vue = `<template>

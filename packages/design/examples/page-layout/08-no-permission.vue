@@ -7,7 +7,7 @@ import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@a
 
 <template>
   <div class="min-h-120 w-full bg-page text-foreground">
-    <PageLayout title="GlobalVision renewals">
+    <PageLayout title="Licence renewals">
       <Empty class="min-h-80 border border-dashed bg-card">
         <EmptyHeader>
           <EmptyMedia><LockIcon class="size-6 text-muted-foreground" /></EmptyMedia>

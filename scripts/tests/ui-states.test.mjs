@@ -16,7 +16,7 @@ button { height: 32px; padding: 0 8px; font: inherit }
 [role=menu] { position: fixed; top: 56px; left: 16px; padding: 4px; overflow-x: hidden; background: inherit; border: 1px solid #888 }
 [role=menuitem] { display: flex; gap: 8px; align-items: center; min-height: 32px; padding: 6px 8px; box-sizing: border-box }
 </style></head><body>${body}</body></html>`;
-// The Nexus Dev menu: a content as wide as its «Dev» trigger, then one that fits its longest label.
+// A menu with a short trigger: a content as wide as its «Dev» trigger, then one that fits its longest label.
 const menu = (width) => page(`<button data-slot="dropdown-menu-trigger" aria-haspopup="menu">Dev</button>
 <script>
 document.querySelector('button').addEventListener('click', () => {
@@ -37,7 +37,7 @@ const PAGES = {
   // A 36 px button beside a 28 px one, and a 36 px one in a dialog footer, whose buttons are 40 px.
   '/buttons': page('<div style="display: flex; gap: 8px"><button style="height: 36px">Save</button><button style="height: 28px">Cancel</button></div><div data-slot="dialog-footer"><button style="height: 36px">Delete</button></div>'),
   '/errors': page('<p>Ready</p><script>console.error("boom"); setTimeout(() => { throw new Error("late"); });</script>'),
-  // The two Nexus dividers: a filter's 16 px divider pinned to the top of its button, and a collapsed sidebar's rule
+  // Two dividers: a filter's 16 px divider pinned to the top of its button, and a collapsed sidebar's rule
   // given side margins on top of full width. Then both as they should be.
   ...Object.fromEntries([['/dividers', 'align-self: stretch', 'width: 100%'], ['/dividers-fixed', 'align-self: center', 'width: auto']].map(([route, align, width]) => [route, page(`<button style="display: flex; align-items: center; gap: 4px; border: 0">Status<span data-slot="separator" data-orientation="vertical" style="width: 1px; height: 16px; ${align}; background: #888"></span>Active</button>
 <div style="display: flex; flex-direction: column; width: 48px; overflow: hidden; border-right: 1px solid #888"><div data-slot="separator" data-orientation="horizontal" style="height: 1px; margin: 0 8px; ${width}; background: #888"></div></div>
