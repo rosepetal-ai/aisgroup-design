@@ -82,7 +82,7 @@ Source: plugin/skills/brochure/SKILL.md:28.
 ## AIS-ffe36f83f881
 
 <!-- AIS-ffe36f83f881 -->
-Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). A missing tile is made with the `detection-tiles` skill; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.
+Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). Ask the brand team for a missing tile; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.
 
 Source: plugin/skills/brochure/SKILL.md:29.
 
@@ -103,7 +103,7 @@ Source: plugin/skills/brochure/SKILL.md:31.
 ## AIS-efeddedebb22
 
 <!-- AIS-efeddedebb22 -->
-Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture (many originals are) only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.
+Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.
 
 Source: plugin/skills/brochure/SKILL.md:32.
 
@@ -194,14 +194,14 @@ Source: plugin/skills/brochure/SKILL.md:47.
 ## AIS-5fc0ee41f169
 
 <!-- AIS-5fc0ee41f169 -->
-Using the Standard model photo as COMPACT or PHARMA; using the website's AI cleanroom images.
+Using the Standard model photo as COMPACT or PHARMA; using generated cleanroom images.
 
 Source: plugin/skills/brochure/SKILL.md:48.
 
 ## AIS-3beb2dd19a22
 
 <!-- AIS-3beb2dd19a22 -->
-Test renders (400 px, noisy) shipped as tiles; blurred labels that still read "Montsant".
+Test renders (400 px, noisy) shipped as tiles; blurred labels that are still legible.
 
 Source: plugin/skills/brochure/SKILL.md:49.
 
@@ -355,7 +355,7 @@ Source: plugin/skills/brochure/references/print-system.md:12.
 ## AIS-d4e7c6aac0ac
 
 <!-- AIS-d4e7c6aac0ac -->
-**Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, make one (`product-render`, machine stills) before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame.
+**Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, ask the brand team for one before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame.
 
 Source: plugin/skills/brochure/references/print-system.md:13.
 
@@ -453,7 +453,7 @@ Source: brand decisions.
 ## AIS-e8b427f958aa
 
 <!-- AIS-e8b427f958aa -->
-**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image (including those in marketing's original pieces) may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece.
+**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece.
 
 Source: brand decisions.
 

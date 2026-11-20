@@ -152,7 +152,7 @@ Source: plugin/skills/asset-library/SKILL.md:46.
 ## AIS-17d70f927cb0
 
 <!-- AIS-17d70f927cb0 -->
-3D renders come from the separate product-render skill: product sets, detection tiles (`detection-tiles`) and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: "render"`, the producing skill as `source`, and `status: "review"` until marketing approves them.
+3D renders come from AIS's internal render pipeline: product sets, detection tiles and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: "render"`, the producing skill as `source`, and `status: "review"` until marketing approves them.
 
 Source: plugin/skills/asset-library/SKILL.md:50.
 

@@ -691,13 +691,13 @@ Source: plugin/skills/design-language/references/imagery.md:7.
 ## AIS-2c1776980be4
 
 <!-- AIS-2c1776980be4 -->
-| This is what we build | [Machine](#type-machine) |
+| This is what we build | [Machine](imagery.md#type-machine) |
 
 Source: plugin/skills/design-language/references/imagery.md:9.
 
 ## AIS-c0e39407cd68
 
 <!-- AIS-c0e39407cd68 -->
-| It works in a real factory | [In production](#type-line) |
+| It works in a real factory | [In production](imagery.md#type-line) |
 
 Source: plugin/skills/design-language/references/imagery.md:10.

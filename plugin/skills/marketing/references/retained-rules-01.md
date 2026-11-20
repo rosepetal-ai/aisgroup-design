@@ -124,14 +124,14 @@ Source: plugin/skills/communications/references/social.md:29.
 ## AIS-eac5fda54166
 
 <!-- AIS-eac5fda54166 -->
-| Video | 9:16, 4:5, 1:1 and 16:9 | The seven types in [Video](../../communications/references/video.md) |
+| Video | 9:16, 4:5, 1:1 and 16:9 | The seven types in [Video](../../brand-video/references/video.md) |
 
 Source: plugin/skills/communications/references/social.md:30.
 
 ## AIS-5b3ce8a46a40
 
 <!-- AIS-5b3ce8a46a40 -->
-Every post and carousel in the [Marketing kit](../../communications/references/kit.md#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.
+Every post and carousel in the [Marketing kit](../../resources-assets/references/kit.md#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.
 
 Source: plugin/skills/communications/references/social.md:34.
 

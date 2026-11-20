@@ -114,9 +114,9 @@ Both typefaces are free under the SIL Open Font License. Install the desktop ver
 
 | File | Contents |
 | --- | --- |
-| [inter-latin.woff2](/fonts/inter-latin.woff2), [inter-latin-ext.woff2](/fonts/inter-latin-ext.woff2) | Inter for websites, Latin and Latin Extended |
-| [jetbrains-mono-latin.woff2](/fonts/jetbrains-mono-latin.woff2), [jetbrains-mono-latin-ext.woff2](/fonts/jetbrains-mono-latin-ext.woff2) | JetBrains Mono for websites, Latin and Latin Extended |
-| [OFL-Inter.txt](/fonts/OFL-Inter.txt), [OFL-JetBrains-Mono.txt](/fonts/OFL-JetBrains-Mono.txt) | The licence of each typeface |
+| [inter-latin.woff2](https://design.aisgroup.ai/fonts/inter-latin.woff2), [inter-latin-ext.woff2](https://design.aisgroup.ai/fonts/inter-latin-ext.woff2) | Inter for websites, Latin and Latin Extended |
+| [jetbrains-mono-latin.woff2](https://design.aisgroup.ai/fonts/jetbrains-mono-latin.woff2), [jetbrains-mono-latin-ext.woff2](https://design.aisgroup.ai/fonts/jetbrains-mono-latin-ext.woff2) | JetBrains Mono for websites, Latin and Latin Extended |
+| [OFL-Inter.txt](https://design.aisgroup.ai/fonts/OFL-Inter.txt), [OFL-JetBrains-Mono.txt](https://design.aisgroup.ai/fonts/OFL-JetBrains-Mono.txt) | The licence of each typeface |
 
 ## Icons
 
@@ -156,4 +156,4 @@ Name the brand and the guide version in your task, read the relevant page, and u
 
 | File | Contents |
 | --- | --- |
-| [brand.md](/en/brand.md) | Every rule of this guide in one file, also in [Spanish](/es/brand.md) and [Catalan](/ca/brand.md). See [AI agents](../../agent-integration/references/agents.md). |
+| [brand.md](https://design.aisgroup.ai/en/brand.md) | Every rule of this guide in one file, also in [Spanish](https://design.aisgroup.ai/es/brand.md) and [Catalan](https://design.aisgroup.ai/ca/brand.md). See [AI agents](../../agent-integration/references/agents.md). |

@@ -320,7 +320,7 @@ Source: plugin/engine/text-check.mjs:135.
 ## AIS-a455a234150a
 
 <!-- AIS-a455a234150a -->
-const langOf = (file, fallback) => (path.basename(file).match(/[.-](es|en|ca|pt|fr)\.(?:html|json|txt|md)$/) || [])[1] || fallback;
+`const langOf = (file, fallback) => (path.basename(file).match(/[.-](es|en|ca|pt|fr)\.(?:html|json|txt|md)$/) || [])[1] || fallback;`
 
 Source: plugin/engine/text-check.mjs:142.
 

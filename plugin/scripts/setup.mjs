@@ -8,7 +8,7 @@ import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { MEDIA_HOME, canFetch, signedIn } from './media.mjs';
+import { MEDIA_HOME } from './media.mjs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -42,8 +42,6 @@ export async function status() {
     { item: 'Node packages', ok: nodeReady(), fix: 'npm run setup' },
     { item: 'Chromium for rendering', ok: await chromium(), fix: 'npm run setup' },
     { item: 'Python packages (Pillow, python-pptx, PyMuPDF, psutil)', ok: pythonReady(), fix: 'npm run setup' },
-    { item: 'Media library (on demand from the bucket)', ok: Boolean(signedIn()) || (fs.existsSync(media) && fs.readdirSync(media).length > 0),
-      fix: canFetch() ? 'gcloud auth login, with an account that can read the aisgroup-design project' : 'install the Google Cloud CLI (https://cloud.google.com/sdk/docs/install), then gcloud auth login' },
     { item: 'Poppler: pdftoppm, pdffonts, pdfinfo (PDF previews and checks)', ok: ['pdftoppm', 'pdffonts', 'pdfinfo'].every((t) => has(t, ['-v'])),
       fix: hint('sudo apt install poppler-utils', 'brew install poppler', 'winget install oschwartz10612.Poppler, then open a new terminal') },
     { item: 'ffmpeg (videos only)', ok: has('ffmpeg', ['-version']), fix: hint('sudo apt install ffmpeg', 'brew install ffmpeg', 'winget install Gyan.FFmpeg'), optional: true },

@@ -20,6 +20,6 @@ Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
 - [Retained rules 02](references/retained-rules-02.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
+- [Retained updates 01](references/retained-updates-01.md)
 
-For standard encoding, transparent lower thirds and music separation, read [the existing export profile](references/retained-rules-01.md#ais-cf302389b8d8).
+For export formats, frame rates and file names, read [the export profile](references/retained-rules-02.md#ais-df73970cdefa).

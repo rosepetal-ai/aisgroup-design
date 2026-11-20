@@ -16,4 +16,4 @@ Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design
 Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
-- [Retained rules retained-resolutions](references/retained-resolutions.md)
+- [Retained resolutions](references/retained-resolutions.md)

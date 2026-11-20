@@ -691,7 +691,7 @@ Source: guide/src/content/guide/en/themes.mdx:26.
 ## AIS-9a79127a95b5
 
 <!-- AIS-9a79127a95b5 -->
-| **Charts** | White ground | Night `#0B1220` ground, in the app’s dark mode. See [Charts](#charts). |
+| **Charts** | White ground | Night `#0B1220` ground, in the app’s dark mode. See [Charts](themes.md#charts). |
 
 Source: guide/src/content/guide/en/themes.mdx:27.
 

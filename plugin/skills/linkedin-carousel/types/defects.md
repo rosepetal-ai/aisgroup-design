@@ -13,9 +13,9 @@ One machine, one product, the defects it catches, told as a question the reader 
 
 ## The brief
 
-- Which machine, which product, and the product's real dimensions (the separate product-render skill builds the renders from them).
+- Which machine, which product, and the product's real dimensions (the render pipeline builds the renders from them).
 - Which defects? Start with the original marketing material and [the defect matrix](../references/defect-matrix.md), then check evidence for that exact machine, product and configuration. Show one defect per answer slide. Make additional carousels in the same system for further defects rather than omitting them or overcrowding a slide. Unverified machine claims and images remain clearly blocked drafts.
-- The pictures are renders from `product-render`: a lineup, then a good/defective pair per defect, all on section grey.
+- The pictures are renders from AIS's render pipeline: a lineup, then a good/defective pair per defect, all on section grey.
 
 ## Structure
 
@@ -56,7 +56,7 @@ Every product picture uses `"evidence": "render"` (no "Ilustración" caption).
 
 Products share this visual system; choose a meaningful slide count: one band grid, brand-blue cover and contact, white answers, one verdict style, the hexagon corner top right on the contact. Current references, ES and EN: `pieces/posts/20-carousel-juice-hopper/` (juice, AIS Hopper: tamper band, tilted cap, fill level), `21-carousel-vials-pharma/`, `22-carousel-cans-reference/`, `23-carousel-muesli-reference/`. More defects make another instalment in the same system, never a crowded slide.
 
-- Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Missing pairs are a `product-render` job.
+- Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Ask the brand team for missing pairs.
 - A defect is shown only when that machine's articles, brochure (`pieces/brochures/<machine>/`) or [the defect matrix](../references/defect-matrix.md) back it for that product. Otherwise leave it out and say so.
 - A simulated reading on a render is not a system result: no confidences on renders.
 - Never publish a `--force` draft.

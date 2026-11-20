@@ -140,14 +140,14 @@ Source: plugin/skills/social-post/types/result.md:60.
 ## AIS-51cf9f88c856
 
 <!-- AIS-51cf9f88c856 -->
-Blog figures without conditions. Rosepetal's "99.9 % accuracy, confidential client" names no customer, no baseline and no conditions, so it is not acceptable.
+A figure without a named customer, a baseline and its conditions.
 
 Source: plugin/skills/social-post/types/result.md:61.
 
 ## AIS-d03c177fa8f5
 
 <!-- AIS-d03c177fa8f5 -->
-A figure from a composited video card, such as the "Ready for production" card in the VISION 2026 interview.
+A figure read off a video card instead of its published source.
 
 Source: plugin/skills/social-post/types/result.md:62.
 

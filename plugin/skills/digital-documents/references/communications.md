@@ -82,7 +82,7 @@ One product’s properties, a label and its value per row.
 
 Four ways to make text stand out, and no others. None takes a fill, box, side bar, border, icon or shadow.
 
-<a href="/kit/files/linkedin-quote-rosepetal-es.png" target="_blank" rel="noopener" aria-label="Rosepetal at VISION 2026, opens in a new tab">Rosepetal at VISION 2026</a>.
+[Rosepetal at VISION 2026](../../../brand/kit/files/linkedin-quote-rosepetal-es.png).
 
 - **Emphasis:** Semibold on a few words, in the text’s own colour, at most once per paragraph. Never colour, italics, underline, capitals or a fill. A whole sentence that must stand out is the lead, or a slide of its own.
 - **Key figure:** the number in brand blue (white on blue), Medium, in tabular figures; under it what it counts, in lower case; then its condition in secondary text (light blue on blue). No sign before the number: *up to* and *at least* go in the words. One to three in a row, all the same size; one row per page, slide or section.

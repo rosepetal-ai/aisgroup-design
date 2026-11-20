@@ -21,4 +21,4 @@ Read only the reference needed for this task.
 Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
+- [Retained updates 01](references/retained-updates-01.md)

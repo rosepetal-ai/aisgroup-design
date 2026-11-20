@@ -22,5 +22,5 @@ Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
 - [Retained rules 02](references/retained-rules-02.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
-- [Retained rules retained-resolutions](references/retained-resolutions.md)
+- [Retained updates 01](references/retained-updates-01.md)
+- [Retained resolutions](references/retained-resolutions.md)

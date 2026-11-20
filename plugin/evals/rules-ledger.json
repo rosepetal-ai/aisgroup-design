@@ -2777,13 +2777,13 @@
     },
     {
       "id": "AIS-17d70f927cb0",
-      "rule": "3D renders come from the separate product-render skill: product sets, detection tiles (`detection-tiles`) and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: \"render\"`, the producing skill as `source`, and `status: \"review\"` until marketing approves them.",
+      "rule": "3D renders come from AIS's internal render pipeline: product sets, detection tiles and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: \"render\"`, the producing skill as `source`, and `status: \"review\"` until marketing approves them.",
       "source": "plugin/skills/asset-library/SKILL.md:50",
       "sources": [
         {
           "file": "plugin/skills/asset-library/SKILL.md",
           "line": 50,
-          "text": "3D renders come from the separate product-render skill: product sets, detection tiles (`detection-tiles`) and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: \"render\"`, the producing skill as `source`, and `status: \"review\"` until marketing approves them."
+          "text": "3D renders come from AIS's internal render pipeline: product sets, detection tiles and machine views, listed in `library/media/3d/machines/manifest.json`. Register them with `origin: \"render\"`, the producing skill as `source`, and `status: \"review\"` until marketing approves them."
         }
       ],
       "ownerSkill": "asset-library",
@@ -4443,13 +4443,13 @@
     },
     {
       "id": "AIS-95952a44c4b1",
-      "rule": "**Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from the separate product-render skill. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D.",
+      "rule": "**Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from AIS's internal render pipeline, not this plugin. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D.",
       "source": "plugin/skills/brand-video/SKILL.md:27",
       "sources": [
         {
           "file": "plugin/skills/brand-video/SKILL.md",
           "line": 27,
-          "text": "- **Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from the separate product-render skill. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D."
+          "text": "- **Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from AIS's internal render pipeline, not this plugin. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D."
         }
       ],
       "ownerSkill": "brand-video",
@@ -4473,13 +4473,13 @@
     },
     {
       "id": "AIS-29bdf12b6662",
-      "rule": "Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The generated website clips (`web-*`) are rejected: never use them.",
+      "rule": "Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The website clips (`web-*`) are rejected: never use them.",
       "source": "plugin/skills/brand-video/SKILL.md:29",
       "sources": [
         {
           "file": "plugin/skills/brand-video/SKILL.md",
           "line": 29,
-          "text": "- Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The generated website clips (`web-*`) are rejected: never use them."
+          "text": "- Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The website clips (`web-*`) are rejected: never use them."
         }
       ],
       "ownerSkill": "brand-video",
@@ -4922,13 +4922,13 @@
     },
     {
       "id": "AIS-ffe36f83f881",
-      "rule": "Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). A missing tile is made with the `detection-tiles` skill; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.",
+      "rule": "Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). Ask the brand team for a missing tile; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect.",
       "source": "plugin/skills/brochure/SKILL.md:29",
       "sources": [
         {
           "file": "plugin/skills/brochure/SKILL.md",
           "line": 29,
-          "text": "   - Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). A missing tile is made with the `detection-tiles` skill; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect."
+          "text": "   - Detection tiles: `library/media/3d/renders/<machine>/det/*_tile.jpg` (cropped on the defect). Ask the brand team for a missing tile; until it exists the check goes in `.options` as an icon, never a stand-in picture of another defect."
         }
       ],
       "ownerSkill": "brochure",
@@ -4972,13 +4972,13 @@
     },
     {
       "id": "AIS-efeddedebb22",
-      "rule": "Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture (many originals are) only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.",
+      "rule": "Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`.",
       "source": "plugin/skills/brochure/SKILL.md:32",
       "sources": [
         {
           "file": "plugin/skills/brochure/SKILL.md",
           "line": 32,
-          "text": "   Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture (many originals are) only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`."
+          "text": "   Rules: real photos, screens and footage, our exterior machine views, product stills and detection tiles first; a generated or composited picture only if it passes `brand-review` step 1 at print size (no garbled text, smeared detail, impossible light, CGI cleanrooms, wrong machine); never show one model as another; customer material is allowed with client brands, wineries, appellations and logos blurred (soft Gaussian over every label, nothing invented; unblurred originals stay in `library/media/originals/`); never repeat a picture within a document, even under another name (the checker fails it); round-label wine renders only (`pieces/datasheets/standard/assets/wine_det-*_tile.jpg`; the old flat-label set fails by hash); copy what you use into the piece's `assets/`."
         }
       ],
       "ownerSkill": "brochure",
@@ -5192,13 +5192,13 @@
     },
     {
       "id": "AIS-5fc0ee41f169",
-      "rule": "Using the Standard model photo as COMPACT or PHARMA; using the website's AI cleanroom images.",
+      "rule": "Using the Standard model photo as COMPACT or PHARMA; using generated cleanroom images.",
       "source": "plugin/skills/brochure/SKILL.md:48",
       "sources": [
         {
           "file": "plugin/skills/brochure/SKILL.md",
           "line": 48,
-          "text": "- Using the Standard model photo as COMPACT or PHARMA; using the website's AI cleanroom images."
+          "text": "- Using the Standard model photo as COMPACT or PHARMA; using generated cleanroom images."
         }
       ],
       "ownerSkill": "brochure",
@@ -5207,13 +5207,13 @@
     },
     {
       "id": "AIS-3beb2dd19a22",
-      "rule": "Test renders (400 px, noisy) shipped as tiles; blurred labels that still read \"Montsant\".",
+      "rule": "Test renders (400 px, noisy) shipped as tiles; blurred labels that are still legible.",
       "source": "plugin/skills/brochure/SKILL.md:49",
       "sources": [
         {
           "file": "plugin/skills/brochure/SKILL.md",
           "line": 49,
-          "text": "- Test renders (400 px, noisy) shipped as tiles; blurred labels that still read \"Montsant\"."
+          "text": "- Test renders (400 px, noisy) shipped as tiles; blurred labels that are still legible."
         }
       ],
       "ownerSkill": "brochure",
@@ -8664,7 +8664,7 @@
     },
     {
       "id": "AIS-a26e6e6e5f49",
-      "rule": "Use the shared [LinkedIn pattern instructions](../../linkedin-banner/SKILL.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.",
+      "rule": "Use the shared [LinkedIn pattern instructions](../../linkedin-banner/references/workflow.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.",
       "source": "plugin/skills/linkedin-carousel/SKILL.md:89",
       "sources": [
         {
@@ -9751,13 +9751,13 @@
     },
     {
       "id": "AIS-f95d4fddf994",
-      "rule": "3D renders come from the separate product-render skill, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.",
+      "rule": "3D renders come from AIS's internal render pipeline, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay.",
       "source": "plugin/skills/render-review/SKILL.md:15",
       "sources": [
         {
           "file": "plugin/skills/render-review/SKILL.md",
           "line": 15,
-          "text": "1. 3D renders come from the separate product-render skill, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay."
+          "text": "1. 3D renders come from AIS's internal render pipeline, whose build checks each product set. If a set reached you without that check, look for the same faults: a ground that isn't exactly `#F1F5F9`; a panel picture that isn't 4:3 or is under 1350 px wide; a blue cast on bare metal; label navy far from `#17356E`; an overlay box outside the picture; a reading box that touches its characters; a legible code printed grey; a defect that doesn't show without its overlay."
         }
       ],
       "ownerSkill": "render-review",
@@ -9946,13 +9946,13 @@
     },
     {
       "id": "AIS-1b0cfca50196",
-      "rule": "**Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set (`detection-tiles` step 7).",
+      "rule": "**Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set.",
       "source": "plugin/skills/render-review/SKILL.md:32",
       "sources": [
         {
           "file": "plugin/skills/render-review/SKILL.md",
           "line": 32,
-          "text": "- **Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set (`detection-tiles` step 7)."
+          "text": "- **Detection tiles:** one defect per tile, each cropped on its own defect, same light and framing across the machine's set."
         }
       ],
       "ownerSkill": "render-review",
@@ -10507,13 +10507,13 @@
     },
     {
       "id": "AIS-089fde71ea49",
-      "rule": "If the media library is missing, ask the person to run «gcloud auth login» with the Google account that has access to the aisgroup-design project; pictures then download on demand.",
+      "rule": "The media library needs no account: pictures download on demand from the public bucket. For a full copy to work offline, install the Google Cloud CLI and run `npm run media:pull`.",
       "source": "plugin/skills/setup/SKILL.md:10",
       "sources": [
         {
           "file": "plugin/skills/setup/SKILL.md",
           "line": 10,
-          "text": "3. If the media library is missing, ask the person to run «gcloud auth login» with the Google account that has access to the aisgroup-design project; pictures then download on demand."
+          "text": "3. The media library needs no account: pictures download on demand from the public bucket. For a full copy to work offline, install the Google Cloud CLI and run `npm run media:pull`."
         }
       ],
       "ownerSkill": "setup",
@@ -10834,13 +10834,13 @@
     },
     {
       "id": "AIS-5e58af5b7350",
-      "rule": "**One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `\"look\"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes, on white with `\"look\": \"light\"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating.",
+      "rule": "**One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `\"look\"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes: solid brand blue, or the same composition on white with `\"look\": \"light\"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating.",
       "source": "plugin/skills/social-post/SKILL.md:49",
       "sources": [
         {
           "file": "plugin/skills/social-post/SKILL.md",
           "line": 49,
-          "text": "- **One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `\"look\"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes, on white with `\"look\": \"light\"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating."
+          "text": "- **One post system** (`docs/recipes.md`, *The post system*): three looks on one grid, set with `\"look\"` on the shot. **Blue** for machine, screen and event photographs (the picture on top with a hard edge over a solid brand-blue panel; no fade or gradient anywhere, the engine fails `gradient`); **light** for products and detections (white, headline on top, the picture filling its band: renders cropped to their product group, `bleed` and `subject` in `docs/recipes.md`; the headline grows into room a wide group leaves); **navy** for results and quotes: solid brand blue, or the same composition on white with `\"look\": \"light\"`. Headline 68 px and up, 64 px margins, logo small at the foot, bottom left. Across a set, a third to half of the posts blue or navy; pick the look that keeps the feed alternating."
         }
       ],
       "ownerSkill": "social-post",
@@ -12180,13 +12180,13 @@
     },
     {
       "id": "AIS-8d7c31db9282",
-      "rule": "Most machine and installation pictures in marketing's original brochures are generated or composited. Check [the original image verdicts](../../brochure/references/original-images.json) before reusing one.",
+      "rule": "Check [the original image verdicts](../../brochure/references/original-images.json) before reusing a picture from an older brochure; never use a rejected one.",
       "source": "plugin/skills/_shared/references/production-rules.md:33",
       "sources": [
         {
           "file": "plugin/skills/_shared/references/production-rules.md",
           "line": 33,
-          "text": "- Most machine and installation pictures in marketing's original brochures are generated or composited. Check [the original image verdicts](../../brochure/references/original-images.json) before reusing one."
+          "text": "- Check [the original image verdicts](../../brochure/references/original-images.json) before reusing a picture from an older brochure; never use a rejected one."
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -12195,13 +12195,13 @@
     },
     {
       "id": "AIS-4418f95ee52d",
-      "rule": "Known fakes, never used: the website \"kariko-real\" hero, the 1024 px Hopper water-line image, marketing's cannery composite, the \"Ready for production\" card in the VISION 2026 footage, and the generated website clips (`web-*`).",
+      "rule": "Never reuse the website «kariko-real» hero, the 1024 px Hopper water-line image, the cannery composite, the «Ready for production» card in the VISION 2026 footage or the website clips (`web-*`).",
       "source": "plugin/skills/_shared/references/production-rules.md:34",
       "sources": [
         {
           "file": "plugin/skills/_shared/references/production-rules.md",
           "line": 34,
-          "text": "- Known fakes, never used: the website \"kariko-real\" hero, the 1024 px Hopper water-line image, marketing's cannery composite, the \"Ready for production\" card in the VISION 2026 footage, and the generated website clips (`web-*`)."
+          "text": "- Never reuse the website «kariko-real» hero, the 1024 px Hopper water-line image, the cannery composite, the «Ready for production» card in the VISION 2026 footage or the website clips (`web-*`)."
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -15783,7 +15783,7 @@
     },
     {
       "id": "AIS-0b27286d6dc8",
-      "rule": "The test is whether the descriptor can be read at the final size. If it cannot, make room or request a compact variant; never drop words or shrink the descriptor separately. Marketing pieces have no compact variant; software uses the [app mark](#app-marks).",
+      "rule": "The test is whether the descriptor can be read at the final size. If it cannot, make room or request a compact variant; never drop words or shrink the descriptor separately. Marketing pieces have no compact variant; software uses the [app mark](logos.md#app-marks).",
       "source": "plugin/skills/brand-guidelines/references/logos.md:29",
       "sources": [
         {
@@ -16193,7 +16193,7 @@
     },
     {
       "id": "AIS-5eafa2068183",
-      "rule": "**Favicons:** the bare mark from the website set, blue in light mode and white in dark mode, pixel-snapped at each size (see [Favicons](#favicons)). AIS Group and AIS Vision Systems use the Λ, Rosepetal the «o».",
+      "rule": "**Favicons:** the bare mark from the website set, blue in light mode and white in dark mode, pixel-snapped at each size (see [Favicons](logos.md#favicons)). AIS Group and AIS Vision Systems use the Λ, Rosepetal the «o».",
       "source": "plugin/skills/brand-guidelines/references/logos.md:55",
       "sources": [
         {
@@ -18373,13 +18373,13 @@
     },
     {
       "id": "AIS-d4e7c6aac0ac",
-      "rule": "**Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, make one (`product-render`, machine stills) before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame.",
+      "rule": "**Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, ask the brand team for one before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame.",
       "source": "plugin/skills/brochure/references/print-system.md:13",
       "sources": [
         {
           "file": "plugin/skills/brochure/references/print-system.md",
           "line": 13,
-          "text": "- **Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, make one (`product-render`, machine stills) before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame."
+          "text": "- **Covers are impeccable**: the hero is the sharpest, best-composed image the piece has, printing at 240 ppi or more, never a video frame, never soft, cluttered or motion-blurred. Machines on covers show the machine working, with its product on the line. If no such image exists, ask the brand team for one before building the cover; `print/render.mjs` fails a cover under 240 ppi or named or catalogued as a video frame."
         }
       ],
       "ownerSkill": "brochure",
@@ -20502,7 +20502,7 @@
     },
     {
       "id": "AIS-a7a6faf71604",
-      "rule": "| **Equipment page** | One large photograph, the specifications in a [specification block](../../communications/references/communications.md#specification-block), the options as hexagon icons, then the contact band. |",
+      "rule": "| **Equipment page** | One large photograph, the specifications in a [specification block](../../digital-documents/references/communications.md#specification-block), the options as hexagon icons, then the contact band. |",
       "source": "plugin/skills/communications/references/kit.md:18",
       "sources": [
         {
@@ -20636,7 +20636,7 @@
     },
     {
       "id": "AIS-abe4153e6a9a",
-      "rule": "Slides open on brand blue with the company line, say one thing each and close with one next step. Every deck is built from one template; the logo on a 1920 px slide is 140 px wide, the type scale follows [Documents and presentations](../../communications/references/communications.md), and the hexagon pattern fades from one corner. The PPTX is the editable version.",
+      "rule": "Slides open on brand blue with the company line, say one thing each and close with one next step. Every deck is built from one template; the logo on a 1920 px slide is 140 px wide, the type scale follows [Documents and presentations](../../digital-documents/references/communications.md), and the hexagon pattern fades from one corner. The PPTX is the editable version.",
       "source": "plugin/skills/communications/references/kit.md:31",
       "sources": [
         {
@@ -20651,7 +20651,7 @@
     },
     {
       "id": "AIS-67c03f9deeed",
-      "rule": "Each post comes with its text for LinkedIn. How they are built and every type: [Social media](../../communications/references/social.md).",
+      "rule": "Each post comes with its text for LinkedIn. How they are built and every type: [Social media](../../marketing/references/social.md).",
       "source": "plugin/skills/communications/references/kit.md:35",
       "sources": [
         {
@@ -24629,7 +24629,7 @@
     },
     {
       "id": "AIS-eac5fda54166",
-      "rule": "| Video | 9:16, 4:5, 1:1 and 16:9 | The seven types in [Video](../../communications/references/video.md) |",
+      "rule": "| Video | 9:16, 4:5, 1:1 and 16:9 | The seven types in [Video](../../brand-video/references/video.md) |",
       "source": "plugin/skills/communications/references/social.md:30",
       "sources": [
         {
@@ -24649,7 +24649,7 @@
     },
     {
       "id": "AIS-5b3ce8a46a40",
-      "rule": "Every post and carousel in the [Marketing kit](../../communications/references/kit.md#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.",
+      "rule": "Every post and carousel in the [Marketing kit](../../resources-assets/references/kit.md#linkedin-posts-and-carousels) is one of these types. Anything else needs a brief first.",
       "source": "plugin/skills/communications/references/social.md:34",
       "sources": [
         {
@@ -34109,7 +34109,7 @@
     },
     {
       "id": "AIS-2c1776980be4",
-      "rule": "| This is what we build | [Machine](#type-machine) |",
+      "rule": "| This is what we build | [Machine](imagery.md#type-machine) |",
       "source": "plugin/skills/design-language/references/imagery.md:9",
       "sources": [
         {
@@ -34139,7 +34139,7 @@
     },
     {
       "id": "AIS-c0e39407cd68",
-      "rule": "| It works in a real factory | [In production](#type-line) |",
+      "rule": "| It works in a real factory | [In production](imagery.md#type-line) |",
       "source": "plugin/skills/design-language/references/imagery.md:10",
       "sources": [
         {
@@ -34169,7 +34169,7 @@
     },
     {
       "id": "AIS-626020a55988",
-      "rule": "| It catches what matters | [Detail and result](#type-result) |",
+      "rule": "| It catches what matters | [Detail and result](imagery.md#type-result) |",
       "source": "plugin/skills/design-language/references/imagery.md:11",
       "sources": [
         {
@@ -34199,7 +34199,7 @@
     },
     {
       "id": "AIS-c1799bb64d40",
-      "rule": "| The software is real and usable | [Interface](#type-interface) |",
+      "rule": "| The software is real and usable | [Interface](imagery.md#type-interface) |",
       "source": "plugin/skills/design-language/references/imagery.md:12",
       "sources": [
         {
@@ -34229,7 +34229,7 @@
     },
     {
       "id": "AIS-aad145c123e8",
-      "rule": "| We understand your industry | [Industry subject](#type-subject) |",
+      "rule": "| We understand your industry | [Industry subject](imagery.md#type-subject) |",
       "source": "plugin/skills/design-language/references/imagery.md:13",
       "sources": [
         {
@@ -34259,7 +34259,7 @@
     },
     {
       "id": "AIS-0826be510e52",
-      "rule": "| You will talk to experts | [People](#type-people) |",
+      "rule": "| You will talk to experts | [People](imagery.md#type-people) |",
       "source": "plugin/skills/design-language/references/imagery.md:14",
       "sources": [
         {
@@ -36339,7 +36339,7 @@
     },
     {
       "id": "AIS-c41a6f2fae83",
-      "rule": "A4 pages use their own grid: 15 mm margins, 12 columns of 10.4 mm with 5 mm gaps, and a 3 mm bleed on the PDF with text at least 5 mm inside the trim. Type is Inter 400, 500 and 600, body at 10.5 pt and nothing under 8.5 pt. Calm pages use white space instead of rules: a hairline only where a list needs one, one accent colour, no frame around a frame. The logo signs the piece at 20 mm (AIS Vision Systems) or 38 mm (Rosepetal); a business card carries it at 18 mm. A piece ends with one closing block. The parts of a brochure are in the [Marketing kit](../../communications/references/kit.md#print-system).",
+      "rule": "A4 pages use their own grid: 15 mm margins, 12 columns of 10.4 mm with 5 mm gaps, and a 3 mm bleed on the PDF with text at least 5 mm inside the trim. Type is Inter 400, 500 and 600, body at 10.5 pt and nothing under 8.5 pt. Calm pages use white space instead of rules: a hairline only where a list needs one, one accent colour, no frame around a frame. The logo signs the piece at 20 mm (AIS Vision Systems) or 38 mm (Rosepetal); a business card carries it at 18 mm. A piece ends with one closing block. The parts of a brochure are in the [Marketing kit](../../resources-assets/references/kit.md#print-system).",
       "source": "plugin/skills/design-language/references/layout.md:46",
       "sources": [
         {
@@ -39549,18 +39549,18 @@
     },
     {
       "id": "AIS-ab2ceeda8f55",
-      "rule": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../communications/references/video.md).",
+      "rule": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../brand-video/references/video.md).",
       "source": "plugin/skills/design-language/references/motion.md:148",
       "sources": [
         {
           "file": "plugin/skills/design-language/references/motion.md",
           "line": 148,
-          "text": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../communications/references/video.md)."
+          "text": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../brand-video/references/video.md)."
         },
         {
           "file": "plugin/skills/design-language/references/motion.md",
           "line": 150,
-          "text": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../communications/references/video.md)."
+          "text": "Loops are seamless, silent and pause when off screen; anything that moves on its own for more than five seconds has a pause control, except purely decorative header effects and the logo strip. Show a still poster under reduced motion. Video sits behind a headline only under the dark scrim of a page opener, never behind body text. Video intros, outros, titles and captions follow [Video](../../brand-video/references/video.md)."
         }
       ],
       "ownerSkill": "design-language",
@@ -43390,13 +43390,13 @@
     },
     {
       "id": "AIS-61a32e49718a",
-      "rule": "Which machine, which product, and the product's real dimensions (the separate product-render skill builds the renders from them).",
+      "rule": "Which machine, which product, and the product's real dimensions (the render pipeline builds the renders from them).",
       "source": "plugin/skills/linkedin-carousel/types/defects.md:16",
       "sources": [
         {
           "file": "plugin/skills/linkedin-carousel/types/defects.md",
           "line": 16,
-          "text": "- Which machine, which product, and the product's real dimensions (the separate product-render skill builds the renders from them)."
+          "text": "- Which machine, which product, and the product's real dimensions (the render pipeline builds the renders from them)."
         }
       ],
       "ownerSkill": "linkedin-carousel",
@@ -43420,13 +43420,13 @@
     },
     {
       "id": "AIS-0c3738f23118",
-      "rule": "The pictures are renders from `product-render`: a lineup, then a good/defective pair per defect, all on section grey.",
+      "rule": "The pictures are renders from AIS's render pipeline: a lineup, then a good/defective pair per defect, all on section grey.",
       "source": "plugin/skills/linkedin-carousel/types/defects.md:18",
       "sources": [
         {
           "file": "plugin/skills/linkedin-carousel/types/defects.md",
           "line": 18,
-          "text": "- The pictures are renders from `product-render`: a lineup, then a good/defective pair per defect, all on section grey."
+          "text": "- The pictures are renders from AIS's render pipeline: a lineup, then a good/defective pair per defect, all on section grey."
         }
       ],
       "ownerSkill": "linkedin-carousel",
@@ -43784,13 +43784,13 @@
     },
     {
       "id": "AIS-dd784588dbba",
-      "rule": "Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Missing pairs are a `product-render` job.",
+      "rule": "Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Ask the brand team for missing pairs.",
       "source": "plugin/skills/linkedin-carousel/types/defects.md:59",
       "sources": [
         {
           "file": "plugin/skills/linkedin-carousel/types/defects.md",
           "line": 59,
-          "text": "- Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Missing pairs are a `product-render` job."
+          "text": "- Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Ask the brand team for missing pairs."
         }
       ],
       "ownerSkill": "linkedin-carousel",
@@ -51715,13 +51715,13 @@
     },
     {
       "id": "AIS-0d5b4188ce93",
-      "rule": "Tiles: `library/media/3d/renders/<machine>/det/` (see `detection-tiles`). Each tile shows one different defect, cropped on it; `text` names the defect in plant words (\"Esquina deformada\"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.",
+      "rule": "Tiles: `library/media/3d/renders/<machine>/det/`. Each tile shows one different defect, cropped on it; `text` names the defect in plant words (\"Esquina deformada\"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.",
       "source": "plugin/skills/social-post/types/features.md:57",
       "sources": [
         {
           "file": "plugin/skills/social-post/types/features.md",
           "line": 57,
-          "text": "- Tiles: `library/media/3d/renders/<machine>/det/` (see `detection-tiles`). Each tile shows one different defect, cropped on it; `text` names the defect in plant words (\"Esquina deformada\"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice."
+          "text": "- Tiles: `library/media/3d/renders/<machine>/det/`. Each tile shows one different defect, cropped on it; `text` names the defect in plant words (\"Esquina deformada\"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice."
         }
       ],
       "ownerSkill": "social-post",
@@ -54329,13 +54329,13 @@
     },
     {
       "id": "AIS-51cf9f88c856",
-      "rule": "Blog figures without conditions. Rosepetal's \"99.9 % accuracy, confidential client\" names no customer, no baseline and no conditions, so it is not acceptable.",
+      "rule": "A figure without a named customer, a baseline and its conditions.",
       "source": "plugin/skills/social-post/types/result.md:61",
       "sources": [
         {
           "file": "plugin/skills/social-post/types/result.md",
           "line": 61,
-          "text": "- Blog figures without conditions. Rosepetal's \"99.9 % accuracy, confidential client\" names no customer, no baseline and no conditions, so it is not acceptable."
+          "text": "- A figure without a named customer, a baseline and its conditions."
         }
       ],
       "ownerSkill": "social-post",
@@ -54344,13 +54344,13 @@
     },
     {
       "id": "AIS-d03c177fa8f5",
-      "rule": "A figure from a composited video card, such as the \"Ready for production\" card in the VISION 2026 interview.",
+      "rule": "A figure read off a video card instead of its published source.",
       "source": "plugin/skills/social-post/types/result.md:62",
       "sources": [
         {
           "file": "plugin/skills/social-post/types/result.md",
           "line": 62,
-          "text": "- A figure from a composited video card, such as the \"Ready for production\" card in the VISION 2026 interview."
+          "text": "- A figure read off a video card instead of its published source."
         }
       ],
       "ownerSkill": "social-post",
@@ -54914,13 +54914,13 @@
     },
     {
       "id": "AIS-5103f006e449",
-      "rule": "The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../brand-guidelines/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on.",
+      "rule": "The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../resources-assets/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on.",
       "source": "plugin/skills/web-design/references/assets.md:3",
       "sources": [
         {
           "file": "plugin/skills/web-design/references/assets.md",
           "line": 3,
-          "text": "The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../brand-guidelines/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on."
+          "text": "The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../resources-assets/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on."
         }
       ],
       "ownerSkill": "web-design",
@@ -56769,7 +56769,7 @@
     },
     {
       "id": "AIS-210301f46591",
-      "rule": "| **Tables and text blocks** | `.ais-table`, `.ais-figures`, `.ais-quote` and `.ais-note` from `@aisgroup/web/styles.css`, as [Documents and presentations](../../communications/references/communications.md#table) sets them. Never a table on a blue band. |",
+      "rule": "| **Tables and text blocks** | `.ais-table`, `.ais-figures`, `.ais-quote` and `.ais-note` from `@aisgroup/web/styles.css`, as [Documents and presentations](../../digital-documents/references/communications.md#table) sets them. Never a table on a blue band. |",
       "source": "plugin/skills/web-design/references/web.md:14",
       "sources": [
         {
@@ -62609,7 +62609,7 @@
     },
     {
       "id": "AIS-9a79127a95b5",
-      "rule": "| **Charts** | White ground | Night `#0B1220` ground, in the app’s dark mode. See [Charts](#charts). |",
+      "rule": "| **Charts** | White ground | Night `#0B1220` ground, in the app’s dark mode. See [Charts](themes.md#charts). |",
       "source": "guide/src/content/guide/en/themes.mdx:27",
       "sources": [
         {
@@ -65046,13 +65046,13 @@
     },
     {
       "id": "AIS-e8b427f958aa",
-      "rule": "**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image (including those in marketing's original pieces) may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece.",
+      "rule": "**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece.",
       "source": "brand-decisions:109",
       "sources": [
         {
           "file": "brand-decisions",
           "line": 109,
-          "text": "**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image (including those in marketing's original pieces) may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece."
+          "text": "**Generated images are allowed when the result is good.** The end result is what matters. A generated or composited image may be used if it looks credible at its print or feed size: no garbled or invented-looking text, no impossible geometry or light, no misrepresentation of which AIS machine it is, customer brands still blurred. Real material and our renders stay first choice; pick whatever gives the best final piece."
         }
       ],
       "ownerSkill": "brochure",
@@ -65076,13 +65076,13 @@
     },
     {
       "id": "AIS-b44e0bb010ff",
-      "rule": "**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Most machine and installation pictures in the original brochures are generated or composited (triage: `studio/work/brochures/ORIGINAL-IMAGES.md`); never reuse those.",
+      "rule": "**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Check the original image verdicts before reusing a picture from an older brochure; never reuse a rejected one.",
       "source": "brand-decisions:111",
       "sources": [
         {
           "file": "brand-decisions",
           "line": 111,
-          "text": "**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Most machine and installation pictures in the original brochures are generated or composited (triage: `studio/work/brochures/ORIGINAL-IMAGES.md`); never reuse those."
+          "text": "**Customer material: blur customer logos, then use it.** Real camera frames, screens and photos from customer runs may be reused; blur only customer logos, brand marks and identifying codes (soft blur, no black boxes, nothing invented). Keep the unblurred crop internal. Check the original image verdicts before reusing a picture from an older brochure; never reuse a rejected one."
         }
       ],
       "ownerSkill": "brand-guidelines",
@@ -66608,13 +66608,13 @@
     },
     {
       "id": "AIS-2336c8c4e7d0",
-      "rule": "| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures: `product-render`; defect tiles: `detection-tiles` |",
+      "rule": "| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures and defect tiles come from AIS's render pipeline |",
       "source": "brand-decisions:237",
       "sources": [
         {
           "file": "brand-decisions",
           "line": 237,
-          "text": "| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures: `product-render`; defect tiles: `detection-tiles` |"
+          "text": "| «Can we use this generated or AI image?» | Judge the result: `brand-review` step 1. Product pictures and defect tiles come from AIS's render pipeline |"
         }
       ],
       "ownerSkill": "render-review",
@@ -79525,7 +79525,7 @@
     },
     {
       "id": "AIS-a455a234150a",
-      "rule": "const langOf = (file, fallback) => (path.basename(file).match(/[.-](es|en|ca|pt|fr)\\.(?:html|json|txt|md)$/) || [])[1] || fallback;",
+      "rule": "`const langOf = (file, fallback) => (path.basename(file).match(/[.-](es|en|ca|pt|fr)\\.(?:html|json|txt|md)$/) || [])[1] || fallback;`",
       "source": "plugin/engine/text-check.mjs:142",
       "sources": [
         {
@@ -85108,7 +85108,7 @@
     },
     {
       "id": "AIS-b7dd2de3b525",
-      "rule": "The parts of a brochure are in the [Marketing kit](../../communications/references/kit.md#print-system).",
+      "rule": "The parts of a brochure are in the [Marketing kit](../../resources-assets/references/kit.md#print-system).",
       "source": "plugin/skills/design-language/references/layout.md:58",
       "sources": [
         {
@@ -86851,13 +86851,13 @@
     },
     {
       "id": "AIS-8604d749edb5",
-      "rule": "To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill. The Word letter template stays.",
+      "rule": "To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill.",
       "source": "brand-decisions:381",
       "sources": [
         {
           "file": "brand-decisions",
           "line": 381,
-          "text": "The separate PowerPoint template (presentation-ais-vision-systems.pptx) is gone from the kit, the guide and the sync. To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill. The Word letter template stays.",
+          "text": "The separate PowerPoint template (presentation-ais-vision-systems.pptx) is gone from the kit, the guide and the sync. To edit in PowerPoint, start from the PPTX of the closest deck in the kit; those have real, editable text. New decks come from the presentation skill.",
           "fragment": true
         }
       ],
