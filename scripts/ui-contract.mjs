@@ -122,6 +122,18 @@ let ours;
 // Our theme's own @theme declarations: an app that pastes ais-theme.css (packages/design/styles.css) keeps them.
 const ourTheme = () => ours ??= new Map(themeBlocks(stripCss(fs.readFileSync(path.join(ROOT, 'packages/design/styles.css'), 'utf8'))).flatMap(([, body]) => [...body.matchAll(THEME_DECL)].map((d) => [d[1], norm(d[2])])));
 
+// The package's components as an app installs them: the guide's shadcn-vue registry, mirrored in the plugin
+// (plugin/brand/registry in the repo, brand/registry in an installed plugin). Keyed by the path an app gets.
+let installed;
+const installedFiles = () => installed ??= new Map([path.join(ROOT, 'plugin/brand/registry'), path.join(ROOT, 'brand/registry')].filter((d) => fs.existsSync(d)).slice(0, 1)
+  .flatMap((dir) => fs.readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => {
+    const item = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    return (item.files ?? []).filter((x) => typeof x.content === 'string').map((x) => [x.path, { name: item.name, content: x.content }]);
+  })));
+const sameText = (a, b) => { const n = (s) => s.replace(/\r\n?/g, '\n').replace(/[ \t]+$/gm, '').trim(); return n(a) === n(b); };
+// The path of a stock copy inside an app (components/ui/… or components/blocks/…), or null.
+const stockPath = (file) => file.split(path.sep).join('/').match(/(?:^|\/)(components\/(?:ui|blocks)\/.+)$/)?.[1] ?? null;
+
 export function audit(text, file = '') {
   const findings = [], { template, script, css } = regions(text, file);
   const style = css.replace(/^[ \t]*--[\w-]+\s*:[^;]*;/gm, blank);
@@ -160,6 +172,8 @@ export function audit(text, file = '') {
       if (hit) add(hit[0], null, hit[1], text, text.indexOf(`"${name}"`, text.indexOf(`"${section}"`)), name);
     }
   }
+  const stock = stockPath(file) && installedFiles().get(stockPath(file));
+  if (stock && !sameText(stock.content, text)) { const r = row('copy'); add(r.rule, null, say(r, stock.name), text, 0, stockPath(file)); }
   return findings.sort((a, b) => a.line - b.line || a.rule.localeCompare(b.rule));
 }
 
@@ -196,11 +210,14 @@ export function report(paths) {
   const files = new Map();
   const visit = (p, rel) => {
     if (fs.statSync(p).isDirectory()) {
-      for (const f of fs.readdirSync(p).sort()) if (!/^(?:node_modules|dist|\..+)$/.test(f) && !/(?:^|[\\/])components[\\/](?:ui|blocks)$/.test(path.join(p, f))) visit(path.join(p, f), rel ? `${rel}/${f}` : f);
+      for (const f of fs.readdirSync(p).sort()) if (!/^(?:node_modules|dist|\..+)$/.test(f)) visit(path.join(p, f), rel ? `${rel}/${f}` : f);
     } else if ((SOURCE.test(p) && !/\.d\.ts$/.test(p)) || path.basename(p) === 'package.json' || (/\.json$/.test(p) && /i18n|locales?/i.test(rel)) || (IMAGE.test(p) && LOGO_NAME.test(rel))) files.set(path.resolve(p), [p, rel]);
   };
   for (const p of paths) visit(p, fs.statSync(p).isDirectory() ? '' : path.basename(p));
-  const findings = [...files.values()].flatMap(([p, rel]) => IMAGE.test(p) ? auditLogo(fs.readFileSync(p), p, rel) : audit(fs.readFileSync(p, 'utf8'), p));
+  // The package's own components (components/ui, components/blocks) may do what the rules forbid an app: there only
+  // the stale-copy check applies.
+  const findings = [...files.values()].flatMap(([p, rel]) => IMAGE.test(p) ? auditLogo(fs.readFileSync(p), p, rel)
+    : audit(fs.readFileSync(p, 'utf8'), p).filter((f) => !stockPath(p) || f.rule === row('copy').rule));
   const blocking = findings.filter((f) => isError(f.rule));
   return {
     scope: 'static only: templates, styles, imports, theme overrides, brand names and logo files; runtime, keyboard and visual checks remain required',
