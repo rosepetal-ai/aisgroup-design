@@ -1,0 +1,49 @@
+name: UI checks
+
+# Written by `design-lint init`. lint: the code against the AIS Group product UI rules (new findings fail; the ones
+# known when .ui-baseline.json was written do not). states: the built app in a browser at 1920, 1440 and 390 px wide,
+# in light and dark, with every screen kept as an artifact. If the app installs @aisgroup packages from a private
+# registry, add the step that signs in to it before each install.
+on:
+  pull_request:
+  push:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+__SETUP__      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: __CACHE__
+      - run: __INSTALL__
+      - run: __RUN__ lint:ui
+
+  states:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+__SETUP__      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: __CACHE__
+      - run: __INSTALL__
+      - run: __EXEC__ playwright install --with-deps chromium
+      - run: __RUN__ build
+      - name: Check the built app in a browser
+        run: |
+          __EXEC__ vite preview --port 4173 --strictPort &
+          for i in $(seq 60); do curl -sf http://localhost:4173 > /dev/null && break; sleep 1; done
+          __RUN__ check:ui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ui-states
+          path: ui-states

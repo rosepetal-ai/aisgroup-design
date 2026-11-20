@@ -10,7 +10,7 @@ Install the product package and use its components and tokens together.
 4. Use a block wherever one fits: TopBar for the bar, PageLayout for each page (with its side menu where the page has one), LoginPage and ConfirmDialog. Start from their examples.
 5. When the app’s own design notes disagree with the package or this guide, the package wins: change the notes.
 6. Keep Inter and the full-width page, and open every page under the TopBar block.
-7. Add a test that fails on middle dots or Unicode arrows in templates, like rosepetal-ui’s `tests/uiTextRules.spec.js`.
+7. Install `@aisgroup/design-lint` and run `npx design-lint init --write`. ESLint then shows these rules in the editor, `lint:ui` fails on new findings and CI checks the screens at 1920, 1440 and 390 px.
 
 ## Compose, do not restyle
 
