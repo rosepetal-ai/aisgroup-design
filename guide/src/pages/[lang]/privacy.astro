@@ -1,0 +1,78 @@
+---
+// The privacy statement of the guide, the AIS Group Design plugin and its design server (the URL plugin directories ask for).
+// Every statement here must stay true of the code: if the server, the plugin or the guide starts recording or sending
+// anything new, change this page in the same pull request.
+import { getCollection } from 'astro:content';
+import Guide from '../../layouts/Guide.astro';
+import { languages, order, type Lang } from '../../i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guide');
+  const slugOf = (id: string) => id.split('/').slice(1).join('/') || 'index';
+  const find = (lang: string, slug: string) => entries.find((e) => e.id.split('/')[0] === lang && slugOf(e.id) === slug);
+  return Object.keys(languages).map((lang) => ({ params: { lang }, props: { lang, titles: Object.fromEntries(order.map((slug) => [slug, (find(lang, slug) ?? find('en', slug))!.data.title])) } }));
+}
+const { lang, titles } = Astro.props as { lang: Lang; titles: Record<string, string> };
+
+const mail = '<a href="mailto:privacy@aisgroup.ai">privacy@aisgroup.ai</a>';
+const group = (text: string) => `<a href="https://aisgroup.ai/privacy-policy/">${text}</a>`;
+const aepd = '<a href="https://www.aepd.es">www.aepd.es</a>';
+const PAGE: Record<Lang, { title: string; updated: string; intro: string; sections: [string, string, string[]][] }> = {
+  en: {
+    title: 'Privacy',
+    updated: 'Last updated: 20 November 2026',
+    intro: `This statement covers this guide, the AIS Group Design plugin and its design server (design.aisgroup.ai/mcp). For everything else, such as our contact forms, the ${group('AIS Group privacy policy')} applies.`,
+    sections: [
+      ['who', 'Who is responsible', [`AIS Vision Systems S.L. (NIF B65946691), c/ Can Camps, 10, 08202 Sabadell, Barcelona, Spain, publishes the guide, the plugin and the design server for AIS Group. Contact: ${mail}.`]],
+      ['plugin', 'The plugin', ['The plugin runs on your computer. Its skills, hooks and checks read your files there and send nothing to us. It connects to the internet only to call the design server and to download public files from this site or from our Google Cloud Storage when a command needs them, such as installing a component or downloading the media library.']],
+      ['server', 'The design server', ['Your AI assistant calls the design server to look up our components, tokens, assets and rules. Each call carries the name of a tool and its arguments, such as a component name or a few search words. The server answers from a fixed copy of this guide and does not store the calls. It has no accounts and sets no cookies.', 'To limit abuse, it counts the calls from each IP address for one minute, in memory only. Where an access token is required, it is checked on each call and never stored.']],
+      ['hosting', 'What our hosting records', ['Google Cloud (Firebase) hosts the guide and runs the design server in its europe-west1 region, in Belgium. For security and operation it records each request to the design server: the IP address, the time, the address requested, the name of the client and the response status. It does not record what the call asked. These records are kept for 30 days and then deleted. To deliver the guide\'s pages, Google processes your IP address in the same way.']],
+      ['guide', 'This guide', ['The guide uses no analytics, no advertising and no cookies, and loads nothing from other sites. The component pages remember in your browser whether you chose the light or the dark preview; that choice never leaves your browser.']],
+      ['assistant', 'Your AI assistant', ['What you write to your assistant, such as Claude, is handled by its provider under its own privacy policy. We receive only the calls it makes to the design server.']],
+      ['basis', 'Legal basis and recipients', ['We process these records on the basis of our legitimate interest in providing the service and keeping it secure (Article 6(1)(f) of the GDPR). We do not sell them or use them for marketing. Google processes them for us under contract, and we share them with authorities only when the law requires it.', 'Google may process data outside the European Economic Area. Those transfers rely on the EU-US Data Privacy Framework or on the standard contractual clauses approved by the European Commission.']],
+      ['rights', 'Your rights', [`You can ask to access, correct, delete or restrict your data, object to its processing or receive a copy, by writing to ${mail}. You can also complain to a data protection authority; in Spain, the Agencia Española de Protección de Datos (${aepd}).`]],
+    ],
+  },
+  es: {
+    title: 'Privacidad',
+    updated: 'Última actualización: 20 de noviembre de 2026',
+    intro: `Esta declaración cubre esta guía, el plugin AIS Group Design y su servidor de diseño (design.aisgroup.ai/mcp). Para todo lo demás, como nuestros formularios de contacto, se aplica la ${group('política de privacidad de AIS Group')}.`,
+    sections: [
+      ['who', 'Quién es el responsable', [`AIS Vision Systems S.L. (NIF B65946691), c/ Can Camps, 10, 08202 Sabadell, Barcelona, España, publica la guía, el plugin y el servidor de diseño para AIS Group. Contacto: ${mail}.`]],
+      ['plugin', 'El plugin', ['El plugin funciona en tu ordenador. Sus skills, hooks y comprobaciones leen allí tus archivos y no nos envían nada. Solo se conecta a internet para llamar al servidor de diseño y para descargar archivos públicos de este sitio o de nuestro Google Cloud Storage cuando un comando los necesita, como al instalar un componente o descargar la biblioteca de medios.']],
+      ['server', 'El servidor de diseño', ['Tu asistente de IA llama al servidor de diseño para consultar nuestros componentes, tokens, recursos y reglas. Cada llamada lleva el nombre de una herramienta y sus argumentos, como el nombre de un componente o unas palabras de búsqueda. El servidor responde a partir de una copia fija de esta guía y no guarda las llamadas. No tiene cuentas ni usa cookies.', 'Para limitar abusos, cuenta las llamadas de cada dirección IP durante un minuto, solo en memoria. Donde se exige un token de acceso, se comprueba en cada llamada y nunca se guarda.']],
+      ['hosting', 'Qué registra nuestro alojamiento', ['Google Cloud (Firebase) aloja la guía y ejecuta el servidor de diseño en su región europe-west1, en Bélgica. Por seguridad y funcionamiento registra cada petición al servidor de diseño: la dirección IP, la hora, la dirección solicitada, el nombre del cliente y el estado de la respuesta. No registra lo que pidió la llamada. Estos registros se conservan 30 días y después se eliminan. Para servir las páginas de la guía, Google trata tu dirección IP del mismo modo.']],
+      ['guide', 'Esta guía', ['La guía no usa analítica, publicidad ni cookies, y no carga nada de otros sitios. Las páginas de componentes recuerdan en tu navegador si elegiste la vista previa clara u oscura; esa elección nunca sale de tu navegador.']],
+      ['assistant', 'Tu asistente de IA', ['Lo que escribes a tu asistente, como Claude, lo trata su proveedor según su propia política de privacidad. Nosotros solo recibimos las llamadas que hace al servidor de diseño.']],
+      ['basis', 'Base legal y destinatarios', ['Tratamos estos registros sobre la base de nuestro interés legítimo en prestar el servicio y mantenerlo seguro (artículo 6.1.f del RGPD). No los vendemos ni los usamos para marketing. Google los trata por cuenta nuestra bajo contrato, y solo los compartimos con las autoridades cuando la ley lo exige.', 'Google puede tratar datos fuera del Espacio Económico Europeo. Esas transferencias se basan en el Marco de Privacidad de Datos UE-EE. UU. o en las cláusulas contractuales tipo aprobadas por la Comisión Europea.']],
+      ['rights', 'Tus derechos', [`Puedes pedir el acceso, la rectificación, la supresión o la limitación de tus datos, oponerte a su tratamiento o recibir una copia, escribiendo a ${mail}. También puedes presentar una reclamación ante una autoridad de protección de datos; en España, la Agencia Española de Protección de Datos (${aepd}).`]],
+    ],
+  },
+  ca: {
+    title: 'Privadesa',
+    updated: 'Darrera actualització: 20 de novembre de 2026',
+    intro: `Aquesta declaració cobreix aquesta guia, el plugin AIS Group Design i el seu servidor de disseny (design.aisgroup.ai/mcp). Per a tota la resta, com els nostres formularis de contacte, s’aplica la ${group('política de privadesa d’AIS Group')}.`,
+    sections: [
+      ['who', 'Qui n’és el responsable', [`AIS Vision Systems S.L. (NIF B65946691), c/ Can Camps, 10, 08202 Sabadell, Barcelona, Espanya, publica la guia, el plugin i el servidor de disseny per a AIS Group. Contacte: ${mail}.`]],
+      ['plugin', 'El plugin', ['El plugin funciona al teu ordinador. Les seves skills, hooks i comprovacions hi llegeixen els teus fitxers i no ens envien res. Només es connecta a internet per cridar el servidor de disseny i per baixar fitxers públics d’aquest lloc o del nostre Google Cloud Storage quan una ordre els necessita, com en instal·lar un component o baixar la biblioteca de mitjans.']],
+      ['server', 'El servidor de disseny', ['El teu assistent d’IA crida el servidor de disseny per consultar els nostres components, tokens, recursos i regles. Cada crida porta el nom d’una eina i els seus arguments, com el nom d’un component o unes paraules de cerca. El servidor respon a partir d’una còpia fixa d’aquesta guia i no desa les crides. No té comptes ni fa servir galetes.', 'Per limitar abusos, compta les crides de cada adreça IP durant un minut, només en memòria. On es demana un token d’accés, es comprova a cada crida i no es desa mai.']],
+      ['hosting', 'Què registra el nostre allotjament', ['Google Cloud (Firebase) allotja la guia i executa el servidor de disseny a la seva regió europe-west1, a Bèlgica. Per seguretat i funcionament registra cada petició al servidor de disseny: l’adreça IP, l’hora, l’adreça sol·licitada, el nom del client i l’estat de la resposta. No registra què demanava la crida. Aquests registres es conserven 30 dies i després s’eliminen. Per servir les pàgines de la guia, Google tracta la teva adreça IP de la mateixa manera.']],
+      ['guide', 'Aquesta guia', ['La guia no fa servir analítica, publicitat ni galetes, i no carrega res d’altres llocs. Les pàgines de components recorden al teu navegador si vas triar la previsualització clara o fosca; aquesta tria no surt mai del teu navegador.']],
+      ['assistant', 'El teu assistent d’IA', ['El que escrius al teu assistent, com Claude, ho tracta el seu proveïdor segons la seva pròpia política de privadesa. Nosaltres només rebem les crides que fa al servidor de disseny.']],
+      ['basis', 'Base legal i destinataris', ['Tractem aquests registres sobre la base del nostre interès legítim a prestar el servei i mantenir-lo segur (article 6.1.f del RGPD). No els venem ni els fem servir per a màrqueting. Google els tracta per compte nostre sota contracte, i només els compartim amb les autoritats quan la llei ho exigeix.', 'Google pot tractar dades fora de l’Espai Econòmic Europeu. Aquestes transferències es basen en el Marc de Privadesa de Dades UE-EUA o en les clàusules contractuals tipus aprovades per la Comissió Europea.']],
+      ['rights', 'Els teus drets', [`Pots demanar l’accés, la rectificació, la supressió o la limitació de les teves dades, oposar-te al seu tractament o rebre’n una còpia, escrivint a ${mail}. També pots presentar una reclamació davant d’una autoritat de protecció de dades; a Espanya, l’Agencia Española de Protección de Datos (${aepd}).`]],
+    ],
+  },
+};
+const page = PAGE[lang];
+---
+<Guide lang={lang} slug="privacy" title={page.title} headings={page.sections.map(([id, text]) => ({ depth: 2, slug: id, text }))} titles={titles}>
+  <p>{page.updated}</p>
+  <p set:html={page.intro} />
+  {page.sections.map(([id, heading, paragraphs]) => (
+    <>
+      <h2 id={id}>{heading}</h2>
+      {paragraphs.map((p) => <p set:html={p} />)}
+    </>
+  ))}
+</Guide>
