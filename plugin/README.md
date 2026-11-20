@@ -52,6 +52,10 @@ Claude picks the template, writes the copy from what is true, checks it against 
 
 The guide-based references are copied from the brand guide (`guide/` in this repo) with `npm run sync:plugin` from the root. Change the guide, never these copies; `npm run guide -w plugin -- --check` fails when they drift.
 
+## Privacy
+
+The skills, hooks and checks run on your computer and send nothing to AIS Group. What the design server and the guide record is in the [privacy statement](https://design.aisgroup.ai/en/privacy/).
+
 ## For developers
 
 Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.3.3`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`; it needs an AIS staff token, and the skills work without it.
