@@ -1,0 +1,102 @@
+---
+// Rosepetal's soundtrack (marketing's generated instrumental tracks, 2026-11-18), grouped by style: each track and its
+// alternative take, AAC at 48 kHz in public/kit/files/rosepetal_music_<track>[-alternative]_v01.m4a. Lengths in seconds, from ffprobe.
+// Each take is a square play button (the Video page's button, icon only) and the download actions, on one 44 px line;
+// one take plays at a time.
+import AssetActions from './AssetActions.astro';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = {
+  en: { track: 'Track', main: 'Main take', alt: 'Alternative take', alternative: 'alternative take', play: 'Play', pause: 'Pause', styles: ['Ambient trip-hop', 'Ambient electro', 'Ambient techno'] },
+  es: { track: 'Pista', main: 'Versión principal', alt: 'Versión alternativa', alternative: 'versión alternativa', play: 'Reproducir', pause: 'Pausa', styles: ['Trip-hop ambiental', 'Electro ambiental', 'Techno ambiental'] },
+  ca: { track: 'Peça', main: 'Versió principal', alt: 'Versió alternativa', alternative: 'versió alternativa', play: 'Reprodueix', pause: 'Pausa', styles: ['Trip-hop ambiental', 'Electro ambiental', 'Techno ambiental'] },
+}[lang];
+const groups: [string, string, number, number][][] = [
+  [
+    ['quiet-beauty', 'Quiet Beauty', 228.4, 229.2],
+    ['silent-pulse', 'Silent Pulse', 243.6, 217.6],
+    ['fragile-piano-motif', 'Fragile Piano Motif', 198.0, 204.8],
+    ['quiet-tail', 'Quiet Tail', 212.4, 288.8],
+    ['silent-pulse-v2', 'Silent Pulse v2', 248.0, 214.8],
+    ['fragile-pauses', 'Fragile Pauses', 218.0, 230.0],
+    ['tail-of-silence', 'Tail of Silence', 217.2, 218.0],
+    ['piano-and-room', 'Piano and Room', 217.2, 214.8],
+  ],
+  [
+    ['euphoric-piano', 'Euphoric Piano', 179.6, 178.8],
+    ['fragmented-darkness', 'Fragmented Darkness', 228.4, 229.2],
+  ],
+  [['dissolving-sequence', 'Dissolving Sequence', 218.4, 179.2]],
+];
+const time = (s: number) => `${Math.floor(Math.round(s) / 60)}:${String(Math.round(s) % 60).padStart(2, '0')}`;
+const file = (id: string) => `/kit/files/rosepetal_music_${id}_v01.m4a`;
+---
+<div class="table-wrap music">
+  <table>
+    <thead><tr><th scope="col">{t.track}</th><th scope="col">{t.main}</th><th scope="col">{t.alt}</th></tr></thead>
+    {groups.map((tracks, g) => (
+      <tbody>
+        <tr class="music-style"><th scope="colgroup" colspan="3">{t.styles[g]}</th></tr>
+        {tracks.map(([id, name, main, alt]) => (
+          <tr>
+            <th scope="row">{name}</th>
+            {([[id, main, name, t.main], [`${id}-alternative`, alt, `${name}, ${t.alternative}`, t.alt]] as [string, number, string, string][]).map(([src, seconds, label, take]) => (
+              <td data-take={take}><span class="music-take">
+                <button type="button" class="play" data-src={file(src)} data-name={label} data-play={t.play} data-pause={t.pause} aria-pressed="false" aria-label={`${t.play}: ${label}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M6 3l14 9-14 9V3z"/><path class="i-pause" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+                <AssetActions lang={lang} href={file(src)} name={`${label}, M4A`} label={`M4A, ${time(seconds)}`} view={false} />
+              </span></td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    ))}
+  </table>
+</div>
+<script>
+  // One player for the page: a take's button plays it, pauses it, or takes over from the take that was playing.
+  const audio = new Audio();
+  let current: HTMLButtonElement | null = null;
+  const show = (button: HTMLButtonElement | null, playing: boolean) => {
+    if (!button) return;
+    button.setAttribute('aria-pressed', String(playing));
+    button.setAttribute('aria-label', `${playing ? button.dataset.pause : button.dataset.play}: ${button.dataset.name}`);
+  };
+  document.querySelectorAll<HTMLButtonElement>('.music .play').forEach((button) => button.addEventListener('click', () => {
+    if (button === current && !audio.paused) { audio.pause(); return; }
+    if (button !== current) { show(current, false); current = button; audio.src = button.dataset.src!; }
+    void audio.play().catch(() => show(current, false));
+  }));
+  audio.addEventListener('play', () => show(current, true));
+  audio.addEventListener('pause', () => show(current, false));
+</script>
+<style>
+  .music table { min-width: 600px; }
+  .music :is(th[scope='row'], td) { vertical-align: middle; }
+  .music th[scope='row'] { white-space: nowrap; color: var(--ink); font-weight: 600; border-bottom-color: var(--line); }
+  .music .music-style th { padding-top: 32px; color: var(--ink); font-weight: 600; }
+  .music tbody:first-of-type .music-style th { padding-top: 16px; }
+  .music tbody tr:last-child > th { border-bottom: 0; }
+  .music-take { display: flex; align-items: center; gap: var(--ais-space-200); }
+  .music-take :global(.asset-actions) { align-items: center; flex-wrap: nowrap; white-space: nowrap; }
+  .music-take :global(.asset-actions a) { margin-block: 0; }
+  /* The Video page's play button as a 44 px square: the icon only, its name in aria-label. */
+  .play { flex: none; display: grid; place-items: center; box-sizing: border-box; width: 44px; height: 44px; padding: 0; border: var(--ais-border); background: var(--surface); color: var(--ink); cursor: pointer; transition: background-color var(--ais-duration-moderate-1, 180ms) var(--ais-ease-standard, ease); }
+  .play:hover { background: var(--line); }
+  .play:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  .play svg { width: 14px; height: 14px; fill: currentColor; }
+  .play .i-pause, .play[aria-pressed='true'] .i-play { display: none; }
+  .play[aria-pressed='true'] .i-pause { display: inline; }
+  /* Phones: each track is its name, then its two takes, each under its own label; no sideways scrolling. */
+  @media (max-width: 640px) {
+    .table-wrap.music table, .table-wrap.music table > tbody, .table-wrap.music tr, .table-wrap.music :is(th, td) { display: block; min-width: 0; width: auto; }
+    .table-wrap.music table > thead { display: none; }
+    .table-wrap.music :is(th, td) { padding: 0; border: 0; }
+    .table-wrap.music .music-style th { padding: 24px 0 12px; border-bottom: 1px solid var(--ais-neutral-300); }
+    .table-wrap.music tbody:first-of-type .music-style th { padding-top: 0; }
+    .table-wrap.music tr:not(.music-style) { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .table-wrap.music tbody tr:last-child { border-bottom: 0; }
+    .table-wrap.music td { margin-top: 12px; }
+    .table-wrap.music td::before { content: attr(data-take); display: block; margin-bottom: 4px; color: var(--muted); }
+  }
+</style>
