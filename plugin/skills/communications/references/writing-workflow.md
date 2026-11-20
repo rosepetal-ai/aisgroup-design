@@ -1,7 +1,7 @@
 # Writing
 
 
-This skill is the method; the rules are the guide's [Voice](../communications/references/voice.md) (claims, calls to action, headline formulas) and [Localisation](../communications/references/localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
+This skill is the method; the rules are the guide's [Voice](voice.md) (claims, calls to action, headline formulas) and [Localisation](localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../../brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
 
 We write like the engineers who install and support the machine: plain, specific, short. A reader should never be able to tell whether a person or a model wrote it, because it says something only we could say.
 

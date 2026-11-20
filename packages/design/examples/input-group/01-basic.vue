@@ -9,7 +9,7 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGr
     <InputGroup>
       <InputGroupAddon><SearchIcon /></InputGroupAddon>
       <InputGroupInput placeholder="Search..." />
-      <InputGroupAddon align="inline-end"><InputGroupButton size="icon-xs" aria-label="Clear"><XIcon /></InputGroupButton></InputGroupAddon>
+      <InputGroupAddon align="inline-end"><InputGroupButton size="icon-sm" aria-label="Clear"><XIcon /></InputGroupButton></InputGroupAddon>
     </InputGroup>
     <InputGroup>
       <InputGroupInput type="number" model-value="640" />

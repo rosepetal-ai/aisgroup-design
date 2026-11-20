@@ -215,7 +215,11 @@ test('design_components lists the registry and returns a component with its sour
   const { value: list } = await call('design_components', {});
   assert(list.items.some((i) => i.name === 'button') && list.items.some((i) => i.name === 'top-bar'));
   const { value: dialog } = await call('design_components', { name: 'dialog' });
-  assert(dialog.files.some((f) => f.path === 'components/ui/dialog/DialogFooter.vue' && f.content.includes('<template>')));
+  // The item's files are read as one source, in chunks: each file under a // path line.
+  let source = dialog.text;
+  for (let offset = dialog.next; offset !== null;) { const { value } = await call('design_components', { name: 'dialog', offset }); source += value.text; offset = value.next; }
+  const footer = source.split('// components/ui/dialog/DialogFooter.vue\n')[1]?.split('\n\n// ')[0];
+  assert(dialog.files.includes('components/ui/dialog/DialogFooter.vue') && footer?.includes('<template>'));
   assert(dialog.registryDependencies.some((d) => d.endsWith('/r/button.json')));
   assert.match(dialog.install, /^npx shadcn-vue@latest add .*\/r\/dialog\.json$/);
   assert((await call('design_components', { name: 'nope' })).error);

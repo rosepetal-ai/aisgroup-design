@@ -1,0 +1,32 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "multi-select",
+  "type": "registry:ui",
+  "title": "Multi select",
+  "description": "Several options from a list, shown as tags in the field.",
+  "dependencies": [
+    "reka-ui",
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/combobox.json",
+    "https://design.aisgroup.ai/r/tags-input.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/multi-select/MultiSelect.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { AcceptableValue } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { MultiSelectOption } from '.'\nimport { CheckIcon } from '@lucide/vue'\nimport { ComboboxInput } from 'reka-ui'\nimport { ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxViewport } from '@/components/ui/combobox'\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/components/ui/tags-input'\n\n// Several values from a list, shown as tags in the field: type to search, Enter or a click adds, Backspace or the\n// cross removes. Only listed options can be added (shadcn-vue's tags input with combobox, as one component).\nconst props = withDefaults(defineProps<{\n  id?: string\n  options: MultiSelectOption[]\n  placeholder?: string\n  emptyText?: string\n  disabled?: boolean\n  class?: HTMLAttributes['class']\n}>(), {\n  placeholder: 'Select',\n  emptyText: 'No results',\n})\n\nconst model = defineModel<string[]>({ default: () => [] })\n// Cleared on every pick: reka's own reset does not reach an as-child input.\nconst search = ref('')\nconst labelOf = (value: AcceptableValue) => props.options.find(o => o.value === value)?.label ?? String(value)\n</script>\n\n<template>\n  <Combobox v-model=\"model\" multiple :disabled=\"disabled\" data-slot=\"multi-select\" :class=\"cn('w-full', props.class)\" @update:model-value=\"search = ''\">\n    <ComboboxAnchor as-child>\n      <TagsInput v-model=\"model\" :display-value=\"labelOf\" :disabled=\"disabled\" class=\"min-h-9 w-full gap-1.5 px-1.5\">\n        <TagsInputItem v-for=\"value in model\" :key=\"value\" :value=\"value\">\n          <TagsInputItemText />\n          <TagsInputItemDelete />\n        </TagsInputItem>\n        <ComboboxInput v-model=\"search\" as-child>\n          <TagsInputInput :id=\"id\" :placeholder=\"model.length ? undefined : placeholder\" class=\"min-w-24\" @keydown.enter.prevent />\n        </ComboboxInput>\n      </TagsInput>\n    </ComboboxAnchor>\n    <ComboboxList align=\"start\">\n      <ComboboxViewport>\n        <ComboboxEmpty>{{ emptyText }}</ComboboxEmpty>\n        <ComboboxItem\n          v-for=\"option in options\"\n          :key=\"option.value\"\n          :value=\"option.value\"\n          :text-value=\"option.label\"\n        >\n          {{ option.label }}\n          <ComboboxItemIndicator><CheckIcon /></ComboboxItemIndicator>\n        </ComboboxItem>\n      </ComboboxViewport>\n    </ComboboxList>\n  </Combobox>\n</template>\n"
+    },
+    {
+      "path": "components/ui/multi-select/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as MultiSelect } from './MultiSelect.vue'\n\nexport interface MultiSelectOption {\n  value: string\n  label: string\n}\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/multi-select/MultiSelect.vue"
+  }
+}

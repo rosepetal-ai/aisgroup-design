@@ -9,7 +9,7 @@ export const sections: { group: Text; pages: string[] }[] = [
   { group: t('Brand', 'Marca', 'Marca'), pages: ['index', 'brands', 'logos'] },
   { group: t('Design language', 'Lenguaje de diseño', 'Llenguatge de disseny'), pages: ['colour', 'typography', 'layout', 'imagery', 'patterns', 'icons', 'data', 'motion', 'themes', 'accessibility'] },
   { group: t('Communications', 'Comunicación', 'Comunicació'), pages: ['voice', 'localisation', 'communications', 'social', 'kit', 'video'] },
-  { group: t('Digital design', 'Diseño digital', 'Disseny digital'), pages: ['web-components', 'assets', 'components', 'using-components'] },
+  { group: t('Digital design', 'Diseño digital', 'Disseny digital'), pages: ['web-components', 'assets', 'components', 'using-components', 'pages'] },
   { group: t('Resources', 'Recursos', 'Recursos'), pages: ['downloads', 'agents'] },
 ];
 export const order = sections.flatMap((s) => s.pages);

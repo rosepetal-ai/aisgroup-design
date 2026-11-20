@@ -98,7 +98,7 @@ export const CONTROLS = {
         template: p => `<InputGroup class="w-80"${p.disabled ? ' data-disabled' : ''}>
   <InputGroupInput placeholder="${esc(p.placeholder)}"${flag('disabled', p.disabled)}${p.invalid ? ' aria-invalid="true"' : ''} />
   <InputGroupAddon${attr('align', p.align, 'inline-start')}>
-    ${{ icon: '<SearchIcon />', text: '<InputGroupText>px</InputGroupText>', button: '<InputGroupButton>Apply</InputGroupButton>', 'icon button': '<InputGroupButton size="icon-xs" aria-label="Clear"><XIcon /></InputGroupButton>' }[p.content]}
+    ${{ icon: '<SearchIcon />', text: '<InputGroupText>px</InputGroupText>', button: '<InputGroupButton>Apply</InputGroupButton>', 'icon button': '<InputGroupButton size="icon-sm" aria-label="Clear"><XIcon /></InputGroupButton>' }[p.content]}
   </InputGroupAddon>
 </InputGroup>`,
     },
@@ -306,7 +306,7 @@ ${pick(p.count, ['PCB inspection', 'Tortilla line', 'Blister packaging', 'Label 
             const a = `${flag('disabled', p.disabled)}${p.invalid ? ' aria-invalid="true"' : ''}`;
             if (p.addon === 'none') return `<Input type="${p.type}" placeholder="${esc(p.placeholder)}" aria-label="${esc(p.placeholder)}" class="max-w-sm"${a} />`;
             return `<InputGroup class="max-w-sm">${p.addon === 'search' ? '\n  <InputGroupAddon><SearchIcon /></InputGroupAddon>' : ''}
-  <InputGroupInput type="${p.type}" placeholder="${esc(p.placeholder)}" aria-label="${esc(p.placeholder)}"${a} />${p.addon === 'unit' ? '\n  <InputGroupAddon align="inline-end">mm</InputGroupAddon>' : ''}${p.addon === 'clear button' ? '\n  <InputGroupAddon align="inline-end"><InputGroupButton size="icon-xs" aria-label="Clear"><XIcon /></InputGroupButton></InputGroupAddon>' : ''}
+  <InputGroupInput type="${p.type}" placeholder="${esc(p.placeholder)}" aria-label="${esc(p.placeholder)}"${a} />${p.addon === 'unit' ? '\n  <InputGroupAddon align="inline-end">mm</InputGroupAddon>' : ''}${p.addon === 'clear button' ? '\n  <InputGroupAddon align="inline-end"><InputGroupButton size="icon-sm" aria-label="Clear"><XIcon /></InputGroupButton></InputGroupAddon>' : ''}
 </InputGroup>`;
         },
     },

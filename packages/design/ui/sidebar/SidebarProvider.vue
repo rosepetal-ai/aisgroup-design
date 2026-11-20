@@ -19,7 +19,7 @@ const emits = defineEmits<{
   'update:open': [open: boolean]
 }>()
 
-const isMobile = useMediaQuery('(max-width: 768px)')
+const isMobile = useMediaQuery('(max-width: 767px)') // Tailwind md starts at 768 px: one pixel of overlap made 768 px mobile here and desktop in layouts
 const openMobile = ref(false)
 
 const open = useVModel(props, 'open', emits, {

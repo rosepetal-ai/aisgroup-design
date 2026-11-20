@@ -133,7 +133,7 @@ Source: plugin/skills/communications/references/communications.md:39.
 ## AIS-3c45c10c69e0
 
 <!-- AIS-3c45c10c69e0 -->
-Every figure carries its conditions, as [Voice](voice.md) requires. Name files with brand, type, language and ISO date: `rosepetal_datasheet_es_2026-10-14.pptx`.
+Every figure carries its conditions, as [Voice](../../communications/references/voice.md) requires. Name files with brand, type, language and ISO date: `rosepetal_datasheet_es_2026-10-14.pptx`.
 
 Source: plugin/skills/communications/references/communications.md:41.
 
@@ -210,7 +210,7 @@ Source: plugin/skills/communications/references/communications.md:59.
 ## AIS-51a2045dc640
 
 <!-- AIS-51a2045dc640 -->
-**Numbers** follow [Localisation](localisation.md): 7200 and 30 000 in Spanish and Catalan, 7,200 and 30,000 in English; the same decimals down a column (2,0, not 2); dimensions with the multiplication sign, 100 × 56.
+**Numbers** follow [Localisation](../../communications/references/localisation.md): 7200 and 30 000 in Spanish and Catalan, 7,200 and 30,000 in English; the same decimals down a column (2,0, not 2); dimensions with the multiplication sign, 100 × 56.
 
 Source: plugin/skills/communications/references/communications.md:60.
 

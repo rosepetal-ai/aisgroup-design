@@ -1,0 +1,8 @@
+{
+ "description": "Test fixture: PrimeVue components to @aisgroup/design.",
+ "entries": [
+  { "from": "DataTable", "to": "Table", "notes": "Columns become TableHead and TableCell." },
+  { "from": "Button", "to": "Button", "notes": "severity=danger becomes variant=destructive." },
+  { "from": "Dialog", "to": "Dialog", "notes": "Footer: Cancel first." }
+ ]
+}

@@ -5,6 +5,8 @@ import { onRequest } from 'firebase-functions/v2/https';
 import { createApp } from './server.mjs';
 
 const app = createApp({
+  // Every link the tools return (install lines, pages) uses the public origin, never the Cloud Run host behind the rewrite.
+  baseUrl: (process.env.AIS_MCP_BASE_URL || 'https://aisgroup-design.web.app').replace(/\/$/, ''),
   filesBase: (process.env.AIS_MCP_FILES_BASE || 'https://aisgroup-design.web.app').replace(/\/$/, ''),
   token: process.env.AIS_MCP_TOKEN || undefined,
   trustProxy: true, // Google's front end sets x-forwarded-for; the rate limit counts per caller

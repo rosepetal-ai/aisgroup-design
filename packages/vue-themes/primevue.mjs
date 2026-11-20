@@ -129,6 +129,20 @@ export default definePreset(Aura, {
             "selectedColor": "#0F1729",
             "selectedFocusColor": "#0F1729"
           }
+        },
+        "surface": {
+          "0": "#FFFFFF",
+          "50": "#F8FAFC",
+          "100": "#F1F5F9",
+          "200": "#E2E8F0",
+          "300": "#CBD5E1",
+          "400": "#94A3B8",
+          "500": "#64748B",
+          "600": "#4B5563",
+          "700": "#334155",
+          "800": "#1E293B",
+          "900": "#111A2E",
+          "950": "#0B1220"
         }
       },
       "dark": {
@@ -202,6 +216,20 @@ export default definePreset(Aura, {
             "selectedColor": "#F1F5F9",
             "selectedFocusColor": "#F1F5F9"
           }
+        },
+        "surface": {
+          "0": "#FFFFFF",
+          "50": "#F8FAFC",
+          "100": "#F1F5F9",
+          "200": "#E2E8F0",
+          "300": "#CBD5E1",
+          "400": "#94A3B8",
+          "500": "#64748B",
+          "600": "#4B5563",
+          "700": "#334155",
+          "800": "#1E293B",
+          "900": "#111A2E",
+          "950": "#0B1220"
         }
       }
     }

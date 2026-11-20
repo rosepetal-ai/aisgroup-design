@@ -1,0 +1,88 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "calendar",
+  "type": "registry:ui",
+  "title": "Calendar",
+  "description": "One date from a month view, in the locale's language and first weekday.",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core",
+    "@lucide/vue",
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/calendar/Calendar.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarRootEmits, CalendarRootProps, DateValue } from 'reka-ui'\nimport type { HTMLAttributes, Ref } from 'vue'\nimport { getLocalTimeZone, today } from '@internationalized/date'\nimport { reactiveOmit, useVModel } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarRoot, useForwardPropsEmits } from 'reka-ui'\nimport { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.'\n\n// Rosepetal: no month and year dropdown layout (stock builds it on a native select); the heading slot takes any control.\nconst props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>(), {\n  modelValue: undefined,\n})\nconst emits = defineEmits<CalendarRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'placeholder')\n\nconst placeholder = useVModel(props, 'placeholder', emits, {\n  passive: true,\n  defaultValue: props.defaultPlaceholder ?? today(getLocalTimeZone()),\n}) as Ref<DateValue>\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <CalendarRoot\n    v-slot=\"{ grid, weekDays, date }\"\n    v-bind=\"forwarded\"\n    v-model:placeholder=\"placeholder\"\n    data-slot=\"calendar\"\n    :class=\"cn('p-3 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(8)] group/calendar bg-background in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent', props.class)\"\n  >\n    <CalendarHeader class=\"pt-0\">\n      <slot name=\"calendar-heading\" :date=\"date\">\n        <CalendarHeading />\n      </slot>\n\n      <nav class=\"pointer-events-none flex items-center gap-1 absolute top-0 inset-x-0 justify-between\">\n        <CalendarPrevButton>\n          <slot name=\"calendar-prev-icon\" />\n        </CalendarPrevButton>\n        <CalendarNextButton>\n          <slot name=\"calendar-next-icon\" />\n        </CalendarNextButton>\n      </nav>\n    </CalendarHeader>\n\n    <div class=\"flex flex-col gap-y-4 mt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0\">\n      <CalendarGrid v-for=\"month in grid\" :key=\"month.value.toString()\">\n        <CalendarGridHead>\n          <CalendarGridRow>\n            <CalendarHeadCell\n              v-for=\"day in weekDays\" :key=\"day\"\n            >\n              {{ day }}\n            </CalendarHeadCell>\n          </CalendarGridRow>\n        </CalendarGridHead>\n        <CalendarGridBody>\n          <CalendarGridRow v-for=\"(weekDates, index) in month.rows\" :key=\"`weekDate-${index}`\" class=\"mt-2 w-full\">\n            <CalendarCell\n              v-for=\"weekDate in weekDates\"\n              :key=\"weekDate.toString()\"\n              :date=\"weekDate\"\n            >\n              <CalendarCellTrigger\n                :day=\"weekDate\"\n                :month=\"month.value\"\n              />\n            </CalendarCell>\n          </CalendarGridRow>\n        </CalendarGridBody>\n      </CalendarGrid>\n    </div>\n  </CalendarRoot>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarCell.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarCellProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarCell, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarCellProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarCell\n    data-slot=\"calendar-cell\"\n    :class=\"cn('relative p-0 text-center text-sm flex-1 focus-within:relative focus-within:z-20 [&:has([data-selected])]:rounded-md [&:has([data-selected])]:bg-accent', props.class)\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarCell>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarCellTrigger.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarCellTriggerProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarCellTrigger, useForwardProps } from 'reka-ui'\nimport { buttonVariants } from '@/components/ui/button'\n\nconst props = withDefaults(defineProps<CalendarCellTriggerProps & { class?: HTMLAttributes['class'] }>(), {\n  as: 'button',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarCellTrigger\n    data-slot=\"calendar-cell-trigger\"\n    :class=\"cn(\n      buttonVariants({ variant: 'ghost' }),\n      'size-8 p-0 font-normal aria-selected:opacity-100 cursor-default',\n      '[&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground',\n      // Selected\n      'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground',\n      // Disabled\n      'data-[disabled]:text-muted-foreground data-[disabled]:opacity-50',\n      // Unavailable\n      'data-[unavailable]:text-muted-foreground data-[unavailable]:line-through',\n      // Outside months\n      'data-[outside-view]:text-muted-foreground',\n      props.class,\n    )\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarCellTrigger>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarGrid.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarGrid, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarGridProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarGrid\n    data-slot=\"calendar-grid\"\n    :class=\"cn('w-full border-collapse space-x-1', props.class)\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarGrid>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarGridBody.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridBodyProps } from 'reka-ui'\nimport { CalendarGridBody } from 'reka-ui'\n\nconst props = defineProps<CalendarGridBodyProps>()\n</script>\n\n<template>\n  <CalendarGridBody\n    data-slot=\"calendar-grid-body\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </CalendarGridBody>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarGridHead.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridHeadProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { CalendarGridHead } from 'reka-ui'\n\nconst props = defineProps<CalendarGridHeadProps & { class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <CalendarGridHead\n    data-slot=\"calendar-grid-head\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </CalendarGridHead>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarGridRow.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridRowProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarGridRow, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarGridRowProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarGridRow\n    data-slot=\"calendar-grid-row\"\n    :class=\"cn('flex', props.class)\" v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarGridRow>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarHeadCell.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarHeadCellProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarHeadCell, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarHeadCellProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarHeadCell\n    data-slot=\"calendar-head-cell\"\n    :class=\"cn('text-muted-foreground rounded-md flex-1 font-normal text-sm', props.class)\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarHeadCell>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarHeader.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarHeaderProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarHeader, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarHeaderProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarHeader\n    data-slot=\"calendar-header\"\n    :class=\"cn('flex justify-center pt-1 relative items-center w-full px-8', props.class)\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot />\n  </CalendarHeader>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarHeading.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarHeadingProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarHeading, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<CalendarHeadingProps & { class?: HTMLAttributes['class'] }>()\n\ndefineSlots<{\n  default: (props: { headingValue: string }) => any\n}>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarHeading\n    v-slot=\"{ headingValue }\"\n    data-slot=\"calendar-heading\"\n    :class=\"cn('text-sm font-medium', props.class)\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot :heading-value>\n      {{ headingValue }}\n    </slot>\n  </CalendarHeading>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarNextButton.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarNextProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarNext, useForwardProps } from 'reka-ui'\nimport { buttonVariants } from '@/components/ui/button'\n\nconst props = defineProps<CalendarNextProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarNext\n    data-slot=\"calendar-next-button\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'pointer-events-auto size-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      props.class,\n    )\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"cn-rtl-flip size-4\" />\n    </slot>\n  </CalendarNext>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/CalendarPrevButton.vue",
+      "type": "registry:ui",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarPrevProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronLeftIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { CalendarPrev, useForwardProps } from 'reka-ui'\nimport { buttonVariants } from '@/components/ui/button'\n\nconst props = defineProps<CalendarPrevProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <CalendarPrev\n    data-slot=\"calendar-prev-button\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'pointer-events-auto size-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      props.class,\n    )\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"cn-rtl-flip size-4\" />\n    </slot>\n  </CalendarPrev>\n</template>\n"
+    },
+    {
+      "path": "components/ui/calendar/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Calendar } from './Calendar.vue'\nexport { default as CalendarCell } from './CalendarCell.vue'\nexport { default as CalendarCellTrigger } from './CalendarCellTrigger.vue'\nexport { default as CalendarGrid } from './CalendarGrid.vue'\nexport { default as CalendarGridBody } from './CalendarGridBody.vue'\nexport { default as CalendarGridHead } from './CalendarGridHead.vue'\nexport { default as CalendarGridRow } from './CalendarGridRow.vue'\nexport { default as CalendarHeadCell } from './CalendarHeadCell.vue'\nexport { default as CalendarHeader } from './CalendarHeader.vue'\nexport { default as CalendarHeading } from './CalendarHeading.vue'\nexport { default as CalendarNextButton } from './CalendarNextButton.vue'\nexport { default as CalendarPrevButton } from './CalendarPrevButton.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/calendar/Calendar.vue"
+  }
+}

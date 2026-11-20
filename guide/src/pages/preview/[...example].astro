@@ -11,7 +11,7 @@ const { example } = Astro.params;
 // Menus, dialogs and toasts open outside the content, so their frames keep room for them; the rest fit their content.
 const FLOORS: [RegExp, number][] = [
   [/^(login-page|sidebar)\//, 640],
-  [/^(combobox|select|dialog|alert-dialog|confirm-dialog|tooltip|dropdown-menu|navigation-menu|sonner|popover|sheet)\//, 320],
+  [/^(combobox|select|dialog|alert-dialog|confirm-dialog|confirm-host|tooltip|dropdown-menu|navigation-menu|sonner|popover|sheet|date-picker|multi-select|context-menu|command)\//, 320],
 ];
 const floor = FLOORS.find(([test]) => test.test(example!))?.[1] ?? 0;
 ---

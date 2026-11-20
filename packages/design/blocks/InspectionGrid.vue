@@ -2,21 +2,20 @@
 	<canvas ref="canvas" class="pointer-events-none absolute inset-0 w-full h-full" aria-hidden="true" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
-const props = defineProps({
-	paused: { type: Boolean, default: false }
-});
+const props = withDefaults(defineProps<{ paused?: boolean }>(), { paused: false });
 
 const GAP = 26;
 const SWEEP = 12;
 const REST = 1.5;
 const R = 15;
 const CELL = R + 3;
-const DIRS = [[1, 0], [1, -1], [0, -1], [-1, 0], [-1, 1], [0, 1]];
+type Point = [number, number];
+const DIRS: Point[] = [[1, 0], [1, -1], [0, -1], [-1, 0], [-1, 1], [0, 1]];
 
-const canvas = ref(null);
+const canvas = ref<HTMLCanvasElement | null>(null);
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let raf = 0;
@@ -24,18 +23,18 @@ let t = 0;
 let last = 0;
 let w = 0;
 let h = 0;
-let ro = null;
+let ro: ResizeObserver | null = null;
 let motif = "";
-let found = { key: "", hexes: [] };
+let found: { key: string, hexes: Point[] } = { key: "", hexes: [] };
 
-const alpha = a => motif + Math.round(Math.min(1, Math.max(0, a)) * 255).toString(16).padStart(2, "0");
+const alpha = (a: number) => motif + Math.round(Math.min(1, Math.max(0, a)) * 255).toString(16).padStart(2, "0");
 
-const rand = (i, j) => {
+const rand = (i: number, j: number) => {
 	const s = Math.sin(i * 127.1 + j * 311.7) * 43758.5453;
 	return s - Math.floor(s);
 };
 
-const hexagon = (ctx, cx, cy) => {
+const hexagon = (ctx: CanvasRenderingContext2D, cx: number, cy: number) => {
 	ctx.beginPath();
 	for (let i = 0; i < 6; i++) {
 		const a = Math.PI / 3 * i;
@@ -45,21 +44,21 @@ const hexagon = (ctx, cx, cy) => {
 	ctx.stroke();
 };
 
-const cluster = (x, y, pass) => {
+const cluster = (x: number, y: number, pass: number): Point[] => {
 	const n = 1 + Math.floor(rand(x + pass, y + 0.5) ** 2 * 5);
-	const cells = [[0, 0]];
+	const cells: Point[] = [[0, 0]];
 	for (let k = 1; cells.length < n && k < 4 * n; k++) {
-		const [q, r] = cells[Math.floor(rand(x + k, y + pass) * cells.length)];
-		const [dq, dr] = DIRS[Math.floor(rand(x + pass, y + k) * 6)];
+		const [q, r] = cells[Math.floor(rand(x + k, y + pass) * cells.length)]!;
+		const [dq, dr] = DIRS[Math.floor(rand(x + pass, y + k) * 6)]!;
 		if (!cells.some(c => c[0] === q + dq && c[1] === r + dr)) cells.push([q + dq, r + dr]);
 	}
 	return cells.map(([q, r]) => [x + CELL * 1.5 * q, y + CELL * Math.sqrt(3) * (r + q / 2)]);
 };
 
-const detections = pass => {
+const detections = (pass: number) => {
 	const key = `${pass}:${w}:${h}`;
 	if (found.key === key) return found.hexes;
-	const hexes = [];
+	const hexes: Point[] = [];
 	for (let x = GAP / 2; x < w; x += GAP) {
 		for (let y = GAP / 2; y < h; y += GAP) {
 			if (rand(x + pass, y) <= 0.99) continue;
@@ -71,7 +70,7 @@ const detections = pass => {
 	return hexes;
 };
 
-const draw = ctx => {
+const draw = (ctx: CanvasRenderingContext2D) => {
 	const k = (t % (SWEEP + REST)) / SWEEP;
 	const scanX = k <= 1 ? -40 + k * (w + 80) : -1000;
 	const pass = Math.floor(t / (SWEEP + REST));
@@ -106,7 +105,7 @@ const draw = ctx => {
 
 const running = () => !props.paused && !reduced.matches && !document.hidden;
 
-const frame = now => {
+const frame = (now: number) => {
 	const ctx = canvas.value?.getContext("2d");
 	if (!ctx) return;
 	if (last) t += Math.min(0.1, (now - last) / 1000);
@@ -137,9 +136,9 @@ const resize = () => {
 watch(() => props.paused, start);
 
 onMounted(() => {
-	motif = getComputedStyle(canvas.value).getPropertyValue("--brand-muted").trim();
+	motif = getComputedStyle(canvas.value!).getPropertyValue("--brand-muted").trim();
 	ro = new ResizeObserver(resize);
-	ro.observe(canvas.value);
+	ro.observe(canvas.value!);
 	document.addEventListener("visibilitychange", start);
 	reduced.addEventListener("change", start);
 });

@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-9f193f9c1793
 
 <!-- AIS-9f193f9c1793 -->
-Then read [the shared workflow](../_shared/WORKFLOW.md). Every word follows [writing](../writing/SKILL.md) (*Proposal section*, *Case study*). Both documents are A4 on `print/system.css`, the same type, grid, hexagon field and contact band as the brochures; `print/render.mjs` checks them like any print piece.
+Then read [the shared workflow](../../_shared/WORKFLOW.md). Every word follows [writing](../../communications/SKILL.md) (*Proposal section*, *Case study*). Both documents are A4 on `print/system.css`, the same type, grid, hexagon field and contact band as the brochures; `print/render.mjs` checks them like any print piece.
 
 Source: plugin/skills/sales-documents/SKILL.md:9.
 

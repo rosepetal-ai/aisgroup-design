@@ -57,9 +57,10 @@ Els botons de capçalera i de barra d’eines són `h-9` (36 px); les icones, de
 | Contingut | Fes servir |
 | --- | --- |
 | Llistes de files | Files separades per línies (`divide-y border-y`), la fila triada `bg-muted font-medium` |
-| Taules | Table amb capçaleres ordenables i Pagination numerada; les columnes de nombres porten `text-right tabular-nums` a TableHead i TableCell |
+| Taules | DataTable amb capçaleres ordenables i Pagination numerada; les columnes de nombres porten `meta.numeric`, la columna de text principal `meta.primary` i les altres `meta.showFrom`, perquè la taula no es desplaci mai lateralment |
 | Datasets, models, imatges | Item `variant="outline"`; les fitxes d’imatge `size="sm"` amb la imatge com a ItemHeader |
 | Dades | Una graella d’etiqueta sobre valor (`dt` atenuat, `dd`) |
+| Xifres d’un resum | El bloc `figure-cards`, un per grup de xifres que van juntes |
 | Formularis | Field, FieldGroup i FieldDescription, etiqueta sobre el control, `max-w-sm` |
 | Un de pocs modes | RadioGroup de targetes d’opció; triar eina és un ToggleGroup |
 | Triar d’una llista llarga | Combobox amb cerca; una llista curta és un Select |
@@ -73,6 +74,10 @@ Els botons de capçalera i de barra d’eines són `h-9` (36 px); les icones, de
 
 DialogHeader (el títol sobre una banda grisa), DialogBody i DialogFooter amb botons a tota l’amplada: Cancel·la `variant="secondary" size="modal"` primer i l’acció `size="modal"` després. Als diàlegs amb formulari, el formulari porta un `id` i el seu botó d’enviament va al peu. Els botons del peu porten només text (Crea, Desa); mentre l’acció treballa, un Spinner va dins del seu botó. Un clic a fora o Esc tanca el diàleg, excepte mentre la seva acció treballa.
 
+## Notificacions i confirmacions
+
+Les notificacions són `toast()` de `vue-sonner`, que es crida des de qualsevol lloc, amb un sol Toaster a App. Una confirmació és el bloc ConfirmDialog; el codi que pregunta sense una pàgina pròpia, com una opció de menú o un store, crida `useConfirm().ask()`, i la mostra l’únic ConfirmHost d’App.
+
 ## Colors de dades
 
 Etiquetes, sèries de gràfics i particions de dataset tenen colors propis a `@aisgroup/design/styles.css`: les etiquetes (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), les particions (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) i les sèries de gràfics (de `--chart-1` a `--chart-3`):
@@ -84,3 +89,5 @@ Etiquetes, sèries de gràfics i particions de dataset tenen colors propis a `@a
 ## Maquetació i zones interactives
 
 Les pantalles de producte ocupen tota l’amplada. Fan servir els punts de ruptura de Tailwind, no la retícula dels webs. A l’escriptori, els botons de barra d’eines i de capçalera fan 36 px (`h-9`), amb icones de 16 px; a les pantalles tàctils i als panells d’operari, cada zona interactiva fa 44 px. El text segueix l’escala de producte de [Tipografia](/ca/typography/).
+
+Els menús, els botons, les pestanyes i els Badge s’ajusten a la seva etiqueta més llarga: mai passen a una altra línia ni es tallen. Les dades llargues de l’usuari es trunquen, amb el text complet en un Tooltip o a `title`. Els botons d’una mateixa fila tenen la mateixa alçada. Res no es desplaça lateralment a cap amplada, ni la pàgina ni res del que conté; només ho poden fer el codi i els registres.

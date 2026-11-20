@@ -5,7 +5,6 @@ import { Button } from '@aisgroup/design/ui/button';
 </script>
 
 <template>
-  <Button size="xs">Extra small</Button>
   <Button size="sm">Small</Button>
   <Button>Default</Button>
   <Button size="lg">Large</Button>

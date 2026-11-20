@@ -7,6 +7,10 @@ export interface SidebarProps {
   variant?: 'sidebar' | 'floating' | 'inset'
   collapsible?: 'offcanvas' | 'icon' | 'none'
   class?: HTMLAttributes['class']
+  /** Screen-reader name of the mobile drawer; pass it translated. */
+  mobileTitle?: string
+  /** Optional screen-reader description of the mobile drawer. */
+  mobileDescription?: string
 }
 
 export { default as Sidebar } from './Sidebar.vue'
@@ -45,7 +49,7 @@ export const sidebarMenuButtonVariants = cva(
       },
       size: {
         default: 'h-8 text-sm',
-        sm: 'h-7 text-xs',
+        sm: 'h-7 text-sm',
         lg: 'h-12 text-sm group-data-[collapsible=icon]:p-0!',
       },
     },

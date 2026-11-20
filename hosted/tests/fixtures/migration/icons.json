@@ -1,0 +1,8 @@
+{
+ "description": "Test fixture: PrimeIcons and MDI to Lucide.",
+ "icons": [
+  { "from": "pi pi-bell", "lucide": "BellIcon" },
+  { "from": "pi pi-cog", "lucide": "SettingsIcon" },
+  { "from": "mdi-bell", "lucide": "BellIcon" }
+ ]
+}
