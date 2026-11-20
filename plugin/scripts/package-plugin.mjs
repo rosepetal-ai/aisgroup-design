@@ -51,16 +51,21 @@ export function packagePlugin(dest, { zip = false, proposed = true, lite = false
     fs.writeFileSync(path.join(dest, f), JSON.stringify(manifest, null, 2) + '\n');
   }
   // Cached downloads are links in the upload; the full Git/Claude Code distribution retains the local originals.
-  for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md') && !/(?:retained-(?:rules|updates)-\d+|writing-essentials)\.md$/.test(f))) {
+  // The ledger proves every rule's wording first; the rewrite below changes only link targets.
+  const retained = checkLedger(dest, JSON.parse(fs.readFileSync(path.join(ROOT, 'evals/rules-ledger.json'))));
+  if (retained.errors.length) throw new Error(retained.errors.join('\n'));
+  for (const file of fs.readdirSync(path.join(dest, 'skills'), { recursive: true }).filter(f => f.endsWith('.md'))) {
     const at = path.join(dest, 'skills', file), body = fs.readFileSync(at, 'utf8');
     fs.writeFileSync(at, body.replace(/\]\(([^)#]+)(#[^)]*)?\)/g, (all, link, fragment = '') => {
       if (/^(?:https?:|\/|#)/.test(link)) return all;
       const target = path.resolve(path.dirname(at), link), brand = path.join(dest, 'brand') + path.sep;
-      return target.startsWith(brand) && !fs.existsSync(target) ? `](https://aisgroup-design.web.app/${path.relative(path.join(dest, 'brand'), target)}${fragment})` : all;
+      if (fs.existsSync(target) || !target.startsWith(dest + path.sep)) return all;
+      // Guide downloads go to the hosted guide; studio files the upload leaves out go to their source on GitHub.
+      return target.startsWith(brand)
+        ? `](https://aisgroup-design.web.app/${path.relative(path.join(dest, 'brand'), target)}${fragment})`
+        : `](https://github.com/rosepetal-ai/aisgroup-design/blob/main/plugin/${path.relative(dest, target)}${fragment})`;
     }));
   }
-  const retained = checkLedger(dest, JSON.parse(fs.readFileSync(path.join(ROOT, 'evals/rules-ledger.json'))));
-  if (retained.errors.length) throw new Error(retained.errors.join('\n'));
   const archive = validateArchive(dest), skills = validateSkills(dest);
   const errors = [...validateManifests(dest), ...skills.errors, ...archive.errors];
   if (errors.length) throw new Error(errors.join('\n'));

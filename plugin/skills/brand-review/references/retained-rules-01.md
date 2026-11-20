@@ -5,14 +5,14 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-be4435fa78f5
 
 <!-- AIS-be4435fa78f5 -->
-Then read [the shared workflow](../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder.
+Then read [the shared workflow](../../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder.
 
 Source: plugin/skills/brand-review/SKILL.md:9.
 
 ## AIS-5e423b5cfa90
 
 <!-- AIS-5e423b5cfa90 -->
-The rules live in the guide (copied into the skills [brand-guidelines](../brand-guidelines/SKILL.md), [design-language](../design-language/SKILL.md) and [communications](../communications/SKILL.md)), the [production rules](../_shared/references/production-rules.md) and the [look checklist](references/look-checklist.md). This skill is the order to check them in. Quote the rule briefly in each finding.
+The rules live in the guide (copied into the skills [brand-guidelines](../../brand-guidelines/SKILL.md), [design-language](../../design-language/SKILL.md) and [communications](../../communications/SKILL.md)), the [production rules](../../_shared/references/production-rules.md) and the [look checklist](look-checklist.md). This skill is the order to check them in. Quote the rule briefly in each finding.
 
 Source: plugin/skills/brand-review/SKILL.md:11.
 
@@ -40,7 +40,7 @@ Source: plugin/skills/brand-review/SKILL.md:23.
 ## AIS-0d4c4380a3ee
 
 <!-- AIS-0d4c4380a3ee -->
-**Keep it simple.** Run `node engine/text-check.mjs <file>` (edit_piece validate runs it too): any error fails, every warning gets a look. Then by eye: one purpose; nothing above or beside the headline on posts, carousels and decks (print keeps its small section labels); no tagline, helper text, subtitle or secondary label; text that reads as generated (see [writing](../writing/SKILL.md)) fails. A piece that only works with them fails on its layout.
+**Keep it simple.** Run `node engine/text-check.mjs <file>` (edit_piece validate runs it too): any error fails, every warning gets a look. Then by eye: one purpose; nothing above or beside the headline on posts, carousels and decks (print keeps its small section labels); no tagline, helper text, subtitle or secondary label; text that reads as generated (see [writing](../../communications/SKILL.md)) fails. A piece that only works with them fails on its layout.
 
 Source: plugin/skills/brand-review/SKILL.md:25.
 
@@ -126,7 +126,7 @@ Source: plugin/skills/brand-review/SKILL.md:36.
 Historical wording: explicitly superseded by AIS-6e9225032282. Apply the dated resolution to the conflicting clause; preserve other clauses and this exact historical wording.
 
 <!-- AIS-37337045a223 -->
-**Colour and graphics.** The eight core colours and the four approved grounds with their pairings ([Colour](../design-language/references/colour.md)); status colours only for status, with a word. No gradients, glows or particles. The five approved decorative patterns may be used across media, one per piece, never behind body text or tables. Hexagons only as the faint outline pattern (one fade per piece, never over a photo's subject) or a single outline hexagon holding an icon or number; carousels close with the faint fade on the contact slide. Accent colour only on the headline's closing phrase, its ¿ ? ¡ ! included. Lucide icons only; no emoji, typed arrows or middle-dot separators.
+**Colour and graphics.** The eight core colours and the four approved grounds with their pairings ([Colour](../../design-language/references/colour.md)); status colours only for status, with a word. No gradients, glows or particles. The five approved decorative patterns may be used across media, one per piece, never behind body text or tables. Hexagons only as the faint outline pattern (one fade per piece, never over a photo's subject) or a single outline hexagon holding an icon or number; carousels close with the faint fade on the contact slide. Accent colour only on the headline's closing phrase, its ¿ ? ¡ ! included. Lucide icons only; no emoji, typed arrows or middle-dot separators.
 
 Source: plugin/skills/brand-review/SKILL.md:37.
 
@@ -147,7 +147,7 @@ Source: plugin/skills/brand-review/SKILL.md:39.
 ## AIS-5e265dd905ec
 
 <!-- AIS-5e265dd905ec -->
-**Overlays** ([Imagery, Detection overlays](../design-language/references/imagery.md#detection-overlays)). Hairline boxes `#3664B3` (`#A7BFE4` on dark), red only for the defect; chips say what was expected, in words; one verdict (`OK`, or `NOK 1 defecto`), top left; nothing covers the evidence; readings and confidences only on real system output.
+**Overlays** ([Imagery, Detection overlays](../../design-language/references/imagery.md#detection-overlays)). Hairline boxes `#3664B3` (`#A7BFE4` on dark), red only for the defect; chips say what was expected, in words; one verdict (`OK`, or `NOK 1 defecto`), top left; nothing covers the evidence; readings and confidences only on real system output.
 
 Source: plugin/skills/brand-review/SKILL.md:40.
 

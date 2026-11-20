@@ -327,7 +327,7 @@ Source: plugin/skills/communications/SKILL.md:79.
 ## AIS-d33cfc087990
 
 <!-- AIS-d33cfc087990 -->
-This skill is the method; the rules are the guide's [Voice](../communications/references/voice.md) (claims, calls to action, headline formulas) and [Localisation](../communications/references/localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
+This skill is the method; the rules are the guide's [Voice](voice.md) (claims, calls to action, headline formulas) and [Localisation](localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../../brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
 
 Source: plugin/skills/writing/SKILL.md:9.
 
@@ -516,49 +516,49 @@ Source: plugin/skills/writing/SKILL.md:50.
 ## AIS-2668dc64e5d8
 
 <!-- AIS-2668dc64e5d8 -->
-| Headline | One idea, 6–12 words, a formula from Voice; no colon-joined pair of slogans | [formats](references/formats.md#headline) |
+| Headline | One idea, 6–12 words, a formula from Voice; no colon-joined pair of slogans | [formats](writing-formats.md#headline) |
 
 Source: plugin/skills/writing/SKILL.md:52.
 
 ## AIS-451ae4b05807
 
 <!-- AIS-451ae4b05807 -->
-| Post caption | Two to four sentences: what it checks, on what, what the picture shows; then the call to action | [formats](references/formats.md#post-caption) |
+| Post caption | Two to four sentences: what it checks, on what, what the picture shows; then the call to action | [formats](writing-formats.md#post-caption) |
 
 Source: plugin/skills/writing/SKILL.md:53.
 
 ## AIS-60748d7812e2
 
 <!-- AIS-60748d7812e2 -->
-| Brochure paragraph | Lead of one or two sentences; blocks of one argument each, 40–70 words | [formats](references/formats.md#brochure-paragraph) |
+| Brochure paragraph | Lead of one or two sentences; blocks of one argument each, 40–70 words | [formats](writing-formats.md#brochure-paragraph) |
 
 Source: plugin/skills/writing/SKILL.md:54.
 
 ## AIS-37e805f14ced
 
 <!-- AIS-37e805f14ced -->
-| Deck slide | One message, about 40 words at most; the title says the conclusion | [formats](references/formats.md#deck-slide) |
+| Deck slide | One message, about 40 words at most; the title says the conclusion | [formats](writing-formats.md#deck-slide) |
 
 Source: plugin/skills/writing/SKILL.md:55.
 
 ## AIS-02fc56a42e3e
 
 <!-- AIS-02fc56a42e3e -->
-| Proposal section | Scope, what is included and what is not, conditions; no selling | [formats](references/formats.md#proposal-section) |
+| Proposal section | Scope, what is included and what is not, conditions; no selling | [formats](writing-formats.md#proposal-section) |
 
 Source: plugin/skills/writing/SKILL.md:56.
 
 ## AIS-a18d3916f687
 
 <!-- AIS-a18d3916f687 -->
-| Case study | Problem, solution, result with its conditions, and the customer's written approval | [formats](references/formats.md#case-study) |
+| Case study | Problem, solution, result with its conditions, and the customer's written approval | [formats](writing-formats.md#case-study) |
 
 Source: plugin/skills/writing/SKILL.md:57.
 
 ## AIS-74ec8af4cfc9
 
 <!-- AIS-74ec8af4cfc9 -->
-Spanish and English tells with plain rewrites, and notes for Catalan, Portuguese and French: [references/tells.md](references/tells.md).
+Spanish and English tells with plain rewrites, and notes for Catalan, Portuguese and French: [references/tells.md](writing-tells.md).
 
 Source: plugin/skills/writing/SKILL.md:59.
 

@@ -87,6 +87,16 @@ export function validateSkills(root) {
       if (target.split('/').length !== 2 || !fs.existsSync(path.join(root, 'skills', dir, target))) errors.push(`${dir}: missing or nested reference ${target}`);
     }
   }
+  // Every link from one skill to another must land on a file. Links out of skills/ (guide downloads, studio files)
+  // are checked by the upload, which points the ones it leaves out at the hosted guide or GitHub.
+  const skillsRoot = path.join(root, 'skills') + path.sep;
+  for (const file of fs.readdirSync(skillsRoot, { recursive: true }).filter(f => f.endsWith('.md'))) {
+    const at = path.join(skillsRoot, file);
+    for (const [, link] of fs.readFileSync(at, 'utf8').matchAll(/\]\(([^)#\s|]+)(?:#[^)]*)?\)/g)) {
+      const target = path.resolve(path.dirname(at), link);
+      if (!/^(?:[a-z]+:|\/)/.test(link) && target.startsWith(skillsRoot) && !fs.existsSync(target)) errors.push(`skills/${file}: dead link ${link}`);
+    }
+  }
   return { errors, count, maxLines, maxTokens };
 }
 
