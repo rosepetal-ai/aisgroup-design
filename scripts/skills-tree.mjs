@@ -94,7 +94,7 @@ export function proposal(out) {
   // The old writing skill overlapped voice/localisation. Preserve its method and both references under communications.
   copy(path.join(source, 'writing/references/formats.md'), path.join(out, 'communications/references/writing-formats.md'));
   copy(path.join(source, 'writing/references/tells.md'), path.join(out, 'communications/references/writing-tells.md'));
-  write(path.join(out, 'communications/references/writing-workflow.md'), strip(read(path.join(source, 'writing/SKILL.md'))).replace(essential, '').replaceAll('references/formats.md', 'writing-formats.md').replaceAll('references/tells.md', 'writing-tells.md'));
+  write(path.join(out, 'communications/references/writing-workflow.md'), strip(read(path.join(source, 'writing/SKILL.md'))).replace(essential, '').replaceAll('references/formats.md', 'writing-formats.md').replaceAll('references/tells.md', 'writing-tells.md').replaceAll('](../communications/references/', '](').replaceAll('](../brand-guidelines/', '](../../brand-guidelines/'));
   fs.rmSync(path.join(out, 'writing'), { recursive: true });
   const notes = {
     'print-stationery/print.md': '# Print and stationery\n\nRead resources-assets/references/kit.md for the office kit and digital-documents/references/communications.md for printed-material composition. The guide names letterhead and Word templates. PowerPoint starts from the closest deck PPTX export; new decks use presentation. The private business-card sources are plugin/pieces/stationery/business-cards/; do not include them in a public download or plugin upload. A public business-card specification is missing. Use existing templates without inventing a card grid, size or contact.\n',
