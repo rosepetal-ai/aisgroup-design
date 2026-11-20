@@ -44,6 +44,7 @@ Claude picks the template, writes the copy from what is true, checks it against 
 | asset-library | Finding approved photos, renders and footage |
 | resources-assets | Downloads and the design server's files |
 | web-design | The websites and their components |
+| live-animation | Live three.js animations on the websites |
 | product-ui | Rosepetal app screens and Node-RED panels |
 | ui-audit, ui-theme-diff, ui-unify | Auditing, comparing and redesigning Vue apps on our components |
 | vue-primevue, vue-vuetify | Colour bridges for apps still on PrimeVue or Vuetify |
@@ -58,7 +59,7 @@ The skills, hooks and checks run on your computer and send nothing to AIS Group.
 
 ## For developers
 
-Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.3.3`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`; it needs an AIS staff token, and the skills work without it.
+Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.4.0`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`; it needs an AIS staff token, and the skills work without it.
 
 `npm run validate:plugin -w plugin` checks the live source, and `node plugin/scripts/rules-ledger.mjs check` proves that every brand rule the ledger records is still in the skills.
 
