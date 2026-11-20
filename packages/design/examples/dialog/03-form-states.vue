@@ -58,8 +58,8 @@ async function save() {
           <Field :data-invalid="!!nameError || undefined" :data-disabled="loading || undefined">
             <FieldLabel :for="`${uid}-name`">Name</FieldLabel>
             <Input :id="`${uid}-name`" v-model="name" :disabled="loading" :aria-invalid="!!nameError || undefined" />
-            <FieldError v-if="nameError" class="text-xs">{{ nameError }}</FieldError>
-            <FieldDescription v-else class="text-xs">Up to 32 letters, numbers and underscores.</FieldDescription>
+            <FieldError v-if="nameError">{{ nameError }}</FieldError>
+            <FieldDescription v-else>Up to 32 letters, numbers and underscores.</FieldDescription>
           </Field>
           <Field :data-disabled="loading || undefined">
             <FieldLabel :for="`${uid}-desc`">Description</FieldLabel>

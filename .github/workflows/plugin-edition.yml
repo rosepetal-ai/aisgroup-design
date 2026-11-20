@@ -1,0 +1,51 @@
+name: Plugin edition
+
+# claude.ai and Anthropic's plugin directory read a repository as one archive, and this monorepo is far over their
+# limits (50 MiB, 512 plugin files). On every push to main this job builds the lite edition (skills, hooks, checks and
+# the hosted design server, without the studio) and replaces the `claude-plugin` branch with it: one commit holding the
+# marketplace and the plugin, a few hundred files. Install from that branch; develop here. Nothing is deployed.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-edition
+  cancel-in-progress: true
+
+jobs:
+  publish-branch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build the lite edition
+        run: |
+          out="$RUNNER_TEMP/edition"
+          npm run package:plugin -w plugin -- --lite --out="$out/plugin"
+          rm "$out/plugin.zip"
+          mkdir -p "$out/.claude-plugin"
+          cp .claude-plugin/marketplace.json "$out/.claude-plugin/"
+          cp LICENSE "$out/"
+          cp plugin/README.md "$out/README.md"
+
+      - name: Replace the claude-plugin branch
+        run: |
+          cd "$RUNNER_TEMP/edition"
+          git init -q -b claude-plugin
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "AIS Group Design plugin, lite edition, from ${GITHUB_SHA::8}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" claude-plugin

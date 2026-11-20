@@ -382,7 +382,7 @@ async function copyExport() {
               <Badge :variant="failing.length ? 'destructive' : 'success'">{{ failing.length ? $t('{n} below 4.5:1', { n: failing.length }) : $t('All pass') }}</Badge>
             </CardTitle>
             <CardAction v-if="failing.length > 1">
-              <Button variant="outline" size="xs" @click="fixAll"><WandSparklesIcon data-icon="inline-start" />{{ $t('Fix all') }}</Button>
+              <Button variant="outline" size="sm" @click="fixAll"><WandSparklesIcon data-icon="inline-start" />{{ $t('Fix all') }}</Button>
             </CardAction>
             <CardDescription>{{ $t('Text against its background in the mode on screen (WCAG AA asks 4.5:1).') }}</CardDescription>
           </CardHeader>
@@ -395,7 +395,7 @@ async function copyExport() {
               </span>
               <Tooltip v-if="c.ratio < 4.5">
                 <TooltipTrigger as-child>
-                  <Button variant="outline" size="xs" class="h-6 px-2" @click="fix(c)"><WandSparklesIcon data-icon="inline-start" />{{ $t('Fix') }}</Button>
+                  <Button variant="outline" size="sm" @click="fix(c)"><WandSparklesIcon data-icon="inline-start" />{{ $t('Fix') }}</Button>
                 </TooltipTrigger>
                 <TooltipContent>{{ $t('Darkens or lightens {token} just enough to reach 4.5:1', { token: c.fg }) }}</TooltipContent>
               </Tooltip>

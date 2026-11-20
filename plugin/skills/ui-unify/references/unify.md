@@ -1,6 +1,6 @@
 # Unify an existing product UI
 
-Use product-ui/references/using-components.md and registry/package code as the target; choose the relevant Vue adapter only after reading package.json. Audit and inventory the current screen first. Preserve behaviour, image/dataset cards, content and state transitions while replacing one component family. Run the actual application build, inspect both modes and test keyboard/async states. No automatic codemod or browser audit exists here; do not claim these checks ran without evidence.
+Use product-ui/references/using-components.md and registry/package code as the target; choose the relevant Vue adapter only after reading package.json. For a whole app on PrimeVue, Vuetify or its own styles, follow [redesign](redesign.md). Audit and inventory the current screen first. Preserve behaviour, image/dataset cards, content and state transitions while replacing one component family. Run the actual application build and tests, inspect both modes and test keyboard/async states. There is no automatic codemod; the browser check is `ui-states.mjs` ([redesign](redesign.md), step 6). Do not claim a check ran without its output.
 
 ## Take the product, not only the parts
 

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "timeline",
+  "type": "registry:ui",
+  "title": "Timeline",
+  "description": "Events in time order, each with its marker, title, details and time.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/separator.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/timeline/Timeline.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\n// A vertical list of events, newest or oldest first as the page needs. Each event is a TimelineItem.\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <ol data-slot=\"timeline\" :class=\"cn('flex w-full flex-col', props.class)\">\n    <slot />\n  </ol>\n</template>\n"
+    },
+    {
+      "path": "components/ui/timeline/TimelineItem.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Separator } from '@/components/ui/separator'\n\n// One event: a marker (a dot, or an icon in the marker slot) joined to the next event by a separator line, and its\n// content beside it, usually Item's title and description and a muted time.\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <li data-slot=\"timeline-item\" :class=\"cn('group/timeline-item flex gap-3', props.class)\">\n    <div class=\"flex flex-col items-center\">\n      <span data-slot=\"timeline-marker\" class=\"flex size-6 shrink-0 items-center justify-center rounded-full border bg-background text-muted-foreground [&_svg:not([class*=size-])]:size-3.5\">\n        <slot name=\"marker\"><span class=\"size-2 rounded-full bg-muted-foreground\" /></slot>\n      </span>\n      <div class=\"my-1 flex flex-1 justify-center group-last/timeline-item:hidden\">\n        <Separator orientation=\"vertical\" />\n      </div>\n    </div>\n    <div data-slot=\"timeline-content\" class=\"flex min-w-0 flex-1 flex-col gap-1 pb-6 group-last/timeline-item:pb-0\">\n      <slot />\n    </div>\n  </li>\n</template>\n"
+    },
+    {
+      "path": "components/ui/timeline/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as Timeline } from './Timeline.vue'\nexport { default as TimelineItem } from './TimelineItem.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/timeline/Timeline.vue"
+  }
+}

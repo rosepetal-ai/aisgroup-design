@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-2dd59db217a2
 
 <!-- AIS-2dd59db217a2 -->
-Then read [the shared workflow](../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder. Rules for what may be used: [Imagery](../design-language/references/imagery.md) and the [production rules](../_shared/references/production-rules.md). Read them first.
+Then read [the shared workflow](../../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder. Rules for what may be used: [Imagery](../../design-language/references/imagery.md) and the [production rules](../../_shared/references/production-rules.md). Read them first.
 
 Source: plugin/skills/asset-library/SKILL.md:9.
 

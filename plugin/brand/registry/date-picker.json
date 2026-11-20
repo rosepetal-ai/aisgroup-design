@@ -1,0 +1,40 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "date-picker",
+  "type": "registry:ui",
+  "title": "Date picker",
+  "description": "A date or a range in a button with the formatted date, and a calendar in a popover.",
+  "dependencies": [
+    "reka-ui",
+    "@lucide/vue",
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json",
+    "https://design.aisgroup.ai/r/button.json",
+    "https://design.aisgroup.ai/r/calendar.json",
+    "https://design.aisgroup.ai/r/popover.json",
+    "https://design.aisgroup.ai/r/range-calendar.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/date-picker/DatePicker.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { DateValue } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { DateFormatter, getLocalTimeZone } from '@internationalized/date'\nimport { CalendarIcon } from '@lucide/vue'\nimport { computed, ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport { Calendar } from '@/components/ui/calendar'\nimport { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'\n\n// One date: an outline button with the date written in the locale, and the calendar in a popover that closes on a pick.\nconst props = withDefaults(defineProps<{\n  id?: string\n  locale?: string\n  placeholder?: string\n  formatOptions?: Intl.DateTimeFormatOptions\n  minValue?: DateValue\n  maxValue?: DateValue\n  isDateUnavailable?: (date: DateValue) => boolean\n  disabled?: boolean\n  class?: HTMLAttributes['class']\n}>(), {\n  locale: 'en-GB',\n  placeholder: 'Pick a date',\n  formatOptions: () => ({ dateStyle: 'medium' }),\n})\n\nconst value = defineModel<DateValue | undefined>()\nconst open = ref(false)\nconst formatter = computed(() => new DateFormatter(props.locale, props.formatOptions))\n\nfunction pick(date: DateValue | DateValue[] | undefined) {\n  value.value = Array.isArray(date) ? date[0] : date\n  open.value = false\n}\n</script>\n\n<template>\n  <Popover v-model:open=\"open\">\n    <PopoverTrigger as-child>\n      <Button\n        data-slot=\"date-picker\"\n        :id=\"id\"\n        variant=\"outline\"\n        :disabled=\"disabled\"\n        :class=\"cn('w-60 justify-start font-normal', !value && 'text-muted-foreground', props.class)\"\n      >\n        <CalendarIcon data-icon=\"inline-start\" />\n        {{ value ? formatter.format(value.toDate(getLocalTimeZone())) : placeholder }}\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"w-auto p-0\" align=\"start\">\n      <Calendar\n        :model-value=\"value\"\n        :locale=\"locale\"\n        :min-value=\"minValue\"\n        :max-value=\"maxValue\"\n        :is-date-unavailable=\"isDateUnavailable\"\n        initial-focus\n        @update:model-value=\"pick\"\n      />\n    </PopoverContent>\n  </Popover>\n</template>\n"
+    },
+    {
+      "path": "components/ui/date-picker/DateRangePicker.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\nimport type { DateRange, DateValue } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { DateFormatter, getLocalTimeZone } from '@internationalized/date'\nimport { CalendarIcon } from '@lucide/vue'\nimport { computed, ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'\nimport { RangeCalendar } from '@/components/ui/range-calendar'\n\n// A date range: the button writes both ends in the locale; two months side by side; it closes once both ends are set.\nconst props = withDefaults(defineProps<{\n  id?: string\n  locale?: string\n  placeholder?: string\n  formatOptions?: Intl.DateTimeFormatOptions\n  numberOfMonths?: number\n  minValue?: DateValue\n  maxValue?: DateValue\n  isDateUnavailable?: (date: DateValue) => boolean\n  disabled?: boolean\n  class?: HTMLAttributes['class']\n}>(), {\n  locale: 'en-GB',\n  placeholder: 'Pick a date range',\n  formatOptions: () => ({ dateStyle: 'medium' }),\n  numberOfMonths: 2,\n})\n\nconst value = defineModel<DateRange | undefined>()\nconst open = ref(false)\nconst formatter = computed(() => new DateFormatter(props.locale, props.formatOptions))\nconst label = computed(() => {\n  const { start, end } = value.value ?? {}\n  if (!start)\n    return props.placeholder\n  const zone = getLocalTimeZone()\n  return end ? formatter.value.formatRange(start.toDate(zone), end.toDate(zone)) : formatter.value.format(start.toDate(zone))\n})\n\nfunction pick(range: DateRange) {\n  value.value = range\n  if (range.start && range.end)\n    open.value = false\n}\n</script>\n\n<template>\n  <Popover v-model:open=\"open\">\n    <PopoverTrigger as-child>\n      <Button\n        data-slot=\"date-range-picker\"\n        :id=\"id\"\n        variant=\"outline\"\n        :disabled=\"disabled\"\n        :class=\"cn('w-72 justify-start font-normal', !value?.start && 'text-muted-foreground', props.class)\"\n      >\n        <CalendarIcon data-icon=\"inline-start\" />\n        {{ label }}\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"w-auto p-0\" align=\"start\">\n      <RangeCalendar\n        :model-value=\"value\"\n        :locale=\"locale\"\n        :number-of-months=\"numberOfMonths\"\n        :min-value=\"minValue\"\n        :max-value=\"maxValue\"\n        :is-date-unavailable=\"isDateUnavailable\"\n        initial-focus\n        @update:model-value=\"pick\"\n      />\n    </PopoverContent>\n  </Popover>\n</template>\n"
+    },
+    {
+      "path": "components/ui/date-picker/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as DatePicker } from './DatePicker.vue'\nexport { default as DateRangePicker } from './DateRangePicker.vue'\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/ui/date-picker/DatePicker.vue"
+  }
+}

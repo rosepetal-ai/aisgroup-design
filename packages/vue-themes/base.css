@@ -3,4 +3,5 @@
   --ais-control-radius: 8px;
   --ais-modal-radius: 12px;
 }
+.dark { color-scheme: dark; }
 body { font-family: 'Inter Variable', sans-serif; font-size: 0.875rem; }

@@ -16,5 +16,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["catalog.ts", "lib/**/*.ts", "ui/**/*.ts", "ui/**/*.vue", "blocks/**/*.ts", "blocks/**/*.vue", "shims.d.ts"]
+  "include": ["catalog.ts", "lib/**/*.ts", "ui/**/*.ts", "ui/**/*.vue", "blocks/**/*.ts", "blocks/**/*.vue"]
 }

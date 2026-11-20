@@ -8,7 +8,7 @@ import type { APIRoute } from 'astro';
 import { posix } from 'node:path';
 import { blockItems, componentItems, files, sourceOf, styles, version } from '../../design/package';
 
-const NPM = ['reka-ui', '@vueuse/core', 'class-variance-authority', '@lucide/vue', 'vue-sonner', 'clsx', 'tailwind-merge', 'tw-animate-css', 'embla-carousel-vue'];
+const NPM = ['reka-ui', '@vueuse/core', 'class-variance-authority', '@lucide/vue', 'vue-sonner', 'clsx', 'tailwind-merge', 'tw-animate-css', 'embla-carousel-vue', '@tanstack/vue-table', '@unovis/vue', '@unovis/ts', '@internationalized/date'];
 const SITE = 'https://design.aisgroup.ai';
 
 // Where a package file goes in an app, as shadcn-vue lays it out.

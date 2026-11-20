@@ -15,6 +15,8 @@ const props = withDefaults(defineProps<SidebarProps>(), {
   side: 'left',
   variant: 'sidebar',
   collapsible: 'offcanvas',
+  mobileTitle: 'Sidebar',
+  mobileDescription: '',
 })
 
 const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
@@ -42,8 +44,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
       }"
     >
       <SheetHeader class="sr-only">
-        <SheetTitle>Sidebar</SheetTitle>
-        <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+        <SheetTitle>{{ mobileTitle }}</SheetTitle>
+        <SheetDescription>{{ mobileDescription }}</SheetDescription>
       </SheetHeader>
       <div class="flex h-full w-full flex-col">
         <slot />

@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-55ee9fce0b91
 
 <!-- AIS-55ee9fce0b91 -->
-Then read [the shared workflow](../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder. Production rules: [production-rules.md](../_shared/references/production-rules.md).
+Then read [the shared workflow](../../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder. Production rules: [production-rules.md](../../_shared/references/production-rules.md).
 
 Source: plugin/skills/brochure/SKILL.md:9.
 
@@ -19,7 +19,7 @@ Source: plugin/skills/brochure/SKILL.md:11.
 ## AIS-1edc06ea6f42
 
 <!-- AIS-1edc06ea6f42 -->
-**This is the only brochure, catalogue, one-pager and datasheet system.** Datasheets: the sheet HTML `pieces/datasheets/<key>/<key>.es.html` is the source (reference `pieces/datasheets/cables/cables.es.html`): edit it, export with `print/render.mjs`, look at the PDF, then `npm run mcp:pin`, which re-extracts `datasheets/data.json` and re-pins the sheet so the MCP accepts it. Never edit `data.json` by hand. The generators and the rules each one enforces are listed in [the shared workflow](../_shared/WORKFLOW.md) (*Brand rules the generators check*). Never use a hexagon not drawn by `print/pattern.py` or the brochure, catalogue and datasheet pages in the guide's kit: those layouts are rejected. Don't copy from them or show them.
+**This is the only brochure, catalogue, one-pager and datasheet system.** Datasheets: the sheet HTML `pieces/datasheets/<key>/<key>.es.html` is the source (reference `pieces/datasheets/cables/cables.es.html`): edit it, export with `print/render.mjs`, look at the PDF, then `npm run mcp:pin`, which re-extracts `datasheets/data.json` and re-pins the sheet so the MCP accepts it. Never edit `data.json` by hand. The generators and the rules each one enforces are listed in [the shared workflow](../../_shared/WORKFLOW.md) (*Brand rules the generators check*). Never use a hexagon not drawn by `print/pattern.py` or the brochure, catalogue and datasheet pages in the guide's kit: those layouts are rejected. Don't copy from them or show them.
 
 Source: plugin/skills/brochure/SKILL.md:13.
 
@@ -47,7 +47,7 @@ Source: plugin/skills/brochure/SKILL.md:20.
 ## AIS-81b3561561d1
 
 <!-- AIS-81b3561561d1 -->
-**Content.** Start from the accepted piece in `pieces/brochures/<piece>/` and its published example; marketing's original PDF only when the person supplies it. Read it with pdftotext; to see it, check cached previews first or rasterise under the shared wrapper with `pdftoppm -r 50`. Keep every fact and every detection; restore the original's figures (100 % de la producción, cadences, sizes, 21 CFR Part 11…) using the better-sourced AIS figure for the exact model; record alternatives privately. The current chosen figures are in the shared workflow. Drop superlatives ("impecable", "de vértigo", "casi nulos") and claims without conditions. Names exact: AIS Vision Systems, AIS Hopper, AIS REV 360 STANDARD / COMPACT / PHARMA, AIS REV 360 Cables, AIS KARIKÓ, OPTICAIS, AIS Vacuum, Rosepetal, TrazAIS. Sentence case, no full stop at the end of titles, Spanish number format from the guide ([Localisation](../communications/references/localisation.md)): no separator up to four digits, a non-breaking space from five (7200, 30 000), dates 10/2028.
+**Content.** Start from the accepted piece in `pieces/brochures/<piece>/` and its published example; marketing's original PDF only when the person supplies it. Read it with pdftotext; to see it, check cached previews first or rasterise under the shared wrapper with `pdftoppm -r 50`. Keep every fact and every detection; restore the original's figures (100 % de la producción, cadences, sizes, 21 CFR Part 11…) using the better-sourced AIS figure for the exact model; record alternatives privately. The current chosen figures are in the shared workflow. Drop superlatives ("impecable", "de vértigo", "casi nulos") and claims without conditions. Names exact: AIS Vision Systems, AIS Hopper, AIS REV 360 STANDARD / COMPACT / PHARMA, AIS REV 360 Cables, AIS KARIKÓ, OPTICAIS, AIS Vacuum, Rosepetal, TrazAIS. Sentence case, no full stop at the end of titles, Spanish number format from the guide ([Localisation](../../communications/references/localisation.md)): no separator up to four digits, a non-breaking space from five (7200, 30 000), dates 10/2028.
 
 Source: plugin/skills/brochure/SKILL.md:24.
 
@@ -61,7 +61,7 @@ Source: plugin/skills/brochure/SKILL.md:25.
 ## AIS-2ffd577d8401
 
 <!-- AIS-2ffd577d8401 -->
-The piece's own `assets/` folder. Verdicts, crops and blur regions for pictures taken from marketing's originals: [original-images.json](references/original-images.json).
+The piece's own `assets/` folder. Verdicts, crops and blur regions for pictures taken from marketing's originals: [original-images.json](original-images.json).
 
 Source: plugin/skills/brochure/SKILL.md:26.
 

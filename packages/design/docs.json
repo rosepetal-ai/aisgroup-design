@@ -426,8 +426,8 @@
         "ca": "Pàgina d’accés"
       },
       "description": {
-        "es": "La página de inicio de sesión. Cada aplicación aporta sus textos y comprueba la contraseña.",
-        "ca": "La pàgina d’inici de sessió. Cada aplicació aporta els seus textos i comprova la contrasenya."
+        "es": "La página de inicio de sesión. Cada aplicación aporta su logotipo, sus textos y su inicio de sesión.",
+        "ca": "La pàgina d’inici de sessió. Cada aplicació aporta el seu logotip, els seus textos i el seu inici de sessió."
       }
     },
     "confirm-dialog": {
@@ -440,6 +440,16 @@
         "ca": "Una pregunta abans d’una acció: executa l’acció, mostra el progrés i els errors, i permet tornar-ho a provar. Cada aplicació aporta els seus textos i l’acció."
       }
     },
+    "confirm-host": {
+      "name": {
+        "es": "Host de confirmaciones",
+        "ca": "Host de confirmacions"
+      },
+      "description": {
+        "es": "Confirmaciones pedidas desde el código: useConfirm().ask() abre el diálogo de confirmación en el único host que monta App.",
+        "ca": "Confirmacions demanades des del codi: useConfirm().ask() obre el diàleg de confirmació a l’únic host que munta App."
+      }
+    },
     "log-terminal": {
       "name": {
         "es": "Terminal de registros",
@@ -450,6 +460,156 @@
         "ca": "Una consola de registres. Cada aplicació aporta les seves línies."
       }
     },
+    "calendar": {
+      "name": {
+        "es": "Calendario",
+        "ca": "Calendari"
+      },
+      "description": {
+        "es": "Un día en la vista de un mes, en el idioma y con el primer día de la semana de la configuración regional.",
+        "ca": "Un dia a la vista d’un mes, en l’idioma i amb el primer dia de la setmana de la configuració regional."
+      }
+    },
+    "chart": {
+      "name": {
+        "es": "Gráfico",
+        "ca": "Gràfic"
+      },
+      "description": {
+        "es": "Gráficos de área, barras, líneas y anillo sobre Unovis, en los colores de datos, con ayuda emergente y leyenda.",
+        "ca": "Gràfics d’àrea, barres, línies i anell sobre Unovis, en els colors de dades, amb ajuda emergent i llegenda."
+      }
+    },
+    "command": {
+      "name": {
+        "es": "Comando",
+        "ca": "Ordre"
+      },
+      "description": {
+        "es": "Una lista de opciones o acciones con búsqueda, integrada o como paleta.",
+        "ca": "Una llista d’opcions o accions amb cerca, integrada o com a paleta."
+      }
+    },
+    "context-menu": {
+      "name": {
+        "es": "Menú contextual",
+        "ca": "Menú contextual"
+      },
+      "description": {
+        "es": "Las acciones de un objeto al hacer clic derecho, además de en un botón visible.",
+        "ca": "Les accions d’un objecte en fer clic dret, a més d’en un botó visible."
+      }
+    },
+    "data-table": {
+      "name": {
+        "es": "Tabla de datos",
+        "ca": "Taula de dades"
+      },
+      "description": {
+        "es": "Una tabla a partir de columnas y datos: orden, búsqueda, filtros, páginas, columnas visibles y selección.",
+        "ca": "Una taula a partir de columnes i dades: ordre, cerca, filtres, pàgines, columnes visibles i selecció."
+      }
+    },
+    "date-picker": {
+      "name": {
+        "es": "Selector de fecha",
+        "ca": "Selector de data"
+      },
+      "description": {
+        "es": "Una fecha o un intervalo en un botón con la fecha formateada, y un calendario en un panel emergente.",
+        "ca": "Una data o un interval en un botó amb la data formatada, i un calendari en un panell emergent."
+      }
+    },
+    "file-upload": {
+      "name": {
+        "es": "Subida de archivos",
+        "ca": "Pujada de fitxers"
+      },
+      "description": {
+        "es": "Una zona discontinua para soltar archivos, con su botón, y la lista de archivos con el progreso y la opción de quitarlos.",
+        "ca": "Una zona discontínua per deixar anar fitxers, amb el seu botó, i la llista de fitxers amb el progrés i l’opció de treure’ls."
+      }
+    },
+    "multi-select": {
+      "name": {
+        "es": "Selección múltiple",
+        "ca": "Selecció múltiple"
+      },
+      "description": {
+        "es": "Varias opciones de una lista, mostradas como etiquetas en el campo.",
+        "ca": "Diverses opcions d’una llista, mostrades com a etiquetes al camp."
+      }
+    },
+    "number-field": {
+      "name": {
+        "es": "Campo numérico",
+        "ca": "Camp numèric"
+      },
+      "description": {
+        "es": "Un número con botones de restar y sumar, con el formato de la configuración regional.",
+        "ca": "Un número amb botons de restar i sumar, amb el format de la configuració regional."
+      }
+    },
+    "pin-input": {
+      "name": {
+        "es": "Código",
+        "ca": "Codi"
+      },
+      "description": {
+        "es": "Un código corto, un carácter por casilla.",
+        "ca": "Un codi curt, un caràcter per casella."
+      }
+    },
+    "range-calendar": {
+      "name": {
+        "es": "Calendario de intervalo",
+        "ca": "Calendari d’interval"
+      },
+      "description": {
+        "es": "Una fecha de inicio y otra de fin en uno o varios meses.",
+        "ca": "Una data d’inici i una de final en un o diversos mesos."
+      }
+    },
+    "stepper": {
+      "name": {
+        "es": "Pasos",
+        "ca": "Passos"
+      },
+      "description": {
+        "es": "Los pasos de una tarea en orden, con el actual marcado.",
+        "ca": "Els passos d’una tasca en ordre, amb l’actual marcat."
+      }
+    },
+    "tags-input": {
+      "name": {
+        "es": "Campo de etiquetas",
+        "ca": "Camp d’etiquetes"
+      },
+      "description": {
+        "es": "Valores libres escritos como etiquetas.",
+        "ca": "Valors lliures escrits com a etiquetes."
+      }
+    },
+    "timeline": {
+      "name": {
+        "es": "Cronología",
+        "ca": "Cronologia"
+      },
+      "description": {
+        "es": "Sucesos en orden temporal, cada uno con su marcador, título, detalles y hora.",
+        "ca": "Esdeveniments en ordre temporal, cadascun amb el seu marcador, títol, detalls i hora."
+      }
+    },
+    "tree": {
+      "name": {
+        "es": "Árbol",
+        "ca": "Arbre"
+      },
+      "description": {
+        "es": "Elementos anidados como filas de lista que se abren y se cierran, con casillas opcionales.",
+        "ca": "Elements niats com a files de llista que s’obren i es tanquen, amb caselles opcionals."
+      }
+    },
     "page-layout": {
       "name": {
         "es": "Diseño de página",
@@ -458,6 +618,16 @@
       "description": {
         "es": "Una página bajo la barra superior: su ancho, título y acciones, y un menú lateral opcional que se queda quieto mientras el contenido se desplaza.",
         "ca": "Una pàgina sota la barra superior: la seva amplada, títol i accions, i un menú lateral opcional que es queda quiet mentre el contingut es desplaça."
+      }
+    },
+    "figure-cards": {
+      "name": {
+        "es": "Tarjetas de cifras",
+        "ca": "Targetes de xifres"
+      },
+      "description": {
+        "es": "Las cifras de un resumen como tarjetas: etiqueta, valor y una línea de detalle opcional, hasta cuatro por fila.",
+        "ca": "Les xifres d’un resum com a targetes: etiqueta, valor i una línia de detall opcional, fins a quatre per fila."
       }
     }
   },
@@ -662,6 +832,16 @@
         "ca": "Una acció llarga: el progrés ocupa el seu slot i amb background l’únic botó és Continua, que deixa l’acció en curs. L’aplicació tanca el diàleg i mostra el progrés en un altre lloc."
       }
     },
+    "confirm-host/01-from-code": {
+      "name": {
+        "es": "Desde el código",
+        "ca": "Des del codi"
+      },
+      "about": {
+        "es": "Una pregunta hecha desde el código, como una opción de menú o un store: useConfirm().ask() abre el diálogo de confirmación en el ConfirmHost que App monta una sola vez, con las etiquetas traducidas de la aplicación. La acción se ejecuta en el diálogo, con su progreso, sus errores y Reintentar.",
+        "ca": "Una pregunta feta des del codi, com una opció de menú o un store: useConfirm().ask() obre el diàleg de confirmació al ConfirmHost que App munta un sol cop, amb les etiquetes traduïdes de l’aplicació. L’acció s’executa al diàleg, amb el progrés, els errors i Torna-ho a provar."
+      }
+    },
     "dialog/01-form": {
       "name": {
         "es": "Formulario",
@@ -842,6 +1022,16 @@
         "ca": "Sense panell lateral, amb textos d’una altra aplicació i un error del seu propi inici de sessió."
       }
     },
+    "login-page/03-group-app": {
+      "name": {
+        "es": "Aplicación del grupo",
+        "ca": "Aplicació del grup"
+      },
+      "about": {
+        "es": "Software que usa todo el grupo: lo firma solo AIS Group, con su logotipo completo, y la aplicación se llama «Nexus ERP», sin una empresa delante. El panel lleva la esquina de hexágonos de las portadas de los catálogos en lugar de la animación de inspección, así que no hay botón de pausa. El formulario es el de la aplicación: aquí, un inicio de sesión con Google. El logotipo y la trama son los archivos de la guía, descargados, nunca redibujados.",
+        "ca": "Programari que fa servir tot el grup: el signa només AIS Group, amb el seu logotip complet, i l’aplicació es diu «Nexus ERP», sense cap empresa al davant. El panell porta la cantonada d’hexàgons de les portades dels catàlegs en lloc de l’animació d’inspecció, així que no hi ha botó de pausa. El formulari és el de l’aplicació: aquí, un inici de sessió amb Google. El logotip i la trama són els fitxers de la guia, descarregats, mai redibuixats."
+      }
+    },
     "navigation-menu/01-basic": {
       "name": {
         "es": "Básico",
@@ -850,6 +1040,76 @@
       "about": {
         "es": "Enlaces, algunos agrupados en un desplegable.",
         "ca": "Enllaços, alguns agrupats en un desplegable."
+      }
+    },
+    "page-layout/03-list": {
+      "name": {
+        "es": "Lista",
+        "ca": "Llista"
+      },
+      "about": {
+        "es": "Una página de lista: la barra de filtros y la tabla directamente sobre la página, con las páginas numeradas debajo. Un rol es una palabra; un estado, un icono y una palabra.",
+        "ca": "Una pàgina de llista: la barra de filtres i la taula directament sobre la pàgina, amb les pàgines numerades a sota. Un rol és una paraula; un estat, una icona i una paraula."
+      }
+    },
+    "page-layout/04-detail": {
+      "name": {
+        "es": "Detalle",
+        "ca": "Detall"
+      },
+      "about": {
+        "es": "Una página de detalle: el nombre de la persona como título y, debajo, secciones separadas por espacio. Los datos son una cuadrícula de etiqueta sobre valor, las listas son filas divididas y la columna lateral reúne el resumen de acceso.",
+        "ca": "Una pàgina de detall: el nom de la persona com a títol i, a sota, seccions separades per espai. Les dades són una graella d’etiqueta sobre valor, les llistes són files dividides i la columna lateral recull el resum d’accés."
+      }
+    },
+    "page-layout/05-settings": {
+      "name": {
+        "es": "Ajustes",
+        "ca": "Configuració"
+      },
+      "about": {
+        "es": "Una página de ajustes con su menú lateral, como el de PageLayout: una sección por pestaña, las etiquetas encima de los controles, los interruptores como filas de una sola lista con borde, y Guardar y luego Cancelar abajo a la izquierda.",
+        "ca": "Una pàgina de configuració amb el seu menú lateral, com el de PageLayout: una secció per pestanya, les etiquetes damunt dels controls, els interruptors com a files d’una sola llista amb vora, i Desa i després Cancel·la a baix a l’esquerra."
+      }
+    },
+    "page-layout/06-dashboard": {
+      "name": {
+        "es": "Panel",
+        "ca": "Tauler"
+      },
+      "about": {
+        "es": "Un panel: primero las cifras en Tarjetas de cifras y, después, una Card por tema con su contenido real, una al lado de otra y tan altas como su fila.",
+        "ca": "Un tauler: primer les xifres a Targetes de xifres i, després, una Card per tema amb el seu contingut real, una al costat de l’altra i tan altes com la seva fila."
+      }
+    },
+    "page-layout/07-empty": {
+      "name": {
+        "es": "Vacía",
+        "ca": "Buida"
+      },
+      "about": {
+        "es": "Todavía no hay nada que listar: el Empty ocupa el lugar que llenaría la lista, dice por qué y ofrece la salida. La cabecera es la misma que con la página llena.",
+        "ca": "Encara no hi ha res a llistar: l’Empty ocupa el lloc que ompliria la llista, diu per què i ofereix la sortida. La capçalera és la mateixa que amb la pàgina plena."
+      }
+    },
+    "page-layout/08-no-permission": {
+      "name": {
+        "es": "Sin permiso",
+        "ca": "Sense permís"
+      },
+      "about": {
+        "es": "Una página que la persona no puede ver: el título se queda y el Empty llena el contenido con el motivo y quién puede ayudar. Nunca una línea discontinua corta con la página en blanco debajo.",
+        "ca": "Una pàgina que la persona no pot veure: el títol es queda i l’Empty omple el contingut amb el motiu i qui pot ajudar. Mai una línia discontínua curta amb la pàgina en blanc a sota."
+      }
+    },
+    "page-layout/09-error": {
+      "name": {
+        "es": "Error",
+        "ca": "Error"
+      },
+      "about": {
+        "es": "La página no ha podido cargar: el Empty llena el contenido, dice qué ha fallado y ofrece Reintentar, que repite la misma petición. Una sección que falla dentro de una página cargada es un Alert con Reintentar en su lugar.",
+        "ca": "La pàgina no s’ha pogut carregar: l’Empty omple el contingut, diu què ha fallat i ofereix Torna-ho a provar, que repeteix la mateixa petició. Una secció que falla dins d’una pàgina carregada és un Alert amb Torna-ho a provar al seu lloc."
       }
     },
     "pagination/01-numbered": {
@@ -938,8 +1198,8 @@
         "ca": "Bàsica"
       },
       "about": {
-        "es": "Un menú lateral con grupos. La barra lateral de esta página se construye con él.",
-        "ca": "Un menú lateral amb grups. La barra lateral d’aquesta pàgina es construeix amb aquest component."
+        "es": "Un menú lateral: un grupo por sección, con su etiqueta y sus enlaces.",
+        "ca": "Un menú lateral: un grup per secció, amb la seva etiqueta i els seus enllaços."
       }
     },
     "skeleton/01-shaped": {
@@ -968,8 +1228,8 @@
         "ca": "Resposta"
       },
       "about": {
-        "es": "Información breve tras una acción, con Sonner estándar.",
-        "ca": "Informació breu després d’una acció, amb Sonner estàndard."
+        "es": "Información breve tras una acción: toast() de vue-sonner es la única API de notificaciones, se llama desde cualquier sitio y App monta un solo Toaster.",
+        "ca": "Informació breu després d’una acció: toast() de vue-sonner és l’única API de notificacions, es crida des de qualsevol lloc i App munta un sol Toaster."
       }
     },
     "spinner/01-default": {
@@ -1072,6 +1332,256 @@
         "ca": "De vora a vora, per a tasques a pantalla completa com l’etiquetatge o l’editor: separador darrere del logotip, ruta de navegació en lloc de menú i una sortida."
       }
     },
+    "top-bar/03-group-app": {
+      "name": {
+        "es": "Aplicación del grupo",
+        "ca": "Aplicació del grup"
+      },
+      "about": {
+        "es": "Software que usa todo el grupo: la marca de aplicación, la Λ blanca a 24 px, y el nombre de la aplicación en el enlace al inicio. Ahí la marca es decorativa (alt=\"\"), así que el nombre accesible del enlace es el texto que se lee. Tras el nombre no hay nada, así que no hay separador.",
+        "ca": "Programari que fa servir tot el grup: la marca d’aplicació, la Λ blanca a 24 px, i el nom de l’aplicació a l’enllaç a l’inici. Allà la marca és decorativa (alt=\"\"), així que el nom accessible de l’enllaç és el text que es llegeix. Després del nom no hi ha res, així que no hi ha separador."
+      }
+    },
+    "calendar/01-single": {
+      "name": {
+        "es": "Una fecha",
+        "ca": "Una data"
+      },
+      "about": {
+        "es": "Un mes para elegir una fecha. Hoy aparece marcado; las semanas empiezan el primer día de la configuración regional.",
+        "ca": "Un mes per triar una data. Avui apareix marcat; les setmanes comencen el primer dia de la configuració regional."
+      }
+    },
+    "chart/01-bar": {
+      "name": {
+        "es": "Barras",
+        "ca": "Barres"
+      },
+      "about": {
+        "es": "Columnas para pocos periodos discretos: una serie en el primer color de gráfico, extremos rectos y 24 px de ancho como máximo; el título la nombra, así que no hay leyenda. Al pasar el cursor se ve el valor.",
+        "ca": "Columnes per a pocs períodes discrets: una sèrie en el primer color de gràfic, extrems rectes i 24 px d’amplada com a màxim; el títol l’anomena, així que no hi ha llegenda. En passar el cursor es veu el valor."
+      }
+    },
+    "chart/02-line": {
+      "name": {
+        "es": "Líneas",
+        "ca": "Línies"
+      },
+      "about": {
+        "es": "Cambio en el tiempo: líneas de 2 px con su área al 10 %, una leyenda encima para dos series, una cruz con todos los valores y los mismos datos como tabla.",
+        "ca": "Canvi en el temps: línies de 2 px amb la seva àrea al 10 %, una llegenda a sobre per a dues sèries, una creu amb tots els valors i les mateixes dades com a taula."
+      }
+    },
+    "chart/03-donut": {
+      "name": {
+        "es": "Anillo",
+        "ca": "Anell"
+      },
+      "about": {
+        "es": "Parte de un todo, solo con dos o tres partes: un anillo en los colores de la división del conjunto de datos, el total en el centro y una leyenda con cada proporción.",
+        "ca": "Part d’un tot, només amb dues o tres parts: un anell en els colors de la divisió del conjunt de dades, el total al centre i una llegenda amb cada proporció."
+      }
+    },
+    "command/01-listbox": {
+      "name": {
+        "es": "Lista con búsqueda",
+        "ca": "Llista amb cerca"
+      },
+      "about": {
+        "es": "Una lista con búsqueda: escribe para filtrar los grupos, usa las flechas para moverte e Intro para elegir; el valor elegido aparece marcado.",
+        "ca": "Una llista amb cerca: escriu per filtrar els grups, fes servir les fletxes per moure’t i Retorn per triar; el valor triat apareix marcat."
+      }
+    },
+    "command/02-palette": {
+      "name": {
+        "es": "Paleta",
+        "ca": "Paleta"
+      },
+      "about": {
+        "es": "Una paleta de comandos en un diálogo, que se abre con su botón o con Ctrl K (Cmd K en un Mac): busca y ejecuta con Intro.",
+        "ca": "Una paleta d’ordres en un diàleg, que s’obre amb el seu botó o amb Ctrl K (Cmd K en un Mac): cerca i executa amb Retorn."
+      }
+    },
+    "context-menu/01-image": {
+      "name": {
+        "es": "Imagen",
+        "ca": "Imatge"
+      },
+      "about": {
+        "es": "El clic derecho o una pulsación larga abre las acciones de un objeto. Mantenlas también en un botón visible: nunca solo aquí.",
+        "ca": "El clic dret o una pulsació llarga obre les accions d’un objecte. Mantén-les també en un botó visible: mai només aquí."
+      }
+    },
+    "data-table/01-models": {
+      "name": {
+        "es": "Modelos",
+        "ca": "Models"
+      },
+      "about": {
+        "es": "Columnas y datos de entrada: cabeceras ordenables, una búsqueda y un filtro de estado en la barra de herramientas, columnas visibles, selección de filas y páginas numeradas. Las columnas numéricas se alinean a la derecha. El nombre ocupa el ancho libre y se trunca, y las columnas de dataset e imágenes aparecen cuando la tabla es lo bastante ancha, así que nunca se desplaza lateralmente.",
+        "ca": "Columnes i dades d’entrada: capçaleres ordenables, una cerca i un filtre d’estat a la barra d’eines, columnes visibles, selecció de files i pàgines numerades. Les columnes numèriques s’alineen a la dreta. El nom ocupa l’amplada lliure i es trunca, i les columnes de dataset i imatges apareixen quan la taula és prou ampla, de manera que no es desplaça mai lateralment."
+      }
+    },
+    "data-table/02-loading": {
+      "name": {
+        "es": "Cargando",
+        "ca": "Carregant"
+      },
+      "about": {
+        "es": "Mientras se cargan las filas, filas Skeleton con la forma de la tabla; la cabecera se mantiene.",
+        "ca": "Mentre es carreguen les files, files Skeleton amb la forma de la taula; la capçalera es manté."
+      }
+    },
+    "data-table/03-empty": {
+      "name": {
+        "es": "Vacía",
+        "ca": "Buida"
+      },
+      "about": {
+        "es": "Sin filas: el espacio vacío explica por qué y ofrece la salida.",
+        "ca": "Sense files: l’espai buit explica per què i ofereix la sortida."
+      }
+    },
+    "date-picker/01-single": {
+      "name": {
+        "es": "Una fecha",
+        "ca": "Una data"
+      },
+      "about": {
+        "es": "Un botón de contorno con la fecha escrita según la configuración regional; el calendario se abre debajo y se cierra al elegir.",
+        "ca": "Un botó de contorn amb la data escrita segons la configuració regional; el calendari s’obre a sota i es tanca en triar."
+      }
+    },
+    "date-picker/02-range": {
+      "name": {
+        "es": "Intervalo",
+        "ca": "Interval"
+      },
+      "about": {
+        "es": "Un periodo, como filtro encima de una tabla: los dos extremos en un botón y dos meses uno al lado del otro.",
+        "ca": "Un període, com a filtre damunt d’una taula: els dos extrems en un botó i dos mesos l’un al costat de l’altre."
+      }
+    },
+    "date-picker/03-locale": {
+      "name": {
+        "es": "Configuración regional",
+        "ca": "Configuració regional"
+      },
+      "about": {
+        "es": "La configuración regional fija el idioma, el formato de fecha y el primer día de la semana.",
+        "ca": "La configuració regional fixa l’idioma, el format de data i el primer dia de la setmana."
+      }
+    },
+    "file-upload/01-images": {
+      "name": {
+        "es": "Imágenes",
+        "ca": "Imatges"
+      },
+      "about": {
+        "es": "Suelta imágenes en la zona discontinua o elígelas; la lista muestra cada archivo con su progreso, uno rechazado con el motivo, y un botón para quitarlo.",
+        "ca": "Deixa anar imatges a la zona discontínua o tria-les; la llista mostra cada fitxer amb el seu progrés, un de rebutjat amb el motiu, i un botó per treure’l."
+      }
+    },
+    "multi-select/01-datasets": {
+      "name": {
+        "es": "Conjuntos de datos",
+        "ca": "Conjunts de dades"
+      },
+      "about": {
+        "es": "Varias opciones de una lista, mostradas como etiquetas: escribe para buscar y haz clic o pulsa Intro para añadir.",
+        "ca": "Diverses opcions d’una llista, mostrades com a etiquetes: escriu per cercar i fes clic o prem Retorn per afegir."
+      }
+    },
+    "number-field/01-quantity": {
+      "name": {
+        "es": "Cantidad",
+        "ca": "Quantitat"
+      },
+      "about": {
+        "es": "Un número entero dentro de un intervalo, con botones de restar y sumar; las flechas del teclado y la rueda también lo cambian.",
+        "ca": "Un nombre enter dins d’un interval, amb botons de restar i sumar; les fletxes del teclat i la roda també el canvien."
+      }
+    },
+    "number-field/02-formats": {
+      "name": {
+        "es": "Formatos",
+        "ca": "Formats"
+      },
+      "about": {
+        "es": "El formato viene de la configuración regional: un porcentaje y un precio en euros escrito a la española.",
+        "ca": "El format ve de la configuració regional: un percentatge i un preu en euros escrit a l’espanyola."
+      }
+    },
+    "pin-input/01-code": {
+      "name": {
+        "es": "Código",
+        "ca": "Codi"
+      },
+      "about": {
+        "es": "Un código corto, un dígito por casilla: al escribir se pasa a la siguiente y al pegar se rellenan todas.",
+        "ca": "Un codi curt, un dígit per casella: en escriure es passa a la següent i en enganxar s’emplenen totes."
+      }
+    },
+    "range-calendar/01-two-months": {
+      "name": {
+        "es": "Dos meses",
+        "ca": "Dos mesos"
+      },
+      "about": {
+        "es": "Una fecha de inicio y otra de fin en dos meses; los días intermedios llevan el relleno suave.",
+        "ca": "Una data d’inici i una de final en dos mesos; els dies intermedis porten l’emplenament suau."
+      }
+    },
+    "stepper/01-wizard": {
+      "name": {
+        "es": "Asistente",
+        "ca": "Assistent"
+      },
+      "about": {
+        "es": "Los pasos de una tarea en orden: los hechos muestran una marca de verificación y el actual va relleno; Atrás y Siguiente permiten recorrerlos.",
+        "ca": "Els passos d’una tasca en ordre: els fets mostren una marca de verificació i l’actual va emplenat; Enrere i Següent permeten recórrer-los."
+      }
+    },
+    "tags-input/01-keywords": {
+      "name": {
+        "es": "Palabras clave",
+        "ca": "Paraules clau"
+      },
+      "about": {
+        "es": "Valores libres como etiquetas: Intro añade uno; la tecla de retroceso o la cruz lo quitan.",
+        "ca": "Valors lliures com a etiquetes: Retorn n’afegeix un; la tecla de retrocés o la creu el treuen."
+      }
+    },
+    "timeline/01-history": {
+      "name": {
+        "es": "Historial",
+        "ca": "Historial"
+      },
+      "about": {
+        "es": "El historial de un objeto, de más reciente a más antiguo: cada suceso tiene su marcador, título, detalles y hora.",
+        "ca": "L’historial d’un objecte, del més recent al més antic: cada esdeveniment té el seu marcador, títol, detalls i hora."
+      }
+    },
+    "tree/01-folders": {
+      "name": {
+        "es": "Carpetas",
+        "ca": "Carpetes"
+      },
+      "about": {
+        "es": "Carpetas anidadas como filas de lista: un clic o Intro selecciona y abre; las flechas mueven, abren y cierran.",
+        "ca": "Carpetes niades com a files de llista: un clic o Retorn selecciona i obre; les fletxes mouen, obren i tanquen."
+      }
+    },
+    "tree/02-checkboxes": {
+      "name": {
+        "es": "Casillas",
+        "ca": "Caselles"
+      },
+      "about": {
+        "es": "Elegir varias ramas: la casilla de un elemento padre sigue a sus hijos, y marcarla los marca todos.",
+        "ca": "Triar diverses branques: la casella d’un element pare segueix els seus fills, i marcar-la els marca tots."
+      }
+    },
     "page-layout/01-page": {
       "name": {
         "es": "Página",
@@ -1090,6 +1600,26 @@
       "about": {
         "es": "Con un menú lateral, como Ajustes: el título y el menú se quedan quietos y solo se desplaza el contenido; por debajo de 1024 px el menú es una fila encima.",
         "ca": "Amb un menú lateral, com Configuració: el títol i el menú es queden quiets i només es desplaça el contingut; per sota de 1024 px el menú és una fila a sobre."
+      }
+    },
+    "page-layout/10-tasks": {
+      "name": {
+        "es": "Tareas",
+        "ca": "Tasques"
+      },
+      "about": {
+        "es": "Una lista de tareas, como el ejemplo de tareas de shadcn: una búsqueda, filtros cuya elección se ve como chips, las columnas visibles, la tabla directamente sobre la página con selección y acciones por fila, y páginas numeradas.",
+        "ca": "Una llista de tasques, com l’exemple de tasques de shadcn: una cerca, filtres amb l’elecció en forma de xips, les columnes visibles, la taula directament sobre la pàgina amb selecció i accions per fila, i pàgines numerades."
+      }
+    },
+    "figure-cards/01-overview": {
+      "name": {
+        "es": "Resumen",
+        "ca": "Resum"
+      },
+      "about": {
+        "es": "Las cifras de un resumen: un bloque por grupo de cifras que van juntas, cada uno en su propia fila.",
+        "ca": "Les xifres d’un resum: un bloc per grup de xifres que van juntes, cadascun a la seva fila."
       }
     }
   }

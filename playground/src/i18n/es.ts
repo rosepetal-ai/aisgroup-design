@@ -7,6 +7,7 @@ export default {
   "Login page": "Página de inicio de sesión",
   "Log terminal": "Terminal de logs",
   "Confirm dialog": "Diálogo de confirmación",
+  "Confirm host": "Host de confirmaciones",
   "Hide code": "Ocultar código",
   "Labeling": "Etiquetado",
   "Previous slide": "Anterior",

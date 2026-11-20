@@ -1,0 +1,2005 @@
+{
+ "description": "Vuetify 3 to @aisgroup/design. Each entry: from (component, directive, composable or setup piece), import, to (registry names), status, props (Vuetify prop or usage: what replaces it), needs (components being added to the package), notes. A full redesign removes Vuetify; the adapters in packages/vue-themes are only a bridge for screens not yet moved.",
+ "library": "vuetify",
+ "version": "3",
+ "statuses": {
+  "direct": "A counterpart exists: swap the component and map the props.",
+  "compose": "No single counterpart: build it from the listed components or Tailwind layout.",
+  "gap": "No counterpart, even after the components being added. The notes say what the library needs and how to compose a temporary version.",
+  "remove": "Vuetify-only behaviour or setup: delete it. The notes say what replaces it under our rules."
+ },
+ "entries": [
+  {
+   "from": "VApp",
+   "import": "vuetify/components",
+   "to": [
+    "top-bar",
+    "sidebar"
+   ],
+   "status": "remove",
+   "props": {
+    "VApp root": "a plain root <div class=\"min-h-svh\">; light and dark by the .dark class on <html>",
+    "theme": "remove"
+   },
+   "notes": "The page opens under the TopBar block; side navigation is SidebarProvider with Sidebar."
+  },
+  {
+   "from": "VMain",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar"
+   ],
+   "status": "remove",
+   "props": {
+    "VMain": "<main> (SidebarInset when there is a Sidebar)"
+   },
+   "notes": "Product screens are full width."
+  },
+  {
+   "from": "VLayout",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar"
+   ],
+   "status": "remove",
+   "notes": "Tailwind flex and grid."
+  },
+  {
+   "from": "VContainer",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "fluid": "the default: product screens are full width",
+    "VContainer": "a <div> with padding classes (px-6 py-6)"
+   },
+   "notes": "No centred max-width container on product screens."
+  },
+  {
+   "from": "VRow",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "VRow": "a grid (grid grid-cols-12 gap-6) or flex row",
+    "dense, no-gutters": "gap-2 or gap-0",
+    "align, justify": "items-*, justify-*"
+   },
+   "notes": "Tailwind layout classes."
+  },
+  {
+   "from": "VCol",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "cols=\"12\" md=\"6\"": "col-span-12 md:col-span-6",
+    "offset": "col-start-*"
+   },
+   "notes": "Use the Tailwind breakpoints, not the website grid."
+  },
+  {
+   "from": "VSpacer",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "VSpacer": "justify-between on the row, or ml-auto on the next item"
+   },
+   "notes": "Layout class."
+  },
+  {
+   "from": "VSheet",
+   "import": "vuetify/components",
+   "to": [
+    "card"
+   ],
+   "status": "remove",
+   "props": {
+    "VSheet": "a <div> or <section>; a floating panel is a Card"
+   },
+   "notes": "No surface wrappers."
+  },
+  {
+   "from": "VResponsive",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "aspect-ratio": "aspect-video or aspect-[4/3]"
+   },
+   "notes": "Layout class."
+  },
+  {
+   "from": "VAppBar",
+   "import": "vuetify/components",
+   "to": [
+    "top-bar"
+   ],
+   "status": "direct",
+   "props": {
+    "title, VAppBarTitle": "the TopBar brand slot",
+    "VAppBarNavIcon": "SidebarTrigger (ghost icon button with aria-label)",
+    "actions (VBtn icon)": "TopBar actions: Button variant=\"topbar\" size=\"bar\" or size=\"icon-round\", with aria-label and Tooltip",
+    "color, elevation, density, flat": "remove: the bar colour and height come from the block"
+   },
+   "notes": "Every page opens under the TopBar block."
+  },
+  {
+   "from": "VAppBarNavIcon",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar"
+   ],
+   "status": "direct",
+   "notes": "SidebarTrigger."
+  },
+  {
+   "from": "VAppBarTitle",
+   "import": "vuetify/components",
+   "to": [
+    "top-bar"
+   ],
+   "status": "direct",
+   "notes": "The TopBar brand slot."
+  },
+  {
+   "from": "VSystemBar",
+   "import": "vuetify/components",
+   "to": [
+    "top-bar"
+   ],
+   "status": "remove",
+   "notes": "Not a product pattern; status lives in the TopBar."
+  },
+  {
+   "from": "VNavigationDrawer",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar",
+    "sheet"
+   ],
+   "status": "direct",
+   "props": {
+    "app navigation": "SidebarProvider with Sidebar, SidebarContent, SidebarGroup, SidebarMenu, SidebarMenuItem, SidebarMenuButton (as-child RouterLink)",
+    "v-model, temporary": "a temporary panel is a Sheet (v-model:open)",
+    "rail, expand-on-hover": "Sidebar collapsible=\"icon\"",
+    "location=\"right\"": "side=\"right\"",
+    "permanent": "Sidebar collapsible=\"none\"",
+    "width": "the --sidebar-width variable on SidebarProvider"
+   },
+   "notes": "Side navigation of a page."
+  },
+  {
+   "from": "VFooter",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "Product screens have no footer band; actions sit in the header or the dialog footer."
+  },
+  {
+   "from": "VBottomNavigation",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar",
+    "tabs"
+   ],
+   "status": "remove",
+   "notes": "Not on desktop product screens; navigation is the TopBar and the Sidebar (a Sheet on small screens)."
+  },
+  {
+   "from": "VToolbar",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "separator",
+    "toggle-group"
+   ],
+   "status": "compose",
+   "props": {
+    "VToolbar": "a flex row (flex items-center justify-between gap-2)",
+    "VToolbarTitle": "the section heading",
+    "VToolbarItems": "outline or ghost Buttons, h-9 with 16 px icons",
+    "color, density, flat": "remove"
+   },
+   "notes": "No toolbar band; Separator orientation=\"vertical\" between groups."
+  },
+  {
+   "from": "VToolbarTitle",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "A heading (font-heading text-lg font-medium)."
+  },
+  {
+   "from": "VToolbarItems",
+   "import": "vuetify/components",
+   "to": [
+    "button"
+   ],
+   "status": "compose",
+   "notes": "A flex group of Buttons."
+  },
+  {
+   "from": "VDivider",
+   "import": "vuetify/components",
+   "to": [
+    "separator"
+   ],
+   "status": "direct",
+   "props": {
+    "vertical": "orientation=\"vertical\"",
+    "inset, thickness, color": "remove"
+   },
+   "notes": "Only between rows and in toolbars."
+  },
+  {
+   "from": "VBtn",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "spinner",
+    "tooltip"
+   ],
+   "status": "direct",
+   "props": {
+    "text prop or default slot": "default slot text, sentence case",
+    "prepend-icon=\"mdi-x\"": "Lucide icon from @lucide/vue as the first child, with data-icon=\"inline-start\" (icons.json maps the mdi- names)",
+    "append-icon=\"mdi-x\"": "the Lucide icon as the last child, with data-icon=\"inline-end\"",
+    "icon=\"mdi-x\" (icon only)": "size=\"icon\" (or \"icon-sm\" in rows), aria-label and a Tooltip with the same name",
+    "color=\"primary\" variant=\"flat|elevated\"": "variant=\"default\" (the one primary action of a page, section or dialog)",
+    "variant=\"outlined\"": "variant=\"outline\"",
+    "variant=\"text|plain\"": "variant=\"ghost\"",
+    "variant=\"tonal\"": "variant=\"outline\" (secondary actions); variant=\"secondary\" only for Cancel in a dialog footer",
+    "color=\"error\"": "variant=\"destructive\"; outlined: \"outline-destructive\"; text: \"ghost-destructive\"",
+    "color=\"success|info|warning\"": "no AIS variant: status is an icon and a word, never a button colour",
+    "size=\"x-small\"": "size=\"xs\"",
+    "size=\"small\"": "size=\"sm\"",
+    "size=\"large|x-large\"": "size=\"lg\"",
+    "density=\"compact\"": "size=\"sm\"",
+    "block": "class=\"w-full\" (layout class)",
+    "loading": "<Spinner data-icon=\"inline-start\" /> as the first child, the working label, and disabled",
+    "disabled": "disabled",
+    "to, href": "as-child around a RouterLink or <a>",
+    "rounded, elevation, stacked, ripple, slim": "remove: never override the radius; the top bar uses size=\"icon-round\"",
+    "dialog footer buttons": "size=\"modal\": Cancel variant=\"secondary\" first, the action second"
+   },
+   "notes": "Variants: default, outline, secondary, ghost, destructive, link; topbar and topbar-tab only in the top bar, size modal only in dialog footers."
+  },
+  {
+   "from": "VBtnGroup",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "toggle-group"
+   ],
+   "status": "compose",
+   "props": {
+    "VBtnGroup": "Buttons in a flex row with gap-2"
+   },
+   "notes": "No joined button group."
+  },
+  {
+   "from": "VBtnToggle",
+   "import": "vuetify/components",
+   "to": [
+    "toggle-group",
+    "radio-group",
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "ToggleGroup type=\"single\" v-model, one ToggleGroupItem per VBtn (value)",
+    "multiple": "type=\"multiple\"",
+    "mandatory": "keep a value: ignore the empty update",
+    "color, variant, divided, rounded": "remove"
+   },
+   "notes": "A tool choice is a ToggleGroup; one of a few modes a RadioGroup of choice cards; views of the same thing Tabs."
+  },
+  {
+   "from": "VFab",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "dropdown-menu"
+   ],
+   "status": "remove",
+   "notes": "No floating action button: the primary action sits in the page header."
+  },
+  {
+   "from": "VSpeedDial",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "dropdown-menu"
+   ],
+   "status": "compose",
+   "props": {
+    "activator + VBtn children": "a Button that opens a DropdownMenu; one DropdownMenuItem per action (Lucide icon first, sentence case), DropdownMenuSeparator between groups, variant=\"destructive\" for deletes"
+   },
+   "notes": "Or put the actions in a toolbar."
+  },
+  {
+   "from": "VTextField",
+   "import": "vuetify/components",
+   "to": [
+    "input",
+    "input-group",
+    "field",
+    "number-field",
+    "tooltip"
+   ],
+   "status": "direct",
+   "props": {
+    "label": "FieldLabel above the control inside a Field",
+    "placeholder": "an example only, never the label",
+    "hint, persistent-hint": "FieldDescription under the label",
+    "error-messages, rules": "validate in the app; Field data-invalid, aria-invalid on the control, FieldError with the message",
+    "prepend-inner-icon, append-inner-icon": "InputGroup with the Lucide icon in an InputGroupAddon (align inline-start or inline-end)",
+    "prefix, suffix": "InputGroupText in an InputGroupAddon (units are addons)",
+    "clearable": "an InputGroupButton with XIcon, aria-label (Clear) and Tooltip",
+    "variant=\"outlined|filled|underlined|solo|plain\", density, rounded, bg-color, color": "remove: one field style",
+    "counter": "a count in FieldDescription",
+    "loading": "disabled with a Skeleton until the data arrives",
+    "hide-details": "remove",
+    "v-model": "v-model on Input",
+    "type=\"number\"": "NumberField",
+    "type=\"password\"": "InputGroup with InputGroupInput type=\"password\" and a show and hide InputGroupButton (EyeIcon, EyeOffIcon, aria-label, Tooltip)"
+   },
+   "needs": [
+    "number-field"
+   ],
+   "notes": "Forms are Field, FieldGroup and FieldDescription, label above the control, max-w-sm."
+  },
+  {
+   "from": "VTextarea",
+   "import": "vuetify/components",
+   "to": [
+    "textarea",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "label": "FieldLabel above the control inside a Field",
+    "placeholder": "an example only, never the label",
+    "hint, persistent-hint": "FieldDescription under the label",
+    "error-messages, rules": "validate in the app; Field data-invalid, aria-invalid on the control, FieldError with the message",
+    "prepend-inner-icon, append-inner-icon": "InputGroup with the Lucide icon in an InputGroupAddon (align inline-start or inline-end)",
+    "prefix, suffix": "InputGroupText in an InputGroupAddon (units are addons)",
+    "clearable": "an InputGroupButton with XIcon, aria-label (Clear) and Tooltip",
+    "variant=\"outlined|filled|underlined|solo|plain\", density, rounded, bg-color, color": "remove: one field style",
+    "counter": "a count in FieldDescription",
+    "loading": "disabled with a Skeleton until the data arrives",
+    "hide-details": "remove",
+    "v-model, rows": "v-model, rows",
+    "auto-grow": "class=\"field-sizing-content\"",
+    "no-resize": "class=\"resize-none\""
+   },
+   "notes": "Longer text."
+  },
+  {
+   "from": "VNumberInput",
+   "import": "vuetify/components",
+   "to": [
+    "number-field",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model, min, max, step": "v-model, min, max, step on NumberField",
+    "control-variant=\"default|stacked|split\"": "NumberFieldContent with NumberFieldDecrement, NumberFieldInput, NumberFieldIncrement",
+    "precision": ":format-options=\"{ minimumFractionDigits, maximumFractionDigits }\"",
+    "suffix (unit)": "InputGroupText in an InputGroupAddon",
+    "label, hint, error-messages": "as VTextField"
+   },
+   "needs": [
+    "number-field"
+   ],
+   "notes": "Numbers in columns align right with tabular figures."
+  },
+  {
+   "from": "VOtpInput",
+   "import": "vuetify/components",
+   "to": [
+    "pin-input",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (string)": "v-model (an array of characters; join it for the code)",
+    "length": "that many PinInputSlot in a PinInputGroup",
+    "type=\"number\"": "type=\"number\"",
+    "divider": "PinInputSeparator"
+   },
+   "needs": [
+    "pin-input"
+   ],
+   "notes": "Label above the group."
+  },
+  {
+   "from": "VSelect",
+   "import": "vuetify/components",
+   "to": [
+    "select",
+    "combobox",
+    "multi-select",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "label": "FieldLabel above the control inside a Field",
+    "placeholder": "an example only, never the label",
+    "hint, persistent-hint": "FieldDescription under the label",
+    "error-messages, rules": "validate in the app; Field data-invalid, aria-invalid on the control, FieldError with the message",
+    "prepend-inner-icon, append-inner-icon": "InputGroup with the Lucide icon in an InputGroupAddon (align inline-start or inline-end)",
+    "prefix, suffix": "InputGroupText in an InputGroupAddon (units are addons)",
+    "clearable": "an InputGroupButton with XIcon, aria-label (Clear) and Tooltip",
+    "variant=\"outlined|filled|underlined|solo|plain\", density, rounded, bg-color, color": "remove: one field style",
+    "counter": "a count in FieldDescription",
+    "loading": "disabled with a Skeleton until the data arrives",
+    "hide-details": "remove",
+    "v-model": "v-model on Select",
+    "items + item-title + item-value": "one SelectItem :value per item, the title as its text",
+    "return-object": "map the value to the object in the parent",
+    "multiple, chips": "MultiSelect",
+    "menu-props": "remove",
+    "item slot": "SelectItem content (text only, or a Lucide icon first)"
+   },
+   "needs": [
+    "multi-select"
+   ],
+   "notes": "A short list is a Select; a long list with search is a Combobox."
+  },
+  {
+   "from": "VAutocomplete",
+   "import": "vuetify/components",
+   "to": [
+    "combobox",
+    "multi-select",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "label": "FieldLabel above the control inside a Field",
+    "placeholder": "an example only, never the label",
+    "hint, persistent-hint": "FieldDescription under the label",
+    "error-messages, rules": "validate in the app; Field data-invalid, aria-invalid on the control, FieldError with the message",
+    "prepend-inner-icon, append-inner-icon": "InputGroup with the Lucide icon in an InputGroupAddon (align inline-start or inline-end)",
+    "prefix, suffix": "InputGroupText in an InputGroupAddon (units are addons)",
+    "clearable": "an InputGroupButton with XIcon, aria-label (Clear) and Tooltip",
+    "variant=\"outlined|filled|underlined|solo|plain\", density, rounded, bg-color, color": "remove: one field style",
+    "counter": "a count in FieldDescription",
+    "loading": "disabled with a Skeleton until the data arrives",
+    "hide-details": "remove",
+    "v-model, items, item-title, item-value": "Combobox v-model with ComboboxItem per item; display-value on ComboboxInput",
+    "v-model:search, @update:search": "the ComboboxInput text; fetch or filter the items",
+    "custom-filter, no-filter": "filter the items in the app; ignore-filter on Combobox for server search",
+    "multiple, chips, closable-chips": "MultiSelect, or Combobox multiple with TagsInput for the chosen items",
+    "no-data-text": "ComboboxEmpty",
+    "auto-select-first": "remove"
+   },
+   "needs": [
+    "multi-select"
+   ],
+   "notes": "Choosing from a long list, with search."
+  },
+  {
+   "from": "VCombobox",
+   "import": "vuetify/components",
+   "to": [
+    "combobox",
+    "tags-input",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model with free text": "Combobox that also accepts the typed value, or TagsInput for a set of free values",
+    "multiple, chips": "TagsInput (with a Combobox for suggestions)",
+    "delimiters": "TagsInput delimiter"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "Free values are TagsInput items."
+  },
+  {
+   "from": "VCheckbox",
+   "import": "vuetify/components",
+   "to": [
+    "checkbox",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (boolean)": "v-model",
+    "v-model (array) + value": ":model-value=\"list.includes(value)\" and @update:model-value adds or removes it",
+    "label": "Field orientation=\"horizontal\" with the Checkbox and a FieldLabel",
+    "indeterminate": ":model-value=\"'indeterminate'\"",
+    "true-value, false-value": "map in the parent",
+    "color, density, hide-details": "remove"
+   },
+   "notes": "One option on or off, or several from a list."
+  },
+  {
+   "from": "VCheckboxBtn",
+   "import": "vuetify/components",
+   "to": [
+    "checkbox"
+   ],
+   "status": "direct",
+   "notes": "Checkbox without its label (give it aria-label)."
+  },
+  {
+   "from": "VRadioGroup",
+   "import": "vuetify/components",
+   "to": [
+    "radio-group",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model on RadioGroup",
+    "inline": "class=\"flex gap-6\" (layout)",
+    "label": "FieldLegend in a FieldSet"
+   },
+   "notes": "A choice between a few modes, as choice cards."
+  },
+  {
+   "from": "VRadio",
+   "import": "vuetify/components",
+   "to": [
+    "radio-group"
+   ],
+   "status": "direct",
+   "props": {
+    "value, label": "RadioGroupItem :value with a FieldLabel"
+   },
+   "notes": "RadioGroupItem."
+  },
+  {
+   "from": "VSwitch",
+   "import": "vuetify/components",
+   "to": [
+    "switch",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model",
+    "label": "a switch row: FieldLabel and FieldDescription on the left, the Switch on the right (Field orientation=\"horizontal\")",
+    "inset, color, flat, loading": "remove",
+    "true-value, false-value": "map in the parent"
+   },
+   "notes": "A setting on or off."
+  },
+  {
+   "from": "VSlider",
+   "import": "vuetify/components",
+   "to": [
+    "slider"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (number)": "v-model as an array: [value]",
+    "min, max, step, direction=\"vertical\"": "min, max, step, orientation=\"vertical\"",
+    "thumb-label, ticks, show-ticks": "the value as text beside the slider",
+    "color, track-color": "remove"
+   },
+   "notes": "A value in a range."
+  },
+  {
+   "from": "VRangeSlider",
+   "import": "vuetify/components",
+   "to": [
+    "slider"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model ([min, max])": "v-model with two values"
+   },
+   "notes": "Slider with two thumbs."
+  },
+  {
+   "from": "VRating",
+   "import": "vuetify/components",
+   "to": [
+    "toggle-group"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, length": "a ToggleGroup type=\"single\" with items 1 to length, or the value as text (4 of 5) when read only",
+    "readonly": "the value as text",
+    "half-increments, full-icon, empty-icon": "remove: no filled icons"
+   },
+   "notes": "The library needs a rating input. Lucide has no filled star and the guide forbids filling icons."
+  },
+  {
+   "from": "VFileInput",
+   "import": "vuetify/components",
+   "to": [
+    "file-upload",
+    "field"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (File[])": "the files chosen in FileUpload",
+    "multiple, accept": "multiple, accept",
+    "chips, counter, show-size": "the file list with name and size (tabular figures)",
+    "rules (size, type)": "check them; FieldError that names the limit",
+    "prepend-icon": "remove"
+   },
+   "needs": [
+    "file-upload"
+   ],
+   "notes": "Show each file, its progress and its failure with Retry."
+  },
+  {
+   "from": "VFileUpload",
+   "import": "vuetify/labs/VFileUpload",
+   "to": [
+    "file-upload"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model, multiple, density, title": "FileUpload with its drop area text"
+   },
+   "needs": [
+    "file-upload"
+   ],
+   "notes": "Labs component."
+  },
+  {
+   "from": "VColorPicker",
+   "import": "vuetify/components",
+   "to": [
+    "input",
+    "field"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, mode=\"hex\"": "a native <input type=\"color\"> beside an Input with the hex value, in a Field",
+    "swatches, show-swatches": "a ToggleGroup of named colours if the choice is fixed"
+   },
+   "notes": "The library needs a colour picker. Brand and data colours are tokens, never picked by users."
+  },
+  {
+   "from": "VDatePicker",
+   "import": "vuetify/components",
+   "to": [
+    "date-picker",
+    "calendar",
+    "range-calendar"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (Date)": "v-model with a DateValue from @internationalized/date (CalendarDate); convert at the edges",
+    "multiple=\"range\"": "RangeCalendar",
+    "multiple": "Calendar multiple",
+    "min, max, allowed-dates": "min-value, max-value, is-date-disabled",
+    "in a VMenu with a VTextField": "DatePicker (a Popover with Calendar, opened by an outline Button showing the formatted date and CalendarIcon)",
+    "title, header, show-adjacent-months, color": "remove",
+    "view-mode=\"month|year\"": "a Select of months or years"
+   },
+   "needs": [
+    "date-picker",
+    "calendar",
+    "range-calendar"
+   ],
+   "notes": "Dates shown with DateFormatter for the app locale."
+  },
+  {
+   "from": "VDateInput",
+   "import": "vuetify/labs/VDateInput",
+   "to": [
+    "date-picker"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model, label": "DatePicker in a Field with a FieldLabel above"
+   },
+   "needs": [
+    "date-picker"
+   ],
+   "notes": "Labs component."
+  },
+  {
+   "from": "VTimePicker",
+   "import": "vuetify/labs/VTimePicker",
+   "to": [
+    "input",
+    "field"
+   ],
+   "status": "gap",
+   "props": {
+    "v-model, format=\"24hr\"": "an Input type=\"time\" in a Field"
+   },
+   "notes": "The library needs a time picker; the native time input covers it until then."
+  },
+  {
+   "from": "VCalendar (events)",
+   "import": "vuetify/labs/VCalendar",
+   "to": [
+    "calendar"
+   ],
+   "status": "gap",
+   "props": {
+    "events, view-mode=\"month|week|day\"": "a list or Table of events grouped by day; Calendar only to choose a date"
+   },
+   "notes": "The library needs an event calendar (month and week grid with events). Until then a list by day."
+  },
+  {
+   "from": "VForm",
+   "import": "vuetify/components",
+   "to": [
+    "field"
+   ],
+   "status": "compose",
+   "props": {
+    "v-model (valid), @submit": "<form :id @submit.prevent> with FieldGroup; validate in the app (zod or vee-validate)",
+    "validate(), reset(), resetValidation()": "the app validation calls",
+    "fast-fail, validate-on": "validate on submit and on blur"
+   },
+   "notes": "In a dialog, the submit button is in DialogFooter with form=\"<form id>\"."
+  },
+  {
+   "from": "VInput",
+   "import": "vuetify/components",
+   "to": [
+    "field"
+   ],
+   "status": "direct",
+   "notes": "Field around the control."
+  },
+  {
+   "from": "VField",
+   "import": "vuetify/components",
+   "to": [
+    "field",
+    "input-group"
+   ],
+   "status": "direct",
+   "notes": "Field; with icons or units, InputGroup."
+  },
+  {
+   "from": "VLabel",
+   "import": "vuetify/components",
+   "to": [
+    "label",
+    "field"
+   ],
+   "status": "direct",
+   "notes": "FieldLabel (or Label outside a Field)."
+  },
+  {
+   "from": "VMessages",
+   "import": "vuetify/components",
+   "to": [
+    "field"
+   ],
+   "status": "direct",
+   "notes": "FieldDescription for help, FieldError for errors."
+  },
+  {
+   "from": "VCounter",
+   "import": "vuetify/components",
+   "to": [
+    "field"
+   ],
+   "status": "direct",
+   "notes": "A count in FieldDescription."
+  },
+  {
+   "from": "VSelectionControl",
+   "import": "vuetify/components",
+   "to": [
+    "checkbox",
+    "switch",
+    "radio-group"
+   ],
+   "status": "direct",
+   "notes": "The concrete control: Checkbox, Switch or RadioGroupItem."
+  },
+  {
+   "from": "VConfirmEdit",
+   "import": "vuetify/components",
+   "to": [
+    "button"
+   ],
+   "status": "compose",
+   "props": {
+    "save and cancel actions": "Cancel variant=\"secondary\" and Save buttons, Cancel first"
+   },
+   "notes": "Editing is explicit."
+  },
+  {
+   "from": "VValidation",
+   "import": "vuetify/components",
+   "to": [
+    "field"
+   ],
+   "status": "compose",
+   "notes": "Validate in the app; FieldError shows the message."
+  },
+  {
+   "from": "VAlert",
+   "import": "vuetify/components",
+   "to": [
+    "alert"
+   ],
+   "status": "direct",
+   "props": {
+    "type=\"success\"": "Alert variant=\"success\" with CircleCheckIcon",
+    "type=\"info\"": "Alert variant=\"info\" with InfoIcon",
+    "type=\"warning\"": "Alert variant=\"warning\" with TriangleAlertIcon",
+    "type=\"error\"": "Alert variant=\"destructive\" with CircleAlertIcon",
+    "title": "AlertTitle",
+    "text or default slot": "AlertDescription",
+    "closable": "an AlertAction with a ghost size=\"icon-sm\" Button, XIcon, aria-label and Tooltip",
+    "icon": "the Lucide icon as the Alert first child",
+    "variant, color, border, prominent, density, elevation": "remove"
+   },
+   "notes": "A status message inside a section."
+  },
+  {
+   "from": "VBanner",
+   "import": "vuetify/components",
+   "to": [
+    "alert"
+   ],
+   "status": "direct",
+   "props": {
+    "text, actions slot": "Alert with AlertAction"
+   },
+   "notes": "An Alert at the top of the section."
+  },
+  {
+   "from": "VSnackbar",
+   "import": "vuetify/components",
+   "to": [
+    "sonner"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model + text": "toast(text) when the event happens; <Toaster /> once in App",
+    "color=\"success|error|warning|info\"": "toast.success, toast.error, toast.warning, toast.info",
+    "timeout": "duration (ms); -1 is Infinity",
+    "actions slot (a VBtn)": "action: { label, onClick }",
+    "location": "Toaster position",
+    "multi-line, vertical, variant": "remove"
+   },
+   "notes": "Short feedback after an action. For large apps a local useSnackbar() with the same call shape over vue-sonner is an allowed first step."
+  },
+  {
+   "from": "VSnackbarQueue",
+   "import": "vuetify/components",
+   "to": [
+    "sonner"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (queue)": "call toast() for each message; vue-sonner stacks them"
+   },
+   "notes": "No queue to manage."
+  },
+  {
+   "from": "VProgressLinear",
+   "import": "vuetify/components",
+   "to": [
+    "progress",
+    "spinner"
+   ],
+   "status": "direct",
+   "props": {
+    "model-value": "model-value",
+    "indeterminate": "a Spinner in the working button, or filling the empty area",
+    "color by state": "variant (success, warning, danger, muted) with the state in words",
+    "buffer-value, stream, striped, height, rounded": "remove",
+    "default slot (percentage)": "the percentage as text beside it, tabular figures",
+    "absolute on a card or toolbar (loading)": "remove: Skeleton for content, Spinner in the button"
+   },
+   "notes": "How far a task has gone."
+  },
+  {
+   "from": "VProgressCircular",
+   "import": "vuetify/components",
+   "to": [
+    "spinner",
+    "progress"
+   ],
+   "status": "direct",
+   "props": {
+    "indeterminate": "Spinner (in the button with data-icon=\"inline-start\" and disabled, or centred in an empty area)",
+    "model-value (determinate)": "Progress with the percentage as text",
+    "size, width, color": "remove"
+   },
+   "notes": "Something working."
+  },
+  {
+   "from": "VSkeletonLoader",
+   "import": "vuetify/components",
+   "to": [
+    "skeleton"
+   ],
+   "status": "direct",
+   "props": {
+    "type=\"card|table|list-item|text\"": "Skeleton blocks in the shape of the real content (rows for a table, lines for text)",
+    "loading + default slot": "v-if loading: the Skeleton; else the content",
+    "boilerplate, elevation": "remove"
+   },
+   "notes": "Content loading, in the shape of the content."
+  },
+  {
+   "from": "VOverlay",
+   "import": "vuetify/components",
+   "to": [
+    "dialog",
+    "spinner",
+    "skeleton"
+   ],
+   "status": "remove",
+   "props": {
+    "loading veil (contained, persistent)": "remove: disable what cannot be used, Spinner in the working button, Skeleton for content",
+    "as a base for a custom popup": "Dialog, Sheet or Popover"
+   },
+   "notes": "No veils over content."
+  },
+  {
+   "from": "VEmptyState",
+   "import": "vuetify/components",
+   "to": [
+    "empty",
+    "button"
+   ],
+   "status": "direct",
+   "props": {
+    "icon": "EmptyMedia variant=\"icon\" with the Lucide icon",
+    "headline, title": "EmptyTitle",
+    "text": "EmptyDescription",
+    "action-text + @click:action": "a Button in EmptyContent",
+    "image, size, color": "remove"
+   },
+   "notes": "An empty container with a clear action."
+  },
+  {
+   "from": "VBadge",
+   "import": "vuetify/components",
+   "to": [
+    "badge",
+    "avatar"
+   ],
+   "status": "compose",
+   "props": {
+    "content (a count) on an icon button": "the count in the button aria-label and a Badge inside the button",
+    "dot": "remove: a count or a word, never a dot alone",
+    "on VAvatar": "AvatarBadge",
+    "color": "Badge variant=\"secondary\" (counts are neutral)"
+   },
+   "notes": "Counts and short neutral labels."
+  },
+  {
+   "from": "VChip",
+   "import": "vuetify/components",
+   "to": [
+    "badge",
+    "tags-input"
+   ],
+   "status": "compose",
+   "props": {
+    "text": "Badge variant=\"outline\" or \"secondary\"",
+    "color on a status chip": "not a chip: a toned icon and the word, in muted text",
+    "closable": "a TagsInput item (TagsInputItemDelete) when the user edits the set",
+    "prepend-icon": "a Lucide icon in the Badge with data-icon=\"inline-start\"",
+    "filter, link, label, variant, size, density": "remove"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "Never tinted status pills."
+  },
+  {
+   "from": "VChipGroup",
+   "import": "vuetify/components",
+   "to": [
+    "toggle-group",
+    "tags-input"
+   ],
+   "status": "compose",
+   "props": {
+    "v-model, filter, multiple": "ToggleGroup (type single or multiple) when the chips filter a view",
+    "column": "flex-wrap"
+   },
+   "needs": [
+    "tags-input"
+   ],
+   "notes": "Filters are a ToggleGroup or a Select."
+  },
+  {
+   "from": "VKbd",
+   "import": "vuetify/components",
+   "to": [
+    "kbd"
+   ],
+   "status": "direct",
+   "notes": "Kbd; KbdGroup for combinations."
+  },
+  {
+   "from": "VCode",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "VCode": "<code> (rounded bg-muted px-1.5 font-mono)"
+   },
+   "notes": "Inline code is plain markup."
+  },
+  {
+   "from": "VTooltip",
+   "import": "vuetify/components",
+   "to": [
+    "tooltip"
+   ],
+   "status": "direct",
+   "props": {
+    "activator slot or activator=\"parent\"": "<Tooltip><TooltipTrigger as-child>the button</TooltipTrigger><TooltipContent>Text</TooltipContent></Tooltip>",
+    "text": "TooltipContent text",
+    "location=\"top|bottom|start|end\"": "side on TooltipContent",
+    "open-delay": "delay-duration on TooltipProvider (once at the app root)"
+   },
+   "notes": "A tooltip names an icon-only button, which also needs aria-label."
+  },
+  {
+   "from": "VDialog",
+   "import": "vuetify/components",
+   "to": [
+    "dialog",
+    "confirm-dialog",
+    "alert-dialog"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model:open on Dialog",
+    "activator slot": "DialogTrigger as-child",
+    "VCard inside": "DialogContent; VCardTitle becomes DialogHeader with DialogTitle, VCardText DialogBody, VCardActions DialogFooter",
+    "footer actions": "full-width buttons: Cancel variant=\"secondary\" size=\"modal\" first, the action size=\"modal\" second",
+    "persistent": "@pointer-down-outside.prevent and @escape-key-down.prevent on DialogContent (only while working)",
+    "max-width, width": "a width class on DialogContent (sm:max-w-lg)",
+    "fullscreen, scrollable, transition, scrim": "remove; a long body scrolls inside DialogBody",
+    "a confirmation (Are you sure)": "the confirm-dialog block"
+   },
+   "notes": "A side panel is a Sheet."
+  },
+  {
+   "from": "VBottomSheet",
+   "import": "vuetify/components",
+   "to": [
+    "sheet"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "Sheet v-model:open with side=\"bottom\""
+   },
+   "notes": "Sheet."
+  },
+  {
+   "from": "VMenu",
+   "import": "vuetify/components",
+   "to": [
+    "dropdown-menu",
+    "popover"
+   ],
+   "status": "direct",
+   "props": {
+    "activator slot": "DropdownMenuTrigger as-child around the Button",
+    "VList of actions inside": "one DropdownMenuItem per action (Lucide icon first, sentence case), DropdownMenuSeparator between groups, variant=\"destructive\" for deletes",
+    "form or custom content inside": "Popover with PopoverContent",
+    "location, offset, open-on-hover, close-on-content-click": "side and align on the content; menus open on click",
+    "row actions": "a ghost size=\"icon-sm\" Button with EllipsisIcon, aria-label and Tooltip"
+   },
+   "notes": "Named items in sentence case."
+  },
+  {
+   "from": "VHover",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "CSS hover states (hover: classes) or @pointerenter; components have their own."
+  },
+  {
+   "from": "VCard",
+   "import": "vuetify/components",
+   "to": [
+    "card",
+    "item"
+   ],
+   "status": "direct",
+   "props": {
+    "title, VCardTitle, VCardItem": "CardHeader with CardTitle",
+    "subtitle, VCardSubtitle": "CardDescription, only if it carries a fact",
+    "text, VCardText": "CardContent",
+    "VCardActions": "CardFooter",
+    "to, href, @click (a clickable entity)": "Item variant=\"outline\" with as-child RouterLink, or Card as the button content",
+    "elevation, variant, color, rounded, density, loading": "remove; loading is a Skeleton in the shape of the card",
+    "prepend-icon, append-icon": "a Lucide icon in the header"
+   },
+   "notes": "Cards only for clickable entities, summaries and floating panels. Plain content is a flat section with a heading."
+  },
+  {
+   "from": "VCardTitle",
+   "import": "vuetify/components",
+   "to": [
+    "card"
+   ],
+   "status": "direct",
+   "notes": "CardTitle (in a dialog, DialogTitle)."
+  },
+  {
+   "from": "VCardSubtitle",
+   "import": "vuetify/components",
+   "to": [
+    "card"
+   ],
+   "status": "direct",
+   "notes": "CardDescription, or remove it."
+  },
+  {
+   "from": "VCardText",
+   "import": "vuetify/components",
+   "to": [
+    "card"
+   ],
+   "status": "direct",
+   "notes": "CardContent (in a dialog, DialogBody)."
+  },
+  {
+   "from": "VCardActions",
+   "import": "vuetify/components",
+   "to": [
+    "card",
+    "dialog"
+   ],
+   "status": "direct",
+   "notes": "CardFooter (in a dialog, DialogFooter with Cancel first)."
+  },
+  {
+   "from": "VCardItem",
+   "import": "vuetify/components",
+   "to": [
+    "card"
+   ],
+   "status": "direct",
+   "notes": "CardHeader."
+  },
+  {
+   "from": "VList",
+   "import": "vuetify/components",
+   "to": [
+    "item",
+    "sidebar",
+    "dropdown-menu"
+   ],
+   "status": "compose",
+   "props": {
+    "a list of rows": "rows divided by lines (divide-y border-y), the selected row bg-muted font-medium",
+    "clickable entities (datasets, models)": "Item variant=\"outline\" in an ItemGroup",
+    "navigation": "SidebarMenu with SidebarMenuButton",
+    "inside a VMenu": "DropdownMenuItem",
+    "density, nav, lines, rounded, color": "remove"
+   },
+   "notes": "Choose by job: rows, items, navigation or menu."
+  },
+  {
+   "from": "VListItem",
+   "import": "vuetify/components",
+   "to": [
+    "item"
+   ],
+   "status": "compose",
+   "props": {
+    "title": "ItemTitle",
+    "subtitle": "ItemDescription",
+    "prepend (icon, avatar)": "ItemMedia (variant=\"icon\" with a Lucide icon, or an Avatar)",
+    "append (actions)": "ItemActions with ghost icon-sm Buttons (aria-label, Tooltip)",
+    "to, @click": "Item as-child with a RouterLink or button",
+    "active": "bg-muted font-medium on the row (data-active)"
+   },
+   "notes": "Item."
+  },
+  {
+   "from": "VListItemTitle",
+   "import": "vuetify/components",
+   "to": [
+    "item"
+   ],
+   "status": "compose",
+   "notes": "ItemTitle."
+  },
+  {
+   "from": "VListItemSubtitle",
+   "import": "vuetify/components",
+   "to": [
+    "item"
+   ],
+   "status": "compose",
+   "notes": "ItemDescription."
+  },
+  {
+   "from": "VListGroup",
+   "import": "vuetify/components",
+   "to": [
+    "collapsible",
+    "sidebar"
+   ],
+   "status": "compose",
+   "props": {
+    "activator + items": "Collapsible with CollapsibleTrigger; in navigation SidebarMenuSub"
+   },
+   "notes": "A group that opens and closes."
+  },
+  {
+   "from": "VListSubheader",
+   "import": "vuetify/components",
+   "to": [
+    "sidebar",
+    "dropdown-menu"
+   ],
+   "status": "compose",
+   "notes": "SidebarGroupLabel, DropdownMenuLabel or a small heading."
+  },
+  {
+   "from": "VExpansionPanels",
+   "import": "vuetify/components",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "VExpansionPanel per section": "one Collapsible per section, rows divided by lines",
+    "multiple": "independent Collapsibles",
+    "v-model (single open)": "one ref for the open section",
+    "variant=\"accordion|inset|popout\", elevation": "remove"
+   },
+   "notes": "A section that opens and closes."
+  },
+  {
+   "from": "VExpansionPanel",
+   "import": "vuetify/components",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "props": {
+    "title": "CollapsibleTrigger as-child around a ghost Button with the title and ChevronDownIcon",
+    "text": "CollapsibleContent"
+   },
+   "notes": "Collapsible."
+  },
+  {
+   "from": "VExpansionPanelTitle",
+   "import": "vuetify/components",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "notes": "CollapsibleTrigger."
+  },
+  {
+   "from": "VExpansionPanelText",
+   "import": "vuetify/components",
+   "to": [
+    "collapsible"
+   ],
+   "status": "compose",
+   "notes": "CollapsibleContent."
+  },
+  {
+   "from": "VTabs",
+   "import": "vuetify/components",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model on Tabs",
+    "VTab value": "TabsTrigger value inside TabsList variant=\"line\"",
+    "grow, align-tabs, fixed-tabs, color, slider-color, bg-color, density, show-arrows": "remove",
+    "direction=\"vertical\"": "orientation=\"vertical\"; a settings section menu is TabsList variant=\"nav\"",
+    "to (router tabs)": "links between pages belong in the TopBar or Sidebar"
+   },
+   "notes": "TabsList is always variant=\"line\" (variant=\"nav\" only for a view section menu)."
+  },
+  {
+   "from": "VTab",
+   "import": "vuetify/components",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "TabsTrigger value",
+    "prepend-icon": "a Lucide icon first",
+    "count": "Badge variant=\"card\" in the trigger"
+   },
+   "notes": "TabsTrigger."
+  },
+  {
+   "from": "VTabsWindow",
+   "import": "vuetify/components",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "notes": "Remove the wrapper; TabsContent sits in Tabs."
+  },
+  {
+   "from": "VTabsWindowItem",
+   "import": "vuetify/components",
+   "to": [
+    "tabs"
+   ],
+   "status": "direct",
+   "props": {
+    "value": "TabsContent value"
+   },
+   "notes": "TabsContent."
+  },
+  {
+   "from": "VWindow",
+   "import": "vuetify/components",
+   "to": [
+    "carousel",
+    "stepper"
+   ],
+   "status": "compose",
+   "props": {
+    "v-model + VWindowItem": "v-if on the current item, or Carousel when it slides"
+   },
+   "needs": [
+    "stepper"
+   ],
+   "notes": "Show one panel at a time."
+  },
+  {
+   "from": "VWindowItem",
+   "import": "vuetify/components",
+   "to": [
+    "carousel"
+   ],
+   "status": "compose",
+   "notes": "The panel shown with v-if, or a CarouselItem."
+  },
+  {
+   "from": "VSlideGroup",
+   "import": "vuetify/components",
+   "to": [
+    "scroll-area",
+    "toggle-group"
+   ],
+   "status": "compose",
+   "props": {
+    "VSlideGroupItem": "items in a horizontal ScrollArea; a choice is a ToggleGroup"
+   },
+   "notes": "A row that scrolls."
+  },
+  {
+   "from": "VItemGroup",
+   "import": "vuetify/components",
+   "to": [
+    "toggle-group",
+    "radio-group"
+   ],
+   "status": "compose",
+   "notes": "ToggleGroup or RadioGroup of choice cards."
+  },
+  {
+   "from": "VBreadcrumbs",
+   "import": "vuetify/components",
+   "to": [
+    "breadcrumb"
+   ],
+   "status": "direct",
+   "props": {
+    "items [{ title, to, disabled }]": "BreadcrumbItem with BreadcrumbLink (as-child RouterLink) per crumb, BreadcrumbSeparator between, BreadcrumbPage last",
+    "divider": "remove: BreadcrumbSeparator draws it"
+   },
+   "notes": "Every crumb navigates to its own page."
+  },
+  {
+   "from": "VPagination",
+   "import": "vuetify/components",
+   "to": [
+    "pagination"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model (page)": "v-model:page on Pagination",
+    "length": ":total and :items-per-page (total = length times items per page)",
+    "total-visible": "sibling-count",
+    "rounded, variant, density, color": "remove"
+   },
+   "notes": "Numbered pages under a table."
+  },
+  {
+   "from": "VStepper",
+   "import": "vuetify/components",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "props": {
+    "v-model": "v-model (the step number)",
+    "items, VStepperHeader > VStepperItem": "StepperItem :step with StepperTrigger, StepperIndicator, StepperTitle and StepperSeparator",
+    "VStepperWindow > VStepperWindowItem": "the current step content below the Stepper (v-if)",
+    "VStepperActions (prev, next)": "Back and Next Buttons, the primary action last",
+    "non-linear, editable": "linear=false",
+    "alt-labels, flat, color": "remove"
+   },
+   "needs": [
+    "stepper"
+   ],
+   "notes": "Steps of a process."
+  },
+  {
+   "from": "VStepperVertical",
+   "import": "vuetify/labs/VStepperVertical",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "Stepper orientation=\"vertical\"."
+  },
+  {
+   "from": "VStepperItem",
+   "import": "vuetify/components",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "StepperItem."
+  },
+  {
+   "from": "VStepperWindowItem",
+   "import": "vuetify/components",
+   "to": [
+    "stepper"
+   ],
+   "status": "direct",
+   "needs": [
+    "stepper"
+   ],
+   "notes": "The step content shown with v-if."
+  },
+  {
+   "from": "VTimeline",
+   "import": "vuetify/components",
+   "to": [
+    "timeline"
+   ],
+   "status": "direct",
+   "props": {
+    "VTimelineItem": "one item per event: title, description, the date in tabular figures",
+    "dot-color, icon": "a Lucide icon; status is an icon and a word, never a coloured dot",
+    "side, align, direction=\"horizontal\", density, truncate-line": "remove; a horizontal process is a Stepper"
+   },
+   "needs": [
+    "timeline"
+   ],
+   "notes": "Events in order."
+  },
+  {
+   "from": "VTimelineItem",
+   "import": "vuetify/components",
+   "to": [
+    "timeline"
+   ],
+   "status": "direct",
+   "needs": [
+    "timeline"
+   ],
+   "notes": "One timeline item."
+  },
+  {
+   "from": "VTreeview",
+   "import": "vuetify/components",
+   "to": [
+    "tree"
+   ],
+   "status": "direct",
+   "props": {
+    "items, item-title, item-value, item-children": "items with get-key and get-children",
+    "v-model:selected, selectable, select-strategy": "v-model with multiple, checkboxes for leaf or cascade selection",
+    "v-model:opened, open-all": "v-model:expanded",
+    "activatable, v-model:activated": "the selected row bg-muted font-medium",
+    "prepend slot (icons)": "a Lucide icon before the label",
+    "search": "an Input with SearchIcon above, filtering the items"
+   },
+   "needs": [
+    "tree"
+   ],
+   "notes": "Hierarchies such as folders."
+  },
+  {
+   "from": "VDataTable",
+   "import": "vuetify/components",
+   "to": [
+    "data-table",
+    "table",
+    "pagination",
+    "skeleton",
+    "empty"
+   ],
+   "status": "direct",
+   "props": {
+    "items": ":data",
+    "headers [{ title, key, align, sortable, width }]": ":columns as ColumnDef[] ({ accessorKey: key, header: title, enableSorting: sortable })",
+    "align: \"end\" (numbers)": "text-right tabular-nums on header and cell",
+    "item-value": "get-row-id",
+    "show-select, v-model (selected)": "selectable",
+    "items-per-page, page": "page-size; numbered Pagination under the table",
+    "sort-by, multi-sort, must-sort": "TanStack sorting with DataTableColumnHeader",
+    "search": "global filter, with the search field above the table",
+    "loading, loading-text": "loading (Skeleton rows, no progress bar over the header)",
+    "no-data-text": "labels.empty, or Empty with a clear action",
+    "item.<key> slots": "cell: ({ row }) => h(...)",
+    "item.actions slot": "a ghost size=\"icon-sm\" Button with EllipsisIcon that opens a DropdownMenu",
+    "status column with VChip": "a toned icon and the word, in muted text",
+    "show-expand, group-by": "see the expandable rows gap below; edit in a Dialog or Sheet",
+    "density, hover, fixed-header, height, striped": "remove; ScrollArea for a fixed height"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "Rows of facts with sortable headers. Every async table has loading, empty and failure (Retry) states."
+  },
+  {
+   "from": "VDataTableServer",
+   "import": "vuetify/components",
+   "to": [
+    "table",
+    "pagination",
+    "data-table"
+   ],
+   "status": "compose",
+   "props": {
+    "items-length, @update:options (page, itemsPerPage, sortBy)": "Table with your own sortable headers and Pagination :total; fetch each page on change",
+    "loading": "Skeleton rows, and the failure state with Retry"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "Server-side paging and sorting until data-table takes controlled state."
+  },
+  {
+   "from": "VDataTableVirtual",
+   "import": "vuetify/components",
+   "to": [
+    "table",
+    "scroll-area",
+    "pagination"
+   ],
+   "status": "gap",
+   "props": {
+    "items, height, item-height": "Pagination, or @tanstack/vue-virtual inside a ScrollArea"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "The library needs virtual rows in data-table. Most product tables page instead."
+  },
+  {
+   "from": "VDataTable expandable rows (show-expand, group-by)",
+   "import": "vuetify/components",
+   "to": [
+    "table",
+    "data-table"
+   ],
+   "status": "gap",
+   "props": {
+    "show-expand + expanded-row slot": "until data-table supports it: a ghost icon-sm chevron toggle (aria-expanded, aria-label) per row and the detail in the next TableRow",
+    "group-by": "one table per group under a heading, or a group column sorted together"
+   },
+   "needs": [
+    "data-table"
+   ],
+   "notes": "The library needs row expanding and grouping in data-table (TanStack expanding and grouping)."
+  },
+  {
+   "from": "VTable",
+   "import": "vuetify/components",
+   "to": [
+    "table"
+   ],
+   "status": "direct",
+   "props": {
+    "thead > tr > th": "TableHeader, TableRow, TableHead",
+    "tbody > tr > td": "TableBody, TableRow, TableCell",
+    "density, fixed-header, height, hover": "remove; ScrollArea for a fixed height",
+    "number columns": "text-right tabular-nums"
+   },
+   "notes": "A plain table."
+  },
+  {
+   "from": "VDataIterator",
+   "import": "vuetify/components",
+   "to": [
+    "item",
+    "pagination",
+    "empty"
+   ],
+   "status": "compose",
+   "props": {
+    "items + default slot": "ItemGroup of Item variant=\"outline\", or image tiles (Item size=\"sm\")",
+    "pagination": "Pagination"
+   },
+   "notes": "Datasets, models and images are Items."
+  },
+  {
+   "from": "VVirtualScroll",
+   "import": "vuetify/components",
+   "to": [
+    "scroll-area",
+    "pagination"
+   ],
+   "status": "gap",
+   "props": {
+    "items, item-height": "Pagination, or @tanstack/vue-virtual inside a ScrollArea"
+   },
+   "notes": "The library needs a virtual list."
+  },
+  {
+   "from": "VInfiniteScroll",
+   "import": "vuetify/components",
+   "to": [
+    "button",
+    "spinner"
+   ],
+   "status": "compose",
+   "props": {
+    "@load": "a Load more outline Button with a Spinner while it loads; or useIntersectionObserver from @vueuse/core"
+   },
+   "notes": "Keep the failure state with Retry."
+  },
+  {
+   "from": "VLazy",
+   "import": "vuetify/components",
+   "to": [
+    "skeleton"
+   ],
+   "status": "remove",
+   "props": {
+    "VLazy": "useIntersectionObserver from @vueuse/core and a Skeleton until it loads"
+   },
+   "notes": "Lazy loading stays; the component goes."
+  },
+  {
+   "from": "VAvatar",
+   "import": "vuetify/components",
+   "to": [
+    "avatar"
+   ],
+   "status": "direct",
+   "props": {
+    "image": "AvatarImage with alt (the person name)",
+    "text (initials)": "AvatarFallback",
+    "icon": "AvatarFallback with UserIcon",
+    "size=\"small|large\"": "size=\"sm\" or \"lg\"",
+    "color, rounded, tile, variant": "remove"
+   },
+   "notes": "The person signed in, as a picture or initials."
+  },
+  {
+   "from": "VImg",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "src, alt": "<img> with an alt that says what the image proves (alt=\"\" when decorative)",
+    "aspect-ratio, cover": "aspect-* and object-cover classes",
+    "lazy-src, placeholder slot": "loading=\"lazy\" and a Skeleton until load",
+    "gradient": "remove: no gradients"
+   },
+   "notes": "Plain markup."
+  },
+  {
+   "from": "VIcon",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "<VIcon icon=\"mdi-x\" />, <v-icon>mdi-x</v-icon>": "the Lucide component named in icons.json (<XIcon />)",
+    "size=\"small|default|large\"": "16, 20 or 24 px (size-4, size-5, size-6)",
+    "color": "remove: icons take the colour of their label; status colours only for status",
+    "start, end (inside VBtn)": "data-icon=\"inline-start\" or \"inline-end\"",
+    "$vuetify aliases ($close, $complete, $expand, $prev, $next, $sort, $delete)": "XIcon, CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ArrowUpDownIcon, Trash2Icon"
+   },
+   "notes": "Lucide only. Icon-only buttons need aria-label and a Tooltip."
+  },
+  {
+   "from": "VCarousel",
+   "import": "vuetify/components",
+   "to": [
+    "carousel"
+   ],
+   "status": "direct",
+   "props": {
+    "VCarouselItem": "CarouselItem in CarouselContent",
+    "show-arrows": "CarouselPrevious and CarouselNext",
+    "cycle, interval": "the embla autoplay plugin, with a pause control",
+    "hide-delimiters, delimiter-icon, height, progress": "remove; height by class",
+    "continuous": ":opts=\"{ loop: true }\""
+   },
+   "notes": "A row of items that moves one at a time."
+  },
+  {
+   "from": "VCarouselItem",
+   "import": "vuetify/components",
+   "to": [
+    "carousel"
+   ],
+   "status": "direct",
+   "notes": "CarouselItem."
+  },
+  {
+   "from": "VParallax",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "No parallax on product screens."
+  },
+  {
+   "from": "VSparkline",
+   "import": "vuetify/components",
+   "to": [
+    "chart"
+   ],
+   "status": "compose",
+   "props": {
+    "model-value, type=\"trend|bar\"": "a small Chart (VisLine or VisStackedBar) without axes, with its value as text"
+   },
+   "needs": [
+    "chart"
+   ],
+   "notes": "Never the only carrier of the number."
+  },
+  {
+   "from": "v-ripple",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "notes": "Components have their own hover, active and focus states."
+  },
+  {
+   "from": "v-intersect",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-intersect=\"onIntersect\"": "useIntersectionObserver from @vueuse/core"
+   },
+   "notes": "@vueuse/core is already a dependency of the package."
+  },
+  {
+   "from": "v-resize",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-resize": "useResizeObserver or useWindowSize from @vueuse/core"
+   },
+   "notes": "@vueuse/core."
+  },
+  {
+   "from": "v-scroll",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-scroll": "useScroll from @vueuse/core"
+   },
+   "notes": "@vueuse/core."
+  },
+  {
+   "from": "v-click-outside",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-click-outside": "onClickOutside from @vueuse/core; Popover, DropdownMenu and Dialog close themselves"
+   },
+   "notes": "@vueuse/core."
+  },
+  {
+   "from": "v-mutate",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-mutate": "useMutationObserver from @vueuse/core"
+   },
+   "notes": "@vueuse/core."
+  },
+  {
+   "from": "v-touch",
+   "import": "vuetify/directives",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "v-touch": "useSwipe from @vueuse/core"
+   },
+   "notes": "@vueuse/core."
+  },
+  {
+   "from": "Transitions (VFadeTransition, VExpandTransition, VSlideXTransition...)",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "Components animate themselves; motion follows the Motion page and stops with reduced motion."
+  },
+  {
+   "from": "VDefaultsProvider",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "No global defaults: each component takes its own variant and size."
+  },
+  {
+   "from": "VThemeProvider",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "Light and dark by the .dark class on <html>."
+  },
+  {
+   "from": "VLocaleProvider",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "The app i18n."
+  },
+  {
+   "from": "VNoSsr",
+   "import": "vuetify/components",
+   "to": [],
+   "status": "remove",
+   "notes": "ClientOnly from the framework, if needed."
+  },
+  {
+   "from": "useDisplay",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "mdAndUp, smAndDown, mobile": "Tailwind breakpoint classes (md:...) in templates; useMediaQuery or useBreakpoints(breakpointsTailwind) from @vueuse/core in script"
+   },
+   "notes": "Use the Tailwind breakpoints."
+  },
+  {
+   "from": "useTheme",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "theme.global.name.value = 'dark'": "toggle the .dark class on <html> (useDark from @vueuse/core)"
+   },
+   "notes": "Tokens from @aisgroup/design/styles.css switch with .dark."
+  },
+  {
+   "from": "useLocale",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "notes": "The app i18n."
+  },
+  {
+   "from": "useDate",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "adapter.format(date, 'keyboardDate')": "Intl.DateTimeFormat or DateFormatter from @internationalized/date"
+   },
+   "notes": "Dates in the app locale."
+  },
+  {
+   "from": "useGoTo",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "goTo(target)": "element.scrollIntoView({ behavior: 'smooth' }), instant with reduced motion"
+   },
+   "notes": "Native scrolling."
+  },
+  {
+   "from": "createVuetify",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "createVuetify({ components, directives })": "remove, and app.use(vuetify); import our components by folder",
+    "theme: { themes, defaultTheme }": "remove; import Tailwind, then @aisgroup/design/styles.css",
+    "defaults": "remove; each component keeps its own variant and size",
+    "display: { thresholds }": "the Tailwind breakpoints",
+    "icons: { defaultSet, aliases, sets }": "remove; Lucide components (icons.json)",
+    "locale, date adapter": "the app i18n and Intl"
+   },
+   "notes": "Uninstall vuetify once the last screen has moved."
+  },
+  {
+   "from": "Theme colours (themes, colors, variables)",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "color=\"primary\" on components": "the component variant",
+    "bg-primary, text-primary, bg-surface, text-medium-emphasis": "our token classes: bg-primary, text-primary, bg-background or bg-card, text-muted-foreground",
+    "rgb(var(--v-theme-primary)), --v-* variables": "var(--primary) and the tokens of @aisgroup/design/styles.css",
+    "text-h1 ... text-caption, font-weight-bold": "the product type scale on the Typography page"
+   },
+   "notes": "Every colour is a token; no palette classes and no hex values."
+  },
+  {
+   "from": "Density (density=\"compact|comfortable\")",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "density": "size=\"sm\" where a component has it; otherwise remove"
+   },
+   "notes": "Desktop toolbars are h-9 with 16 px icons; touch and operator screens 44 px targets."
+  },
+  {
+   "from": "Elevation, rounded, border props",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "notes": "Never override a component radius or shadow."
+  },
+  {
+   "from": "Spacing helpers (pa-4, ma-2, d-flex, align-center)",
+   "import": "vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "pa-4, ma-2, mt-n2": "p-4, m-2, -mt-2",
+    "d-flex, flex-column, align-center, justify-space-between": "flex, flex-col, items-center, justify-between"
+   },
+   "notes": "Tailwind classes, for layout only."
+  },
+  {
+   "from": "MDI icon set (@mdi/font, @mdi/js, mdi-svg)",
+   "import": "@mdi/font/css/materialdesignicons.css",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "mdi-* names": "the Lucide component named in icons.json"
+   },
+   "notes": "Uninstall @mdi/font or @mdi/js."
+  },
+  {
+   "from": "vuetify/styles and SASS settings",
+   "import": "vuetify/styles",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "import 'vuetify/styles', settings.scss variables": "remove; @aisgroup/design/styles.css after Tailwind"
+   },
+   "notes": "No Vuetify CSS in the redesigned app."
+  },
+  {
+   "from": "vite-plugin-vuetify",
+   "import": "vite-plugin-vuetify",
+   "to": [],
+   "status": "remove",
+   "props": {
+    "vuetify({ autoImport, styles })": "remove from vite.config"
+   },
+   "notes": "Import our components by folder."
+  }
+ ]
+}

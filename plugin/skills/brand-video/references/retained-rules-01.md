@@ -138,7 +138,7 @@ Source: plugin/skills/brand-video/SKILL.md:33.
 ## AIS-c989c10ca772
 
 <!-- AIS-c989c10ca772 -->
-Show the real application, not a staged one. Capture the actual screens of one product revision: its shell, navigation, page structure, density, full-screen editor, canvas and panels exactly as the app renders them. Real controls rearranged on a custom stage are a component demo, never a product film. How to capture: [product UI capture](references/product-ui-capture.md).
+Show the real application, not a staged one. Capture the actual screens of one product revision: its shell, navigation, page structure, density, full-screen editor, canvas and panels exactly as the app renders them. Real controls rearranged on a custom stage are a component demo, never a product film. How to capture: [product UI capture](product-ui-capture.md).
 
 Source: plugin/skills/brand-video/SKILL.md:37.
 
@@ -677,6 +677,6 @@ Source: plugin/skills/communications/references/video.md:98.
 ## AIS-d0a2b2893729
 
 <!-- AIS-d0a2b2893729 -->
-| Languages | English, Spanish and Catalan written natively, as in [Localisation](localisation.md); never machine translation without a native review |
+| Languages | English, Spanish and Catalan written natively, as in [Localisation](../../communications/references/localisation.md); never machine translation without a native review |
 
 Source: plugin/skills/communications/references/video.md:99.
