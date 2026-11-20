@@ -1,39 +1,52 @@
 ---
+// The brand intros (three in a row) and marketing's intro films with real footage (Guion de marca): 1080p for the web,
+// 4K original for editing. Each caption is the Logos pattern: the name, then one row of actions per file under it.
+import AssetActions from './AssetActions.astro';
 import type { Lang } from '../i18n';
 interface Props { lang: Lang; single?: boolean }
 const { lang, single = false } = Astro.props;
 const t = { en: { intro: 'Brand intro', film: 'Intro film', poster: 'Poster JPG' }, es: { intro: 'Intro de marca', film: 'Película de presentación', poster: 'Portada JPG' }, ca: { intro: 'Intro de marca', film: 'Pel·lícula de presentació', poster: 'Portada JPG' } }[lang];
-// Marketing's intro films with real footage (Guion de marca): 1080p for the web, 4K original for editing.
 const films = [['ais-vision-systems', 'AIS Vision Systems'], ['rosepetal', 'Rosepetal']];
 const videos = [['ais-vision-systems', 'AIS Vision Systems'], ['ais-group', 'AIS Group'], ['rosepetal', 'Rosepetal']];
 const shown = single ? videos.slice(0, 1) : videos;
 ---
-<div class:list={['dl-grid', single ? 'one' : 'two']}>
+<div class:list={['dl-grid', { one: single }]}>
   {shown.map(([id, name]) => {
     const file = `/kit/files/${id}_brand-intro_v01_16x9`;
-    return <div class="dl">
+    return <figure class="dl video-dl">
       <video class="dl-tile video" width="1920" height="1080" controls preload="none" playsinline poster={`${file}.jpg`} aria-label={`${name}, ${t.intro}`}>
         <source src={`${file}.mp4`} type="video/mp4" />
       </video>
-      <span class="dl-cap"><strong>{name}</strong><span class="links">
-        <a href={`${file}.mp4`} download>{name}: {t.intro} (MP4)</a>
-        <a href={`${file}.jpg`} download>{t.poster}</a>
-      </span></span>
-    </div>;
+      <figcaption>
+        <strong>{name}</strong>
+        <AssetActions lang={lang} href={`${file}.mp4`} name={`${name}, ${t.intro}, MP4`} label="MP4" view={false} />
+        <AssetActions lang={lang} href={`${file}.jpg`} name={`${name}, ${t.intro}, ${t.poster}`} label={t.poster} view={false} />
+      </figcaption>
+    </figure>;
   })}
 </div>
-{!single && <div class="dl-grid two">
+{!single && <div class="dl-grid two video-films">
   {films.map(([id, name]) => (
-    <div class="dl">
+    <figure class="dl video-dl">
       <video class="dl-tile video" width="1920" height="1080" controls preload="none" playsinline poster={`/downloads/video/${id}-intro.jpg`} aria-label={`${name}, ${t.film}`}>
         <source src={`/downloads/video/${id}-intro.mp4`} type="video/mp4" />
       </video>
-      <span class="dl-cap"><strong>{name}, {t.film}</strong><span class="links">
-        <a href={`/downloads/video/${id}-intro.mp4`} download>{name}: {t.film} (MP4, 1080p)</a>
-        <a href={`/downloads/video/${id}-intro-4k.mp4`} download>{name}: {t.film} (MP4, 4K)</a>
-        <a href={`/downloads/video/${id}-intro.jpg`} download>{t.poster}</a>
-      </span></span>
-    </div>
+      <figcaption>
+        <strong>{name}, {t.film}</strong>
+        <AssetActions lang={lang} href={`/downloads/video/${id}-intro.mp4`} name={`${name}, ${t.film}, MP4 1080p`} label="MP4, 1080p" view={false} />
+        <AssetActions lang={lang} href={`/downloads/video/${id}-intro-4k.mp4`} name={`${name}, ${t.film}, MP4 4K`} label="MP4, 4K" view={false} />
+        <AssetActions lang={lang} href={`/downloads/video/${id}-intro.jpg`} name={`${name}, ${t.film}, ${t.poster}`} label={t.poster} view={false} />
+      </figcaption>
+    </figure>
   ))}
 </div>}
-
+<style>
+  .video-dl { margin: 0; }
+  .video-films { margin-top: 32px; }
+  .video-dl figcaption { display: flex; flex-direction: column; align-items: flex-start; margin-top: 8px; font-size: var(--ais-text-small); line-height: var(--ais-text-small-leading); letter-spacing: var(--ais-text-small-tracking); }
+  .video-dl strong { color: var(--ink); font-weight: 600; }
+  /* The rows sit one line apart, as in the guide's tables; each link keeps its 44 px tap height. */
+  .video-dl figcaption { gap: 8px; }
+  .video-dl figcaption :global(.asset-actions a) { margin-block: calc((1lh - 44px) / 2); }
+  @media (max-width: 640px) { .dl-grid:not(.one) { grid-template-columns: minmax(0, 1fr); } }
+</style>
