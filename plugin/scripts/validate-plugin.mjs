@@ -24,15 +24,17 @@ export function validateManifests(root) {
   const openai = portable.extensions?.['com.openai'];
   if (!openai || !openai.onboardingSkill?.startsWith('./') || !fs.existsSync(path.join(root, openai.onboardingSkill))) errors.push('OpenAI onboarding skill missing');
   const studio = mcp.mcpServers.studio, remote = mcp.mcpServers.design;
-  if (studio?.type !== 'stdio' || studio.command !== 'node' || !studio.args.includes('${PLUGIN_ROOT}/mcp/start.mjs')) errors.push('Portable studio entry invalid');
+  // The lite edition ships without the studio; a plugin that carries the studio must declare it correctly.
+  const hasStudio = fs.existsSync(path.join(root, 'mcp/start.mjs'));
+  if (hasStudio && (studio?.type !== 'stdio' || studio.command !== 'node' || !studio.args.includes('${PLUGIN_ROOT}/mcp/start.mjs'))) errors.push('Portable studio entry invalid');
   for (const value of [...(studio?.args ?? []), ...Object.values(studio?.env ?? {})]) {
     if ([...value.matchAll(/\$\{([^}]+)\}/g)].some(([, v]) => !['PLUGIN_ROOT', 'PLUGIN_DATA'].includes(v))) errors.push('Nonportable variable in portable MCP');
   }
   if (remote?.type !== 'streamable-http' || remote.url !== 'https://design.aisgroup.ai/mcp') errors.push('Hosted MCP entry invalid');
   if (remote?.headers?.Authorization !== 'Bearer ${AIS_MCP_TOKEN}') errors.push('Portable hosted MCP must send its bearer token');
   if (claude.userConfig?.designToken?.sensitive !== true || claude.mcpServers?.design?.headers?.Authorization !== 'Bearer ${user_config.designToken}') errors.push('Claude hosted MCP must send the keychain token');
-  if (claude.userConfig?.mediaLibrary?.type !== 'string' || claude.mcpServers?.studio?.env?.AIS_MEDIA_LIBRARY !== '${user_config.mediaLibrary}') errors.push('Claude media library behaviour lost');
-  if (claude.mcpServers?.studio?.args?.[0] !== '${CLAUDE_PLUGIN_ROOT}/mcp/start.mjs') errors.push('Claude studio entry invalid');
+  if (hasStudio && (claude.userConfig?.mediaLibrary?.type !== 'string' || claude.mcpServers?.studio?.env?.AIS_MEDIA_LIBRARY !== '${user_config.mediaLibrary}')) errors.push('Claude media library behaviour lost');
+  if (hasStudio && claude.mcpServers?.studio?.args?.[0] !== '${CLAUDE_PLUGIN_ROOT}/mcp/start.mjs') errors.push('Claude studio entry invalid');
   return [...errors, ...validateHooks(root)];
 }
 
