@@ -89,7 +89,7 @@ Source: plugin/skills/brand-video/SKILL.md:26.
 ## AIS-95952a44c4b1
 
 <!-- AIS-95952a44c4b1 -->
-**Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from the separate product-render skill. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D.
+**Machine motion:** 3D renders, including the exterior turntable, hero reveal and on-the-line animations of AIS Hopper, AIS KARIKÓ and AIS REV 360 Compact, come from AIS's internal render pipeline, not this plugin. Reuse existing reviewed clips first; exterior only, guards closed, never captioned as render, CAD or 3D.
 
 Source: plugin/skills/brand-video/SKILL.md:27.
 
@@ -103,7 +103,7 @@ Source: plugin/skills/brand-video/SKILL.md:28.
 ## AIS-29bdf12b6662
 
 <!-- AIS-29bdf12b6662 -->
-Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The generated website clips (`web-*`) are rejected: never use them.
+Footage in the library: `library/media/advanced-factories-2026/` (Advanced Factories 2026 stand, 720p, under review for consent), including `af26-can-demo-steady` (the can demo with the Rosepetal dents and the OPTICAIS date on the stand screen). Elsewhere: `rev360-cables-video` (AIS's REV 360 Cables video) and `ais-people-video` (AIS people at work, consent per person). Check `library/catalog.json`. The website clips (`web-*`) are rejected: never use them.
 
 Source: plugin/skills/brand-video/SKILL.md:29.
 

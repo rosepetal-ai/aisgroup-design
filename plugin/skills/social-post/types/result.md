@@ -58,8 +58,8 @@ One `stat`:
 - Dropping "estimated". This is Daymsa's estimate, not a measurement.
 - Dropping "up to", rounding, or turning "time and staff" into "cost".
 - Two figures on one post, or a figure loose in a headline.
-- Blog figures without conditions. Rosepetal's "99.9 % accuracy, confidential client" names no customer, no baseline and no conditions, so it is not acceptable.
-- A figure from a composited video card, such as the "Ready for production" card in the VISION 2026 interview.
+- A figure without a named customer, a baseline and its conditions.
+- A figure read off a video card instead of its published source.
 
 ## Before publishing
 

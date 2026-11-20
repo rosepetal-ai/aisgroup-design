@@ -30,5 +30,5 @@ Source rules, loaded only when needed:
 - [Retained rules 04](references/retained-rules-04.md)
 - [Retained rules writing-essentials](references/writing-essentials.md)
 - [Retained rules 05](references/retained-rules-05.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
-- [Retained rules retained-resolutions](references/retained-resolutions.md)
+- [Retained updates 01](references/retained-updates-01.md)
+- [Retained resolutions](references/retained-resolutions.md)

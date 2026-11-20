@@ -4,7 +4,7 @@
 // next to it when it is under 10 MB, the shared CSS and fonts once in examples/shared/, and examples/index.json.
 // Texts are copied as they are; only the paths change.
 //   npm run examples
-// AIS_GUIDE points at the guide (default: ../guide in this repo). The marketing kit comes from the private bucket
+// AIS_GUIDE points at the guide (default: ../guide in this repo). The marketing kit comes from the public bucket
 // (npm run kit:pull at the repo root, or KIT=<folder>). Needs ImageMagick (convert, identify).
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';

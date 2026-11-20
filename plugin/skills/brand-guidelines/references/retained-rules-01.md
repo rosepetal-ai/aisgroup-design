@@ -663,14 +663,14 @@ Source: plugin/skills/_shared/references/production-rules.md:32.
 ## AIS-8d7c31db9282
 
 <!-- AIS-8d7c31db9282 -->
-Most machine and installation pictures in marketing's original brochures are generated or composited. Check [the original image verdicts](../../brochure/references/original-images.json) before reusing one.
+Check [the original image verdicts](../../brochure/references/original-images.json) before reusing a picture from an older brochure; never use a rejected one.
 
 Source: plugin/skills/_shared/references/production-rules.md:33.
 
 ## AIS-4418f95ee52d
 
 <!-- AIS-4418f95ee52d -->
-Known fakes, never used: the website "kariko-real" hero, the 1024 px Hopper water-line image, marketing's cannery composite, the "Ready for production" card in the VISION 2026 footage, and the generated website clips (`web-*`).
+Never reuse the website «kariko-real» hero, the 1024 px Hopper water-line image, the cannery composite, the «Ready for production» card in the VISION 2026 footage or the website clips (`web-*`).
 
 Source: plugin/skills/_shared/references/production-rules.md:34.
 

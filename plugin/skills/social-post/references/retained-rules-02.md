@@ -334,7 +334,7 @@ Source: plugin/skills/social-post/types/features.md:56.
 ## AIS-0d5b4188ce93
 
 <!-- AIS-0d5b4188ce93 -->
-Tiles: `library/media/3d/renders/<machine>/det/` (see `detection-tiles`). Each tile shows one different defect, cropped on it; `text` names the defect in plant words ("Esquina deformada"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.
+Tiles: `library/media/3d/renders/<machine>/det/`. Each tile shows one different defect, cropped on it; `text` names the defect in plant words ("Esquina deformada"). Never a tile of a defect that machine isn't documented to catch, and never the same defect twice.
 
 Source: plugin/skills/social-post/types/features.md:57.
 

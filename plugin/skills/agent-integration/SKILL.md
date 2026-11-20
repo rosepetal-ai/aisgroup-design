@@ -1,6 +1,6 @@
 ---
 name: agent-integration
-description: "Load for AIS plugin migration/upgrades, old writing routes and agent/MCP connections."
+description: "Load to connect AIS Group Design to an agent or MCP client, or to update an installed copy."
 ---
 
 # agent-integration
@@ -20,4 +20,4 @@ Read only the reference needed for this task. For an existing install, read [ins
 Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
-- [Retained rules retained-updates-01](references/retained-updates-01.md)
+- [Retained updates 01](references/retained-updates-01.md)

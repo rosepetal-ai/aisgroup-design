@@ -5,28 +5,28 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-626020a55988
 
 <!-- AIS-626020a55988 -->
-| It catches what matters | [Detail and result](#type-result) |
+| It catches what matters | [Detail and result](imagery.md#type-result) |
 
 Source: plugin/skills/design-language/references/imagery.md:11.
 
 ## AIS-c1799bb64d40
 
 <!-- AIS-c1799bb64d40 -->
-| The software is real and usable | [Interface](#type-interface) |
+| The software is real and usable | [Interface](imagery.md#type-interface) |
 
 Source: plugin/skills/design-language/references/imagery.md:12.
 
 ## AIS-aad145c123e8
 
 <!-- AIS-aad145c123e8 -->
-| We understand your industry | [Industry subject](#type-subject) |
+| We understand your industry | [Industry subject](imagery.md#type-subject) |
 
 Source: plugin/skills/design-language/references/imagery.md:13.
 
 ## AIS-0826be510e52
 
 <!-- AIS-0826be510e52 -->
-| You will talk to experts | [People](#type-people) |
+| You will talk to experts | [People](imagery.md#type-people) |
 
 Source: plugin/skills/design-language/references/imagery.md:14.
 
@@ -565,7 +565,7 @@ Source: plugin/skills/design-language/references/layout.md:42.
 ## AIS-c41a6f2fae83
 
 <!-- AIS-c41a6f2fae83 -->
-A4 pages use their own grid: 15 mm margins, 12 columns of 10.4 mm with 5 mm gaps, and a 3 mm bleed on the PDF with text at least 5 mm inside the trim. Type is Inter 400, 500 and 600, body at 10.5 pt and nothing under 8.5 pt. Calm pages use white space instead of rules: a hairline only where a list needs one, one accent colour, no frame around a frame. The logo signs the piece at 20 mm (AIS Vision Systems) or 38 mm (Rosepetal); a business card carries it at 18 mm. A piece ends with one closing block. The parts of a brochure are in the [Marketing kit](../../communications/references/kit.md#print-system).
+A4 pages use their own grid: 15 mm margins, 12 columns of 10.4 mm with 5 mm gaps, and a 3 mm bleed on the PDF with text at least 5 mm inside the trim. Type is Inter 400, 500 and 600, body at 10.5 pt and nothing under 8.5 pt. Calm pages use white space instead of rules: a hairline only where a list needs one, one accent colour, no frame around a frame. The logo signs the piece at 20 mm (AIS Vision Systems) or 38 mm (Rosepetal); a business card carries it at 18 mm. A piece ends with one closing block. The parts of a brochure are in the [Marketing kit](../../resources-assets/references/kit.md#print-system).
 
 Source: plugin/skills/design-language/references/layout.md:46.
 

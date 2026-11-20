@@ -19,6 +19,6 @@ Source: plugin/skills/setup/SKILL.md:9.
 ## AIS-089fde71ea49
 
 <!-- AIS-089fde71ea49 -->
-If the media library is missing, ask the person to run «gcloud auth login» with the Google account that has access to the aisgroup-design project; pictures then download on demand.
+The media library needs no account: pictures download on demand from the public bucket. For a full copy to work offline, install the Google Cloud CLI and run `npm run media:pull`.
 
 Source: plugin/skills/setup/SKILL.md:10.

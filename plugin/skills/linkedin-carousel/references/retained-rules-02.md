@@ -166,7 +166,7 @@ Source: plugin/skills/linkedin-carousel/types/defects.md:12.
 ## AIS-61a32e49718a
 
 <!-- AIS-61a32e49718a -->
-Which machine, which product, and the product's real dimensions (the separate product-render skill builds the renders from them).
+Which machine, which product, and the product's real dimensions (the render pipeline builds the renders from them).
 
 Source: plugin/skills/linkedin-carousel/types/defects.md:16.
 
@@ -180,7 +180,7 @@ Source: plugin/skills/linkedin-carousel/types/defects.md:17.
 ## AIS-0c3738f23118
 
 <!-- AIS-0c3738f23118 -->
-The pictures are renders from `product-render`: a lineup, then a good/defective pair per defect, all on section grey.
+The pictures are renders from AIS's render pipeline: a lineup, then a good/defective pair per defect, all on section grey.
 
 Source: plugin/skills/linkedin-carousel/types/defects.md:18.
 
@@ -350,7 +350,7 @@ Source: plugin/skills/linkedin-carousel/types/defects.md:57.
 ## AIS-dd784588dbba
 
 <!-- AIS-dd784588dbba -->
-Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Missing pairs are a `product-render` job.
+Pictures: isolated products on the `#F1F5F9` sweep, no conveyors or rails; AIS demo labels with category-appropriate design, never a real brand. Ask the brand team for missing pairs.
 
 Source: plugin/skills/linkedin-carousel/types/defects.md:59.
 

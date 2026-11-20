@@ -1,13 +1,5 @@
 # AIS Group Design
 
-Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.3.1`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`, which is not deployed yet.
-
-`npm run validate:plugin -w plugin` checks the live source, and `node plugin/scripts/rules-ledger.mjs check` proves that every brand rule the ledger records is still in the skills.
-
-`npm run package:plugin -w plugin -- --out=<new-directory>` creates a review upload with the proposed skills. It validates the Agent Plugins schemas, OpenAI overlay, Claude naming/size/archive constraints and the retained-rule ledger. It dereferences the confined `pieces/shared` symlink because Claude uploads prohibit symlinks. It omits nested ZIPs, held-back illustrations, private business cards and bulky cached media/example downloads. The full Git distribution retains those local production sources; the upload profile points omitted guide-download links at the hosted guide. Existing studio workflows that need omitted example media still need the synced media library or the full Git installation. Add `--lite` for claude.ai and Anthropic's plugin directory, which take at most 512 files and 50 MiB: skills, hooks, the checks and the hosted design server, without the studio (about 230 files, under 1 MB zipped). No package command publishes anything.
-
-The proposal has 26 separately discoverable skills covering the complete guide, studio, reviews and product-UI audit/theme-diff/unify workflows. Numbered branches are in descriptions and the mapping table so task skill names remain familiar. `writing` is merged into `communications` with its workflow and references retained; brochures keep ownership of product sheets/datasheets. `_shared` remains workflow support, not an independently triggered skill. Integration is deferred while other workers have uncommitted edits.
-
 The AIS Group brand guide as Claude Code skills, and a studio that makes on-brand LinkedIn posts, carousels, brochures, catalogues, datasheets and decks from your photos and a short brief.
 
 ## Install
@@ -21,7 +13,7 @@ The marketplace is the root of the repo (`.claude-plugin/marketplace.json`); it 
 
 Then, once per computer, ask Claude: «Set up AIS Group Design.» It installs the renderer and the Python packages it needs (a few minutes), then lists anything still missing.
 
-The brand photos and videos download on demand from the private media bucket, the first time a piece uses them. You need the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install), signed in with `gcloud auth login` as an account with «Storage Object Viewer» on the `aisgroup-design` project. For a full copy to work offline: `npm run media:pull`.
+The brand photos and videos download on demand from the media bucket, the first time a piece uses them; no account is needed. For a full copy to work offline, install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and run `npm run media:pull`.
 
 ## Make a piece
 
@@ -39,18 +31,36 @@ Claude picks the template, writes the copy from what is true, checks it against 
 | --- | --- |
 | brand-guidelines | Essentials, brand names, logos and the app mark |
 | design-language | Colour, type, layout, images, icons, charts, motion, accessibility |
-| communications | Voice, languages, documents, social, kit, video |
-| web-design | The three websites and their components |
-| product-ui | Rosepetal app screens and Node-RED panels |
+| communications | Voice, languages and copy in English, Spanish and Catalan |
+| marketing | Choosing the right piece: brochure, post or carousel |
 | social-post, linkedin-carousel, linkedin-banner | LinkedIn pieces |
-| brochure, presentation | Print pieces and decks |
-| brand-video | Brand videos |
+| brochure | Brochures, catalogues and datasheets |
+| presentation | Decks, as HTML, PDF and PowerPoint |
+| sales-documents | Proposals, quotations and case studies |
+| digital-documents | Reports, PDFs and tables |
+| print-stationery | Business cards, letterheads and stationery |
+| brand-video | Brand videos and animations |
 | brand-review, render-review | Checking a piece or a picture before it ships |
 | asset-library | Finding approved photos, renders and footage |
+| resources-assets | Downloads and the design server's files |
+| web-design | The websites and their components |
+| product-ui | Rosepetal app screens and Node-RED panels |
+| ui-audit, ui-theme-diff, ui-unify | Auditing, comparing and redesigning Vue apps on our components |
+| vue-primevue, vue-vuetify | Colour bridges for apps still on PrimeVue or Vuetify |
+| agent-integration | Connecting other agents and MCP clients |
+| setup | Installing the renderer, Chromium and Python |
 
-The first five are copied from the brand guide (`guide/` in this repo) with `npm run sync:plugin` from the root. Change the guide, never these copies; `npm run guide -w plugin -- --check` fails when they drift.
+The guide-based references are copied from the brand guide (`guide/` in this repo) with `npm run sync:plugin` from the root. Change the guide, never these copies; `npm run guide -w plugin -- --check` fails when they drift.
 
 ## For developers
+
+Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.3.1`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`; it needs an AIS staff token, and the skills work without it.
+
+`npm run validate:plugin -w plugin` checks the live source, and `node plugin/scripts/rules-ledger.mjs check` proves that every brand rule the ledger records is still in the skills.
+
+`npm run package:plugin -w plugin -- --out=<new-directory>` creates a review upload with the proposed skills. It validates the Agent Plugins schemas, OpenAI overlay, Claude naming/size/archive constraints and the retained-rule ledger. It dereferences the confined `pieces/shared` symlink because Claude uploads prohibit symlinks. It omits nested ZIPs, held-back illustrations, private business cards and bulky cached media/example downloads. The full Git distribution retains those local production sources; the upload profile points omitted guide-download links at the hosted guide. Existing studio workflows that need omitted example media still need the synced media library or the full Git installation. Add `--lite` for claude.ai and Anthropic's plugin directory, which take at most 512 files and 50 MiB: skills, hooks, the checks and the hosted design server, without the studio (about 230 files, under 1 MB zipped). No package command publishes anything.
+
+The proposal has 26 separately discoverable skills covering the complete guide, studio, reviews and product-UI audit/theme-diff/unify workflows. Numbered branches are in descriptions and the mapping table so task skill names remain familiar. `writing` is merged into `communications` with its workflow and references retained; brochures keep ownership of product sheets/datasheets. `_shared` remains workflow support, not an independently triggered skill.
 
 From the repo root (npm workspaces):
 

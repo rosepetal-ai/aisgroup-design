@@ -271,7 +271,7 @@ Source: plugin/skills/brand-guidelines/references/logos.md:27.
 ## AIS-0b27286d6dc8
 
 <!-- AIS-0b27286d6dc8 -->
-The test is whether the descriptor can be read at the final size. If it cannot, make room or request a compact variant; never drop words or shrink the descriptor separately. Marketing pieces have no compact variant; software uses the [app mark](#app-marks).
+The test is whether the descriptor can be read at the final size. If it cannot, make room or request a compact variant; never drop words or shrink the descriptor separately. Marketing pieces have no compact variant; software uses the [app mark](logos.md#app-marks).
 
 Source: plugin/skills/brand-guidelines/references/logos.md:29.
 
@@ -383,7 +383,7 @@ Source: plugin/skills/brand-guidelines/references/logos.md:54.
 ## AIS-5eafa2068183
 
 <!-- AIS-5eafa2068183 -->
-**Favicons:** the bare mark from the website set, blue in light mode and white in dark mode, pixel-snapped at each size (see [Favicons](#favicons)). AIS Group and AIS Vision Systems use the Λ, Rosepetal the «o».
+**Favicons:** the bare mark from the website set, blue in light mode and white in dark mode, pixel-snapped at each size (see [Favicons](logos.md#favicons)). AIS Group and AIS Vision Systems use the Λ, Rosepetal the «o».
 
 Source: plugin/skills/brand-guidelines/references/logos.md:55.
 

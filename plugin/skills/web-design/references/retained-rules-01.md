@@ -89,7 +89,7 @@ Source: plugin/skills/web-design/SKILL.md:33.
 ## AIS-5103f006e449
 
 <!-- AIS-5103f006e449 -->
-The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../brand-guidelines/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on.
+The final images of each website and its favicons, one file per picture in the largest size the site has. Logos for every brand are in [Downloads](../../resources-assets/references/downloads.md). Stock photographs are shown here, captioned as stock, but are left out of the zips: their licences let the sites show them, not pass the files on.
 
 Source: plugin/skills/web-design/references/assets.md:3.
 
@@ -565,7 +565,7 @@ Source: plugin/skills/web-design/references/web.md:13.
 ## AIS-210301f46591
 
 <!-- AIS-210301f46591 -->
-| **Tables and text blocks** | `.ais-table`, `.ais-figures`, `.ais-quote` and `.ais-note` from `@aisgroup/web/styles.css`, as [Documents and presentations](../../communications/references/communications.md#table) sets them. Never a table on a blue band. |
+| **Tables and text blocks** | `.ais-table`, `.ais-figures`, `.ais-quote` and `.ais-note` from `@aisgroup/web/styles.css`, as [Documents and presentations](../../digital-documents/references/communications.md#table) sets them. Never a table on a blue band. |
 
 Source: plugin/skills/web-design/references/web.md:14.
 

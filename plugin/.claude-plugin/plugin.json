@@ -16,9 +16,9 @@
     "designToken": {
       "type": "string",
       "title": "Design MCP token",
-      "description": "The access token of design.aisgroup.ai/mcp. Ask the team for it; it is kept in your system keychain.",
+      "description": "Optional. The access token of the AIS design server (design.aisgroup.ai/mcp), for AIS staff; it is kept in your system keychain. The skills work without it.",
       "sensitive": true,
-      "required": true
+      "required": false
     }
   },
   "mcpServers": {

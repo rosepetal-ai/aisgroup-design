@@ -371,7 +371,7 @@ Source: plugin/skills/linkedin-carousel/SKILL.md:85.
 ## AIS-a26e6e6e5f49
 
 <!-- AIS-a26e6e6e5f49 -->
-Use the shared [LinkedIn pattern instructions](../../linkedin-banner/SKILL.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.
+Use the shared [LinkedIn pattern instructions](../../linkedin-banner/references/workflow.md#optional-linkedin-pattern) when a pattern is requested for this format. They define allowed fields, sizes, asset retrieval and protected word, logo and photo zones.
 
 Source: plugin/skills/linkedin-carousel/SKILL.md:89.
 
