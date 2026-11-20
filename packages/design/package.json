@@ -80,6 +80,7 @@
     "vue-tsc": "^2.2.0"
   },
   "publishConfig": {
-    "registry": "https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/open-node-packages/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
