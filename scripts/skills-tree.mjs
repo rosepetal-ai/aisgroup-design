@@ -33,6 +33,7 @@ const TASKS = {
   'asset-library': ['Resources & Assets / Local media', 'Use to search, inspect or register local AIS photos, renders and footage in the studio library, including provenance and approval.'],
   'brand-review': ['Quality / Brand review', 'Use to review an AIS marketing piece against the brand before delivery; identify source-backed failures and concrete fixes.'],
   'render-review': ['Quality / Render review', 'Use to judge an AIS product render or image for physical credibility, identity, crop and final-size quality.'],
+  'live-animation': ['04 Digital Design / Web / Live animations', 'Use to build, review and release the live three.js animations on the company websites: shots, pacing, overlays, loading and the release gates.'],
   setup: ['Resources & Assets / AI agents and setup', 'Use to install or repair the local AIS studio renderer and inspect missing dependencies or media-folder setup.']
 };
 export const INVENTORY = [...TREE, ...Object.entries(TASKS).map(([name, [branch, description]]) => ({ name, branch, description, pages: name === 'brand-video' ? ['video'] : [] }))];
@@ -65,6 +66,7 @@ const SHORT = {
   'asset-library': "Find approved AIS photos or images; check provenance, rights and print size.",
   'brand-review': "Load before reviewing AIS sales drafts, claims or testimonials for delivery.",
   'render-review': "Load before reviewing AIS images for print readiness or physical credibility.",
+  'live-animation': '04. Live web animations.',
   setup: "06. Load before fixing AIS studio renderer setup: missing Chromium, Python or media folders.",
 };
 const front = (name, description, branch) => `---\nname: ${name}\ndescription: ${JSON.stringify(SHORT[name] ?? description)}\n---\n\n# ${name}\n\n`;

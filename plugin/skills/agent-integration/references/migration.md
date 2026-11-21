@@ -1,6 +1,6 @@
 # Installed skills migration
 
-The plugin has 26 skills. Writing is part of communications. Reference paths from earlier versions still resolve, through the routes in `plugin/skill-routes.mjs`.
+The plugin has 27 skills. Writing is part of communications. Reference paths from earlier versions still resolve, through the routes in `plugin/skill-routes.mjs`.
 
 From a full Git installation, inspect an installed plugin before updating it:
 
