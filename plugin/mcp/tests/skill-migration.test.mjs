@@ -19,21 +19,21 @@ test('installed migration preserves the old tree and unrelated settings; dry run
     fs.writeFileSync(path.join(dir, 'skills/writing/SKILL.md'), 'Original installed writing instructions');
     fs.writeFileSync(path.join(dir, 'personal-settings.json'), 'Keep this exactly');
     const plan = migrateSkills(dir);
-    assert.equal(plan.applied, false); assert.equal(plan.skills.length, 26);
+    assert.equal(plan.applied, false); assert.equal(plan.skills.length, 27);
     assert(fs.existsSync(path.join(dir, 'skills/writing/SKILL.md')));
     const result = migrateSkills(dir, { apply: true }); backup = result.backup;
     assert.equal(fs.readFileSync(path.join(backup, 'writing/SKILL.md'), 'utf8'), 'Original installed writing instructions');
     assert.equal(fs.readFileSync(path.join(dir, '.claude-plugin/plugin.json'), 'utf8'), manifest);
     assert.equal(fs.readFileSync(path.join(dir, 'personal-settings.json'), 'utf8'), 'Keep this exactly');
     assert(!fs.existsSync(path.join(dir, 'skills/writing/SKILL.md')));
-    assert.equal(fs.readdirSync(path.join(dir, 'skills')).filter(name => fs.existsSync(path.join(dir, 'skills', name, 'SKILL.md'))).length, 26);
+    assert.equal(fs.readdirSync(path.join(dir, 'skills')).filter(name => fs.existsSync(path.join(dir, 'skills', name, 'SKILL.md'))).length, 27);
   } finally { fs.rmSync(dir, { recursive: true, force: true }); if (backup) fs.rmSync(backup, { recursive: true, force: true }); }
 });
 test('all eight old reader resources reach their canonical owners without adding discovery entries', t => {
   const state = fs.mkdtempSync(path.join(os.homedir(), '.cache/ais-group-design/skill-route-test-'));
   const factory = new Factory({ state });
   t.after(() => { factory.close(); fs.rmSync(state, { recursive: true, force: true }); });
-  assert.equal(factory.skills.length, 26);
+  assert.equal(factory.skills.length, 27);
   assert(!factory.skills.some(skill => skill.id === 'writing'));
   for (const [old, current] of Object.entries(SKILL_PATH_ALIASES)) {
     const actual = factory.call('read_instructions', { ref: `skill:${old}`, chars: 500 });

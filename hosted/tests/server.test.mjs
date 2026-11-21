@@ -46,7 +46,7 @@ test('always-loaded cost stays under 700 tokens and every tool is read-only', as
 
 test('design_guidelines lists, searches and reads every page in bounded chunks', async () => {
   const { value: toc } = await call('design_guidelines');
-  assert.equal(toc.sections.length, 26);
+  assert.equal(toc.sections.length, 27);
   assert(!toc.sections.some(s => s.section === 'writing'));
   const { value: found } = await call('design_guidelines', { query: 'favicon' });
   assert(found.hits.length && found.hits.length <= LIMITS.hits);
