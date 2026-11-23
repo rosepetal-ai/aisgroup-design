@@ -974,7 +974,7 @@
       // and no headline broken onto two lines when it fits on one.
       if (isPost && shots.length === 1) {
         const seen = (e) => e.getClientRects().length > 0 && getComputedStyle(e).visibility !== 'hidden';
-        const marks = [...L.querySelectorAll('.line > span, .block > p, .overline, .stand > *, .stat > *, .cell, .irow, .who, .quote-text, .chrome-logo, .sign, .co-chip, .caption, .action, .box')].filter(seen);
+        const marks = [...L.querySelectorAll('.line > span, .item, .block > p, .overline, .stand > *, .stat > *, .cell, .irow, .who, .quote-text, .chrome-logo, .sign, .co-chip, .caption, .action, .box')].filter(seen);
         // The hexagon corner is part of the composition: its visible field counts as filled.
         const fields = [...L.querySelectorAll('.hexes.sys')].map((x) => +x.dataset.cy === 0 ? { top: sr.top, bottom: sr.top + +x.dataset.clear } : { top: sr.top + c.h - +x.dataset.clear, bottom: sr.top + c.h });
         const iv = [...pics, ...fields, ...marks.map((e) => e.getBoundingClientRect())].map((r) => [r.top - sr.top, r.bottom - sr.top]).filter(([a, b]) => b > a).sort((p, q) => p[0] - q[0]);
