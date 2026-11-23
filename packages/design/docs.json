@@ -1651,6 +1651,16 @@
         "es": "Los detalles de un registro junto a la lista de la que viene. Un contenido más ancho que una lista de filtros usa un tamaño mayor; sm sigue siendo el predeterminado.",
         "ca": "Els detalls d’un registre al costat de la llista d’on ve. Un contingut més ample que una llista de filtres fa servir una mida més gran; sm continua sent el predeterminat."
       }
+    },
+    "page-layout/11-status-and-facts": {
+      "name": {
+        "es": "Estado y datos",
+        "ca": "Estat i dades"
+      },
+      "about": {
+        "es": "El estado de lo que muestra la página junto al título (#status) y sus datos en una línea debajo (#description) cuando son más que texto plano.",
+        "ca": "L’estat del que mostra la pàgina al costat del títol (#status) i les seves dades en una línia a sota (#description) quan són més que text pla."
+      }
     }
   }
 }
