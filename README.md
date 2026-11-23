@@ -102,7 +102,7 @@ Install the plugin in Claude Code:
 /plugin install ais-group-design@ais-group-design
 ```
 
-Install the package in an app: authenticate once with `npm_config_registry=https://registry.npmjs.org npx google-artifactregistry-auth`, then follow [`packages/design/README.md`](packages/design/README.md).
+Install the package in an app with `npm install @aisgroup/design@npm:@rosepetal/design` (public on npmjs, no token), then follow [`packages/design/README.md`](packages/design/README.md).
 
 ## Access
 
