@@ -2,6 +2,7 @@
   "name": "@aisgroup/design-lint",
   "version": "0.0.0",
   "description": "The AIS Group product UI rules for ESLint, the audit and the browser states check, with a one-command app setup.",
+  "license": "MIT",
   "type": "module",
   "files": [
     "index.mjs",
@@ -39,6 +40,7 @@
     "node": ">=20"
   },
   "publishConfig": {
-    "registry": "https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

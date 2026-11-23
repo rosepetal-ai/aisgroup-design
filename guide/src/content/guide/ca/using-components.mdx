@@ -17,13 +17,13 @@ Instal·la el paquet de producte i fes servir els seus components i tokens conju
 
 ## Preparar una aplicació
 
-1. Configura el registre privat i instal·la `@aisgroup/design`, com explica el README del paquet.
+1. Instal·la `@aisgroup/design` des de npm, on es publica com a `@rosepetal/design`, amb el nom que fan servir els imports: `npm install @aisgroup/design@npm:@rosepetal/design`.
 2. Importa `@aisgroup/design/styles.css` després del tema i les utilitats de Tailwind.
 3. Importa els components per carpeta i els blocs per fitxer: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
 4. Fes servir un bloc allà on encaixi: TopBar per a la barra, PageLayout per a cada pàgina (amb el seu menú lateral si la pàgina en té), LoginPage i ConfirmDialog. Parteix dels seus exemples.
 5. Quan les notes de disseny pròpies de l’aplicació no coincideixen amb el paquet o amb aquesta guia, mana el paquet: canvia les notes.
 6. Mantén Inter i la pàgina a tota l’amplada, i obre cada pàgina sota el bloc TopBar.
-7. Instal·la `@aisgroup/design-lint` i executa `npx design-lint init --write`. Aleshores ESLint mostra aquestes regles a l’editor, `lint:ui` falla amb troballes noves i la CI revisa les pantalles a 1920, 1440 i 390 px.
+7. Instal·la `@aisgroup/design-lint` de la mateixa manera (`npm install -D @aisgroup/design-lint@npm:@rosepetal/design-lint`) i executa `npx design-lint init --write`. Aleshores ESLint mostra aquestes regles a l’editor, `lint:ui` falla amb troballes noves i la CI revisa les pantalles a 1920, 1440 i 390 px.
 
 ## Compondre, no reestilitzar
 

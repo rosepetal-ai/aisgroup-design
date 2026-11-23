@@ -26,7 +26,7 @@ playground/  = the playground for the package's components and their variables (
 
 ## 1. Hosted MCP: `design.aisgroup.ai/mcp`
 
-It's read-only and has no database. It's for developers' agents, behind a bearer token (the plugin sends it from the keychain): "what are the rules, give me the tokens, the logo, the button code".
+It's read-only and has no database. It's for developers' agents and claude.ai, open to anyone: "what are the rules, give me the tokens, the logo, the button code".
 
 **Where its data comes from.** It never reads the live site or Firebase at runtime. `npm run build -w hosted` copies these parts of the built guide (`guide/dist`) into `hosted/data/`:
 - skills;
@@ -48,7 +48,7 @@ It also writes `catalogue.json`, the list of assets. Each asset's usage rule is 
   - `/health`.
 - **Address:** it's a Firebase function behind the guide's address: Firebase Hosting rewrites `/mcp` to it (`firebase.json` at the repo root), and everything else, download files included, is the static site.
 - **Pictures and PDFs:** these are served by the guide site itself (Firebase), not by the MCP. `design_examples` returns their URLs.
-- **Access:** a bearer token, the secret `AIS_MCP_TOKEN` (see `hosted/README.md`, Deploy and Connect).
+- **Access:** open, no token; a per-caller rate limit and at most two instances bound the cost (see `hosted/README.md`).
 
 **Tools** (`hosted/download-tools.mjs`), one per kind of download:
 
