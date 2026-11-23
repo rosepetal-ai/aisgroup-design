@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { MEDIA_HOME } from './media.mjs';
 import { fileURLToPath } from 'node:url';
 
@@ -16,12 +16,14 @@ export const DATA = process.env.AIS_PLUGIN_DATA || path.join(os.homedir(), '.cac
 export const VENV = path.join(DATA, 'venv');
 const WIN = process.platform === 'win32', MAC = process.platform === 'darwin';
 export const bin = (name) => path.join(VENV, WIN ? 'Scripts' : 'bin', WIN ? name + '.exe' : name);
+// The setup skill and older setups leave the venv in the account's cache instead of the plugin's data folder; both count.
+const VENVS = [VENV, path.join(os.userInfo().homedir, '.cache/ais-group-design/venv')];
 // The plugin's Python (Pillow, python-pptx, PyMuPDF): AIS_PYTHON, the plugin's venv, the account-wide venv the setup skill
 // makes, then the system Python. Every generator asks here, so none depends on how it was started.
 export function pythonPath() {
   if (process.env.AIS_PYTHON) return process.env.AIS_PYTHON;
   const exe = WIN ? 'Scripts/python.exe' : 'bin/python';
-  const found = [VENV, path.join(os.userInfo().homedir, '.cache/ais-group-design/venv')].map((v) => path.join(v, exe)).find((p) => fs.existsSync(p));
+  const found = VENVS.map((v) => path.join(v, exe)).find((p) => fs.existsSync(p));
   return found || (WIN ? 'python' : 'python3');
 }
 const has = (cmd, args = ['--version']) => spawnSync(cmd, args, { stdio: 'ignore' }).status === 0;
@@ -31,7 +33,34 @@ async function chromium() {
   try { const { chromium: c } = await import('playwright'); return fs.existsSync(c.executablePath()); } catch { return false; }
 }
 const nodeReady = () => { try { createRequire(path.join(ROOT, 'package.json')).resolve('playwright'); return true; } catch { return false; } };
-const pythonReady = () => fs.existsSync(bin('python')) && spawnSync(bin('python'), ['-c', 'import PIL, pptx, fitz, psutil'], { stdio: 'ignore' }).status === 0;
+// The Python the generators will run (a venv, or the system's where CI installs the packages) has what they import.
+const pythonReady = () => spawnSync(pythonPath(), ['-c', 'import PIL, pptx, fitz, psutil'], { stdio: 'ignore' }).status === 0;
+export const hasPython = () => ['python3', 'python'].some((p) => has(p));
+
+// The studio installs Chromium and the Python packages itself the first time a piece needs them: this same script,
+// detached, writing to setup.log. setup.lock holds its pid, so a second request while it runs starts nothing.
+export const SETUP_LOG = path.join(DATA, 'setup.log');
+const LOCK = path.join(DATA, 'setup.lock');
+export function setupRunning() {
+  try { process.kill(Number(fs.readFileSync(LOCK, 'utf8')), 0); return true; } catch { return false; }
+}
+export async function renderReady() { return (await chromium()) && pythonReady(); }
+// The generators run python3 through PATH: put the venv first, at start and again when a setup finishes while running.
+export function useVenv() {
+  const dir = VENVS.map((v) => path.join(v, WIN ? 'Scripts' : 'bin')).find((d) => fs.existsSync(d));
+  if (!dir || process.env.PATH.split(path.delimiter)[0] === dir) return;
+  process.env.PATH = dir + path.delimiter + process.env.PATH;
+  process.env.AIS_PYTHON = path.join(dir, path.basename(bin('python')));
+}
+export function startSetup() {
+  if (setupRunning()) return;
+  fs.mkdirSync(DATA, { recursive: true });
+  const log = fs.openSync(SETUP_LOG, 'w');
+  const env = { ...process.env, PATH: path.dirname(process.execPath) + path.delimiter + process.env.PATH };
+  const child = spawn(process.execPath, [fileURLToPath(import.meta.url)], { cwd: ROOT, env, detached: true, stdio: ['ignore', log, log] });
+  fs.writeFileSync(LOCK, String(child.pid));
+  child.unref();
+}
 
 // ponytail: Windows hints name winget; choco install poppler / ffmpeg or the official zip builds (bin folder on PATH) work too
 const hint = (linux, mac, win) => WIN ? win : MAC ? mac : linux;
@@ -53,7 +82,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     fs.mkdirSync(DATA, { recursive: true });
     // The installed plugin ships no lockfile (it lives in the repo's workspace); its dependencies are pinned exactly.
     if (!nodeReady()) { console.error('Installing the Node packages...'); run('npm', ['install', '--omit=dev', '--no-package-lock', '--no-audit', '--no-fund'], { cwd: ROOT, shell: WIN }); }
-    if (!(await chromium())) { console.error('Installing Chromium for rendering (about 150 MB, once)...'); run(process.execPath, [path.join(ROOT, 'node_modules/playwright/cli.js'), 'install', 'chromium']); }
+    if (!(await chromium())) { console.error('Installing Chromium for rendering (a few hundred MB, once)...'); run(process.execPath, [path.join(path.dirname(createRequire(path.join(ROOT, 'package.json')).resolve('playwright/package.json')), 'cli.js'), 'install', 'chromium']); }
     if (!pythonReady()) {
       const py = ['python3', 'python'].find((p) => has(p));
       if (!py) console.error('Python 3 is missing: install it from python.org, then run npm run setup again.');
