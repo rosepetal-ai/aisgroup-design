@@ -36,7 +36,7 @@ The AIS Group Design plugin for Claude Code brings this guide as skills and a lo
 /plugin install ais-group-design@ais-group-design
 ```
 
-The install asks for the MCP token, which is optional: AIS staff get it from the marketing team, and it is kept in your system keychain. The skills and the brand photos work without it. Then, once per computer, ask Claude: «Set up AIS Group Design.»
+The skills, the design MCP and the brand photos need nothing else. The studio prepares itself the first time you ask for a piece (Chromium and its Python packages, a few minutes, once); to do it beforehand, ask Claude: «Set up AIS Group Design.»
 
 Then paste your photos into the terminal and say what you need. The studio picks the template, edits the source (any text or picture by its slot), checks it against the brand and shows you the result. Review it, ask for changes, and export the PDF, PNG or PowerPoint when it is right. Nothing is published or uploaded unless you ask.
 
