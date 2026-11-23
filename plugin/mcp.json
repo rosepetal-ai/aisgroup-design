@@ -12,8 +12,7 @@
     },
     "design": {
       "type": "streamable-http",
-      "url": "https://design.aisgroup.ai/mcp",
-      "headers": { "Authorization": "Bearer ${AIS_MCP_TOKEN}" }
+      "url": "https://design.aisgroup.ai/mcp"
     }
   }
 }

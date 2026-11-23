@@ -62,7 +62,7 @@ export function plan(dir) {
   };
   const add = Object.fromEntries(Object.entries(scripts).filter(([key]) => !pkg.scripts?.[key]));
   if (Object.keys(add).length) steps.push({ file: 'package.json', action: 'update', text: JSON.stringify({ ...pkg, scripts: { ...pkg.scripts, ...add } }, null, 2) + '\n', summary: `scripts ${Object.keys(add).join(', ')}` });
-  if (!('@aisgroup/design-lint' in deps)) steps.push({ file: 'package.json', action: 'note', text: 'Install @aisgroup/design-lint as a dev dependency (from the registry that serves @aisgroup/design).' });
+  if (!('@aisgroup/design-lint' in deps)) steps.push({ file: 'package.json', action: 'note', text: 'Install it as a dev dependency: npm install -D @aisgroup/design-lint@npm:@rosepetal/design-lint' });
 
   if (!fs.existsSync(path.join(dir, 'ui-states.json'))) {
     steps.push({ file: 'ui-states.json', action: 'write', text: JSON.stringify({ baseURL: 'http://localhost:4173', routes: ['/'] }, null, 2) + '\n', summary: 'list the routes to check; add "login" with a sign-in hook if the app needs one' });

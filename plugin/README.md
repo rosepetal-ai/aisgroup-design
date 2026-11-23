@@ -11,6 +11,8 @@ The AIS Group brand guide as Claude Code skills, and a studio that makes on-bran
 
 The marketplace is the root of the repo (`.claude-plugin/marketplace.json`); it installs this folder. A local clone works too: `/plugin marketplace add <path to the clone>`.
 
+The design MCP (`design.aisgroup.ai/mcp`) connects by itself: it is open, with no account or token.
+
 Then, once per computer, ask Claude: «Set up AIS Group Design.» It installs the renderer and the Python packages it needs (a few minutes), then lists anything still missing.
 
 The brand photos and videos download on demand from the media bucket, the first time a piece uses them; no account is needed. For a full copy to work offline, install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and run `npm run media:pull`.
@@ -59,7 +61,7 @@ The skills, hooks and checks run on your computer and send nothing to AIS Group.
 
 ## For developers
 
-Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.4.0`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`; it needs an AIS staff token, and the skills work without it.
+Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in this folder. The Claude Code overlay at `.claude-plugin/plugin.json` preserves **Media library folder** and its existing studio environment. Both manifests use `ais-group-design` version `1.5.0`. The portable studio inherits `AIS_MEDIA_LIBRARY` from the caller; it uses standard `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` paths. The remote entry declares `https://design.aisgroup.ai/mcp`, which is open: no token or header.
 
 `npm run validate:plugin -w plugin` checks the live source, and `node plugin/scripts/rules-ledger.mjs check` proves that every brand rule the ledger records is still in the skills.
 

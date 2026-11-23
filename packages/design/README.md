@@ -4,8 +4,10 @@ Rosepetal's design: the shadcn-vue components (`ui/`), the brand blocks with no 
 
 It ships as source, so the app's Vite compiles it.
 
+Published on npmjs as `@rosepetal/design`; install it under the name the imports use:
+
 ```bash
-npm_config_registry=https://registry.npmjs.org npx google-artifactregistry-auth
+npm install @aisgroup/design@npm:@rosepetal/design
 ```
 
 ```css

@@ -6,7 +6,7 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | --- | --- |
 | Brand guide | https://design.aisgroup.ai |
 | Hosted MCP (read-only) | https://design.aisgroup.ai/mcp |
-| Product components | `@aisgroup/design` in the company's private package registry (Artifact Registry) |
+| Product components | `@aisgroup/design`, public on npmjs as `@rosepetal/design` |
 | Claude Code plugin | This repository, as a plugin marketplace |
 
 ## Repository layout
@@ -14,13 +14,13 @@ The single source for how the AIS Group brands look, read and are built: the bra
 | Folder | What it is | Published as |
 | --- | --- | --- |
 | [`guide/`](guide/) | The brand guide (Astro), in English, Spanish and Catalan: brand, design language, communications, websites and the product design system. | design.aisgroup.ai (Firebase Hosting) |
-| [`packages/design/`](packages/design/) | `@aisgroup/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). | npm package, Artifact Registry |
-| [`packages/lint/`](packages/lint/) | `@aisgroup/design-lint`: the product UI rules for an app, as ESLint presets, the audit with a baseline and the browser states check, with `design-lint init` to set an app up. | npm package, Artifact Registry |
+| [`packages/design/`](packages/design/) | `@aisgroup/design`: the product components (shadcn-vue), brand blocks, examples and product tokens (`styles.css`). | npm package, public on npmjs as `@rosepetal/design` |
+| [`packages/lint/`](packages/lint/) | `@aisgroup/design-lint`: the product UI rules for an app, as ESLint presets, the audit with a baseline and the browser states check, with `design-lint init` to set an app up. | npm package, public on npmjs as `@rosepetal/design-lint` |
 | [`packages/web/`](packages/web/) | `@aisgroup/web`: the websites' Astro components, examples and web tokens. | Copied into each company website |
 | [`packages/vue-themes/`](packages/vue-themes/) | PrimeVue and Vuetify presets generated from the product tokens. | Served by the guide and the MCP |
 | [`playground/`](playground/) | A Vite app to try the product components and tune their variables. | Local only |
 | [`plugin/`](plugin/) | The Claude Code plugin: the guide as skills, and the studio MCP that makes posts, carousels, brochures, datasheets and decks. | Claude Code plugin |
-| [`hosted/`](hosted/) | The read-only MCP: rules, tokens, component code and assets for developers' agents, behind a bearer token. | Firebase function behind the guide |
+| [`hosted/`](hosted/) | The read-only MCP: rules, tokens, component code and assets for developers' agents, open to anyone. | Firebase function behind the guide |
 | [`library/`](library/) | The media catalogue: every approved photo and render, with its origin and rights. The files themselves are in the media bucket. | Read by both MCPs |
 | [`scripts/`](scripts/) | Contract checks and sync tools used by `npm test` and the release steps. | |
 
@@ -90,9 +90,9 @@ Changes go to `dev` through pull requests, then `dev` is promoted to `main`. Rel
 
 | Part | How |
 | --- | --- |
-| Guide and hosted MCP | `npm run deploy:guide`: builds the guide, then deploys the Firebase site `aisgroup-design` and the function `mcp` together (`firebase.json` at the root). The predeploy step snapshots the guide into `hosted/data`. The function needs the secret `AIS_MCP_TOKEN`; token, limits and costs: [`hosted/README.md`](hosted/README.md) |
+| Guide and hosted MCP | `npm run deploy:guide`: builds the guide, then deploys the Firebase site `aisgroup-design` and the function `mcp` together (`firebase.json` at the root). The predeploy step snapshots the guide into `hosted/data`. Limits and costs: [`hosted/README.md`](hosted/README.md) |
 | `@aisgroup/design` | Push a tag `vX.Y.Z`. The [`publish-design`](.github/workflows/publish-design.yml) workflow sets that version, checks the package and publishes it |
-| `@aisgroup/design-lint` | Push a tag `lint-vX.Y.Z`. The [`publish-lint`](.github/workflows/publish-lint.yml) workflow sets that version, bundles the audit into the package, checks it and publishes it |
+| `@aisgroup/design-lint` | Push a tag `lint-vX.Y.Z`. The [`publish-lint`](.github/workflows/publish-lint.yml) workflow sets that version, bundles the audit into the package, checks it and publishes it to npmjs as `@rosepetal/design-lint` with the repository secret `NPM_TOKEN` |
 | Plugin | Merge to `dev`. Bump the version in `plugin/.claude-plugin/plugin.json` when the skills or the studio change |
 
 Install the plugin in Claude Code:
@@ -114,7 +114,6 @@ All Google Cloud roles are on the `aisgroup-design` project.
 | Use the plugin's studio with brand media | «Storage Object Viewer», the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and `gcloud auth login` |
 | Upload media or the marketing kit | «Storage Object Creator» |
 | Deploy the guide and the hosted MCP | «Firebase Admin» and «Service Account User» (`roles/iam.serviceAccountUser`), and `npx firebase-tools login`; the project is on the Blaze plan |
-| Set or rotate the MCP token | «Secret Manager Admin» |
 | Publish `@aisgroup/design` | A version tag; the workflow publishes to npmjs with the repository secret `NPM_TOKEN` (a granular access token with write access to the `@rosepetal` scope); it publishes as `@rosepetal/design` |
 | Install `@aisgroup/design` | Nothing: it is public on npmjs as `@rosepetal/design`; install it under the name the imports use, `npm i @aisgroup/design@npm:@rosepetal/design` |
 
