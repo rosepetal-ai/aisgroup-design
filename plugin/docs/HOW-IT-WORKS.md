@@ -4,7 +4,7 @@ One repository, `rosepetal-ai/aisgroup-design`, holds everything; there are two 
 
 ```
 packages/design  = @aisgroup/design                         ← components, blocks, examples, product tokens (styles.css)
-   │  npm workspaces: the guide and the playground import it; a tag vX.Y.Z publishes it to Artifact Registry
+   │  npm workspaces: the guide and the playground import it; a tag vX.Y.Z publishes it to npmjs as @rosepetal/design
    ▼
 guide/  = the brand guide (Astro)                            ← rules, marketing tokens, kit; shows the package
    │  npm run build -w guide  →  guide/dist/
@@ -116,5 +116,5 @@ From the repo root:
 3. `npm test` (tokens contract, package typecheck, plugin and hosted tests).
 4. Deploy:
    - the guide: `npm run deploy:guide` (Firebase project `aisgroup-design`, site `aisgroup-design`);
-   - the package: tag `vX.Y.Z`; the workflow publish-design.yml publishes `@aisgroup/design` to Artifact Registry;
+   - the package: tag `vX.Y.Z`; the workflow publish-design.yml publishes `@aisgroup/design` to npmjs as `@rosepetal/design`;
    - the MCP: from `guide/`, `firebase deploy --only hosting:aisgroup-design,functions:mcp` publishes the guide and the function `mcp` together (see the README).
