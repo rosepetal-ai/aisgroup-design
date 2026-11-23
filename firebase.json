@@ -146,7 +146,7 @@
         "node_modules",
         ".git",
         "tests",
-        "README.md",
+        "**/hosted/README.md",
         "Dockerfile*",
         "*.log",
         "**/hosted/data/logos",
