@@ -22,30 +22,24 @@ jobs:
         with:
           node-version: 22
 
-      - uses: google-github-actions/auth@v3
-        with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
-
-      - uses: google-github-actions/setup-gcloud@v3
-
       - name: Set the version from the tag
         if: startsWith(github.ref, 'refs/tags/')
         run: npm version "${GITHUB_REF_NAME#lint-v}" --no-git-tag-version --allow-same-version
 
-      - name: Configure npm for Artifact Registry
+      - name: Publish under the rosepetal npm organisation
+        # Apps install it as "@aisgroup/design-lint": "npm:@rosepetal/design-lint@^x", so its own imports keep working
+        run: npm pkg set name=@rosepetal/design-lint
+
+      - name: Configure npm for npmjs
         # Written to ~/.npmrc: npm config set refuses to run inside a workspace (ENOWORKSPACES)
-        run: |
-          echo "@aisgroup:registry=https://europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/" >> ~/.npmrc
-          echo "//europe-southwest1-npm.pkg.dev/rosepetal-artifact/private-node-packages/:_authToken=$(gcloud auth print-access-token)" >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
 
       - name: Check what would be published
         # prepack copies the audit and the files it reads into core/; a package without them could not run.
         run: |
           files=$(npm pack --dry-run --json) || { echo "::error::npm pack --dry-run failed"; exit 1; }
-          if grep -q 'gha-creds-' <<< "$files"; then
-            echo "::error::gha-creds-*.json (the GCP service-account key) would be published: exclude it"
-            exit 1
-          fi
           for path in index.mjs core.mjs bin/design-lint.mjs templates/ui-checks.yml core/scripts/ui-contract.mjs core/scripts/ui-rules.mjs core/scripts/ui-states.mjs core/packages/design/styles.css; do
             grep -q "\"$path\"" <<< "$files" || { echo "::error::$path is missing from the package"; exit 1; }
           done

@@ -19,15 +19,15 @@ For the product, [components.md](/components.md) lists every component, brand bl
 
 ## Connect the MCP
 
-The AIS Group Design MCP gives any agent the brand rules, the tokens, the logos, the component code and the approved examples. It only reads; it never changes or publishes anything, and it needs an access token: ask the team for it.
+The AIS Group Design MCP gives any agent the brand rules, the tokens, the logos, the component code and the approved examples. It only reads; it never changes or publishes anything, and it is open: no account or token.
 
-The plugin below connects it for you. Without the plugin, add it in Claude Code with the token:
+The plugin below connects it for you. Without the plugin, add it in Claude Code:
 
 ```
-claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp --header "Authorization: Bearer <token>"
+claude mcp add --transport http ais-group-design https://design.aisgroup.ai/mcp
 ```
 
-Keep the token in a password manager and never commit it. claude.ai custom connectors can't send a token, so they can't connect.
+In claude.ai, add it as a custom connector with the same address.
 
 ## Use the AIS Group Design plugin
 

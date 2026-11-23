@@ -5,7 +5,7 @@ The AIS Group product UI rules for an app: in the editor and `eslint` through ES
 ## Set up an app
 
 ```sh
-npm install -D @aisgroup/design-lint   # from the registry that serves @aisgroup/design
+npm install -D @aisgroup/design-lint@npm:@rosepetal/design-lint   # published on npmjs as @rosepetal/design-lint
 npx design-lint init                   # lists what it would write; changes nothing
 npx design-lint init --write
 ```

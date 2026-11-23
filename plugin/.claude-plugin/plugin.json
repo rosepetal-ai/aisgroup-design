@@ -1,7 +1,7 @@
 {
   "name": "ais-group-design",
   "displayName": "AIS Group Design",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "AIS Group Design: the brand guide as skills, and a studio that makes on-brand posts, carousels, brochures, catalogues, datasheets and decks from your photos and a short brief.",
   "author": {
     "name": "AIS Group"
@@ -12,13 +12,6 @@
       "title": "Media library folder",
       "description": "Optional. A folder for the brand photos and videos; leave empty to keep them in the cache, downloaded on demand.",
       "default": ""
-    },
-    "designToken": {
-      "type": "string",
-      "title": "Design MCP token",
-      "description": "Optional. The access token of the AIS design server (design.aisgroup.ai/mcp), for AIS staff; it is kept in your system keychain. The skills work without it.",
-      "sensitive": true,
-      "required": false
     }
   },
   "mcpServers": {
@@ -35,10 +28,7 @@
     },
     "design": {
       "type": "http",
-      "url": "https://design.aisgroup.ai/mcp",
-      "headers": {
-        "Authorization": "Bearer ${user_config.designToken}"
-      }
+      "url": "https://design.aisgroup.ai/mcp"
     }
   }
 }

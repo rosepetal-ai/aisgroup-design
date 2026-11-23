@@ -193,10 +193,19 @@ Source: plugin/skills/product-ui/references/components.md:142.
 
 ## AIS-d35c5590446e
 
+Historical wording: explicitly superseded by AIS-93ad6142113e. The package is public on npmjs as @rosepetal/design: there is no private registry to set up. Apply the current rule.
+
 <!-- AIS-d35c5590446e -->
 Set up the private registry and install `@aisgroup/design`, as the package’s README explains.
 
 Source: plugin/skills/product-ui/references/using-components.md:5.
+
+## AIS-93ad6142113e
+
+<!-- AIS-93ad6142113e -->
+Install `@aisgroup/design` from npm, where it is published as `@rosepetal/design`, under the name the imports use: `npm install @aisgroup/design@npm:@rosepetal/design`.
+
+Source: guide/src/content/guide/en/using-components.mdx:20.
 
 ## AIS-5dca6c6c6e5f
 
