@@ -68,7 +68,7 @@ npm test
 | `npm run sync:sites` | Copies `@aisgroup/web` into the company websites checked out next to this repository |
 | `npm run <script> -w <workspace>` | Any script of one part, for example `npm run typecheck -w @aisgroup/design` |
 
-The plugin's studio also needs Chromium and Python packages. `npm run setup -w plugin` installs them once per computer.
+The plugin's studio also needs Chromium and Python packages. It installs them itself, in the background, on the first piece; `npm run setup -w plugin` installs them beforehand.
 
 ## Quality gates
 

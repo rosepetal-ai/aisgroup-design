@@ -7,6 +7,7 @@ import { StdioServerTransport, serveStdio } from '@modelcontextprotocol/server/s
 import { Factory } from './core.mjs';
 import { schemas, VERSION, bounded } from './contracts.mjs';
 import { STUDIO, GUIDE } from '../engine/recipe.mjs';
+import { renderReady, startSetup, hasPython, useVenv, SETUP_LOG } from '../scripts/setup.mjs';
 // Working copies and export jobs live in the plugin's data folder. A second session at the same time gets its own folder.
 const STATE = process.env.AIS_MCP_STATE || path.join(process.env.AIS_PLUGIN_DATA || path.join(os.homedir(), '.cache/ais-group-design'), 'studio');
 // A render refused because the computer is busy (another render, Blender, low memory) waits its turn this long.
@@ -110,10 +111,22 @@ const merge = (v) => { if (Array.isArray(v)) return v.map(merge); if (!v || type
 };
 const advertised = (schema) => { const j = merge(lean(z.toJSONSchema(schema, { io: 'input' }))); if (j.required && !j.required.length) delete j.required; return fromJsonSchema(j); };
 const READ_ONLY = ['studio_status', 'search_library', 'read_instructions', 'get_asset'];
+// A new computer gets what rendering needs (Chromium, the Python packages) on its first piece, installed in the background,
+// so nobody runs a setup first and someone who only reads the guide installs nothing.
+let canRender = false;
+async function preparing(name) {
+  if (canRender || READ_ONLY.includes(name)) return null;
+  if (await renderReady()) { useVenv(); canRender = true; return null; }
+  if (!hasPython()) return { setup: 'needs-python', message: 'Python 3 is missing on this computer: install it from python.org, then ask again.' };
+  startSetup();
+  return { setup: 'installing', message: 'Preparing the studio on this computer: Chromium and the Python packages (a few hundred MB, a few minutes, once). Ask again in a few minutes; studio_status says when it is ready.', log: SETUP_LOG };
+}
 const handle = serveStdio(()=>{
   const server = new McpServer({name:'ais-group-design-studio',version:VERSION},{instructions});
   for(const [name,inputSchema] of Object.entries(schemas)) server.registerTool(name,{description:descriptions[name],inputSchema:advertised(inputSchema),annotations:READ_ONLY.includes(name)?{readOnlyHint:true,openWorldHint:false}:{destructiveHint:false,openWorldHint:false}},async args=>{
     try {
+      const wait=await preparing(name);
+      if(wait)return reply({ok:false,...wait});
       let {image,...result}=await factory.call(name,args);
       if(name==='export_piece'&&args.action==='status')result=await settle(args,result);
       return reply({ok:true,...present(name,result),next:next(name,result,args)},image?[image]:[]);

@@ -10,6 +10,7 @@ import { PATTERNS, patternAssets } from '../engine/linkedin-patterns.mjs';
 import { searchAssets, assetSummary } from './assets.mjs';
 import { sourceStamp, resolveMediaReference, inspectMedia, PYTHON, stopTree } from './media.mjs';
 import { ensureMedia, mediaRefs } from '../scripts/media.mjs';
+import { setupRunning } from '../scripts/setup.mjs';
 import { printSource, printSources, printFamily, printDescriptor, copyPrint, updatePrint, checkPrint, printDigest, preparePrint } from './print.mjs';
 import { VERSION, LIMITS, schemas } from './contracts.mjs';
 import { generators, APPROVAL, DOC_KINDS, documentKind, snapshotDocument, checkDocument as checkDocumentSource, documentCommand, documentOutputs } from './documents.mjs';
@@ -29,12 +30,12 @@ function setupStatus() {
   const ok = (cmd, args) => spawnSync(cmd, args, { stdio: 'ignore', timeout: 10000 }).status === 0;
   const media = path.join(STUDIO, 'library/media');
   const missing = [];
-  try { if (!fs.existsSync(chromium.executablePath())) missing.push('Chromium for rendering: run npm run setup'); } catch { missing.push('Chromium for rendering: run npm run setup'); }
-  if (!ok(process.env.AIS_PYTHON || PYTHON, ['-c', 'import PIL, pptx, fitz'])) missing.push('Python packages: run npm run setup');
+  try { if (!fs.existsSync(chromium.executablePath())) missing.push('Chromium for rendering: installs by itself on the first piece'); } catch { missing.push('Chromium for rendering: installs by itself on the first piece'); }
+  if (!ok(process.env.AIS_PYTHON || PYTHON, ['-c', 'import PIL, pptx, fitz'])) missing.push('Python packages: install by themselves on the first piece');
   // The media library comes from the public bucket on demand; a local copy (npm run media:pull) also works offline.
   const local = fs.existsSync(media) && fs.readdirSync(media).length > 0;
   if (!ok('pdftoppm', ['-v'])) missing.push('pdftoppm (page previews): install poppler');
-  return { ready: !missing.length, missing, inbox: INBOX, media: `on demand from the bucket${local ? ', with a local copy' : ''}` };
+  return { ready: !missing.length, missing, installing: setupRunning(), inbox: INBOX, media: `on demand from the bucket${local ? ', with a local copy' : ''}` };
 }
 export const digest = v => createHash('sha256').update(v).digest('hex');
 const json = p => JSON.parse(fs.readFileSync(p, 'utf8'));
