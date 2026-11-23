@@ -31,4 +31,4 @@ import TopBar from '@aisgroup/design/blocks/TopBar.vue'
 
 The app loads its own font and gives `--font-family` if it is not Inter. `--page-width` sets the width of the top bar's content.
 
-Under the TopBar, the app's content area (`main`, `min-h-0 flex-1 overflow-y-auto`) holds a `PageLayout` per page. With a side menu (`#nav`) the layout takes the area's height and only its content column scrolls; that column has the class `scrollbar-visible`, for apps that hide the other scrollbars.
+Under the TopBar, the app's content area (`main`, `min-h-0 flex-1 overflow-y-auto`) holds a `PageLayout` per page. With a side menu (`#nav`) the layout takes the area's height and only its content column scrolls; that column has the class `scrollbar-visible`, for apps that hide the other scrollbars. Beside the title, `#status` holds the state of what the page shows; `#description` replaces the `description` text when the facts under the title need more than plain text (figures, a mono id).
