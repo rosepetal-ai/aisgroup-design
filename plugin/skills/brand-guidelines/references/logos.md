@@ -73,6 +73,7 @@ For rosepetal.ai and the Rosepetal app. The «o» keeps its small inner circle; 
 - **Colours:** blue on white and light backgrounds, white on the brand blue and dark navy, black only where the production is black alone. App icons are always the white mark on the blue `#17356E` tile. Never a gradient, a shadow or a glow.
 - **Clear space:** x on all four sides, where x is one quarter of the mark’s height. Beside the product name the gap is half the mark’s height.
 - **Sizes:** 16 px tall at least. In a sidebar or app header it is 24 px tall, with the product name in the interface font at 14–16 px, semibold.
+- **Motion:** the «o» may turn, and only turn, as the loader of a long process running in the background, such as an app’s processes button: a steady turn every 3 seconds, still when the system asks for reduced motion. It is the `brand-loader` block, never a file of its own or a GIF. Anything else that loads uses Spinner or Skeleton.
 
 | Tile | Mark | Corners | Use |
 | --- | --- | --- | --- |
@@ -96,7 +97,7 @@ For rosepetal.ai and the Rosepetal app. The «o» keeps its small inner circle; 
 - Add the rest of the wordmark, the descriptor or a frame
 - Put it on a tile of another colour or shape
 - Leave a blue favicon on dark tabs or a white one on light tabs
-- Outline, rotate, stretch or add effects
+- Outline, rotate, stretch or add effects; the one motion is the brand loader’s turn
 
 ## Favicons
 

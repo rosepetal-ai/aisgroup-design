@@ -4,7 +4,7 @@ rules:
   - 'Use only the supplied logo files: blue on white and light backgrounds, white on the brand blue, navy or dark photos, black only for black-only production and AIS website headers on white.'
   - 'Clear space is one quarter of the logo’s total height on every side, descriptor included.'
   - 'Minimum widths: AIS Group 48 px or 15 mm, AIS Vision Systems 100 px or 18 mm, AIS Vision Automation 110 px or 20 mm, AIS Scanology 95 px or 17 mm, Rosepetal 130 px or 24 mm. The logo signs and never leads: 20 mm for AIS Vision Systems and 38 mm for Rosepetal on A4, 140 px on a 1920 px slide.'
-  - 'Software uses the app mark (the AIS Λ or the Rosepetal «o»: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, app icons in `logos/app/`, website favicons in `logos/favicons/`), at 24 px in a sidebar or header and never under 16 px. Everything else uses the full logo.'
+  - 'Software uses the app mark (the AIS Λ or the Rosepetal «o»: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, app icons in `logos/app/`, website favicons in `logos/favicons/`), at 24 px in a sidebar or header and never under 16 px. Everything else uses the full logo. The «o» only turns as the `brand-loader` block, for long processes running in the background.'
 ---
 import Logos from '../../../components/Logos.astro';
 import DoDont from '../../../components/DoDont.astro';
@@ -85,6 +85,7 @@ For rosepetal.ai and the Rosepetal app. The «o» keeps its small inner circle; 
 - **Colours:** blue on white and light backgrounds, white on the brand blue and dark navy, black only where the production is black alone. App icons are always the white mark on the blue `#17356E` tile. Never a gradient, a shadow or a glow.
 - **Clear space:** x on all four sides, where x is one quarter of the mark’s height. Beside the product name the gap is half the mark’s height.
 - **Sizes:** 16 px tall at least. In a sidebar or app header it is 24 px tall, with the product name in the interface font at 14–16 px, semibold.
+- **Motion:** the «o» may turn, and only turn, as the loader of a long process running in the background, such as an app’s processes button: a steady turn every 3 seconds, still when the system asks for reduced motion. It is the `brand-loader` block, never a file of its own or a GIF. Anything else that loads uses Spinner or Skeleton.
 
 | Tile | Mark | Corners | Use |
 | --- | --- | --- | --- |
@@ -95,7 +96,7 @@ For rosepetal.ai and the Rosepetal app. The «o» keeps its small inner circle; 
 
 <DoDont doLabel="Do" dontLabel="Do not"
   dos={['Use the supplied files from Downloads', 'Set the product name as live text beside the mark', 'Choose blue on light, white on dark', 'Give apps the tile and websites the bare mark', 'Use the favicon drawn for each size']}
-  donts={['Use a mark instead of the full logo outside software and tabs', 'Type a Greek Λ or a letter «o» from a font in place of the mark', 'Add the rest of the wordmark, the descriptor or a frame', 'Put it on a tile of another colour or shape', 'Leave a blue favicon on dark tabs or a white one on light tabs', 'Outline, rotate, stretch or add effects']} />
+  donts={['Use a mark instead of the full logo outside software and tabs', 'Type a Greek Λ or a letter «o» from a font in place of the mark', 'Add the rest of the wordmark, the descriptor or a frame', 'Put it on a tile of another colour or shape', 'Leave a blue favicon on dark tabs or a white one on light tabs', 'Outline, rotate, stretch or add effects; the one motion is the brand loader’s turn']} />
 
 ## Favicons
 

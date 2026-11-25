@@ -172,6 +172,8 @@ Source: guide/src/content/guide/en/logos.mdx:95.
 
 ## AIS-9b38fd67eb84
 
+Historical wording: explicitly superseded by AIS-01d63451bbe7. Brand decision 2026-11-25: the one motion the Rosepetal «o» allows is the BrandLoader block's turn, for long processes running in the background. Every other rotation, outline, stretch or effect stays banned. Apply the current rule.
+
 <!-- AIS-9b38fd67eb84 -->
 donts={['Use a mark instead of the full logo outside software and tabs', 'Type a Greek Λ or a letter «o» from a font in place of the mark', 'Add the rest of the wordmark, the descriptor or a frame', 'Put it on a tile of another colour or shape', 'Leave a blue favicon on dark tabs or a white one on light tabs', 'Outline, rotate, stretch or add effects']} />
 
