@@ -17,7 +17,7 @@ const props = defineProps<{
     :role="props.label ? 'img' : undefined"
     :aria-label="props.label"
     :aria-hidden="props.label ? undefined : 'true'"
-    :class="cn('size-6 shrink-0 animate-spin text-brand [animation-duration:3s] motion-reduce:animate-none dark:text-brand-foreground', props.class)"
+    :class="cn('size-6 shrink-0 animate-spin text-brand animation-duration-[3s] motion-reduce:animate-none dark:text-brand-foreground', props.class)"
   >
     <path d="m19.29 1a10.41 10.41 0 1 0 10.41 10.45 10.41 10.41 0 0 0 -10.41-10.45m4.63 6.45a2.33 2.33 0 0 1 -.38 0 5.83 5.83 0 1 1 -4.25-1.84 5.75 5.75 0 0 1 2.86.75 1.94 1.94 0 0 1 -.15-.83 2 2 0 1 1 2 2" />
   </svg>
