@@ -550,10 +550,19 @@ Source: plugin/skills/brand-guidelines/references/logos.md:96.
 
 ## AIS-1ac1f58b2e6a
 
+Historical wording: explicitly superseded by AIS-01d63451bbe7. Brand decision 2026-11-25: the one motion the Rosepetal «o» allows is the BrandLoader block's turn, for long processes running in the background. Every other rotation, outline, stretch or effect stays banned. Apply the current rule.
+
 <!-- AIS-1ac1f58b2e6a -->
 Outline, rotate, stretch or add effects
 
 Source: plugin/skills/brand-guidelines/references/logos.md:97.
+
+## AIS-01d63451bbe7
+
+<!-- AIS-01d63451bbe7 -->
+**Motion:** the «o» may turn, and only turn, as the loader of a long process running in the background, such as an app’s processes button: a steady turn every 3 seconds, still when the system asks for reduced motion. It is the `brand-loader` block, never a file of its own or a GIF. Anything else that loads uses Spinner or Skeleton.
+
+Source: guide/src/content/guide/en/logos.mdx:88.
 
 ## AIS-5aeb6fdd3cef
 

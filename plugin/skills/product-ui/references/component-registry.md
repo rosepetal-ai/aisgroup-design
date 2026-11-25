@@ -74,6 +74,7 @@ Brand pieces built from the components, with no app logic: texts and data come f
 - **Confirm host** (`confirm-host`): Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/ConfirmHost.vue`
 - **Figure cards** (`figure-cards`): The figures of an overview as cards: label, value and an optional detail line, up to four in a row. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/FigureCards.vue`
 - **Page layout** (`page-layout`): A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/PageLayout.vue`
+- **Brand loader** (`brand-loader`): The Rosepetal «o» turning, for long processes running in the background. Anything else that loads uses Spinner or Skeleton. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/BrandLoader.vue`
 - **Log terminal** (`log-terminal`): A console for logs. Each app gives its lines. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/LogTerminal.vue`
 
 ## Node-RED dashboard widgets

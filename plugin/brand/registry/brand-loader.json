@@ -1,0 +1,22 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "brand-loader",
+  "type": "registry:block",
+  "title": "Brand loader",
+  "description": "The Rosepetal «o» turning, for long processes running in the background. Anything else that loads uses Spinner or Skeleton.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://design.aisgroup.ai/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/BrandLoader.vue",
+      "type": "registry:block",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\n// The Rosepetal «o» turning, the one motion the mark allows: a long process running in the background (guide, Logos: App marks). Anything else that loads uses Spinner or Skeleton.\n// The path is the official rosepetal-mark-*.svg; blue on light, white on dark; still under reduced motion.\nconst props = defineProps<{\n  label?: string\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <svg\n    viewBox=\"8.88 1 20.82 20.82\"\n    fill=\"currentColor\"\n    :role=\"props.label ? 'img' : undefined\"\n    :aria-label=\"props.label\"\n    :aria-hidden=\"props.label ? undefined : 'true'\"\n    :class=\"cn('size-6 shrink-0 animate-spin text-brand [animation-duration:3s] motion-reduce:animate-none dark:text-brand-foreground', props.class)\"\n  >\n    <path d=\"m19.29 1a10.41 10.41 0 1 0 10.41 10.45 10.41 10.41 0 0 0 -10.41-10.45m4.63 6.45a2.33 2.33 0 0 1 -.38 0 5.83 5.83 0 1 1 -4.25-1.84 5.75 5.75 0 0 1 2.86.75 1.94 1.94 0 0 1 -.15-.83 2 2 0 1 1 2 2\" />\n  </svg>\n</template>\n"
+    }
+  ],
+  "meta": {
+    "package": "@aisgroup/design@0.0.0",
+    "source": "rosepetal-ai/aisgroup-design@dev:packages/design/blocks/BrandLoader.vue"
+  }
+}
