@@ -206,6 +206,7 @@
     --color-split-validation: var(--split-validation);
     --color-split-test: var(--split-test);
     --color-split-predetermined: var(--split-predetermined);
+    --color-review: var(--review);
     --color-action-soft: var(--action-soft);
     --color-action-soft-border: var(--action-soft-border);
     --color-action-soft-foreground: var(--action-soft-foreground);
@@ -279,7 +280,7 @@
     --azure-600: #2563EB;             /* a tag without a colour of its own (OCR text) */
     --cyan-600: #0891B2;              /* validation */
     --orange-600: #EA580C;            /* test; second chart series */
-    --violet-500: #8B5CF6;            /* third chart series */
+    --violet-500: #8B5CF6;            /* third chart series; images to review */
     --purple-500: #A855F7;            /* violet, dark */
     --slate-400: #A0AEC0;             /* rosepetal-ui's editor canvas (not in the guide) */
     --grey-100: #F5F5F5;              /* grid behind an image (not in the guide) */
@@ -321,6 +322,7 @@
     --split-validation: var(--cyan-600);
     --split-test: var(--orange-600);
     --split-predetermined: var(--neutral-400); /* images not assigned yet */
+    --review: var(--violet-500);      /* images the auto-classifier tagged, waiting for a person to accept or reject them */
     /* Charts: the series, in this order */
     --chart-1: var(--blue-500);
     --chart-2: var(--orange-600);
@@ -385,6 +387,7 @@
     /* Data division and charts, dark: the same hues stepped for dark backgrounds */
     --split-train: var(--blue-400);
     --split-predetermined: var(--neutral-500);
+    --review: var(--purple-500);
     --chart-1: var(--blue-400);
     --chart-3: var(--purple-500);
     /* Top bar, dark: the dark card (blue-900) with light text, as the brand guide's app */
