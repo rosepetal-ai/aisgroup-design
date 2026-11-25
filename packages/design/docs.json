@@ -639,6 +639,16 @@
         "es": "Un estado como un icono con su tono y la palabra, en texto atenuado. Nunca solo color, nunca una etiqueta.",
         "ca": "Un estat com una icona amb el seu to i la paraula, en text atenuat. Mai només color, mai una etiqueta."
       }
+    },
+    "brand-loader": {
+      "name": {
+        "es": "Indicador de marca",
+        "ca": "Indicador de marca"
+      },
+      "description": {
+        "es": "La «o» de Rosepetal girando, para procesos largos en segundo plano. Todo lo demás que carga usa Spinner o Skeleton.",
+        "ca": "La «o» de Rosepetal girant, per a processos llargs en segon pla. Tota la resta que carrega fa servir Spinner o Skeleton."
+      }
     }
   },
   "examples": {
@@ -1660,6 +1670,16 @@
       "about": {
         "es": "El estado de lo que muestra la página junto al título (#status) y sus datos en una línea debajo (#description) cuando son más que texto plano.",
         "ca": "L’estat del que mostra la pàgina al costat del títol (#status) i les seves dades en una línia a sota (#description) quan són més que text pla."
+      }
+    },
+    "brand-loader/01-processes": {
+      "name": {
+        "es": "Procesos",
+        "ca": "Processos"
+      },
+      "about": {
+        "es": "Solo para procesos largos en segundo plano, como el botón de procesos de una app; un botón que trabaja o una sección que carga usa Spinner o Skeleton.",
+        "ca": "Només per a processos llargs en segon pla, com el botó de processos d’una app; un botó que treballa o una secció que carrega fa servir Spinner o Skeleton."
       }
     }
   }

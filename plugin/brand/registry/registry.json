@@ -382,6 +382,12 @@
       "description": "A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls."
     },
     {
+      "name": "brand-loader",
+      "type": "registry:block",
+      "title": "Brand loader",
+      "description": "The Rosepetal «o» turning, for long processes running in the background. Anything else that loads uses Spinner or Skeleton."
+    },
+    {
       "name": "log-terminal",
       "type": "registry:block",
       "title": "Log terminal",
