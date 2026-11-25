@@ -159,6 +159,11 @@
     "es": "Imágenes aún sin partición asignada",
     "ca": "Imatges encara sense partició assignada"
   },
+  "review": {
+    "en": "Images the auto-classifier tagged, waiting for review",
+    "es": "Imágenes que ha etiquetado el clasificador automático, pendientes de revisar",
+    "ca": "Imatges que ha etiquetat el classificador automàtic, pendents de revisar"
+  },
   "chart-1": {
     "en": "First chart series",
     "es": "Primera serie de gráfico",

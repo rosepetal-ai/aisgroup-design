@@ -55,7 +55,7 @@ Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens 
 | Sections side by side | Cards in `grid gap-4 xl:grid-cols-2`; the Cards of a row share its height, so no `items-start` |
 | The account | An Avatar in the top bar that opens a DropdownMenu; its last item is Log out |
 | Status | StatusLabel: a toned icon and the word, in muted text |
-| Loading | Skeleton in the shape of the content; Spinner inside the working button |
+| Loading | Skeleton in the shape of the content; Spinner inside the working button; the `brand-loader` block only for long processes running in the background |
 
 ## Dialogs
 

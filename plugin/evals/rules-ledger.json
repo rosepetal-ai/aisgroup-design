@@ -16829,7 +16829,26 @@
       ],
       "ownerSkill": "brand-guidelines",
       "owner": "skills/brand-guidelines/references/retained-rules-02.md",
-      "enforcedBy": []
+      "enforcedBy": [],
+      "status": "superseded",
+      "supersededBy": "AIS-01d63451bbe7",
+      "supersededNote": "Brand decision 2026-11-25: the one motion the Rosepetal «o» allows is the BrandLoader block's turn, for long processes running in the background. Every other rotation, outline, stretch or effect stays banned. Apply the current rule."
+    },
+    {
+      "id": "AIS-01d63451bbe7",
+      "rule": "**Motion:** the «o» may turn, and only turn, as the loader of a long process running in the background, such as an app’s processes button: a steady turn every 3 seconds, still when the system asks for reduced motion. It is the `brand-loader` block, never a file of its own or a GIF. Anything else that loads uses Spinner or Skeleton.",
+      "source": "guide/src/content/guide/en/logos.mdx:88",
+      "sources": [
+        {
+          "file": "guide/src/content/guide/en/logos.mdx",
+          "line": 88,
+          "text": "- **Motion:** the «o» may turn, and only turn, as the loader of a long process running in the background, such as an app’s processes button: a steady turn every 3 seconds, still when the system asks for reduced motion. It is the `brand-loader` block, never a file of its own or a GIF. Anything else that loads uses Spinner or Skeleton."
+        }
+      ],
+      "ownerSkill": "brand-guidelines",
+      "owner": "skills/brand-guidelines/references/retained-rules-02.md",
+      "enforcedBy": [],
+      "addedAfterBaseline": true
     },
     {
       "id": "AIS-5aeb6fdd3cef",
@@ -47250,7 +47269,10 @@
       ],
       "ownerSkill": "product-ui",
       "owner": "skills/product-ui/references/retained-rules-01.md",
-      "enforcedBy": []
+      "enforcedBy": [],
+      "status": "superseded",
+      "supersededBy": "AIS-93ad6142113e",
+      "supersededNote": "The package is public on npmjs as @rosepetal/design: there is no private registry to set up. Apply the current rule."
     },
     {
       "id": "AIS-e66a0220aa10",
@@ -61769,7 +61791,10 @@
       ],
       "ownerSkill": "brand-guidelines",
       "owner": "skills/brand-guidelines/references/retained-rules-03.md",
-      "enforcedBy": []
+      "enforcedBy": [],
+      "status": "superseded",
+      "supersededBy": "AIS-01d63451bbe7",
+      "supersededNote": "Brand decision 2026-11-25: the one motion the Rosepetal «o» allows is the BrandLoader block's turn, for long processes running in the background. Every other rotation, outline, stretch or effect stays banned. Apply the current rule."
     },
     {
       "id": "AIS-6ee3471e28df",
@@ -96957,7 +96982,18 @@
       "decision": "@aisgroup/design is public on npmjs as @rosepetal/design and installs under the name the imports use; no private registry or token.",
       "currentRule": "AIS-93ad6142113e",
       "supersededRules": [
-        "AIS-d35c5590446e"
+        "AIS-d35c5590446e",
+        "AIS-de84bbd1bd06"
+      ],
+      "lost": 0
+    },
+    "mark-motion": {
+      "date": "2026-11-25",
+      "decision": "The Rosepetal «o» may turn, and only turn, as the BrandLoader block of @aisgroup/design, for long processes running in the background such as an app's processes button; anything else that loads uses Spinner or Skeleton, and no other motion or effect is allowed on a mark.",
+      "currentRule": "AIS-01d63451bbe7",
+      "supersededRules": [
+        "AIS-1ac1f58b2e6a",
+        "AIS-9b38fd67eb84"
       ],
       "lost": 0
     }

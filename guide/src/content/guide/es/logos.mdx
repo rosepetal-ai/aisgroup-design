@@ -4,7 +4,7 @@ rules:
   - 'Usa solo los archivos de logotipo suministrados: azul sobre blanco y fondos claros, blanco sobre el azul de marca, el azul marino o fotos oscuras, y negro solo en producción en negro y en las cabeceras de las webs de AIS sobre blanco.'
   - 'El área de protección es una cuarta parte de la altura total del logotipo por cada lado, descriptor incluido.'
   - 'Anchos mínimos: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotipo firma y nunca encabeza: 20 mm para AIS Vision Systems y 38 mm para Rosepetal en A4, 140 px en una diapositiva de 1920 px.'
-  - 'El software usa la marca de app (la Λ de AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, iconos de app en `logos/app/`, favicons de web en `logos/favicons/`), a 24 px en una barra lateral o una cabecera y nunca por debajo de 16 px. Todo lo demás usa el logotipo completo.'
+  - 'El software usa la marca de app (la Λ de AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, iconos de app en `logos/app/`, favicons de web en `logos/favicons/`), a 24 px en una barra lateral o una cabecera y nunca por debajo de 16 px. Todo lo demás usa el logotipo completo. La «o» solo gira como el bloque `brand-loader`, para procesos largos en segundo plano.'
 ---
 import Logos from '../../../components/Logos.astro';
 import DoDont from '../../../components/DoDont.astro';
@@ -85,6 +85,7 @@ Para rosepetal.ai y la app de Rosepetal. La «o» conserva su pequeño círculo 
 - **Colores:** azul sobre blanco y fondos claros, blanco sobre el azul de marca y el azul marino oscuro, negro solo cuando la producción es únicamente en negro. Los iconos de app son siempre el símbolo blanco sobre la pieza azul `#17356E`. Nunca con degradados, sombras ni brillos.
 - **Área de protección:** x por los cuatro lados, donde x es una cuarta parte de la altura del símbolo. Junto al nombre del producto, la separación es la mitad de la altura del símbolo.
 - **Tamaños:** 16 px de alto como mínimo. En una barra lateral o la cabecera de una app mide 24 px de alto, con el nombre del producto en la fuente de la interfaz a 14–16 px, seminegrita.
+- **Movimiento:** la «o» puede girar, y solo girar, como indicador de un proceso largo en segundo plano, como el botón de procesos de una app: un giro constante cada 3 segundos, quieta cuando el sistema pide reducir el movimiento. Es el bloque `brand-loader`, nunca un archivo propio ni un GIF. Todo lo demás que carga usa Spinner o Skeleton.
 
 | Pieza | Símbolo | Esquinas | Uso |
 | --- | --- | --- | --- |
@@ -95,7 +96,7 @@ Para rosepetal.ai y la app de Rosepetal. La «o» conserva su pequeño círculo 
 
 <DoDont doLabel="Haz" dontLabel="Evita"
   dos={['Usar los archivos suministrados de Descargas', 'Escribir el nombre del producto como texto real junto al símbolo', 'Elegir azul sobre claro y blanco sobre oscuro', 'Dar a las apps la pieza y a las webs el símbolo solo', 'Usar el favicon dibujado para cada tamaño']}
-  donts={['Usar un símbolo en lugar del logotipo completo fuera del software y las pestañas', 'Escribir una Λ griega o una «o» con una fuente en lugar del símbolo', 'Añadir el resto del logotipo, el descriptor o un marco', 'Ponerlo sobre una pieza de otro color o forma', 'Dejar un favicon azul en pestañas oscuras o uno blanco en pestañas claras', 'Contornearlo, girarlo, estirarlo o añadir efectos']} />
+  donts={['Usar un símbolo en lugar del logotipo completo fuera del software y las pestañas', 'Escribir una Λ griega o una «o» con una fuente en lugar del símbolo', 'Añadir el resto del logotipo, el descriptor o un marco', 'Ponerlo sobre una pieza de otro color o forma', 'Dejar un favicon azul en pestañas oscuras o uno blanco en pestañas claras', 'Contornearlo, girarlo, estirarlo o añadir efectos; el único movimiento es el giro del indicador de marca']} />
 
 ## Favicons
 

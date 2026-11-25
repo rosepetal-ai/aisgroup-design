@@ -1,6 +1,6 @@
 # Rosepetal design system: component index
 
-Every component and brand block of `@aisgroup/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @aisgroup/design`, from the company's Artifact Registry) and import `@aisgroup/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
+Every component and brand block of `@aisgroup/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @aisgroup/design@npm:@rosepetal/design`, public on npmjs) and import `@aisgroup/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
 
 ## Components
 
@@ -74,6 +74,7 @@ Brand pieces built from the components, with no app logic: texts and data come f
 - **Confirm host** (`confirm-host`): Confirmations asked from code: useConfirm().ask() opens the confirm dialog in the one host App mounts. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/ConfirmHost.vue`
 - **Figure cards** (`figure-cards`): The figures of an overview as cards: label, value and an optional detail line, up to four in a row. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/FigureCards.vue`
 - **Page layout** (`page-layout`): A page under the top bar: its width, title and actions, and an optional side menu that stays while the content scrolls. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/PageLayout.vue`
+- **Brand loader** (`brand-loader`): The Rosepetal «o» turning, for long processes running in the background. Anything else that loads uses Spinner or Skeleton. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/BrandLoader.vue`
 - **Log terminal** (`log-terminal`): A console for logs. Each app gives its lines. `rosepetal-ai/aisgroup-design@dev:packages/design/blocks/LogTerminal.vue`
 
 ## Node-RED dashboard widgets

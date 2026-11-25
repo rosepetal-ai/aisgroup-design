@@ -4,7 +4,7 @@ rules:
   - 'Fes servir només els fitxers de logotip subministrats: blau sobre blanc i fons clars, blanc sobre el blau de marca, el blau marí o fotos fosques, i negre només en producció en negre i a les capçaleres dels webs d’AIS sobre blanc.'
   - 'L’àrea de protecció és una quarta part de l’alçada total del logotip per cada costat, descriptor inclòs.'
   - 'Amplades mínimes: AIS Group 48 px o 15 mm, AIS Vision Systems 100 px o 18 mm, AIS Vision Automation 110 px o 20 mm, AIS Scanology 95 px o 17 mm, Rosepetal 130 px o 24 mm. El logotip signa i mai encapçala: 20 mm per a AIS Vision Systems i 38 mm per a Rosepetal en A4, 140 px en una diapositiva de 1920 px.'
-  - 'El programari fa servir la marca d’app (la Λ d’AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, icones d’app a `logos/app/`, favicons de web a `logos/favicons/`), a 24 px en una barra lateral o una capçalera i mai per sota de 16 px. La resta fa servir el logotip complet.'
+  - 'El programari fa servir la marca d’app (la Λ d’AIS o la «o» de Rosepetal: `ais-mark-*.svg`, `rosepetal-mark-*.svg`, icones d’app a `logos/app/`, favicons de web a `logos/favicons/`), a 24 px en una barra lateral o una capçalera i mai per sota de 16 px. La resta fa servir el logotip complet. La «o» només gira com el bloc `brand-loader`, per a processos llargs en segon pla.'
 ---
 import Logos from '../../../components/Logos.astro';
 import DoDont from '../../../components/DoDont.astro';
@@ -85,6 +85,7 @@ Per a rosepetal.ai i l’app de Rosepetal. La «o» conserva el seu petit cercle
 - **Colors:** blau sobre blanc i fons clars, blanc sobre el blau de marca i el blau marí fosc, negre només quan la producció és únicament en negre. Les icones d’app són sempre el símbol blanc sobre la peça blava `#17356E`. Mai amb degradats, ombres ni lluentors.
 - **Àrea de protecció:** x pels quatre costats, on x és una quarta part de l’alçada del símbol. Al costat del nom del producte, la separació és la meitat de l’alçada del símbol.
 - **Mides:** 16 px d’alt com a mínim. En una barra lateral o la capçalera d’una app fa 24 px d’alt, amb el nom del producte en la font de la interfície a 14–16 px, seminegreta.
+- **Moviment:** la «o» pot girar, i només girar, com a indicador d’un procés llarg en segon pla, com el botó de processos d’una app: un gir constant cada 3 segons, quieta quan el sistema demana reduir el moviment. És el bloc `brand-loader`, mai un fitxer propi ni un GIF. Tota la resta que carrega fa servir Spinner o Skeleton.
 
 | Peça | Símbol | Cantonades | Ús |
 | --- | --- | --- | --- |
@@ -95,7 +96,7 @@ Per a rosepetal.ai i l’app de Rosepetal. La «o» conserva el seu petit cercle
 
 <DoDont doLabel="Fes-ho" dontLabel="Evita-ho"
   dos={['Fer servir els fitxers subministrats de Baixades', 'Escriure el nom del producte com a text real al costat del símbol', 'Triar blau sobre clar i blanc sobre fosc', 'Donar a les apps la peça i als webs el símbol sol', 'Fer servir el favicon dibuixat per a cada mida']}
-  donts={['Fer servir un símbol en lloc del logotip complet fora del programari i les pestanyes', 'Escriure una Λ grega o una «o» amb una font en lloc del símbol', 'Afegir la resta del logotip, el descriptor o un marc', 'Posar-lo sobre una peça d’un altre color o forma', 'Deixar un favicon blau en pestanyes fosques o un de blanc en pestanyes clares', 'Contornejar-lo, girar-lo, estirar-lo o afegir-hi efectes']} />
+  donts={['Fer servir un símbol en lloc del logotip complet fora del programari i les pestanyes', 'Escriure una Λ grega o una «o» amb una font en lloc del símbol', 'Afegir la resta del logotip, el descriptor o un marc', 'Posar-lo sobre una peça d’un altre color o forma', 'Deixar un favicon blau en pestanyes fosques o un de blanc en pestanyes clares', 'Contornejar-lo, girar-lo, estirar-lo o afegir-hi efectes; l’únic moviment és el gir de l’indicador de marca']} />
 
 ## Favicons
 
