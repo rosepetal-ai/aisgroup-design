@@ -173,8 +173,7 @@ def validate_post(command):
         raise ValueError('unsafe output name')
     from PIL import Image
     inbox = Path(os.environ.get('AIS_INBOX') or STUDIO / 'work/inbox')
-    roots = [inbox, STUDIO / 'brand', STUDIO / 'library/media', STUDIO / 'library/factory-library/assets']
-    roots.extend(STUDIO / 'pieces' / folder for folder in ('brochures', 'datasheets', 'decks', 'posts'))
+    roots = [inbox, STUDIO / 'brand', STUDIO / 'library/media']
     total = 0
     def walk(value):
         nonlocal total
