@@ -13,6 +13,12 @@ Sales pieces that beat the original marketing PDFs: more and better real picture
 - `references/print-system.md`: the files, every component, the page sets, shorter pieces and other languages. Read it before building or rebuilding a piece.
 - `references/mcp-editing.md`: editing the seven Spanish technical sheets and any piece through `edit_piece` and `export_piece`.
 
+## Technical sales brochures
+
+Follow one product through the inspection. Start with the defect the buyer needs to catch, show how the system reaches a decision and explain how the team verifies the result. Distinguish initial setup and training from what the operator does during production. Tie each performance figure or measurement to its source and to the configuration the buyer is evaluating.
+
+When the brief points to a particular visual, trace the displayed image back to its highest-quality approved master and compare the framing with the reference. For a software screen, follow [UI capture and sign-in](../../asset-library/references/ui-capture.md).
+
 ## Steps
 
 1. **Content.** Start from the accepted piece in `pieces/brochures/<piece>/` and its published example; marketing's original PDF only when the person supplies it. Read it with pdftotext; to see it, check cached previews first or rasterise under the shared wrapper with `pdftoppm -r 50`. Keep every fact and every detection; restore the original's figures (100 % de la producción, cadences, sizes, 21 CFR Part 11…) using the better-sourced AIS figure for the exact model; record alternatives privately. The current chosen figures are in the shared workflow. Drop superlatives ("impecable", "de vértigo", "casi nulos") and claims without conditions. Names exact: AIS Vision Systems, AIS Hopper, AIS REV 360 STANDARD / COMPACT / PHARMA, AIS REV 360 Cables, AIS KARIKÓ, OPTICAIS, AIS Vacuum, Rosepetal, TrazAIS. Sentence case, no full stop at the end of titles, Spanish number format from the guide ([Localisation](../../communications/references/localisation.md)): no separator up to four digits, a non-breaking space from five (7200, 30 000), dates 10/2028.
