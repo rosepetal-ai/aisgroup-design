@@ -1,6 +1,9 @@
 # Local industrial models
 
-Call `search_library` with `collection: "assets"`, a part name such as `Basler ace` or `45x45 extrusion`, and `filters: {"kind":"machine-model","exists":true}`. Fetch a result using `get_asset` with its exact `assetId`. Each available entry returns a local GLB URI, byte count and provenance. The source register for converted industrial hardware is available at `sourceRegisterUri` when installed. Review its source terms for the intended use. Catalogue entries carry review status.
+In the full studio, call `search_library` with `collection: "assets"`, a part name such as `Basler ace` or `45x45 extrusion`, and `filters: {"kind":"machine-model","exists":true}`. Fetch a result using `get_asset` with its exact `assetId`. Each available entry returns a local GLB URI, byte count and provenance. The source register for converted industrial hardware is available at `sourceRegisterUri` when installed. Review its source terms for the intended use. Catalogue entries carry review status.
+
+
+When only the hosted design MCP is available, read `mcp/scene-components.mjs` in the installed plugin. Each approved cabinet, operator, player or mechanism entry gives a relative source file under `skills/live-animation/`, its source and its licence when applicable. Read `mcp/industrial-models.mjs` for the hardware inventory and use the private pack setup below for local meshes. The hosted catalogue and these installed files serve different purposes.
 
 | Scene element | Example asset IDs |
 | --- | --- |

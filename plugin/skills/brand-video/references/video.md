@@ -141,7 +141,7 @@ A tutorial shows one task in the real application, with its steps written on scr
 
 ### Structure and sources
 
-- The Rosepetal brand intro, a title card on brand blue, the recording and the end card. The logo appears only at those two ends.
+- The Rosepetal brand intro, a title card on brand blue, the recording and the end card. The logo appears only at those two ends. The title card is flat brand blue with the title alone in white, held 2 s, with no overline, pattern or other label.
 - Take the intro, the end card and the music from this guide’s «Video» and «Downloads» pages, unchanged. They are published here, not in the repositories.
 - Record inside the platform. Node-RED is shown in the platform’s «Flows» section, on a controller with the Rosepetal nodes, never as a standalone Node-RED.
 
