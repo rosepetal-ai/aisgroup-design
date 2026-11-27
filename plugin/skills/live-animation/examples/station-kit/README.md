@@ -1,0 +1,13 @@
+# Assemble a station from a free-form brief
+
+Open the packing example for “A cylinder presents a carton. An operator lifts it to a receiving bay. Show the cabinet and the run lamp.” Open `?station=cabinet` for “Explain the signal tower on our pharma control cabinet at rest, running and stopped.” Both use the shared AIS PlayerBar, optional captions, official machine artwork, the same stainless cabinet and the same signal tower. The cabinet-only variant instantiates no operator or transfer machinery. The nine-second cycles are illustrative.
+
+The cabinet and its signal tower in [cabinet.ts](cabinet.ts) come from the pharma line’s `props.ts/createConsole`. The mounting feet, glands, locks and lens positions travel with the assembly. [marked-panel.ts](marked-panel.ts) cuts the supplied vector paths into the sheet and recesses the insert. Light the insert for a supported opal treatment. Use a dark insert for an unlit mark. A supplied reference determines the panel, finish and lighting for each machine. The cabinet screen stays dark in these studies; supply the actual application view when the story describes it.
+
+The [packing cell](../packing-transfer/cell.mjs) includes the guided actuator, handling rig and carton on their original clock. The [Microsoft Rocketbox licence](../packing-transfer/LICENSE.md) must accompany redistributed copies. The working example uses a specific garment and a short, level transfer. Select another rig or motion for a different task. Leave scope colouring unspecified unless the new brief supplies a colour legend.
+
+From a compatible Vue 3 / Vite host with Three.js, Tailwind 4, its Vite plugin, `@vitejs/plugin-vue`, `@fontsource/inter` and the [player dependencies](../../references/explainer.md), retain the relative `examples/` and `templates/explainer/vendor/` directories. Run `vite --config examples/station-kit/vite.config.mjs`, or `vite build --config examples/station-kit/vite.config.mjs` for a local build. Follow the two actions in the brief at normal speed and verify support, framing, controls and lamp timing in the new host.
+
+From the live-animation skill root run `scripts/safe.sh node examples/station-kit/check-briefs.mjs <dev-url>`. It checks the visible lamp position, its actual emitted intensity across the cycle, the cut-metal panel and the presence or absence of a rig in both briefs and both viewport sizes. The transfer case also runs the original 541-sample contact audit.
+
+The [hall](hall.ts) carries the RSM epoxy floor, air and fog through every camera. Import [the series typography](series.css) once in a host and use `data-scene-opening` on the title and `data-scene-caption` around the caption plates. Keep a clear title-safe area while the opener is visible.

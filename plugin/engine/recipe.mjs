@@ -32,11 +32,31 @@ const SHOTS = {
   still: { need: [] }, clip: { need: ['src', 'in', 'out'] }, title: { need: ['title'] }, claims: { need: ['words'] },
   stat: { need: ['value', 'text', 'note', 'basis'] },
   hero: { need: ['headline'] }, panel: { need: ['headline'] }, grid: { need: ['headline', 'items'] }, callout: { need: ['src', 'items', 'headline'] }, event: { need: ['event'] }, contact: { need: ['headline', 'action'] }, stand: { need: ['event'] }, showcase: { need: ['src', 'headline'] },end: { need: [] }, opening: { need: [] }, 'lower-third': { need: ['name'] },
+  intro: { need: [] }, recording: { need: ['src', 'steps', 'pointer'] },
 };
 const POST_SHOTS = ['cover', 'text', 'list', 'pair', 'figure', 'quote', 'cta', 'still', 'stat', 'stand', 'title', 'hero', 'panel', 'grid', 'callout', 'event', 'contact', 'showcase'];
 const CLOSERS = ['cta', 'contact'];
 const FILE_KEYS = ['src', 'bgSrc', 'portrait'];
 const BASIS = ['measured', 'estimated', 'target', 'illustrative'];
+// Rosepetal films carry the Rosepetal soundtrack (Video, Sound); this track unless the recipe names another or "music": false.
+const ROSEPETAL_TRACK = '@guide/kit/files/rosepetal_music_quiet-beauty_v01.m4a';
+
+// Tutorial steps (Video, Tutorials): two lines of 42 characters at most ("|" forces a break), on screen as long as they take
+// to read at 18 characters a second (1.8 to 7 s); the action starts about 1 s after its text appears, while it is on screen.
+export const STEP = { cps: 18, min: 1.8, max: 7, lead: 1, width: 42 };
+export const stepLines = (text) => String(text).split('|').flatMap((part) => part.trim().split(/\s+/).reduce((ls, w) => {
+  if (ls.length && (ls.at(-1) + ' ' + w).length <= STEP.width) ls[ls.length - 1] += ' ' + w; else ls.push(w);
+  return ls;
+}, []));
+export const readTime = (text) => Math.min(STEP.max, Math.max(STEP.min, stepLines(text).join(' ').length / STEP.cps));
+export const stepErrors = (st) => {
+  const out = [], lines = stepLines(st.text), need = readTime(st.text);
+  if (lines.length > 2 || lines.some((l) => l.length > STEP.width)) out.push(`"${st.text}" sets on ${lines.length} lines: two of ${STEP.width} characters at most, one idea`);
+  if (!(st.hold >= need - 0.05 && st.hold <= STEP.max + 0.05)) out.push(`"${st.text}" holds ${st.hold} s: it needs ${need.toFixed(1)} to ${STEP.max} s (${STEP.cps} characters a second, ${STEP.min} s at least)`);
+  if (!(st.action > st.start)) out.push(`the action of "${st.text}" starts before its text: the text first, the action about ${STEP.lead} s later`);
+  else if (st.action >= st.start + st.hold) out.push(`the action of "${st.text}" starts after its text has gone: it starts while the text is on screen`);
+  return out;
+};
 
 // "@guide/…" is the brand guide's public folder, "@lib/…" the studio library; anything else is relative to the recipe.
 // A library picture not yet on this computer is fetched from the media bucket the first time it is used.
@@ -191,6 +211,20 @@ export function checkRecipe(raw, dir, file = path.join(dir, 'recipe.json')) {
       }
     }
     for (const k of FILE_KEYS) if (typeof s[k] === 'string') s[k] = asset(where, s[k], s0);
+    // The brand intro and the end card as the guide publishes them (Video, Tutorials), placed unchanged.
+    if (s.type === 'intro') { if (i) err(where, 'the brand intro opens the film: first shot only'); s.src = asset(where, `@guide/kit/files/${r.brand}_brand-intro_v01_16x9.mp4`); }
+    if (s.type === 'end' && s.published) {
+      if (!['en', 'es'].includes(r.lang)) err(where, 'the guide publishes the end card in ES and EN only: set "lang" to es or en');
+      else s.src = asset(where, `@guide/kit/files/${r.brand}_end-card_${r.lang}_v01_16x9.mp4`);
+    }
+    if ((s.type === 'intro' || s.published) && r.formats.some((f) => f !== '16x9')) err(where, 'the published intro and end card are 16:9 only: "formats": ["16x9"]');
+    // A tutorial's recording, with the step list and pointer log that tools/record-tutorial.mjs wrote beside it.
+    if (s.type === 'recording') for (const k of ['steps', 'pointer']) {
+      const f = typeof s0[k] === 'string' && resolveFile(s0[k], dir);
+      if (!f || !fs.existsSync(f)) { err(where, `file not found: ${s0[k]}`); continue; }
+      s[k] = JSON.parse(fs.readFileSync(f, 'utf8'));
+      if (k === 'steps') s.steps.steps = s.steps.steps.map((st, j) => { stepErrors(st).forEach((e) => err(`${where} step ${j + 1}`, e)); return { ...st, lines: stepLines(st.text) }; });
+    }
     // Covers are impeccable (print/image-rules.mjs): print and deck covers fail a video frame. Social
     // covers warn, because real footage is often the only proof a post has: replace it when a photograph or still exists.
     if (i === 0 && r.kind !== 'video') for (const k of ['src', 'bgSrc']) if (typeof s0[k] === 'string' && isVideoFrame(resolveFile(s0[k], dir)))
@@ -263,6 +297,12 @@ export function checkRecipe(raw, dir, file = path.join(dir, 'recipe.json')) {
     return s;
   });
 
+  // Music: from the first frame, under any voice, levelled with it (render.mjs). A single shot (an opening, an end card,
+  // a lower third) is a part for an edit and stays silent.
+  const music = raw.music ?? (r.kind === 'video' && r.brand === 'rosepetal' && r.shots.length > 1 ? { src: ROSEPETAL_TRACK } : null);
+  if (music && (r.kind !== 'video' || typeof music.src !== 'string')) err('music', 'video only: { "src": a track from Downloads, "in": its first second, "fade": seconds over the end card }');
+  else if (music) r.music = { in: 0, fade: 2.5, ...music, src: asset('music', music.src) };
+  if (r.shots.some((s) => s.type === 'recording') && !r.music) err('music', 'a tutorial always carries a track of the Rosepetal soundtrack from Downloads');
   if (r.captionsFrom && !fs.existsSync(resolveFile(r.captionsFrom, dir))) err('captionsFrom', `file not found: ${r.captionsFrom}`);
   if (r.kind === 'video' && r.shots.some((s) => s.voice) && !r.captions?.length && !r.captionsFrom) err('captions', 'a film with speech needs captions: "captions", or "captionsFrom" with the word timings (Video, Captions)');
   const copy = lintCopy(raw);

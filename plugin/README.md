@@ -17,6 +17,14 @@ The studio prepares itself the first time you ask for a piece: it installs the r
 
 The brand photos and videos download on demand from the media bucket, the first time a piece uses them; no account is needed. For a full copy to work offline, install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) and run `npm run media:pull`.
 
+## Machine animations and product films
+
+In a local Codex installation, add the marketplace with `codex plugin marketplace add rosepetal-ai/aisgroup-design --ref main` and install with `codex plugin add ais-group-design@ais-group-design`. Claude Code uses the install commands above. The full edition includes the local studio for recording and rendering tutorials. The smaller `claude-plugin` edition includes the standalone animation builder and film-editing helpers for clients that can run local commands.
+
+Give the plugin a quotation or a plain-language brief, including the sequence to show and any available references. For a guarded reader or indexed side pusher, use the [editable starter](skills/live-animation/examples/enclosed-inspection/README.md). The first build needs Node 22.12+, npm and read access to the private AIS model pack through Firebase CLI or Google Cloud CLI. For a machine without network access, install the internal pack in advance and provide the npm dependencies. Finished HTML plays offline.
+
+In the generated project, `npm run check` verifies playback and contacts. With Chromium and FFmpeg installed, `npm run film -- demo.mp4` renders the same scene frame by frame as a silent 25 fps MP4. For product films with recorded app screens, approved footage, music and edit points, follow the [platform-film workflow](skills/platform-film/SKILL.md). For restricted demos, arrange sign-in before recording.
+
 ## Make a piece
 
 Paste or drag your photos into the terminal and say what you need:
@@ -46,7 +54,8 @@ Claude picks the template, writes the copy from what is true, checks it against 
 | asset-library | Finding approved photos, renders and footage |
 | resources-assets | Downloads and the design server's files |
 | web-design | The websites and their components |
-| live-animation | Live three.js animations on the websites |
+| live-animation, explainer-story, scene-assembly, scene-motion-review | Interactive machine explainers, shared RSM player, asset selection and contact checks |
+| platform-film, product-render | Films of the actual software, machine shots and product stills |
 | product-ui | Rosepetal app screens and Node-RED panels |
 | ui-audit, ui-theme-diff, ui-unify | Auditing, comparing and redesigning Vue apps on our components |
 | vue-primevue, vue-vuetify | Colour bridges for apps still on PrimeVue or Vuetify |
@@ -65,9 +74,9 @@ Portable clients discover `plugin.json`, `mcp.json` and `skills/*/SKILL.md` in t
 
 `npm run validate:plugin -w plugin` checks the live source, and `node plugin/scripts/rules-ledger.mjs check` proves that every brand rule the ledger records is still in the skills.
 
-`npm run package:plugin -w plugin -- --out=<new-directory>` creates a review upload with the proposed skills. It validates the Agent Plugins schemas, OpenAI overlay, Claude naming/size/archive constraints and the retained-rule ledger. It dereferences the confined `pieces/shared` symlink because Claude uploads prohibit symlinks. It omits nested ZIPs, held-back illustrations, private business cards and bulky cached media/example downloads. The full Git distribution retains those local production sources; the upload profile points omitted guide-download links at the hosted guide. Existing studio workflows that need omitted example media still need the synced media library or the full Git installation. Add `--lite` for claude.ai and Anthropic's plugin directory, which take at most 512 files and 50 MiB: skills, hooks, the checks and the hosted design server, without the studio (about 230 files, under 1 MB zipped). No package command publishes anything.
+`npm run package:plugin -w plugin -- --out=<new-directory>` creates a review upload with the proposed skills. It validates the Agent Plugins schemas, OpenAI overlay, Claude naming/size/archive constraints and the retained-rule ledger. It dereferences the confined `pieces/shared` symlink because Claude uploads prohibit symlinks. It omits nested ZIPs, held-back illustrations, private business cards and bulky cached media/example downloads. The full Git distribution retains those local production sources; the upload profile points omitted guide-download links at the hosted guide. Existing studio workflows that need omitted example media still need the synced media library or the full Git installation. Add `--lite` for claude.ai and Anthropic's plugin directory, which take at most 512 files and 50 MiB: skills, hooks, the checks and the hosted design server, the standalone animation builder and the film-editing helpers. No package command publishes anything.
 
-The proposal has 26 separately discoverable skills covering the complete guide, studio, reviews and product-UI audit/theme-diff/unify workflows. Numbered branches are in descriptions and the mapping table so task skill names remain familiar. `writing` is merged into `communications` with its workflow and references retained; brochures keep ownership of product sheets/datasheets. `_shared` remains workflow support, not an independently triggered skill.
+The plugin has 32 separately discoverable skills covering the complete guide, studio, reviews and product-UI audit/theme-diff/unify workflows. Numbered branches are in descriptions and the mapping table so task skill names remain familiar. `writing` is merged into `communications` with its workflow and references retained; brochures keep ownership of product sheets/datasheets. `_shared` remains workflow support, not an independently triggered skill.
 
 From the repo root (npm workspaces):
 

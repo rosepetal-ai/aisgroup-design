@@ -4,7 +4,7 @@ rules:
   - 'Film real lines, real parts and real people. Hold every shot at least 2 s (1.5 s in event recaps) and cut. The blue wipe is the main transition; a 13-frame cross-dissolve is allowed between shots of the same scene.'
   - 'Use the seven footage templates below or the product-interface workflow. Every video ends on the end card. Only films longer than 60 s open with the logo; shorter films open on the most telling shot.'
   - 'Graphics move with the motion tokens, converted to frames. Nothing bounces, spins, glitches or flies in.'
-  - 'Text is Inter, sentence case, inside the title-safe area, and never smaller than 32 px at 1080p.'
+  - 'Text is Inter, sentence case, inside the title-safe area, and never smaller than 32 px at 1080p, except tutorial steps at 28 px.'
   - 'Every video has captions. Social video carries them burned in; web video carries a caption file too.'
   - 'Deliver at 25 fps, Rec. 709, loudness −14 LUFS for web and social, −23 LUFS for events and broadcast.'
 ---
@@ -34,6 +34,7 @@ Marketing uses seven footage templates and the product-interface workflow below.
 | **Sector film** | 60 to 90 s; 16:9, plus a 20 s cutdown | The sector’s world for the first 10 s; the line; the inspection by 30 s; statements of 2 to 4 words every 6 s or more; one verified result; the end card  |
 | **Case study** | 60 to 90 s; 16:9, 9:16 | The customer’s line; their own words with a lower third by 10 s and captions; one verified figure on its own card; the end card  |
 | **Interview** | Full version: any length, 16:9, with chapters. Social cut: 45 to 60 s, no opening logo; 16:9, 1:1, 4:5 | The opening logo on the full version; the first question on a title card (by 2 s on the social cut); the person with a lower third right after it; event or product b-roll under the voice every 6 to 10 s; one quote card; captions throughout; the end card  |
+| **Tutorial** | Length follows the content; 16:9 | The Rosepetal brand intro; a title card on brand blue; the recording, with its steps written on screen; the end card. Music only.  |
 
 Every long video also ships a 20 s vertical cutdown that links back to it.
 
@@ -91,8 +92,8 @@ The hexagon is a brand device too, in the two forms and with the limits in [Imag
 
 | Element | When | Spec |
 | --- | --- | --- |
-| **Opening logo** | Films over 60 s: product films, case studies, webinars, tutorials | Brand blue `#17356E`, white logo 560 px wide. 8 frames of blue, logo in over 18 frames, held to 2 s, then a cut. No sound sting. |
-| **Brand intro** | Instead of the opening logo, once per film: event screens, social video, the website, presentations | The hexagon landscape, white on brand blue, rolls slowly while one inspection pass travels from near to far and brightens its lines. The white logo, every brand at the same area as AIS Vision Systems at 560 px wide (see Logo), fades in and rises 16 px over the clear blue above it, and the film fades out at the end. 5 s, or 10 s without the logo as a background. No glow, particles or vignette. |
+| **Opening logo** | Films over 60 s: product films, case studies, webinars | Brand blue `#17356E`, white logo 560 px wide. 8 frames of blue, logo in over 18 frames, held to 2 s, then a cut. No sound sting. |
+| **Brand intro** | Instead of the opening logo, once per film: event screens, social video, the website, presentations, tutorials | The hexagon landscape, white on brand blue, rolls slowly while one inspection pass travels from near to far and brightens its lines. The white logo, every brand at the same area as AIS Vision Systems at 560 px wide (see Logo), fades in and rises 16 px over the clear blue above it, and the film fades out at the end. 5 s, or 10 s without the logo as a background. No glow, particles or vignette. |
 | **Title** | Chapters and the film title | Inter Semibold 96 px, sentence case, on blue or white, at most 20 characters a line and two lines, entering over 28 frames, 3 frames apart |
 | **Lower third** | First time a person speaks | Ink plate `#0F1729`, 24 px by 32 px padding, on the title-safe corner. A 6 px blue-300 `#7C9FD7` bar on its left edge grows first, then the plate opens from it. Name Inter Semibold 44 px white; role and company Inter Regular 32 px neutral 400. On screen at least 4 s. |
 | **Location** | First shot of a site | Same plate, one line, 32 px: «Bottling line, La Rioja» |
@@ -148,6 +149,49 @@ Everything else follows the rest of this page: brand blue, never a campaign blue
 - Loudness: −14 LUFS integrated for web and social, −23 LUFS (EBU R128) for events and broadcast, true peak −1 dBTP.
 - Video on the website never plays sound by itself.
 - Rosepetal films use the Rosepetal soundtrack in [Downloads](/en/downloads/#music).
+
+## Tutorials and step-by-step guides
+
+A tutorial shows one task in the real application, with its steps written on screen and no voice. These rules add to the ones above and replace the general caption, motion and sound rules where they differ.
+
+### Structure and sources
+
+- The Rosepetal brand intro, a title card on brand blue, the recording and the end card. The logo appears only at those two ends. The title card is flat brand blue with the title alone in white, held 2 s, with no overline, pattern or other label.
+- Take the intro, the end card and the music from this guide’s «Video» and «Downloads» pages, unchanged. They are published here, not in the repositories.
+- Record inside the platform. Node-RED is shown in the platform’s «Flows» section, on a controller with the Rosepetal nodes, never as a standalone Node-RED.
+
+### Rhythm
+
+- Length follows the content. Do not stretch a tutorial to reach a target duration.
+- A simple action, such as naming something or pressing a button, takes two to four seconds.
+- The action starts while its text is on screen, about one second after the text appears. Never the text first and the action after it.
+- A text stays as long as it takes to read: about 18 characters per second, between 1.8 and 7 seconds.
+
+### On-screen text
+
+- A simple action gets a few words, for example: Click «Create». The explanation goes in the written guide, not on screen.
+- The 40 px caption style stays for the subtitles of spoken video.
+
+| Rule | Value |
+| --- | --- |
+| Type | Inter Medium 28 px at 1080p, white on an ink plate `#0F1729`, sentence case |
+| Plate | Fitted to the text: as wide as its longest line plus 24 px on each side, 16 px above and below, also when the text takes two lines. Square corners. |
+| Elevation | A 1 px border `#1E293B` and the overlay shadow at twice its strength: `0 4px 12px rgb(15 23 41 / 12%), 0 24px 48px rgb(15 23 41 / 24%)` |
+| Length | Two lines at most, 42 characters per line, one idea at a time |
+| Position | Centred at the bottom of the title-safe area; at the top while the control in use is in the lower quarter of the screen |
+| Motion | Enters over 13 frames and leaves over 5, moving 16 px |
+
+### Pointer
+
+- The recording shows a drawn pointer that follows the real pointer of the application, so it moves in step with what the application does.
+- A white arrow with a dark outline, 39 px at 1080p, with a soft shadow.
+- It glides on an ease-in-out curve for 0.65 to 1.8 seconds, depending on the distance: 2.2 ms per pixel of a 1280 px wide frame. Never faster: a pointer that jumps cannot be followed.
+- Each press shows a ripple: a ring in action blue `#3664B3` with a 25% fill, 69 px at 1080p, that grows from 0.3 to 1.25 of its size and fades out in 0.5 s. It is the one graphic that scales.
+
+### Sound
+
+- A tutorial always carries a track of the Rosepetal soundtrack from «Downloads».
+- The track starts with the video and fades out over the end card in 2.5 s, at −14 LUFS with a true peak of −1 dBTP.
 
 ## Delivery
 

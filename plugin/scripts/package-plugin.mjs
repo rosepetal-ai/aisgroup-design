@@ -11,6 +11,15 @@ import { checkLedger } from './rules-ledger.mjs';
 // checks with the hosted design server. The studio (renderer, templates, pieces) stays in the full Git install.
 const LITE = /^(?:\.claude-plugin|skills|hooks|scripts|commands)\/|^(?:README\.md|LICENSE|plugin\.json|mcp\.json)$/;
 
+// The standalone animation builder and film captions work without the studio MCP.
+const liteInputs = new Set([
+  'mcp/industrial-models.mjs',
+  'mcp/scene-components.mjs',
+  'brand/downloads/overlays/overlay.mjs',
+  'print/assets/InterMedium.ttf',
+  'print/assets/OFL-Inter.txt',
+]);
+
 export function packagePlugin(dest, { zip = false, proposed = true, lite = false } = {}) {
   if (fs.existsSync(dest)) throw new Error(`Destination already exists: ${dest}`);
   const result = spawnSync('git', ['ls-files', '-z', '--', '.'], { cwd: ROOT, encoding: 'utf8' });
@@ -18,7 +27,7 @@ export function packagePlugin(dest, { zip = false, proposed = true, lite = false
   // Large photo masters and ZIP bundles remain downloadable from the hosted catalogue. Business cards are private.
   const excluded = /^(?:brand\/library\/|brand\/imagery\/|brand\/kit\/fonts\/|brand\/illustrations\/|brand\/downloads\/video\/|brand\/downloads\/linkedin-patterns\/|brand\/kit\/files\/|brand\/kit\/office\/|pieces\/posts\/|pieces\/patterns\/|library\/factory-library\/assets\/|pieces\/stationery\/business-cards\/)|\.zip$|(?:^|\/)\.env(?:\.|$)/i;
   for (const file of result.stdout.split('\0').filter(Boolean)) {
-    if ((lite && !LITE.test(file)) || excluded.test(file) || (file.startsWith('pieces/posts/') && /\.(?:png|jpe?g|webp|mp4)$/i.test(file))) continue;
+    if ((lite && !LITE.test(file) && !liteInputs.has(file)) || excluded.test(file) || (file.startsWith('pieces/posts/') && /\.(?:png|jpe?g|webp|mp4)$/i.test(file))) continue;
     const src = path.join(ROOT, file), stat = fs.lstatSync(src);
     if (stat.isSymbolicLink()) {
       const target = fs.realpathSync(src);
@@ -68,6 +77,9 @@ export function packagePlugin(dest, { zip = false, proposed = true, lite = false
   }
   const archive = validateArchive(dest), skills = validateSkills(dest);
   const errors = [...validateManifests(dest), ...skills.errors, ...archive.errors];
+  if (lite && (archive.files > 512 || archive.bytes > 50 * 1024 * 1024)) {
+    errors.push(`Lite edition exceeds the directory limits: ${archive.files} files, ${archive.bytes} bytes.`);
+  }
   if (errors.length) throw new Error(errors.join('\n'));
   if (zip) {
     const run = spawnSync('python3', ['-c', 'import shutil,sys; shutil.make_archive(sys.argv[1], "zip", sys.argv[2])', dest, dest], { encoding: 'utf8' });

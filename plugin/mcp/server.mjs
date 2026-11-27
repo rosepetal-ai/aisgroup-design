@@ -5,6 +5,7 @@ import { McpServer, ResourceTemplate, fromJsonSchema } from '@modelcontextprotoc
 import * as z from 'zod/v4';
 import { StdioServerTransport, serveStdio } from '@modelcontextprotocol/server/stdio';
 import { Factory } from './core.mjs';
+import { isSceneBrief } from './scene-components.mjs';
 import { schemas, VERSION, bounded } from './contracts.mjs';
 import { STUDIO, GUIDE } from '../engine/recipe.mjs';
 import { renderReady, startSetup, hasPython, useVenv, SETUP_LOG } from '../scripts/setup.mjs';
@@ -18,7 +19,7 @@ catch (e) { if (!/already owned/.test(e.message)) throw e; factory = new Factory
 // The main rule of the brand system, word for word as essential 1 of the guide (tests/rule.test.mjs keeps them identical).
 const RULE = 'Keep it simple: one purpose, the plainest layout, design and implementation that serve it. Linear’s website and Apple Notes are the bar. Cut taglines, helper text, subtitles, eyebrows and secondary labels; if something only makes sense with them, fix the layout instead. A decision ships only if it improves user, developer and agent experience at once. When two rules disagree, this one wins.';
 const instructions = `${RULE}
-AIS Group Design studio. Start with plan_piece and read only what it points to. edit_piece copies, edits (text and images by slot) and validates a piece (the text check runs on every kind); export_piece exports it. Each reply's next says what to call after it.
+AIS Group Design studio. Start with plan_piece and read only what it points to. edit_piece copies, edits (text and images by slot) and validates a piece (the text check runs on every kind); export_piece exports it. For live-animation, read the scene skills and get packaged components by ID, then build the player in the local host. Each reply's next says what to call after it.
 Never invent figures, customers, quotes or certifications. Show the exported result before calling it done. When a call is refused, tell the user its fix; never work around it.`;
 const descriptions = {
   plan_piece:'Start here for any request: the piece type, what to read, and the closest templates and pictures. Makes nothing.',
@@ -32,10 +33,13 @@ const descriptions = {
 };
 // One short line on what to call after a successful reply; undefined leaves it out.
 const next = (name, r, a = {}) => {
+  if (name === 'plan_piece' && r.kind === 'live-animation') return 'Read the returned skill refs. For a guarded reader, use scripts/animation-build.mjs create with --prepare-only, adapt the editable job to the brief, then build and check it. Select --example side-rejection for a guided pad that sends a failed carton to a tray. The first build retrieves the private model pack. Use search_library with kind machine-model or scene-component for other hardware.';
   if (name === 'plan_piece') return r.status === 'needs-clarification' ? 'Ask the user which piece they want, then call plan_piece again.' : 'read_instructions on each ref, then edit_piece copy from a template or source.';
   if (name === 'studio_status') return r.setup?.ready === false ? 'Tell the user what is missing and how to fix it (the setup skill); export nothing until it is fixed.' : undefined;
   if (name === 'search_library') return !r.total ? 'Nothing matched: try a broader query, or tell the user it is not in the library.' : r.nextOffset != null ? `More results at offset ${r.nextOffset}.` : undefined;
   if (name === 'read_instructions') return r.nextOffset != null ? `read_instructions again with offset ${r.nextOffset}.` : undefined;
+  if (name === 'get_asset' && r.kind === 'machine-model') return r.uri ? 'Open the local prepared GLB, check its reference and mounting axes, and set up the host loader with MeshoptDecoder.' : 'Run node scripts/animation-assets.mjs inside the plugin to retrieve the private models with the AIS sign-in, then retry get_asset. For offline use, import the internal pack with scripts/scene-model-pack.mjs install.';
+  if (name === 'get_asset' && r.kind === 'scene-component' && r.uri) return 'Read the source ref for dimensions and integration. Resolve the returned local file in the installed plugin and retain its neighbouring dependencies and licence.';
   if (name === 'get_asset') return r.status === 'rejected' ? 'Rejected asset: pick another one.' : !r.uri ? 'The file is not in the media library: tell the user; do not substitute another picture.' : undefined;
   if (name === 'edit_piece') return r.updated === false ? 'Nothing was saved: the change failed the checks. Fix the errors, then update again with the current digest.' : r.valid === false ? 'Fix the errors, then update again with the current digest.'
     : r.slots ? (r.nextOffset != null ? `edit_piece slots with offset ${r.nextOffset} for the next page (${r.total} in all), or ` : '') + 'edit_piece update with slotChanges for only the slots to change, and this digest as expectedDigest.'
@@ -114,7 +118,9 @@ const READ_ONLY = ['studio_status', 'search_library', 'read_instructions', 'get_
 // A new computer gets what rendering needs (Chromium, the Python packages) on its first piece, installed in the background,
 // so nobody runs a setup first and someone who only reads the guide installs nothing.
 let canRender = false;
-async function preparing(name) {
+async function preparing(name, args) {
+  // Live scenes are authored in the local Three.js host. Planning them needs no print renderer.
+  if (name === 'plan_piece' && (args.kind === 'live-animation' || ((args.kind ?? 'auto') === 'auto' && isSceneBrief(args.intent)))) return null;
   if (canRender || READ_ONLY.includes(name)) return null;
   if (await renderReady()) { useVenv(); canRender = true; return null; }
   if (!hasPython()) return { setup: 'needs-python', message: 'Python 3 is missing on this computer: install it from python.org, then ask again.' };
@@ -125,7 +131,7 @@ const handle = serveStdio(()=>{
   const server = new McpServer({name:'ais-group-design-studio',version:VERSION},{instructions});
   for(const [name,inputSchema] of Object.entries(schemas)) server.registerTool(name,{description:descriptions[name],inputSchema:advertised(inputSchema),annotations:READ_ONLY.includes(name)?{readOnlyHint:true,openWorldHint:false}:{destructiveHint:false,openWorldHint:false}},async args=>{
     try {
-      const wait=await preparing(name);
+      const wait=await preparing(name,args);
       if(wait)return reply({ok:false,...wait});
       let {image,...result}=await factory.call(name,args);
       if(name==='export_piece'&&args.action==='status')result=await settle(args,result);

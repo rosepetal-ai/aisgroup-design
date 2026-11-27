@@ -8,6 +8,8 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { checkRecipe, STUDIO, GUIDE, resolveFile, libraryPhotos } from '../engine/recipe.mjs';
 import { PATTERNS, patternAssets } from '../engine/linkedin-patterns.mjs';
 import { searchAssets, assetSummary } from './assets.mjs';
+import { findSceneModelsDir, createMachineModels, modelDetail } from './industrial-models.mjs';
+import { sceneRoot, sceneComponents, sceneRefs, isSceneBrief } from './scene-components.mjs';
 import { sourceStamp, resolveMediaReference, inspectMedia, PYTHON, stopTree } from './media.mjs';
 import { ensureMedia, mediaRefs } from '../scripts/media.mjs';
 import { setupRunning } from '../scripts/setup.mjs';
@@ -62,7 +64,7 @@ const METHODS = { plan_piece:'route', search_library:'lookup', read_instructions
 const skillNames = fs.readdirSync(path.join(STUDIO,'skills')).filter(name=>/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name)&&fs.existsSync(path.join(STUDIO,'skills',name,'SKILL.md'))).sort();
 export class Factory {
   // renderWait: how long a render refused for a busy machine (lock held, Blender running, low memory) waits its turn, re-checked every retryMs; 0 reports it blocked at once.
-  constructor({ state = path.join(os.homedir(),'.cache/ais-group-design/studio'), schedule = fn => setImmediate(fn), launch = spawn, renderWait = 0, retryMs = 20000 } = {}) {
+  constructor({ sceneModelsDir, state = path.join(os.homedir(),'.cache/ais-group-design/studio'), schedule = fn => setImmediate(fn), launch = spawn, renderWait = 0, retryMs = 20000 } = {}) {
     this.state = path.resolve(state); this.schedule = schedule; this.launch = launch; this.running = null; this.child = null; this.closed = false; this.renderWait = renderWait; this.retryMs = retryMs; this.timer = null;
     this.mediaTasks=new Set();this.mediaPids=new Set();
     fs.mkdirSync(this.state,{recursive:true,mode:0o700});
@@ -81,9 +83,11 @@ export class Factory {
     this.skills = skillNames.map(name=>({ id:name, ref:`skill:${name}/SKILL.md`, path:path.join(STUDIO,'skills',name,'SKILL.md') }));
     this.templates = fs.readdirSync(path.join(STUDIO,'templates')).filter(f=>/^(post|carousel|video)-.*\.json$/.test(f)).sort().map(f=>({ id:f, ref:`template:${f}` }));
     const registry=fs.readFileSync(path.join(STUDIO,'library/catalog.json'));
+    const resolveModels=()=>findSceneModelsDir(STUDIO,sceneModelsDir);
+    this.machineModels=createMachineModels(resolveModels(),resolveModels);
     this.assets = JSON.parse(registry).assets;
-    this.assets.push(...libraryPhotos(this.assets), ...patternAssets());
-    this.registryDigest=digest(registry);
+    this.assets.push(...libraryPhotos(this.assets), ...patternAssets(), ...sceneComponents,...this.machineModels);
+    this.registryDigest=digest(Buffer.concat([registry,Buffer.from(JSON.stringify([...sceneComponents,...this.machineModels]))]));
     for(const [key,c] of Object.entries(printFamily.products))this.templates.push({id:key+'-technical-sheet',ref:'print:'+key+'-technical-sheet',source:c.source,product:c.name,kind:'technical-sheet',lang:'es'});
     // Sales documents: the proposal and the case study (print-family.json generators), edited by slot like any print piece.
     for(const key of ['proposal','case-study'])for(const source of printFamily.generators[key].references)this.templates.push({id:key+'-'+source.match(/\.([a-z]{2})\.html$/)[1],source,generator:key,kind:'print-html',lang:source.match(/\.([a-z]{2})\.html$/)[1]});
@@ -130,17 +134,27 @@ export class Factory {
     const bundleId=randomUUID();
     const media=a.media.map((r,i)=>({...this.media(r),ref:`media:${bundleId}:${i}`,inspection:r.mime==='text/plain'?'read_instructions':'inspect_media'}));
     let kind=a.kind;
+    if(kind==='auto' && isSceneBrief(a.intent))kind='live-animation';
     if(kind==='auto') kind=/carousel|carrusel/i.test(a.intent)?'carousel':/video|vídeo|reel|clip/i.test(a.intent)?'video':/\b(deck|slides?|presentaci[oó]n|presentation|powerpoint|pptx)\b/i.test(a.intent)?'deck':/business card|tarjeta|letterhead|membrete|papeler[ií]a|stationery/i.test(a.intent)?'kit':/post|linkedin|social/i.test(a.intent)?'post':/brochure|cat[aá]log|folleto|ficha|datasheet|one-pager|flyer|propuesta|oferta|presupuesto|proposal|quote|caso de [eé]xito|caso de cliente|case.?study/i.test(a.intent)?'document':/asset|imagen|image|footage/i.test(a.intent)?'assets':'unknown';
-    if(kind==='unknown') return {status:'needs-clarification',supported:['post','carousel','video','document','deck','kit','assets'],message:'Specify the intended deliverable; no content generation occurred'};
+    if(kind==='unknown') return {status:'needs-clarification',supported:['post','carousel','video','document','deck','kit','assets','live-animation'],message:'Specify the intended deliverable; no content generation occurred'};
     this.fileCount('bundles');
-    let skill={post:'social-post',carousel:'linkedin-carousel',video:'brand-video',document:'brochure',deck:'presentation',kit:'print-stationery',assets:'asset-library'}[kind];
+    let skill={'live-animation':'live-animation',post:'social-post',carousel:'linkedin-carousel',video:'brand-video',document:'brochure',deck:'presentation',kit:'print-stationery',assets:'asset-library'}[kind];
     // The one canonical generator for the piece type (print-family.json "generators"): HTML first, PDF/PNG/PPTX on request.
     const generatorKey=kind==='document'?(/propuesta|oferta|presupuesto|proposal|quote/i.test(a.intent)?'proposal':/caso de [eé]xito|caso de cliente|case.?study/i.test(a.intent)?'case-study':/ficha|datasheet|technical sheet/i.test(a.intent)?'datasheet':/cat[aá]log/i.test(a.intent)?'catalogue':/one.?pag|flyer|una cara|una p[aá]gina/i.test(a.intent)?'one-pager':'brochure'):kind==='kit'?(/letterhead|membrete/i.test(a.intent)?'letterhead':'business-card'):['post','carousel','deck'].includes(kind)?kind:null;
     const generator=generatorKey?{key:generatorKey,...generators[generatorKey],rejected:generators._note}:null;
     if(generators[generatorKey]?.skill==='sales-documents')skill='sales-documents';
     const playbook=kind==='post' ? (/software|screen|pantalla/i.test(a.intent)?'software':/defect|defecto/i.test(a.intent)?'callout':/\b(sede|oficinas?|edificio|instalaciones|visita|noticia|aniversario|acuerdo|nuevo equipo|headquarters|office|building|premises|visit|news|anniversary|agreement)\b/i.test(a.intent)?'news':'product') : null;
-    const refs=[...(skill?[`skill:${skill}/SKILL.md`]:[]),'shared:WORKFLOW.md',...(playbook?[`skill:${skill}/types/${playbook}.md`]:[]),...(kind==='document'?['skill:brochure/references/mcp-editing.md']:[])];
-    const assets=searchAssets(this.assets,a.intent).slice(0,4);
+    const refs=kind==='live-animation'?sceneRefs:[...(skill?[`skill:${skill}/SKILL.md`]:[]),'shared:WORKFLOW.md',...(playbook?[`skill:${skill}/types/${playbook}.md`]:[]),...(kind==='document'?['skill:brochure/references/mcp-editing.md']:[])];
+    const mediaAssets=this.assets.filter(x=>x.kind!=='scene-component' && x.kind!=='machine-model');
+    let assets;
+    if(kind==='live-animation') {
+      const matched=searchAssets([...sceneComponents,...this.machineModels],a.intent,{exists:true});
+      const player=matched.find(x=>x.id==='scene-player') ?? assetSummary(sceneComponents.find(x=>x.id==='scene-player'));
+      const components=[player,...matched.filter(x=>x.id!==player.id).slice(0,3)];
+      assets=[...components,...searchAssets(mediaAssets,a.intent)].slice(0,4);
+    } else {
+      assets=searchAssets(kind==='assets'?this.assets:mediaAssets,a.intent).slice(0,4);
+    }
     // Piece types in Spanish or English count against the template's id and kind, never against its file name.
     const PIECE_WORDS={folleto:'brochure',catálogo:'catalogue',catalogo:'catalogue',ficha:'technical-sheet',datasheet:'technical-sheet',presentación:'deck',presentacion:'deck',presentation:'deck'};
     const words=a.intent.toLowerCase().split(/[^a-záéíóúñü0-9]+/).filter(w=>w.length>3).map(w=>PIECE_WORDS[w]??w), hits=(x)=>words.filter(w=>[x.id,x.kind,x.title,x.source].join(' ').toLowerCase().includes(w)).length;
@@ -151,7 +165,11 @@ export class Factory {
   }
   lookup(a) {
     const all={skills:this.skills.map(s=>({id:s.id,ref:s.ref})),templates:this.templates}[a.collection];
-    const filtered=a.collection==='assets'?searchAssets(this.assets,a.query,a.filters):all.filter(x=>JSON.stringify(x).toLowerCase().includes(a.query.toLowerCase()));
+    const query = a.query.toLowerCase();
+    const skillWords = query.replace(/[-\s]+/g, ' ').trim();
+    const filtered=a.collection==='assets'?searchAssets(this.assets,a.query,a.filters)
+      :all.filter(x=>JSON.stringify(x).toLowerCase().includes(query) ||
+        (a.collection==='skills' && x.id.replaceAll('-',' ').includes(skillWords)));
     return {registryDigest:a.collection==='assets'?this.registryDigest:undefined,items:filtered.slice(a.offset,a.offset+a.limit),nextOffset:a.offset+a.limit<filtered.length?a.offset+a.limit:null,total:filtered.length};
   }
   read(a) {
@@ -181,10 +199,11 @@ export class Factory {
   }
   asset(a) {
     const x=this.assets.find(x=>x.id===a.assetId); if(!x) throw Error('Unknown asset');
+    if(this.machineModels.includes(x)) return modelDetail(x,assetSummary(x));
     if(String(x.path).startsWith('library/media/')&&ensureMedia([x.path.slice(14)]).length&&!fs.existsSync(path.resolve(STUDIO,x.path))) throw Error('This picture could not be fetched from the media bucket: check the internet connection and try again.');
     const summary=assetSummary(x); if(!summary.pathExists)return {...summary,uri:null,bytes:null};
-    let p;try{p=safe(path.resolve(STUDIO,x.path),[path.join(STUDIO,'library'),path.join(STUDIO,'library/media'),path.join(STUDIO,'library/factory-library/assets'),GUIDE]);}catch{return {...summary,uri:null,bytes:null,retrievalReason:'Registered file exists outside controlled delivery roots; metadata retained'};}
-    return {...summary,id:x.id,path:x.path,status:x.status,reason:String(x.reason||'').slice(0,1500),kind:x.kind,product:x.product,origin:x.origin,source:String(x.source||'').slice(0,1500),brand:x.brand,consent:x.consent,size:x.size,uri:uri(p),bytes:fs.statSync(p).size};
+    let p;try{p=safe(path.resolve(STUDIO,x.path),[path.join(STUDIO,'library'),path.join(STUDIO,'library/media'),path.join(STUDIO,'library/factory-library/assets'),GUIDE,...(sceneComponents.some(asset=>asset.id===x.id && asset.path===x.path)?[path.join(STUDIO,sceneRoot)]:[])]);}catch{return {...summary,uri:null,bytes:null,retrievalReason:'Registered file exists outside controlled delivery roots; metadata retained'};}
+    return {...summary,id:x.id,path:x.path,status:x.status,reason:String(x.reason||'').slice(0,1500),kind:x.kind,product:x.product,origin:x.origin,...(x.licenseRef?{licenseRef:x.licenseRef}:{}),source:String(x.source||'').slice(0,1500),brand:x.brand,consent:x.consent,size:x.size,uri:uri(p),bytes:fs.statSync(p).size};
   }
   piecePath(id) { const p=path.join(this.state,'pieces',id,'recipe.json'); if(fs.existsSync(path.dirname(p)) && fs.lstatSync(path.dirname(p)).isSymbolicLink()) throw Error('Piece directory cannot be symlink'); if(fs.existsSync(p) && fs.lstatSync(p).isSymbolicLink()) throw Error('Piece cannot be symlink'); return p; }
   secureRecipe(raw,dir) {
@@ -406,6 +425,7 @@ export class Factory {
       makes:['Posts (PNG) and carousels of 3 to 10 slides (PDF and slide PNGs)','Brochures, catalogues and one-pagers (HTML, PDF and page PNGs)','Proposals and case-study sheets (PDF; price and calendar rows by slot; a case study exports only with the customer approval recorded)','The seven Spanish technical sheets (PDF)','Presentations (HTML, PDF, slide PNGs and PPTX)','Business cards and letterheads (HTML and PDF)'],
       edits:'Posts and carousels by field (headline, text, picture, caption); technical sheets by printChanges; brochures, catalogues and decks by slot (any text, picture or alt text)',
       cannot:['Render or edit video (clips can be found and their frames inspected)','Generate pictures','Publish or upload anything'],
+      sceneAuthoring:{kind:'live-animation',assetKind:'scene-component',assetKinds:['scene-component','machine-model'],workflow:'The client assembles the local Three.js player using the packaged skills and components.'},
       generators:Object.keys(generators).filter(k=>!k.startsWith('_')),limits:LIMITS}:this[METHODS[name]](a);
   }
 }
