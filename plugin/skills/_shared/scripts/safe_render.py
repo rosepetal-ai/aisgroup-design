@@ -172,6 +172,9 @@ def validate_post(command):
     if not str(raw.get('name', '')).replace('-', '').replace('_', '').isalnum():
         raise ValueError('unsafe output name')
     from PIL import Image
+    inbox = Path(os.environ.get('AIS_INBOX') or STUDIO / 'work/inbox')
+    roots = [inbox, STUDIO / 'brand', STUDIO / 'library/media', STUDIO / 'library/factory-library/assets']
+    roots.extend(STUDIO / 'pieces' / folder for folder in ('brochures', 'datasheets', 'decks', 'posts'))
     total = 0
     def walk(value):
         nonlocal total
@@ -183,9 +186,8 @@ def validate_post(command):
                     if item.startswith('@lib/'):
                         item = str(STUDIO / 'library' / item[5:])
                     elif item.startswith('@guide/'):
-                        item = str(STUDIO.parent / 'public' / item[7:])
+                        item = str(STUDIO / 'brand' / item[7:])
                     asset = (recipe.parent / item).resolve()
-                    roots = [STUDIO / 'library/media', STUDIO.parent / 'public']
                     if not any(asset.is_relative_to(root.resolve()) for root in roots):
                         raise ValueError('post image outside approved roots')
                     total += asset.stat().st_size
