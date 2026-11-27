@@ -2,6 +2,8 @@
 
 Read the dated [canonical cover photo rule](cover-photos.md).
 
+When an accepted machine brochure is the visual reference, match the subject, viewpoint and framing of its cover. If the brief is about integration on a line, show the complete installation, including the conveyor and operator station where relevant. For an approved machine render composed on white, carry the white through to the page edges and preserve the full silhouette. Check the exported cover beside the reference. Use customer-specific imagery only within its approved audience.
+
 ## Bounded command
 
 From the plugin folder, with the prepared OpenCV environment and EDSR x2 weights:
