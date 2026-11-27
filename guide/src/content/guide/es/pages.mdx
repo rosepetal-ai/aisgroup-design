@@ -1,6 +1,7 @@
 ---
 title: Páginas
 rules:
+  - 'Las cajas decorativas alrededor de los iconos están prohibidas en toda la interfaz. Un icono informativo se coloca directamente sobre la superficie. Si ejecuta una acción, va en un botón con nombre accesible y foco visible.'
   - 'Cada página es un PageLayout: su título, como mucho una línea atenuada y las acciones a la derecha. Nada de icono en una tesela, saludo, badge ni recuento junto al título.'
   - 'Una sección es una cabecera (h2, como mucho una línea atenuada, acciones a la derecha) y su contenido. Las secciones se separan con espacio, nunca con una línea ni con una caja alrededor.'
   - 'Un solo nivel de superficie: la página y, encima, las cards. Nunca una card ni una caja con borde dentro de una card, y nunca una tabla en una caja con borde propia.'
@@ -19,6 +20,17 @@ rules:
 - Nada de antetítulos, eslóganes, notas de ayuda al pie, subtítulos que repiten el título ni etiquetas secundarias. Si una pantalla solo se entiende con ellos, arregla la maquetación.
 - Los elementos de una línea se unen con comas o se muestran como lista, nunca con puntos medios.
 - El color marca un estado o un color que eligió el usuario, siempre con palabras. Nada de fondos tintados, franjas ni bordes de acento.
+
+## Superficies y alineación del producto
+
+Las cajas decorativas alrededor de los iconos están prohibidas en toda la interfaz. Un icono informativo se coloca directamente sobre la superficie. Si ejecuta una acción, va en un botón con nombre accesible y foco visible.
+
+- Usa un fondo de página neutro y la superficie de tarjeta para tablas y tarjetas. Las tarjetas con imagen y las de texto comparten el fondo exterior en cada tema, incluso durante la carga o si la imagen falla.
+- Los campos, selectores y buscadores contiguos comparten el mismo fondo en reposo en cada tema. En un campo compuesto solo el contenedor pinta el fondo.
+- Aplica el margen interior de cabecera común a las columnas con título de texto. La sangría corresponde a los controles de fila y a los niveles anidados. Mantén juntos los filtros relacionados al ampliar la pantalla.
+- Mantén los mismos márgenes laterales en las páginas de trabajo del mismo nivel. En pantallas ultraanchas, deja que las tablas ocupen el ancho disponible y mantén juntos los textos y los valores relacionados.
+- Agrupa las cifras breves. Da espacio propio a las listas largas para que no alarguen todas las tarjetas de resumen. Adapta la composición al ancho disponible al abrir el panel de detalle.
+- Muestra el recuento en una insignia junto a la campana de notificaciones. En los paneles emergentes con pestañas basta con el subrayado activo. Comprueba ambos bordes del avatar circular a su tamaño real.
 
 ## Cabecera de página
 
@@ -59,7 +71,7 @@ La página de lista es la barra de filtros (búsqueda, filtros cuya elección se
 | La página no ha podido cargar | Un Empty que llena el contenido: qué ha fallado, y Reintentar |
 | Una sección no ha podido cargar | Un Alert con Reintentar en esa sección; el resto de la página se queda |
 
-El borde discontinuo es solo del Empty. Nunca una caja discontinua corta con una línea de texto y la página en blanco debajo.
+Usa un Empty sencillo con título y una acción de recuperación cuando exista. Reserva el indicador de carga o el icono de estado sin fondo para un estado que convenga distinguir.
 
 ## Paneles
 

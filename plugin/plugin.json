@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ais-group-design",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "AIS Group brand skills, product themes, read-only design downloads and the local marketing studio.",
   "author": { "name": "AIS Group" },
   "repository": "https://github.com/rosepetal-ai/aisgroup-design",

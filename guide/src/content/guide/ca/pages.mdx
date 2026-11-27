@@ -1,6 +1,7 @@
 ---
 title: Pàgines
 rules:
+  - 'Les caixes decoratives al voltant de les icones estan prohibides a tota la interfície. Una icona informativa va directament sobre la superfície. Si executa una acció, va en un botó amb nom accessible i focus visible.'
   - 'Cada pàgina és un PageLayout: el seu títol, com a molt una línia atenuada i les accions a la dreta. Res d’icona en una tessel·la, salutació, badge ni recompte al costat del títol.'
   - 'Una secció és una capçalera (h2, com a molt una línia atenuada, accions a la dreta) i el seu contingut. Les seccions se separen amb espai, mai amb una línia ni amb una caixa al voltant.'
   - 'Un sol nivell de superfície: la pàgina i, a sobre, les cards. Mai una card ni una caixa amb vora dins d’una card, i mai una taula en una caixa amb vora pròpia.'
@@ -19,6 +20,17 @@ rules:
 - Res d’avanttítols, eslògans, notes d’ajuda al peu, subtítols que repeteixen el títol ni etiquetes secundàries. Si una pantalla només s’entén amb ells, arregla la maquetació.
 - Els elements d’una línia s’uneixen amb comes o es mostren com a llista, mai amb punts volats.
 - El color marca un estat o un color que ha triat l’usuari, sempre amb paraules. Res de fons tintats, franges ni vores d’accent.
+
+## Superfícies i alineació del producte
+
+Les caixes decoratives al voltant de les icones estan prohibides a tota la interfície. Una icona informativa va directament sobre la superfície. Si executa una acció, va en un botó amb nom accessible i focus visible.
+
+- Fes servir un fons de pàgina neutre i la superfície de targeta per a les taules i les targetes. Les targetes amb imatge i les de text comparteixen el fons exterior en cada tema, fins i tot durant la càrrega o si la imatge falla.
+- Els camps, selectors i cercadors contigus comparteixen el mateix fons en repòs en cada tema. En un camp compost només el contenidor pinta el fons.
+- Aplica el marge interior de capçalera comú a les columnes amb títol de text. Reserva el sagnat per als controls de fila i els nivells niats. Mantén junts els filtres relacionats quan la pantalla sigui ampla.
+- Mantén els mateixos marges laterals a les pàgines de treball del mateix nivell. En pantalles ultraamples, deixa que les taules ocupin l’amplada disponible i mantén junts els textos i els valors relacionats.
+- Agrupa les xifres breus. Dona espai propi a les llistes llargues perquè no allarguin totes les targetes de resum. Adapta la composició a l’amplada disponible en obrir el panell de detall.
+- Mostra el recompte en una insígnia al costat de la campana de notificacions. Als panells emergents amb pestanyes n’hi ha prou amb el subratllat actiu. Comprova les dues vores de l’avatar circular a la mida real.
 
 ## Capçalera de pàgina
 
@@ -59,7 +71,7 @@ La pàgina de llista és la barra de filtres (cerca, filtres amb l’elecció en
 | La pàgina no s’ha pogut carregar | Un Empty que omple el contingut: què ha fallat, i Torna-ho a provar |
 | Una secció no s’ha pogut carregar | Un Alert amb Torna-ho a provar en aquesta secció; la resta de la pàgina es queda |
 
-La vora discontínua és només de l’Empty. Mai una caixa discontínua curta amb una línia de text i la pàgina en blanc a sota.
+Fes servir un Empty senzill amb títol i una acció de recuperació quan n’hi hagi. Reserva l’indicador de càrrega o la icona d’estat sense fons per a un estat que convingui distingir.
 
 ## Taulers
 

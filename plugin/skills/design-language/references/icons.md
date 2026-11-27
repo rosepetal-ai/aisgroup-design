@@ -2,6 +2,8 @@
 
 Use the approved Lucide icons with consistent size, stroke and colour.
 
+Product interfaces use bare glyphs. Remove the decorative tile behind an icon in a row, card, heading or empty state. Keep text-only labels on the normal text inset.
+
 ## The core set
 
 130 icons for interfaces, documents, video and infographics, grouped by topic, from Lucide 1.48.0. Click an icon to open its SVG. The full library of more than 2,000 icons is at [lucide.dev](https://lucide.dev/icons/).
