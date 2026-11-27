@@ -26,10 +26,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: npm version "${GITHUB_REF_NAME#lint-v}" --no-git-tag-version --allow-same-version
 
-      - name: Publish under the rosepetal npm organisation
-        # Apps install it as "@aisgroup/design-lint": "npm:@rosepetal/design-lint@^x", so its own imports keep working
-        run: npm pkg set name=@rosepetal/design-lint
-
       - name: Configure npm for npmjs
         # Written to ~/.npmrc: npm config set refuses to run inside a workspace (ENOWORKSPACES)
         env:
