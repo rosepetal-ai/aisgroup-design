@@ -10,7 +10,7 @@ Apply the brand system to website layout, content and navigation.
 | **Split button** | The call to action: 44 px tall on every site, in the header, in cards and on the page; square corners, label plus a separate 44 px arrow segment. |
 | **Controls** | Header buttons and menus 44 px tall; form fields 48 px. Every target is at least 44 × 44 px. |
 | **Header** | 76 px tall, in the page colour over a 1 px rule. Logo; navigation; on the right the actions: an optional secondary action as text, then the compact split button. No theme toggle. |
-| **Logo in the header** | The official file only. AIS lockups 44 px tall, in black; Rosepetal wordmark 27 px tall (140 px wide), 25 px (130 px, its minimum) on phones, in blue. See [Logos](../../brand-guidelines/references/logos.md#on-websites). |
+| **Logo in the header** | The official file only. AIS lockups 44 px tall, in black; Rosepetal wordmark 27 px tall (140 px wide), 25 px (130 px, its minimum) on phones, in blue. See [Logos](../../ais-brand-guidelines/references/logos.md#on-websites). |
 | **Links and hovers** | One behaviour per kind, the same on every site. See [Motion](../../design-language/references/motion.md#links-and-hovers). |
 | **Text styles** | The same role uses the same style on every site. See [Typography](../../design-language/references/typography.md#same-role-same-style). |
 | **Tables and text blocks** | `.ais-table`, `.ais-figures`, `.ais-quote` and `.ais-note` from `@aisgroup/web/styles.css`, as [Documents and presentations](../../digital-documents/references/communications.md#table) sets them. Never a table on a blue band. |
@@ -21,7 +21,7 @@ Apply the brand system to website layout, content and navigation.
 | **Cookie notice** | One component on every site: the full-width ink bar (`#0F1729`) fixed at the bottom, with the same colours and buttons in every theme. See [Website components](web-components.md#cookie-notice-and-event-card). |
 | **Event and announcement cards** | On light sites, brand blue `#17356E` with a 1 px blue-600 `#1E4591` border, light-blue `#A7BFE4` eyebrow and icons, white title and neutral-200 `#E2E8F0` details. On dark sections and Rosepetal’s dark previews, a white tile. Square; never the footer colour. Shown only after the cookie choice, never together with it. |
 | **Tab titles** | «Page title \| Brand», for example «AIS REV 360 \| AIS Vision Systems». No dashes, middle dots or brand-first titles. |
-| **Favicons** | The bare mark from the website set: blue `#17356E` in light mode, white in dark mode, pixel-snapped at each size. See [Logos](../../brand-guidelines/references/logos.md#favicons). |
+| **Favicons** | The bare mark from the website set: blue `#17356E` in light mode, white in dark mode, pixel-snapped at each size. See [Logos](../../ais-brand-guidelines/references/logos.md#favicons). |
 | **Corners** | Square: buttons, fields, cards, menus, notices, photographs and films. A product screen shown as a window takes the window’s 4 px corner. See [Layout and shape](../../design-language/references/layout.md#shape). |
 | **Motion** | Headline reveals, a fixed header during page transitions, 3 px arrow hovers. See Motion. |
 

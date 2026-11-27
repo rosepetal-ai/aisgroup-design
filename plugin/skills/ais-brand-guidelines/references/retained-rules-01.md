@@ -544,7 +544,7 @@ Source: plugin/skills/brand-guidelines/SKILL.md:47.
 ## AIS-23732254a787
 
 <!-- AIS-23732254a787 -->
-How pieces are made from our sources and assets. Brand rules are in the knowledge skills (brand-guidelines, design-language, communications); these rules add what the guide leaves to production.
+How pieces are made from our sources and assets. Brand rules are in the knowledge skills (ais-brand-guidelines, design-language, communications); these rules add what the guide leaves to production.
 
 Source: plugin/skills/_shared/references/production-rules.md:3.
 

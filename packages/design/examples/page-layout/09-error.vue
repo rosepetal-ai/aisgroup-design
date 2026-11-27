@@ -12,7 +12,7 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
       <template #actions>
         <Button disabled><PlusIcon data-icon="inline-start" />Invite user</Button>
       </template>
-      <Empty class="min-h-80 border border-dashed bg-card">
+      <Empty class="min-h-80 bg-card">
         <EmptyHeader>
           <EmptyMedia variant="error"><CircleXIcon /></EmptyMedia>
           <EmptyTitle>The users could not load</EmptyTitle>

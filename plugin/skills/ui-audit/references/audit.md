@@ -9,7 +9,7 @@ Run `scripts/ui-contract.mjs audit` on the app's `src` or the changed Vue, CSS a
 - **template**: literal colours, stock palette classes, radius overrides and raw radii in CSS, middle dots and Unicode arrows (templates, script strings and i18n values), capitals and letter-spacing on product text (`caps`; keyboard keys, shortcuts and `code` excepted), icons in dialog footer buttons, dialogs that never close on a click outside, Sign out in the account menu.
 - **foreign-ui, foreign-icons, foreign-theme**: PrimeVue, Vuetify and other kits, their icons and their themes; each finding names its migration map.
 - **brand-name, logo-file**: names not written as the guide writes them, and logo files that are not the official ones.
-- **page-composition**: boxes inside boxes, a bordered box around a table, dashed boxes, an icon tile beside a title, rows of identical figure tiles.
+- **page-composition**: boxes inside boxes, a bordered box around a table, dashed boxes, a decorative boxed icon anywhere in the view, rows of identical figure tiles.
 
 Small text and side-by-side grids with `items-start` are checks: candidates to look at, not failures. Comments and data strings can produce candidates; open each one before calling it a violation.
 

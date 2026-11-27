@@ -41,8 +41,19 @@ const TAG = /<(\/?)([A-Za-z][\w.:-]*)((?:"[^"]*"|'[^']*'|[^'">])*)>/g, VOID = /^
 const TABLE = /^(?:Table|table|DataTable|data-table)$/, flat = (s) => s.replace(/\s+/g, ' ');
 // A tile: a big figure with its label (two or more text elements), and nothing that makes it a system's card.
 const FIGURE = /\bclass="[^"]*\btext-(?:2xl|3xl|4xl|5xl|6xl)\b/, TEXT = /<(?:p|span|div|dt|dd|h[1-6]|label|small|CardTitle|CardDescription)\b/g, RICH = /<(?:Progress|Table|DataTable|table|Chart\w*|Vis\w+|ul|ol|dl|Item|Button|Collapsible)\b|\bdivide-y\b/;
-// An icon alone in a tinted, centred tile, with a page or section title right after it.
-const TILE = /<(div|span)\b[^>]*\bclass="(?=[^"]*\bbg-(?!transparent\b)[\w/-]+)(?=[^"]*\bjustify-center\b)[^"]*"[^>]*>\s*<(?:i|[A-Z]\w*Icon|component|svg)\b(?:"[^"]*"|'[^']*'|[^'">])*?(?:\/>|>\s*<\/(?:i|component|svg)>)\s*<\/\1>/g;
+// Check a single glyph inside a static media wrapper. Text, action buttons, and image slots
+// have their own semantics. Hover and focus utilities alone do not paint a resting tile.
+const MEDIA = /^(?:div|span|EmptyMedia|ItemMedia)$/;
+const ONLY_ICON = /^\s*<(?:[A-Z]\w*Icon|component|i|svg)\b[^>]*\/>\s*$|^\s*<svg\b[^>]*>[\s\S]*<\/svg>\s*$/;
+function isIconTile(tag, attrs, content) {
+  if (!MEDIA.test(tag) || !ONLY_ICON.test(content)) return false;
+  // Older copies of this variant render a tinted square. Keep it readable for existing callers.
+  if (tag === 'EmptyMedia' && /(?:^|\s)variant=(["'])icon\1/.test(attrs)) return true;
+  const classes = attrs.match(/(?:^|\s)class=(["'])(.*?)\1/s)?.[2].split(/\s+/) ?? [];
+  const surface = classes.some(c => /^bg-(?!transparent$|none$|clip-|opacity-)/.test(c) || c === 'border');
+  const tile = classes.some(c => /^(?:rounded(?:-|$)|size-|p-|place-items-center$|justify-center$)/.test(c));
+  return surface && tile;
+}
 function pageComposition(template, add) {
   const stack = [];
   for (const m of template.matchAll(TAG)) {
@@ -50,6 +61,8 @@ function pageComposition(template, add) {
     if (closing) {
       const at = stack.findLastIndex((e) => e.tag === tag);
       if (at < 0) continue;
+      const open = stack[at];
+      if (isIconTile(tag, open.attrs, template.slice(open.end, m.index))) add('boxed-icon', open.m, PAGE('boxed-icon'), template, open.m.index, flat(open.m[0]));
       for (const e of stack.splice(at)) if (e.box && e.tag === tag) {
         const inner = template.slice(e.end, m.index);
         if (FIGURE.test(inner) && !RICH.test(inner) && (inner.match(TEXT) ?? []).length >= 2) add('kpi-tile', e.m, PAGE('kpi-tile'), template, e.m.index, flat(e.m[0]));
@@ -59,10 +72,9 @@ function pageComposition(template, add) {
     const box = isBox(tag, attrs), outer = stack.findLast((e) => e.box);
     if (box && outer) add('nested-box', m, PAGE('nested-box'), template, m.index, flat(whole));
     if (TABLE.test(tag) && outer?.box === 'class' && !outer.table) { outer.table = true; add('table-box', outer.m, PAGE('table-box'), template, outer.m.index, flat(outer.m[0])); }
-    if (tag !== 'Empty' && !NOT_BOX.test(tag) && /(?:^|\s)class="[^"]*\bborder-dashed\b/.test(attrs)) add('dashed-box', m, PAGE('dashed-box'), template, m.index, flat(whole));
-    if (!/\/\s*$/.test(attrs) && !VOID.test(tag)) stack.push({ tag, box, m, end: m.index + whole.length });
+    if (!NOT_BOX.test(tag) && /(?:^|\s)class="[^"]*\bborder-dashed\b/.test(attrs)) add('dashed-box', m, PAGE('dashed-box'), template, m.index, flat(whole));
+    if (!/\/\s*$/.test(attrs) && !VOID.test(tag)) stack.push({ tag, attrs, box, m, end: m.index + whole.length });
   }
-  for (const m of template.matchAll(TILE)) if (/<h[12]\b/.test(template.slice(m.index + m[0].length, m.index + m[0].length + 300))) add('title-icon-tile', m, PAGE('title-icon-tile'), template, m.index, flat(m[0]));
 }
 
 // Capitals and letter-spacing in class and style attributes, and in CSS. Keyboard keys, menu shortcuts and code keep

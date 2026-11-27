@@ -78,8 +78,8 @@ export const RULES = [
   // Page composition: how a page is put together (guide «Pages»), read from the template's element tree.
   { rule: 'nested-box', ledger: null, by: 'tree', fix: `One surface level: never a card or bordered box inside another; inside a box, use rows (divide-y) or a label-over-value grid. ${PAGES}.` },
   { rule: 'table-box', ledger: null, by: 'tree', fix: `Tables sit straight on the page or in a section's Card, never in a bordered box of their own: ${LAYOUT}, example 03-list. ${PAGES}.` },
-  { rule: 'dashed-box', ledger: null, by: 'tree', fix: `A dashed border belongs only to the Empty component filling an empty container; a no-permission or error message is an Alert or an Empty in the content area: ${LAYOUT}, examples 07-empty, 08-no-permission and 09-error. ${PAGES}.` },
-  { rule: 'title-icon-tile', ledger: null, by: 'tree', fix: `No icon tile beside a page or section title: PageLayout's own header and the section header pattern, ${LAYOUT}. ${PAGES}.` },
+  { rule: 'dashed-box', ledger: null, by: 'tree', fix: `Keep ordinary empty states borderless; a no-permission or error message is an Alert or an Empty in the content area: ${LAYOUT}, examples 07-empty, 08-no-permission and 09-error. ${PAGES}.` },
+  { rule: 'boxed-icon', ledger: null, by: 'tree', fix: `Render meaningful icons directly on the surface. Remove decorative icon tiles from rows, cards, empty states and headers. Use an accessible Button for an icon action. ${LAYOUT}. ${PAGES}.` },
   { rule: 'kpi-tile', ledger: L.facts, by: 'tree', fix: `A figure is never alone in a box: show figures as a label-over-value grid, or give the system's Card its real content (bar, rows, chart): ${LAYOUT}, example 06-dashboard. ${PAGES}.` },
 
   // Stock copies: an app's components/ui and components/blocks files are the package's, exactly as its registry installs

@@ -25,7 +25,7 @@ List, detail, settings, dashboard or a tool screen. Open the matching page-layou
 
 - Every list has its Empty in the list's place, as tall as the list.
 - No permission for the page and a page that fails to load: an Empty filling the content (examples 08 and 09). A section that fails: an Alert with Retry in its place.
-- Remove dashed boxes that are not the Empty.
+- Use a plain title and recovery action in ordinary empty states. Remove dashed frames and decorative icon boxes.
 
 ## 5. Text
 

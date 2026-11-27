@@ -4,7 +4,7 @@ Download the approved files for documents, products and websites.
 
 ## Logos
 
-SVG with a transparent background. Where each colour goes: [Logos](../../brand-guidelines/references/logos.md).
+SVG with a transparent background. Where each colour goes: [Logos](../../ais-brand-guidelines/references/logos.md).
 
 - ais-group: [blue](../../../brand/logos/ais-group-blue.svg), [white](../../../brand/logos/ais-group-white.svg), [black](../../../brand/logos/ais-group-black.svg)
 - ais-vision-systems: [blue](../../../brand/logos/ais-vision-systems-blue.svg), [white](../../../brand/logos/ais-vision-systems-white.svg), [black](../../../brand/logos/ais-vision-systems-black.svg)
@@ -16,7 +16,7 @@ SVG with a transparent background. Where each colour goes: [Logos](../../brand-g
 
 ### App icons and favicons
 
-Each set holds the SVG, PNG and ICO favicons, the Apple touch icon, the 192, 512 and maskable icons and the web manifest; see [Favicons](../../brand-guidelines/references/logos.md#favicons). Each website’s own set is in its zip on [Web assets](../../web-design/references/assets.md).
+Each set holds the SVG, PNG and ICO favicons, the Apple touch icon, the 192, 512 and maskable icons and the web manifest; see [Favicons](../../ais-brand-guidelines/references/logos.md#favicons). Each website’s own set is in its zip on [Web assets](../../web-design/references/assets.md).
 
 - [ais-app-icons.zip](../../../brand/downloads/favicons/ais-app-icons.zip)
 - [ais-favicons.zip](../../../brand/downloads/favicons/ais-favicons.zip)

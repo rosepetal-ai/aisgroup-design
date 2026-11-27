@@ -43,6 +43,6 @@ The blue and neutral scales, the font and the status colours are the same in `pa
 
 ## The plugin and the hosted MCP
 
-- Knowledge skills (`plugin/skills/brand-guidelines`, `design-language`, `communications`, `web-design`, `product-ui`) and `plugin/brand/` are copies of the built guide: change the guide, then `npm run sync:plugin`.
+- Knowledge skills (`plugin/skills/ais-brand-guidelines`, `design-language`, `communications`, `web-design`, `product-ui`) and `plugin/brand/` are copies of the built guide: change the guide, then `npm run sync:plugin`.
 - The studio MCP's tests: `npm test -w plugin`; the media tests run once the media library is on disk (`npm run media:pull`). Before a plugin release, `npm run verify -w plugin`.
 - The hosted MCP's answers come from `hosted/data`, rebuilt by `npm run build`. A usage rule it quotes from the guide must still be in the guide, or its build fails: update `hosted/build.mjs` with the guide.

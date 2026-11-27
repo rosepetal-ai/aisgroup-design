@@ -42,7 +42,7 @@ The same components in both themes. Every component page has a light and dark sw
 - **App icons and app favicons:** the white mark on the brand-blue tile, the same in both themes.
 - **Website favicons:** the bare mark, blue in light mode and white in dark mode.
 
-Files and sizes are on [Logos](../../brand-guidelines/references/logos.md#favicons).
+Files and sizes are on [Logos](../../ais-brand-guidelines/references/logos.md#favicons).
 
 ## Charts
 

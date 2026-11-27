@@ -29,4 +29,4 @@ Start with these beats at actual playback speed. Model the reach for the task's 
 
 For a different brief, keep the procedure and replace the actor roles, evidence, supports, contact intervals and measured dimensions. The [two-brief regressions](scripts/audit-motion.test.mjs) exercise both a manually transferred case and an automated inspection path.
 
-Apply the [AIS simplicity rule](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
+Apply the [AIS simplicity rule](../ais-brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).

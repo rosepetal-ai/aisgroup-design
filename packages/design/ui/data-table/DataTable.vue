@@ -2,11 +2,10 @@
 import type { ColumnDef, RowData, RowSelectionState } from '@tanstack/vue-table'
 import type { HTMLAttributes } from 'vue'
 import { FlexRender, useTable } from '@tanstack/vue-table'
-import { SearchXIcon } from '@lucide/vue'
 import { computed, h } from 'vue'
 import { cn } from '../../lib/utils'
 import { Checkbox } from '../checkbox'
-import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '../empty'
+import { Empty, EmptyHeader, EmptyTitle } from '../empty'
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationNext, PaginationPrevious } from '../pagination'
 import { Skeleton } from '../skeleton'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../table'
@@ -142,7 +141,6 @@ defineExpose({ table })
             <slot name="empty">
               <Empty class="p-10">
                 <EmptyHeader>
-                  <EmptyMedia><SearchXIcon class="size-6 text-muted-foreground" /></EmptyMedia>
                   <EmptyTitle>{{ text.empty }}</EmptyTitle>
                 </EmptyHeader>
               </Empty>

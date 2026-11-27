@@ -11,15 +11,15 @@ import { Button } from '@aisgroup/design/ui/button';
   <div class="w-full">
     <TopBar full>
       <template #logo>
-        <a href="#" class="flex h-full min-w-0 items-center gap-3">
+        <a href="#" class="flex h-full min-w-0 items-center gap-2">
           <BrandLogo brand="ais" alt="" />
-          <span class="truncate text-base font-semibold">Nexus ERP</span>
+          <span class="truncate text-base leading-5 font-semibold">Nexus ERP</span>
         </a>
       </template>
       <template #actions>
         <Button variant="topbar" size="icon-round" aria-label="Dark mode"><MoonIcon /></Button>
         <Button variant="topbar" size="icon-round" aria-label="Account">
-          <Avatar class="size-8"><AvatarFallback class="bg-topbar-foreground text-sm font-semibold text-brand">SB</AvatarFallback></Avatar>
+          <Avatar class="size-8 after:hidden"><AvatarFallback class="bg-topbar-foreground text-sm font-semibold text-brand">SB</AvatarFallback></Avatar>
         </Button>
       </template>
     </TopBar>

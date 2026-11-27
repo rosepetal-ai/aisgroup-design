@@ -15,4 +15,4 @@ Before creating meshes, name the single physical event and the components that m
 
 Prove the selection against both example briefs in the kit. In the transfer case, seek before pickup, at lift and after set-down. The fingers, carton and actuator must refer to the same moving load. In the cabinet case, seek across Run and Stop. Only the cabinet mechanism and its status are needed. The run lamp and caption must agree, with no operator, carton, or special scope colour. Test the shared player on both; hiding the captions must preserve the controls and machine status.
 
-Apply the [AIS simplicity rule](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
+Apply the [AIS simplicity rule](../ais-brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
