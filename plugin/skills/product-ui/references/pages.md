@@ -9,6 +9,16 @@
 - Items in a line are joined with commas or shown as a list, never with middle dots.
 - Colour marks a status or a colour the user chose, always with words. No tinted backgrounds, strips or accent borders.
 
+## Product surfaces and alignment
+
+Decorative icon boxes are forbidden throughout product UI. A meaningful glyph sits directly on its surface. An icon that performs an action belongs in a named button with a visible focus state.
+
+- Use the neutral page canvas and the card surface for tables and cards. Image and text cards use the same outer surface in each theme, including while an image loads or fails.
+- Give adjacent inputs, pickers and search fields the same resting fill in each theme. In a compound field the outer control paints the fill once.
+- Use the shared header inset for a text-only table heading. Reserve indentation for row controls and nested content. Keep related filters together when the screen widens.
+- Group short figures together. Give long lists their own space so they do not stretch every summary card. Switch layouts using the width available after a detail panel opens.
+- Use a count badge with the notification bell. In tabbed popovers the active underline is enough. Check the avatar’s full circular outline on both edges at the rendered size.
+
 ## Page header
 
 PageLayout gives every page its header: the title, at most one muted line and the actions at the right.
@@ -48,7 +58,7 @@ The list page is the toolbar (search, filters whose choices show as chips, the v
 | The page could not load | An Empty filling the content: what failed, and Retry |
 | One section could not load | An Alert with Retry in that section; the rest of the page stays |
 
-A dashed border belongs only to the Empty. Never a short dashed box with one line of text and the page blank below it.
+Use a plain Empty with a title and an available recovery action. Keep a spinner for loading or a bare status glyph when it communicates a distinct state.
 
 ## Dashboards
 

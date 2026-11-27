@@ -1,9 +1,9 @@
 <!-- No rows: the empty slot says why and offers the way out. -->
 <script setup>
-import { PlusIcon, BoxIcon } from '@lucide/vue';
+import { PlusIcon } from '@lucide/vue';
 import { Button } from '@aisgroup/design/ui/button';
 import { DataTable } from '@aisgroup/design/ui/data-table';
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@aisgroup/design/ui/empty';
+import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyTitle } from '@aisgroup/design/ui/empty';
 const columns = [
   { accessorKey: 'name', header: 'Name' },
   { accessorKey: 'dataset', header: 'Dataset' },
@@ -16,7 +16,6 @@ const columns = [
     <template #empty>
       <Empty class="p-10">
         <EmptyHeader>
-          <EmptyMedia><BoxIcon class="size-6 text-muted-foreground" /></EmptyMedia>
           <EmptyTitle>No models yet</EmptyTitle>
           <EmptyDescription>Train a model from a dataset with labelled images.</EmptyDescription>
         </EmptyHeader>

@@ -206,15 +206,15 @@ test('page-composition: boxes in boxes, tables in boxes, dashed boxes, title ico
     </RouterLink>
   </div>
 </template>`;
-  assert.deepEqual(page(vue), ['3 title-icon-tile', '6 dashed-box', '7 table-box', '9 nested-box', '16 kpi-tile']);
+  assert.deepEqual(page(vue), ['3 boxed-icon', '6 dashed-box', '7 table-box', '9 nested-box', '16 kpi-tile']);
   const fix = audit(vue, 'Page.vue').find((f) => f.rule === 'nested-box').fix;
   assert.match(fix, /design_standards kind=guidelines section=product-ui page=pages/);
-  assert.match(audit(vue, 'Page.vue').find((f) => f.rule === 'title-icon-tile').fix, /design_code kind=components name=page-layout/);
+  assert.match(audit(vue, 'Page.vue').find((f) => f.rule === 'boxed-icon').fix, /design_code kind=components name=page-layout/);
 });
 test('page-composition: the page system\'s own patterns pass', () => {
   const vue = `<template>
   <PageLayout title="Users" description="10 people"><template #actions><Button>Invite</Button></template></PageLayout>
-  <Empty class="border border-dashed"><EmptyTitle>No users</EmptyTitle></Empty>
+  <Empty><EmptyTitle>No users</EmptyTitle></Empty>
   <DataTable :columns="c" :data="d" />
   <div class="divide-y rounded-lg border">
     <Field orientation="horizontal" class="p-4"><Switch /></Field>
@@ -228,7 +228,7 @@ test('page-composition: the page system\'s own patterns pass', () => {
   <Card class="border-0 shadow-none"><Item variant="outline">Prompt</Item></Card>
   <Card><CardContent class="text-4xl">1</CardContent></Card>
   <Button variant="outline" class="border-dashed">Load more</Button>
-  <Item><ItemMedia class="flex items-center justify-center bg-muted"><BoxIcon /></ItemMedia><ItemTitle>Model</ItemTitle></Item>
+  <Item><ItemMedia variant="icon"><BoxIcon /></ItemMedia><ItemTitle>Model</ItemTitle></Item>
   <table><tr><td class="rounded border">3</td></tr></table>
 </template>`;
   assert.deepEqual(page(vue), []);
@@ -264,4 +264,17 @@ test('audit stays linear on long files', () => {
   const start = performance.now();
   audit(ts, 'src/i18n/es.ts');
   assert(performance.now() - start < 2000, 'a regex backtracks over the blanked regions');
+});
+
+test('decorative icon tiles anywhere in a view, including empty and item media', () => {
+  const vue = `<template>
+    <span class="grid size-10 place-items-center rounded-lg bg-muted"><SparklesIcon /></span>
+    <ItemMedia class="rounded-md border p-2"><FileIcon /></ItemMedia>
+    <Empty class="border border-dashed"><EmptyTitle>No matches</EmptyTitle></Empty>
+    <Button variant="ghost" size="icon" aria-label="Open assistant"><SparklesIcon /></Button>
+    <span class="rounded-md hover:bg-muted"><SparklesIcon /></span>
+    <span class="rounded-md bg-muted"><img alt="" /></span>
+    <EmptyMedia variant="icon"><SparklesIcon /></EmptyMedia>
+  </template>`;
+  assert.deepEqual(page(vue), ['2 boxed-icon', '3 boxed-icon', '4 dashed-box', '8 boxed-icon']);
 });
