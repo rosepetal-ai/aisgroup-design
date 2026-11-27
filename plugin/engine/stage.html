@@ -100,6 +100,13 @@
   .det b span { font-weight: 500; }
   .captions { z-index: 6; position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .captions span { padding: 6px 16px; background: var(--ink); color: #fff; font-weight: 500; font-size: 40px; line-height: 1.2; }
+  /* Tutorial steps (Video, Tutorials): Inter Medium 28 px on an ink plate fitted to the text, 24 px each side and 16 px above
+     and below, a 1 px border and the overlay shadow at twice its strength. The drawn pointer and the press ripple go above. */
+  .step { z-index: 6; position: absolute; left: 0; right: 0; display: flex; justify-content: center; }
+  .step span { padding: 16px 24px; background: var(--ink); border: 1px solid #1E293B; color: #fff; font-weight: 500; font-size: 28px; line-height: 36px; white-space: nowrap;
+    box-shadow: 0 4px 12px rgb(15 23 41 / 12%), 0 24px 48px rgb(15 23 41 / 24%); }
+  .pointer { z-index: 8; position: absolute; left: 0; top: 0; width: 25.1px; height: 39px; filter: drop-shadow(0 2px 3px rgb(15 23 41 / 35%)); }
+  .ripple { z-index: 7; position: absolute; left: 0; top: 0; width: 69px; height: 69px; margin: -34.5px 0 0 -34.5px; border: 2px solid #3664B3; background: rgb(54 100 179 / 25%); border-radius: 50%; opacity: 0; }
 
   /* Posts and carousel slides: a 1080 px wide canvas seen at about half size in the feed, so the web type
      scale doubles and nothing people read goes under 26 px. Square corners everywhere (Layout and shape). */
@@ -351,9 +358,9 @@
       return frames(MS.slow1) + hold + frames(MS.exit);
     },
     title(L, s, c, at) {
-      const dark = s.bg !== 'white';
-      L.innerHTML = `${dark ? '' : '<div class="fill" style="background:#fff"></div>'}<div class="title" data-lines="3" style="left:${c.m.l}px;right:${c.m.r}px;top:50%;transform:translateY(-50%);color:${dark ? '#fff' : 'var(--ink)'}">${s.overline ? `<span class="overline mono" style="color:${dark ? '#A7BFE4' : 'var(--blue-500)'}">${html(s.overline)}</span>` : ''}${lineSpans(s.title)}</div>`;
-      if (dark && !backdrop(L, s, at)) field(L, at, Math.round((s.seconds || 3) * fps));
+      const dark = s.bg !== 'white', blue = s.bg === 'blue'; // "blue": the flat brand blue ground (a tutorial's title card)
+      L.innerHTML = `${blue ? '<div class="fill" style="background:var(--blue-700)"></div>' : dark ? '' : '<div class="fill" style="background:#fff"></div>'}<div class="title" data-lines="3" style="left:${c.m.l}px;right:${c.m.r}px;top:50%;transform:translateY(-50%);color:${dark ? '#fff' : 'var(--ink)'}">${s.overline ? `<span class="overline mono" style="color:${dark ? '#A7BFE4' : 'var(--blue-500)'}">${html(s.overline)}</span>` : ''}${lineSpans(s.title)}</div>`;
+      if (dark && !blue && !backdrop(L, s, at)) field(L, at, Math.round((s.seconds || 3) * fps));
       revealLines(L, at + 6 + leadIn(L, at + 4));
       L.dataset.tone = dark ? 'dark' : 'light';
       return Math.round((s.seconds || 3) * fps);
@@ -408,6 +415,35 @@
       lowerThird(L, s, c, at, len);
       inspect(L, s, c, at);
       evidence(L, s, c);
+      L.dataset.tone = 'dark';
+      return len;
+    },
+    // A tutorial's recording (tools/record-tutorial.mjs): the real app at 1:1, its steps on ink plates, and a drawn pointer
+    // that replays the real pointer's log, with a ripple on each press.
+    recording(L, s, c, at) {
+      const len = Math.round(s.steps.duration * fps);
+      L.innerHTML = `<video class="media" data-in="0" src="${s.src}" muted preload="auto"></video>`;
+      s.steps.steps.forEach((st) => {
+        // At the top while the control in use is in the lower quarter of the screen.
+        const top = st.box && st.box[1] + st.box[3] > c.h * 0.75, el = document.createElement('div');
+        el.className = 'step'; el.style[top ? 'top' : 'bottom'] = (top ? c.m.t : c.m.b) + 'px';
+        el.innerHTML = `<span>${st.lines.map(html).join('<br>')}</span>`; L.appendChild(el);
+        tween(el, at + Math.round(st.start * fps), frames(MS.slow1), 'enter', { o: 0, y: DISTANCE }, { o: 1, y: 0 });
+        tween(el, at + Math.round((st.start + st.hold) * fps), frames(MS.exit), 'exit', { o: 1, y: 0 }, { o: 0, y: DISTANCE });
+      });
+      L.insertAdjacentHTML('beforeend', s.pointer.presses.map(() => '<i class="ripple"></i>').join('') +
+        '<svg class="pointer" viewBox="1.2 1.2 18.8 29.2"><path d="M2 2 L2 26 L7.6 20.6 L11.6 29.6 L15.6 27.8 L11.7 19 L19.2 19 Z" fill="#fff" stroke="#0F1729" stroke-width="1.6" stroke-linejoin="round"/></svg>');
+      const arrow = L.querySelector('.pointer'), rings = [...L.querySelectorAll('.ripple')], moves = s.pointer.moves, tip = 0.8 * 39 / 29.2; // the arrow is 39 px tall, outline included; its tip is the hotspot
+      const at_ = (t) => { let k = 0; while (k < moves.length - 1 && moves[k + 1][0] <= t) k++;
+        const [t0, x0, y0] = moves[k], [t1, x1, y1] = moves[Math.min(k + 1, moves.length - 1)], p = t1 > t0 ? Math.min(1, Math.max(0, (t - t0) / (t1 - t0))) : 0;
+        return [x0 + (x1 - x0) * p, y0 + (y1 - y0) * p]; };
+      count(at, len, 'linear', (p) => {
+        const t = p * len / fps, [x, y] = at_(t);
+        arrow.style.transform = `translate(${x - tip}px, ${y - tip}px)`;
+        // The ripple: 69 px, from 0.3 to 1.25 of its size, fading out over 0.5 s; the one graphic that scales.
+        s.pointer.presses.forEach(([tp, px, py], k) => { const q = (t - tp) / 0.5, e = ease.enter(q);
+          rings[k].style.opacity = q >= 0 && q < 1 ? 1 - q : 0; rings[k].style.transform = `translate(${px}px, ${py}px) scale(${0.3 + 0.95 * e})`; });
+      });
       L.dataset.tone = 'dark';
       return len;
     },
@@ -1008,7 +1044,7 @@
       }
       const walker = document.createTreeWalker(L, NodeFilter.SHOW_TEXT);
       for (let n; (n = walker.nextNode());) {
-        if (!n.textContent.trim() || n.parentElement.closest('.standin, .slot-label')) continue;
+        if (!n.textContent.trim() || n.parentElement.closest('.standin, .slot-label, .step')) continue; // tutorial steps are 28 px (Video)
         const px = parseFloat(getComputedStyle(n.parentElement).fontSize);
         if (px < minText) { issue(i, 'text-size', `"${n.textContent.trim().slice(0, 40)}" is ${px} px; ${minText} px is the smallest for this medium`); break; }
       }

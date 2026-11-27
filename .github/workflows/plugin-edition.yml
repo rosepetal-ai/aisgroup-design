@@ -2,8 +2,8 @@ name: Plugin edition
 
 # claude.ai and Anthropic's plugin directory read a repository as one archive, and this monorepo is far over their
 # limits (50 MiB, 512 plugin files). On every push to main this job builds the lite edition (skills, hooks, checks and
-# the hosted design server, without the studio) and replaces the `claude-plugin` branch with it: one commit holding the
-# marketplace and the plugin, a few hundred files. Install from that branch; develop here. Nothing is deployed.
+# the animation builder and the hosted design server) and replaces the `claude-plugin` branch with it: one commit holding the
+# marketplace and the plugin, a few hundred files. The edition uses the same relative plugin source for Codex and Claude. Develop on main.
 on:
   push:
     branches: [main]
@@ -35,10 +35,12 @@ jobs:
           out="$RUNNER_TEMP/edition"
           npm run package:plugin -w plugin -- --lite --out="$out/plugin"
           rm "$out/plugin.zip"
-          mkdir -p "$out/.claude-plugin"
+          mkdir -p "$out/.claude-plugin" "$out/.agents/plugins"
+          cp .agents/plugins/marketplace.json "$out/.agents/plugins/"
           cp .claude-plugin/marketplace.json "$out/.claude-plugin/"
           cp LICENSE "$out/"
           cp plugin/README.md "$out/README.md"
+          node "$out/plugin/scripts/animation-build.mjs" create "$RUNNER_TEMP/editable-animation" --example side-rejection --prepare-only
 
       - name: Replace the claude-plugin branch
         run: |

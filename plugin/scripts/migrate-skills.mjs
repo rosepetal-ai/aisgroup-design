@@ -11,7 +11,7 @@ export function migrateSkills(target, { source = path.join(ROOT, 'skills'), appl
   if (!fs.existsSync(path.join(target, '.claude-plugin/plugin.json')) && !fs.existsSync(path.join(target, 'plugin.json'))) throw Error('Target must be an existing AIS plugin root');
   if (destination === source || source.startsWith(destination + path.sep)) throw Error('Source must be separate from the installed target');
   const names = fs.readdirSync(source).filter(n => fs.existsSync(path.join(source, n, 'SKILL.md'))).sort();
-  if (names.length !== 27 || names.includes('writing')) throw Error('Expected the canonical 27-skill source');
+  if (names.length !== 32 || names.includes('writing')) throw Error('Expected the canonical 32-skill source');
   for (const next of Object.values(SKILL_PATH_ALIASES)) if (!fs.existsSync(path.join(source, next))) throw Error(`Missing compatibility destination: ${next}`);
   const previous = fs.existsSync(destination) ? fs.readdirSync(destination).filter(n => fs.existsSync(path.join(destination, n, 'SKILL.md'))).sort() : [];
   const report = { target, source, previous, skills: names, aliases: SKILL_PATH_ALIASES, applied: apply, backup: null };

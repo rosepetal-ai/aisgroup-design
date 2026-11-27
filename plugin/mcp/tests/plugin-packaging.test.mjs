@@ -1,9 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { ROOT, validateManifests, validateSkills, validateArchive } from '../../scripts/validate-plugin.mjs';
+import { packagePlugin } from '../../scripts/package-plugin.mjs';
 import { proposal } from '../../../scripts/skills-tree.mjs';
 import { retainRules } from '../../scripts/rules-ledger.mjs';
 
@@ -39,4 +42,23 @@ test('archive validation rejects nested ZIPs, top-level bin and symlinks', () =>
     const { errors } = validateArchive(dir);
     assert(errors.some(s => s.includes('bin/run'))); assert(errors.some(s => s.includes('nested.zip'))); assert(errors.some(s => s.includes('symlinks')));
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('the published lite edition creates an editable side-rejection project without the studio or model credentials', async () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ais-lite-animation-'));
+  try {
+    const edition = path.join(tmp, 'plugin'), project = path.join(tmp, 'animation');
+    packagePlugin(edition, { lite: true });
+    const servers = JSON.parse(fs.readFileSync(path.join(edition, 'mcp.json'))).mcpServers;
+    assert(servers.design);
+    for (const file of ['InterMedium.ttf', 'OFL-Inter.txt']) assert(fs.statSync(path.join(edition, 'print/assets', file)).isFile());
+    assert.equal(servers.studio, undefined);
+    const { sceneComponents } = await import(pathToFileURL(path.join(edition, 'mcp/scene-components.mjs')).href);
+    for (const component of sceneComponents) assert(fs.statSync(path.join(edition, component.path)).isFile(), component.id);
+    execFileSync(process.execPath, [path.join(edition, 'scripts/animation-build.mjs'), 'create', project, '--example', 'side-rejection', '--prepare-only'], { cwd: tmp });
+    const example = path.join(project, 'skills/live-animation/examples/enclosed-inspection');
+    assert.deepEqual(fs.readFileSync(path.join(example, 'job.mjs')), fs.readFileSync(path.join(example, 'jobs/side-rejection.mjs')));
+    assert(fs.statSync(path.join(project, 'brand/downloads/overlays/overlay.mjs')).isFile());
+    execFileSync(process.execPath, ['--input-type=module', '-e', "await import('./scripts/animation-assets.mjs')"], { cwd: project });
+  } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
 });

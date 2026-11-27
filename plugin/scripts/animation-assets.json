@@ -1,0 +1,31 @@
+{
+  "bucket": "aisgroup-design-private",
+  "object": "animation-pilot/models/592775ab7d461a70e231877534baef765c39cd1dafa292360445243d52fad2a7.aispack",
+  "generation": "1795764597195966",
+  "sha256": "592775ab7d461a70e231877534baef765c39cd1dafa292360445243d52fad2a7",
+  "bytes": 1067707,
+  "files": {
+    "industry/basler-ace2-gige.part.glb": "b6aa31324ae7ab5987013525bdc4a18789020a86d65d999c44a85a08c4e25259",
+    "industry/v1226-mpz.part.glb": "81ed169e525baa28d0c326193f7cfeb410661cfa93e12602fc5ae556f2c80942",
+    "industry/svl-rm75-ring-light.part.glb": "7e23d3d16963aa6fffe156df4bc8b6eb651d3d5e7a7edf76ca8e09e0c8214ad9",
+    "industry/svl-lxe300-linear-light.part.glb": "1e9b25d82dcdf83cfdb02bd06c7d5a6582cd62f4014752cd2ec3714b2869783f",
+    "industry/minitec-profile-45x45-f.part.glb": "f9f59697b726af1e8a7a7a0dd114ac38abb206c087c14d95d53c0941490b2683",
+    "industry/minitec-profile-45x90-f.part.glb": "617be9e9dfc9e0b1417abbd7987f6d7ec6965e528e08ccc40c6b5578a921cb1c",
+    "industry/minitec-profile-90x90-l.part.glb": "6554f8e3e8f8c6a9cc29768795e4c64c9c7622dd042acce3305fe4dab827674a",
+    "industry/minitec-foot-90-gd.part.glb": "38add6391056ed5a6e2108aa16ecfd2fb5c5e0bf50c26fa9479936e8cfc1b322",
+    "industry/minitec-angle-45-gd-z.part.glb": "f20a20250b00bef5e723ebc964c569dcd76310a541eea8598f600df45274b7a5",
+    "industry/minitec-angle-bracket-swivel.part.glb": "0e28fc8a2a1d97fa3897d01798cd2ff70e79b84eb0ec17b0f5812888d7b9d4a0",
+    "industry/minitec-hinge-45-al.part.glb": "f0fc87291b99f15b5e892561086c29a186450bbe1a434ae233004e89fdb56560",
+    "industry/minitec-insert-seal-6.part.glb": "bfb9832b0937b0a4983793e57f91f4809e9330c86a96c41909b8353579dd3244",
+    "industry/minitec-end-cap-45x45.part.glb": "75371db5ddd57694e4a3a2efadb17589e9729968ed0db4d46fc2302e9d8703da",
+    "industry/minitec-transport-roller-al.part.glb": "3a18f46a04702b22d87b1be23901e128eaf0b90fa464e4d599cb52283cf2b6fe",
+    "industry/minitec-stopper-40.part.glb": "ae45763b762c865407f8aee619499e4f23fa9287179cbd015941efb338377d87",
+    "industry/minitec-conveyor-bearing-45.part.glb": "5c23bf2d14cdb0188d4add625735e7041f147582c30e15f6401a8fbf6bda6d9e",
+    "industry/minitec-belt-driving-cylinder-45.part.glb": "3e8c7fdb558b6c2fdf58cf228a871b6b6734ee83bdc3f61ac481b93dd5532879",
+    "industry/minitec-belt-tensioning-cylinder-45.part.glb": "c91c860162b701c48a2ec23a33d262ac9b828f3c49a2242be7559fb78f65da59",
+    "industry/auer-eco-xmr100-3xll-stack-light.part.glb": "518081835d5363dc0ab5ee4dd6b164778f0edfab1f881247870e2900c7c5592a",
+    "rev360-compact.glb": "9a80918455e3bde9e302dc40d95879c62f33f7b40ea569929442b9f681d751dd",
+    "industry/kraft-detail.webp": "999433663e559744262ea7c2b833809c1dd2e75b2f236256813b9bacd58652b9",
+    "industry/sources.txt": "757840534f97835d1db4a55ea8fe23d175b6f28614796b70af2d81bfdb56b5d8"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "openT": 1.6,
+  "logoSel": ".ple-logo",
+  "appSel": ".plu-window, .pa-app",
+  "titles": [
+    { "k": "open", "t": 1.6, "sel": ".pl-open__title" },
+    { "k": "results", "t": 84.5, "sel": ".plu-results" },
+    { "k": "close", "t": 88, "sel": ".plu-close__title" }
+  ],
+  "dialogs": [
+    { "k": "confirm", "t": 13.5, "sel": ".pa-confirm" },
+    { "k": "notice", "t": 60.5, "sel": ".pa-notice__modal" },
+    { "k": "reason", "t": 66.8, "sel": ".pa-reason" }
+  ],
+  "widths": [[1600, 1000], [1440, 900], [1920, 1080], [1280, 800]]
+}
