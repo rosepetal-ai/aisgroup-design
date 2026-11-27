@@ -65,7 +65,7 @@ const cell = (file, label) => plain(line(file, label).split('|').filter((c) => c
 const sentences = (s, n) => s.split(/(?<=\.)\s+(?=[A-Z])/).slice(0, n).join(' ');
 const sentence = (file, start) => { const i = read(file).indexOf(start); if (i < 0) fail(`Guide changed: no "${start}" in ${file}. Update hosted/build.mjs.`); return sentences(plain(read(file).slice(i).split('\n')[0]), 1); };
 
-const BRAND = 'en/brand.md', LOGOS = 'skills/brand-guidelines/references/logos.md', DOWNLOADS = 'skills/resources-assets/references/downloads.md';
+const BRAND = 'en/brand.md', LOGOS = 'skills/ais-brand-guidelines/references/logos.md', DOWNLOADS = 'skills/resources-assets/references/downloads.md';
 const WEB = 'skills/web-design/references/web-components.md', WEB_ASSETS = 'skills/web-design/references/assets.md';
 const rules = {
   logo: rule(BRAND, 'Use only the supplied logo files', 'Clear space is', 'Minimum widths'),

@@ -7,7 +7,7 @@ description: "04. Load before planning Rosepetal Vue tables, forms or product sc
 
 Apply the [writing essentials: use «» for prose quotes, UI labels and section names in every language; no decorative separators or English contractions](../communications/references/writing-essentials.md) to this reply and artifact; preserve syntax in code, JSON and raw file excerpts. [Production rules](../_shared/references/production-rules.md): no glow or gradients; mascots and illustrations stay held; no public CAD or mesh downloads.
 
-Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
+Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../ais-brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
 
 1. Read components.json and package.json to identify the actual stack. @aisgroup/design is the source for shadcn-vue components and styles.css is the Tailwind v4 theme.
 2. Search design_code, read the registry item and existing package examples before composing a screen. Never scrape a deployed screen for source. Installing with the shadcn-vue CLI: a Vite app with project references needs `paths` (`"@/*": ["./src/*"]`) in the root tsconfig.json, and a pnpm workspace needs `npm_config_ignore_workspace_root_check=true`.

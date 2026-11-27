@@ -5,7 +5,7 @@ Read only the IDs relevant to the current task. Source evidence and dated confli
 ## AIS-c21c2aeff0f3
 
 <!-- AIS-c21c2aeff0f3 -->
-SVG with a transparent background. Where each colour goes: [Logos](../../brand-guidelines/references/logos.md).
+SVG with a transparent background. Where each colour goes: [Logos](../../ais-brand-guidelines/references/logos.md).
 
 Source: plugin/skills/brand-guidelines/references/downloads.md:5.
 
@@ -61,7 +61,7 @@ Source: plugin/skills/brand-guidelines/references/downloads.md:13.
 ## AIS-02bec0a2de35
 
 <!-- AIS-02bec0a2de35 -->
-Each set holds the SVG, PNG and ICO favicons, the Apple touch icon, the 192, 512 and maskable icons and the web manifest; see [Favicons](../../brand-guidelines/references/logos.md#favicons). Each website’s own set is in its zip on [Web assets](../../web-design/references/assets.md).
+Each set holds the SVG, PNG and ICO favicons, the Apple touch icon, the 192, 512 and maskable icons and the web manifest; see [Favicons](../../ais-brand-guidelines/references/logos.md#favicons). Each website’s own set is in its zip on [Web assets](../../web-design/references/assets.md).
 
 Source: plugin/skills/brand-guidelines/references/downloads.md:17.
 

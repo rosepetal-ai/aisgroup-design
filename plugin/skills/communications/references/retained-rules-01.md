@@ -327,7 +327,7 @@ Source: plugin/skills/communications/SKILL.md:79.
 ## AIS-d33cfc087990
 
 <!-- AIS-d33cfc087990 -->
-This skill is the method; the rules are the guide's [Voice](voice.md) (claims, calls to action, headline formulas) and [Localisation](localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../../brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
+This skill is the method; the rules are the guide's [Voice](voice.md) (claims, calls to action, headline formulas) and [Localisation](localisation.md) (numbers, dates, address form). Names exactly as on [Brand architecture](../../ais-brand-guidelines/references/brands.md). When this skill and the guide disagree, the guide wins.
 
 Source: plugin/skills/writing/SKILL.md:9.
 

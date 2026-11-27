@@ -18,11 +18,11 @@ const words = (file) => {
 };
 // [branch, topic, skill, reference file (or SKILL.md), pattern the content must contain]
 const TREE = [
-  ['01 Brand Guidelines', 'Logo and variants', 'brand-guidelines', 'logos.md', /variant|version/i],
+  ['01 Brand Guidelines', 'Logo and variants', 'ais-brand-guidelines', 'logos.md', /variant|version/i],
   ['01 Brand Guidelines', 'Corporate colour', 'design-language', 'colour.md', /#17356E/i],
   ['01 Brand Guidelines', 'Corporate typography', 'design-language', 'typography.md', /Inter/],
-  ['01 Brand Guidelines', 'Correct and incorrect use', 'brand-guidelines', 'logos.md', /never|don.t|incorrect|do not/i],
-  ['02 Design Language', 'Design principles', 'brand-guidelines', 'index.md', /simple/i],
+  ['01 Brand Guidelines', 'Correct and incorrect use', 'ais-brand-guidelines', 'logos.md', /never|don.t|incorrect|do not/i],
+  ['02 Design Language', 'Design principles', 'ais-brand-guidelines', 'index.md', /simple/i],
   ['02 Design Language', 'Colours and design tokens', 'design-language', 'tokens.md', /ais-tokens/],
   ['02 Design Language', 'Typography', 'design-language', 'typography.md', /\d+\s?px|pt\b/],
   ['02 Design Language', 'Grid and spacing', 'design-language', 'layout.md', /grid|column/i],

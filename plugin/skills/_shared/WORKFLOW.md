@@ -1,6 +1,6 @@
 # Shared workflow
 
-Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
+Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../ais-brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
 
 Paths and commands run from the plugin folder (`plugin/`, which holds its own `package.json`, `print/` and `engine/`). Production rules: [production-rules.md](references/production-rules.md).
 

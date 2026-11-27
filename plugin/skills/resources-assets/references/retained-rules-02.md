@@ -145,7 +145,7 @@ Source: plugin/skills/communications/references/kit.md:43.
 ## AIS-e8c3eb9eb991
 
 <!-- AIS-e8c3eb9eb991 -->
-Before opening the Office templates, install the three fonts in `/kit/office/fonts/` ([Inter](../../../brand/kit/office/fonts/Inter.ttf), [Inter Medium](../../../brand/kit/office/fonts/InterMedium.ttf) and [Inter SemiBold](../../../brand/kit/office/fonts/InterSemiBold.ttf), [OFL](../../../brand/kit/office/fonts/OFL-Inter.txt) licence); without them, Office falls back to Arial. Logos and pictograms are on [Logos](../../brand-guidelines/references/logos.md) and [Icons](../../design-language/references/icons.md). Business cards carry personal phone numbers, so they are not published here: ask marketing for yours.
+Before opening the Office templates, install the three fonts in `/kit/office/fonts/` ([Inter](../../../brand/kit/office/fonts/Inter.ttf), [Inter Medium](../../../brand/kit/office/fonts/InterMedium.ttf) and [Inter SemiBold](../../../brand/kit/office/fonts/InterSemiBold.ttf), [OFL](../../../brand/kit/office/fonts/OFL-Inter.txt) licence); without them, Office falls back to Arial. Logos and pictograms are on [Logos](../../ais-brand-guidelines/references/logos.md) and [Icons](../../design-language/references/icons.md). Business cards carry personal phone numbers, so they are not published here: ask marketing for yours.
 
 Source: plugin/skills/communications/references/kit.md:45.
 
