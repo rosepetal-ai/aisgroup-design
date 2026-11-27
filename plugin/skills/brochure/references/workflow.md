@@ -36,7 +36,7 @@ When the brief points to a particular visual, trace the displayed image back to 
 5. **Look** at every preview at full size, then compare with sibling pieces:
    - Hexagon icons use the shared `.hx` centring rule. Keep the SVG viewport centred; digit-only optical padding must not affect icons. The exporter checks each icon centre within 0.1 CSS px. Remove redundant headings above named detection tiles. Necessary equipment/software/options headings use ink h3 text at 11 pt and weight 500, without tracking; no old small blue p.sub lines.
    - Every tile shows its defect; crops keep machines, screens and labels whole.
-   - Nothing letterboxed in a pale panel unless it is a deliberate cut-out; no dead band over 25 mm; no widow in a title.
+   - Place complete machine views and software captures directly on the page with their captions. Use the unframed photo layout when a fixed image box would add grey bands; no dead band over 25 mm; no widow in a title.
    - Same components, spacing and voice as the other pieces.
    - Ready to publish: scan text and alt text for internal production notes (render, test, pendiente, borrador, confirmar); keep approved AIS demo product identities, and check pictures for identifying client marks.
 6. **Deliver** the reviewed local PDF with its editable HTML or data, assets and shared components. Record what was checked and the remaining gaps in `RESULTS.md`. Never mark a file as final or upload it unless asked.
