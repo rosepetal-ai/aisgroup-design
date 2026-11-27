@@ -4,6 +4,8 @@ Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design
 
 Paths and commands run from the plugin folder (`plugin/`, which holds its own `package.json`, `print/` and `engine/`). Production rules: [production-rules.md](references/production-rules.md).
 
+When a piece needs a product screenshot, follow [UI capture and sign-in](../asset-library/references/ui-capture.md).
+
 ## Choose and edit the source
 
 | Piece | Canonical editable source | Shared design | Existing exporter |

@@ -13,6 +13,8 @@ Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design
 2. Identify the actual file, provenance, approval, rights and intended use.
 3. Return verified candidates and explicit gaps; register or change media only when requested.
 
+For a product screenshot, follow [UI capture and sign-in](references/ui-capture.md).
+
 Source rules, loaded only when needed:
 
 - [Retained rules 01](references/retained-rules-01.md)
