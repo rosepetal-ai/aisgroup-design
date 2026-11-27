@@ -48,6 +48,7 @@ function runtime(family) {
       fs.mkdirSync(pieces, { recursive: true });
       // Copy here because absolute junction targets would break when the staged directory moves.
       fs.cpSync(path.join(stage, 'plugin/print'), path.join(pieces, 'shared'), { recursive: true });
+      fs.copyFileSync(index, path.join(stage, 'plugin/templates/catalog.json'));
       try { fs.renameSync(stage, target); } catch (error) { if (!fs.existsSync(target)) throw error; }
     } finally { fs.rmSync(stage, { recursive: true, force: true }); }
   }

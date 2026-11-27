@@ -30,5 +30,14 @@ export function templateCatalog(root) {
     const rel = file.slice('guide/public/'.length);
     assets[id] = { url: 'https://aisgroup-design.web.app/' + rel, sha256: createHash('sha256').update(fs.readFileSync(path.join(publicRoot, rel))).digest('hex') };
   }
-  return { revision, entries, assets };
+  const sourceAssets = JSON.parse(fs.readFileSync(path.join(root, 'library/catalog.json'))).assets;
+  const byPath = new Map(sourceAssets.map(asset => [asset.path, asset]));
+  const media = {};
+  for (const entry of Object.values(entries)) {
+    for (const rel of entry.media || []) {
+      const asset = byPath.get('library/media/' + rel);
+      media[rel] = { status: asset?.status || 'unlisted', id: asset?.id || null };
+    }
+  }
+  return { revision, entries, media, assets };
 }
