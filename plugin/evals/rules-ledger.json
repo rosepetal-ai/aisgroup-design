@@ -47271,8 +47271,8 @@
       "owner": "skills/product-ui/references/retained-rules-01.md",
       "enforcedBy": [],
       "status": "superseded",
-      "supersededBy": "AIS-93ad6142113e",
-      "supersededNote": "The package is public on npmjs as @rosepetal/design: there is no private registry to set up. Apply the current rule."
+      "supersededBy": "AIS-866552460e12",
+      "supersededNote": "The package is public on npmjs as @aisgroup/design, under the name the imports use: no alias or private registry. Apply the current rule."
     },
     {
       "id": "AIS-e66a0220aa10",
@@ -49080,8 +49080,8 @@
       "owner": "skills/product-ui/references/retained-rules-02.md",
       "enforcedBy": [],
       "status": "superseded",
-      "supersededBy": "AIS-93ad6142113e",
-      "supersededNote": "The package is public on npmjs as @rosepetal/design: there is no private registry to set up. Apply the current rule."
+      "supersededBy": "AIS-866552460e12",
+      "supersededNote": "The package is public on npmjs as @aisgroup/design, under the name the imports use: no alias or private registry. Apply the current rule."
     },
     {
       "id": "AIS-93ad6142113e",
@@ -49092,6 +49092,25 @@
           "file": "guide/src/content/guide/en/using-components.mdx",
           "line": 20,
           "text": "1. Install `@aisgroup/design` from npm, where it is published as `@rosepetal/design`, under the name the imports use: `npm install @aisgroup/design@npm:@rosepetal/design`."
+        }
+      ],
+      "ownerSkill": "product-ui",
+      "owner": "skills/product-ui/references/retained-rules-02.md",
+      "enforcedBy": [],
+      "addedAfterBaseline": true,
+      "status": "superseded",
+      "supersededBy": "AIS-866552460e12",
+      "supersededNote": "The package is public on npmjs as @aisgroup/design, under the name the imports use: no alias or private registry. Apply the current rule."
+    },
+    {
+      "id": "AIS-866552460e12",
+      "rule": "Install `@aisgroup/design` from npm: `npm install @aisgroup/design`.",
+      "source": "guide/src/content/guide/en/using-components.mdx:20",
+      "sources": [
+        {
+          "file": "guide/src/content/guide/en/using-components.mdx",
+          "line": 20,
+          "text": "1. Install `@aisgroup/design` from npm: `npm install @aisgroup/design`."
         }
       ],
       "ownerSkill": "product-ui",
@@ -96994,6 +97013,17 @@
       "supersededRules": [
         "AIS-1ac1f58b2e6a",
         "AIS-9b38fd67eb84"
+      ],
+      "lost": 0
+    },
+    "npm-aisgroup-scope": {
+      "date": "2026-11-27",
+      "decision": "@aisgroup/design and @aisgroup/design-lint are published on npmjs under their own names, in the aisgroup organisation; the @rosepetal/* names are deprecated.",
+      "currentRule": "AIS-866552460e12",
+      "supersededRules": [
+        "AIS-93ad6142113e",
+        "AIS-d35c5590446e",
+        "AIS-de84bbd1bd06"
       ],
       "lost": 0
     }
