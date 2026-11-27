@@ -5,11 +5,12 @@ import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { ROOT, validateManifests, validateSkills, validateArchive } from './validate-plugin.mjs';
+import { templateCatalog } from './template-catalog.mjs';
 import { checkLedger } from './rules-ledger.mjs';
 
 // The lite edition is what claude.ai and Anthropic's directory accept (under 512 files and 50 MiB): skills, hooks and
 // checks with the hosted design server. The studio (renderer, templates, pieces) stays in the full Git install.
-const LITE = /^(?:\.claude-plugin|skills|hooks|scripts|commands)\/|^(?:README\.md|LICENSE|plugin\.json|mcp\.json)$/;
+const LITE = /^(?:\.claude-plugin|skills|hooks|scripts|commands|templates)\/|^(?:README\.md|LICENSE|plugin\.json|mcp\.json)$/;
 
 export function packagePlugin(dest, { zip = false, proposed = true, lite = false } = {}) {
   if (fs.existsSync(dest)) throw new Error(`Destination already exists: ${dest}`);
@@ -45,6 +46,7 @@ export function packagePlugin(dest, { zip = false, proposed = true, lite = false
       fs.copyFileSync(path.join(repo, f), path.join(dest, f));
     }
   }
+  if (lite) fs.writeFileSync(path.join(dest, 'templates/catalog.json'), JSON.stringify(templateCatalog(ROOT), null, 2) + '\n');
   if (lite) for (const f of ['mcp.json', '.claude-plugin/plugin.json']) {
     const manifest = JSON.parse(fs.readFileSync(path.join(dest, f), 'utf8'));
     delete manifest.mcpServers.studio;
@@ -72,7 +74,8 @@ export function packagePlugin(dest, { zip = false, proposed = true, lite = false
   if (zip) {
     const run = spawnSync('python3', ['-c', 'import shutil,sys; shutil.make_archive(sys.argv[1], "zip", sys.argv[2])', dest, dest], { encoding: 'utf8' });
     if (run.status) throw new Error(run.stderr);
-    if (fs.statSync(dest + '.zip').size > 200 * 1024 * 1024) throw new Error('Compressed archive exceeds upload limit');
+    if (lite && archive.files > 512) throw new Error('Lightweight edition exceeds 512 files');
+    if (fs.statSync(dest + '.zip').size > (lite ? 50 : 200) * 1024 * 1024) throw new Error('Compressed archive exceeds upload limit');
   }
   return { ...archive, skills: skills.count, proposed };
 }
