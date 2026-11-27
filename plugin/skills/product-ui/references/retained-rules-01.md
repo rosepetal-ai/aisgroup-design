@@ -74,7 +74,7 @@ Source: plugin/skills/product-ui/SKILL.md:28.
 
 ## AIS-de84bbd1bd06
 
-Historical wording: explicitly superseded by AIS-93ad6142113e. The package is public on npmjs as @rosepetal/design: there is no private registry to set up. Apply the current rule.
+Historical wording: explicitly superseded by AIS-866552460e12. The package is public on npmjs as @aisgroup/design, under the name the imports use: no alias or private registry. Apply the current rule.
 
 <!-- AIS-de84bbd1bd06 -->
 Every component and brand block of `@aisgroup/design` 0.0.0 (`rosepetal-ai/aisgroup-design@dev:packages/design`), the Node-RED widgets and the Profiler's parts. Each entry gives what it is for and its source as `owner/repo@branch:path`. Apps install the package (`npm i @aisgroup/design`, from the company's Artifact Registry) and import `@aisgroup/design/styles.css` after Tailwind. The code of every component and block is also a shadcn-vue registry item: install it with `npx shadcn-vue@latest add https://design.aisgroup.ai/r/<id>.json` (the tokens are `r/theme.json`), read it with the MCP tool design_code, or open `brand/registry/<id>.json` in the AIS Group Design plugin. Live examples: /en/components/<id>/. When this index and the code disagree, the code is right about how a part works and the guide is right about how to use it. Brand rules: /en/brand.md.
