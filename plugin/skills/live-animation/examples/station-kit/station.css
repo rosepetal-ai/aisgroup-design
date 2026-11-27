@@ -1,0 +1,14 @@
+@import 'tailwindcss' source(none);
+@import '../../templates/explainer/vendor/aisgroup/design/styles.css';
+@import './series.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@source './Station.vue';
+:root {--radius:0px;--font-family:Inter,Arial,sans-serif;font-family:var(--font-family);color:#0f1729;background:#f1f5f9}
+body {margin:0}
+canvas {display:block;width:100vw;height:100dvh}
+.identity {position:absolute;top:5dvh;left:5vw;width:100px}
+footer {position:absolute;bottom:max(16px,5dvh);left:max(16px,5vw);right:max(16px,5vw)}
+
+.opening {position:absolute;left:max(16px,5vw);top:calc(max(16px,5dvh) + 68.7px + 32px);max-width:48vw;margin:0;pointer-events:none}
+@media(orientation:portrait){.opening{max-width:90vw}}

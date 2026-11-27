@@ -1,0 +1,57 @@
+{
+  "name": "ais-vision-systems_carousel-product_es_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "El AIS REV 360 Cables revisa la superficie de tubos metálicos y extruidos mientras salen de la línea: cuatro cámaras en color alrededor del tubo, luz uniforme en todo el perímetro y los datos de producción guardados desde el primer minuto. Las imágenes son del sistema en funcionamiento. Envíanos muestras",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/real/rev360-cables_factory-floor.jpg",
+      "split": 0.6,
+      "focus": [
+        45,
+        45
+      ],
+      "headline": "La superficie del tubo, *a 360°*"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360-cables_tunnel.jpg",
+      "split": 0.6,
+      "focus": [
+        50,
+        45
+      ],
+      "headline": "Cada tubo pasa|por el túnel",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360-cables_camera-mounts.jpg",
+      "split": 0.6,
+      "headline": "Cámaras alrededor|de todo el tubo",
+      "bg": "white"
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/real/rev360-cables_rosepetal-screen.jpg",
+      "split": 0.6,
+      "headline": "Imágenes y resultados,|en pantalla",
+      "bg": "white"
+    },
+    {
+      "type": "contact",
+      "headline": "¿Lo probamos *con tus tubos*?",
+      "action": "Envíanos muestras",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ]
+    }
+  ]
+}

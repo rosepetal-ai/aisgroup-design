@@ -1,0 +1,23 @@
+{
+  "name": "ais-vision-systems_post-result_es_template",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "copy": "Daymsa estima en un 95 % la reducción del tiempo y del personal que dedicaba a la inspección de calidad, después de instalar el control de etiqueta y tapón de AIS en su línea de envasado. Tres cámaras revisan el envase en la línea: el roscado del tapón, la etiqueta, el código de barras y los datos variables. Descarga el caso de éxito",
+  "shots": [
+    {
+      "type": "stat",
+      "evidence": "case",
+      "source": "Caso de éxito Daymsa, aisvision.com, 20 de octubre de 2020",
+      "basis": "estimated",
+      "value": "95",
+      "unit": " %",
+      "text": "menos tiempo y personal en la inspección de calidad",
+      "note": "Estimación de Daymsa. Caso publicado en aisvision.com, 2020."
+    }
+  ]
+}

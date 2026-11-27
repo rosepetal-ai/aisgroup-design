@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspection station | AIS development example</title>
+<style>
+  body { margin:0; font:1rem system-ui; color:#0f1729; background:white }
+  canvas { display:block; width:100%; height:65vh }
+  label, output { display:block; margin:1rem } input { width:min(60vw,40rem); vertical-align:middle }
+</style>
+<canvas aria-label="Conveyor with a cap inspection camera and reject gate"></canvas>
+<label>Inspection time <input type="range" min="0" max="5" step="0.01" value="2.1"></label>
+<output></output>
+<script type="module" src="./station.ts"></script>
+</html>

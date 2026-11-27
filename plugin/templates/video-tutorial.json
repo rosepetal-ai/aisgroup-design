@@ -1,0 +1,14 @@
+{
+  "name": "rosepetal_video-tutorial_en_template",
+  "kind": "video",
+  "brand": "rosepetal",
+  "lang": "en",
+  "formats": ["16x9"],
+  "music": { "src": "@guide/kit/files/rosepetal_music_quiet-beauty_v01.m4a", "in": 0, "fade": 2.5 },
+  "shots": [
+    { "type": "intro" },
+    { "type": "title", "title": "[The task, in a few words]", "bg": "blue", "seconds": 2 },
+    { "type": "recording", "src": "take/recording.mp4", "steps": "take/steps.json", "pointer": "take/pointer.json" },
+    { "type": "end", "published": true }
+  ]
+}

@@ -1,0 +1,64 @@
+---
+// __PIECE__ as an explainer: the catalogue's scene (../__PIECE__.astro), driven by the viewer with the design
+// system's control bar, its chapters on the timeline, the camera views and labels on the parts. The page is the stage:
+// it fills the window, the logo signs it at the top left (no site header).
+import '@aisgroup/web/styles.css';
+import '../../../__PIECE__/explainer/explainer.css';
+import Bar from '../../../__PIECE__/explainer/Bar.vue';
+import labelOk from '../../../__PIECE__/img/label-ok.webp?url';
+import labelExpiry from '../../../__PIECE__/img/label-expwrong.webp?url';
+---
+
+<html lang="en" data-brand="rosepetal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pharma line | Rosepetal</title>
+    <meta name="description" content="How the AIS REV 360 Compact inspects every pill bottle all the way round, chapter by chapter." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.ico?v=eb24ad29" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg?v=2f09a643" type="image/svg+xml" />
+    <!-- The scene's two big files and the labels it needs before it goes live start with the page -->
+    <link rel="preload" href="/models/rev360-compact.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="/models/hall_neutral_256.hdr" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href={labelOk} as="image" crossorigin="anonymous" />
+    <link rel="preload" href={labelExpiry} as="image" crossorigin="anonymous" />
+  </head>
+  <body>
+    <h1 class="sr-only">Pharma line: every bottle inspected all the way round.</h1>
+    <figure class="pl-stage" data-explainer data-anim-stage>
+      <img
+        class="pl-poster"
+        data-poster
+        src="/images/animations/__PIECE__.webp"
+        alt="Amber pill bottles on a conveyor loop through the AIS REV 360 Compact inspection machine, its Panel PC beside the line."
+      />
+      <canvas class="pl-canvas" aria-hidden="true"></canvas>
+      <div class="ple-labels" data-labels aria-hidden="true"></div>
+      <div class="pl-ui" data-ui></div>
+      <img class="ple-logo" src="/rosepetal-logo-brand.svg" width="140" height="27" alt="Rosepetal" />
+      <img class="ple-logo ple-logo--white" src="/rosepetal-logo-vw.svg" width="140" height="27" alt="" aria-hidden="true" />
+      <div class="pl-open" data-open aria-hidden="true">
+        <p class="pl-open__title"><span data-mask><span style="animation-delay: 0.15s">Pharma &amp;</span></span> <span data-mask><span style="animation-delay: 0.27s">Healthcare</span></span></p>
+        <p class="pl-open__line"><span data-mask><span style="animation-delay: 0.39s">Every bottle inspected.</span></span> <span data-mask><span style="animation-delay: 0.51s">Every batch on the record.</span></span></p>
+      </div>
+      <div class="ple-chapter" data-chapter aria-live="polite"><p class="ple-chapter__name"></p><p class="ple-chapter__line"></p></div>
+      <div class="ple-bar"><Bar client:load /></div>
+    </figure>
+
+    <script is:inline>
+      // The opening title's words rise once Inter is ready: never a swap from the fallback font mid-rise
+      (function () {
+        var stage = document.querySelector('[data-explainer]');
+        var go = function () { stage && stage.classList.add('is-type'); };
+        if (!document.fonts || !document.fonts.load) return go();
+        Promise.all([document.fonts.load('600 64px Inter'), document.fonts.load('500 24px Inter')]).then(go, go);
+        setTimeout(go, 2500);
+      })();
+    </script>
+    <script>
+      import { mountExplainer } from '../../../__PIECE__/explainer/main';
+      document.querySelectorAll<HTMLElement>('[data-explainer]').forEach(mountExplainer);
+    </script>
+  </body>
+</html>

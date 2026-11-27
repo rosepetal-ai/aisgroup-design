@@ -1,0 +1,80 @@
+# Using the components
+
+Install the product package and use its components and tokens together.
+
+## Set up an app
+
+1. Install `@aisgroup/design` from npm: `npm install @aisgroup/design`.
+2. Import `@aisgroup/design/styles.css` after Tailwind’s theme and utilities.
+3. Import components by folder and blocks by file: `import { Button } from '@aisgroup/design/ui/button'`, `import TopBar from '@aisgroup/design/blocks/TopBar.vue'`.
+4. Use a block wherever one fits: TopBar for the bar, PageLayout for each page (with its side menu where the page has one), LoginPage and ConfirmDialog. Start from their examples.
+5. When the app’s own design notes disagree with the package or this guide, the package wins: change the notes.
+6. Keep Inter and the full-width page, and open every page under the TopBar block.
+7. Install `@aisgroup/design-lint` the same way (`npm install -D @aisgroup/design-lint`) and run `npx design-lint init --write`. ESLint then shows these rules in the editor, `lint:ui` fails on new findings and CI checks the screens at 1920, 1440 and 390 px.
+
+## Compose, do not restyle
+
+Classes on a component only place it on the page. Its look comes from its variant and size.
+
+```vue
+<div class="flex items-center justify-between gap-6">
+  <div class="flex flex-col gap-1">
+    <h2 class="font-heading text-lg font-medium">Models</h2>
+    <p class="text-muted-foreground">3 models</p>
+  </div>
+  <Button><PlusIcon data-icon="inline-start" />New model</Button>
+</div>
+```
+
+## Buttons
+
+| Variant | For |
+| --- | --- |
+| `default` | The primary action of a page, section or dialog |
+| `outline` | Secondary actions and toolbars |
+| `ghost` | Icon and row actions |
+| `secondary` | Cancel, in a dialog footer |
+| `destructive` | Deletes, after a confirmation that names the target |
+| `link` | Text actions inside a sentence |
+
+Header and toolbar buttons are `h-9` (36 px); icons are 16 px. On touch screens and operator panels, targets are 44 px. `topbar` and `topbar-tab` are only for the top bar, `modal` only for dialog footers.
+
+## Which component for which job
+
+| Content | Use |
+| --- | --- |
+| Lists of rows | Rows divided by lines (`divide-y border-y`), the selected row `bg-muted font-medium` |
+| Tables | DataTable with sortable headers and numbered Pagination; number columns take `meta.numeric`, the main text column `meta.primary` and the others `meta.showFrom`, so the table never scrolls sideways |
+| Datasets, models, images | Item `variant="outline"`; image tiles `size="sm"` with the image as ItemHeader |
+| Facts | A label-over-value grid (`dt` muted, `dd`) |
+| Figures of an overview | The `figure-cards` block, one per group of figures that belong together |
+| Forms | Field, FieldGroup and FieldDescription, label above the control, `max-w-sm` |
+| One of a few modes | RadioGroup of choice cards; a tool choice is a ToggleGroup |
+| A long list to choose from | Combobox with search; a short list is a Select |
+| Row actions | A ghost `icon-sm` button with an Ellipsis that opens a DropdownMenu |
+| Sections side by side | Cards in `grid gap-4 xl:grid-cols-2`; the Cards of a row share its height, so no `items-start` |
+| The account | An Avatar in the top bar that opens a DropdownMenu; its last item is Log out |
+| Status | StatusLabel: a toned icon and the word, in muted text |
+| Loading | Skeleton in the shape of the content; Spinner inside the working button; the `brand-loader` block only for long processes running in the background |
+
+## Dialogs
+
+DialogHeader (the title on a grey band), DialogBody, then DialogFooter with full-width buttons: Cancel `variant="secondary" size="modal"` first, the action `size="modal"` second. Form dialogs give the form an `id` and put its submit button in the footer. Footer buttons carry text only (Create, Save); while the action runs, a Spinner sits inside its button. A click outside or Esc closes the dialog, except while its action runs.
+
+## Notices and confirmations
+
+Notices are `toast()` from `vue-sonner`, called from anywhere, with one Toaster in App. A confirmation is the ConfirmDialog block; code that asks without a page of its own, such as a menu item or a store, calls `useConfirm().ask()`, and the one ConfirmHost in App shows it.
+
+## Data colours
+
+Tags, chart series and dataset splits have colours of their own in `@aisgroup/design/styles.css`: the tags (`--tag-normal`, `--tag-anomaly`, `--tag-default`, `--tag-unclassified`), the splits (`--split-train`, `--split-validation`, `--split-test`, `--split-predetermined`) and the chart series (`--chart-1` to `--chart-3`):
+
+- Tag colours are the same in light and dark mode, so a defect class never changes colour; the first and third chart series and the training split take a lighter step in dark mode. Every token in both modes is on [Light and dark themes](../../design-language/references/themes.md#tokens).
+- They never appear in navigation, buttons or marketing graphics.
+- Each one is paired with a label; colour alone never identifies a class.
+
+## Layout and targets
+
+Product screens are full width. They use the Tailwind breakpoints, not the website grid. On desktop, toolbar and header buttons are 36 px (`h-9`) with 16 px icons; on touch screens and operator panels, every target is 44 px. Text follows the product scale on [Typography](../../design-language/references/typography.md).
+
+Menus, buttons, tabs and badges fit their longest label: they never wrap or clip. Long user data truncates, with the full text in a Tooltip or `title`. Buttons in one row share one height. Nothing scrolls sideways at any width, neither the page nor anything on it; only code and logs may.

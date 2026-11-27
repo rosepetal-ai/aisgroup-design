@@ -1,0 +1,27 @@
+/* RSM viewer-controlled series. Edge, opening and caption metrics follow the live viewport. */
+[data-scene-opening] {
+  margin: 0;
+  color: var(--foreground, #0f1729);
+  font: 600 min(8.889dvh, 8vw)/1.08 Inter, Arial, sans-serif;
+  letter-spacing: -.02em;
+}
+[data-scene-caption] {
+  margin: 0 0 16px;
+  font: 500 max(14px, min(3.7dvh, 3.55vw))/1.65 Inter, Arial, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
+[data-scene-caption] p { margin: 0; }
+[data-scene-caption] span {
+  padding: .15em .4em;
+  background: var(--overlay, #0f1729);
+  color: var(--overlay-foreground, #fff);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@media (orientation: portrait) {
+  [data-scene-opening] { font-size: min(8.889dvh, 12vw); }
+}
+@media (max-height: 480px) {
+  [data-scene-caption] { margin-bottom: 8px; }
+}

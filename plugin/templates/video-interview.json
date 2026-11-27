@@ -1,0 +1,230 @@
+{
+  "name": "rosepetal_video-interview_es_template",
+  "kind": "video",
+  "brand": "rosepetal",
+  "lang": "es",
+  "formats": [
+    "16x9"
+  ],
+  "captionsFrom": "@lib/media/rosepetal/vision2026-interview.es.words.json3",
+  "corrections": [
+    [
+      "Jensen Juan",
+      "Jensen Huang"
+    ],
+    [
+      "Nvidia",
+      "NVIDIA"
+    ],
+    [
+      "nuestro misión",
+      "nuestra misión"
+    ],
+    [
+      "serla",
+      "ser hacerla"
+    ],
+    [
+      "le le",
+      "le"
+    ],
+    [
+      "\"Enséñame",
+      "«Enséñame"
+    ],
+    [
+      "falla.\"",
+      "falla»."
+    ]
+  ],
+  "shots": [
+    {
+      "type": "title",
+      "overline": "VISION 2026, Stuttgart",
+      "title": "La IA ya puede hacer más.|¿Quién decide lo que debe hacer?",
+      "seconds": 3.4
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 90.8,
+      "out": 97.4,
+      "scale": 1.5,
+      "focus": [
+        31,
+        40
+      ],
+      "voice": true,
+      "lowerThird": {
+        "name": "José Racionero",
+        "role": "CEO y cofundador de Rosepetal"
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1248.0,
+      "out": 1251.3,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 97.4
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1255.0,
+      "out": 1258.3,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 100.7
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1239.1,
+      "out": 1241.9,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 798.0
+      },
+      "wipe": true
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1214.0,
+      "out": 1216.2,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 800.8
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 784.0,
+      "out": 787.1,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 803.0
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1217.0,
+      "out": 1218.5,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 806.1
+      }
+    },
+    {
+      "type": "title",
+      "bg": "white",
+      "overline": "José Racionero, Rosepetal",
+      "title": "«Menos catastrofismo no significa menos seguridad»",
+      "seconds": 7.4,
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 847.7
+      },
+      "wipe": true
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1223.0,
+      "out": 1226.0,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 1202.6
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1206.0,
+      "out": 1209.95,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 1205.5
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1210.0,
+      "out": 1213.65,
+      "scale": 1.25,
+      "focus": [
+        20,
+        0
+      ],
+      "voice": {
+        "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+        "in": 1210.6
+      }
+    },
+    {
+      "type": "clip",
+      "src": "@lib/media/rosepetal/vision2026-interview.mp4",
+      "in": 1328.7,
+      "out": 1340.9,
+      "scale": 1.5,
+      "focus": [
+        68,
+        40
+      ],
+      "voice": true
+    },
+    {
+      "type": "end",
+      "url": "rosepetal.ai",
+      "seconds": 1.5,
+      "wipe": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "description": "AIS Group design rules, enforced: after each edit of a Vue, CSS or i18n file in a Vue app, the static audit of that file; at the end of a turn or subagent, the audit of the changed files, which keeps the agent working while findings remain.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/ui-contract.mjs\" hook", "timeout": 30 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/ui-contract.mjs\" stop", "timeout": 60 }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/ui-contract.mjs\" stop", "timeout": 60 }
+        ]
+      }
+    ]
+  }
+}

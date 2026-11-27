@@ -1,0 +1,55 @@
+{
+  "name": "ais-vision-systems_carousel-partner_es_template",
+  "kind": "carousel",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "copy": "El Omron V275 verifica los códigos 1D y 2D en el momento de imprimir la etiqueta y comprueba también textos y logos. AIS Vision Systems distribuye los verificadores Omron LVS. Solicita una demo",
+  "shots": [
+    {
+      "type": "hero",
+      "src": "@lib/media/linkedin-2026/pdf-images/v275/img-001-000.png",
+      "focus": [
+        32,
+        50
+      ],
+      "headline": "Códigos legibles, *verificados en línea*",
+      "split": 0.6
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/linkedin-2026/pdf-images/v275/img-002-001.png",
+      "focus": [
+        32,
+        38
+      ],
+      "headline": "Un código que no se lee|vuelve como devolución",
+      "bg": "white",
+      "split": 0.6,
+      "scale": 1.9
+    },
+    {
+      "type": "panel",
+      "src": "@lib/media/linkedin-2026/pdf-images/v275/img-003-002.png",
+      "focus": [
+        45,
+        40
+      ],
+      "headline": "Calidad de impresión, códigos y textos",
+      "bg": "white",
+      "split": 0.6
+    },
+    {
+      "type": "contact",
+      "headline": "¿Verificamos *tus etiquetas*?",
+      "action": "Solicita una demo",
+      "rows": [
+        {
+          "text": "aisvision.com"
+        },
+        {
+          "text": "+34 931 003 035"
+        }
+      ]
+    }
+  ]
+}

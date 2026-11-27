@@ -1,0 +1,33 @@
+{
+  "name": "rosepetal_post-quote_es_template",
+  "kind": "post",
+  "brand": "rosepetal",
+  "lang": "es",
+  "formats": [
+    "4x5",
+    "1x1"
+  ],
+  "copy": "En VISION 2026, José Racionero habló de cómo decidir si un sistema con IA es fiable: con datos medidos en la línea, no con impresiones. La entrevista completa está en nuestro canal. Envíanos muestras",
+  "shots": [
+    {
+      "type": "quote",
+      "quote": "Una estimación personal no es una tasa de fallos medida.",
+      "name": "José Racionero",
+      "role": "CEO y cofundador de Rosepetal",
+      "portrait": "@lib/media/rosepetal/jose-racionero_portrait.jpg",
+      "consent": "José Racionero, en la entrevista que Rosepetal publicó en YouTube (dVtk_PbZgHU, octubre de 2026)",
+      "permission": "Sus palabras en la entrevista publicada por Rosepetal en YouTube (dVtk_PbZgHU, minuto 13:04, octubre de 2026)",
+      "src": "@lib/media/rosepetal/vision2026_jose-racionero-stand.jpg",
+      "split": 0.5,
+      "focus": [
+        50,
+        30
+      ],
+      "formats": {
+        "1x1": {
+          "split": 0.4
+        }
+      }
+    }
+  ]
+}

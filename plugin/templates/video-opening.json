@@ -1,0 +1,8 @@
+{
+  "name": "ais-vision-systems_video-opening_xx_template",
+  "kind": "video",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": ["16x9", "9x16"],
+  "shots": [{ "type": "opening" }]
+}

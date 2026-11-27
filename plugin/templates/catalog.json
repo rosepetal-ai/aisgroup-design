@@ -1,0 +1,733 @@
+{
+  "revision": "1b7c1547793efa7b56d4797a86c45b8e7099437f",
+  "entries": {
+    "pieces/brochures/cables/cables.en": {
+      "family": "print",
+      "source": "pieces/brochures/cables/cables.en.html"
+    },
+    "pieces/brochures/cables/cables.es": {
+      "family": "print",
+      "source": "pieces/brochures/cables/cables.es.html"
+    },
+    "pieces/brochures/catalogue-beverage/catalogue.en": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-beverage/catalogue.en.html"
+    },
+    "pieces/brochures/catalogue-beverage/catalogue.es": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-beverage/catalogue.es.html"
+    },
+    "pieces/brochures/catalogue-cosmetics/catalogue.en": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-cosmetics/catalogue.en.html"
+    },
+    "pieces/brochures/catalogue-cosmetics/catalogue.es": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-cosmetics/catalogue.es.html"
+    },
+    "pieces/brochures/catalogue-food/catalogue.en": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-food/catalogue.en.html"
+    },
+    "pieces/brochures/catalogue-food/catalogue.es": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-food/catalogue.es.html"
+    },
+    "pieces/brochures/catalogue-pharma/catalogue.en": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-pharma/catalogue.en.html"
+    },
+    "pieces/brochures/catalogue-pharma/catalogue.es": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-pharma/catalogue.es.html"
+    },
+    "pieces/brochures/catalogue-wine/catalogue.en": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-wine/catalogue.en.html"
+    },
+    "pieces/brochures/catalogue-wine/catalogue.es": {
+      "family": "print",
+      "source": "pieces/brochures/catalogue-wine/catalogue.es.html"
+    },
+    "pieces/brochures/compact/compact.en": {
+      "family": "print",
+      "source": "pieces/brochures/compact/compact.en.html"
+    },
+    "pieces/brochures/compact/compact.es": {
+      "family": "print",
+      "source": "pieces/brochures/compact/compact.es.html"
+    },
+    "pieces/brochures/hopper/hopper.en": {
+      "family": "print",
+      "source": "pieces/brochures/hopper/hopper.en.html"
+    },
+    "pieces/brochures/hopper/hopper.es": {
+      "family": "print",
+      "source": "pieces/brochures/hopper/hopper.es.html"
+    },
+    "pieces/brochures/kariko/kariko.en": {
+      "family": "print",
+      "source": "pieces/brochures/kariko/kariko.en.html"
+    },
+    "pieces/brochures/kariko/kariko.es": {
+      "family": "print",
+      "source": "pieces/brochures/kariko/kariko.es.html"
+    },
+    "pieces/brochures/opticais/opticais.es": {
+      "family": "print",
+      "source": "pieces/brochures/opticais/opticais.es.html"
+    },
+    "pieces/brochures/pharma/pharma.en": {
+      "family": "print",
+      "source": "pieces/brochures/pharma/pharma.en.html"
+    },
+    "pieces/brochures/pharma/pharma.es": {
+      "family": "print",
+      "source": "pieces/brochures/pharma/pharma.es.html"
+    },
+    "pieces/brochures/rosepetal-site/brochure.es": {
+      "family": "print",
+      "source": "pieces/brochures/rosepetal-site/brochure.es.html"
+    },
+    "pieces/brochures/rosepetal/brochure.es": {
+      "family": "print",
+      "source": "pieces/brochures/rosepetal/brochure.es.html"
+    },
+    "pieces/brochures/standard/standard.en": {
+      "family": "print",
+      "source": "pieces/brochures/standard/standard.en.html"
+    },
+    "pieces/brochures/standard/standard.es": {
+      "family": "print",
+      "source": "pieces/brochures/standard/standard.es.html"
+    },
+    "pieces/brochures/vacuum/vacuum.en": {
+      "family": "print",
+      "source": "pieces/brochures/vacuum/vacuum.en.html"
+    },
+    "pieces/brochures/vacuum/vacuum.es": {
+      "family": "print",
+      "source": "pieces/brochures/vacuum/vacuum.es.html"
+    },
+    "pieces/datasheets/cables/cables.es": {
+      "family": "print",
+      "source": "pieces/datasheets/cables/cables.es.html"
+    },
+    "pieces/datasheets/compact/compact.es": {
+      "family": "print",
+      "source": "pieces/datasheets/compact/compact.es.html"
+    },
+    "pieces/datasheets/hopper/hopper.es": {
+      "family": "print",
+      "source": "pieces/datasheets/hopper/hopper.es.html"
+    },
+    "pieces/datasheets/kariko/kariko.es": {
+      "family": "print",
+      "source": "pieces/datasheets/kariko/kariko.es.html"
+    },
+    "pieces/datasheets/lvs-9510/lvs-9510.en": {
+      "family": "print",
+      "source": "pieces/datasheets/lvs-9510/lvs-9510.en.html"
+    },
+    "pieces/datasheets/lvs-9510/lvs-9510.es": {
+      "family": "print",
+      "source": "pieces/datasheets/lvs-9510/lvs-9510.es.html"
+    },
+    "pieces/datasheets/opticais/opticais.es": {
+      "family": "print",
+      "source": "pieces/datasheets/opticais/opticais.es.html"
+    },
+    "pieces/datasheets/pharma/pharma.es": {
+      "family": "print",
+      "source": "pieces/datasheets/pharma/pharma.es.html"
+    },
+    "pieces/datasheets/standard/standard.es": {
+      "family": "print",
+      "source": "pieces/datasheets/standard/standard.es.html"
+    },
+    "pieces/decks/automotive/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/automotive/content.es.json"
+    },
+    "pieces/decks/beverage/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/beverage/content.es.json"
+    },
+    "pieces/decks/biscuits/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/biscuits/content.es.json"
+    },
+    "pieces/decks/canning/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/canning/content.es.json"
+    },
+    "pieces/decks/corporate-2026/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/corporate-2026/content.es.json"
+    },
+    "pieces/decks/customer-logos/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/customer-logos/content.es.json"
+    },
+    "pieces/decks/machine-section-hopper/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/machine-section-hopper/content.es.json"
+    },
+    "pieces/decks/wine/content.es": {
+      "family": "decks",
+      "source": "pieces/decks/wine/content.es.json"
+    },
+    "pieces/sales/case-study/case-study.es": {
+      "family": "print",
+      "source": "pieces/sales/case-study/case-study.es.html"
+    },
+    "pieces/sales/proposal/proposal.es": {
+      "family": "print",
+      "source": "pieces/sales/proposal/proposal.es.html"
+    },
+    "pieces/stationery/letterhead/ais-vision-systems": {
+      "family": "stationery",
+      "source": "pieces/stationery/letterhead/ais-vision-systems.html"
+    },
+    "print/templates/machine.es": {
+      "family": "print",
+      "source": "print/templates/machine.es.html"
+    },
+    "carousel-application": {
+      "family": "social-video",
+      "source": "templates/carousel-application.json",
+      "media": [
+        "rev360/still-rev360-operator-screen.png",
+        "real/rev360_spray-cans-entering.jpg",
+        "rev360/still-rev360-pet-four-views.png",
+        "real/rev360_machine-on-line.jpg"
+      ]
+    },
+    "carousel-defects": {
+      "family": "social-video",
+      "source": "templates/carousel-defects.json",
+      "media": [
+        "3d/renders/rev360-compact/cans_lineup_clean.jpg",
+        "3d/renders/rev360-compact/cans_lineup_es.jpg",
+        "3d/renders/rev360-compact/cans_dent-pair_es.jpg",
+        "3d/renders/rev360-compact/cans_code-pair_es.jpg"
+      ]
+    },
+    "carousel-event": {
+      "family": "social-video",
+      "source": "templates/carousel-event.json",
+      "media": [
+        "rosepetal/mwc2026_demo.jpg",
+        "rosepetal/mwc2026_stand.jpg",
+        "rosepetal/mwc2026_talk.jpg"
+      ]
+    },
+    "carousel-guide": {
+      "family": "social-video",
+      "source": "templates/carousel-guide.json",
+      "media": [
+        "advanced-factories-2026/still-bottling-line.jpg",
+        "real/kariko_defect-screen.jpg"
+      ]
+    },
+    "carousel-partner": {
+      "family": "social-video",
+      "source": "templates/carousel-partner.json",
+      "media": [
+        "linkedin-2026/pdf-images/v275/img-001-000.png",
+        "linkedin-2026/pdf-images/v275/img-002-001.png",
+        "linkedin-2026/pdf-images/v275/img-003-002.png"
+      ]
+    },
+    "carousel-product": {
+      "family": "social-video",
+      "source": "templates/carousel-product.json",
+      "media": [
+        "real/rev360-cables_factory-floor.jpg",
+        "real/rev360-cables_tunnel.jpg",
+        "real/rev360-cables_camera-mounts.jpg",
+        "real/rev360-cables_rosepetal-screen.jpg"
+      ]
+    },
+    "carousel-sector": {
+      "family": "social-video",
+      "source": "templates/carousel-sector.json",
+      "media": [
+        "real/rev360-compact_can-line.jpg",
+        "real/rev360-compact_cans-entering.jpg",
+        "advanced-factories-2026/af26-can-demo_dents-tile.png",
+        "advanced-factories-2026/af26-can-demo_date-tile.png",
+        "real/rev360-compact_cans-on-guide.jpg"
+      ]
+    },
+    "post-callout": {
+      "family": "social-video",
+      "source": "templates/post-callout.json",
+      "media": [
+        "rev360/still-rev360-wine-four-views_blurred.png"
+      ]
+    },
+    "post-event": {
+      "family": "social-video",
+      "source": "templates/post-event.json",
+      "media": [
+        "advanced-factories-2026/af26_stand-hexagons.jpg"
+      ]
+    },
+    "post-features": {
+      "family": "social-video",
+      "source": "templates/post-features.json",
+      "media": [
+        "real/opticais_ocr-read.jpg",
+        "advanced-factories-2026/af26-can-demo_date-tile.png"
+      ]
+    },
+    "post-news": {
+      "family": "social-video",
+      "source": "templates/post-news.json",
+      "media": [
+        "real/ais_packaging-cluster-visit.jpg"
+      ]
+    },
+    "post-product": {
+      "family": "social-video",
+      "source": "templates/post-product.json",
+      "media": [
+        "3d/renders/hopper/hopper_juice_infeed_cover.jpg"
+      ]
+    },
+    "post-quote": {
+      "family": "social-video",
+      "source": "templates/post-quote.json",
+      "media": [
+        "rosepetal/jose-racionero_portrait.jpg",
+        "rosepetal/vision2026_jose-racionero-stand.jpg"
+      ]
+    },
+    "post-recap": {
+      "family": "social-video",
+      "source": "templates/post-recap.json",
+      "media": [
+        "real/packaging-talks2026_panel.jpg"
+      ]
+    },
+    "post-result": {
+      "family": "social-video",
+      "source": "templates/post-result.json"
+    },
+    "post-software": {
+      "family": "social-video",
+      "source": "templates/post-software.json",
+      "media": [
+        "real/rosepetal_bread-formation-dataset.webp"
+      ]
+    },
+    "video-announcement": {
+      "family": "social-video",
+      "source": "templates/video-announcement.json",
+      "media": [
+        "rev360/rev360-product-video.mp4"
+      ]
+    },
+    "video-case-study": {
+      "family": "social-video",
+      "source": "templates/video-case-study.json"
+    },
+    "video-defect-showcase": {
+      "family": "social-video",
+      "source": "templates/video-defect-showcase.json",
+      "media": [
+        "advanced-factories-2026/af26-can-demo_9x16_steady.mp4",
+        "advanced-factories-2026/af26-can-demo_dents.png"
+      ]
+    },
+    "video-end-card": {
+      "family": "social-video",
+      "source": "templates/video-end-card.json"
+    },
+    "video-event-recap": {
+      "family": "social-video",
+      "source": "templates/video-event-recap.json",
+      "media": [
+        "advanced-factories-2026/af26-03.mp4",
+        "advanced-factories-2026/af26-04.mp4",
+        "advanced-factories-2026/af26-09.mp4",
+        "advanced-factories-2026/af26-08.mp4",
+        "advanced-factories-2026/af26-07.mp4",
+        "advanced-factories-2026/af26-12.mp4",
+        "advanced-factories-2026/af26-17.mp4",
+        "advanced-factories-2026/af26-06.mp4"
+      ]
+    },
+    "video-event-teaser": {
+      "family": "social-video",
+      "source": "templates/video-event-teaser.json",
+      "media": [
+        "rev360/still-rev360-pet-four-views.png"
+      ]
+    },
+    "video-interview": {
+      "family": "social-video",
+      "source": "templates/video-interview.json",
+      "media": [
+        "rosepetal/vision2026-interview.es.words.json3",
+        "rosepetal/vision2026-interview.mp4"
+      ]
+    },
+    "video-opening": {
+      "family": "social-video",
+      "source": "templates/video-opening.json"
+    },
+    "video-sector-film": {
+      "family": "social-video",
+      "source": "templates/video-sector-film.json",
+      "media": [
+        "rev360/rev360-product-video.mp4"
+      ]
+    },
+    "video-tutorial": {
+      "family": "social-video",
+      "source": "templates/video-tutorial.json"
+    }
+  },
+  "media": {
+    "rev360/still-rev360-operator-screen.png": {
+      "status": "review",
+      "id": "still-rev360-operator-screen"
+    },
+    "real/rev360_spray-cans-entering.jpg": {
+      "status": "review",
+      "id": "real-rev360-cans"
+    },
+    "rev360/still-rev360-pet-four-views.png": {
+      "status": "review",
+      "id": "still-rev360-pet-four-views"
+    },
+    "real/rev360_machine-on-line.jpg": {
+      "status": "review",
+      "id": "real-rev360-machine-on-line"
+    },
+    "3d/renders/rev360-compact/cans_lineup_clean.jpg": {
+      "status": "approved",
+      "id": "render-cans-lineup-clean"
+    },
+    "3d/renders/rev360-compact/cans_lineup_es.jpg": {
+      "status": "approved",
+      "id": "render-cans-lineup-es"
+    },
+    "3d/renders/rev360-compact/cans_dent-pair_es.jpg": {
+      "status": "approved",
+      "id": "render-cans-dent-pair-es"
+    },
+    "3d/renders/rev360-compact/cans_code-pair_es.jpg": {
+      "status": "approved",
+      "id": "render-cans-code-pair-es"
+    },
+    "rosepetal/mwc2026_demo.jpg": {
+      "status": "review",
+      "id": "rp-mwc2026-demo"
+    },
+    "rosepetal/mwc2026_stand.jpg": {
+      "status": "review",
+      "id": "rp-mwc2026-stand"
+    },
+    "rosepetal/mwc2026_talk.jpg": {
+      "status": "review",
+      "id": "rp-mwc2026-talk"
+    },
+    "advanced-factories-2026/still-bottling-line.jpg": {
+      "status": "review",
+      "id": "still-bottling-line"
+    },
+    "real/kariko_defect-screen.jpg": {
+      "status": "review",
+      "id": "real-kariko-screen"
+    },
+    "linkedin-2026/pdf-images/v275/img-001-000.png": {
+      "status": "review",
+      "id": "li26-v275-p1-printer"
+    },
+    "linkedin-2026/pdf-images/v275/img-002-001.png": {
+      "status": "review",
+      "id": "li26-v275-p2-operator-screen"
+    },
+    "linkedin-2026/pdf-images/v275/img-003-002.png": {
+      "status": "review",
+      "id": "li26-v275-p3-verifier-detail"
+    },
+    "real/rev360-cables_factory-floor.jpg": {
+      "status": "review",
+      "id": "real-cables-factory"
+    },
+    "real/rev360-cables_tunnel.jpg": {
+      "status": "review",
+      "id": "real-cables-tunnel"
+    },
+    "real/rev360-cables_camera-mounts.jpg": {
+      "status": "review",
+      "id": "real-cables-cameras"
+    },
+    "real/rev360-cables_rosepetal-screen.jpg": {
+      "status": "review",
+      "id": "real-cables-screen"
+    },
+    "real/rev360-compact_can-line.jpg": {
+      "status": "review",
+      "id": "real-compact-line"
+    },
+    "real/rev360-compact_cans-entering.jpg": {
+      "status": "review",
+      "id": "real-compact-entering"
+    },
+    "advanced-factories-2026/af26-can-demo_dents-tile.png": {
+      "status": "review",
+      "id": "af26-can-demo-dents-tile"
+    },
+    "advanced-factories-2026/af26-can-demo_date-tile.png": {
+      "status": "review",
+      "id": "af26-can-demo-date-tile"
+    },
+    "real/rev360-compact_cans-on-guide.jpg": {
+      "status": "review",
+      "id": "real-compact-guide"
+    },
+    "rev360/still-rev360-wine-four-views_blurred.png": {
+      "status": "review",
+      "id": "still-rev360-wine-four-views-blurred"
+    },
+    "advanced-factories-2026/af26_stand-hexagons.jpg": {
+      "status": "approved",
+      "id": "af26-stand-hexagons"
+    },
+    "real/opticais_ocr-read.jpg": {
+      "status": "review",
+      "id": "real-opticais-read"
+    },
+    "real/ais_packaging-cluster-visit.jpg": {
+      "status": "review",
+      "id": "real-cluster-visit"
+    },
+    "3d/renders/hopper/hopper_juice_infeed_cover.jpg": {
+      "status": "review",
+      "id": "render-hopper-juice-infeed-cover"
+    },
+    "rosepetal/jose-racionero_portrait.jpg": {
+      "status": "review",
+      "id": "rp-jose-racionero-portrait"
+    },
+    "rosepetal/vision2026_jose-racionero-stand.jpg": {
+      "status": "review",
+      "id": "rp-jose-racionero-stand"
+    },
+    "real/packaging-talks2026_panel.jpg": {
+      "status": "review",
+      "id": "real-packaging-talks"
+    },
+    "real/rosepetal_bread-formation-dataset.webp": {
+      "status": "review",
+      "id": "real-rosepetal-bread-dataset"
+    },
+    "rev360/rev360-product-video.mp4": {
+      "status": "review",
+      "id": "rev360-product-video"
+    },
+    "advanced-factories-2026/af26-can-demo_9x16_steady.mp4": {
+      "status": "review",
+      "id": "af26-can-demo-steady"
+    },
+    "advanced-factories-2026/af26-can-demo_dents.png": {
+      "status": "review",
+      "id": "af26-can-demo-dents"
+    },
+    "advanced-factories-2026/af26-03.mp4": {
+      "status": "review",
+      "id": "af26-03"
+    },
+    "advanced-factories-2026/af26-04.mp4": {
+      "status": "review",
+      "id": "af26-04"
+    },
+    "advanced-factories-2026/af26-09.mp4": {
+      "status": "review",
+      "id": "af26-09"
+    },
+    "advanced-factories-2026/af26-08.mp4": {
+      "status": "review",
+      "id": "af26-08"
+    },
+    "advanced-factories-2026/af26-07.mp4": {
+      "status": "review",
+      "id": "af26-07"
+    },
+    "advanced-factories-2026/af26-12.mp4": {
+      "status": "review",
+      "id": "af26-12"
+    },
+    "advanced-factories-2026/af26-17.mp4": {
+      "status": "review",
+      "id": "af26-17"
+    },
+    "advanced-factories-2026/af26-06.mp4": {
+      "status": "review",
+      "id": "af26-06"
+    },
+    "rosepetal/vision2026-interview.es.words.json3": {
+      "status": "review",
+      "id": "rp-vision2026-interview-words"
+    },
+    "rosepetal/vision2026-interview.mp4": {
+      "status": "review",
+      "id": "rp-vision2026-interview"
+    }
+  },
+  "assets": {
+    "ais-vision-systems-intro-4k": {
+      "url": "https://aisgroup-design.web.app/downloads/video/ais-vision-systems-intro-4k.mp4",
+      "sha256": "75e65912cceb3a1dd2e374f47ec9bb0d375579e1fe052a506bde8caa9fea84fd"
+    },
+    "ais-vision-systems-intro": {
+      "url": "https://aisgroup-design.web.app/downloads/video/ais-vision-systems-intro.mp4",
+      "sha256": "9fda408e7f51b67760c1b4ec64c0281d51c5fb046d54808aec2045e949eaf1be"
+    },
+    "rosepetal-intro-4k": {
+      "url": "https://aisgroup-design.web.app/downloads/video/rosepetal-intro-4k.mp4",
+      "sha256": "c5d240d6b2e1f3924fce75e59535f85025fbdff3431c1ecf9f3e203335a6279d"
+    },
+    "rosepetal-intro": {
+      "url": "https://aisgroup-design.web.app/downloads/video/rosepetal-intro.mp4",
+      "sha256": "b529a8f32b400f09d167cc4a7fc0cf5e019f1517ce9614479390cd52c11c451c"
+    },
+    "ais-group_brand-intro_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-group_brand-intro_v01_16x9.mp4",
+      "sha256": "351d4e5e27d0a23830a8deb81bfad2daefa74037b8b404b4ace1d2d68540b55d"
+    },
+    "ais-vision-systems_brand-intro_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-vision-systems_brand-intro_v01_16x9.mp4",
+      "sha256": "7b2676c589952f6ebec158e0487f534e992d56239b26fb6ded773f734f8906f9"
+    },
+    "ais-vision-systems_end-card_en_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-vision-systems_end-card_en_v01_16x9.mp4",
+      "sha256": "776bf5f5b41aae17dff1950ba714e88ecd1476e2837a4003a67c5c8c77f788ca"
+    },
+    "ais-vision-systems_end-card_es_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-vision-systems_end-card_es_v01_16x9.mp4",
+      "sha256": "8440f7c1430ea3df03b59f72b0a2d5ceb9fb8fb2986765c3787332cb7936550f"
+    },
+    "ais-vision-systems_opening_en_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-vision-systems_opening_en_v01_16x9.mp4",
+      "sha256": "bdf41f2ebf5b173d6bf2fd4e351b01c32693e0c8d436abaf12ad8ec552253718"
+    },
+    "ais-vision-systems_opening_es_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/ais-vision-systems_opening_es_v01_16x9.mp4",
+      "sha256": "bdf41f2ebf5b173d6bf2fd4e351b01c32693e0c8d436abaf12ad8ec552253718"
+    },
+    "rosepetal_brand-intro_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_brand-intro_v01_16x9.mp4",
+      "sha256": "6972659679b4f0fe4ef601fe0663321114a45048eb5d970da7ceba34ad202fb0"
+    },
+    "rosepetal_end-card_en_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_end-card_en_v01_16x9.mp4",
+      "sha256": "7c85868befd0be7884dd9587fcffa6f59e8ce54946bc04cfe338eb2c17e43c41"
+    },
+    "rosepetal_end-card_es_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_end-card_es_v01_16x9.mp4",
+      "sha256": "83a849d9db410f2193d0b1055ec232410a48e9a44e5413c9d41827a607aef6a9"
+    },
+    "rosepetal_music_dissolving-sequence-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_dissolving-sequence-alternative_v01.m4a",
+      "sha256": "e5a12a7c0c1aa1012ba7a6a119115723f93a140713a7b4a98f1eb41e503e31ec"
+    },
+    "rosepetal_music_dissolving-sequence_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_dissolving-sequence_v01.m4a",
+      "sha256": "0607e9ff613874c62b80f017ae27a30eb9f56c0bf7cc7d7817215af5fe394632"
+    },
+    "rosepetal_music_euphoric-piano-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_euphoric-piano-alternative_v01.m4a",
+      "sha256": "4f27cf93a551cc84238a93531a1e394650dfb9ce4164dea17411036ee6ec4f27"
+    },
+    "rosepetal_music_euphoric-piano_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_euphoric-piano_v01.m4a",
+      "sha256": "18a24b9d9a35f8ba72675d773b5048834711232c3b807be8ddcad07127f4857e"
+    },
+    "rosepetal_music_fragile-pauses-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragile-pauses-alternative_v01.m4a",
+      "sha256": "6f60c594e65bcae2dfdc35141f0055ccae0ad88f239df4824a258caf0ea34ed0"
+    },
+    "rosepetal_music_fragile-pauses_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragile-pauses_v01.m4a",
+      "sha256": "2299c40baa15f9b208e4be69a684d43696ae7d28bec512dd0b86490acb401622"
+    },
+    "rosepetal_music_fragile-piano-motif-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragile-piano-motif-alternative_v01.m4a",
+      "sha256": "16f0210056a97ead80feed472be9e186bcc31bdf5907aaede6d6a062013b6d9e"
+    },
+    "rosepetal_music_fragile-piano-motif_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragile-piano-motif_v01.m4a",
+      "sha256": "03d426af37756a85762104b95c6ff2beda10f7ff81fb9ff1f66373186acd1347"
+    },
+    "rosepetal_music_fragmented-darkness-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragmented-darkness-alternative_v01.m4a",
+      "sha256": "74aa9de558955791122159e2f9e751440d97c2a8d15c81c10bf9a2a0c8542e6b"
+    },
+    "rosepetal_music_fragmented-darkness_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_fragmented-darkness_v01.m4a",
+      "sha256": "8f96efbf3213bf6922356c866fc62c5ddf8f29aa4339aa323a61bc67ed04f35d"
+    },
+    "rosepetal_music_piano-and-room-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_piano-and-room-alternative_v01.m4a",
+      "sha256": "50c78d5f8140fa49fe66edd29542aed651003475fde0afadbf9bd1d266c7b766"
+    },
+    "rosepetal_music_piano-and-room_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_piano-and-room_v01.m4a",
+      "sha256": "17ad4ab48bdb369a7f25829063edc819f8b408c8d79af9af50da213ae8027308"
+    },
+    "rosepetal_music_quiet-beauty-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_quiet-beauty-alternative_v01.m4a",
+      "sha256": "6b6067a09dde5e19ff02613a6849aa51b5a4c124d7daa563d5abe630308fd5e3"
+    },
+    "rosepetal_music_quiet-beauty_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_quiet-beauty_v01.m4a",
+      "sha256": "8a04a2b4bdc13b962535c529937c54de0ff0e9cf8cc99108d15d5a7c2e9eb84d"
+    },
+    "rosepetal_music_quiet-tail-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_quiet-tail-alternative_v01.m4a",
+      "sha256": "da9f98ac1f68ebbb44af7f2de48c6397e05de2d1cf65c4fd88672c407f830347"
+    },
+    "rosepetal_music_quiet-tail_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_quiet-tail_v01.m4a",
+      "sha256": "1d374a35cf0b25c419eed22c77d4c16c14a4a763f6157c1522a66bdea66dd5be"
+    },
+    "rosepetal_music_silent-pulse-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_silent-pulse-alternative_v01.m4a",
+      "sha256": "58baf74329a6642bd2da70d2f0a2da560629329befb4cecd749d022f5fdbb197"
+    },
+    "rosepetal_music_silent-pulse-v2-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_silent-pulse-v2-alternative_v01.m4a",
+      "sha256": "6025651018e2cc65b0f12538f8e445a8948673a16be1e4892b80d0e444015d03"
+    },
+    "rosepetal_music_silent-pulse-v2_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_silent-pulse-v2_v01.m4a",
+      "sha256": "5be2f816d91efaf51b00e7410b8337b4e01c3396f8bec9109da98f12ea22a6bc"
+    },
+    "rosepetal_music_silent-pulse_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_silent-pulse_v01.m4a",
+      "sha256": "a4897a9bd5fd25c153d78636c4f4ea1ed17843c93f25339012950a3cbf64e703"
+    },
+    "rosepetal_music_tail-of-silence-alternative_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_tail-of-silence-alternative_v01.m4a",
+      "sha256": "851e9056ed8dc43d2925091e410b195110acee423237bbcb3004be9f3b4899ab"
+    },
+    "rosepetal_music_tail-of-silence_v01": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_music_tail-of-silence_v01.m4a",
+      "sha256": "600634c0f8b3e01ae519e66c30b94bf3ca0938404f515e70a69f750d3dc464c2"
+    },
+    "rosepetal_opening_en_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_opening_en_v01_16x9.mp4",
+      "sha256": "2bc64be71124143d8b2bd020f4495c1fc7e141509cfbb1b66e8114d208090464"
+    },
+    "rosepetal_opening_es_v01_16x9": {
+      "url": "https://aisgroup-design.web.app/kit/files/rosepetal_opening_es_v01_16x9.mp4",
+      "sha256": "2bc64be71124143d8b2bd020f4495c1fc7e141509cfbb1b66e8114d208090464"
+    }
+  }
+}

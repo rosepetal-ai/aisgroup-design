@@ -1,0 +1,75 @@
+{
+  "name": "ais-vision-systems_video-event-teaser_en_template",
+  "kind": "video",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "9x16",
+    "4x5",
+    "16x9"
+  ],
+  "shots": [
+    {
+      "type": "still",
+      "src": "@lib/media/rev360/still-rev360-pet-four-views.png",
+      "imageSize": [
+        1188,
+        1080
+      ],
+      "zoom": 1.04,
+      "seconds": 3.2,
+      "overline": "[Event name and year]",
+      "headline": "All round,|one label",
+      "headlineAt": 3,
+      "formats": {
+        "9x16": {
+          "scale": 1,
+          "focus": [
+            50,
+            70
+          ]
+        },
+        "4x5": {
+          "scale": 1,
+          "focus": [
+            50,
+            70
+          ]
+        },
+        "16x9": {
+          "scale": 1,
+          "focus": [
+            50,
+            70
+          ]
+        }
+      }
+    },
+    {
+      "type": "stand",
+      "seconds": 3.5,
+      "wipe": true,
+      "lead": "Visit us at",
+      "event": "[Event name and year]",
+      "rows": [
+        {
+          "icon": "calendar",
+          "text": "[Dates]"
+        },
+        {
+          "icon": "map-pin",
+          "text": "[Hall and stand]"
+        },
+        {
+          "icon": "building-2",
+          "text": "[Venue and city]"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "seconds": 1.5,
+      "wipe": true
+    }
+  ]
+}

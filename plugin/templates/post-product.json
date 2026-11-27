@@ -1,0 +1,24 @@
+{
+  "name": "ais-vision-systems_post-product_es_template",
+  "kind": "post",
+  "brand": "ais-vision-systems",
+  "lang": "es",
+  "formats": [
+    "4x5"
+  ],
+  "copy": "El AIS Hopper revisa el tapón, la boca, el cuello y el nivel de llenado en la propia línea, con tres cámaras a color alrededor del tapón y una cuarta opcional desde arriba. Se ajusta con ejemplos de envases buenos y malos, sin programar. Solicita una demo",
+  "shots": [
+    {
+      "type": "hero",
+      "look": "blue",
+      "src": "@lib/media/3d/renders/hopper/hopper_juice_infeed_cover.jpg",
+      "focus": [
+        0,
+        100
+      ],
+      "headline": "Tapón y llenado,|revisados en línea",
+      "evidence": "render",
+      "bleed": 1.15
+    }
+  ]
+}

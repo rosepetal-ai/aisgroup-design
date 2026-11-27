@@ -1,0 +1,63 @@
+{
+  "name": "ais-vision-systems_video-case-study_en_template",
+  "kind": "video",
+  "brand": "ais-vision-systems",
+  "lang": "en",
+  "formats": [
+    "16x9",
+    "9x16"
+  ],
+  "shots": [
+    {
+      "type": "still",
+      "zoom": 1.04,
+      "slot": "Footage 01: the customer's line, wide, 3 s",
+      "seconds": 3
+    },
+    {
+      "type": "still",
+      "slot": "Footage 02: interview, the customer to camera, 6 s",
+      "seconds": 6,
+      "zoom": 1.03,
+      "lowerThird": {
+        "name": "[Speaker name]",
+        "role": "[Role and company]"
+      }
+    },
+    {
+      "type": "stat",
+      "wipe": true,
+      "label": "Customer result",
+      "value": "—",
+      "unit": "",
+      "text": "Add a verified result",
+      "seconds": 3.4,
+      "evidence": "illustration",
+      "basis": "illustrative",
+      "note": "Confirm the source and conditions before publication"
+    },
+    {
+      "type": "still",
+      "zoom": 1.04,
+      "slot": "Footage 03: the machine at the customer's site, 2.5 s",
+      "seconds": 2.6
+    },
+    {
+      "type": "end",
+      "seconds": 3,
+      "wipe": true
+    }
+  ],
+  "captions": [
+    {
+      "from": 3.6,
+      "to": 6.4,
+      "text": "[Speaker captions]"
+    },
+    {
+      "from": 6.5,
+      "to": 8.8,
+      "text": "[Speaker captions continued]"
+    }
+  ]
+}

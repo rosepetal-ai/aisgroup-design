@@ -1,0 +1,3729 @@
+[
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   2000,
+   1332
+  ],
+  "notes": "Not visible on the Hopper pages (hidden asset). REV 360 Standard showroom scene, CGI/AI composite (same as the REV Standard cover, rejected). Not a Hopper.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-001.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   2368,
+   1792
+  ],
+  "notes": "Generated: holographic scan grid, idealised bottles, synthetic look; green caps and green-lit conveyor. Not a real installation.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-004.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   3840,
+   1829
+  ],
+  "notes": "Real Rosepetal classification UI (cap inspection, 3 cap views, counters 99176/3507, LIVE VIEW 03/10/2026). Slightly soft (upscaled), still readable at 80+ mm. No customer name visible. Counters are a run, not a claim.",
+  "use": "ok"
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-019.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   436,
+   345
+  ],
+  "notes": "Real photo of a Hopper-type unit (AIS plate) on a water-bottle line, but only 436x345 px (~37 mm at 300 dpi). Blue conveyor. Fallback only; ask AIS for the original.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-023.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1352,
+   762
+  ],
+  "notes": "Synthetic/AI-reworked: mirrored, smeared \"AIS\" lettering inside the arch, waxy texture, inconsistent depth. Red-sauce bottles with green caps.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-028.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Tapón inclinado",
+  "px": [
+   188,
+   173
+  ],
+  "notes": "Generated stock-style bottle, 188x173 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-033.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Integridad precinto de seguridad",
+  "px": [
+   193,
+   173
+  ],
+  "notes": "Generated-looking (idealised droplets), 193x173 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-038.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Presencia/Orientación de Asa",
+  "px": [
+   193,
+   174
+  ],
+  "notes": "Generated-looking handle bottle, 193x174 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-043.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Tapón solidario",
+  "px": [
+   193,
+   174
+  ],
+  "notes": "Generated/illustrative, 193x174 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-048.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Nivel de llenado",
+  "px": [
+   193,
+   172
+  ],
+  "notes": "Generated: graduation marks are fake/illegible, 193x172 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-054.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Lectura/Presencia de lote",
+  "px": [
+   213,
+   180
+  ],
+  "notes": "Generated: warped, inconsistent dot-matrix digits, 213x180 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-058.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Defectos de tapón",
+  "px": [
+   184,
+   174
+  ],
+  "notes": "Generated/illustrative broken cap, 184x174 px.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-050.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1486,
+   1685
+  ],
+  "notes": "AI re-imagining of the real Hopper cut-out (Cosmética p6 img 070): garbled HMI text, light rays, plastic look. Use the catalogue photo instead.",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-065.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1067,
+   664
+  ],
+  "notes": "CAD-style render of the AIS PRO-8 progressive reject unit on white; object is only ~450 px wide. Same unit as #67 (larger).",
+  "use": null
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Copia de AIS_HOPPER_Printing 5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-HOPPER-Printing-5-067.png",
+  "crop_file": "library/media/originals/hopper/pro8-reject-unit-render.jpg",
+  "box": [
+   250,
+   260,
+   2380,
+   1560
+  ],
+  "kind": "other",
+  "verdict": "reuse-after-crop",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2130,
+   1300
+  ],
+  "notes": "Render of the AIS PRO-8 progressive reject unit (plate \"MOD PRO-8 SN 001\"), crisp CAD-like geometry and logo. Background lab is blurred and of uncertain provenance (possibly generated) - crop keeps the unit with minimal background. Render, not a photo; fits \"Sistema de rechazo progresivo\" option. Same image in REV Standard p2 #60 and OPTICAIS p2 #31.",
+  "use": "ok"
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/Cosmética.pdf",
+  "page": 6,
+  "source_file": "drive/img2/Cosmética-070.png",
+  "crop_file": "library/media/originals/hopper/hopper-cutout-catalogue.jpg",
+  "box": [
+   200,
+   100,
+   740,
+   620
+  ],
+  "kind": "machine-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   540,
+   520
+  ],
+  "notes": "SUPPLEMENTARY (Cosmética catalogue p6, labelled AIS HOPPER). Real photograph cut out on black (PDF smask available): handle-top cap-inspection head on a short conveyor. This is the real machine that brochure image #50 imitates. Only ~500 px wide in the crop: up to ~45 mm at 300 dpi. Duplicate in CAT Bebidas/Vino. Confirm it is the current HOPPER configuration.",
+  "use": "ok"
+ },
+ {
+  "machine": "hopper",
+  "source_pdf": "drive/pdf/CAT Bebidas.pdf",
+  "page": 5,
+  "source_file": "drive/img2/CAT-Bebidas-063.png",
+  "crop_file": "library/media/originals/hopper/hopper-column-unit-catalogue.jpg",
+  "box": [
+   0,
+   60,
+   1330,
+   900
+  ],
+  "kind": "machine-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1330,
+   840
+  ],
+  "notes": "SUPPLEMENTARY (CAT Bebidas p5, labelled AIS HOPPER). Real photograph cut out on black: column unit with dome, arm-mounted HMI (\"INSPECCIÓN DE TAPÓN\"), water bottles on a stainless conveyor (no green). 1330 px wide crop: ~110 mm at 300 dpi. Different configuration from the Cosmética cut-out; confirm which is current. Duplicates: CAT Bebidas #89, Vino #81.",
+  "use": "ok"
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   2400,
+   1792
+  ],
+  "notes": "Synthetic (prior audit): questionable HMI lettering, render/AI look. Do not present as a photo of the machine.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-006.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   514,
+   514
+  ],
+  "notes": "Generic ham tray packshot (render/AI look), 514 px. Not AIS evidence.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-011.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   514,
+   514
+  ],
+  "notes": "Generic sausage flow-pack packshot (render/AI look), 514 px. Not AIS evidence.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-016.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   514,
+   514
+  ],
+  "notes": "Generic black tray packshot (render/AI look), 514 px. Not AIS evidence.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-024.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1024,
+   1024
+  ],
+  "notes": "Generic salmon tray packshot (render/AI look), 1024 px. Not AIS evidence.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-032.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   1912,
+   951
+  ],
+  "notes": "Real Rosepetal UI (sealed tray inspection, \"Sellado NOK\", LIVE VIEW 23/02/2026). 1912x951. Printed lot/expiry on the film is tiny and unidentifying; no customer name.",
+  "use": "ok"
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-039.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   2400,
+   1790
+  ],
+  "notes": "Flagged in PRODUCTION-STATUS: text and geometry show signs of synthetic generation.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-068.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   2528,
+   1684
+  ],
+  "notes": "Flagged in PRODUCTION-STATUS: signs of synthetic generation (garbled screen, impossible details).",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-069.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2400,
+   1790
+  ],
+  "notes": "Generated: HMI header reads \"AOYYETZL A5 SYSTEMS\", cinematic god-rays.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-067.png",
+  "crop_file": "library/media/originals/kariko/kariko-trade-fair.jpg",
+  "box": [
+   40,
+   250,
+   820,
+   965
+  ],
+  "kind": "machine-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   780,
+   715
+  ],
+  "notes": "Real trade-fair photo of KARIKÓ (red stand). Original has other companies' signage (Bastos, SATO, MarkEt, Tous) - cropped to the machine. Looks denoised/upscaled (waxy screen text); no other manipulation seen. Library already has a 1024x576 variant (real/kariko_trade-fair.jpg). Not proof of performance.",
+  "use": "ok"
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-048.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Códigos de barras",
+  "px": [
+   301,
+   281
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-056.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Burbujas en el termosellado",
+  "px": [
+   301,
+   281
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-052.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Verificación de marcaje",
+  "px": [
+   301,
+   280
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Area above the code is blurred in the source. Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-065.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Objetos extraños",
+  "px": [
+   299,
+   281
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Right part blurred in the source. Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-044.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Deformaciones",
+  "px": [
+   303,
+   284
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/Copia de AIS KARIKO_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-KARIKO-Printing5-061.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Inspección a 2 caras",
+  "px": [
+   301,
+   281
+  ],
+  "notes": "Real phone photo of a tortilla tray with a red box drawn in; ~300x281 px (~25 mm max). Label blurred in the source. Fallback only; request originals without overlay.",
+  "use": null
+ },
+ {
+  "machine": "kariko",
+  "source_pdf": "drive/pdf/CAT Food.pdf",
+  "page": 4,
+  "source_file": "drive/img2/CAT-Food-054.png",
+  "crop_file": "library/media/originals/kariko/kariko-cutout-catalogue.jpg",
+  "box": [
+   120,
+   10,
+   680,
+   450
+  ],
+  "kind": "machine-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   560,
+   440
+  ],
+  "notes": "SUPPLEMENTARY (CAT Food p4, labelled AIS KARIKÓ). Real photograph cut out on black (smask available): the actual machine the brochure cover imitates. Crop 560x440 - up to ~45 mm wide. Duplicate CAT Food #72. Best real KARIKÓ machine image found; still need a high-res original.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-001-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1280,
+   720
+  ],
+  "notes": "Generated: colour cores entering a glowing glass tube, painterly texture, cable reels backdrop.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-001-007.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   1507,
+   802
+  ],
+  "notes": "Real Rosepetal UI (cable surface live view, 78869 total / 2063 errors, 2025-11-05; Catalan \"Posició capçal\"). 1507x802, slightly soft. No customer data visible.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2048,
+   2048
+  ],
+  "notes": "Generated: crosshatch noise texture on metal, impossible bracket geometry, copper tube through the head.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-020.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Deformaciones",
+  "px": [
+   492,
+   170
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-025.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Reducciones de sección",
+  "px": [
+   500,
+   170
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-030.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Burbujas",
+  "px": [
+   501,
+   169
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-035.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Arañazos y rozaduras",
+  "px": [
+   492,
+   164
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-040.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Impurezas incrustadas",
+  "px": [
+   501,
+   166
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-045.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Problemas de coloración",
+  "px": [
+   491,
+   158
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-050.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Grietas y fisuras",
+  "px": [
+   492,
+   168
+  ],
+  "notes": "Schematic cable illustration (~500x170 px), provenance unknown (possibly generated). Redraw as vector if diagrams are wanted; not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-056.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reuse",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1013,
+   803
+  ],
+  "notes": "Real line-scan camera output of cable segments with green detection masks from the software. 1013x803. Defect class not stated; use as \"inspection result\" detail, not as a specific detection tile.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-cables",
+  "source_pdf": "drive/pdf/Copia de AIS REV CABLES_Printing5.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-cables/cables-002-058.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Defectos en tubos",
+  "px": [
+   2208,
+   1946
+  ],
+  "notes": "Synthetic copper tube with dent on white (render/AI). Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   2390,
+   1792
+  ],
+  "notes": "Likely composite (rejected as a cover): AIS units pasted into a canning plant, AI-upscaled smearing. Real plant signage (HACCP) suggests a customer site.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-001.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1453,
+   1008
+  ],
+  "notes": "Group of cans, render/AI packshot.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-005.png",
+  "crop_file": "library/media/originals/rev360-compact/oval-tin-seam-dent.jpg",
+  "box": [
+   2400,
+   530,
+   3700,
+   900
+  ],
+  "kind": "product/defect-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detection tile",
+  "check": "Fallo por pico (unconfirmed)",
+  "px": [
+   1300,
+   370
+  ],
+  "notes": "Real 4-view camera strip of an oval tin (63077x9253 stored, upscaled >=8x: 1/8 subsample holds all real detail). Crop = frame 2, rim dent/droop at the double seam (the defect boxed on p1). Lid print (customer product) cropped out; only the seam edge remains. Green conveyor visible in the source, cropped out. Box in 1/8-scale coords (multiply by 8 for the stored PNG). Crop source: 1/8 subsample of the stored PNG (pngtopnm stream, box filter).",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-005.png",
+  "crop_file": "library/media/originals/rev360-compact/oval-tin-date-code.jpg",
+  "box": [
+   4070,
+   440,
+   5400,
+   900
+  ],
+  "kind": "product/defect-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1330,
+   460
+  ],
+  "notes": "Same real strip, frame 3: dot-matrix date \"21.03.2029\" on the tin wall (code reading). Green rail cropped out. Box in 1/8-scale coords. Crop source: 1/8 subsample of the stored PNG (pngtopnm stream, box filter).",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-010.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1666,
+   1581
+  ],
+  "notes": "Upscaled close crop of the same dent (blurry); use the strip crop instead.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-019.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reuse",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   1257,
+   710
+  ],
+  "notes": "Real camera image of a round can seam with orange defect marks from the software (1257x710). Mirrored lot print \"M58150...\" (through-mirror view). Exact class among the listed seam faults is not stated; generic double-seam defect evidence.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-021.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reuse",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   1277,
+   712
+  ],
+  "notes": "Real camera image, second can, several orange seam marks (1277x712). Same caveat on defect class.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-026.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   715,
+   462
+  ],
+  "notes": "Simplified machine illustration (AIS head over cans), 715x462, provenance unknown.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-031.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   668,
+   394
+  ],
+  "notes": "Same illustration, 668x394.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-035.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fallo de falso cierre",
+  "px": [
+   1024,
+   1024
+  ],
+  "notes": "Pencil-style seam diagram with generative hallmarks (noisy crosshatch, inconsistent seam layers). Technically unverified; redraw from a real seam section if needed.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-043.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fallo de la segunda carretilla",
+  "px": [
+   1024,
+   1024
+  ],
+  "notes": "Pencil-style seam diagram with generative hallmarks (noisy crosshatch, inconsistent seam layers). Technically unverified; redraw from a real seam section if needed.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-039.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fallo por pico",
+  "px": [
+   1342,
+   1015
+  ],
+  "notes": "Pencil-style seam diagram with generative hallmarks (noisy crosshatch, inconsistent seam layers). Technically unverified; redraw from a real seam section if needed.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-047.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fallo de pestaña inferior",
+  "px": [
+   1536,
+   1024
+  ],
+  "notes": "Pencil-style seam diagram with generative hallmarks (noisy crosshatch, inconsistent seam layers). Technically unverified; redraw from a real seam section if needed.",
+  "use": null
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 2,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-051.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fallo del plato mandril",
+  "px": [
+   823,
+   1208
+  ],
+  "notes": "Pencil-style seam diagram with generative hallmarks (noisy crosshatch, inconsistent seam layers). Technically unverified; redraw from a real seam section if needed.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-001-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1500,
+   999
+  ],
+  "notes": "Showroom CGI/AI scene (also hidden in Hopper PDF). Rejected as the Standard cover.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-001-007.png",
+  "crop_file": "library/media/originals/rev360-standard/cava-capsule-detections.jpg",
+  "box": [
+   0,
+   0,
+   2048,
+   830
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Posición e inclinación cápsula",
+  "px": [
+   2048,
+   830
+  ],
+  "notes": "Real camera frame of four cava bottles with model detections (cap/logo/label boxes and scores), 2048x2048. Labels carry a real winery brand (\"Almansa & Moreno\") - full image needs customer approval. Crop keeps the capsules; the brand still appears small on the neck bands (needs approval or a different crop). Shows customer branding: use cava-capsule-detections-blurred.jpg outside AIS.",
+  "use": "internal-only"
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-001-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2816,
+   1536
+  ],
+  "notes": "Generated/composited product line-up with invented brands (SOLVO-PRO7, ORO DEL SOL, COLA SODA). Also #70, EN #15/#65, Rosepetal #15/#19, OPTICAIS #34.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-070.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2816,
+   1536
+  ],
+  "notes": "Duplicate of #15.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-030.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Etiqueta levantada",
+  "px": [
+   144,
+   182
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-032.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Doble etiquetado / Presencia-Ausencia de etiqueta",
+  "px": [
+   144,
+   217
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-034.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Etiqueta invertida",
+  "px": [
+   133,
+   186
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-038.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Integridad de la etiqueta",
+  "px": [
+   310,
+   355
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-040.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Manchas",
+  "px": [
+   129,
+   145
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-042.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Lectura de código de barras",
+  "px": [
+   255,
+   268
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-044.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Posición e inclinación cápsula",
+  "px": [
+   144,
+   179
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-046.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Marcaje OCR",
+  "px": [
+   255,
+   268
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-049.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Posición e inclinación de etiqueta",
+  "px": [
+   102,
+   172
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-051.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Roturas, arrugas y pliegues",
+  "px": [
+   255,
+   268
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-053.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Posición relativa entre distintas etiquetas",
+  "px": [
+   144,
+   291
+  ],
+  "notes": "Mock-up render with AIS dummy label, <=310 px. Not evidence.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-047.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Defectos en la litografía",
+  "px": [
+   2426,
+   1728
+  ],
+  "notes": "Designed mock-up (\"DESDE AIS\" misregistration effect), not a real defect photo.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-036.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   144,
+   746
+  ],
+  "notes": "Central bottle illustration (144x746).",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-058.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1067,
+   664
+  ],
+  "notes": "PRO-8 reject unit CAD render on white (dup of Hopper #65).",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-060.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   2624,
+   1632
+  ],
+  "notes": "Duplicate of Hopper #67 (crop made from the Hopper copy).",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-065.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   2048,
+   1748
+  ],
+  "notes": "Showroom CGI/AI scene (machine on a plinth, line-art backdrop); same family as the rejected cover.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-002-069.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1019,
+   706
+  ],
+  "notes": "Render of the inside of the inspection dome showing camera positions - internal optics (exterior-only rule).",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/CAT Bebidas.pdf",
+  "page": 6,
+  "source_file": "drive/img2/CAT-Bebidas-068.png",
+  "crop_file": "library/media/originals/rev360-standard/rev360-standard-cutout-catalogue.jpg",
+  "box": [
+   130,
+   110,
+   1060,
+   681
+  ],
+  "kind": "machine-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   930,
+   571
+  ],
+  "notes": "SUPPLEMENTARY (CAT Bebidas p6, labelled AIS REV 360). Real photograph cut out on black (smask available): the machine the CGI cover imitates, with HMI and turntable conveyors (stainless, no green). Crop 930x571 (~79 mm at 300 dpi). Duplicates: CAT Bebidas #95, Cosmética #73/#91, Vino #87.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Vino_Presentacion_2-comprimido.pdf",
+  "page": 2,
+  "source_file": "drive/img2/Vino-Presentacion-2-comprimido-064.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reuse",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   3005,
+   2000
+  ],
+  "notes": "SUPPLEMENTARY (Vino presentation p2, generic \"Qué ofrecemos\"). Real photo of red-wine bottles on a stainless curved conveyor, 3005x2000; grey unit behind is not identifiable as a REV 360 - use as sector/line context only. Uncertain machine identity.",
+  "use": "ok"
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   1241,
+   815
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES cover scene; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-007.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   500,
+   500
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES cava detection frame (500x500); use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   623,
+   340
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES product line-up; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-065.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   623,
+   340
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES product line-up; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-055.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   895,
+   557
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES PRO-8 render; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-057.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   304,
+   267
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES PRO-8 render; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-063.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   592,
+   505
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES showroom scene; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-064.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   320,
+   288
+  ],
+  "notes": "EN brochure: lower-resolution duplicate of the ES dome interior render; use ES source.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-030.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   103,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-032.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   87,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-034.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   112,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-036.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   80,
+   390
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-038.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   116,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-040.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   113,
+   119
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-041.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   116,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-043.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   87,
+   101
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-045.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   112,
+   118
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-046.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   112,
+   118
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-047.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   79,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-049.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   112,
+   118
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/BR AIS REV STANDARD EN.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-STANDARD-EN-050.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": null,
+  "px": [
+   65,
+   122
+  ],
+  "notes": "EN brochure: tiny (<=120 px) duplicate of an ES mock-up tile.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-000.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   3364,
+   4754
+  ],
+  "notes": "Flattened full-page JPEG; under the cleanroom image it carries the Compact Conservas cover scene. Not a separate asset.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-014.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   3364,
+   4754
+  ],
+  "notes": "Flattened full-page background of p2.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-001.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1500,
+   1002
+  ],
+  "notes": "Cleanroom scene with AIS unit, AI/composite look; rejected as the Pharma cover.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-007.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   597,
+   598
+  ],
+  "notes": "Vial-and-label illustration with check marks (597x598).",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-009.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   354,
+   207
+  ],
+  "notes": "Crop of a generated \"Adrenalin\" vial label (real third-party trademark, misspellings such as \"Subcotaneuc\"). Reject: synthetic and third-party brand.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-010.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": "Lectura de lote y caducidad",
+  "px": [
+   735,
+   429
+  ],
+  "notes": "Crop of a generated \"Adrenalin\" vial label (real third-party trademark, misspellings such as \"Subcotaneuc\"). Reject: synthetic and third-party brand.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-011.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   354,
+   207
+  ],
+  "notes": "Crop of a generated \"Adrenalin\" vial label (real third-party trademark, misspellings such as \"Subcotaneuc\"). Reject: synthetic and third-party brand.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-012.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   354,
+   207
+  ],
+  "notes": "Crop of a generated \"Adrenalin\" vial label (real third-party trademark, misspellings such as \"Subcotaneuc\"). Reject: synthetic and third-party brand.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-013.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": "Lectura de lote y caducidad",
+  "px": [
+   408,
+   320
+  ],
+  "notes": "Crop of a generated \"Adrenalin\" vial label (real third-party trademark, misspellings such as \"Subcotaneuc\"). Reject: synthetic and third-party brand.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   625,
+   722
+  ],
+  "notes": "Clean CGI render of a REV unit + HMI cabinet (625x722); origin and model unconfirmed, below 700 px.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-028.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "installation/line-photo",
+  "verdict": "reject",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   985,
+   544
+  ],
+  "notes": "CGI render of a vial turntable line with REV unit (985x544); provenance unverified (not from the supplied CAD pipeline), under 60 mm quality.",
+  "use": null
+ },
+ {
+  "machine": "rev360-pharma",
+  "source_pdf": "drive/pdf/BR AIS REV 360 PHARMA SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-REV-360-PHARMA-SP-029.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1040,
+   582
+  ],
+  "notes": "Generated vials: \"Adrenalin\" trademark, \"ROSEPETAL PHARMACEUTICALS\", misspelt text.",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-002.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "machine-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   2035,
+   1788
+  ],
+  "notes": "Excluded: incoherent label text, signs of synthetic generation; cover provenance uncertain/composited.",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-008.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   1024,
+   572
+  ],
+  "notes": "Generated jar line-up (garbled label text \"denso a preseo\").",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-007.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-3d-profile-view.jpg",
+  "box": [
+   0,
+   140,
+   1187,
+   590
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   1187,
+   450
+  ],
+  "notes": "Real software 3D point-cloud view (1187x621). Crop removes the header with an internal file path and the \"(assumed)\" caption. Whether this is a real session/demo is unconfirmed (vacuum review).",
+  "use": "ok"
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-010.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-2d-profile-panels.jpg",
+  "box": [
+   0,
+   135,
+   1167,
+   652
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Vacío correcto",
+  "px": [
+   1167,
+   517
+  ],
+  "notes": "Real 2D profile panels (1167x652). Crop removes header/path (\"HERO-profile\" = customer name). Keeps profile vs golden, deviation and height map. Session nature unconfirmed.",
+  "use": "ok"
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-011.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-profile-and-code-panels.jpg",
+  "box": [
+   0,
+   150,
+   900,
+   750
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Lote impreso",
+  "px": [
+   900,
+   600
+  ],
+  "notes": "Real 2D panels with printed-code reading (1216x750). Crop removes path header and the intensity image showing the customer's (Hero) lid logo. Code read panel shows \"not readable\" - do not present as a successful read.",
+  "use": "ok"
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-012.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Vacío correcto",
+  "px": [
+   298,
+   298
+  ],
+  "notes": "Screen chart crop, ~298 px (~25 mm). Real software graphic but too small; re-export the chart from the software at higher resolution.",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-014.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Fuera de patrón",
+  "px": [
+   299,
+   258
+  ],
+  "notes": "Screen chart crop, ~298 px (~25 mm). Real software graphic but too small; re-export the chart from the software at higher resolution.",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-013.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Centro abombado",
+  "px": [
+   298,
+   258
+  ],
+  "notes": "Screen chart crop, ~298 px (~25 mm). Real software graphic but too small; re-export the chart from the software at higher resolution.",
+  "use": null
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Lote impreso",
+  "px": [
+   298,
+   297
+  ],
+  "notes": "Screen chart crop, ~298 px (~25 mm). Real software graphic but too small; re-export the chart from the software at higher resolution.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-004.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1917,
+   995
+  ],
+  "notes": "Real Rosepetal labelling tool (cava bottles, masks, label list), 1917x995. Label text is not legible; timestamp/file id in the top bar only. Shows customer branding/identifiers: use library/media/originals/rosepetal/labelling-tool-cava-blurred.jpg outside AIS.",
+  "use": "internal-only"
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-011.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   1658,
+   875
+  ],
+  "notes": "Real inspection session screen (sandwich biscuits with icing defects, NOK score), 1658x875.",
+  "use": "ok"
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-027.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   990,
+   735
+  ],
+  "notes": "Real Smart Labeling Tool dialog (990x735).",
+  "use": "ok"
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-028.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   997,
+   600
+  ],
+  "notes": "Real Auto Labeling panel over capsule images (997x600).",
+  "use": "ok"
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-015.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   623,
+   340
+  ],
+  "notes": "Generated product line-up (dup of REV Standard #15).",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-019.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   623,
+   340
+  ],
+  "notes": "Duplicate of #15.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-021.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   902,
+   558
+  ],
+  "notes": "Stock-style sector photo (water bottles on conveyor), <=1024 px, licence unknown, not AIS equipment.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-022.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   1000,
+   668
+  ],
+  "notes": "Stock-style sector photo (PCB), <=1024 px, licence unknown, not AIS equipment.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-023.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   852,
+   527
+  ],
+  "notes": "Stock-style sector photo (warehouse), <=1024 px, licence unknown, not AIS equipment.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-024.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   900,
+   600
+  ],
+  "notes": "Stock-style sector photo (forklift (Hyster brand visible)), <=1024 px, licence unknown, not AIS equipment.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-025.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   1024,
+   763
+  ],
+  "notes": "Stock-style sector photo (car body line), <=1024 px, licence unknown, not AIS equipment.",
+  "use": null
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-026.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "sector",
+  "check": null,
+  "px": [
+   347,
+   258
+  ],
+  "notes": "Ampoule line, 347x258, stock/AI look.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-001-002.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1240,
+   746
+  ],
+  "notes": "Generated still life: \"OPTICAIS\" printed on a fictional camera body, invented lot codes and QR patterns, CGI factory.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-001-020.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reuse",
+  "slot": "detection tile",
+  "check": "OCR",
+  "px": [
+   518,
+   343
+  ],
+  "notes": "Real phone photo of a carton read by OPTICAIS (green OCR/UDI boxes: lot 256100, date 2030-05, GS1 string). 518x343: up to ~44 mm. Customer product packaging and GTIN visible - needs customer approval or use as small inset only. Shows customer branding/identifiers: use library/media/originals/opticais/carton-ocr-read-blurred.jpg outside AIS.",
+  "use": "internal-only"
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-001-024.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   577,
+   302
+  ],
+  "notes": "Generated packshot group (invented codes).",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-036.png",
+  "crop_file": "library/media/originals/opticais/camera-over-can-line.jpg",
+  "box": [
+   0,
+   0,
+   592,
+   347
+  ],
+  "kind": "installation/line-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "line/installation",
+  "check": null,
+  "px": [
+   592,
+   347
+  ],
+  "notes": "Real-looking photo of the blue camera housing (AIS logo) over a can line with red light; 592x353 (~50 mm). Crop removes a thin green border at the bottom. Red light fan looks possibly enhanced - mark uncertain. Ask AIS for the full-resolution original.",
+  "use": "ok"
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-037.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "screen",
+  "verdict": "reuse",
+  "slot": "screen",
+  "check": "OCR",
+  "px": [
+   593,
+   353
+  ],
+  "notes": "Real VISION INSPECTION OCR screen (lot/expiry read). Only 593x353 here; the library already holds a larger 1024x620 copy (library/media/real/opticais_ocr-screen.jpg) - prefer it. Status panel shows PATTERN/CODE READER in bypass on a test template named after a person; crop to the camera view when used.",
+  "use": "ok"
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-029.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   895,
+   557
+  ],
+  "notes": "PRO-8 reject unit render on white (this is the reject unit, not the OPTICAIS camera). Use Hopper #67 crop.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-031.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "other",
+  "verdict": "reject",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   304,
+   267
+  ],
+  "notes": "PRO-8 reject unit render, 304x267 duplicate of Hopper #67 - not a camera photo.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-034.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "none",
+  "check": null,
+  "px": [
+   623,
+   340
+  ],
+  "notes": "Generated product line-up (dup of REV Standard #15).",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-038.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "OCR",
+  "px": [
+   545,
+   188
+  ],
+  "notes": "Composite tile (icon + text baked in) with a generated-looking product: invented code values, perfectly clean synthetic surfaces. ~550x200 px.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-039.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Símbolos y marcas",
+  "px": [
+   547,
+   203
+  ],
+  "notes": "Composite tile (icon + text baked in) with a generated-looking product: invented code values, perfectly clean synthetic surfaces. ~550x200 px.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-040.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Código 2D",
+  "px": [
+   558,
+   203
+  ],
+  "notes": "Composite tile (icon + text baked in) with a generated-looking product: invented code values, perfectly clean synthetic surfaces. ~550x200 px.",
+  "use": null
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 2,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-002-041.png",
+  "crop_file": null,
+  "box": null,
+  "kind": "product/defect-photo",
+  "verdict": "reject",
+  "slot": "detection tile",
+  "check": "Código 1D",
+  "px": [
+   563,
+   194
+  ],
+  "notes": "Composite tile (icon + text baked in) with a generated-looking product: invented code values, perfectly clean synthetic surfaces. ~550x200 px.",
+  "use": null
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-001-007.png",
+  "crop_file": "library/media/originals/rev360-standard/cava-label-detections-blurred.jpg",
+  "box": [
+   0,
+   0,
+   2048,
+   2048
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Etiquetas y cápsula (label_front/back, cap, medallion)",
+  "px": [
+   2048,
+   2048
+  ],
+  "notes": "Full detection frame with blur over winery name on the four neck bands and capsule text, the four \"AM\" medallions, the D.O. label, the whole back label (brand, address, QR, EAN) and the front label. Detection boxes and scores stay visible; the small boxes inside the back label (QR, lot, barcode) are blurred with it. Gaussian blur r=30px over 14 region(s), soft edge 6px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     356,
+     372,
+     418,
+     674
+    ]
+   ],
+   [
+    "rect",
+    [
+     714,
+     392,
+     776,
+     680
+    ]
+   ],
+   [
+    "rect",
+    [
+     1366,
+     384,
+     1424,
+     676
+    ]
+   ],
+   [
+    "rect",
+    [
+     1702,
+     380,
+     1758,
+     666
+    ]
+   ],
+   [
+    "rect",
+    [
+     868,
+     110,
+     930,
+     330
+    ]
+   ],
+   [
+    "rect",
+    [
+     868,
+     366,
+     930,
+     545
+    ]
+   ],
+   [
+    "rect",
+    [
+     1188,
+     110,
+     1242,
+     495
+    ]
+   ],
+   [
+    "rect",
+    [
+     306,
+     730,
+     490,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     652,
+     720,
+     756,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     1312,
+     730,
+     1494,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     1632,
+     730,
+     1754,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     300,
+     1232,
+     645,
+     1346
+    ]
+   ],
+   [
+    "rect",
+    [
+     296,
+     1416,
+     756,
+     1920
+    ]
+   ],
+   [
+    "rect",
+    [
+     1266,
+     1466,
+     1770,
+     1890
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "rev360-standard",
+  "source_pdf": "drive/pdf/Copia de AIS REV STANDARD_Printing7.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/rev-standard-es/standard-001-007.png",
+  "crop_file": "library/media/originals/rev360-standard/cava-capsule-detections-blurred.jpg",
+  "box": [
+   0,
+   0,
+   2048,
+   830
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Posición e inclinación cápsula",
+  "px": [
+   2048,
+   830
+  ],
+  "notes": "Capsule crop with the winery name on the neck bands and the medallion monograms blurred. Gaussian blur r=30px over 14 region(s), soft edge 6px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     356,
+     372,
+     418,
+     674
+    ]
+   ],
+   [
+    "rect",
+    [
+     714,
+     392,
+     776,
+     680
+    ]
+   ],
+   [
+    "rect",
+    [
+     1366,
+     384,
+     1424,
+     676
+    ]
+   ],
+   [
+    "rect",
+    [
+     1702,
+     380,
+     1758,
+     666
+    ]
+   ],
+   [
+    "rect",
+    [
+     868,
+     110,
+     930,
+     330
+    ]
+   ],
+   [
+    "rect",
+    [
+     868,
+     366,
+     930,
+     545
+    ]
+   ],
+   [
+    "rect",
+    [
+     1188,
+     110,
+     1242,
+     495
+    ]
+   ],
+   [
+    "rect",
+    [
+     306,
+     730,
+     490,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     652,
+     720,
+     756,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     1312,
+     730,
+     1494,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     1632,
+     730,
+     1754,
+     862
+    ]
+   ],
+   [
+    "rect",
+    [
+     300,
+     1232,
+     645,
+     1346
+    ]
+   ],
+   [
+    "rect",
+    [
+     296,
+     1416,
+     756,
+     1920
+    ]
+   ],
+   [
+    "rect",
+    [
+     1266,
+     1466,
+     1770,
+     1890
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-005.png",
+  "crop_file": "library/media/originals/rev360-compact/oval-tin-4-views-blurred.jpg",
+  "box": [
+   0,
+   0,
+   7884,
+   1157
+  ],
+  "kind": "product/defect-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detail",
+  "check": null,
+  "px": [
+   7884,
+   1157
+  ],
+  "notes": "Full 4-view camera strip (1/8 subsample) with blur over the printed lid of each view (customer brand logo and product name); seam, dent, tin walls and the date code untouched. Green conveyor visible at the bottom of the frames. Gaussian blur r=22px over 4 region(s), soft edge 10px; nothing else changed. Coordinates on the 1/8 subsample.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "poly",
+    [
+     [
+      100,
+      400
+     ],
+     [
+      250,
+      250
+     ],
+     [
+      600,
+      140
+     ],
+     [
+      1600,
+      95
+     ],
+     [
+      1720,
+      160
+     ],
+     [
+      1660,
+      260
+     ],
+     [
+      1300,
+      340
+     ],
+     [
+      800,
+      445
+     ],
+     [
+      400,
+      490
+     ],
+     [
+      110,
+      480
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      2050,
+      200
+     ],
+     [
+      2150,
+      165
+     ],
+     [
+      3920,
+      235
+     ],
+     [
+      3950,
+      330
+     ],
+     [
+      3860,
+      470
+     ],
+     [
+      3600,
+      548
+     ],
+     [
+      3220,
+      548
+     ],
+     [
+      3170,
+      515
+     ],
+     [
+      2800,
+      445
+     ],
+     [
+      2300,
+      335
+     ],
+     [
+      2070,
+      295
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      4075,
+      85
+     ],
+     [
+      4500,
+      50
+     ],
+     [
+      5300,
+      130
+     ],
+     [
+      5920,
+      245
+     ],
+     [
+      5960,
+      335
+     ],
+     [
+      5800,
+      400
+     ],
+     [
+      5400,
+      432
+     ],
+     [
+      4900,
+      442
+     ],
+     [
+      4400,
+      385
+     ],
+     [
+      4100,
+      335
+     ],
+     [
+      4075,
+      300
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      6200,
+      195
+     ],
+     [
+      6500,
+      160
+     ],
+     [
+      7300,
+      120
+     ],
+     [
+      7884,
+      120
+     ],
+     [
+      7884,
+      335
+     ],
+     [
+      7500,
+      545
+     ],
+     [
+      7000,
+      552
+     ],
+     [
+      6500,
+      495
+     ],
+     [
+      6200,
+      475
+     ]
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "rev360-compact",
+  "source_pdf": "drive/pdf/Copia de AIS REV Compact Conservas_Printing5.pdf",
+  "page": 1,
+  "source_file": "drive/img2/AIS-REV-Compact-Conservas-Printing5-005.png",
+  "crop_file": "library/media/originals/rev360-compact/oval-tin-seam-dent-wide-blurred.jpg",
+  "box": [
+   1960,
+   0,
+   4065,
+   830
+  ],
+  "kind": "product/defect-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detection tile",
+  "check": "Fallo por pico (unconfirmed)",
+  "px": [
+   2105,
+   830
+  ],
+  "notes": "Whole frame 2 (tin with the seam droop) with the lid print blurred; bottom cut above most of the green conveyor. Gaussian blur r=22px over 4 region(s), soft edge 10px; nothing else changed. Coordinates on the 1/8 subsample.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "poly",
+    [
+     [
+      100,
+      400
+     ],
+     [
+      250,
+      250
+     ],
+     [
+      600,
+      140
+     ],
+     [
+      1600,
+      95
+     ],
+     [
+      1720,
+      160
+     ],
+     [
+      1660,
+      260
+     ],
+     [
+      1300,
+      340
+     ],
+     [
+      800,
+      445
+     ],
+     [
+      400,
+      490
+     ],
+     [
+      110,
+      480
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      2050,
+      200
+     ],
+     [
+      2150,
+      165
+     ],
+     [
+      3920,
+      235
+     ],
+     [
+      3950,
+      330
+     ],
+     [
+      3860,
+      470
+     ],
+     [
+      3600,
+      548
+     ],
+     [
+      3220,
+      548
+     ],
+     [
+      3170,
+      515
+     ],
+     [
+      2800,
+      445
+     ],
+     [
+      2300,
+      335
+     ],
+     [
+      2070,
+      295
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      4075,
+      85
+     ],
+     [
+      4500,
+      50
+     ],
+     [
+      5300,
+      130
+     ],
+     [
+      5920,
+      245
+     ],
+     [
+      5960,
+      335
+     ],
+     [
+      5800,
+      400
+     ],
+     [
+      5400,
+      432
+     ],
+     [
+      4900,
+      442
+     ],
+     [
+      4400,
+      385
+     ],
+     [
+      4100,
+      335
+     ],
+     [
+      4075,
+      300
+     ]
+    ]
+   ],
+   [
+    "poly",
+    [
+     [
+      6200,
+      195
+     ],
+     [
+      6500,
+      160
+     ],
+     [
+      7300,
+      120
+     ],
+     [
+      7884,
+      120
+     ],
+     [
+      7884,
+      335
+     ],
+     [
+      7500,
+      545
+     ],
+     [
+      7000,
+      552
+     ],
+     [
+      6500,
+      495
+     ],
+     [
+      6200,
+      475
+     ]
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-010.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-2d-profile-full-blurred.jpg",
+  "box": [
+   0,
+   0,
+   1167,
+   652
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Vacío correcto",
+  "px": [
+   1167,
+   652
+  ],
+  "notes": "Whole screen, including the \"Jar 50, OK, vacuum\" header and counters; only the save-path line (customer \"HERO\" project and a user name) is blurred. Gaussian blur r=8px over 1 region(s), soft edge 2px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     10,
+     86,
+     730,
+     108
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 2,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-011.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-profile-and-code-full-blurred.jpg",
+  "box": [
+   0,
+   0,
+   1216,
+   750
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": "Lote impreso",
+  "px": [
+   1216,
+   750
+  ],
+  "notes": "Whole screen; the save-path line and the Hero logo/print on the lid in the intensity image are blurred. Code panel says \"not readable\" - do not present as a successful read. Gaussian blur r=8px over 2 region(s), soft edge 3px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     10,
+     104,
+     850,
+     128
+    ]
+   ],
+   [
+    "ellipse",
+    [
+     965,
+     245,
+     1130,
+     395
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "vacuum",
+  "source_pdf": "drive/pdf/BR AIS VACUUM SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-AIS-VACUUM-SP-007.png",
+  "crop_file": "library/media/originals/vacuum/vacuum-3d-profile-full-blurred.jpg",
+  "box": [
+   0,
+   0,
+   1187,
+   621
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "screen",
+  "check": null,
+  "px": [
+   1187,
+   621
+  ],
+  "notes": "Whole 3D view with header and counters; only the save-path line is blurred. Gaussian blur r=8px over 1 region(s), soft edge 2px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     25,
+     90,
+     740,
+     114
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "opticais",
+  "source_pdf": "drive/pdf/BR OPTICAIS SP.pdf",
+  "page": 1,
+  "source_file": "~/.cache/ais-group-design/orig-images/extract/opticais/opticais-001-020.png",
+  "crop_file": "library/media/originals/opticais/carton-ocr-read-blurred.jpg",
+  "box": [
+   0,
+   0,
+   518,
+   343
+  ],
+  "kind": "product/defect-photo",
+  "verdict": "reuse-after-crop",
+  "slot": "detection tile",
+  "check": "OCR",
+  "px": [
+   518,
+   343
+  ],
+  "notes": "Carton OCR read with the GTIN line (01)… and the DataMatrix that encodes it blurred; lot 256100, date 2030-05, (17) and (10) reads stay legible. No brand name is visible on the carton. Gaussian blur r=6px over 2 region(s), soft edge 1.5px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     266,
+     136,
+     428,
+     161
+    ]
+   ],
+   [
+    "rect",
+    [
+     212,
+     146,
+     265,
+     196
+    ]
+   ]
+  ]
+ },
+ {
+  "machine": "rosepetal",
+  "source_pdf": "drive/pdf/BR ROSEPETAL SP.pdf",
+  "page": 1,
+  "source_file": "drive/img2/BR-ROSEPETAL-SP-004.png",
+  "crop_file": "library/media/originals/rosepetal/labelling-tool-cava-blurred.jpg",
+  "box": [
+   0,
+   0,
+   1917,
+   995
+  ],
+  "kind": "screen",
+  "verdict": "reuse-after-crop",
+  "slot": "cover hero",
+  "check": null,
+  "px": [
+   1917,
+   995
+  ],
+  "notes": "Labelling-tool screen with the winery name on the neck, the medallions, the D.O. label and the back label (winery, importer, web, EAN) blurred. The front label was already blurred in the original. Gaussian blur r=14px over 8 region(s), soft edge 3px; nothing else changed.",
+  "use": "ok",
+  "blurred": true,
+  "blur_regions": [
+   [
+    "rect",
+    [
+     735,
+     130,
+     805,
+     240
+    ]
+   ],
+   [
+    "rect",
+    [
+     1180,
+     130,
+     1236,
+     240
+    ]
+   ],
+   [
+    "rect",
+    [
+     505,
+     378,
+     600,
+     458
+    ]
+   ],
+   [
+    "rect",
+    [
+     948,
+     378,
+     1046,
+     456
+    ]
+   ],
+   [
+    "rect",
+    [
+     385,
+     383,
+     442,
+     455
+    ]
+   ],
+   [
+    "rect",
+    [
+     842,
+     383,
+     870,
+     438
+    ]
+   ],
+   [
+    "rect",
+    [
+     460,
+     615,
+     668,
+     678
+    ]
+   ],
+   [
+    "rect",
+    [
+     460,
+     690,
+     670,
+     920
+    ]
+   ]
+  ]
+ }
+]
