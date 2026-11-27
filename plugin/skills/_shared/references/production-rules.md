@@ -1,10 +1,10 @@
 # Production rules
 
-How pieces are made from our sources and assets. Brand rules are in the knowledge skills (brand-guidelines, design-language, communications); these rules add what the guide leaves to production.
+How pieces are made from our sources and assets. Brand rules are in the knowledge skills (ais-brand-guidelines, design-language, communications); these rules add what the guide leaves to production.
 
 ## The rule that wins
 
-Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
+Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design and implementation that serve it.](../../ais-brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).
 
 ## Working
 

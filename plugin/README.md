@@ -39,7 +39,7 @@ Claude picks the template, writes the copy from what is true, checks it against 
 
 | Skill | For |
 | --- | --- |
-| brand-guidelines | Essentials, brand names, logos and the app mark |
+| ais-brand-guidelines | Essentials, brand names, logos and the app mark |
 | design-language | Colour, type, layout, images, icons, charts, motion, accessibility |
 | communications | Voice, languages and copy in English, Spanish and Catalan |
 | marketing | Choosing the right piece: brochure, post or carousel |

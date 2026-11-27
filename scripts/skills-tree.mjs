@@ -6,7 +6,7 @@ import { parse } from 'yaml';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const TREE = [
-  { name: 'brand-guidelines', branch: '01 Brand Guidelines', pages: ['index', 'brands', 'logos'], description: 'Use for AIS brand architecture, choosing an issuing brand, logo variants, corporate identity and correct or incorrect logo use.', steps: ['Identify the issuing brand and medium before choosing a logo.', 'Read only the matching reference. Corporate colour and type are owned by design-language; do not invent a second palette.', 'Use supplied logo files and check contrast, clear space and minimum width against logos.md.'] },
+  { name: 'ais-brand-guidelines', branch: '01 Brand Guidelines', pages: ['index', 'brands', 'logos'], description: 'Use for AIS brand architecture, choosing an issuing brand, logo variants, corporate identity and correct or incorrect logo use.', steps: ['Identify the issuing brand and medium before choosing a logo.', 'Read only the matching reference. Corporate colour and type are owned by design-language; do not invent a second palette.', 'Use supplied logo files and check contrast, clear space and minimum width against logos.md.'] },
   { name: 'design-language', branch: '02 Design Language', pages: ['colour', 'typography', 'layout', 'imagery', 'patterns', 'icons', 'illustration', 'data', 'motion', 'themes', 'accessibility'], description: 'Use when choosing AIS principles, colour tokens, typography, grid, spacing, illustration, motion, themes, charts or accessibility rules.', steps: ['Identify the medium: product UI, web or communications. Their type, grid and corner rules differ.', 'Load only the relevant topic below. Read themes.md for light/dark behaviour and tokens.md for exact values.', 'Apply the guide’s existing rules. Do not create new brand standards to fill a missing example.'] },
   { name: 'communications', branch: '03 Communications / Voice and localisation', pages: ['voice', 'localisation'], description: 'Load before writing, rewriting, editing or reviewing AIS copy, captions, headlines, claims or quotes in Spanish, English or Catalan.', steps: ['Collect the exact source, product, figure and conditions. No source means no invented claim, certification, customer or quote.', 'Draft in the target language, then cut anything that does not serve the message. Use «» quotations and no middle-dot separators.', 'Read voice.md and localisation.md; consult the writing references for the requested format.', 'Run node engine/text-check.mjs on the draft from plugin/. Resolve errors before export.'] },
   { name: 'print-stationery', branch: '03 Communications / Print and Stationery', pages: [], description: 'Use for AIS business cards, letterheads, office stationery and printed materials; find the existing template and print rules.', steps: ['Find the existing office or business-card template through resources-assets and the studio catalogue.', 'For printed material, use the shared print system. Read print.md before selecting a template.', 'Business cards contain personal data. Keep their source private; do not publish it or invent contact details.'] },
@@ -41,7 +41,7 @@ const read = file => fs.readFileSync(file, 'utf8');
 const strip = value => value.replace(/^---\n[\s\S]*?\n---\n*/, '');
 const write = (file, value) => { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, value); };
 const SHORT = {
-  'brand-guidelines': "01. Load before choosing AIS logos, issuing brands or clear space.",
+  'ais-brand-guidelines': "01. Load before choosing AIS logos, issuing brands or clear space.",
   'design-language': "02. AIS report/app/web type, grid and themes; tipografía, tamaños y retícula.",
   communications: "03. Load for AIS captions/copy in EN/ES/CA; redacción, pies, voz y estilo.",
   'print-stationery': '03. Find AIS business-card, letterhead and print stationery templates.',
@@ -78,7 +78,7 @@ export function proposal(out) {
   // Once integrated, the live entrypoints and workflows are canonical. Packaging
   // and verification copy them; they must never reconstruct the old 17-skill tree.
   if (INVENTORY.every(skill => fs.existsSync(path.join(source, skill.name, 'SKILL.md'))) && !fs.existsSync(path.join(source, 'writing/SKILL.md'))) return { skills: INVENTORY.length, pages: INVENTORY.flatMap(s => s.pages).length, owner: Object.fromEntries(INVENTORY.flatMap(s => s.pages.map(p => [p, s.name]))) };
-  const essential = read(path.join(source, 'brand-guidelines/SKILL.md')).match(/^1\. (\*\*Keep it simple:\*\*.*)$/m)?.[1];
+  const essential = read(path.join(source, 'ais-brand-guidelines/SKILL.md')).match(/^1\. (\*\*Keep it simple:\*\*.*)$/m)?.[1];
   if (!essential) throw new Error('No canonical essential');
   const copy = (from, to) => { if (fs.existsSync(from)) { fs.mkdirSync(path.dirname(to), { recursive: true }); fs.copyFileSync(from, to); } };
   // Each guide page has one canonical owner. Existing guide references keep their text, not a second authored copy.
@@ -96,7 +96,7 @@ export function proposal(out) {
   // The old writing skill overlapped voice/localisation. Preserve its method and both references under communications.
   copy(path.join(source, 'writing/references/formats.md'), path.join(out, 'communications/references/writing-formats.md'));
   copy(path.join(source, 'writing/references/tells.md'), path.join(out, 'communications/references/writing-tells.md'));
-  write(path.join(out, 'communications/references/writing-workflow.md'), strip(read(path.join(source, 'writing/SKILL.md'))).replace(essential, '').replaceAll('references/formats.md', 'writing-formats.md').replaceAll('references/tells.md', 'writing-tells.md').replaceAll('](../communications/references/', '](').replaceAll('](../brand-guidelines/', '](../../brand-guidelines/'));
+  write(path.join(out, 'communications/references/writing-workflow.md'), strip(read(path.join(source, 'writing/SKILL.md'))).replace(essential, '').replaceAll('references/formats.md', 'writing-formats.md').replaceAll('references/tells.md', 'writing-tells.md').replaceAll('](../communications/references/', '](').replaceAll('](../ais-brand-guidelines/', '](../../ais-brand-guidelines/'));
   fs.rmSync(path.join(out, 'writing'), { recursive: true });
   const notes = {
     'print-stationery/print.md': '# Print and stationery\n\nRead resources-assets/references/kit.md for the office kit and digital-documents/references/communications.md for printed-material composition. The guide names letterhead and Word templates. PowerPoint starts from the closest deck PPTX export; new decks use presentation. The private business-card sources are plugin/pieces/stationery/business-cards/; do not include them in a public download or plugin upload. A public business-card specification is missing. Use existing templates without inventing a card grid, size or contact.\n',
@@ -139,7 +139,7 @@ export function proposal(out) {
       return `](${path.relative(path.join(out, name, 'references'), dest)}${hash})`;
     });
     write(path.join(out, name, 'references/workflow.md'), `# ${name} production workflow\n\n${workflow}\n`);
-    const main = name === 'brand-guidelines' ? '' : essential + '\n\n';
+    const main = name === 'ais-brand-guidelines' ? '' : essential + '\n\n';
     let steps;
     if (name === 'setup') steps = '1. Read [setup workflow](references/workflow.md) and run its diagnostic before installing dependencies.\n2. Configure the existing media-folder setting and report missing system tools.\n';
     else if (name === 'asset-library') steps = '1. Read [media-library workflow](references/workflow.md) for search, inspection and registration.\n2. Identify the actual file, provenance, approval, rights and intended use.\n3. Return verified candidates and explicit gaps; register or change media only when requested.\n';

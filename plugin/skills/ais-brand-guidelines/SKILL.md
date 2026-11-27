@@ -1,9 +1,9 @@
 ---
-name: brand-guidelines
+name: ais-brand-guidelines
 description: "01. Load before choosing AIS logos, issuing brands or clear space."
 ---
 
-# brand-guidelines
+# ais-brand-guidelines
 
 Apply the [writing essentials: use «» for prose quotes, UI labels and section names in every language; no decorative separators or English contractions](../communications/references/writing-essentials.md) to this reply and artifact; preserve syntax in code, JSON and raw file excerpts. [Production rules](../_shared/references/production-rules.md): no glow or gradients; mascots and illustrations stay held; no public CAD or mesh downloads.
 

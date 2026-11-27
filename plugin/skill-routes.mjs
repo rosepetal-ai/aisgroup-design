@@ -1,5 +1,21 @@
-// Legacy resource routes stay outside discovery: there are 26 live skills.
+// Legacy resource routes stay outside discovery: they are not published as skills.
 export const SKILL_PATH_ALIASES = Object.freeze({
+  'brand-guidelines/SKILL.md': 'ais-brand-guidelines/SKILL.md',
+  'brand-guidelines/references/brands.md': 'ais-brand-guidelines/references/brands.md',
+  'brand-guidelines/references/index.md': 'ais-brand-guidelines/references/index.md',
+  'brand-guidelines/references/logos.md': 'ais-brand-guidelines/references/logos.md',
+  'brand-guidelines/references/retained-resolutions.md': 'ais-brand-guidelines/references/retained-resolutions.md',
+  'brand-guidelines/references/retained-rules-01.md': 'ais-brand-guidelines/references/retained-rules-01.md',
+  'brand-guidelines/references/retained-rules-02.md': 'ais-brand-guidelines/references/retained-rules-02.md',
+  'brand-guidelines/references/retained-rules-03.md': 'ais-brand-guidelines/references/retained-rules-03.md',
+  'brand-guidelines/references/retained-rules-04.md': 'ais-brand-guidelines/references/retained-rules-04.md',
+  'brand-guidelines/references/retained-rules-05.md': 'ais-brand-guidelines/references/retained-rules-05.md',
+  'brand-guidelines/references/retained-rules-06.md': 'ais-brand-guidelines/references/retained-rules-06.md',
+  'brand-guidelines/references/retained-rules-07.md': 'ais-brand-guidelines/references/retained-rules-07.md',
+  'brand-guidelines/references/retained-rules-08.md': 'ais-brand-guidelines/references/retained-rules-08.md',
+  'brand-guidelines/references/retained-rules-09.md': 'ais-brand-guidelines/references/retained-rules-09.md',
+  'brand-guidelines/references/retained-updates-01.md': 'ais-brand-guidelines/references/retained-updates-01.md',
+  'ais-brand-guidelines/references/downloads.md': 'resources-assets/references/downloads.md',
   'brand-guidelines/references/downloads.md': 'resources-assets/references/downloads.md',
   'communications/references/communications.md': 'digital-documents/references/communications.md',
   'communications/references/kit.md': 'resources-assets/references/kit.md',

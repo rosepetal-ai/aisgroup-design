@@ -2,7 +2,7 @@
 
 Then read [the shared workflow](../../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder.
 
-The rules live in the guide (copied into the skills [brand-guidelines](../../brand-guidelines/SKILL.md), [design-language](../../design-language/SKILL.md) and [communications](../../communications/SKILL.md)), the [production rules](../../_shared/references/production-rules.md) and the [look checklist](look-checklist.md). This skill is the order to check them in. Quote the rule briefly in each finding.
+The rules live in the guide (copied into the skills [ais-brand-guidelines](../../ais-brand-guidelines/SKILL.md), [design-language](../../design-language/SKILL.md) and [communications](../../communications/SKILL.md)), the [production rules](../../_shared/references/production-rules.md) and the [look checklist](look-checklist.md). This skill is the order to check them in. Quote the rule briefly in each finding.
 
 ## Look at it
 

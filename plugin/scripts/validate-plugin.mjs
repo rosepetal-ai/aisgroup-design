@@ -68,6 +68,7 @@ export function validateSkills(root) {
     let meta;
     try { meta = parse(match[1]); } catch (e) { errors.push(`${dir}: ${e.message}`); continue; }
     if (meta.name !== dir || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(meta.name) || meta.name.length > 64) errors.push(`${dir}: invalid skill name`);
+    if (meta.name === 'brand-guidelines') errors.push(`${dir}: Anthropic reserves this skill name; use ais-brand-guidelines`);
     if (names.has(meta.name)) errors.push(`${dir}: duplicate skill name`);
     names.add(meta.name);
     if (typeof meta.description !== 'string' || !meta.description.length || meta.description.length > 1024 || /<[^>]+>/.test(meta.description + meta.name)) errors.push(`${dir}: invalid skill description`);

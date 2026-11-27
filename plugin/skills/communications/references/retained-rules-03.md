@@ -425,7 +425,7 @@ Source: plugin/skills/communications/references/voice.md:105.
 ## AIS-1fff242c4403
 
 <!-- AIS-1fff242c4403 -->
-Write brand and product names exactly as in the [names table](../../brand-guidelines/references/brands.md) on Brand architecture, which also lists the forms never to use. These names go in the spelling dictionary of every language.
+Write brand and product names exactly as in the [names table](../../ais-brand-guidelines/references/brands.md) on Brand architecture, which also lists the forms never to use. These names go in the spelling dictionary of every language.
 
 Source: plugin/skills/communications/references/voice.md:109.
 
