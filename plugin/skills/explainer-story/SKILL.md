@@ -30,3 +30,5 @@ Treat captions as one optional layer. With narration captions enabled, use short
 ```
 
 Carry the approved shot plan into the [live-animation skill](../live-animation/SKILL.md) for construction, physical review and release.
+
+Apply the [AIS simplicity rule](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).

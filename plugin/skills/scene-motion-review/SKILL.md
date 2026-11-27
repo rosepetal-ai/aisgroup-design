@@ -28,3 +28,5 @@ Start with these beats at actual playback speed. Model the reach for the task's 
 5. Watch the complete action from the delivery camera with captions off. Inspect pickup and recovery from a second view when a body or guard hides them. Check full speed again after the quantitative pass. Record the named geometry, unobserved regions, worst pose and a normal-speed clip. A pass covers the sampled pairs and recorded task bounds. Motion quality, fatigue and real machine suitability require their own evidence.
 
 For a different brief, keep the procedure and replace the actor roles, evidence, supports, contact intervals and measured dimensions. The [two-brief regressions](scripts/audit-motion.test.mjs) exercise both a manually transferred case and an automated inspection path.
+
+Apply the [AIS simplicity rule](../brand-guidelines/references/retained-rules-01.md#ais-cba1a88e1cbf).

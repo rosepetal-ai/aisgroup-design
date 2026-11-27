@@ -81,7 +81,7 @@ figcaption, .caption { font-size: 8.5pt; line-height: 12pt; color: var(--muted);
 
 /* ---------- pictures ---------- */
 /* A photo fills its box (cover crop, subject kept whole with --fx/--fy). --h fixes the height; .grow takes what is left.
-   .cutout: a product or machine on a light ground, shown whole (contain) on the pale panel. */
+   .cutout: a product or machine on a light ground, shown whole (contain) on the page. */
 .photo { position: relative; }
 .photo .frame { position: relative; overflow: hidden; height: var(--h, 70mm); background: var(--pale); }
 .photo.grow { display: flex; flex-direction: column; }
@@ -91,6 +91,10 @@ figcaption, .caption { font-size: 8.5pt; line-height: 12pt; color: var(--muted);
 .split.grow { align-items: stretch; }
 .split.grow > .text { align-self: center; }
 .photo .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+.photo.cutout .frame { background: transparent; }
+/* Place a complete image and its caption together, at their natural proportions. */
+.photo.unframed { align-self: center; min-width: 0; }
+.photo.unframed > img { display: block; width: auto; max-width: 100%; max-height: var(--h, none); }
 .photo.cutout .frame img { object-fit: contain; padding: var(--pad, 4mm); }
 
 /* Detection tiles: one square picture per check and its name; --n per row. Missing picture: icon tile on the pale ground. */
