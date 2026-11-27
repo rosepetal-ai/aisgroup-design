@@ -29,7 +29,7 @@ test('installed migration preserves the old tree and unrelated settings; dry run
     assert.equal(fs.readdirSync(path.join(dir, 'skills')).filter(name => fs.existsSync(path.join(dir, 'skills', name, 'SKILL.md'))).length, 32);
   } finally { fs.rmSync(dir, { recursive: true, force: true }); if (backup) fs.rmSync(backup, { recursive: true, force: true }); }
 });
-test('all eight old reader resources reach their canonical owners without adding discovery entries', t => {
+test('all legacy reader resources reach their canonical owners without adding discovery entries', t => {
   const state = fs.mkdtempSync(path.join(os.homedir(), '.cache/ais-group-design/skill-route-test-'));
   const factory = new Factory({ state });
   t.after(() => { factory.close(); fs.rmSync(state, { recursive: true, force: true }); });

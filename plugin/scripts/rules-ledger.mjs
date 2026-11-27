@@ -16,16 +16,16 @@ pageOwner.video = 'brand-video';
 export function owningSkill(file, text) {
   if (file.startsWith('plugin/skills/')) {
     const [, , skill, , name] = file.split('/');
-    if (skill === '_shared') return 'brand-guidelines';
+    if (skill === '_shared') return 'ais-brand-guidelines';
     if (skill === 'writing') return 'communications';
     return pageOwner[path.basename(name ?? '', '.md')] ?? skill;
   }
-  if (/guide\/src\/content/.test(file)) return pageOwner[path.basename(file, '.mdx')] ?? 'brand-guidelines';
+  if (/guide\/src\/content/.test(file)) return pageOwner[path.basename(file, '.mdx')] ?? 'ais-brand-guidelines';
   if (/print\//.test(file)) return 'brochure';
   if (/decks\//.test(file)) return 'presentation';
   if (/copy.mjs|text-check/.test(file)) return 'communications';
   if (/brand-check/.test(file)) return 'brand-review';
-  if (/brand\.md$|essentials/.test(file)) return 'brand-guidelines';
+  if (/brand\.md$|essentials/.test(file)) return 'ais-brand-guidelines';
   if (/\b(?:post|carousel|stock)\b/i.test(text)) return 'marketing';
   if (/\b(?:deck|slide|presentation)\b/i.test(text)) return 'presentation';
   if (/\b(?:brochure|catalogue|datasheet|print|cover|ppi)\b/i.test(text)) return 'brochure';
@@ -34,7 +34,7 @@ export function owningSkill(file, text) {
   if (/\b(?:photo|picture|render|imagery|CAD|glb)\b/i.test(text)) return 'render-review';
   if (/\b(?:mascot|illustration|hexagon|pattern|gradient|glow|colour|font|type|spacing|motion)\b/i.test(text)) return 'design-language';
   if (/\b(?:site|web|nav|footer)\b/i.test(text)) return 'web-design';
-  return 'brand-guidelines';
+  return 'ais-brand-guidelines';
 }
 
 export function buildLedger() {
@@ -93,7 +93,7 @@ export function buildLedger() {
 }
 
 export function liveRuleText(rule, ledger) {
-  if (!rule.archiveOnly) return rule.rule;
+  if (!rule.archiveOnly) return rule.rule.replace(/(?<!ais-)\bbrand-guidelines\b/g, 'ais-brand-guidelines');
   const current = ledger.rules.find(candidate => candidate.id === rule.supersededBy);
   if (!current) throw new Error(`Missing retirement destination for ${rule.id}`);
   const relative = path.posix.relative(path.posix.dirname(rule.owner), current.owner);

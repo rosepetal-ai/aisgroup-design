@@ -99,7 +99,7 @@ The guide's menu and the skills follow the same tree. Each node is one skill: a 
 
 | Tree node | Skill |
 |---|---|
-| 01 Brand guidelines (logo, colour, type, use) | `brand-guidelines`; Resources (downloads, assets): `resources-assets` |
+| 01 Brand guidelines (logo, colour, type, use) | `ais-brand-guidelines`; Resources (downloads, assets): `resources-assets` |
 | 02 Design language (principles, tokens, type, grid, layout, icons, motion, themes) | `design-language` |
 | 03 Communications (print, documents, marketing, motion and video) | `communications` (plus the making skills: `brochure`, `presentation`, `social-post`, `linkedin-carousel`, `linkedin-banner`, `brand-video`) |
 | 04 Digital design: web | `web-design` |

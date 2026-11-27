@@ -544,7 +544,7 @@ Source: plugin/skills/web-design/references/web.md:10.
 ## AIS-037f8c82e874
 
 <!-- AIS-037f8c82e874 -->
-| **Logo in the header** | The official file only. AIS lockups 44 px tall, in black; Rosepetal wordmark 27 px tall (140 px wide), 25 px (130 px, its minimum) on phones, in blue. See [Logos](../../brand-guidelines/references/logos.md#on-websites). |
+| **Logo in the header** | The official file only. AIS lockups 44 px tall, in black; Rosepetal wordmark 27 px tall (140 px wide), 25 px (130 px, its minimum) on phones, in blue. See [Logos](../../ais-brand-guidelines/references/logos.md#on-websites). |
 
 Source: plugin/skills/web-design/references/web.md:11.
 
@@ -621,7 +621,7 @@ Source: plugin/skills/web-design/references/web.md:21.
 ## AIS-a2db0bfbf802
 
 <!-- AIS-a2db0bfbf802 -->
-| **Favicons** | The bare mark from the website set: blue `#17356E` in light mode, white in dark mode, pixel-snapped at each size. See [Logos](../../brand-guidelines/references/logos.md#favicons). |
+| **Favicons** | The bare mark from the website set: blue `#17356E` in light mode, white in dark mode, pixel-snapped at each size. See [Logos](../../ais-brand-guidelines/references/logos.md#favicons). |
 
 Source: plugin/skills/web-design/references/web.md:22.
 

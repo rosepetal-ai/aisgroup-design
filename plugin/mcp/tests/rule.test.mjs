@@ -17,7 +17,7 @@ test('essential 1 of the guide is the main rule', () => {
 });
 
 test('simplicity has one canonical owner and every live skill points to it', () => {
-  assert(essential?.owner.startsWith('skills/brand-guidelines/'));
+  assert(essential?.owner.startsWith('skills/ais-brand-guidelines/'));
   const files = fs.readdirSync(path.join(ROOT, 'skills'), { recursive: true }).filter(file => file.endsWith('.md'));
   const owners = files.filter(file => read(`skills/${file}`).split('\n').includes(RULE));
   assert.deepEqual(owners, [essential.owner.replace(/^skills\//, '')]);

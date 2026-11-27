@@ -91,7 +91,7 @@ The letterhead is small and calm, with one hexagon fade in a corner. To write a 
 - **AIS Vision Systems letterhead ES**: [PDF](https://design.aisgroup.ai/kit/files/stationery-letterhead.pdf)
 - **AIS Vision Systems letter ES**: [file](../../../brand/kit/office/letter-ais-vision-systems.docx)
 
-Before opening the Office templates, install the three fonts in `/kit/office/fonts/` ([Inter](../../../brand/kit/office/fonts/Inter.ttf), [Inter Medium](../../../brand/kit/office/fonts/InterMedium.ttf) and [Inter SemiBold](../../../brand/kit/office/fonts/InterSemiBold.ttf), [OFL](../../../brand/kit/office/fonts/OFL-Inter.txt) licence); without them, Office falls back to Arial. Logos and pictograms are on [Logos](../../brand-guidelines/references/logos.md) and [Icons](../../design-language/references/icons.md). Business cards carry personal phone numbers, so they are not published here: ask marketing for yours.
+Before opening the Office templates, install the three fonts in `/kit/office/fonts/` ([Inter](../../../brand/kit/office/fonts/Inter.ttf), [Inter Medium](../../../brand/kit/office/fonts/InterMedium.ttf) and [Inter SemiBold](../../../brand/kit/office/fonts/InterSemiBold.ttf), [OFL](../../../brand/kit/office/fonts/OFL-Inter.txt) licence); without them, Office falls back to Arial. Logos and pictograms are on [Logos](../../ais-brand-guidelines/references/logos.md) and [Icons](../../design-language/references/icons.md). Business cards carry personal phone numbers, so they are not published here: ask marketing for yours.
 
 ## Patterns
 

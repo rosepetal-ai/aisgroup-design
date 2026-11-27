@@ -108,7 +108,7 @@ Where it is true, add a risk reducer under a trial: *No card needed* / *Sin tarj
 
 ## Names
 
-Write brand and product names exactly as in the [names table](../../brand-guidelines/references/brands.md) on Brand architecture, which also lists the forms never to use. These names go in the spelling dictionary of every language.
+Write brand and product names exactly as in the [names table](../../ais-brand-guidelines/references/brands.md) on Brand architecture, which also lists the forms never to use. These names go in the spelling dictionary of every language.
 
 ## Template text is copy too
 
