@@ -14,6 +14,8 @@ Rule [AIS-cba1a88e1cbf: Keep it simple: one purpose, the plainest layout, design
 2. Use the existing template, verified facts and approved assets. Keep unknown facts explicit.
 3. Run its text and structural checks, render under the shared lock, then inspect the actual output before delivery.
 
+The render delivers the finished film: the published intro and end card, the footage or recording, and the music. Nothing is left for the edit. Every film of the Rosepetal software, tutorials included, belongs to `platform-film`; this skill keeps the footage templates.
+
 Read [video](references/video.md) first for the current published intro MP4s. Reuse those approved exports; the older opening recipe is a source for requested changes, not a reason to rebuild an available intro. Read the dated [flat video ground rule](../design-language/references/retained-resolutions.md#ais-6e9225032282) before planning backgrounds.
 
 Source rules, loaded only when needed:

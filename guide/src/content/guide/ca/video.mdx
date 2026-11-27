@@ -4,7 +4,7 @@ rules:
   - 'Enregistra línies reals, peces reals i persones reals. Mantén cada pla almenys 2 s (1,5 s en els resums de fira) i talla. La cortineta blava és la transició principal; entre plans d’una mateixa escena s’admet un fos encadenat de 13 fotogrames.'
   - 'Fes servir les set plantilles de vídeo de sota o el flux de demostració de la interfície. Tots els vídeos acaben amb el tancament. Només les peces de més de 60 s comencen amb el logotip; les més curtes comencen amb el pla més revelador.'
   - 'Els grafismes es mouen amb els tokens de moviment, passats a fotogrames. Res no rebota, gira, fa glitch ni entra volant.'
-  - 'El text va en Inter, amb majúscula només inicial, dins de la zona segura de títols i mai per sota de 32 px en 1080p.'
+  - 'El text va en Inter, amb majúscula només inicial, dins de la zona segura de títols i mai per sota de 32 px en 1080p, tret dels passos dels tutorials, a 28 px.'
   - 'Tots els vídeos porten subtítols. El vídeo per a xarxes els porta incrustats; el del web porta a més un fitxer de subtítols.'
   - 'Lliura a 25 fps, Rec. 709 i sonoritat de −14 LUFS per a web i xarxes, −23 LUFS per a esdeveniments i emissió.'
 ---
@@ -34,6 +34,7 @@ Màrqueting fa servir set plantilles de vídeo i el flux de demostració de la i
 | **Vídeo sectorial** | De 60 a 90 s; 16:9, més una versió curta de 20 s | El món del sector durant els primers 10 s; la línia; la inspecció abans dels 30 s; frases de 2 a 4 paraules cada 6 s o més; un resultat verificat; el tancament  |
 | **Cas d’èxit** | De 60 a 90 s; 16:9, 9:16 | La línia del client; les seves pròpies paraules amb rètol abans de 10 s i subtítols; una xifra verificada en la seva pròpia targeta; el tancament  |
 | **Entrevista** | Versió completa: qualsevol durada, 16:9, amb capítols. Versió per a xarxes: de 45 a 60 s, sense logotip d’obertura; 16:9, 1:1, 4:5 | El logotip d’obertura a la versió completa; la primera pregunta com a títol (abans de 2 s a la versió per a xarxes); la persona amb el seu rètol just després; plans de recurs de la fira o del producte sota la veu, un cada 6 a 10 s; una targeta de cita; subtítols de principi a fi; el tancament  |
+| **Tutorial** | La durada la marca el contingut; 16:9 | La intro de marca de Rosepetal; un títol sobre blau de marca; l’enregistrament, amb els passos escrits en pantalla; el tancament. Només música.  |
 
 Cada vídeo llarg té a més una versió vertical de 20 s que hi enllaça.
 
@@ -91,8 +92,8 @@ L’hexàgon també és un recurs de marca, en les dues formes i amb els límits
 
 | Element | Quan | Especificació |
 | --- | --- | --- |
-| **Logotip d’obertura** | Peces de més de 60 s: vídeos de producte, casos d’èxit, webinars, tutorials | Blau de marca `#17356E`, logotip blanc de 560 px d’amplada. 8 fotogrames de blau, el logotip entra en 18 fotogrames, es manté fins als 2 s i tall. Sense efecte de so. |
-| **Intro de marca** | En lloc del logotip d’obertura, un cop per peça: pantalles de fira, vídeo social, el web, presentacions | El paisatge d’hexàgons, blanc sobre blau de marca, ondula lentament mentre una passada d’inspecció avança de prop a lluny i ressalta les seves línies. El logotip blanc, cada marca amb la mateixa àrea que AIS Vision Systems a 560 px d’amplada (vegeu Logotip), apareix i puja 16 px sobre el blau net de dalt, i la peça acaba amb un fos. 5 s, o 10 s sense logotip com a fons. Sense brillantors, partícules ni vinyeta. |
+| **Logotip d’obertura** | Peces de més de 60 s: vídeos de producte, casos d’èxit, webinars | Blau de marca `#17356E`, logotip blanc de 560 px d’amplada. 8 fotogrames de blau, el logotip entra en 18 fotogrames, es manté fins als 2 s i tall. Sense efecte de so. |
+| **Intro de marca** | En lloc del logotip d’obertura, un cop per peça: pantalles de fira, vídeo social, el web, presentacions, tutorials | El paisatge d’hexàgons, blanc sobre blau de marca, ondula lentament mentre una passada d’inspecció avança de prop a lluny i ressalta les seves línies. El logotip blanc, cada marca amb la mateixa àrea que AIS Vision Systems a 560 px d’amplada (vegeu Logotip), apareix i puja 16 px sobre el blau net de dalt, i la peça acaba amb un fos. 5 s, o 10 s sense logotip com a fons. Sense brillantors, partícules ni vinyeta. |
 | **Títol** | Capítols i títol de la peça | Inter Semibold 96 px, majúscula només inicial, sobre blau o blanc, 20 caràcters per línia i dues línies com a màxim, les línies entren en 28 fotogrames, amb 3 fotogrames entre elles |
 | **Rètol** | La primera vegada que parla una persona | Placa en tinta `#0F1729`, amb 24 px per 32 px de marge interior, a la cantonada de la zona segura. Primer creix una barra de 6 px en blue-300 `#7C9FD7` a la seva vora esquerra i després la placa s’obre des d’ella. Nom en Inter Semibold 44 px blanc; càrrec i empresa en Inter Regular 32 px neutre 400. Almenys 4 s en pantalla. |
 | **Lloc** | Primer pla d’una instal·lació | La mateixa placa, una línia, 32 px: «Línia d’embotellament, la Rioja» |
@@ -148,6 +149,49 @@ La resta segueix aquesta pàgina: blau de marca, mai un blau de campanya ni una 
 - Sonoritat: −14 LUFS integrats per a web i xarxes, −23 LUFS (EBU R128) per a esdeveniments i emissió, pic real −1 dBTP.
 - El vídeo del web mai no reprodueix so tot sol.
 - Els vídeos de Rosepetal fan servir la seva banda sonora. Els vídeos d’AIS també poden utilitzar aquestes pistes de [Baixades](/ca/downloads/#música).
+
+## Tutorials i guies pas a pas
+
+Un tutorial mostra una tasca a l’aplicació real, amb els passos escrits en pantalla i sense veu. Aquestes regles se sumen a les anteriors i substitueixen les generals de subtítols, moviment i so allà on difereixen.
+
+### Estructura i fonts
+
+- La intro de marca de Rosepetal, un títol sobre blau de marca, l’enregistrament i el tancament. El logotip només apareix en aquests dos extrems. El títol va sobre blau de marca llis, sol i en blanc, durant 2 s, sense entradeta, fons ni cap altra etiqueta.
+- Agafa la intro, el tancament i la música de les pàgines «Vídeo» i «Baixades» d’aquesta guia, sense canvis. Es publiquen aquí, no als repositoris.
+- Enregistra dins de la plataforma. Node-RED es mostra a la secció «Flows» de la plataforma, en un controlador amb els nodes de Rosepetal, mai com un Node-RED independent.
+
+### Ritme
+
+- La durada la marca el contingut. No allarguis un tutorial per arribar a una durada prevista.
+- Una acció senzilla, com posar un nom o prémer un botó, dura de dos a quatre segons.
+- L’acció comença mentre el seu text és en pantalla, aproximadament un segon després que aparegui. Mai primer el text i després l’acció.
+- Un text es manté el temps que es triga a llegir-lo: uns 18 caràcters per segon, entre 1,8 i 7 segons.
+
+### Text en pantalla
+
+- Una acció senzilla porta poques paraules, per exemple: Prem «Crea». L’explicació va a la guia escrita, no en pantalla.
+- L’estil de subtítols de 40 px es manté per als subtítols del vídeo parlat.
+
+| Regla | Valor |
+| --- | --- |
+| Tipografia | Inter Medium 28 px en 1080p, blanc sobre placa en tinta `#0F1729`, majúscula només inicial |
+| Placa | Ajustada al text: tan ampla com la seva línia més llarga més 24 px a cada costat, 16 px a dalt i a baix, també quan el text ocupa dues línies. Cantonades rectes. |
+| Elevació | Una vora d’1 px `#1E293B` i l’ombra del nivell superposat amb el doble d’intensitat: `0 4px 12px rgb(15 23 41 / 12%), 0 24px 48px rgb(15 23 41 / 24%)` |
+| Llargada | Dues línies com a màxim, 42 caràcters per línia, una idea cada vegada |
+| Posició | Centrat a la part inferior de la zona segura; a dalt mentre el control que es fa servir és al quart inferior de la pantalla |
+| Moviment | Entra en 13 fotogrames i surt en 5, amb un desplaçament de 16 px |
+
+### Punter
+
+- L’enregistrament mostra un punter dibuixat que segueix el punter real de l’aplicació, de manera que es mou al compàs del que fa l’aplicació.
+- Una fletxa blanca amb contorn fosc, de 39 px en 1080p, amb una ombra suau.
+- Llisca amb una corba d’acceleració i desacceleració (ease-in-out) en un temps de 0,65 a 1,8 segons, que depèn de la distància: 2,2 ms per píxel d’un enquadrament de 1280 px d’amplada. Mai més ràpid: un punter que salta no es pot seguir.
+- Cada pulsació mostra una ona: un anell en blau d’acció `#3664B3` amb un emplenament del 25 %, de 69 px en 1080p, que creix de 0,3 a 1,25 vegades la seva mida i s’esvaeix en 0,5 s. És l’únic grafisme que canvia d’escala.
+
+### So
+
+- Un tutorial porta sempre una peça de la banda sonora de Rosepetal de «Baixades».
+- La peça comença amb el vídeo i s’esvaeix sobre el tancament en 2,5 s, a −14 LUFS amb un pic real de −1 dBTP.
 
 ## Lliurament
 

@@ -2,7 +2,7 @@
 
 Then read [the shared workflow](../../_shared/WORKFLOW.md): sources, generators and shared checks; it wins over anything below. Commands run from the plugin folder.
 
-Use the seven footage templates for footage, or the product interface clips below for a film of the Rosepetal app. An interview cuts real footage with its own sound (`voice`) and builds its captions from the transcript (`captionsFrom`, `corrections`); a person reads the captions before it ships.
+Use the seven footage templates for footage; a film of the Rosepetal app belongs to `platform-film`. An interview cuts real footage with its own sound (`voice`) and builds its captions from the transcript (`captionsFrom`, `corrections`); a person reads the captions before it ships.
 
 | Type | Template | Length, formats |
 | --- | --- | --- |
@@ -13,6 +13,7 @@ Use the seven footage templates for footage, or the product interface clips belo
 | Sector film | `templates/video-sector-film.json` | 60–90 s; 16x9 + 20 s cutdown |
 | Case study | `templates/video-case-study.json` | 60–90 s; 16x9, 9x16 |
 | Interview | `templates/video-interview.json` | Full version any length, 16x9; social cut 45–60 s, 16x9, 1x1, 4x5 |
+| Tutorial | `templates/video-tutorial.json` | As long as the task; 16x9 |
 
 ## Footage
 
@@ -26,16 +27,9 @@ Use the seven footage templates for footage, or the product interface clips belo
 - Hold shots 2 s or more (1.5 s in recaps). Social video opens on the most telling shot; only films over 60 s open with the logo. Every video ends on `end`.
 - **Generated footage** is judged like any picture: real footage first; a generated or composited clip only if every frame passes `brand-review` step 1. If nothing good exists, keep the template's `slot` and ask for the footage.
 
-## Product interface clips
+## Software films and tutorials
 
-Show the real application, not a staged one. Capture the actual screens of one product revision: its shell, navigation, page structure, density, full-screen editor, canvas and panels exactly as the app renders them. Real controls rearranged on a custom stage are a component demo, never a product film. How to capture: [product UI capture](product-ui-capture.md).
-
-- Open on a readable full-screen view, then follow one real task with selective cursor movement, readable holds and zoom (the guide's standard curve, at most 2× relative). Titles and captions sit around the recording or between scenes, never in place of the app's layout.
-- Capture at the density the final crop needs (DPR 3 for zooms). Never upscale a low-density recording or retouch UI text.
-- The supplied SVG logo on the white closing card, no watermark mid-clip. Product status colours stay inside the UI; editorial graphics follow the guide.
-- Before a clip goes into the library, check decoding, timestamps, playback, cursor and crops, the source revision, the poster and the captions, at native and feed size.
-
-The MCP retrieves registered clips and inspects their frames; it does not render video.
+Films of the Rosepetal app (website films, customer films and tutorials) belong to `platform-film`, which records the real app whole and uses this engine's `video-tutorial` template for tutorials.
 
 ## Detection boxes that follow real objects
 
@@ -60,3 +54,7 @@ python3 skills/_shared/scripts/safe_render.py -- node engine/render.mjs work/<sl
 ```
 
 The render runs Chromium and ffmpeg: one heavy job at a time, always under the lock. It takes roughly 2–3× the video length. Look at it by extracting frames (`ffmpeg -ss 3 -i file.mp4 -frames:v 1 ~/.cache/ais-group-design/review/<slug>/f03.png`) and reading them; go through the [look checklist](../../brand-review/references/look-checklist.md) and `brand-review` before handing over. Output is H.264, 25 fps, Rec. 709. A recipe with a single `lower-third` shot renders a transparent ProRes 4444 `.mov` for editors. The renderer carries each shot’s recorded voice. For a finished MP4, select a published intro or end card only if the edit calls for it and the picture does not already include it. List the approved downloads with `node scripts/prepare-template.mjs --list`; fetch the chosen asset with `node scripts/prepare-template.mjs --asset <id>`. The published Rosepetal soundtrack is cleared for both AIS and Rosepetal films and animations. Choose a take that leaves speech clear. From the prepared runtime, finish the film with `python3 scripts/finish-video.py body.mp4 finished.mp4 --intro intro.mp4 --music track.m4a`. Intro, outro and music are optional. Match the opening and closing aspect ratio to the body. Listen to the final mix for speech clarity and review both cuts before delivery.
+
+## Sound
+
+The render mixes the sound; nothing is left for the edit. `"music": { "src", "in", "fade" }` plays a track from the film's first frame (from second `in` of the track), under any `voice`, and fades it out over the last `fade` seconds (2.5 by default, over the end card). The mix is levelled to −14 LUFS and −1 dBTP. Rosepetal films take the Rosepetal soundtrack's [«Quiet Beauty»](../../../brand/kit/files/rosepetal_music_quiet-beauty_v01.m4a) unless the recipe names another track from the guide's «Downloads» page («Music») or sets `"music": false`; a single opening, end card or lower third stays silent. AIS films may also use the published Rosepetal soundtrack. Check it with `ffmpeg -i <file> -af ebur128=peak=true -f null -`.

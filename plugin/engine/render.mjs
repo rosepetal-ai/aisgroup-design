@@ -25,11 +25,16 @@ const list = (v) => (v && v !== true ? String(v).split(',') : null);
 const has = (cmd) => spawnSync(cmd, ['-version'], { stdio: 'ignore' }).error === undefined;
 
 const BT709 = ['-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709'];
+// The published intros and end cards were encoded with these settings, so a film splices them without re-encoding.
+const X264 = ['-c:v', 'libx264', '-preset', 'slow', '-crf', '14', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', ...BT709];
 const encoder = (kind, fps, file) => {
   const input = ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-i', '-'];
   if (kind === 'mov') return [...input, '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', '-vendor', 'apl0', ...BT709, file + '.mov'];
-  return [...input, '-vf', 'scale=out_color_matrix=bt709:out_range=tv', '-c:v', 'libx264', '-preset', 'slow', '-crf', '14', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', ...BT709, file + '.mp4'];
+  return [...input, '-vf', 'scale=out_color_matrix=bt709:out_range=tv', ...X264, file + '.mp4'];
 };
+const local = (u) => decodeURIComponent(u.replace('file://', ''));
+const seconds = (f) => +spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' }).stdout;
+const ffmpeg = (args) => spawnSync('ffmpeg', ['-y', '-hide_banner', '-nostats', ...args], { encoding: 'utf8', maxBuffer: 1 << 26 });
 
 // File access lets the stage read its own pictures' pixels (the subject of a render, for the space rule).
 const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--allow-file-access-from-files'] });
@@ -54,8 +59,11 @@ for (const file of files) {
   const report = { recipe: r.file, rendered: new Date().toISOString(), errors, warnings, formats: {} };
   let bad = errors.length > 0;
 
+  // The published brand intro and end card ("intro", "end" with "published") are spliced in as files after the stage
+  // renders the rest: the end card byte for byte, the intro brought to the film's frame rate with the same settings.
+  const head = r.shots[0]?.type === 'intro' ? local(r.shots[0].src) : null, tail = r.shots.at(-1)?.published ? local(r.shots.at(-1).src) : null;
   for (const format of formats) {
-    const shots = r.shots.map((s) => ({ ...s, ...(s.formats?.[format] || {}) }));
+    const shots = r.shots.filter((s, i) => !(head && i === 0) && !(tail && i === r.shots.length - 1)).map((s) => ({ ...s, ...(s.formats?.[format] || {}) }));
     const spec = { kind: r.kind, brand: r.brand, brandName: r.brandName, lang: r.lang, format, fps: r.fps || 25, captions: r.captions, icons: r.icons, shots };
     const base = path.join(out, `${r.name}_${format}`);
     const fr = (report.formats[format] = { issues: [], brandCheck: [], files: [] });
@@ -197,21 +205,44 @@ for (const file of files) {
         if (!proc.stdin.write(png)) await new Promise((res) => proc.stdin.once('drain', res));
       }
       proc.stdin.end(); await done;
-      // Sound: every shot with a voice adds its stretch of sound at the shot's start; mixed, levelled to −14 LUFS
-      // (Video, Sound) and muxed into the file. Without a voice the file stays silent.
+      let lead = 0; // seconds of published intro before the stage's first frame
+      if (o === 'mp4' && (head || tail)) {
+        const body = `${base}.body.mp4`, intro = `${base}.intro.mp4`, list = `${base}.parts.txt`;
+        fs.renameSync(`${base}.mp4`, body);
+        if (head) { ffmpeg(['-loglevel', 'error', '-i', head, '-an', '-vf', `fps=${spec.fps}`, ...X264, intro]); lead = seconds(intro); }
+        fs.writeFileSync(list, [head && intro, body, tail].filter(Boolean).map((p) => `file '${p.replace(/'/g, "'\\''")}'`).join('\n') + '\n');
+        const j = ffmpeg(['-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', '-movflags', '+faststart', `${base}.mp4`]);
+        [body, intro, list].forEach((p) => fs.rmSync(p, { force: true }));
+        if (j.status) { console.log(`  error  the published intro or end card could not be spliced: ${j.stderr.trim()}`); bad = true; }
+      }
+      // Sound (Video, Sound): every shot with a voice adds its stretch of sound at the shot's start; the music ("music")
+      // runs from the first frame under it and fades out over the end card. Mixed and levelled to −14 LUFS and −1 dBTP:
+      // measured first, so one linear gain does it when the peaks allow (fades keep their shape), else loudnorm limits;
+      // the peak target is −1.5 dBTP because the AAC encode adds a few tenths.
       const voiced = spec.shots.map((s, i) => ({ s, i })).filter(({ s }) => s.voice);
-      if (o === 'mp4' && voiced.length) {
-        const args = ['-y', '-loglevel', 'error', '-i', `${base}.mp4`], parts = [];
+      if (o === 'mp4' && (voiced.length || r.music)) {
+        const total = seconds(`${base}.mp4`), args = ['-i', `${base}.mp4`], parts = [];
         voiced.forEach(({ s, i }, k) => {
           const v = s.voice === true ? { src: s.src, in: s.in } : s.voice;
-          args.push('-ss', String(v.in), '-t', String(info.lens[i] / spec.fps), '-i', decodeURIComponent(v.src.replace('file://', '')));
-          const ms = Math.round(info.starts[i] / spec.fps * 1000), fade = Math.min(0.08, info.lens[i] / spec.fps / 4);
+          args.push('-ss', String(v.in), '-t', String(info.lens[i] / spec.fps), '-i', local(v.src));
+          const ms = Math.round((lead + info.starts[i] / spec.fps) * 1000), fade = Math.min(0.08, info.lens[i] / spec.fps / 4);
           parts.push(`[${k + 1}:a]aresample=48000,afade=t=in:d=${fade},afade=t=out:st=${(info.lens[i] / spec.fps - fade).toFixed(3)}:d=${fade},adelay=${ms}|${ms}[a${k}]`);
         });
-        const mix = `${parts.join(';')};${voiced.map((_, k) => `[a${k}]`).join('')}amix=inputs=${voiced.length}:normalize=0,apad,atrim=0:${(info.frames / spec.fps).toFixed(3)},loudnorm=I=-14:TP=-1:LRA=11[aout]`;
-        const tmp = `${base}.voiced.mp4`;
-        const r = spawnSync('ffmpeg', [...args, '-filter_complex', mix, '-map', '0:v', '-map', '[aout]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '320k', '-ar', '48000', '-movflags', '+faststart', tmp], { stdio: 'inherit' });
-        if (r.status === 0) fs.renameSync(tmp, `${base}.mp4`); else { console.log('  error  the sound could not be mixed'); bad = true; }
+        if (r.music) {
+          args.push('-ss', String(r.music.in), '-i', local(r.music.src));
+          // ponytail: music sits a fixed 18 dB under a voice; add ducking if a film needs the music up between phrases
+          parts.push(`[${voiced.length + 1}:a]aresample=48000,volume=${voiced.length ? -18 : 0}dB,apad,atrim=0:${total.toFixed(3)},afade=t=out:st=${(total - r.music.fade).toFixed(3)}:d=${r.music.fade}[a${voiced.length}]`);
+        }
+        const mix = `${parts.join(';')};${parts.map((_, k) => `[a${k}]`).join('')}amix=inputs=${parts.length}:normalize=0,apad,atrim=0:${total.toFixed(3)}`;
+        const m = ffmpeg([...args, '-filter_complex', `${mix},loudnorm=I=-14:TP=-1.5:LRA=20:print_format=json[aout]`, '-map', '[aout]', '-f', 'null', '-']);
+        const tmp = `${base}.sound.mp4`;
+        let ok = false;
+        try {
+          const l = JSON.parse(m.stderr.slice(m.stderr.lastIndexOf('{')));
+          const level = `loudnorm=I=-14:TP=-1.5:LRA=20:measured_I=${l.input_i}:measured_TP=${l.input_tp}:measured_LRA=${l.input_lra}:measured_thresh=${l.input_thresh}:offset=${l.target_offset}:linear=true`;
+          ok = ffmpeg(['-loglevel', 'error', ...args, '-filter_complex', `${mix},${level},aresample=48000[aout]`, '-map', '0:v', '-map', '[aout]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '320k', '-ar', '48000', '-movflags', '+faststart', tmp]).status === 0;
+        } catch { /* no measurement: reported below */ }
+        if (ok) fs.renameSync(tmp, `${base}.mp4`); else { console.log('  error  the sound could not be mixed'); bad = true; }
       }
       fr.files.push(`${base}.${o}`);
     }

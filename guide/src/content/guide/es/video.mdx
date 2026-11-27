@@ -4,7 +4,7 @@ rules:
   - 'Graba líneas reales, piezas reales y personas reales. Mantén cada plano al menos 2 s (1,5 s en los resúmenes de feria) y corta. La cortinilla azul es la transición principal; entre planos de una misma escena se admite un fundido encadenado de 13 fotogramas.'
   - 'Usa las siete plantillas de vídeo de abajo o el flujo de demostración de la interfaz. Todos los vídeos terminan con el cierre. Solo las piezas de más de 60 s empiezan con el logotipo; las más cortas empiezan con el plano más revelador.'
   - 'Los grafismos se mueven con los tokens de movimiento, pasados a fotogramas. Nada rebota, gira, hace glitch ni entra volando.'
-  - 'El texto va en Inter, con mayúscula solo inicial, dentro de la zona segura de títulos y nunca por debajo de 32 px en 1080p.'
+  - 'El texto va en Inter, con mayúscula solo inicial, dentro de la zona segura de títulos y nunca por debajo de 32 px en 1080p, salvo los pasos de los tutoriales, a 28 px.'
   - 'Todos los vídeos llevan subtítulos. El vídeo para redes los lleva incrustados; el de la web lleva además un archivo de subtítulos.'
   - 'Entrega a 25 fps, Rec. 709 y sonoridad de −14 LUFS para web y redes, −23 LUFS para eventos y emisión.'
 ---
@@ -34,6 +34,7 @@ Marketing usa siete plantillas de vídeo y el flujo de demostración de la inter
 | **Vídeo sectorial** | De 60 a 90 s; 16:9, más una versión corta de 20 s | El mundo del sector durante los primeros 10 s; la línea; la inspección antes de los 30 s; frases de 2 a 4 palabras cada 6 s o más; un resultado verificado; el cierre  |
 | **Caso de éxito** | De 60 a 90 s; 16:9, 9:16 | La línea del cliente; sus propias palabras con rótulo antes de 10 s y subtítulos; una cifra verificada en su propia tarjeta; el cierre  |
 | **Entrevista** | Versión completa: cualquier duración, 16:9, con capítulos. Versión para redes: de 45 a 60 s, sin logotipo de apertura; 16:9, 1:1, 4:5 | El logotipo de apertura en la versión completa; la primera pregunta como título (antes de 2 s en la versión para redes); la persona con su rótulo justo después; planos de recurso de la feria o del producto bajo la voz, uno cada 6 a 10 s; una tarjeta de cita; subtítulos de principio a fin; el cierre  |
+| **Tutorial** | La duración la marca el contenido; 16:9 | La intro de marca de Rosepetal; un título sobre azul de marca; la grabación, con sus pasos escritos en pantalla; el cierre. Solo música.  |
 
 Cada vídeo largo tiene además una versión vertical de 20 s que enlaza con él.
 
@@ -91,8 +92,8 @@ El hexágono también es un recurso de marca, en las dos formas y con los límit
 
 | Elemento | Cuándo | Especificación |
 | --- | --- | --- |
-| **Logotipo de apertura** | Piezas de más de 60 s: vídeos de producto, casos de éxito, webinars, tutoriales | Azul de marca `#17356E`, logotipo blanco de 560 px de ancho. 8 fotogramas de azul, el logotipo entra en 18 fotogramas, se mantiene hasta los 2 s y corte. Sin efecto de sonido. |
-| **Intro de marca** | En lugar del logotipo de apertura, una vez por pieza: pantallas de feria, vídeo social, la web, presentaciones | El paisaje de hexágonos, blanco sobre azul de marca, ondula despacio mientras una pasada de inspección avanza de cerca a lejos e ilumina sus líneas. El logotipo blanco, cada marca con la misma área que AIS Vision Systems a 560 px de ancho (ver Logotipo), aparece y sube 16 px sobre el azul limpio de arriba, y la pieza termina con un fundido. 5 s, o 10 s sin logotipo como fondo. Sin brillos, partículas ni viñeta. |
+| **Logotipo de apertura** | Piezas de más de 60 s: vídeos de producto, casos de éxito, webinars | Azul de marca `#17356E`, logotipo blanco de 560 px de ancho. 8 fotogramas de azul, el logotipo entra en 18 fotogramas, se mantiene hasta los 2 s y corte. Sin efecto de sonido. |
+| **Intro de marca** | En lugar del logotipo de apertura, una vez por pieza: pantallas de feria, vídeo social, la web, presentaciones, tutoriales | El paisaje de hexágonos, blanco sobre azul de marca, ondula despacio mientras una pasada de inspección avanza de cerca a lejos e ilumina sus líneas. El logotipo blanco, cada marca con la misma área que AIS Vision Systems a 560 px de ancho (ver Logotipo), aparece y sube 16 px sobre el azul limpio de arriba, y la pieza termina con un fundido. 5 s, o 10 s sin logotipo como fondo. Sin brillos, partículas ni viñeta. |
 | **Título** | Capítulos y título de la pieza | Inter Semibold 96 px, mayúscula solo inicial, sobre azul o blanco, 20 caracteres por línea y dos líneas como máximo, las líneas entran en 28 fotogramas, con 3 fotogramas entre ellas |
 | **Rótulo** | La primera vez que habla una persona | Placa en tinta `#0F1729`, con 24 px por 32 px de margen interior, en la esquina de la zona segura. Primero crece una barra de 6 px en blue-300 `#7C9FD7` en su borde izquierdo y después la placa se abre desde ella. Nombre en Inter Semibold 44 px blanco; cargo y empresa en Inter Regular 32 px neutro 400. Al menos 4 s en pantalla. |
 | **Lugar** | Primer plano de una instalación | La misma placa, una línea, 32 px: «Línea de embotellado, La Rioja» |
@@ -148,6 +149,49 @@ Todo lo demás sigue el resto de esta página: azul de marca, nunca un azul de c
 - Sonoridad: −14 LUFS integrados para web y redes, −23 LUFS (EBU R128) para eventos y emisión, pico real −1 dBTP.
 - El vídeo de la web nunca reproduce sonido por sí solo.
 - Los vídeos de Rosepetal usan su banda sonora. Los vídeos de AIS también pueden usar estas pistas de [Descargas](/es/downloads/#música).
+
+## Tutoriales y guías paso a paso
+
+Un tutorial muestra una tarea en la aplicación real, con sus pasos escritos en pantalla y sin voz. Estas reglas se suman a las anteriores y sustituyen a las generales de subtítulos, movimiento y sonido allí donde difieren.
+
+### Estructura y fuentes
+
+- La intro de marca de Rosepetal, un título sobre azul de marca, la grabación y el cierre. El logotipo solo aparece en esos dos extremos. El título va sobre azul de marca liso, solo y en blanco, durante 2 s, sin entradilla, fondo ni otra etiqueta.
+- Toma la intro, el cierre y la música de las páginas «Vídeo» y «Descargas» de esta guía, sin cambios. Se publican aquí, no en los repositorios.
+- Graba dentro de la plataforma. Node-RED se muestra en la sección «Flows» de la plataforma, en un controlador con los nodos de Rosepetal, nunca como un Node-RED independiente.
+
+### Ritmo
+
+- La duración la marca el contenido. No alargues un tutorial para llegar a una duración prevista.
+- Una acción sencilla, como poner un nombre o pulsar un botón, dura de dos a cuatro segundos.
+- La acción empieza mientras su texto está en pantalla, aproximadamente un segundo después de que aparezca. Nunca primero el texto y después la acción.
+- Un texto se mantiene el tiempo que se tarda en leerlo: unos 18 caracteres por segundo, entre 1,8 y 7 segundos.
+
+### Texto en pantalla
+
+- Una acción sencilla lleva pocas palabras, por ejemplo: Pulsa «Crear». La explicación va en la guía escrita, no en pantalla.
+- El estilo de subtítulos de 40 px se mantiene para los subtítulos del vídeo hablado.
+
+| Regla | Valor |
+| --- | --- |
+| Tipografía | Inter Medium 28 px en 1080p, blanco sobre placa en tinta `#0F1729`, mayúscula solo inicial |
+| Placa | Ajustada al texto: tan ancha como su línea más larga más 24 px a cada lado, 16 px arriba y abajo, también cuando el texto ocupa dos líneas. Esquinas rectas. |
+| Elevación | Un borde de 1 px `#1E293B` y la sombra del nivel superpuesto con el doble de intensidad: `0 4px 12px rgb(15 23 41 / 12%), 0 24px 48px rgb(15 23 41 / 24%)` |
+| Longitud | Dos líneas como máximo, 42 caracteres por línea, una idea cada vez |
+| Posición | Centrado en la parte inferior de la zona segura; arriba mientras el control que se usa está en el cuarto inferior de la pantalla |
+| Movimiento | Entra en 13 fotogramas y sale en 5, con un desplazamiento de 16 px |
+
+### Puntero
+
+- La grabación muestra un puntero dibujado que sigue al puntero real de la aplicación, de modo que se mueve al compás de lo que hace la aplicación.
+- Una flecha blanca con contorno oscuro, de 39 px en 1080p, con una sombra suave.
+- Se desliza con una curva de aceleración y deceleración (ease-in-out) en un tiempo de 0,65 a 1,8 segundos, según la distancia: 2,2 ms por píxel de un encuadre de 1280 px de ancho. Nunca más rápido: un puntero que salta no se puede seguir.
+- Cada pulsación muestra una onda: un anillo en azul de acción `#3664B3` con un relleno del 25 %, de 69 px en 1080p, que crece de 0,3 a 1,25 veces su tamaño y se desvanece en 0,5 s. Es el único grafismo que cambia de escala.
+
+### Sonido
+
+- Un tutorial lleva siempre una pista de la banda sonora de Rosepetal de «Descargas».
+- La pista empieza con el vídeo y se desvanece sobre el cierre en 2,5 s, a −14 LUFS con un pico real de −1 dBTP.
 
 ## Entrega
 
