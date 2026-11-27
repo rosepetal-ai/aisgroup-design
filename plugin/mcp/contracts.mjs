@@ -5,7 +5,7 @@ export const id = z.string().regex(/^[a-z0-9][a-z0-9-]{0,63}$/);
 const short = z.string().max(2000);
 export const schemas = {
   studio_status: z.object({}).strict(),
-  plan_piece: z.object({ intent: short.min(1), kind: z.enum(['auto','post','carousel','video','document','deck','kit','assets']).default('auto'), media: z.array(z.object({ path: z.string().max(400), mime: z.enum(['text/plain','image/png','image/jpeg','image/webp','video/mp4']), role: short.max(200).optional() }).strict()).max(4).default([]) }).strict(),
+  plan_piece: z.object({ intent: short.min(1), kind: z.enum(['auto','post','carousel','video','document','deck','kit','assets','live-animation']).default('auto'), media: z.array(z.object({ path: z.string().max(400), mime: z.enum(['text/plain','image/png','image/jpeg','image/webp','video/mp4']), role: short.max(200).optional() }).strict()).max(4).default([]) }).strict(),
   search_library: z.object({ collection: z.enum(['skills','templates','assets']), query: z.string().max(100).default(''), filters: z.object({product:z.string().max(80).optional(),status:z.enum(['approved','review','rejected']).optional(),kind:z.string().max(40).optional(),type:z.string().max(60).optional(),origin:z.string().max(40).optional(),lang:z.string().max(10).optional(),exists:z.boolean().optional()}).strict().default({}), offset: z.number().int().min(0).max(100000).default(0), limit: z.number().int().min(1).max(LIMITS.page).default(8) }).strict(),
   read_instructions: z.object({ ref: z.string().max(500), offset: z.number().int().min(0).max(1000000).default(0), chars: z.number().int().min(1).max(LIMITS.chunkChars).default(3000), ifDigest: z.string().max(64).optional() }).strict(),
   get_asset: z.object({ assetId: z.string().max(120) }).strict(),

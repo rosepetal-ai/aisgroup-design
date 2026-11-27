@@ -1,0 +1,109 @@
+@import "tailwindcss" source(none);
+@import "../../templates/explainer/vendor/aisgroup/design/styles.css";
+@import "../station-kit/series.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@source './Station.vue';
+:root {
+  --radius: 0px;
+  --safe-x: max(16px, 5vw);
+  --safe-y: max(16px, 5dvh);
+  --logo-height: calc(100px / 1.4556);
+  --font-family: Inter, Arial, sans-serif;
+  font-family: var(--font-family);
+  color: #0f1729;
+  background: #f1f5f9;
+}
+body {
+  margin: 0;
+}
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100dvh;
+}
+.identity {
+  position: absolute;
+  top: var(--safe-y);
+  left: var(--safe-x);
+  width: 100px;
+}
+footer {
+  position: absolute;
+  bottom: var(--safe-y);
+  left: var(--safe-x);
+  right: var(--safe-x);
+}
+
+.opening {
+  position: absolute;
+  left: var(--safe-x);
+  top: calc(var(--safe-y) + var(--logo-height) + 32px);
+  max-width: 56vw;
+  z-index: 1;
+  margin: 0;
+  pointer-events: none;
+}
+@media (orientation: portrait) {
+  .opening {
+    max-width: calc(100vw - 2 * var(--safe-x));
+  }
+}
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+.marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.evidence {
+  position: absolute;
+  top: var(--safe-y);
+  right: var(--safe-x);
+  width: 304px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--card);
+  box-shadow: 0 0 0 1px var(--border);
+  pointer-events: none;
+}
+.evidence img {
+  display: block;
+  width: 44%;
+  height: 96px;
+  object-fit: contain;
+  flex: none;
+}
+.evidence .verdict { min-width: 0; }
+.evidence svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.phase {
+  pointer-events: none;
+}
+.phase span {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@media (orientation: portrait) {
+  .evidence {
+    top: calc(var(--safe-y) + var(--logo-height) + 16px);
+    left: var(--safe-x);
+    width: auto;
+    height: 88px;
+    gap: 12px;
+  }
+  .evidence img { width: min(112px, 42%); height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scene-caption] { transform: none !important; opacity: 1 !important; }
+}

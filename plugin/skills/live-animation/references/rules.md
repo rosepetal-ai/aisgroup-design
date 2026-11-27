@@ -6,7 +6,45 @@ The rules for every live three.js animation on the company websites (`/animation
 
 - **A live scene, not a film.** The machine, the line, the products and the software are in the page, drawn live. No rendered frame sequences, no batches of stills.
 - **The original storyboard is the content checklist, not the look.** Every beat, figure and claim of the original stays, explained in a serious, well-designed way. Its styling, pacing and devices don't. A redesign never drops a panel's content to simplify.
+- **Preserve markings that explain the quotation** (11-26). When a quotation uses colour to identify equipment or specifies a mark on a machine support, preserve that meaning in this scene. Check each placement in the assembled scene. Correct the particular mount or material called out in review. Inspect a close shot for mounting and a wide shot for the quote’s colour key.
+- **Verify the operator that is actually drawn** (11-26). Compare its glove position with the product through pickup and release, watch the garment follow the shoulder and elbow, and check the table edge as the body reaches and turns. Run the same handling cycle on each supported line.
 - **The bar:** serious, helpful and realistic; it explains the whole story and loads fast. Deliver only when it meets all of it, checked step by step.
+
+## Two variants
+
+Every line comes in up to two variants on the same engine, scene and realism (the pharma line is the bar for both; never flat grey shapes):
+
+- **Catalogue**: the site's `/animations/<industry>-line` page. It autoplays as a loop with captions and the column, has no controls, and the site's header carries the logo. The rest of this file is written for it.
+- **Explainer**: a page the viewer drives, for a proposal or to explain how a line works. On top of the catalogue rules:
+  - **One control bar** at the bottom of the title-safe area, a white surface with a 1 px hairline (`#E2E8F0`), square corners and the guide's raised shadow, 100 px tall with its two rows (56 px with one). It is made of the design system's controls at their website form (square, 36 px): the primary button for play and pause, ghost buttons with the brand's arrow for back and forward 5 s, the timeline (a 4 px track, brand-blue progress, a 4 × 16 px bar for its thumb, a hairline at each chapter, the chapter's name in a 12 px tooltip on hover or focus), the time in tabular numerals, the camera views as one toggle group, and full screen. A second row holds the chapters and the speeds as text buttons, so the viewer navigates by name; chapter names on buttons are one to four words. Where the bar is too narrow for that row, the chapters and speeds move into one menu (Lucide sliders), then the views too; on a phone, play, the timeline and the menu. No row wraps. Space plays and pauses, the arrows seek.
+  - **Chapters, not extra buttons.** A «how it works» moment is a chapter on the timeline.
+  - **Labels are the overlay kit's label tabs** (20 px, 12 px Medium, ink on white with a 1 px hairline), one per subject, joined to it by a 1 px ink leader. No bullet dot before a label, no dot at a leader's end.
+  - **The chapter's name** stands on the scene's clear top left, under the logo, in the overlay type scale (24 px Medium, its one line 16 px secondary), never on a card.
+  - **The logo** sits on the scene in its clear space at the top left, as the guide sets it, with no box and no shadow.
+  - **No circles that the scene doesn't have**: no circled icons, round buttons or round thumbs.
+  - **The scene fills the window**: no letterbox bands.
+  - **Product brands may appear.** Customer names appear only on a private link.
+  - **One bar for every player**: the design system's `PlayerBar` block (`@aisgroup/design`, with the Slider's `timeline` form), never a piece's own.
+  - **Auto first**: the film's own camera is the first view and the default. Held views (for example Wide, Station, Reject) hold the scene's own poses while the line runs, between the opening title and the results; the titles and the push into the software keep the film's framing.
+  - **The chapter's name only where the top left is clear**, usually the wide view only, never on a phone while the subject is raised over the panel. Elsewhere the captions speak and the timeline and the menu name the chapter. Its line says where it happens, never what the caption says.
+  - **Labels only in held views**, never over the logo, the chapter's name or a title, and named as the chapter names the part.
+  - **The logo takes the white file over a dark ground**, chosen by contrast from the frame under it, read without stalling the GPU.
+  - **The time as two numbers** either side of the timeline, elapsed and total, never «0:35 / 2:52».
+  - **The bar takes its room**: captions, the column's content and the filmed screen stand above it (56 px plus 16 px clear).
+  - **No stall on reveal**: render one warm-up frame of the scene alone before showing it, so the first frame's shader compile happens out of sight.
+  - **A demo with its own clock is the bar's one action, not a chapter**: a «how it works» part that runs on its own clock (an ejector shown cycle by cycle, not a span of the film) opens from one design-system Button in PlayerBar's `actions` slot (a menu item under 768 px). In it the same bar drives the demo: its steps are the chapters, each step's words are the caption, play at the end replays, «Back to the film» (the brand's arrow) or Esc returns to the same moment. A moment of the film stays a chapter.
+  - **Labels on the film's beats** where the original named its parts in the film: they show in Auto with their chapter, not only in held views; over the part, under it where that is taken, or on a leader twice as long where parts stand close; never over the logo, a title, a caption, the evidence, a mark or the bar.
+  - **Claims and figures in the captions** where the original put them on chapter cards: the chapter's name and its line say what and where, the caption says the claim with every figure. «≈» becomes «about» where the font's subset lacks the glyph.
+  - **The flagged product is marked by the overlay, as the Monitor marks a defect**: the kit's 2 px defect-red frame over an 8% tint on a white casing, fitted to the product as the camera sees it, from the scan to the reject and only where the camera sees it (a ray against the line's opaque parts); the products the evidence shows carry their class on a solid red tab on the frame's first free corner. No glow or ring in the 3D.
+  - **Evidence beside the scene, not cards**: each rejected product a white plate with a hairline at the right on the title-safe margin: the scene's own picture of the defect, the verdict chip (28 px, an x and «NOK»), the class and where it was («Lane 3, row 195»); no leader across the scene; three at most. On phones only the newest, under the logo, and the chapter's name yields to it.
+  - **Every shot centred above the bar**: the picture shifts up by half the bar's room (a lens shift). Narrower than 16:9 the vertical field widens so a shot keeps its width, down to 0.9:1.
+  - **The titles' frame is the film's own, zoomed out and shifted low right** (a lens shift eased in and out with the camera's glides), so the titles and the results stand on the light ground, never over the machine.
+  - **The camera by hand goes back to the film's frame when the titles' span starts**, and a chapter button seeks and flies the camera into Auto from where it is.
+  - **No dip at the end**: the explainer starts and ends on the same frame, stops at its end, and play there starts it from the top.
+  - **A customer's plant and line number are customer names** on an open URL.
+  - **The AIS logo at the AIS site header's height** (44 px, 36 px on phones) on AIS pieces. No JetBrains Mono on the page layer: claims, rows and lanes in Inter.
+
+**2026-11-26, machine and operator review.** «theres a logo image there on a camera», «the ok tick icon on that white circle», «check the physics and positions». Require evidence for a physical manufacturer mark. Use the guide's verdict renderer. Trace both ends of cables, review the operator's contact and scale, and test the visible machine during its working cycle. Each repeated fault needs a reproducible check in the skill.
 
 ## Brand
 
@@ -62,6 +100,13 @@ The rules for every live three.js animation on the company websites (`/animation
 - **A conveyor that looks like one.** Compare it with a photo of the real line at the same framing: the chain's links and hinges, its sheen, the side channel's thickness and folds, the rails' brackets, the legs' feet and cross braces.
 - **Cameras well inside what they film.** A camera closer to a wall than its near plane (10 mm) draws the wall as stripes. Keep every camera more than the near plane from any wall, and check every inside shot with `pick.mjs` on the odd pixels, not by eye on one frame.
 - **Clean camera ports.** Each window gets a dark gasket bent to the wall and a black tunnel behind it, so the port reads as a machined opening with the lens inside it.
+
+- **A hall, not a set.** Lines stand on the reference hall: a light grey epoxy floor poured in 2 m bays with saw-cut joints, yellow walkway tape round each line, air that fades into the page's colour, a hall HDRI for the steel to reflect. No stand-in machines, ceiling strips or walls: flat blocks and bright strips read as fake and streak across the wide shots. Every line in shot casts its shadow; on a light floor a line without one floats (check it in a top-down frame: the sun throws shadows away from the film's camera).
+- **Canvas textures on the CPU.** An accelerated 2D canvas can lose its first draw before the GPU uploads it (a floor drew black, screens stayed black until their first redraw). Make every canvas that becomes a texture with `getContext('2d', { willReadFrequently: true })`, and read a pixel back when a surface looks wrong.
+- **A screen in the 3D is the Monitor copy.** An HMI or Panel PC that is never filmed square-on draws the Monitor's measured layout on a canvas at its 1280 × 800 design size (batch column, live view with the model's boxes, Detections from the scene's own pictures, class charts, results), in Inter and the Monitor's colours, its Lucide icons drawn as paths (the Inter subset has no ✓, ✕ or ■); never an invented screen or a title bar with «·». It redraws on a quantised story clock (twice a story second) and at the size it is seen (half on background stations): redrawn at every product it cost 30 ms frames.
+- **Logos on the machine are the guide's files**, at their own aspect and in their clear space (a cut-out, a nameplate, a badge); never the name typed in a box.
+- **Anisotropy only along the part's UVs.** Brushed anisotropy needs UVs that run along the grain; rods and brackets with box-projected UVs, or none, draw black and white streaks. Give them an anodised finish without anisotropy.
+- **Weight where nobody sees it.** Measure triangles, draw calls and frame times on the real GPU with the world alone at fixed poses, before and after a change. Thousands of instanced products lose the faces that are always covered (inner discs, the underside on the belt, a lathe's zero-area triangles), and background lines draw their rejects through the same instances, not a group per product.
 
 ## Camera, framing and pace
 
