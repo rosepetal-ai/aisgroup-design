@@ -2,6 +2,8 @@
 import contextlib
 import importlib.util
 import io
+import json
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -14,6 +16,30 @@ launcher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(launcher)
 
 class SafeRender(unittest.TestCase):
+    def test_post_accepts_inbox_pictures_and_rejects_paths_outside_it(self):
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as tmp:
+            studio = Path(tmp).resolve()
+            recipe = studio / 'recipe.json'
+            node = studio / 'node'
+            args = [str(node), str(studio / 'engine/render.mjs'), str(recipe), '--only', 'png',
+                    '--formats', '4x5', '--out', str(studio / 'out')]
+            def validate(src):
+                recipe.write_text(json.dumps({'kind': 'post', 'name': 'inbox-test', 'shots': [{'src': str(src)}]}))
+                launcher.validate_post(args)
+            for configured in ('', str(studio / 'custom-inbox')):
+                inbox = Path(configured or studio / 'work/inbox')
+                inbox.mkdir(parents=True)
+                picture = inbox / 'machine.png'
+                Image.new('RGB', (4, 3)).save(picture)
+                outside = studio / 'machine.png'
+                outside.write_bytes(picture.read_bytes())
+                with self.subTest(inbox=inbox), patch.object(launcher, 'STUDIO', studio), \
+                     patch.object(launcher, 'POST_NODE_BINARIES', {node}), patch.dict(os.environ, AIS_INBOX=configured):
+                    validate(picture)
+                    with self.assertRaisesRegex(ValueError, 'outside approved roots'):
+                        validate(outside)
+
     def run_launcher(self, args, resource_changes=None, child_setup=None):
         sample = {'available_gib':12, 'psi_avg10':{'some':0, 'full':0},
                   'largest_rss':[], 'blender_pids':[], 'allowed_cpus':[0,1,2,3]}
